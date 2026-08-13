@@ -125,6 +125,21 @@ You need the **SKU (a.k.a. Custom Label)** of a real, currently-active Dismantly
 
 ## Part 6 — Run the test
 
+### Where to run it (you need a terminal with internet access)
+The call must run from a machine that can reach `api.ebay.com` — not from a plain browser (auth headers +
+CORS make that impractical). Pick whatever fits your device:
+- **Mac / Linux:** the built-in **Terminal** — `curl` and Python 3 are preinstalled. Zero setup.
+- **Windows:** **PowerShell** — use `curl.exe` (not `curl`, which is aliased there).
+- **Chromebook / no local terminal:** either **GitHub Codespaces** (open this repo's branch → green **Code**
+  → Codespaces → create; terminal in-browser, script already present) or **Google Cloud Shell**
+  ([shell.cloud.google.com](https://shell.cloud.google.com), browser terminal with `curl` preinstalled).
+- **Endgame (automation, not this test):** GitHub Actions on a schedule, with the refresh token stored as
+  an encrypted repo secret.
+
+Everything here is portable: the repo (docs, script, data) lives in GitHub, and the only tools needed
+(`curl`, Python 3 stdlib) ship with macOS/Linux — so moving to a new machine is just `git clone`. Secrets
+are never committed (`.gitignore`); regenerate a token on the new machine.
+
 ### Option 1 — raw curl (fastest)
 ```bash
 curl -s -w '\nHTTP %{http_code}\n' \
