@@ -125,14 +125,20 @@ This is why §5.1's test isn't just a detail — it determines whether this is a
 
 ### 6.1 Rule A vs Rule B classification (the one judgment step left)
 
-The pipeline is fully mechanical *except* deciding whether a listing is an engine part (Rule B) or not (Rule A). Options, cheapest first:
+The pipeline is fully mechanical *except* deciding whether a listing is an engine part (Rule B) or not (Rule A). **This is solved by referencing eBay's own category tree** — no hand-built keyword list as the primary signal.
 
-- **eBay category ID / leaf category** — engine parts largely live under identifiable "Motors > Parts & Accessories > … > Engines/Engine Parts/Turbochargers/…" categories. If Dismantly sets consistent categories, a category allowlist gets us most of the way with zero per-listing judgment.
-- **Title/keyword heuristic** — flag "engine, motor, turbo, cylinder head, crankshaft, oil pan, valve cover, injector, manifold…" as Rule B. Cheap, imperfect; good as a second signal.
-- **Part-type field from Dismantly's export**, if one exists.
-- **Default-safe fallback:** when unsure, treat as **Rule B** (narrower/safer) — over-narrowing loses some reach but never creates a wrong-engine false positive.
+**Primary signal — eBay category ID (the listing already has one):**
+- eBay's category taxonomy is queryable via the **Taxonomy API** (`getCategoryTree` / `getCategorySubtree`). For US Motors parts, use **`category_tree_id = 100`** (the Motors / Parts & Accessories vertical — a separate tree from the main marketplace).
+- The engine branch has a stable ID: **`33612` — "Car & Truck Engines & Engine Parts."** That subtree and its leaf children are the core Rule-B set.
+- **Every listing already carries its `categoryId`** (Trading `GetItem` → `PrimaryCategory.CategoryID`; Inventory `offer.categoryId`). Classification is then pure set-membership: listing's category ∈ engine set → Rule B, else Rule A.
 
-**Recommendation:** category allowlist as primary, keyword heuristic as a backstop, Rule B as the tiebreak. This keeps classification mechanical (outsourceable/automatable) rather than per-part research.
+**One-time curation (the only judgment, done once — not per listing):** eBay's tree gives the *structure*; we draw the Rule-A/Rule-B line on it once. The `33612` subtree is unambiguous; the fuzzy edge is "engine *accessory*" — decide once whether turbochargers (Auto Performance Engine & Components ~`171112`), fuel-injection, and cooling-system branches count as Rule B. That's a decision over ~20–40 category IDs, stored as a set alongside the reference data — after which classification is a lookup.
+
+**Backstops (for the ambiguous few only):**
+- **Keyword heuristic** ("engine, motor, turbo, cylinder head, crankshaft, injector, manifold…") — now demoted to a tiebreak for listings that land in a vague/generic category, not the primary path.
+- **Default-safe fallback:** when still unsure, treat as **Rule B** (narrower) — over-narrowing loses some reach but never creates a wrong-engine false positive.
+
+**Dependency to check:** this is only as good as Dismantly's category assignment. If Dismantly consistently assigns accurate leaf categories, classification is essentially free; if it dumps parts into a generic "Other Parts" bucket, more listings fall through to the keyword tiebreak. Worth spot-checking the category distribution across the catalog early.
 
 ### 6.2 Data quality
 
