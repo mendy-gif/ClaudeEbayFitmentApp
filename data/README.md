@@ -16,7 +16,7 @@ BMW chassis/body variant.
 | `series` / `body_style` | human labels |
 | `us_start_year` / `us_end_year` | **US model years *sold*** (first year at US dealers → last US year). Not global production/unveiling years. |
 | `still_selling` | true if still sold new as of 2026 (then `us_end_year` = 2026, a moving target) |
-| `trims` | every trim/model badge sold in the US under that chassis — this is what **Rule A** fans out to |
+| `trims` | every trim/model badge sold in the US under that chassis — what **Rule A** fans out to. **PROVISIONAL:** these are BMW badge names and must be reconciled to eBay's exact **Model** vocabulary before any push (eBay drops non-matching rows). See `docs/DESIGN.md` §3.1. Pull eBay's real BMW Model list with `scripts/ebay_fetch_bmw_catalog.py`. |
 | `confidence` | research confidence: high / medium / low |
 | `verified` | **`false` until a human spot-checks the row** — all rows start unverified |
 | `notes` | US-specific caveats, engine-rename notes, exclusions |

@@ -57,6 +57,31 @@ Both rules run off **one** table (§4):
 
 **The one remaining judgment call:** how the automation decides a listing is an engine part (Rule B) vs. everything else (Rule A). See §6.1 — this is the only non-mechanical step left in the pipeline.
 
+### 3.1 Two namespaces: chassis (internal) vs. eBay Year/Make/Model (output)
+
+Critical distinction that shapes the whole data layer:
+
+- **Chassis code (F30, E90, G05, …) is INTERNAL only.** eBay's parts-compatibility catalog has **no concept
+  of a chassis code.** We use the chassis purely as the key that lets the rules know which vehicles share a
+  family. eBay never sees it.
+- **What we actually push to eBay is `Year / Make / Model / Trim / Engine`,** and those values **must match
+  eBay's own vehicle catalog exactly.** eBay validates the combination and silently drops rows it doesn't
+  recognize (the partial-acceptance behavior in §5.3). If our Model string is `330i xDrive` but eBay's
+  catalog spells it differently, that row is dropped and the part loses that fitment.
+- **eBay's Model field is badge-level and often bakes in drivetrain** — e.g. `328i xDrive` is its own Model
+  entry, not `Model=328i` + `Trim=xDrive`. So our trim vocabulary has to be reconciled to eBay's, not
+  authored from enthusiast/Wikipedia naming.
+- **Source of truth for eBay's vocabulary = the Taxonomy API** (`category_tree_id = 100`):
+  `getCompatibilityProperties` returns the aspect names (Year, Make, Model, Trim, Engine);
+  `getCompatibilityPropertyValues` returns the valid values (e.g. every Model eBay recognizes for
+  Make=BMW). This is machine-pullable and is the naming we must target.
+
+**Implication for the data model (§4):** the reference table's job is chassis grouping + US year ranges (the
+part eBay can't provide). Its trim list is a **provisional mapping** that must be reconciled to eBay's exact
+Model strings before any push. Plan: pull eBay's BMW Model list, then map each chassis's members to eBay
+Model values (mostly 1:1, but flag mismatches like drivetrain-in-Model). The rules then emit eBay-vocabulary
+rows: **Rule A** = all eBay Models in the chassis × year range; **Rule B** = donor's eBay Model × year range.
+
 ---
 
 ## 4. Data model
