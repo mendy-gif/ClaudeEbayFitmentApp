@@ -22,13 +22,16 @@
 | 4 | How to store/maintain the reference data? | **A single versioned data file (CSV/JSON) in this repo**, one row per chassis code. Small enough that a database is overkill; git gives us history and review. |
 | 5 | eBay API setup | Self-serve developer account → keyset → compliance step → **user** OAuth token with `sell.inventory` scope. See §7. |
 
-**TEST RESULT (2026-08-13): Path A confirmed.** `getInventoryItem` on a real live SKU (`5978`) returned
-HTTP 200 — Dismantly's listings **are** Inventory-API inventory items, reachable by SKU. This resolves the
-project's single biggest architectural risk in the favorable direction: compatibility can be set by SKU
-via `createOrReplaceProductCompatibility`, no `bulkMigrateListing` needed, and the system points toward a
-one-time push rather than a continuous re-apply. **Caveats:** (a) only one SKU tested so far — confirm
-uniformity across a few more SKUs and part types; (b) relist *persistence* (§5.2) is still an inference,
-not yet observed across an actual Dismantly relist.
+**TEST RESULT (2026-08-13): Path A confirmed, uniformly.** `getInventoryItem` returned HTTP 200 for **5 of
+5** real live SKUs tested (`5978`, `52635`, `484`, `51917`, `5452`) — Dismantly's listings **are**
+Inventory-API inventory items, reachable by SKU. This resolves the project's single biggest architectural
+risk in the favorable direction: compatibility can be set by SKU via `createOrReplaceProductCompatibility`,
+no `bulkMigrateListing` needed, and the system is a one-time push rather than a continuous re-apply.
+**Note on SKU format:** real Custom Labels are bare numbers (e.g. `5978`), not prefixed. **Gotcha learned:**
+error `25710` is returned identically for a Trading/UI listing *and* for a nonexistent/mistyped SKU — an
+early false "Path B" was just a stray `SKU_` prefix, so always test the exact Custom Label.
+**Still open:** relist *persistence* (§5.2) is a strong inference (SKU-scoped storage) but not yet observed
+across an actual Dismantly relist.
 
 ---
 
@@ -91,8 +94,9 @@ All facts below are from eBay developer docs / SDK mirrors; items I could not fu
 > **✅ RESOLVED 2026-08-13 — Path A.** A live production SKU (`5978`) returned HTTP 200 from
 > `getInventoryItem`, so Dismantly's listings are genuine Inventory-API inventory items. Path B (the
 > Trading/UI world requiring `bulkMigrateListing`) does **not** apply. The rest of this section is retained
-> as background; the two-paths decision below is settled in favor of **(A)**. Remaining to confirm: run a
-> few more SKUs (different part types/ages) to prove uniformity, then the §5.2 relist-persistence check.
+> as background; the two-paths decision below is settled in favor of **(A)**, and uniformity is confirmed
+> (5/5 real SKUs returned 200). Remaining: the §5.2 relist-persistence check. Note `25710` is ambiguous
+> between "Trading listing" and "SKU doesn't exist" — always test the exact Custom Label.
 
 eBay has two separate listing worlds, and the compatibility endpoint only reaches one of them:
 
@@ -174,8 +178,8 @@ If we go Path A via `bulkMigrateListing`, migrating a listing into the Inventory
 
 1. ~~**Run the one decisive test (§5.1).**~~ **✅ DONE 2026-08-13 — Path A** (SKU `5978` → HTTP 200,
    Inventory-API managed). Project is sized for the one-time-push architecture.
-2. **Confirm uniformity:** run the same test on a few more SKUs across different part types (engine, body,
-   electrical) and listing ages, to be sure *all* Dismantly listings are Inventory-API items, not just this one.
+2. ~~**Confirm uniformity.**~~ **✅ DONE 2026-08-13 — 5/5 SKUs returned Path A.** (Optionally spot-check a
+   couple more across very different part categories if you want extra assurance, but this is convincing.)
 3. **Confirm relist persistence (§5.2):** verify compatibility set on a SKU survives Dismantly's end/relist
    cycle. Cleanest real-world check — set compatibility on one test SKU (needs `sell.inventory` *write*
    scope), record it, and re-read after the next relist (~40–60 days); or reason it out from whether
