@@ -82,6 +82,18 @@ Model strings before any push. Plan: pull eBay's BMW Model list, then map each c
 Model values (mostly 1:1, but flag mismatches like drivetrain-in-Model). The rules then emit eBay-vocabulary
 rows: **Rule A** = all eBay Models in the chassis × year range; **Rule B** = donor's eBay Model × year range.
 
+**Two donor-identification problems the rule engine surfaced (scripts/fitment_rules.py):**
+1. **Year + model is often ambiguous at generation boundaries.** A "2012 335i" is *both* an E92 coupe
+   (2007–2013) and an F30 sedan (2012–2018); a "2008 328i" spans E90/E91/E92/E93. The donor's **body
+   style / generation** is needed to pick the chassis. The engine detects this and refuses to guess
+   (returns an ambiguity list) rather than silently mis-expanding. In production the donor is a specific
+   listing, so its body/engine should be available to disambiguate.
+2. **BMW reuses badges across nameplates.** "xDrive35i" alone matches X1/X3/X4/X5/X6. This is *why* the
+   eBay **Model** field matters: for SUVs eBay's Model is the nameplate ("X5") with drivetrain as Trim,
+   whereas for sedans the badge *is* the Model ("328i"). Our provisional `trims` column mixes these two
+   conventions — reconciling to eBay's Model vocabulary (pull via Taxonomy API) is what makes donor
+   lookup and output both unambiguous. This puts the catalog pull on the critical path, not optional.
+
 ---
 
 ## 4. Data model
