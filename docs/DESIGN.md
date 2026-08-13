@@ -18,11 +18,17 @@
 |---|----------|----------|
 | 1 | Does Rule B need a per-trim year table? | **No.** Reuse the chassis year range; eBay drops phantom years automatically. One reference table total. |
 | 2 | Does compatibility survive Dismantly's relist? | **Yes, *if* the listing is an Inventory-API item and the SKU is reused** — because compatibility is stored at the SKU/inventory-item level, not the Item ID. Needs one Sandbox confirmation. |
-| 3 | One-time push or continuously running? | **Depends entirely on Decision 2's precondition** (see §5.2). Likely a hybrid: one-time backfill + a lightweight watcher for genuinely new SKUs. |
+| 3 | One-time push or continuously running? | **Leaning one-time push per SKU.** Decision 2's precondition is now **confirmed** (see §5.1 test result): Dismantly's listings are Inventory-API items. A light watcher still catches genuinely new SKUs. |
 | 4 | How to store/maintain the reference data? | **A single versioned data file (CSV/JSON) in this repo**, one row per chassis code. Small enough that a database is overkill; git gives us history and review. |
 | 5 | eBay API setup | Self-serve developer account → keyset → compliance step → **user** OAuth token with `sell.inventory` scope. See §7. |
 
-**The one thing blocking a build decision:** whether Dismantly's listings are reachable by the Inventory API at all (§5.1). Everything else is designed; this is a 15-minute test against one real listing.
+**TEST RESULT (2026-08-13): Path A confirmed.** `getInventoryItem` on a real live SKU (`5978`) returned
+HTTP 200 — Dismantly's listings **are** Inventory-API inventory items, reachable by SKU. This resolves the
+project's single biggest architectural risk in the favorable direction: compatibility can be set by SKU
+via `createOrReplaceProductCompatibility`, no `bulkMigrateListing` needed, and the system points toward a
+one-time push rather than a continuous re-apply. **Caveats:** (a) only one SKU tested so far — confirm
+uniformity across a few more SKUs and part types; (b) relist *persistence* (§5.2) is still an inference,
+not yet observed across an actual Dismantly relist.
 
 ---
 
@@ -81,6 +87,12 @@ Proposed schema, one row per chassis code:
 All facts below are from eBay developer docs / SDK mirrors; items I could not fully verify from docs are flagged as **[verify in Sandbox]**.
 
 ### 5.1 THE critical gotcha — Inventory API vs Trading API (design around this first)
+
+> **✅ RESOLVED 2026-08-13 — Path A.** A live production SKU (`5978`) returned HTTP 200 from
+> `getInventoryItem`, so Dismantly's listings are genuine Inventory-API inventory items. Path B (the
+> Trading/UI world requiring `bulkMigrateListing`) does **not** apply. The rest of this section is retained
+> as background; the two-paths decision below is settled in favor of **(A)**. Remaining to confirm: run a
+> few more SKUs (different part types/ages) to prove uniformity, then the §5.2 relist-persistence check.
 
 eBay has two separate listing worlds, and the compatibility endpoint only reaches one of them:
 
@@ -160,18 +172,24 @@ If we go Path A via `bulkMigrateListing`, migrating a listing into the Inventory
 
 ## 8. Recommended next steps (in order)
 
-1. **Run the one decisive test (§5.1).** Take one real live Dismantly listing → its SKU → call `getInventoryItem`. This picks Path A vs Path B and determines whether this project is a one-time push or a continuous system. *Nothing else should be built until this is known.*
-2. **Confirm relist persistence (§5.2)** in Sandbox for whichever path applies.
-3. **Lock the reference data (§4):** convert the existing spreadsheet into the single-table CSV/JSON schema; mark rows verified/unverified; spot-check the unverified ones.
-4. **Decide classification (§6.1):** pull the distinct eBay categories across the catalog and build the Rule-B category allowlist.
-5. **Then, and only then, build** the apply pipeline (rules engine → eBay API), sized to the path the test selected.
+1. ~~**Run the one decisive test (§5.1).**~~ **✅ DONE 2026-08-13 — Path A** (SKU `5978` → HTTP 200,
+   Inventory-API managed). Project is sized for the one-time-push architecture.
+2. **Confirm uniformity:** run the same test on a few more SKUs across different part types (engine, body,
+   electrical) and listing ages, to be sure *all* Dismantly listings are Inventory-API items, not just this one.
+3. **Confirm relist persistence (§5.2):** verify compatibility set on a SKU survives Dismantly's end/relist
+   cycle. Cleanest real-world check — set compatibility on one test SKU (needs `sell.inventory` *write*
+   scope), record it, and re-read after the next relist (~40–60 days); or reason it out from whether
+   Dismantly reuses the same inventory item vs. recreating it.
+4. **Lock the reference data (§4):** convert the existing spreadsheet into the single-table CSV/JSON schema; mark rows verified/unverified; spot-check the unverified ones.
+5. **Decide classification (§6.1):** pull the distinct eBay categories across the catalog and build the Rule-B category set (anchored on `33612`).
+6. **Then build** the apply pipeline (rules engine → eBay API), sized for Path A / one-time push.
 
 ---
 
 ## Appendix: answers to the five open questions
 
 1. **Rule B precision / trim table?** No table. Reuse chassis year range; eBay drops phantom years (partial-acceptance validation). Trim ≠ needed because for engine parts the donor's trim already = the engine.
-2. **Does compatibility survive relist?** Inventory API: yes if same SKU is reused (SKU-scoped storage) — **[verify in Sandbox]**. Trading API: no (Item-ID-scoped).
-3. **One-time or continuous?** Path A → ~one-time per new SKU + light watcher. Path B → continuous re-apply per relist. Determined by the §5.1 test.
+2. **Does compatibility survive relist?** **Path A confirmed (2026-08-13)** — listings are Inventory-API items, so compatibility is SKU-scoped storage and should survive a same-SKU relist. Persistence across an actual Dismantly relist still to be observed (§5.2 / step 3).
+3. **One-time or continuous?** **Path A → ~one-time per new SKU + a light watcher.** (Confirmed via the §5.1 test.)
 4. **How to store the reference data?** Single versioned CSV/JSON in-repo, one row per chassis; annual + ad-hoc review. No database needed at this size.
 5. **eBay API setup?** Dev account → keyset → compliance step → user OAuth token with `sell.inventory`. Sandbox first. See §7.
