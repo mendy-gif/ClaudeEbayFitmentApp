@@ -1,0 +1,12 @@
+# Secrets — never commit eBay tokens or credentials
+.env
+*.token
+*token*.txt
+ebay_credentials*
+secrets*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

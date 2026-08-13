@@ -7,6 +7,10 @@ structure instead of per-part research, and push the result to eBay via the Sell
 **Start here → [`docs/DESIGN.md`](docs/DESIGN.md)** — the design decisions, the rule definitions,
 the eBay API findings, and the single test that must run before any code is written.
 
+**Setting up eBay + running the decisive test → [`docs/EBAY_SETUP.md`](docs/EBAY_SETUP.md)** — A-to-Z:
+developer account, keyset, OAuth user token, and how to run `scripts/ebay_inventory_test.py` to learn
+whether Dismantly's listings are reachable by the Inventory API (Path A vs Path B).
+
 ## Where things stand
 
 - **Approach agreed:** two rules (A = whole chassis family, B = engine parts → donor trim only),
