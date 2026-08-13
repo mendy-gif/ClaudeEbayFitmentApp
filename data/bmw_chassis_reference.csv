@@ -1,0 +1,113 @@
+chassis_code,series,body_style,us_start_year,us_end_year,still_selling,trims,confidence,verified,notes,sources
+E30,3 Series,Sedan / Coupe / Convertible,1984,1991,no,318i | 318is | 325e | 325es | 325 | 325i | 325is | 325ix,high,False,US E30 1984-1991. Early 318i (M10) and 325e/es (eta M20); 1987+ 325/325i/325is and 325ix AWD; 318is (M42) 1990-91. E30 Touring wagon NOT sold in US.,https://en.wikipedia.org/wiki/BMW_3_Series_(E30)
+E36,3 Series,Sedan / Coupe / Convertible / Compact,1992,1999,no,318i | 318is | 318ti | 323i | 323is | 325i | 325is | 328i | 328is,high,False,US E36 1992-1999. 318ti = Compact hatchback (1995-99). 323i/323is replaced 325 in 1998-99. E36 Touring NOT sold in US.,https://en.wikipedia.org/wiki/BMW_3_Series_(E36)
+E46,3 Series,Sedan / Coupe / Convertible / Wagon,1999,2006,no,323i | 323Ci | 325i | 325xi | 325Ci | 328i | 328Ci | 330i | 330xi | 330Ci,high,False,US E46 1999-2006. Touring wagon sold as 325i/325xi. xDrive badged 'xi'. M3 tracked separately.,https://en.wikipedia.org/wiki/BMW_3_Series_(E46)
+E90,3 Series Sedan,Sedan,2006,2011,no,325i | 325xi | 328i | 328xi | 328i xDrive | 330i | 330xi | 335i | 335i xDrive | 335d,high,False,US E90 sedan 2006-2011. 328i/335i from 2007; 335d diesel 2009+. 'xi' became 'xDrive' from 2009.,https://en.wikipedia.org/wiki/BMW_3_Series_(E90)
+E91,3 Series Touring,Wagon,2006,2012,no,325i | 325xi | 328i | 328i xDrive,high,False,US E91 wagon 2006-2012. No 335i wagon in US.,https://en.wikipedia.org/wiki/BMW_3_Series_(E90)
+E92,3 Series Coupe,Coupe,2007,2013,no,328i | 328xi | 328i xDrive | 335i | 335xi | 335i xDrive | 335is,high,False,US E92 coupe 2007-2013 (ran past the sedan). 335is added 2011. M3 tracked separately.,https://en.wikipedia.org/wiki/BMW_3_Series_(E90)
+E93,3 Series Convertible,Convertible,2007,2013,no,328i | 335i | 335is,high,False,US E93 hardtop convertible 2007-2013. 335is added 2011.,https://en.wikipedia.org/wiki/BMW_3_Series_(E90)
+F30,3 Series Sedan,Sedan,2012,2018,no,320i | 328i | 328d | 330i | 335i | 340i | ActiveHybrid 3,high,False,US F30 sedan 2012-2018. 328i(N20)->330i(B48) ~2016; 335i(N55)->340i(B58) ~2016. xDrive on most.,https://en.wikipedia.org/wiki/BMW_3_Series_(F30)
+F31,3 Series Sports Wagon,Wagon,2014,2019,no,328i xDrive | 328d xDrive | 330i xDrive,high,False,"US F31 wagon 2014-2019, xDrive-only. 328i->330i ~2016; 328d diesel throughout.",https://en.wikipedia.org/wiki/BMW_3_Series_(F30)
+F34,3 Series Gran Turismo,Fastback,2014,2019,no,328i xDrive | 335i xDrive | 340i xDrive,high,False,"US 3 GT 2014-2019, xDrive-only. 335i->340i ~2016. No successor.",https://en.wikipedia.org/wiki/BMW_3_Series_Gran_Turismo
+G20,3 Series Sedan,Sedan,2019,2026,yes,330i | 330i xDrive | 330e | 330e xDrive | M340i | M340i xDrive,high,False,"US G20 from 2019; M340i MY2020, 330e PHEV MY2021, LCI 2023. M3 (G80) separate. G21 wagon NOT US.",https://en.wikipedia.org/wiki/BMW_3_Series_(G20)
+E30 M3,M3,Coupe,1988,1991,no,M3,high,False,"US E30 M3 1988-1991, coupe only (S14 2.3L).",https://en.wikipedia.org/wiki/BMW_M3
+E36 M3,M3,Coupe / Sedan / Convertible,1995,1999,no,M3,high,False,US E36 M3 1995-1999. Sedan/convertible added 1997-98. US-spec S50B30US/S52.,https://en.wikipedia.org/wiki/BMW_M3
+E46 M3,M3,Coupe / Convertible,2001,2006,no,M3,high,False,US E46 M3 2001-2006 (S54 3.2L). No sedan. CSL not US.,https://en.wikipedia.org/wiki/BMW_M3
+E90 M3,M3 Sedan,Sedan,2008,2011,no,M3,high,False,US E90 M3 sedan 2008-2011 (S65 4.0L V8).,https://en.wikipedia.org/wiki/BMW_M3
+E92 M3,M3 Coupe,Coupe,2008,2013,no,M3,high,False,US E92 M3 coupe 2008-2013 (S65 4.0L V8). Lime Rock/Frozen editions.,https://en.wikipedia.org/wiki/BMW_M3
+E93 M3,M3 Convertible,Convertible,2008,2013,no,M3,high,False,US E93 M3 convertible 2008-2013 (S65 4.0L V8).,https://en.wikipedia.org/wiki/BMW_M3
+F80 M3,M3 Sedan,Sedan,2015,2018,no,M3 | M3 Competition | M3 CS,high,False,"US F80 M3 sedan 2015-2018 (S55). Competition from 2016, CS 2018. Coupe/convertible moved to M4.",https://en.wikipedia.org/wiki/BMW_M3
+G80 M3,M3 Sedan,Sedan,2021,2026,yes,M3 | M3 Competition | M3 Competition xDrive | M3 CS,high,False,"US G80 M3 from 2021 (S58). Competition xDrive MY2022, CS MY2023. G81 Touring NOT US.",https://en.wikipedia.org/wiki/BMW_M3
+E82,1 Series Coupe,Coupe,2008,2013,no,128i | 135i | 135is | 1 Series M,high,False,US 1 Series = E82 coupe + E88 convertible only. 135is 2013. 1M Coupe MY2011 only. Hatchbacks NOT US.,https://en.wikipedia.org/wiki/BMW_1_Series_(E82)
+E88,1 Series Convertible,Convertible,2008,2013,no,128i | 135i | 135is,high,False,Soft-top 1 Series. Same engines as E82. No 1M convertible.,https://en.wikipedia.org/wiki/BMW_1_Series_(E82)
+F22,2 Series Coupe,Coupe,2014,2021,no,228i | 230i | M235i | M240i,high,False,1st 2 Series coupe. 228i/M235i early; 230i/M240i from MY2017 LCI. M2 separate (F87).,https://en.wikipedia.org/wiki/BMW_2_Series_(F22)
+F23,2 Series Convertible,Convertible,2015,2021,no,228i | 230i | M235i | M240i,high,False,"Soft-top F22. 228i/M235i, then 230i/M240i post-LCI. No convertible successor.",https://en.wikipedia.org/wiki/BMW_2_Series_(F22)
+F44,2 Series Gran Coupe,Sedan (4-door coupe),2020,2025,no,228i xDrive Gran Coupe | M235i xDrive Gran Coupe,medium,False,"FWD-based UKL 4-door, unrelated to RWD F22/G42. US 2020-2025. Replaced by F74 for 2026.",https://en.wikipedia.org/wiki/BMW_2_Series_Gran_Coupe
+G42,2 Series Coupe,Coupe,2022,2026,yes,230i | M240i,high,False,"2nd RWD 2 Series coupe (CLAR). 230i / M240i, optional xDrive. M2 (G87) separate.",https://en.wikipedia.org/wiki/BMW_2_Series_(G42)
+F87,M2,Coupe,2016,2021,no,M2 | M2 Competition | M2 CS,high,False,"1st M2, RWD coupe. Base (N55) 2016-18; Competition (S55) 2019+; CS 2020.",https://en.wikipedia.org/wiki/BMW_M2
+G87,M2,Coupe,2023,2026,yes,M2 | M2 CS,high,False,2nd M2 on G42 (S58). Launched 2023; CS MY2025.,https://en.wikipedia.org/wiki/BMW_M2
+F32,4 Series Coupe,Coupe,2014,2020,no,428i | 430i | 435i | 440i,high,False,1st 4 Series coupe. 428i/435i then 430i/440i (MY2017 LCI). xDrive widely offered.,https://en.wikipedia.org/wiki/BMW_4_Series_(F32)
+F33,4 Series Convertible,Convertible,2014,2020,no,428i | 430i | 435i | 440i,high,False,"Retractable hardtop F32. Same trim progression, optional xDrive.",https://en.wikipedia.org/wiki/BMW_4_Series_(F32)
+F36,4 Series Gran Coupe,Liftback,2015,2020,no,428i | 430i | 435i | 440i,high,False,"5-door liftback on F32 platform. Same engines/trims, optional xDrive.",https://en.wikipedia.org/wiki/BMW_4_Series_(F32)
+G22,4 Series Coupe,Coupe,2021,2026,yes,430i | 440i,high,False,"2nd 4 Series coupe (large grille). 430i / M440i, optional xDrive. M4 (G82) separate.",https://en.wikipedia.org/wiki/BMW_4_Series_(G22)
+G23,4 Series Convertible,Convertible,2021,2026,yes,430i | 440i,high,False,"Soft-top G22 (replaced F33 hardtop). 430i / M440i, optional xDrive.",https://en.wikipedia.org/wiki/BMW_4_Series_(G22)
+G26,4 Series Gran Coupe,Liftback,2022,2026,yes,430i | 440i,high,False,"2nd 4 GC liftback. 430i / M440i, optional xDrive. Electric i4 shares this body (separate row).",https://en.wikipedia.org/wiki/BMW_4_Series_(G22)
+F82,M4 Coupe,Coupe,2015,2020,no,M4 | M4 Competition | M4 CS | M4 GTS,high,False,"1st M4 coupe (S55). GTS 2016, CS 2018-19. Replaced E92 M3 coupe.",https://en.wikipedia.org/wiki/BMW_M4
+F83,M4 Convertible,Convertible,2015,2020,no,M4 | M4 Competition,high,False,Retractable hardtop M4. GTS/CS were coupe-only.,https://en.wikipedia.org/wiki/BMW_M4
+G82,M4 Coupe,Coupe,2021,2026,yes,M4 | M4 Competition | M4 CS | M4 CSL,high,False,2nd M4 coupe (S58). xDrive added MY2022; CS/CSL MY2023.,https://en.wikipedia.org/wiki/BMW_M4
+G83,M4 Convertible,Convertible,2022,2026,yes,M4 Competition,high,False,Soft-top M4 Competition xDrive from MY2022. No CS/CSL convertible.,https://en.wikipedia.org/wiki/BMW_M4
+E39,5 Series,Sedan / Wagon,1997,2003,no,525i | 528i | 530i | 540i,high,False,US E39 sedan; Touring wagon (525i/540i) sold in US in small numbers ~1999-2004. M5 separate row. No US diesel/xDrive.,https://en.wikipedia.org/wiki/BMW_5_Series_(E39)
+E39 M5,M5,Sedan,2000,2003,no,M5,high,False,"S62 5.0L V8, 6-speed manual, sedan only.",https://en.wikipedia.org/wiki/BMW_M5
+E60,5 Series Sedan,Sedan,2004,2010,no,525i | 528i | 530i | 530xi | 535i | 535xi | 545i | 550i,high,False,US E60 sedan. xDrive as 'xi' badges. M5 separate. No US diesel.,https://en.wikipedia.org/wiki/BMW_5_Series_(E60)
+E61,5 Series Touring,Wagon,2006,2010,no,530xi | 535xi | 535i xDrive,medium,False,"AWD-only US wagon: 530xi 2006-07, then 535xi/535i xDrive 2008-10. Last US 5 Series wagon.",https://en.wikipedia.org/wiki/BMW_5_Series_(E60)
+E60 M5,M5,Sedan,2006,2010,no,M5,high,False,"S85 5.0L V10, SMG (6MT offered in US). E61 M5 wagon NOT US.",https://en.wikipedia.org/wiki/BMW_M5
+F10,5 Series Sedan,Sedan,2011,2016,no,528i | 535i | 535d | 550i | ActiveHybrid 5,high,False,US F10 sedan. 535d diesel from MY2014; xDrive as badges. F11 wagon NOT US. M5 separate row.,https://en.wikipedia.org/wiki/BMW_5_Series_(F10)
+F10 M5,M5,Sedan,2013,2016,no,M5,high,False,S63 4.4L twin-turbo V8; 7-speed DCT with 6MT offered in US.,https://en.wikipedia.org/wiki/BMW_M5
+F07,5 Series Gran Turismo,Fastback,2010,2017,no,535i GT | 535i GT xDrive | 550i GT | 550i GT xDrive,high,False,5 GT sold US 2010-2017. No US diesel.,https://en.wikipedia.org/wiki/BMW_5_Series_Gran_Turismo
+G30,5 Series Sedan,Sedan,2017,2023,no,530i | 530i xDrive | 530e | 540i | 540i xDrive | M550i xDrive,high,False,US G30 sedan (530e PHEV). G31 wagon NOT US. M5 = F90 (separate). Replaced by G60 for 2024.,https://en.wikipedia.org/wiki/BMW_5_Series_(G30)
+F90 M5,M5,Sedan,2018,2023,no,M5 | M5 Competition | M5 CS,high,False,First M5 with M xDrive AWD. US 2018-2023; CS MY2022.,https://en.wikipedia.org/wiki/BMW_M5
+G60,5 Series Sedan,Sedan,2024,2026,yes,530i | 530i xDrive | 540i xDrive | 550e xDrive,high,False,Current US 5 Series; US sales began Oct 2023 as MY2024. Electric i5 shares G60 (separate row).,https://en.wikipedia.org/wiki/BMW_5_Series_(G60)
+E63,6 Series Coupe,Coupe,2004,2010,no,645Ci | 650i,high,False,"645Ci 2004-05, 650i from 2006. M6 separate.",https://en.wikipedia.org/wiki/BMW_6_Series_(E63/E64)
+E64,6 Series Convertible,Convertible,2004,2010,no,645Ci | 650i,high,False,"Soft-top. 645Ci 2004-05, 650i from 2006.",https://en.wikipedia.org/wiki/BMW_6_Series_(E63/E64)
+E63/E64 M6,M6,Coupe / Convertible,2006,2010,no,M6,high,False,"S85 5.0L V10, SMG. US coupe (E63) + convertible (E64).",https://en.wikipedia.org/wiki/BMW_M6
+F13,6 Series Coupe,Coupe,2012,2018,no,640i | 640i xDrive | 650i | 650i xDrive,high,False,US F13 coupe. M6 separate.,https://en.wikipedia.org/wiki/BMW_6_Series_(F12/F13)
+F12,6 Series Convertible,Convertible,2012,2018,no,640i | 640i xDrive | 650i | 650i xDrive,high,False,US F12 soft-top convertible.,https://en.wikipedia.org/wiki/BMW_6_Series_(F12/F13)
+F06,6 Series Gran Coupe,4-Door Coupe,2013,2019,no,640i | 640i xDrive | 650i | 650i xDrive,high,False,"4-door Gran Coupe, US 2013-2019 (one year longer than 2-doors).",https://en.wikipedia.org/wiki/BMW_6_Series_(F12/F13)
+F06/F12/F13 M6,M6,Coupe / Convertible / Gran Coupe,2013,2019,no,M6 | M6 Competition,high,False,"S63 4.4L V8. US coupe/convertible 2013-18, Gran Coupe 2014-19. Competition Pkg common.",https://en.wikipedia.org/wiki/BMW_M6
+G32,6 Series Gran Turismo,Fastback,2018,2019,no,640i xDrive Gran Turismo,medium,False,"Successor to F07 5 GT. US only briefly (2018-2019, 640i xDrive GT). 2020+ LCI never US.",https://en.wikipedia.org/wiki/BMW_6_Series_(G32)
+E38,7 Series,Sedan (SWB & LWB),1995,2001,no,740i | 740iL | 750iL,high,False,US E38. 740i SWB; 740iL/750iL LWB (750iL V12). No US diesel/728.,https://en.wikipedia.org/wiki/BMW_7_Series_(E38)
+E65,7 Series (SWB),Sedan SWB,2002,2008,no,745i | 750i | 760i,high,False,"SWB E65. 745i 2002-05, 750i 2006-08, 760i (V12) 2003-08.",https://en.wikipedia.org/wiki/BMW_7_Series_(E65)
+E66,7 Series (LWB),Sedan LWB,2002,2008,no,745Li | 750Li | 760Li | Alpina B7,high,False,"LWB E66. 745Li 2002-05, 750Li 2006-08, 760Li (V12) 2003-08. Alpina B7 (supercharged V8) 2007-08.",https://en.wikipedia.org/wiki/BMW_7_Series_(E65)
+F01,7 Series (SWB),Sedan SWB,2009,2015,no,740i | 750i | ActiveHybrid 7 | Alpina B7,medium,False,"SWB F01. 750i (N63 V8), 740i (N54/N55 I6), ActiveHybrid 7, Alpina B7. 760i was LWB-only in US.",https://en.wikipedia.org/wiki/BMW_7_Series_(F01)
+F02,7 Series (LWB),Sedan LWB,2009,2015,no,740Li | 750Li | 760Li | 740Ld | ActiveHybrid 7L | Alpina B7L,medium,False,"LWB F02. 760Li (V12) 2010-15, 740Ld xDrive diesel MY2015, ActiveHybrid 7L, Alpina B7L.",https://en.wikipedia.org/wiki/BMW_7_Series_(F01)
+G11,7 Series (SWB),Sedan SWB,2016,2022,no,740i | 750i | 745e | M760i,high,False,"SWB G11. 740i (B58), 750i (N63 V8), 745e PHEV 2020-22, M760i (N74 V12). Replaced by G70 for 2023.",https://en.wikipedia.org/wiki/BMW_7_Series_(G11)
+G12,7 Series (LWB),Sedan LWB,2016,2022,no,740Li | 750Li | 745Le | M760Li | Alpina B7,high,False,"LWB G12. 745Le PHEV, M760Li V12, Alpina B7 (LWB-only in US).",https://en.wikipedia.org/wiki/BMW_7_Series_(G11)
+G70,7 Series,Sedan (LWB),2023,2026,yes,740i | 760i,high,False,"Current 7 Series, US LWB only. 740i (I6), 760i xDrive (V8). Electric i7 shares chassis (separate row).",https://en.wikipedia.org/wiki/BMW_7_Series_(G70)
+E31,8 Series (classic),Coupe,1991,1997,no,850i | 850Ci | 840Ci | 850CSi,high,False,"Original 8 Series GT. 850i (V12) 1991-92, 850Ci (V12) 1993-97, 840Ci (V8) 1994-97, 850CSi 1994-95.",https://en.wikipedia.org/wiki/BMW_8_Series_(E31)
+G15,8 Series Coupe,Coupe,2019,2026,yes,840i | M850i,medium,False,"Modern 8 coupe. 840i (B58 I6, RWD/xDrive), M850i xDrive (N63 V8). M8 = F92 (separate).",https://en.wikipedia.org/wiki/BMW_8_Series_(G15)
+G14,8 Series Convertible,Convertible,2019,2026,yes,840i | M850i,medium,False,"8 convertible. 840i (I6), M850i xDrive (V8). M8 conv = F91 (separate).",https://en.wikipedia.org/wiki/BMW_8_Series_(G14)
+G16,8 Series Gran Coupe,Gran Coupe (4-door),2020,2026,yes,840i | M850i,medium,False,"8 Gran Coupe. 840i (I6, RWD/xDrive), M850i xDrive (V8). M8 GC = F93 (separate).",https://en.wikipedia.org/wiki/BMW_8_Series_(G16)
+F92,M8 Coupe,Coupe,2020,2026,yes,M8 | M8 Competition,high,False,"M8 coupe (S63 4.4 V8, xDrive). Later years Competition-only.",https://en.wikipedia.org/wiki/BMW_M8
+F91,M8 Convertible,Convertible,2020,2026,yes,M8 | M8 Competition,high,False,"M8 convertible (S63 V8, xDrive).",https://en.wikipedia.org/wiki/BMW_M8
+F93,M8 Gran Coupe,Gran Coupe (4-door),2020,2026,yes,M8 | M8 Competition,high,False,"M8 Gran Coupe (S63 V8, xDrive).",https://en.wikipedia.org/wiki/BMW_M8
+E36/7,Z3 Roadster,Roadster,1996,2002,no,Z3 1.9 | Z3 2.3 | Z3 2.5i | Z3 2.8 | Z3 3.0i | M Roadster,high,False,"Z3 roadster, built in Spartanburg SC. Badges evolved 1996-2002. M Roadster (S52/S54) 1998-2002.",https://en.wikipedia.org/wiki/BMW_Z3
+E36/8,Z3 Coupe,Coupe,1999,2002,no,Z3 2.8 | Z3 3.0i | M Coupe,high,False,"Z3 'clownshoe' coupe. 2.8 1999-2000, 3.0i 2001-02, M Coupe (S52/S54) 1999-2002.",https://en.wikipedia.org/wiki/BMW_Z3
+E52,Z8,Roadster,2000,2003,no,Z8 | Alpina Roadster V8,high,False,"Z8 flagship (S62 5.0 V8, manual) 2000-03. Alpina Roadster V8 (auto) US 2003 only.",https://en.wikipedia.org/wiki/BMW_Z8
+E85,Z4 Roadster,Roadster,2003,2008,no,Z4 2.5i | Z4 3.0i | Z4 2.5si | Z4 3.0si | Z4 M Roadster,high,False,"1st Z4 roadster (soft-top). 2.5i/3.0i 2003-05, 2.5si/3.0si 2006-08, M Roadster (S54) 2006-08.",https://en.wikipedia.org/wiki/BMW_Z4_(E85)
+E86,Z4 Coupe,Coupe,2006,2008,no,Z4 3.0si | Z4 M Coupe,high,False,Z4 coupe. 3.0si and M Coupe (S54) 2006-08.,https://en.wikipedia.org/wiki/BMW_Z4_(E85)
+E89,Z4 Roadster,Roadster (retractable hardtop),2009,2016,no,sDrive30i | sDrive35i | sDrive35is | sDrive28i,high,False,"2nd Z4, folding hardtop. sDrive30i/35i 2009-11, 35is 2011-16, 28i from 2012. No M version.",https://en.wikipedia.org/wiki/BMW_Z4_(E89)
+G29,Z4 Roadster,Roadster,2019,2026,yes,sDrive30i | M40i,high,False,"Current Z4 (soft-top), Toyota Supra sibling. sDrive30i (B48), M40i (B58). Manual added for M40i.",https://en.wikipedia.org/wiki/BMW_Z4_(G29)
+E84,X1,SUV,2013,2015,no,sDrive28i | xDrive28i | xDrive35i,high,False,1st X1. Global 2009 but reached US only as MY2013 (US sold 2013-2015). No US diesel.,https://en.wikipedia.org/wiki/BMW_X1
+F48,X1,SUV,2016,2022,no,xDrive28i | sDrive28i,high,False,"2nd X1, first UKL FWD-based. US MY2016 (xDrive28i); FWD sDrive28i from MY2019.",https://en.wikipedia.org/wiki/BMW_X1_(F48)
+U11,X1,SUV,2023,2026,yes,xDrive28i | M35i,high,False,3rd X1. US MY2023 (xDrive28i); M35i xDrive MY2024. Electric iX1 NOT US.,https://en.wikipedia.org/wiki/BMW_X1_(U11)
+F39,X2,SUV Coupe,2018,2023,no,sDrive28i | xDrive28i | M35i,high,False,1st X2. US 2018-2023; M35i from MY2019.,https://en.wikipedia.org/wiki/BMW_X2
+U10,X2,SUV Coupe,2024,2026,yes,xDrive28i | M35i,high,False,2nd X2. US launch spring 2024. Electric iX2 NOT US.,https://en.wikipedia.org/wiki/BMW_X2
+E83,X3,SUV,2004,2010,no,2.5i | 3.0i | 3.0si | xDrive30i,high,False,1st X3. 2.5i/3.0i early; 3.0si post-2007 LCI; xDrive30i 2009-10. All AWD in US.,https://en.wikipedia.org/wiki/BMW_X3_(E83)
+F25,X3,SUV,2011,2017,no,xDrive28i | xDrive35i | xDrive28d | sDrive28i,high,False,2nd X3. sDrive28i (RWD) and diesel xDrive28d added later in run.,https://en.wikipedia.org/wiki/BMW_X3_(F25)
+G01,X3,SUV,2018,2024,no,sDrive30i | xDrive30i | M40i | xDrive30e,high,False,3rd X3. sDrive30i RWD; xDrive30e PHEV. X3 M (F97) separate.,https://en.wikipedia.org/wiki/BMW_X3_(G01)
+G45,X3,SUV,2025,2026,yes,X3 30 xDrive | X3 M50 xDrive,high,False,"4th X3, US dealers Q4 2024 as MY2025, built Spartanburg SC. 'i' suffix dropped. PHEV/iX3 NOT US.",https://en.wikipedia.org/wiki/BMW_X3_(G45)
+F26,X4,SUV Coupe,2015,2018,no,xDrive28i | xDrive35i | M40i,high,False,1st X4. M40i from MY2016.,https://en.wikipedia.org/wiki/BMW_X4_(F26)
+G02,X4,SUV Coupe,2019,2025,no,xDrive30i | M40i,medium,False,"2nd X4. US 2019-2025; discontinued, no direct successor. X4 M (F98) separate.",https://en.wikipedia.org/wiki/BMW_X4_(G02)
+F97,X3 M,SUV,2020,2024,no,X3 M | X3 M Competition,high,False,"X3 M (S58) on G01. Base dropped after 2021, Competition-only. No X3 M on G45 (replaced by M50).",https://en.wikipedia.org/wiki/BMW_X3_(G01)
+F98,X4 M,SUV Coupe,2020,2025,no,X4 M | X4 M Competition,medium,False,"X4 M (S58) on G02. Base dropped after 2021, Competition-only. Ended with X4 line.",https://en.wikipedia.org/wiki/BMW_X4_(G02)
+E53,X5,SUV,2000,2006,no,3.0i | 4.4i | 4.6is | 4.8is,high,False,"1st X5. US gas only: 3.0i (I6), 4.4i (V8), 4.6is 2002-03, 4.8is 2004-06. No US diesel.",https://en.wikipedia.org/wiki/BMW_X5_(E53)
+E70,X5,SUV,2007,2013,no,3.0si | 4.8i | xDrive30i | xDrive48i | xDrive35i | xDrive50i | xDrive35d,high,False,2nd X5. 3.0si/4.8i then xDrive30i/48i (2009); 35i/50i from 2011 LCI; 35d diesel 2009-13. X5 M separate.,https://en.wikipedia.org/wiki/BMW_X5_(E70)
+F15,X5,SUV,2014,2018,no,sDrive35i | xDrive35i | xDrive35d | xDrive40e | xDrive50i,high,False,3rd X5. sDrive35i RWD base; xDrive40e PHEV from 2016; 35d diesel. X5 M (F85) separate.,https://en.wikipedia.org/wiki/BMW_X5_(F15)
+G05,X5,SUV,2019,2026,yes,xDrive40i | sDrive40i | M50i | xDrive45e | xDrive50e | M60i,high,False,4th X5. sDrive40i from 2020; 45e PHEV 2021-23 -> 50e 2024; M50i 2020-23 -> M60i 2024 LCI. X5 M (F95) separate.,https://en.wikipedia.org/wiki/BMW_X5_(G05)
+E71,X6,SAC (coupe-SUV),2008,2014,no,xDrive35i | xDrive50i | ActiveHybrid X6,high,False,"1st X6. xDrive35i (I6T), 50i (V8T); ActiveHybrid X6 2010-11. X6 M separate.",https://en.wikipedia.org/wiki/BMW_X6_(E71/E72)
+F16,X6,SAC (coupe-SUV),2015,2019,no,sDrive35i | xDrive35i | xDrive50i,high,False,2nd X6. sDrive35i RWD base. No US diesel/PHEV. X6 M (F86) separate.,https://en.wikipedia.org/wiki/BMW_X6_(F16)
+G06,X6,SAC (coupe-SUV),2020,2026,yes,sDrive40i | xDrive40i | M50i | M60i,high,False,3rd X6. M50i 2020-23 -> M60i 2024 LCI. X6 M (F96) separate.,https://en.wikipedia.org/wiki/BMW_X6_(G06)
+G07,X7,SUV (full-size),2019,2026,yes,xDrive40i | xDrive50i | M50i | M60i | Alpina XB7,high,False,1st X7. 50i (V8) 2019-20 & M50i 2020-22 -> M60i 2023 LCI; Alpina XB7 2021-23. No US M50d.,https://en.wikipedia.org/wiki/BMW_X7
+E70 X5 M,X5 M,SUV,2010,2013,no,X5 M,high,False,1st X5 M on E70 (4.4 twin-turbo V8).,https://en.wikipedia.org/wiki/BMW_X5_M
+F85,X5 M,SUV,2015,2018,no,X5 M,high,False,2nd X5 M (F85) on F15 platform.,https://en.wikipedia.org/wiki/BMW_X5_M
+F95,X5 M,SUV,2020,2026,yes,X5 M | X5 M Competition,high,False,3rd X5 M (F95) on G05. Competition sole US variant from 2021.,https://en.wikipedia.org/wiki/BMW_X5_M
+E71 X6 M,X6 M,SAC (coupe-SUV),2010,2014,no,X6 M,high,False,1st X6 M on E71 (4.4 twin-turbo V8).,https://en.wikipedia.org/wiki/BMW_X6_M
+F86,X6 M,SAC (coupe-SUV),2015,2019,no,X6 M,high,False,2nd X6 M (F86) on F16 platform.,https://en.wikipedia.org/wiki/BMW_X6_M
+F96,X6 M,SAC (coupe-SUV),2020,2026,yes,X6 M | X6 M Competition,high,False,3rd X6 M (F96) on G06. Competition sole US variant from 2021.,https://en.wikipedia.org/wiki/BMW_X6_M
+I01,i3,Hatchback EV (opt. range extender),2014,2021,no,i3 | i3s | Range Extender (REx),high,False,US carbon-fiber city EV on LifeDrive platform. Battery grew 60Ah->94Ah->120Ah. US ended MY2021.,https://en.wikipedia.org/wiki/BMW_i3
+I12,i8 Coupe,Plug-in Hybrid Coupe,2014,2020,no,i8,high,False,"Halo PHEV sports car (turbo 3-cyl + electric, AWD). US 2014-2020.",https://en.wikipedia.org/wiki/BMW_i8
+I15,i8 Roadster,Plug-in Hybrid Roadster,2019,2020,no,i8 Roadster,high,False,"Open-top i8, US MY2019-2020. All i8 production ended June 2020.",https://en.wikipedia.org/wiki/BMW_i8
+G26 (i4),i4,Gran Coupe EV,2022,2026,yes,eDrive35 | eDrive40 | xDrive40 | M50 | M60,high,False,Electric Gran Coupe sharing G26 4 Series body. eDrive40/M50 launch; eDrive35 2023; xDrive40 2024; M60 2026.,https://en.wikipedia.org/wiki/BMW_i4
+G60 (i5),i5,Sedan EV,2024,2026,yes,eDrive40 | xDrive40 | M60,high,False,Electric G60 5 Series. US dealers late Oct 2023 as MY2024. i5 Touring NOT US.,https://en.wikipedia.org/wiki/BMW_5_Series_(G60)
+G70 (i7),i7,Full-size Sedan EV,2023,2026,yes,eDrive50 | xDrive60 | M70,high,False,Electric G70 7 Series. Launch xDrive60; eDrive50 & M70 added MY2024.,https://en.wikipedia.org/wiki/BMW_7_Series_(G70)
+I20,iX,SUV EV,2022,2026,yes,xDrive50 | M60 | xDrive45 | xDrive60 | M70,high,False,"Dedicated electric SUV (own chassis). MY2026 refresh: xDrive45 added, 50->60, M60->M70.",https://en.wikipedia.org/wiki/BMW_iX
