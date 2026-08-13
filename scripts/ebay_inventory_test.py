@@ -118,8 +118,10 @@ def cmd_test(args):
             verdict = "PATH A"
             reason = "Inventory-API item (compatibility can be set by SKU; should persist across relist)"
         elif status == 404 and 25710 in error_ids:
-            verdict = "PATH B"
-            reason = "25710: Trading-API/UI listing, no inventory item behind this SKU"
+            verdict = "PATH B?"
+            reason = ("25710: no inventory item for this SKU. AMBIGUOUS - either a Trading/UI "
+                      "listing (real Path B) OR the SKU is wrong/doesn't exist (typo, extra prefix). "
+                      "Verify it is the EXACT 'Custom label' from Seller Hub before trusting this.")
         elif status in (401, 403):
             verdict = "AUTH?"
             reason = f"HTTP {status}: token expired / wrong scope / wrong account (not a listing-type answer)"
@@ -146,11 +148,14 @@ def cmd_test(args):
     print("-" * 60)
     print(f"Summary: PATH A = {a}, PATH B = {b}, other = {len(verdicts) - a - b}")
     if a and not b:
-        print("=> Inventory-API managed. Proceed to the Sandbox relist-persistence check (DESIGN sec 5.2).")
+        print("=> Inventory-API managed. Proceed to the relist-persistence check (DESIGN sec 5.2).")
     elif b and not a:
-        print("=> Trading/UI listings. Design for bulkMigrateListing or per-relist ReviseItem (continuous).")
+        print("=> All 25710. CAUTION: this looks like Path B (Trading/UI) ONLY IF these are real SKUs.")
+        print("   25710 is identical for a nonexistent/mistyped SKU. Re-check each is the EXACT")
+        print("   'Custom label' from Seller Hub (no added 'SKU_' prefix) before trusting this verdict.")
     elif a and b:
-        print("=> MIXED. Dismantly listings are not uniform — the pipeline must handle both paths.")
+        print("=> MIXED (some 200, some 25710). Either genuinely mixed listing types, OR the 25710 ones")
+        print("   are mistyped SKUs. Confirm the 25710 SKUs are exact Custom Labels, then re-run.")
     else:
         print("=> No clear listing-type verdict. Fix auth/network above and re-run.")
     return 0
