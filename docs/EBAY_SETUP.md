@@ -34,9 +34,12 @@ eBay's Inventory API, or not?*
 
 > **Already have a developer account?** (e.g. a piece of software created one to connect to eBay.)
 > Then skip registration and just sign in. Notes:
-> - **Create your own new keyset** (eBay allows multiple apps per account — name it e.g.
->   `fitment-automation`) instead of reusing the existing one, so your test can't disturb whatever
->   integration relies on it.
+> - **Reuse vs. new keyset:** a *second* production keyset isn't instant — eBay requires a support
+>   ticket and eligibility check. So only request one if the existing keyset backs a **live** integration
+>   you must not disturb. If the existing app is **dormant/unused**, just **reuse it** — the app's name
+>   (e.g. "PowerBI Connection") is cosmetic; a keyset is just credentials and works for any eBay API.
+>   Generating a new user token does not affect other tokens; only changing the keyset's redirect/RuName
+>   could disturb a live integration.
 > - **Do not regenerate/revoke the existing keys or tokens** — that would break any software currently
 >   authenticated with them.
 > - **Confirm the account is yours:** you should be able to reach Application Keysets and mint a user
