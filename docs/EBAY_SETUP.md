@@ -32,6 +32,18 @@ eBay's Inventory API, or not?*
 2. Sign in with (or link) your eBay account and accept the developer agreement.
    You now have access to **Your Account → Application Keysets**.
 
+> **Already have a developer account?** (e.g. a piece of software created one to connect to eBay.)
+> Then skip registration and just sign in. Notes:
+> - **Create your own new keyset** (eBay allows multiple apps per account — name it e.g.
+>   `fitment-automation`) instead of reusing the existing one, so your test can't disturb whatever
+>   integration relies on it.
+> - **Do not regenerate/revoke the existing keys or tokens** — that would break any software currently
+>   authenticated with them.
+> - **Confirm the account is yours:** you should be able to reach Application Keysets and mint a user
+>   token *for your own seller account*. (Some vendors create the app under their own org.)
+> - **Bonus signal:** whichever software set this up hints at Path A vs B — an older tool likely uses
+>   the Trading API (→ Path B). The `getInventoryItem` test in Part 6 settles it regardless.
+
 ---
 
 ## Part 2 — Create your application keyset
