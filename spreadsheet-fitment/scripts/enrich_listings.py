@@ -42,12 +42,17 @@ def dedup(vehset):
     return sorted(seen.values())
 
 
-def enrich(listings_path, table_path, out_path, pn_cols):
+def enrich(listings_path, table_path, out_path, pn_cols, skip_prefixes):
     part = load_table(table_path)
     rows_out = []
     matched = 0
+    skipped = 0
     with open(listings_path, newline="", encoding="utf-8", errors="replace") as f:
         for L in csv.DictReader(f):
+            guid = L.get("guid", "")
+            if any(guid.upper().startswith(p.upper()) for p in skip_prefixes if p):
+                skipped += 1
+                continue
             cand = set()
             for c in pn_cols:
                 for k7, _ in part_keys(L.get(c, "")):
@@ -68,7 +73,8 @@ def enrich(listings_path, table_path, out_path, pn_cols):
         w = csv.writer(f)
         w.writerow(["guid", "matched_part7", "year", "make", "model", "title"])
         w.writerows(rows_out)
-    print(f"listings enriched: {matched}   fitment rows: {len(rows_out)}   -> {out_path}")
+    print(f"listings enriched: {matched}   fitment rows: {len(rows_out)}   "
+          f"skipped(prefix): {skipped}   -> {out_path}")
 
 
 if __name__ == "__main__":
@@ -78,5 +84,7 @@ if __name__ == "__main__":
     ap.add_argument("--out", default="../data/listing_fitment_to_add.csv")
     ap.add_argument("--pn-cols", nargs="+",
                     default=["oeoempartnumber", "manufacturerpartnumber"])
+    ap.add_argument("--skip-guid-prefix", nargs="*", default=["STOCK"],
+                    help="drop listings whose guid starts with any of these (default: STOCK)")
     a = ap.parse_args()
-    enrich(a.listings, a.table, a.out, a.pn_cols)
+    enrich(a.listings, a.table, a.out, a.pn_cols, a.skip_guid_prefix)
