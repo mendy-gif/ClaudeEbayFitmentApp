@@ -142,7 +142,20 @@ git checkout origin/claude/ebay-fitment-structure-bmorc4 -- spreadsheet-fitment
 ```
 (Brings the whole `spreadsheet-fitment/` folder in without merging the rest.)
 
-**Step 1 — run Approach 2's table build (human, in Codespace, needs the data files):**
+**Step 1 — the database is ALREADY BUILT and committed** (you do NOT need to rebuild it, and
+you can't — the source `Inventory.xlsx` isn't on your branch). Fetch it:
+```bash
+git checkout origin/claude/ebay-fitment-structure-bmorc4 -- spreadsheet-fitment/data/built
+```
+This gives you `spreadsheet-fitment/data/built/`:
+- `fitment_by_partnumber.csv` (~18,937 part numbers → vehicles) — the master database.
+- `ebay_ready_fitment.csv` (~3,919 rows) — **consume this**: `guid, part7, year, make,
+  raw_model, ebay_model, mapping_flag, title`. Use `ebay_model`; skip `UNMAPPED`.
+- See `spreadsheet-fitment/data/built/README.md` for the schema and a **`STOCK`-prefix `guid`
+  caveat** you must resolve before unioning by SKU (the enriched `guid`s look like
+  `STOCK9350723`; live eBay SKUs are bare numbers like `5978`).
+
+_To rebuild from an updated inventory later:_
 ```bash
 cd spreadsheet-fitment/scripts
 python3 build_fitment_table.py --inventory /path/to/Inventory.xlsx --out ../data/fitment_by_partnumber.csv
