@@ -9,7 +9,8 @@
     {"id": "33549", "name": "Air & Fuel Delivery", "decision": "include", "note": "Injectors, throttle bodies, intake manifolds, fuel pumps, turbos live here."},
     {"id": "33687", "name": "Ignition Systems & Components", "decision": "include", "note": "Coils, plugs, distributors."},
     {"id": "33599", "name": "Engine Cooling Components", "decision": "include", "note": "Owner: ALL cooling incl radiators = engine."},
-    {"id": "262059", "name": "Accessory Belts", "decision": "include", "note": "Engine accessory drive."}
+    {"id": "262059", "name": "Accessory Belts", "decision": "include", "note": "Engine accessory drive."},
+    {"id": "33572", "name": "Starters, Alternators, ECUs & Wiring", "decision": "include", "note": "Owner-confirmed: starters/alternators/ECUs are engine-specific (accepts some wiring imprecision)."}
   ],
 
   "_rule_a_by_default": [
@@ -19,10 +20,9 @@
     "180143 Towing", "262064 ADAS", "262215 Racks & Cargo", "9886 Other"
   ],
 
-  "decisions_pending_ids": [
-    {"id": "33542", "name": "Air Conditioning & Heating", "decision": "TBD"},
-    {"id": "33572", "name": "Starters, Alternators, ECUs & Wiring", "decision": "TBD"},
-    {"id": "177701", "name": "Electric, Hybrid & PHEV Specific Parts", "decision": "TBD"}
+  "_decided_rule_a": [
+    {"id": "33542", "name": "Air Conditioning & Heating", "note": "Owner: Rule A (climate, chassis/model-specific)."},
+    {"id": "177701", "name": "Electric, Hybrid & PHEV Specific Parts", "note": "Owner: Rule A (whole chassis family)."}
   ],
 
   "exclude_ids": []

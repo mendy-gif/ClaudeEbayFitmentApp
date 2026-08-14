@@ -238,8 +238,15 @@ If we go Path A via `bulkMigrateListing`, migrating a listing into the Inventory
    Rule B = engine-map-driven, restricting to the donor's engine family (e.g. F30 335i→N55 also tags the
    N55 ActiveHybrid 3; G05 X5 xDrive40i→B58 tags all B58 X5 trims via Model=X5 + Trim, excludes the V8
    M50i/M60i). Validates emitted Models against eBay's catalog list.
-6. **Decide classification (§6.1):** pull the distinct eBay categories across the catalog and build the Rule-B category set (anchored on `33612`).
-7. **Then build** the apply pipeline (rule engine → eBay writer `createOrReplaceProductCompatibility`), sized for Path A / one-time push. Needs the `sell.inventory` *write* scope.
+6. ~~**Decide classification (§6.1).**~~ **✅ DONE 2026-08-15** — category tree fetched
+   (`data/ebay_motors_categories.json`); Rule-B engine branches locked in `data/rule_b_categories.json`:
+   `33612` Engines, `33549` Air & Fuel Delivery (incl. turbos), `33687` Ignition, `33599` Engine Cooling
+   (all, incl. radiators), `262059` Accessory Belts, `33572` Starters/Alternators/ECUs/Wiring. Exhaust,
+   A/C & Heating, EV/Hybrid parts, and everything else = Rule A. `scripts/classify_part.py` labels any
+   categoryId by ancestry.
+7. **Then build** the apply pipeline (rule engine → eBay writer `createOrReplaceProductCompatibility`),
+   sized for Path A / one-time push. Needs the `sell.inventory` *write* scope. **This is the only
+   remaining build** — the full brain (chassis data, eBay vocab, engine map, rules, classification) is done.
 
 ---
 
