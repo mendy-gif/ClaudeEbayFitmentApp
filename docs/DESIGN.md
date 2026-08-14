@@ -158,9 +158,18 @@ eBay has two separate listing worlds, and the compatibility endpoint only reache
 > - **Trading store** (`GetItem` `ItemCompatibilityList`, by ItemID) = **10 vehicles — our exact expansion**,
 >   and it's what the listing page displays and what buyers search.
 >
-> So the compatibility **did not get cleared** — Dismantly's relist **carried it forward** into the new item
-> at the Trading level. `getProductCompatibility` just can't see the Trading store, which is why it read 0.
+> So the compatibility **did not get cleared** — it was **carried forward** into the new item at the Trading
+> level. **Mechanism (corrected):** this is **eBay's native relist copy behavior**, NOT Dismantly — Dismantly
+> never knew about our fitment (we wrote straight to eBay, outside Dismantly). Dismantly's end-and-resend is
+> an eBay relist under the hood, and eBay copies the item's `ItemCompatibilityList` to the new item
+> regardless of who set it. `getProductCompatibility` just can't see the Trading store, which is why it read 0.
 > **=> Push once per SKU; it persists across relists. This is a one-time backfill, not a recurring re-apply.**
+>
+> **Honest caveat (one test):** persistence is proven once; the mechanism is standard eBay behavior so it
+> *should* be consistent, but we haven't verified every Dismantly resend path (a resend that does a fresh
+> create rather than a true relist would not copy). **Mitigation: one-time push + a light periodic AUDIT** —
+> the batch runner Trading-reads a sample of already-pushed SKUs and re-pushes any that lost fitment. Not
+> "push and forget"; "push once, spot-check occasionally."
 >
 > **Two consequences for the batch runner (§8):**
 > 1. **"Already done?" and donor detection must read the TRADING store** (`GetItem` `ItemCompatibilityList`),
