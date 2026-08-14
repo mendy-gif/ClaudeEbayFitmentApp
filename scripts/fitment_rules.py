@@ -44,6 +44,19 @@ MAX_YEAR = 2027
 NAMEPLATES = {"x1", "x2", "x3", "x4", "x5", "x6", "x7", "xm",
               "z3", "z4", "z8", "i3", "i4", "i5", "i7", "i8", "ix"}
 
+# M-performance suffixes: eBay treats these as a Trim of the base M Model, not a
+# distinct Model (e.g. "M2 CS" -> Model "M2"). The base Model already covers them,
+# so we collapse them to avoid rows eBay rejects (confirmed live: warning 25023).
+M_SUFFIXES = [" Competition xDrive", " Competition", " CSL", " CS", " GTS"]
+
+
+def ebay_model(badge):
+    """Map a reference trim badge to eBay's Model string (collapse M sub-trims)."""
+    for suf in M_SUFFIXES:
+        if badge.endswith(suf):
+            return badge[: -len(suf)]
+    return badge
+
 
 def _load(name):
     with open(os.path.join(DATA, name), encoding="utf-8") as f:
@@ -151,8 +164,8 @@ def expand(donor_model, year, rule, reference=None, emap=None, ebay=None,
         if plate:                       # nameplate vehicle: Model = nameplate
             model_out = plate
             trim_out = t if rule == "B" else None   # Rule A collapses to just the nameplate
-        else:                           # sedan/coupe: Model = badge
-            model_out = t
+        else:                           # sedan/coupe: Model = badge (M sub-trims collapsed)
+            model_out = ebay_model(t)
             trim_out = None
         for y in years:
             key = (y, model_out, trim_out)

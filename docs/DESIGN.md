@@ -162,6 +162,15 @@ This is why §5.1's test isn't just a detail — it determines whether this is a
 
 ### 5.3 Validation behavior — confirms the phantom-year decision (Open Question #1)
 
+> **✅ CONFIRMED LIVE 2026-08-15.** First real write succeeded (SKU `1194`, an S58 M2 starter):
+> `createOrReplaceProductCompatibility` returned **HTTP 200** and set the valid rows while returning
+> **warning `25023`** for the invalid ones (`[2023-2026][BMW][M2 CS]`) — partial acceptance, exactly as
+> assumed. The M2 rows applied; the phantom `M2 CS` rows were dropped. The year-padding premise holds on
+> real data. Also learned: **M performance suffixes (Competition/CS/CSL/GTS) are eBay *Trims*, not Models**
+> — the base M Model already covers them, so `fitment_rules.ebay_model()` now collapses them (e.g. `M2 CS`
+> → Model `M2`) to avoid the rejected rows. **The relist-persistence check (§5.2) is now armed on SKU 1194:
+> re-read its compatibility after Dismantly's next relist to confirm it survives.**
+
 - Request body is a `Compatibility` object → `compatibleProducts[]` → each `CompatibleProduct` has `compatibilityProperties[]` = `NameValueList` (`name`/`value`) pairs. Canonical aspect names: `Make`, `Model`, `Year`, `Trim`, `Engine`.
 - For categories supporting "parts compatibility by specification," eBay **validates the combination**. On a bad combo it uses **partial acceptance**: invalid rows are reported in the response's errors/warnings node and dropped; **valid rows are kept and the call succeeds** as long as ≥1 row is valid.
 - **→ Sending a padded year range is safe.** The phantom years (e.g. 2016–2019 335i) come back as warnings; the real years go through. No trim table, no pre-trimming required.
