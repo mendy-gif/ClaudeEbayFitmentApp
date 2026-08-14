@@ -100,6 +100,41 @@ def trading_getitem_compat(item_id, tok):
     return len(compat), sample, None
 
 
+def trading_item_specifics(item_id, tok):
+    """Read the listing's Item Specifics (aspects) via Trading GetItem — where Dismantly
+    puts Year/Make/Model. Returns (dict, error)."""
+    import xml.etree.ElementTree as ET
+    body = (
+        '<?xml version="1.0" encoding="utf-8"?>'
+        '<GetItemRequest xmlns="urn:ebay:apis:eBLBaseComponents">'
+        '<IncludeItemSpecifics>true</IncludeItemSpecifics>'
+        f'<ItemID>{item_id}</ItemID><DetailLevel>ReturnAll</DetailLevel>'
+        '</GetItemRequest>'
+    )
+    req = urllib.request.Request(
+        BASE + "/ws/api.dll", data=body.encode("utf-8"), method="POST",
+        headers={"X-EBAY-API-CALL-NAME": "GetItem", "X-EBAY-API-SITEID": "100",
+                 "X-EBAY-API-COMPATIBILITY-LEVEL": "1199", "X-EBAY-API-IAF-TOKEN": tok,
+                 "Content-Type": "text/xml"})
+    try:
+        with urllib.request.urlopen(req) as r:
+            raw = r.read().decode("utf-8", "replace")
+    except (urllib.error.HTTPError, urllib.error.URLError) as e:
+        return {}, str(e)
+    ns = "{urn:ebay:apis:eBLBaseComponents}"
+    try:
+        root = ET.fromstring(raw)
+    except ET.ParseError as e:
+        return {}, f"xml parse: {e}"
+    out = {}
+    for nvl in root.findall(f".//{ns}ItemSpecifics/{ns}NameValueList"):
+        name = nvl.findtext(f"{ns}Name")
+        vals = [v.text for v in nvl.findall(f"{ns}Value") if v.text]
+        if name:
+            out[name] = " | ".join(vals)
+    return out, None
+
+
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     tok = None
@@ -139,6 +174,26 @@ def main():
         print(f"  TRADING compatibility:     {n_trad} vehicle(s)  [GetItem ItemCompatibilityList, by ItemID]")
         for nv in sample:
             print(f"      - {nv.get('Year','?')} {nv.get('Make','?')} {nv.get('Model','?')} {nv.get('Trim','') or ''}".rstrip())
+
+    # Item specifics — where Dismantly puts Year/Make/Model (reliable donor source).
+    inv_aspects = (inv.get("product", {}) or {}).get("aspects", {}) if is_item else {}
+    if inv_aspects:
+        keys = ["Make", "Model", "Year", "Trim", "Engine"]
+        hit = {k: inv_aspects.get(k) for k in keys if k in inv_aspects}
+        print(f"  INVENTORY aspects:         {hit if hit else '(no Y/M/M keys; all keys: ' + ', '.join(inv_aspects) + ')'}")
+    else:
+        print("  INVENTORY aspects:         (none on the inventory item)")
+    if listing_id:
+        specs, serr = trading_item_specifics(listing_id, tok)
+        if serr:
+            print(f"  TRADING item specifics:    error: {serr}")
+        else:
+            keys = ["Year", "Make", "Model", "Trim", "Engine", "Manufacturer Part Number"]
+            hit = {k: specs.get(k) for k in keys if k in specs}
+            print(f"  TRADING item specifics:    Y/M/M -> {hit}")
+            others = [k for k in specs if k not in keys]
+            if others:
+                print(f"      other specifics: {', '.join(others)}")
 
     print("\nVERDICT:")
     if not is_item:
