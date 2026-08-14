@@ -12,8 +12,9 @@ returns an error for any invalid pair; those are reported per listing.
 
 Usage:
   python3 push_to_ebay.py                         # dry-run: print first few payloads
-  python3 push_to_ebay.py --in ../data/ebay_ready_fitment.csv --limit 3
-  python3 push_to_ebay.py --live                  # actually revise listings
+  python3 push_to_ebay.py --verify --only 38567   # read one listing by SKU (safe, no write)
+  python3 push_to_ebay.py --live   --only 38567   # write fitment to ONE listing
+  python3 push_to_ebay.py --live                  # write to all matched listings
 """
 import argparse
 import csv
@@ -80,6 +81,50 @@ def build_xml(sku, vehicles, token):
     )
 
 
+def build_getitem_xml(sku, token):
+    return (
+        '<?xml version="1.0" encoding="utf-8"?>\n'
+        '<GetItemRequest xmlns="urn:ebay:apis:eBLBaseComponents">\n'
+        "  <RequesterCredentials><eBayAuthToken>%s</eBayAuthToken></RequesterCredentials>\n"
+        "  <SKU>%s</SKU>\n"
+        "  <IncludeItemCompatibilityList>true</IncludeItemCompatibilityList>\n"
+        "</GetItemRequest>\n" % (escape(token or "TOKEN"), escape(sku))
+    )
+
+
+def _between(text, tag):
+    a = text.find("<" + tag + ">")
+    b = text.find("</" + tag + ">")
+    return text[a + len(tag) + 2:b] if a >= 0 and b > a else ""
+
+
+def verify(listings, token, limit):
+    """Read each (filtered) listing by SKU to confirm the SKU resolves on eBay."""
+    if not token:
+        sys.exit("--verify needs a token (--token / $EBAY_ACCESS_TOKEN / token.txt).")
+    ok = fail = 0
+    for i, (sku, veh) in enumerate(listings.items()):
+        if i >= limit:
+            print(f"... ({len(listings) - limit} more not checked)")
+            break
+        try:
+            resp = send(build_getitem_xml(sku, token), token, call="GetItem")
+            if "<Ack>Success</Ack>" in resp or "<Ack>Warning</Ack>" in resp:
+                ok += 1
+                title = _between(resp, "Title")
+                item_id = _between(resp, "ItemID")
+                have = resp.count("<Compatibility>")
+                print(f"  RESOLVES  SKU {sku} -> ItemID {item_id} | {have} existing compat | "
+                      f"would add {len(veh)} | {title[:50]}")
+            else:
+                fail += 1
+                print(f"  NOT FOUND SKU {sku}: {_between(resp, 'ShortMessage')[:120]}")
+        except urllib.error.HTTPError as e:
+            fail += 1
+            print(f"  HTTP {e.code} SKU {sku}: {e.read().decode('utf-8','replace')[:120]}")
+    print(f"\nverify: resolved={ok} not_resolved={fail}")
+
+
 def send(xml, token, call="ReviseFixedPriceItem"):
     headers = {
         "X-EBAY-API-COMPATIBILITY-LEVEL": COMPAT_LEVEL,
@@ -98,13 +143,26 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--in", dest="inp", default="../data/ebay_ready_fitment.csv")
     ap.add_argument("--live", action="store_true", help="actually send (default: dry-run)")
+    ap.add_argument("--verify", action="store_true",
+                    help="read listings by SKU to confirm they resolve (no write)")
+    ap.add_argument("--only", nargs="+", default=None,
+                    help="restrict to these guid/SKU values (safe single-listing test)")
     ap.add_argument("--token", default=None)
-    ap.add_argument("--limit", type=int, default=3, help="dry-run: how many payloads to print")
+    ap.add_argument("--limit", type=int, default=3, help="how many to print/check")
     a = ap.parse_args()
 
     listings = group(a.inp)
+    if a.only:
+        keep = set(a.only)
+        listings = {k: v for k, v in listings.items() if k in keep}
+        if not listings:
+            sys.exit(f"None of --only {a.only} found in {a.inp}")
     total_v = sum(len(v) for v in listings.values())
     print(f"{len(listings)} listings, {total_v} compatibility rows.\n")
+
+    if a.verify:
+        verify(listings, load_token(a.token), a.limit if not a.only else len(listings))
+        return
 
     if not a.live:
         token = load_token(a.token)  # only to render the payload; not required for dry-run
