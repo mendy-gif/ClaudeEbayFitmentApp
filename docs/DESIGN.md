@@ -165,11 +165,14 @@ eBay has two separate listing worlds, and the compatibility endpoint only reache
 > regardless of who set it. `getProductCompatibility` just can't see the Trading store, which is why it read 0.
 > **=> Push once per SKU; it persists across relists. This is a one-time backfill, not a recurring re-apply.**
 >
-> **Honest caveat (one test):** persistence is proven once; the mechanism is standard eBay behavior so it
-> *should* be consistent, but we haven't verified every Dismantly resend path (a resend that does a fresh
-> create rather than a true relist would not copy). **Mitigation: one-time push + a light periodic AUDIT** —
-> the batch runner Trading-reads a sample of already-pushed SKUs and re-pushes any that lost fitment. Not
-> "push and forget"; "push once, spot-check occasionally."
+> **Honest caveat — observed once, NOT fully understood.** This result *contradicts* our own §5.4 research,
+> which said Trading relists mint a new Item ID and do **not** carry compatibility forward. Yet it did carry.
+> So either that behavior is more nuanced, or Dismantly's "resend" isn't a plain relist. We have **one**
+> positive data point, against documented behavior that predicts the opposite — so treat persistence as
+> **observed, not guaranteed.** Before trusting it at scale: (a) repeat the end-resend test on 2–3 more SKUs
+> and across a real ~40–60 day Dismantly cycle (not just a manual resend), and (b) build the pipeline as
+> **one-time push + a periodic AUDIT** — Trading-read a sample of pushed SKUs, re-push any that lost fitment.
+> The audit makes us correct whether persistence turns out reliable, flaky, or path-dependent.
 >
 > **Two consequences for the batch runner (§8):**
 > 1. **"Already done?" and donor detection must read the TRADING store** (`GetItem` `ItemCompatibilityList`),
