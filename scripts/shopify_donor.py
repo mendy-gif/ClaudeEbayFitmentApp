@@ -155,8 +155,41 @@ def dump_all(store, tok, vendor="BMW"):
     return out
 
 
+def build_from_bulk(path):
+    """Build the donor dump from a Shopify bulkOperationRunQuery JSONL export.
+    Bulk output interleaves product lines (carry `tags`) and variant lines (carry
+    `sku` + `__parentId`); we join them by parent product id. This is the scalable
+    path for the full catalog (7.8k BMW products) and needs no token to re-parse."""
+    prod_tags, sku_of = {}, {}
+    for line in open(path, encoding="utf-8"):
+        line = line.strip()
+        if not line:
+            continue
+        o = json.loads(line)
+        if o.get("id") and "tags" in o:
+            prod_tags[o["id"]] = o.get("tags", [])
+        elif o.get("__parentId") and o.get("sku"):
+            sku_of.setdefault(o["__parentId"], o["sku"])   # first variant's SKU
+    out = {}
+    for pid, tags in prod_tags.items():
+        sku = sku_of.get(pid)
+        if not sku:
+            continue
+        node = {"tags": tags, "variants": {"edges": [{"node": {"sku": sku}}]}}
+        d = parse_product(node)
+        d["engine_family"] = engine_family(d["engine_code_raw"])
+        out[d["sku"]] = d
+    outp = os.path.join(ROOT, "data", "shopify_donors.json")
+    json.dump(out, open(outp, "w", encoding="utf-8"), indent=2)
+    print(f"Wrote {len(out)} donors -> {os.path.relpath(outp, ROOT)}")
+    return out
+
+
 def main():
     args = sys.argv[1:]
+    if "--from-bulk" in args:
+        build_from_bulk(args[args.index("--from-bulk") + 1])
+        return
     store, tok = store_token()
     if not store or not tok:
         sys.exit("ERROR: set SHOPIFY_STORE and SHOPIFY_TOKEN (env or shopify_token.txt/shopify.env)")
