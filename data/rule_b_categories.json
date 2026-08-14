@@ -1,21 +1,28 @@
 {
-  "_comment": "The ONE judgment in the pipeline: which eBay category branches count as ENGINE parts (Rule B). A listing whose categoryId is a descendant of any include-ancestor -> Rule B (fitment restricted to the donor's engine). Everything else -> Rule A (whole chassis family). exclude_ids override include (forced Rule A). See docs/DESIGN.md sec 6.1. DECISIONS below are owner-confirmed (2026-08-15); numeric IDs get filled from scripts/ebay_fetch_categories.py output, then added to include_ancestors / exclude_ids.",
+  "_comment": "The ONE judgment in the pipeline: which eBay category branches count as ENGINE parts (Rule B). A listing whose categoryId is a descendant of any include-ancestor -> Rule B (fitment restricted to the donor's engine). Everything else -> Rule A (whole chassis family). exclude_ids override include (forced Rule A). See docs/DESIGN.md sec 6.1. IDs are eBay US Motors (category_tree 100) top-level branches under 6030, owner-confirmed 2026-08-15.",
 
   "default_when_category_unknown": "B",
-  "_default_note": "If a listing's category is not in the fetched tree, default to Rule B (narrower/safer): over-narrowing loses a little reach but never creates a wrong-engine false positive.",
+  "_default_note": "If a listing's category is not in the fetched tree, default to Rule B (narrower/safer).",
 
   "include_ancestors": [
-    {"id": "33612", "name": "Car & Truck Engines & Engine Parts", "decision": "include", "confidence": "high", "note": "Core, unambiguous engine parts."}
+    {"id": "33612", "name": "Engines & Engine Parts", "decision": "include", "note": "Core engine parts."},
+    {"id": "33549", "name": "Air & Fuel Delivery", "decision": "include", "note": "Injectors, throttle bodies, intake manifolds, fuel pumps, turbos live here."},
+    {"id": "33687", "name": "Ignition Systems & Components", "decision": "include", "note": "Coils, plugs, distributors."},
+    {"id": "33599", "name": "Engine Cooling Components", "decision": "include", "note": "Owner: ALL cooling incl radiators = engine."},
+    {"id": "262059", "name": "Accessory Belts", "decision": "include", "note": "Engine accessory drive."}
+  ],
+
+  "_rule_a_by_default": [
+    {"id": "33605", "name": "Exhaust & Emission Systems", "note": "Owner-confirmed Rule A."},
+    "33559 Brakes", "33579 Steering & Suspension", "33637 Exterior", "33694 Interior",
+    "33707 Lighting & Lamps", "33726 Transmission & Drivetrain", "33743 Wheels/Tires",
+    "180143 Towing", "262064 ADAS", "262215 Racks & Cargo", "9886 Other"
   ],
 
   "decisions_pending_ids": [
-    {"id": "", "name": "Turbos, Nitrous & Superchargers", "decision": "include", "note": "Owner-confirmed: forced induction = engine."},
-    {"id": "", "name": "Air Intake & Fuel Delivery (injectors, throttle bodies, intake manifolds, fuel pumps)", "decision": "include", "note": "Owner-confirmed."},
-    {"id": "", "name": "Ignition Systems (coils, plugs, distributors)", "decision": "include", "note": "Owner-confirmed."},
-    {"id": "", "name": "Belts, Pulleys & Brackets", "decision": "include", "note": "Owner-confirmed."},
-    {"id": "", "name": "Cooling Systems (radiators, water pumps, thermostats, fans - ALL)", "decision": "include", "note": "Owner-confirmed: ALL cooling incl radiators = engine part (B)."},
-    {"id": "", "name": "Exhaust & Emission Systems", "decision": "exclude", "note": "Owner-confirmed: shared across engines, chassis-fit -> Rule A."},
-    {"id": "", "name": "Sensors", "decision": "decide-at-fetch", "note": "Mixed: engine-management sensors (MAF/O2/crank) -> B; chassis sensors (ABS/parking) -> A. Resolve per subcategory once the tree is fetched."}
+    {"id": "33542", "name": "Air Conditioning & Heating", "decision": "TBD"},
+    {"id": "33572", "name": "Starters, Alternators, ECUs & Wiring", "decision": "TBD"},
+    {"id": "177701", "name": "Electric, Hybrid & PHEV Specific Parts", "decision": "TBD"}
   ],
 
   "exclude_ids": []
