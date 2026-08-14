@@ -94,6 +94,24 @@ rows: **Rule A** = all eBay Models in the chassis × year range; **Rule B** = do
    conventions — reconciling to eBay's Model vocabulary (pull via Taxonomy API) is what makes donor
    lookup and output both unambiguous. This puts the catalog pull on the critical path, not optional.
 
+### 3.2 Donor source & scope (learned live 2026-08-15)
+
+Where the donor vehicle actually comes from, and what's in scope:
+
+- **Two writers populate eBay, neither is us:** **PartOutPro** pushes the structured **compatibility list**
+  (the donor vehicle as fitment) — present on **~9,500 of ~15k** listings, lags/misses new ones.
+  **Dismantly** pushes **item specifics** (Make/Model, VIN, Engine Code, etc.) on **~all** listings.
+- **Donor source A — compatibility list (PartOutPro):** clean Year/Make/Model/Trim, but only ~9,500
+  listings. `ebay_batch.py` reads this today and expands the **BMW** subset.
+- **Donor source B — item specifics (Dismantly):** on ~all listings, but has **Make/Model and no clean
+  Year** — the model year lives only in the **VIN**. To use B we must **decode year from VIN** (10th char).
+  Phase-2 add for the ~5,500 without a compatibility donor.
+- **Scope: BMW-only.** The catalog is multi-make Euro (e.g. Audi Q3 seen live). Our chassis/engine
+  reference is BMW-only, so `ebay_batch.py` **skips non-BMW donors explicitly** ("non-BMW - out of scope").
+  Other makes would each need their own reference data (future).
+- **Fastest/complete option:** a bulk **SKU → donor (Year/Make/Model)** export from PartOutPro or Dismantly
+  would remove ~2 eBay reads per SKU and give full coverage — feed it via a `--donor-file` (to build).
+
 ---
 
 ## 4. Data model

@@ -144,6 +144,9 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led):
 
     donor = sample[0]
     donor_str = f"{donor.get('Year')} {donor.get('Make')} {donor.get('Model')} {donor.get('Trim','')}".strip()
+    if FR._norm(donor.get("Make", "")) != "bmw":
+        return {"sku": sku, "listingId": listing_id, "donor": donor_str, "action": "skip",
+                "reason": f"non-BMW ({donor.get('Make')}) - out of scope (BMW-only reference)"}
     rule, why = classify_rule(category, tree, inc, exc, default)
     lookup, chassis_hint = resolve_lookup(donor, ref)
     try:
