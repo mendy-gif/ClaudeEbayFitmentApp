@@ -50,10 +50,26 @@ PLAN_COLS = ["sku", "listingId", "donor", "rule", "engine", "n_vehicles", "model
 def token(args):
     if getattr(args, "token", None):
         return args.token.strip()
+    try:                                    # preferred: auto-refresh from a refresh token
+        import ebay_auth
+        t = ebay_auth.get_access_token()
+        if t:
+            return t
+    except Exception:                       # noqa: BLE001 - fall back to manual token
+        pass
     p = os.path.join(ROOT, "token.txt")
     if os.path.exists(p):
         return "".join(open(p, encoding="utf-8").read().split())
-    sys.exit("ERROR: no token (token.txt or --token)")
+    sys.exit("ERROR: no token (configure ebay_auth.json, or provide token.txt / --token)")
+
+
+def refresh_token():
+    """Force-mint a new access token mid-run (auto-refresh mode). None if unconfigured."""
+    try:
+        import ebay_auth
+        return ebay_auth.get_access_token(force=True)
+    except Exception:                       # noqa: BLE001
+        return None
 
 
 def api(method, path, tok, body=None):
@@ -264,11 +280,18 @@ def main():
             rows.append({"sku": sku, "action": "skip", "reason": "already in ledger"})
         else:
             r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify)
+            if r["action"] == "auth_error":                  # try to self-heal (auto-refresh mode)
+                nt = refresh_token()
+                if nt and nt != tok:
+                    tok = nt
+                    print(f"  [{i}/{len(skus)}] {sku}: token auto-refreshed, retrying")
+                    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify)
             rows.append(r)
         counts[rows[-1]["action"]] = counts.get(rows[-1]["action"], 0) + 1
         print(f"  [{i}/{len(skus)}] {sku}: {rows[-1]['action']} - {rows[-1].get('reason','')[:80]}")
         if rows[-1]["action"] == "auth_error":
-            print("\n  STOPPING: eBay token rejected mid-run (expired?). Refresh token.txt and re-run.")
+            print("\n  STOPPING: eBay token rejected and no refresh credentials configured.")
+            print("  Temp mode: refresh token.txt and re-run (ledger resumes). Or set up ebay_auth.json (docs sec 7).")
             break
         if live:
             save_ledger(led)

@@ -1,8 +1,12 @@
-# Secrets — never commit eBay tokens or credentials
+# Secrets — never commit eBay/Shopify tokens or credentials
 .env
+*.env
 *.token
 *token*.txt
 ebay_credentials*
+ebay_auth.json
+.ebay_token_cache.json
+shopify.env
 secrets*
 
 # Python

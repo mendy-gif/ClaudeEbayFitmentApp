@@ -314,6 +314,42 @@ smart, easy add — revisit once the one-SKU live write + relist-persistence are
 4. Generate a **user OAuth token** carrying scope `https://api.ebay.com/oauth/api_scope/sell.inventory`, authorizing calls against the seller's own account. (Inventory API needs a *user* token, not an application/client-credentials token.)
 5. Do all first testing in **Sandbox**, then flip to Production keys.
 
+### 7.1 Two token modes (manual vs. auto-refresh)
+
+**Manual (temporary):** paste a fresh user access token into `token.txt`. These expire in **~2 hours**, so a
+full 15k sweep needs re-pasting a few times. The runner preflights the token and **stops loud** on 401 (it no
+longer masquerades as "no published offer"); on stop, refresh `token.txt` and re-run — the ledger resumes.
+
+**Auto-refresh (ongoing — no more pasting).** eBay's user-consent flow also returns a **refresh token**
+(valid ~18 months). With it plus the app's Client ID/Secret, `scripts/ebay_auth.py` mints a fresh 2-hour
+access token on demand (cached in `.ebay_token_cache.json`, re-minted mid-run near expiry). Runner uses it
+automatically when configured, else falls back to `token.txt`.
+
+One-time setup:
+1. In the developer portal, get your **App ID (Client ID)** and **Cert ID (Client Secret)** from the
+   production keyset.
+2. Run the **OAuth user-consent flow** (portal "Get a User Token", or the auth-code flow) with scope
+   `sell.inventory`, log in as the seller, and capture the **refresh token** it returns (not just the access
+   token). The redirect-URL scopes must include everything the runner needs (Inventory writes + the Trading
+   `GetItem` read the guard uses).
+3. Create **`ebay_auth.json`** (gitignored) in the repo root:
+   ```json
+   {"client_id":"App-ID","client_secret":"Cert-ID","refresh_token":"v^1.1#...",
+    "scopes":["https://api.ebay.com/oauth/api_scope/sell.inventory"]}
+   ```
+   or set `EBAY_CLIENT_ID` / `EBAY_CLIENT_SECRET` / `EBAY_REFRESH_TOKEN` as env vars.
+4. Verify: `python3 scripts/ebay_auth.py --check` → "OK - minted an access token…".
+
+### 7.2 Scheduled sweep (`.github/workflows/fitment-sweep.yml`)
+
+A daily GitHub Actions job refreshes the Shopify donor dump (`shopify_donor.py --dump`, needs a Shopify Admin
+`read_products` token) and runs `ebay_batch.py apply --from-shopify --from-inventory --live`, then commits the
+updated dump + ledger back. After the first full sweep this is **cheap**: ledgered SKUs skip before any eBay
+read, so each run only processes genuinely **new** listings — new inventory auto-expands within a day.
+Required repo secrets: `EBAY_CLIENT_ID`, `EBAY_CLIENT_SECRET`, `EBAY_REFRESH_TOKEN`, `SHOPIFY_STORE`,
+`SHOPIFY_TOKEN`. (Until the Shopify token exists, the dump can be refreshed on demand via the Admin API
+connection; the eBay push half runs on the refresh token alone.)
+
 ---
 
 ## 8. Recommended next steps (in order)

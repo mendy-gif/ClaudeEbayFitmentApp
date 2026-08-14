@@ -1,0 +1,70 @@
+name: Fitment sweep
+
+# Ongoing automation (docs/DESIGN.md sec 7-8): on a schedule, refresh the Shopify
+# donor dump and push chassis-family fitment to every live eBay listing that isn't
+# already done. After the first full sweep the ledger makes this cheap — only NEW
+# listings get processed; everything ledgered is an instant skip.
+#
+# Required repository secrets (Settings -> Secrets and variables -> Actions):
+#   EBAY_CLIENT_ID, EBAY_CLIENT_SECRET, EBAY_REFRESH_TOKEN   (eBay auto-refresh)
+#   SHOPIFY_STORE, SHOPIFY_TOKEN                             (donor dump refresh)
+#
+# The eBay access token is minted fresh each run from the refresh token, and again
+# mid-run if it nears expiry — so a multi-hour sweep never dies at the 2-hour wall.
+
+on:
+  schedule:
+    - cron: "0 7 * * *"          # daily 07:00 UTC (~03:00 ET) — quiet hours
+  workflow_dispatch:             # allow manual runs from the Actions tab
+    inputs:
+      limit:
+        description: "Max SKUs to process (blank = all)"
+        required: false
+        default: ""
+
+concurrency:                     # never let two sweeps overlap (they'd double-read)
+  group: fitment-sweep
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 330         # under the 6h job ceiling
+    permissions:
+      contents: write            # commit the refreshed dump + ledger back
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refresh Shopify donor dump
+        env:
+          SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
+          SHOPIFY_TOKEN: ${{ secrets.SHOPIFY_TOKEN }}
+        run: python3 scripts/shopify_donor.py --dump
+
+      - name: Push fitment (live)
+        env:
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: |
+          LIMIT="${{ github.event.inputs.limit }}"
+          python3 scripts/ebay_batch.py apply --from-shopify --from-inventory --live \
+            ${LIMIT:+--limit "$LIMIT"}
+
+      - name: Commit updated dump + ledger
+        run: |
+          git config user.name  "fitment-bot"
+          git config user.email "fitment-bot@users.noreply.github.com"
+          git add data/shopify_donors.json data/pushed_ledger.json data/batch_plan.csv
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "Automated fitment sweep: refresh dump + ledger [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+          fi
