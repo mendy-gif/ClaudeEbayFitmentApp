@@ -44,7 +44,7 @@ from ebay_inspect import trading_getitem_compat  # noqa: E402
 BASE = "https://api.ebay.com"
 LEDGER = os.path.join(ROOT, "data", "pushed_ledger.json")
 PLAN = os.path.join(ROOT, "data", "batch_plan.csv")
-PLAN_COLS = ["sku", "listingId", "donor", "rule", "engine", "n_vehicles", "models", "action", "reason"]
+PLAN_COLS = ["sku", "listingId", "donor", "rule", "engine", "n_vehicles", "sources", "models", "action", "reason"]
 
 
 def token(args):
@@ -94,6 +94,23 @@ def api(method, path, tok, body=None):
         return None, {"_transport_error": str(e)}
 
 
+def load_partnumber_fitment(path):
+    """Approach-2 part-number history -> {sku: set((year:int, make, ebay_model))}.
+    Drops STOCK-prefixed guids (not live eBay SKUs) and UNMAPPED model rows."""
+    out = {}
+    with open(path, encoding="utf-8") as f:
+        for r in csv.DictReader(f):
+            guid = (r.get("guid") or "").strip()
+            if not guid or guid.upper().startswith("STOCK"):
+                continue
+            if (r.get("mapping_flag") or "").upper() == "UNMAPPED":
+                continue
+            y, mk, md = (r.get("year") or "").strip(), (r.get("make") or "").strip(), (r.get("ebay_model") or "").strip()
+            if y.isdigit() and mk and md:
+                out.setdefault(guid, set()).add((int(y), mk, md))
+    return out
+
+
 def load_ledger():
     return json.load(open(LEDGER, encoding="utf-8")) if os.path.exists(LEDGER) else {}
 
@@ -141,7 +158,45 @@ def resolve_lookup(donor, reference):
     return model, None
 
 
-def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify=None):
+def _chassis_expand(sku, shopify, sd, n_trad, sample, terr, rule, ref, emap, ebay):
+    """Determine the chassis-rule expansion for a SKU. Returns (res, donor_str, fail):
+    res is the expand() dict (may be not-ok), or None if chassis couldn't be attempted;
+    fail is (action, reason) when there's no chassis basis at all, else None. The caller
+    suppresses `fail` when part-number rows exist (union still has something to push)."""
+    if shopify is not None:                              # ---- Shopify donor path ----
+        if not sd:
+            return None, "", ("skip", "no Shopify donor for SKU")
+        make, model, series = sd.get("make"), sd.get("model"), sd.get("series")
+        donor_str = f"{make} {model} [{series}]".strip()
+        if FR._norm(make or "") != "bmw":
+            return None, donor_str, ("skip", f"non-BMW ({make}) - out of scope (BMW-only reference)")
+        row, note = FR.resolve_chassis(series, model, ref)
+        if not row:
+            return None, donor_str, ("review", f"unresolved chassis: {note}")
+        try:
+            res = FR.expand_from_chassis(row["chassis_code"], rule, ref, emap, ebay,
+                                         engine=sd.get("engine_family"), donor_model=model)
+        except Exception as e:  # noqa: BLE001
+            return None, donor_str, ("skip", f"expand error: {e}")
+        return res, donor_str, None
+    # ---- eBay Trading donor path ----
+    if n_trad is None:
+        return None, "", ("skip", f"trading read failed: {terr}")
+    if n_trad == 0:
+        return None, "", ("skip", "no donor vehicle on listing")
+    donor = sample[0]
+    donor_str = f"{donor.get('Year')} {donor.get('Make')} {donor.get('Model')} {donor.get('Trim','')}".strip()
+    if FR._norm(donor.get("Make", "")) != "bmw":
+        return None, donor_str, ("skip", f"non-BMW ({donor.get('Make')}) - out of scope (BMW-only reference)")
+    lookup, chassis_hint = resolve_lookup(donor, ref)
+    try:
+        res = FR.expand(lookup, int(donor["Year"]), rule, ref, emap, ebay, chassis_hint=chassis_hint)
+    except Exception as e:  # noqa: BLE001
+        return None, donor_str, ("skip", f"expand error: {e}")
+    return res, donor_str, None
+
+
+def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify=None, pnf=None):
     s, off = api("GET", f"/sell/inventory/v1/offer?{urllib.parse.urlencode({'sku': sku})}", tok)
     offers = off.get("offers", []) if s == 200 else []
     if s in (401, 403):
@@ -163,54 +218,52 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
 
     sd = (shopify or {}).get(str(sku)) or (shopify or {}).get(sku)
     rule, why = classify_rule(category, tree, inc, exc, default)
+    pn_rows = [{"Year": y, "Make": mk, "Model": md} for (y, mk, md) in (pnf or {}).get(sku, ())]
 
-    if shopify is not None:                          # ---- Shopify donor path ----
-        if not sd:
-            return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": "no Shopify donor for SKU"}
-        make, model, series = sd.get("make"), sd.get("model"), sd.get("series")
-        eng = sd.get("engine_family")
-        donor_str = f"{make} {model} [{series}]".strip()
-        if FR._norm(make or "") != "bmw":
-            return {"sku": sku, "listingId": listing_id, "donor": donor_str, "action": "skip",
-                    "reason": f"non-BMW ({make}) - out of scope (BMW-only reference)"}
-        row, note = FR.resolve_chassis(series, model, ref)
-        if not row:
-            return {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule,
-                    "action": "review", "reason": f"unresolved chassis: {note}"}
-        try:
-            res = FR.expand_from_chassis(row["chassis_code"], rule, ref, emap, ebay,
-                                         engine=eng, donor_model=model)
-        except Exception as e:  # noqa: BLE001
-            return {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule, "action": "skip", "reason": f"expand error: {e}"}
-    else:                                            # ---- eBay Trading donor path ----
-        if n_trad is None:
-            return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": f"trading read failed: {terr}"}
-        if n_trad == 0:
-            return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": "no donor vehicle on listing"}
-        donor = sample[0]
-        donor_str = f"{donor.get('Year')} {donor.get('Make')} {donor.get('Model')} {donor.get('Trim','')}".strip()
-        if FR._norm(donor.get("Make", "")) != "bmw":
-            return {"sku": sku, "listingId": listing_id, "donor": donor_str, "action": "skip",
-                    "reason": f"non-BMW ({donor.get('Make')}) - out of scope (BMW-only reference)"}
-        lookup, chassis_hint = resolve_lookup(donor, ref)
-        try:
-            res = FR.expand(lookup, int(donor["Year"]), rule, ref, emap, ebay, chassis_hint=chassis_hint)
-        except Exception as e:  # noqa: BLE001
-            return {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule, "action": "skip", "reason": f"expand error: {e}"}
-    if not res["ok"]:
-        reason = "ambiguous donor" if res.get("ambiguous") else res["reason"]
+    res, donor_str, fail = _chassis_expand(sku, shopify, sd, n_trad, sample, terr, rule, ref, emap, ebay)
+    # A chassis basis is missing entirely. Return that verdict UNLESS part-number rows
+    # exist for this SKU, in which case fall through and push those (the pn-only rescue).
+    if fail and not pn_rows:
+        action, reason = fail
+        d = {"sku": sku, "listingId": listing_id, "action": action, "reason": reason}
+        if donor_str:
+            d["donor"] = donor_str
+        if action == "review":
+            d["rule"] = rule
+        return d
+    if res is None:
+        res = {"ok": False, "reason": fail[1] if fail else "no chassis", "rows": []}
+    chassis_ok = res["ok"]
+    chassis_rows = res["rows"] if chassis_ok else []
+    if not chassis_ok and not pn_rows:                    # chassis attempted but ambiguous/empty
+        reason = "ambiguous donor" if res.get("ambiguous") else res.get("reason", "")
         return {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule, "action": "review", "reason": reason}
 
-    row = {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule,
-           "engine": ",".join(res.get("donor_engines") or []), "n_vehicles": len(res["rows"]),
-           "models": ",".join(res["models"]), "action": "push", "reason": why}
+    combined, seen = [], set()                            # dedupe on the full tuple
+    for r in chassis_rows + pn_rows:
+        key = (r["Year"], r["Make"], r["Model"], r.get("Trim"))
+        if key not in seen:
+            seen.add(key)
+            combined.append(r)
+
+    sources = (["chassis"] if chassis_rows else []) + (["pn"] if pn_rows else [])
+    models_used = sorted({r["Model"] for r in combined})
+    note = why if chassis_rows else "part-number only"
+    if chassis_rows and pn_rows:
+        note += f" (+{len(pn_rows)} part# rows)"
+    row = {"sku": sku, "listingId": listing_id, "donor": donor_str,
+           "rule": rule if chassis_rows else "-",
+           "engine": ",".join(res.get("donor_engines") or []) if chassis_ok else "",
+           "n_vehicles": len(combined), "sources": "+".join(sources),
+           "models": ",".join(models_used), "action": "push", "reason": note}
 
     if live:
-        payload = rows_to_payload(res["rows"])
+        payload = rows_to_payload(combined)
         st, resp = api("PUT", f"/sell/inventory/v1/inventory_item/{urllib.parse.quote(sku, safe='')}/product_compatibility", tok, payload)
         if st in (200, 201, 204):
             row["action"] = "pushed"
-            led[sku] = {"listingId": listing_id, "rule": rule, "n": len(res["rows"]), "models": res["models"]}
+            led[sku] = {"listingId": listing_id, "rule": rule if chassis_rows else "-",
+                        "n": len(combined), "models": models_used, "src": sources}
         else:
             row["action"] = "error"
             row["reason"] = f"PUT HTTP {st}: {json.dumps(resp)[:160]}"
@@ -230,6 +283,8 @@ def main():
     ap.add_argument("--from-inventory", action="store_true")
     ap.add_argument("--from-shopify", action="store_true",
                     help="donor = Shopify dump (data/shopify_donors.json); classification still by eBay category")
+    ap.add_argument("--partnumber-fitment", metavar="CSV",
+                    help="union in Approach-2 part-number history (e.g. spreadsheet-fitment/data/built/ebay_ready_fitment.csv)")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--live", action="store_true")
     ap.add_argument("--sleep", type=float, default=0.3, help="seconds between SKUs (rate-limit pacing)")
@@ -260,6 +315,11 @@ def main():
             sys.exit("ERROR: --from-shopify needs data/shopify_donors.json (run: python3 scripts/shopify_donor.py --dump)")
         shopify = json.load(open(sp, encoding="utf-8"))
 
+    pnf = None
+    if args.partnumber_fitment:
+        pnf = load_partnumber_fitment(args.partnumber_fitment)
+        print(f"  part-number fitment: {len(pnf)} SKU(s), {sum(len(v) for v in pnf.values())} rows loaded")
+
     if args.mode == "audit":
         return run_audit(tok, ref, emap, ebay, tree, inc, exc, default, led, args, live)
 
@@ -276,16 +336,20 @@ def main():
           f"  |  {len(skus)} SKU(s)  |  ledger has {len(led)}")
     rows, counts = [], {}
     for i, sku in enumerate(skus, 1):
-        if sku in led and args.mode == "apply":
+        # Skip ledgered SKUs, UNLESS part-number rows exist that weren't applied yet
+        # (so the combined run can add Approach-2 fitment to chassis-only pushes).
+        entry = led.get(sku) if args.mode == "apply" else None
+        pn_pending = bool(pnf) and sku in pnf and "pn" not in set((entry or {}).get("src", []))
+        if entry and not pn_pending:
             rows.append({"sku": sku, "action": "skip", "reason": "already in ledger"})
         else:
-            r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify)
+            r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf)
             if r["action"] == "auth_error":                  # try to self-heal (auto-refresh mode)
                 nt = refresh_token()
                 if nt and nt != tok:
                     tok = nt
                     print(f"  [{i}/{len(skus)}] {sku}: token auto-refreshed, retrying")
-                    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify)
+                    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf)
             rows.append(r)
         counts[rows[-1]["action"]] = counts.get(rows[-1]["action"], 0) + 1
         print(f"  [{i}/{len(skus)}] {sku}: {rows[-1]['action']} - {rows[-1].get('reason','')[:80]}")
