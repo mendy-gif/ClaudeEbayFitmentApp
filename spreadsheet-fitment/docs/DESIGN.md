@@ -1,56 +1,66 @@
-# Design — Spreadsheet-Driven Fitment
+# Design — Part-Number-Driven Fitment
 
 ## Goal
 
-Same end goal as the main rule-based project — accurate vehicle compatibility on eBay listings —
-but sourced from a **human-maintained spreadsheet** instead of chassis-code rules.
+Same end goal as the main rule-based project — accurate vehicle compatibility on eBay
+listings — but learned from **our own historical part usage** instead of chassis-code
+rules.
 
 ## Why this approach exists alongside the rule-based one
 
-- **Rule-based (main project):** fast and hands-off, but only as right as the rules. Good for parts
-  that follow clean chassis-family logic.
-- **Spreadsheet (this folder):** slower to fill in, but you have exact control. Good for oddball
-  parts, one-offs, and anything the rules get wrong. Also usable as the source of truth we check the
-  rules *against*.
+- **Rule-based (main project):** fast, hands-off, only as right as the rules.
+- **Part-number-driven (this folder):** learns from real data. Every time a part came off
+  a car, that's evidence the part fits that car. Aggregate the evidence per part number
+  and you get a fitment table grounded in what we've actually handled.
 
-They are not competitors — this spreadsheet can be where a human corrects or overrides the automatic
-result.
+They're complementary: this can confirm or correct the rules, and covers oddball parts the
+rules miss.
 
-## Data format (the contract)
+## Data model
 
-One flat table. **One row = one (part, vehicle) pair.** Columns:
+**Observation:** one (part number, vehicle) pair, extracted from an inventory row.
+**Fitment table:** `part_number_7 -> { (year, make, model), ... }` — the union of all
+vehicles observed for that part. 11-digit forms are retained for matching.
 
-| Column       | Required | Notes                                                        |
-|--------------|----------|--------------------------------------------------------------|
-| `sku`        | yes      | Matches the listing's SKU / custom label on eBay.            |
-| `part_title` | no       | Human reference only; never sent to eBay.                    |
-| `year`       | yes      | Single year per row (keeps eBay compatibility unambiguous).  |
-| `make`       | yes      | e.g. `BMW`.                                                  |
-| `model`      | yes      | e.g. `328i`.                                                 |
-| `trim`       | no       | Blank = fits all trims for that year/model.                 |
-| `engine`     | no       | Blank = fits all engines.                                   |
-| `notes`      | no       | Buyer-facing fitment note (e.g. "driver side").             |
+Join key is the **7-digit** part number (the universal form). See README for the
+part-number rule and cell-parsing details (multi-part cells, BMW spacing).
 
-Multiple compatible vehicles for one part are expressed as multiple rows sharing the same `sku`.
+## Pipeline
 
-This lines up with eBay's parts-compatibility model (Year / Make / Model / Trim / Engine + notes),
-so the push step is a direct mapping with no guesswork.
+1. **build_fitment_table.py** — inventory workbook → `fitment_by_partnumber.csv`.
+   Sheets `Small Parts` + `Sold`; part columns `Part #` / `Part # (2)`; vehicle from the
+   `Car` column (`2014 BMW 228i`).
+2. **enrich_listings.py** — listings CSV → `listing_fitment_to_add.csv`. Matches on
+   `oeoempartnumber` (7-digit) + `manufacturerpartnumber` (11-digit).
+3. **reconcile_models.py** — → `ebay_ready_fitment.csv`. Maps each model to eBay's
+   catalog string using `../../data/ebay_bmw_models.json`.
+4. **push_to_ebay.py** — → eBay Trading API `ReviseFixedPriceItem` with an
+   `ItemCompatibilityList`, keyed by listing SKU. Dry-run by default.
 
-## Planned steps (not built yet)
+## eBay-catalog reconciliation (step 3, the crux)
 
-### 1. Validate (`validate_mapping.py` — to build)
-Reads the spreadsheet and flags rows that would fail on eBay:
-- missing `sku`, `year`, `make`, or `model`
-- `year` not a plausible 4-digit year
-- duplicate identical rows
-Outputs a simple "these rows need fixing" report. Changes nothing.
+eBay validates fitment against its own vehicle catalog; free-text like `340xi` or `X5M`
+is rejected. Mapping rules, applied in order:
 
-### 2. Push to eBay (`push_fitment.py` — to build)
-Groups rows by `sku`, turns each group into a compatibility list, and sends it to the listing via
-eBay's API. This can reuse the eBay auth/writer learnings from the main project's `docs/EBAY_SETUP.md`
-without importing its rule logic.
+| Rule | Example |
+|------|---------|
+| exact (case/space normalize) | `535I` → `535i` |
+| `###xi` → `###i xDrive` | `340xi` → `340i xDrive` |
+| `M###xi` → `M###i xDrive` | `M240xi` → `M240i xDrive` |
+| `X#M` → base `X#` (M becomes a Trim, dropped here) | `X5M` → `X5` |
+| small manual table | `M550i` → `M550i xDrive`, `750xi` → `750i xDrive` |
 
-## Explicitly out of scope here
+On the current data this reconciles 100% of matched rows to a valid eBay Model.
 
-- No chassis-code rules. If we want automatic suggestions, they come *from* the main project and get
-  pasted in for a human to confirm — this folder stays the human-controlled source of truth.
+## Known limits / next work
+
+- **Year-within-model validation.** Reconciliation validates the Model name, not that the
+  model existed in the row's year. eBay enforces this at submit; step 4 reports per-listing
+  rejections. A pre-check could call the Taxonomy API `getCompatibilityPropertyValues`
+  filtered by year and drop invalid pairs before pushing.
+- **Trim precision.** We push Year/Make/Model only. M-SUV parts mapped to the base model
+  can over-broaden; adding Trim/Engine would tighten this but needs valid eBay trim strings.
+- **Data trust.** A part mis-logged on the wrong donor injects a wrong vehicle; volume
+  dilutes it. A "seen only once" flag could mark low-confidence entries.
+- **Auth.** `--live` needs an eBay OAuth user token with the sell scope — reuse the setup
+  in the main project's `docs/EBAY_SETUP.md`.

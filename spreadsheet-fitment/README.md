@@ -1,61 +1,83 @@
-# Spreadsheet-Driven Fitment (Approach 2)
+# Part-Number-Driven Fitment (Approach 2)
 
-This is a **second, independent approach** to the same goal as the main project: getting good
-vehicle-fitment (compatibility) data onto our eBay listings.
+A second, independent approach to the same goal as the main project: getting accurate
+vehicle-fitment (compatibility) onto our eBay listings.
 
-- The **main project** (in the repo's top-level `docs/`, `scripts/`, and `data/` folders) does this
-  **automatically**, using BMW chassis-code rules.
-- **This folder** does it a different way: **you control the fitment by hand in a spreadsheet.**
-  Instead of the computer guessing which vehicles a part fits, you type it into a simple table.
+- The **main project** (top-level `docs/`, `scripts/`, `data/`) does this with **BMW
+  chassis-code rules**.
+- **This folder** does it from **your own historical data**: it learns which vehicles a
+  part fits by looking at every car that part has actually come off of, then applies that
+  to any listing carrying the same part number.
 
-Nothing in this folder touches or changes the main project. The two live side-by-side so we can
-compare them.
+Nothing here touches the main project. They share one thing — the main project's
+`data/ebay_bmw_models.json` (eBay's official BMW model list), which this pipeline reuses
+to make sure the fitment we push matches eBay's catalog.
 
-## The idea in one sentence
+## The idea in one line
 
-You keep one spreadsheet where **each row says "this part (SKU) fits this vehicle."** When you're
-happy with it, that spreadsheet becomes the fitment we push to eBay.
+**If a part number shows up on 12 different cars in our history, that part fits those 12
+cars — so add that fitment to every listing with that part number.**
 
-## How the spreadsheet works
+## The pipeline (4 steps)
 
-Open **`data/fitment_mapping_template.xlsx`** (works in Excel or Google Sheets). It has one row of
-example data so you can see the shape. The columns are:
+```
+Inventory.xlsx ──①──> fitment_by_partnumber.csv ──②──> listing_fitment_to_add.csv
+                                                          │
+                                    eBay listings CSV ────┘
+                                                          │
+                        ③ reconcile models to eBay's catalog
+                                                          ▼
+                                   ebay_ready_fitment.csv ──④──> eBay (Trading API)
+```
 
-| Column      | What to put there                                    | Example              |
-|-------------|------------------------------------------------------|----------------------|
-| `sku`       | Your eBay listing's SKU / custom label               | `BMW-E90-HEADLIGHT-01` |
-| `part_title`| A short note to yourself (not sent to eBay)          | `E90 LH headlight`   |
-| `year`      | The vehicle's year the part fits                     | `2008`               |
-| `make`      | Vehicle make                                         | `BMW`                |
-| `model`     | Vehicle model                                        | `328i`               |
-| `trim`      | Trim (optional; leave blank if it fits all trims)    | `Base`               |
-| `engine`    | Engine (optional)                                    | `3.0L L6`            |
-| `notes`     | Fitment note shown to the buyer (optional)           | `Left/driver side`   |
+| # | Script | What it does |
+|---|--------|--------------|
+| 1 | `scripts/build_fitment_table.py` | Reads the inventory workbook (Sold + Small Parts), aggregates every part number → the set of vehicles it's been seen on. |
+| 2 | `scripts/enrich_listings.py` | For each live listing, matches its part number and lists the vehicles to add. |
+| 3 | `scripts/reconcile_models.py` | Rewrites each model to eBay's exact catalog spelling (e.g. `340xi` → `340i xDrive`, `X5M` → `X5`). |
+| 4 | `scripts/push_to_ebay.py` | Builds the eBay compatibility request and (with `--live` + a token) applies it. **Dry-run by default.** |
 
-**One part that fits several vehicles = several rows** with the same `sku`. For example, a headlight
-that fits 2007–2011 BMW 328i is five rows (one per year), all with the same SKU.
+`scripts/fitment_common.py` holds the shared part-number logic.
 
-There's also a `data/fitment_mapping_template.csv` — the exact same thing as a plain file, in case
-you prefer that.
+## The part-number rule (BMW)
 
-## The workflow (what happens, step by step)
+BMW part numbers are 11 digits, but the **last 7** are what's on the part and what people
+use. The pipeline keys everything on the **7-digit** form and keeps any 11-digit forms
+alongside, so a listing matches whether it carries the 7- or 11-digit number. A single
+cell may hold several numbers (`2284132, 2284137`) and BMW spacing/dashes
+(`63.21-8 383 099`) — all handled.
 
-1. **You fill in the spreadsheet** — one row per part-fits-vehicle.
-2. **A checking step** looks over your spreadsheet for obvious mistakes (missing SKU, blank year,
-   etc.) and tells you which rows to fix. *(To be built — see `docs/DESIGN.md`.)*
-3. **A push step** sends the finished list to eBay as compatibility on each listing.
-   *(To be built.)*
+## How to run it
 
-Steps 2 and 3 are code that will be added here later, in **this** folder, without affecting the main
-project.
+```bash
+cd spreadsheet-fitment/scripts
 
-## What's here now
+# 1. build the table from your inventory export
+python3 build_fitment_table.py --inventory /path/to/Inventory.xlsx \
+    --out ../data/fitment_by_partnumber.csv
 
-- `data/fitment_mapping_template.xlsx` — the spreadsheet to fill in (with one example row)
-- `data/fitment_mapping_template.csv` — the same template as a plain file
-- `docs/DESIGN.md` — the plan for the checking and push steps
+# 2. match it to your eBay listings export
+python3 enrich_listings.py --listings /path/to/listings.csv \
+    --table ../data/fitment_by_partnumber.csv --out ../data/listing_fitment_to_add.csv
 
-## What's *not* built yet (on purpose)
+# 3. reconcile models to eBay's catalog
+python3 reconcile_models.py --in ../data/listing_fitment_to_add.csv \
+    --catalog ../../data/ebay_bmw_models.json --out ../data/ebay_ready_fitment.csv
 
-The checking step and the eBay push step. We start with the spreadsheet format so you can begin
-entering data right away; the automation gets added on top once the format feels right to you.
+# 4. preview what would be pushed (nothing is sent)
+python3 push_to_ebay.py --in ../data/ebay_ready_fitment.csv
+#    ...and when ready, with an eBay token (see ../../docs/EBAY_SETUP.md):
+python3 push_to_ebay.py --in ../data/ebay_ready_fitment.csv --live
+```
+
+Requires `openpyxl` (`pip install openpyxl`). The generated `.csv` files and any raw
+source data are **git-ignored** (they hold business data and are reproducible).
+
+## Known limits (see `docs/DESIGN.md`)
+
+- **Year-within-model** isn't pre-validated — eBay checks that a model existed in a given
+  year at submit time and rejects invalid pairs; step 4 reports those per listing.
+- **M-trim on SUVs** (`X5M`) is mapped to the base model (`X5`); the "M" distinction is
+  dropped, which can over-broaden a genuinely M-only part.
+- The table trusts the source data: a part logged on the wrong donor once will carry that
+  vehicle. High volume averages this out.

@@ -1,0 +1,11 @@
+# Keep the templates, but never commit raw source data or generated outputs
+# (they contain business/inventory data and are reproducible from the scripts).
+fitment_by_partnumber.csv
+listing_fitment_to_add.csv
+ebay_ready_fitment.csv
+*.xlsx
+!fitment_mapping_template.xlsx
+Inventory*.xlsx
+Suredone*.csv
+SuredoneAll*.csv
+token.txt
