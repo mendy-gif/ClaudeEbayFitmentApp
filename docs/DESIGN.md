@@ -18,7 +18,7 @@
 |---|----------|----------|
 | 1 | Does Rule B need a per-trim year table? | **No.** Reuse the chassis year range; eBay drops phantom years automatically. One reference table total. |
 | 2 | Does compatibility survive Dismantly's relist? | **Yes, *if* the listing is an Inventory-API item and the SKU is reused** — because compatibility is stored at the SKU/inventory-item level, not the Item ID. Needs one Sandbox confirmation. |
-| 3 | One-time push or continuously running? | **Continuously running (confirmed live, §5.2).** Dismantly's relist wipes SKU-level compatibility, so fitment must be re-applied every ~40–60 day cycle via a scheduled watcher. Write path unchanged (SKU stays an Inventory item). |
+| 3 | One-time push or continuously running? | **One-time push per SKU (confirmed live, §5.2).** Dismantly's relist carries our compatibility forward (Trading store), so we write once. Caveat: verify via the Trading store, not `getProductCompatibility` (reads 0 post-relist). |
 | 4 | How to store/maintain the reference data? | **A single versioned data file (CSV/JSON) in this repo**, one row per chassis code. Small enough that a database is overkill; git gives us history and review. |
 | 5 | eBay API setup | Self-serve developer account → keyset → compliance step → **user** OAuth token with `sell.inventory` scope. See §7. |
 
@@ -151,17 +151,25 @@ eBay has two separate listing worlds, and the compatibility endpoint only reache
 
 ### 5.2 Persistence across relist (Open Questions #2 & #3)
 
-> **✅ RESOLVED LIVE 2026-08-15 — does NOT survive; recurring job required.** Real test on SKU `1194`:
-> after our write (10 vehicles live), the listing was ended in Dismantly and resent to eBay. `ebay_inspect.py`
-> on the new listing: `getInventoryItem` = **HTTP 200 (still an Inventory item)**, but
-> `getProductCompatibility` = **HTTP 404 / 0 vehicles** — the relist **cleared our compatibility** (Dismantly
-> recreates the inventory record, same SKU, new listingId `407144851193`, no fitment). So this is a
-> **permanently-running system**: fitment must be **re-applied after each ~40–60 day relist**. The good news —
-> the SKU stays an Inventory item, so the write path (§5.1 Path A) is unchanged; only cadence changes. The
-> apply pipeline becomes a **scheduled, idempotent watcher** (scan active SKUs → any with empty/donor-only
-> compatibility → (re)apply). **Open follow-up:** does Dismantly re-push its own donor fitment post-relist and
-> could it overwrite ours? → the watcher must run *after* Dismantly's sync, or frequently enough to win. Worth
-> watching SKU 1194 over the next hour to see if Dismantly repopulates it.
+> **✅ RESOLVED LIVE 2026-08-15 — SURVIVES; one-time push per SKU is viable.** Real test on SKU `1194`:
+> wrote 10 vehicles → ended in Dismantly → resent to eBay (new item `407144851193`). Reading **both**
+> compatibility stores on the new item (`ebay_inspect.py`):
+> - **Inventory store** (`getProductCompatibility`, by SKU) = **0 vehicles**
+> - **Trading store** (`GetItem` `ItemCompatibilityList`, by ItemID) = **10 vehicles — our exact expansion**,
+>   and it's what the listing page displays and what buyers search.
+>
+> So the compatibility **did not get cleared** — Dismantly's relist **carried it forward** into the new item
+> at the Trading level. `getProductCompatibility` just can't see the Trading store, which is why it read 0.
+> **=> Push once per SKU; it persists across relists. This is a one-time backfill, not a recurring re-apply.**
+>
+> **Two consequences for the batch runner (§8):**
+> 1. **"Already done?" and donor detection must read the TRADING store** (`GetItem` `ItemCompatibilityList`),
+>    NOT `getProductCompatibility` — the Inventory read returns 0 after any relist and would falsely say
+>    "needs fitment." Best: keep our **own ledger of pushed SKUs** (push new ones once) + periodic Trading-read
+>    audit to confirm persistence.
+> 2. **`ebay_writer.py --detect` currently reads the Inventory store** for the donor, so it works on a
+>    never-relisted listing but returns nothing on a relisted one. Add a Trading-store fallback so `--detect`
+>    finds the donor either way.
 
 - **Inventory API (as documented):** compatibility is stored on the **inventory item (SKU)** and applied at
   `publishOffer`. The docs suggested a same-SKU relist *might* keep it — **the live test above shows Dismantly's
@@ -297,7 +305,7 @@ smart, easy add — revisit once the one-SKU live write + relist-persistence are
 ## Appendix: answers to the five open questions
 
 1. **Rule B precision / trim table?** No table. Reuse chassis year range; eBay drops phantom years (partial-acceptance validation). Trim ≠ needed because for engine parts the donor's trim already = the engine.
-2. **Does compatibility survive relist?** **No — confirmed live 2026-08-15 (§5.2).** Dismantly's end-and-resend recreates the inventory record and clears compatibility (SKU stays an Inventory item, but `getProductCompatibility` → 404/0). Must re-apply per relist.
-3. **One-time or continuous?** **Continuous** — a scheduled, idempotent watcher re-applies fitment to SKUs whose compatibility is empty/donor-only after each relist. Write path (Path A) unchanged.
+2. **Does compatibility survive relist?** **Yes — confirmed live 2026-08-15 (§5.2).** Dismantly carries it forward to the new item at the Trading level (10/10 vehicles survived). `getProductCompatibility` reads 0 post-relist only because the surviving copy is in the Trading store, not the SKU store.
+3. **One-time or continuous?** **One-time push per SKU.** It persists across relists. Batch runner tracks a ledger of pushed SKUs and reads the **Trading** store (not `getProductCompatibility`) to check state.
 4. **How to store the reference data?** Single versioned CSV/JSON in-repo, one row per chassis; annual + ad-hoc review. No database needed at this size.
 5. **eBay API setup?** Dev account → keyset → compliance step → user OAuth token with `sell.inventory`. Sandbox first. See §7.
