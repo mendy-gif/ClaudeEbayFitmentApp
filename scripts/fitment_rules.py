@@ -92,7 +92,10 @@ def find_chassis_candidates(model, year, reference, body_hint=None, chassis_hint
     model_n = _norm(model)
     out = []
     for row in reference:
-        if model_n not in {_norm(t) for t in row.get("trims", [])}:
+        trims_n = {_norm(t) for t in row.get("trims", [])}
+        plate = nameplate_of(row)
+        # Match on a trim badge (sedans) OR the nameplate itself (X/i/Z donors given as "X5").
+        if model_n not in trims_n and not (plate and _norm(plate) == model_n):
             continue
         start = row.get("us_start_year")
         end = row.get("us_end_year") or MAX_YEAR

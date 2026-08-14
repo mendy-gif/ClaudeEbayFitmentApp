@@ -310,7 +310,15 @@ smart, easy add — revisit once the one-SKU live write + relist-persistence are
    listing; `--category` auto-classifies Rule A/B. **Remaining to go live:** (a) a token with the
    `sell.inventory` **write** scope (a one-line scope change vs. the read-only tokens used so far);
    (b) the relist-persistence check — write compatibility to one real SKU, confirm it survives Dismantly's
-   relist. That live one-SKU write is the safest first production test.
+   relist. That live one-SKU write is the safest first production test. **✅ Both done: SKU 1194 written
+   live (HTTP 200) and survived a relist (§5.2).**
+8. ~~**Build the batch runner.**~~ **✅ BUILT 2026-08-15** — `scripts/ebay_batch.py`. `plan` (default) is a
+   dry-run producing `data/batch_plan.csv`; `apply --live` writes and records a `data/pushed_ledger.json`
+   (skips done SKUs, resumable); `audit` Trading-reads pushed SKUs and re-pushes any that lost fitment.
+   Reads donor + state from the **Trading** store (survives relist), writes via the Inventory API. Handles
+   badge and nameplate (X/i/Z) donors; ambiguous/edge donors go to a `review` bucket instead of a bad push.
+   **Remaining = operate it:** dry-run a small batch → review CSV → `apply --live` in batches → scale →
+   periodic `audit`. Optionally schedule it (GitHub Actions) to catch genuinely-new SKUs.
 
 ---
 
