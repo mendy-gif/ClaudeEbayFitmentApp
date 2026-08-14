@@ -191,6 +191,14 @@ The pipeline is fully mechanical *except* deciding whether a listing is an engin
 
 **Dependency (accepted):** classification is exactly as good as Dismantly's category assignment. Confirmed clean and consistent across the catalog, which is what lets us rely on category alone. Still worth a quick early look at the category distribution to confirm nothing lands in a generic "Other Parts" bucket at scale.
 
+**Implementation (2026-08-15):** `scripts/ebay_fetch_categories.py` pulls eBay's Motors parts subtree
+(Taxonomy API `getCategorySubtree`, tree 100) → `data/ebay_motors_categories.json`.
+`data/rule_b_categories.json` is the one judgment artifact: engine-branch ancestor IDs to **include** as
+Rule B (seeded with `33612`), plus candidate accessory branches (turbos, fuel/intake, ignition, belts,
+cooling, exhaust) to decide include/exclude, and an `exclude_ids` override. `scripts/classify_part.py`
+then classifies any `categoryId` by ancestry — Rule B if under an included engine branch, else Rule A,
+default Rule B when a category is unknown. Pure lookup; no keyword matching.
+
 ### 6.2 Data quality
 
 Only a subset of the ~110 chassis rows are verified against the US-sold-year standard. Spot-check `verified=false` rows before a mass push; the padding tolerance and eBay's broad-fitment model make small year errors low-consequence, but a wholesale-wrong chassis range is not.

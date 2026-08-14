@@ -1,0 +1,22 @@
+{
+  "_comment": "The ONE judgment in the pipeline: which eBay category branches count as ENGINE parts (Rule B). A listing whose categoryId is a descendant of any 'include' ancestor -> Rule B (fitment restricted to the donor's engine). Everything else -> Rule A (whole chassis family). 'exclude' ids override include (forced Rule A). See docs/DESIGN.md sec 6.1. Fill the candidate IDs after running scripts/ebay_fetch_categories.py, then decide include/exclude with the owner.",
+
+  "default_when_category_unknown": "B",
+  "_default_note": "If a listing's category is not in the fetched tree, default to Rule B (narrower/safer): over-narrowing loses a little reach but never creates a wrong-engine false positive.",
+
+  "include_ancestors": [
+    {"id": "33612", "name": "Car & Truck Engines & Engine Parts", "decision": "include", "confidence": "high", "note": "Core, unambiguous engine parts (complete engines, heads, pistons, crankshafts, camshafts, timing, oil pans, valve covers, gaskets, etc.)."}
+  ],
+
+  "candidate_ancestors_to_decide": [
+    {"id": "", "name": "Turbos, Nitrous & Superchargers", "recommend": "include", "reason": "Forced induction is engine-specific."},
+    {"id": "", "name": "Air Intake & Fuel Delivery (fuel injectors, throttle bodies, intake manifolds, fuel pumps)", "recommend": "include-mostly", "reason": "Injectors/throttle bodies/intake manifolds are engine-tied; fuel tanks/lines are more chassis-shared - may split."},
+    {"id": "", "name": "Ignition Systems (coils, plugs, distributors)", "recommend": "include", "reason": "Engine-specific, though some plugs are near-universal."},
+    {"id": "", "name": "Belts, Pulleys & Brackets", "recommend": "include", "reason": "Accessory drive is engine-specific."},
+    {"id": "", "name": "Cooling Systems (radiators, water pumps, thermostats)", "recommend": "split", "reason": "Water pumps/thermostats are engine-specific; radiators are often model/chassis-shared - consider excluding radiators, including water pumps."},
+    {"id": "", "name": "Exhaust & Emission Systems", "recommend": "exclude", "reason": "Exhaust/cats are chassis/model-fitment, shared across engines - Rule A."},
+    {"id": "", "name": "Sensors", "recommend": "case-by-case", "reason": "Mixed: engine sensors (MAF, O2, crank) vs chassis sensors (ABS, park)."}
+  ],
+
+  "exclude_ids": []
+}
