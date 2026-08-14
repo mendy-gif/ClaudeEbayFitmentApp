@@ -207,6 +207,23 @@ Only a subset of the ~110 chassis rows are verified against the US-sold-year sta
 
 If we go Path A via `bulkMigrateListing`, migrating a listing into the Inventory model may change how (or whether) Dismantly can continue to manage/relist it. **[verify]** Do not migrate at scale until we've confirmed one migrated listing still behaves under Dismantly's relist cycle.
 
+### 6.4 Future enhancement (gated): cross-engine fanning for Rule B
+
+Rule B currently restricts engine-part fitment to trims **within the donor's chassis** — the conservative,
+in-scope behavior (a 2024 M2 starter → M2 + M2 CS only). But BMW shares an engine across many models, and
+`data/bmw_engine_map.json` is keyed by **engine family across all chassis**, so a broader Rule B is a small,
+ready toggle: fan to **every `(chassis, trim)` sharing the donor's engine family**. Example: an S58 starter
+→ G87 M2/M2 CS **+ G80 M3 + G82/G83 M4 + F97 X3 M + F98 X4 M**. This is genuinely correct for many engine
+parts (starters, alternators, coils, sensors, water pumps, oil pumps) and is a high-value reach increase.
+
+Implementation: one flag in `fitment_rules.expand` — instead of iterating `row["trims"]`, iterate all engine-map
+entries whose `engine_code` matches the donor's, emit each with its chassis's year range and correct eBay
+Model/Trim (nameplate vs badge). **Caveats to weigh when enabling:** (a) some "engine" parts are actually
+chassis-packaged (oil pan, certain brackets, exhaust manifolds shaped to the bay) and don't cross bodies —
+may want a sub-list of "engine-family-safe" categories vs "engine-but-chassis-specific"; (b) higher reach =
+slightly more false-positive risk, though within eBay's broad-fitment tolerance. **Owner flagged this as a
+smart, easy add — revisit once the one-SKU live write + relist-persistence are confirmed.**
+
 ---
 
 ## 7. eBay developer account setup (Open Question #5)
