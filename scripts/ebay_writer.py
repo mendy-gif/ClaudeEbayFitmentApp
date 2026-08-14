@@ -184,7 +184,7 @@ def main():
         print("ERROR: --live needs a token.", file=sys.stderr); sys.exit(2)
     status, resp = _req("PUT", url, token, payload)
     print(f"\nLIVE PUT -> HTTP {status}")
-    if status == 200 or status == 204:
+    if status in (200, 201, 204):
         print("OK - compatibility set. (Warnings, if any, below.)")
     print(json.dumps(resp, indent=2) if resp else "(empty response = success)")
     if status in (401, 403):

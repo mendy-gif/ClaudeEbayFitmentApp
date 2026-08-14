@@ -164,7 +164,7 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led):
     if live:
         payload = rows_to_payload(res["rows"])
         st, resp = api("PUT", f"/sell/inventory/v1/inventory_item/{urllib.parse.quote(sku, safe='')}/product_compatibility", tok, payload)
-        if st in (200, 204):
+        if st in (200, 201, 204):
             row["action"] = "pushed"
             led[sku] = {"listingId": listing_id, "rule": rule, "n": len(res["rows"]), "models": res["models"]}
         else:
