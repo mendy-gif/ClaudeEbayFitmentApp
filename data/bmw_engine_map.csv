@@ -291,7 +291,7 @@ E89,sDrive28i,N20,2.0L turbo I4 gas,gas,2012-2016,high,no,Replaced N52 30i.
 G29,sDrive30i,B48,2.0L turbo I4 gas,gas,2019-2026,high,no,
 G29,M40i,B58,3.0L turbo I6 gas,gas,2019-2026,high,no,
 E84,sDrive28i,N20,2.0L turbo I4 gas,gas,2013-2015,high,no,
-E84,xDrive28i,N52,3.0L N/A I6 gas,gas,2013-2013,medium,no,Earliest 2013 xDrive28i shipped with N52 before N20.
+E84,xDrive28i,N52,3.0L N/A I6 gas,gas,2013-2013,high,yes,Earliest 2013 xDrive28i shipped with N52 before N20 (owner-verified).
 E84,xDrive28i,N20,2.0L turbo I4 gas,gas,2013-2015,high,no,Mainstream N20.
 E84,xDrive35i,N55,3.0L turbo I6 gas,gas,2013-2015,high,no,
 F48,sDrive28i,B46,2.0L turbo I4 gas,gas,2016-2022,high,no,B46 (B48 family US variant).
@@ -320,8 +320,7 @@ G45,X3 30 xDrive,B48,2.0L turbo I4 gas (MHEV),gas,2025-2026,high,no,
 G45,X3 M50 xDrive,B58,3.0L turbo I6 gas (MHEV),gas,2025-2026,high,no,
 F26,xDrive28i,N20,2.0L turbo I4 gas,gas,2015-2018,high,no,
 F26,xDrive35i,N55,3.0L turbo I6 gas,gas,2015-2018,high,no,
-F26,M40i,N55,3.0L turbo I6 gas,gas,2016-2017,high,no,Early M40i N55 before B58.
-F26,M40i,B58,3.0L turbo I6 gas,gas,2018-2018,medium,no,Final MY adopted B58.
+F26,M40i,N55,3.0L turbo I6 gas,gas,2016-2018,high,yes,F26 M40i stayed N55 the entire run; never got B58 (owner-verified).
 G02,xDrive30i,B48,2.0L turbo I4 gas,gas,2019-2025,high,no,
 G02,M40i,B58,3.0L turbo I6 gas,gas,2019-2025,high,no,
 F97,X3 M,S58,3.0L twin-turbo I6 gas,gas,2020-2024,high,no,

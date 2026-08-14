@@ -221,9 +221,17 @@ If we go Path A via `bulkMigrateListing`, migrating a listing into the Inventory
    cycle. Cleanest real-world check — set compatibility on one test SKU (needs `sell.inventory` *write*
    scope), record it, and re-read after the next relist (~40–60 days); or reason it out from whether
    Dismantly reuses the same inventory item vs. recreating it.
-4. **Lock the reference data (§4):** convert the existing spreadsheet into the single-table CSV/JSON schema; mark rows verified/unverified; spot-check the unverified ones.
-5. **Decide classification (§6.1):** pull the distinct eBay categories across the catalog and build the Rule-B category set (anchored on `33612`).
-6. **Then build** the apply pipeline (rules engine → eBay API), sized for Path A / one-time push.
+4. ~~**Lock the reference data (§4).**~~ **✅ BUILT 2026-08-15** — `data/bmw_chassis_reference.json` (112
+   US chassis), `data/ebay_bmw_models.json` (eBay's 269 Models, authoritative output vocab), and
+   `data/bmw_engine_map.json` (397 `(chassis,trim)→engine` rows). Owner spot-check ongoing (F26 M40i and
+   E84 xDrive28i confirmed).
+5. ~~**Build the rule engine.**~~ **✅ BUILT 2026-08-15** — `scripts/fitment_rules.py` expands a donor into
+   eBay-shaped rows: Rule A = chassis family (badge Models for sedans, nameplate Model for X/i/Z);
+   Rule B = engine-map-driven, restricting to the donor's engine family (e.g. F30 335i→N55 also tags the
+   N55 ActiveHybrid 3; G05 X5 xDrive40i→B58 tags all B58 X5 trims via Model=X5 + Trim, excludes the V8
+   M50i/M60i). Validates emitted Models against eBay's catalog list.
+6. **Decide classification (§6.1):** pull the distinct eBay categories across the catalog and build the Rule-B category set (anchored on `33612`).
+7. **Then build** the apply pipeline (rule engine → eBay writer `createOrReplaceProductCompatibility`), sized for Path A / one-time push. Needs the `sell.inventory` *write* scope.
 
 ---
 

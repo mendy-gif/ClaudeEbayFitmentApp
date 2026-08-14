@@ -295,7 +295,7 @@
   {"chassis_code": "G29", "trim": "M40i", "engine_code": "B58", "engine": "3.0L turbo I6 gas", "fuel": "gas", "year_range": "2019-2026", "confidence": "high", "verified": false, "notes": ""},
 
   {"chassis_code": "E84", "trim": "sDrive28i", "engine_code": "N20", "engine": "2.0L turbo I4 gas", "fuel": "gas", "year_range": "2013-2015", "confidence": "high", "verified": false, "notes": ""},
-  {"chassis_code": "E84", "trim": "xDrive28i", "engine_code": "N52", "engine": "3.0L N/A I6 gas", "fuel": "gas", "year_range": "2013-2013", "confidence": "medium", "verified": false, "notes": "Earliest 2013 xDrive28i shipped with N52 before N20."},
+  {"chassis_code": "E84", "trim": "xDrive28i", "engine_code": "N52", "engine": "3.0L N/A I6 gas", "fuel": "gas", "year_range": "2013-2013", "confidence": "high", "verified": true, "notes": "Earliest 2013 xDrive28i shipped with N52 before N20 (owner-verified)."},
   {"chassis_code": "E84", "trim": "xDrive28i", "engine_code": "N20", "engine": "2.0L turbo I4 gas", "fuel": "gas", "year_range": "2013-2015", "confidence": "high", "verified": false, "notes": "Mainstream N20."},
   {"chassis_code": "E84", "trim": "xDrive35i", "engine_code": "N55", "engine": "3.0L turbo I6 gas", "fuel": "gas", "year_range": "2013-2015", "confidence": "high", "verified": false, "notes": ""},
   {"chassis_code": "F48", "trim": "sDrive28i", "engine_code": "B46", "engine": "2.0L turbo I4 gas", "fuel": "gas", "year_range": "2016-2022", "confidence": "high", "verified": false, "notes": "B46 (B48 family US variant)."},
@@ -324,8 +324,7 @@
   {"chassis_code": "G45", "trim": "X3 M50 xDrive", "engine_code": "B58", "engine": "3.0L turbo I6 gas (MHEV)", "fuel": "gas", "year_range": "2025-2026", "confidence": "high", "verified": false, "notes": ""},
   {"chassis_code": "F26", "trim": "xDrive28i", "engine_code": "N20", "engine": "2.0L turbo I4 gas", "fuel": "gas", "year_range": "2015-2018", "confidence": "high", "verified": false, "notes": ""},
   {"chassis_code": "F26", "trim": "xDrive35i", "engine_code": "N55", "engine": "3.0L turbo I6 gas", "fuel": "gas", "year_range": "2015-2018", "confidence": "high", "verified": false, "notes": ""},
-  {"chassis_code": "F26", "trim": "M40i", "engine_code": "N55", "engine": "3.0L turbo I6 gas", "fuel": "gas", "year_range": "2016-2017", "confidence": "high", "verified": false, "notes": "Early M40i N55 before B58."},
-  {"chassis_code": "F26", "trim": "M40i", "engine_code": "B58", "engine": "3.0L turbo I6 gas", "fuel": "gas", "year_range": "2018-2018", "confidence": "medium", "verified": false, "notes": "Final MY adopted B58."},
+  {"chassis_code": "F26", "trim": "M40i", "engine_code": "N55", "engine": "3.0L turbo I6 gas", "fuel": "gas", "year_range": "2016-2018", "confidence": "high", "verified": true, "notes": "F26 M40i stayed N55 the entire run; never got B58 (owner-verified)."},
   {"chassis_code": "G02", "trim": "xDrive30i", "engine_code": "B48", "engine": "2.0L turbo I4 gas", "fuel": "gas", "year_range": "2019-2025", "confidence": "high", "verified": false, "notes": ""},
   {"chassis_code": "G02", "trim": "M40i", "engine_code": "B58", "engine": "3.0L turbo I6 gas", "fuel": "gas", "year_range": "2019-2025", "confidence": "high", "verified": false, "notes": ""},
   {"chassis_code": "F97", "trim": "X3 M", "engine_code": "S58", "engine": "3.0L twin-turbo I6 gas", "fuel": "gas", "year_range": "2020-2024", "confidence": "high", "verified": false, "notes": ""},
