@@ -111,6 +111,24 @@ Where the donor vehicle actually comes from, and what's in scope:
   Other makes would each need their own reference data (future).
 - **Fastest/complete option:** a bulk **SKU → donor (Year/Make/Model)** export from PartOutPro or Dismantly
   would remove ~2 eBay reads per SKU and give full coverage — feed it via a `--donor-file` (to build).
+- **Donor source C — Shopify (BUILT, the clean/automatable one):** every listing also lives on the owner's
+  Shopify, where per-SKU tags carry the donor **make/model, chassis code (`veh_series_G87`), engine code
+  (`veh_engine_code_S58B30T0`), and part_type** directly. `scripts/shopify_donor.py --dump` pulls all active
+  BMW products via the Admin GraphQL API → `data/shopify_donors.json` (keyed by variant SKU = eBay SKU).
+  This gives the **chassis code with no year/VIN inference and the engine family with no map lookup** —
+  the best donor source. Auth: `SHOPIFY_STORE` + `SHOPIFY_TOKEN` (custom app, `read_products`).
+
+**Chassis-code reconciliation (`fitment_rules.resolve_chassis`).** Shopify gives a **bare** code (`G80`,
+`E90`, `G26`); our reference uses **composite** codes for M-cars/EVs (`G80 M3`, `E90 M3`, `G26 (i4)`,
+`E70 X5 M`). Some bare codes map to **both** a plain row and an M/EV row (`E90` = 3-Series sedan *or* M3;
+`E70` = X5 *or* X5 M; `G26` = 4-GC *or* i4), so the donor **Model disambiguates**: `E90`+`M3` → `E90 M3`,
+`E90`+`328i` → `E90`, no model match → the plain row. Non-BMW series (e.g. Audi `8U`) resolve to `None` → skipped.
+
+**Runner wiring.** `ebay_batch.py --from-shopify` swaps the **donor source** to `data/shopify_donors.json`
+(via `resolve_chassis` + `expand_from_chassis`), while **Rule A/B classification stays on the eBay category**
+(owner's accuracy preference). It still reads the Trading item to honor the "already multi-fit → skip" guard,
+but `n_trad == 0` no longer skips (Shopify supplies the donor — the fix for the 22/25 "no donor" misses).
+With no `--sku`/`--from-inventory`, it enumerates the dump's SKUs directly.
 
 ---
 
@@ -232,6 +250,7 @@ This is why §5.1's test isn't just a detail — it determines whether this is a
 
 - **Adding compatibility to a live Trading Item:** `ReviseItem` / `ReviseFixedPriceItem` with `Item.ItemCompatibilityList` adds compatibilities to an existing Item by Item ID; duplicates are ignored; `ReplaceAll=true` wipes. Restriction: an item with bids or ending within 12h can still *add* but not *delete* compatibilities. (This is the Path-B mechanism.)
 - **Rate limits:** compatibility calls fall under general Sell Inventory limits (account-specific; commonly a large daily ceiling). Read real numbers from Analytics API `getRateLimits` rather than assuming. **User** OAuth tokens have far higher allowances than application tokens — and the Inventory API requires a user token anyway.
+- **`createOrReplaceProductCompatibility` returns HTTP 201** (Created) on the first write to a SKU, **200/204** on replace. All three are success — the runner treats `{200,201,204}` as pushed (a 201 was briefly mis-logged as an error in the first live run; fixed).
 
 ---
 

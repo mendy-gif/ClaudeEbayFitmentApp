@@ -126,23 +126,73 @@ def engine_family(idx, chassis, trim, year=None):
     return {e["engine_code"] for e in entries}
 
 
-def expand(donor_model, year, rule, reference=None, emap=None, ebay=None,
-           body_hint=None, chassis_hint=None):
-    if reference is None:
-        reference, emap, ebay = load_all()
-    idx = engine_index(emap)
+# ---- Chassis-code resolution (Shopify donor path) ---------------------------
+# Shopify tags carry the chassis code directly (e.g. veh_series_G87), but as a
+# BARE code. Our reference uses composite codes for M-cars/EVs (G80 M3, E90 M3,
+# F90 M5, E70 X5 M, G26 (i4)). Worse, some bare codes map to BOTH a plain row and
+# an M/EV row (E90 = 3 Series sedan *or* M3; G26 = 4 GC *or* i4), so the donor's
+# Model is needed to disambiguate. resolve_chassis() does that mapping.
 
-    cands = find_chassis_candidates(donor_model, year, reference, body_hint, chassis_hint)
-    if not cands:
-        return {"ok": False, "reason": f"No chassis found for {donor_model} ({year}).", "rows": []}
-    if len(cands) > 1:
-        return {"ok": False, "ambiguous": True,
-                "reason": f"{donor_model} ({year}) matches {len(cands)} chassis (generation overlap).",
-                "candidates": [{"chassis_code": c["chassis_code"], "series": c.get("series"),
-                                "body_style": c.get("body_style"),
-                                "year_range": [c["us_start_year"], c.get("us_end_year")]} for c in cands],
-                "rows": []}
-    row = cands[0]
+def _base_codes(chassis_code):
+    """Leading code group(s) of a reference chassis_code, minus the model suffix.
+    'E63/E64 M6' -> ['E63','E64']; 'G26 (i4)' -> ['G26']; 'E90' -> ['E90']."""
+    first = chassis_code.split()[0]
+    return [c for c in first.split("/") if c]
+
+
+def chassis_index(reference):
+    """(_exact by full chassis_code, _base by bare leading code) -> reference rows."""
+    exact, base = {}, {}
+    for r in reference:
+        exact[_norm(r["chassis_code"])] = r
+        for c in _base_codes(r["chassis_code"]):
+            base.setdefault(_norm(c), []).append(r)
+    return exact, base
+
+
+def _model_matches_row(model, row):
+    """Does the donor Model belong to this chassis row (nameplate or trim badge)?"""
+    mn = _norm(model)
+    if not mn:
+        return False
+    plate = nameplate_of(row)
+    if plate and _norm(plate) == mn:
+        return True
+    trims_n = {_norm(t) for t in row.get("trims", [])}
+    if mn in trims_n:
+        return True
+    return mn in {_norm(ebay_model(t)) for t in row.get("trims", [])}
+
+
+def resolve_chassis(series, model, reference=None):
+    """Map a Shopify bare chassis code (+ donor Model) to one reference row.
+    Returns (row, note) or (None, reason)."""
+    if reference is None:
+        reference, _, _ = load_all()
+    exact, base = chassis_index(reference)
+    sn = _norm(series)
+    cands = list(base.get(sn, []))
+    if not cands:                                   # already-composite or unknown
+        if sn in exact:
+            return exact[sn], "exact"
+        return None, f"series '{series}' not in BMW reference"
+    if len(cands) == 1:
+        return cands[0], "unique base code"
+    matched = [r for r in cands if _model_matches_row(model, r)]
+    if len(matched) == 1:
+        return matched[0], f"disambiguated by model '{model}'"
+    if len(matched) > 1:
+        return exact.get(sn) or matched[0], "multi-match -> prefer plain"
+    plain = exact.get(sn)                            # no model match -> the non-M/EV row
+    if plain:
+        return plain, "no model match -> plain row"
+    return None, (f"ambiguous series '{series}' / model '{model}': "
+                  f"{[c['chassis_code'] for c in cands]}")
+
+
+def _emit(row, rule, idx, ebay, donor_model=None, donor_engines=None, year=None, extra=None):
+    """Expand one resolved reference row into eBay-compatibility rows. Shared by the
+    model+year path (expand) and the chassis-code path (expand_from_chassis)."""
     chassis = row["chassis_code"]
     start = row["us_start_year"]
     end = min(row.get("us_end_year") or MAX_YEAR, MAX_YEAR)
@@ -155,9 +205,11 @@ def expand(donor_model, year, rule, reference=None, emap=None, ebay=None,
         trims = list(row["trims"])
         donor_engines = None
     elif rule == "B":
-        donor_engines = engine_family(idx, chassis, donor_model, year)
-        trims = [t for t in row["trims"]
-                 if engine_family(idx, chassis, t) & donor_engines] or [donor_model]
+        if donor_engines is None:       # derive from the donor trim badge (+year)
+            donor_engines = engine_family(idx, chassis, donor_model, year)
+        trims = [t for t in row["trims"] if engine_family(idx, chassis, t) & donor_engines]
+        if not trims:                   # engine not in our map for this chassis -> keep the donor
+            trims = [donor_model] if donor_model else list(row["trims"])
     else:
         raise ValueError("rule must be A or B")
 
@@ -182,10 +234,50 @@ def expand(donor_model, year, rule, reference=None, emap=None, ebay=None,
 
     models_used = sorted({r["Model"] for r in rows})
     unmatched = [m for m in models_used if ebay and m not in ebay]
-    return {"ok": True, "chassis": chassis, "series": row.get("series"), "rule": rule,
-            "nameplate": bool(plate), "year_range": [start, end],
-            "donor_engines": sorted(donor_engines) if rule == "B" else None,
-            "models": models_used, "unmatched_models": unmatched, "rows": rows}
+    out = {"ok": True, "chassis": chassis, "series": row.get("series"), "rule": rule,
+           "nameplate": bool(plate), "year_range": [start, end],
+           "donor_engines": sorted(donor_engines) if (rule == "B" and donor_engines) else None,
+           "models": models_used, "unmatched_models": unmatched, "rows": rows}
+    if extra:
+        out.update(extra)
+    return out
+
+
+def expand(donor_model, year, rule, reference=None, emap=None, ebay=None,
+           body_hint=None, chassis_hint=None):
+    if reference is None:
+        reference, emap, ebay = load_all()
+    idx = engine_index(emap)
+
+    cands = find_chassis_candidates(donor_model, year, reference, body_hint, chassis_hint)
+    if not cands:
+        return {"ok": False, "reason": f"No chassis found for {donor_model} ({year}).", "rows": []}
+    if len(cands) > 1:
+        return {"ok": False, "ambiguous": True,
+                "reason": f"{donor_model} ({year}) matches {len(cands)} chassis (generation overlap).",
+                "candidates": [{"chassis_code": c["chassis_code"], "series": c.get("series"),
+                                "body_style": c.get("body_style"),
+                                "year_range": [c["us_start_year"], c.get("us_end_year")]} for c in cands],
+                "rows": []}
+    return _emit(cands[0], rule, idx, ebay, donor_model=donor_model, year=year)
+
+
+def expand_from_chassis(chassis_code, rule, reference=None, emap=None, ebay=None,
+                        engine=None, donor_model=None):
+    """Expand directly from a chassis code (the Shopify donor path). `engine` is a
+    normalized engine family (e.g. 'S58') used for Rule B; `donor_model` disambiguates
+    only if chassis_code is bare (delegated to resolve_chassis by the caller)."""
+    if reference is None:
+        reference, emap, ebay = load_all()
+    idx = engine_index(emap)
+    row = next((r for r in reference if _norm(r["chassis_code"]) == _norm(chassis_code)), None)
+    if row is None:
+        return {"ok": False, "reason": f"chassis '{chassis_code}' not in BMW reference.", "rows": []}
+    donor_engines = {engine.upper()} if engine else None
+    if rule.upper() == "B" and not donor_engines and not donor_model:
+        return {"ok": False, "reason": f"Rule B on {chassis_code} needs an engine or donor model.", "rows": []}
+    return _emit(row, rule, idx, ebay, donor_model=donor_model, donor_engines=donor_engines,
+                 extra={"resolved_from": chassis_code})
 
 
 def _demo():

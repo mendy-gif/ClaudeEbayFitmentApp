@@ -125,7 +125,7 @@ def resolve_lookup(donor, reference):
     return model, None
 
 
-def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led):
+def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify=None):
     s, off = api("GET", f"/sell/inventory/v1/offer?{urllib.parse.urlencode({'sku': sku})}", tok)
     offers = off.get("offers", []) if s == 200 else []
     pub = [o for o in offers if o.get("status") == "PUBLISHED"]
@@ -134,25 +134,48 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led):
     listing_id = pub[0].get("listing", {}).get("listingId")
     category = pub[0].get("categoryId")
 
+    # Trading count is used as the "already expanded" guard in both paths. In the
+    # Shopify path it is NOT the donor source, so n_trad==0 no longer means "skip".
     n_trad, sample, terr = trading_getitem_compat(listing_id, tok) if listing_id else (None, [], "no listingId")
-    if n_trad is None:
-        return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": f"trading read failed: {terr}"}
-    if n_trad == 0:
-        return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": "no donor vehicle on listing"}
-    if n_trad > 1:
+    if n_trad is not None and n_trad > 1:
         return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": f"already {n_trad} vehicles (multi-fit/expanded)"}
 
-    donor = sample[0]
-    donor_str = f"{donor.get('Year')} {donor.get('Make')} {donor.get('Model')} {donor.get('Trim','')}".strip()
-    if FR._norm(donor.get("Make", "")) != "bmw":
-        return {"sku": sku, "listingId": listing_id, "donor": donor_str, "action": "skip",
-                "reason": f"non-BMW ({donor.get('Make')}) - out of scope (BMW-only reference)"}
+    sd = (shopify or {}).get(str(sku)) or (shopify or {}).get(sku)
     rule, why = classify_rule(category, tree, inc, exc, default)
-    lookup, chassis_hint = resolve_lookup(donor, ref)
-    try:
-        res = FR.expand(lookup, int(donor["Year"]), rule, ref, emap, ebay, chassis_hint=chassis_hint)
-    except Exception as e:  # noqa: BLE001
-        return {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule, "action": "skip", "reason": f"expand error: {e}"}
+
+    if shopify is not None:                          # ---- Shopify donor path ----
+        if not sd:
+            return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": "no Shopify donor for SKU"}
+        make, model, series = sd.get("make"), sd.get("model"), sd.get("series")
+        eng = sd.get("engine_family")
+        donor_str = f"{make} {model} [{series}]".strip()
+        if FR._norm(make or "") != "bmw":
+            return {"sku": sku, "listingId": listing_id, "donor": donor_str, "action": "skip",
+                    "reason": f"non-BMW ({make}) - out of scope (BMW-only reference)"}
+        row, note = FR.resolve_chassis(series, model, ref)
+        if not row:
+            return {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule,
+                    "action": "review", "reason": f"unresolved chassis: {note}"}
+        try:
+            res = FR.expand_from_chassis(row["chassis_code"], rule, ref, emap, ebay,
+                                         engine=eng, donor_model=model)
+        except Exception as e:  # noqa: BLE001
+            return {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule, "action": "skip", "reason": f"expand error: {e}"}
+    else:                                            # ---- eBay Trading donor path ----
+        if n_trad is None:
+            return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": f"trading read failed: {terr}"}
+        if n_trad == 0:
+            return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": "no donor vehicle on listing"}
+        donor = sample[0]
+        donor_str = f"{donor.get('Year')} {donor.get('Make')} {donor.get('Model')} {donor.get('Trim','')}".strip()
+        if FR._norm(donor.get("Make", "")) != "bmw":
+            return {"sku": sku, "listingId": listing_id, "donor": donor_str, "action": "skip",
+                    "reason": f"non-BMW ({donor.get('Make')}) - out of scope (BMW-only reference)"}
+        lookup, chassis_hint = resolve_lookup(donor, ref)
+        try:
+            res = FR.expand(lookup, int(donor["Year"]), rule, ref, emap, ebay, chassis_hint=chassis_hint)
+        except Exception as e:  # noqa: BLE001
+            return {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule, "action": "skip", "reason": f"expand error: {e}"}
     if not res["ok"]:
         reason = "ambiguous donor" if res.get("ambiguous") else res["reason"]
         return {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule, "action": "review", "reason": reason}
@@ -164,7 +187,7 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led):
     if live:
         payload = rows_to_payload(res["rows"])
         st, resp = api("PUT", f"/sell/inventory/v1/inventory_item/{urllib.parse.quote(sku, safe='')}/product_compatibility", tok, payload)
-        if st in (200, 204):
+        if st in (200, 201, 204):
             row["action"] = "pushed"
             led[sku] = {"listingId": listing_id, "rule": rule, "n": len(res["rows"]), "models": res["models"]}
         else:
@@ -184,6 +207,8 @@ def main():
     ap.add_argument("mode", nargs="?", default="plan", choices=["plan", "apply", "audit"])
     ap.add_argument("--sku", nargs="*")
     ap.add_argument("--from-inventory", action="store_true")
+    ap.add_argument("--from-shopify", action="store_true",
+                    help="donor = Shopify dump (data/shopify_donors.json); classification still by eBay category")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--live", action="store_true")
     ap.add_argument("--sleep", type=float, default=0.3, help="seconds between SKUs (rate-limit pacing)")
@@ -197,22 +222,33 @@ def main():
     led = load_ledger()
     live = args.live and args.mode in ("apply", "audit")
 
+    shopify = None
+    if args.from_shopify:
+        sp = os.path.join(ROOT, "data", "shopify_donors.json")
+        if not os.path.exists(sp):
+            sys.exit("ERROR: --from-shopify needs data/shopify_donors.json (run: python3 scripts/shopify_donor.py --dump)")
+        shopify = json.load(open(sp, encoding="utf-8"))
+
     if args.mode == "audit":
         return run_audit(tok, ref, emap, ebay, tree, inc, exc, default, led, args, live)
 
+    # SKU source: explicit --sku, else eBay inventory, else (Shopify mode) the dump's keys.
     skus = args.sku or (enumerate_skus(tok, args.limit) if args.from_inventory else [])
+    if not skus and shopify is not None:
+        skus = list(shopify.keys())
     if not skus:
-        sys.exit("Provide --sku ... or --from-inventory")
+        sys.exit("Provide --sku ..., --from-inventory, or --from-shopify (uses the dump's SKUs)")
     if args.limit:
         skus = skus[: args.limit]
 
-    print(f"Mode: {args.mode}{' (LIVE)' if live else ' (dry-run)'}  |  {len(skus)} SKU(s)  |  ledger has {len(led)}")
+    print(f"Mode: {args.mode}{' (LIVE)' if live else ' (dry-run)'}  |  donor={'Shopify' if shopify is not None else 'eBay'}"
+          f"  |  {len(skus)} SKU(s)  |  ledger has {len(led)}")
     rows, counts = [], {}
     for i, sku in enumerate(skus, 1):
         if sku in led and args.mode == "apply":
             rows.append({"sku": sku, "action": "skip", "reason": "already in ledger"})
         else:
-            r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led)
+            r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify)
             rows.append(r)
         counts[rows[-1]["action"]] = counts.get(rows[-1]["action"], 0) + 1
         print(f"  [{i}/{len(skus)}] {sku}: {rows[-1]['action']} - {rows[-1].get('reason','')[:80]}")
