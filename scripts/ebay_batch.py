@@ -128,9 +128,14 @@ def resolve_lookup(donor, reference):
 def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify=None):
     s, off = api("GET", f"/sell/inventory/v1/offer?{urllib.parse.urlencode({'sku': sku})}", tok)
     offers = off.get("offers", []) if s == 200 else []
+    if s in (401, 403):
+        return {"sku": sku, "action": "auth_error", "reason": f"offer read HTTP {s} - token expired/invalid?"}
+    if s != 200:
+        return {"sku": sku, "action": "skip", "reason": f"offer read HTTP {s}"}
     pub = [o for o in offers if o.get("status") == "PUBLISHED"]
     if not pub:
-        return {"sku": sku, "action": "skip", "reason": "no published offer"}
+        why = "offer exists but not PUBLISHED (ended/sold?)" if offers else "no offer for this SKU on eBay"
+        return {"sku": sku, "action": "skip", "reason": f"no published offer ({why})"}
     listing_id = pub[0].get("listing", {}).get("listingId")
     category = pub[0].get("categoryId")
 
@@ -216,6 +221,16 @@ def main():
     args = ap.parse_args()
     tok = token(args)
 
+    # Preflight: a cheap authenticated call. eBay user tokens expire in ~2h, and an
+    # expired token otherwise shows up as "no published offer" on every SKU (a 401 that
+    # the offer read swallows). Fail loud and early instead.
+    st, _ = api("GET", "/sell/inventory/v1/inventory_item?limit=1", tok)
+    if st in (401, 403):
+        sys.exit(f"ERROR: eBay token rejected (HTTP {st}). It has likely EXPIRED "
+                 f"(user tokens last ~2 hours). Paste a fresh token into token.txt and re-run.")
+    if st is None:
+        sys.exit("ERROR: could not reach eBay (network/proxy). Check connection and retry.")
+
     ref, emap, ebay = FR.load_all()
     tree = CP.load_tree()
     inc, exc, default = CP.load_config()
@@ -252,6 +267,9 @@ def main():
             rows.append(r)
         counts[rows[-1]["action"]] = counts.get(rows[-1]["action"], 0) + 1
         print(f"  [{i}/{len(skus)}] {sku}: {rows[-1]['action']} - {rows[-1].get('reason','')[:80]}")
+        if rows[-1]["action"] == "auth_error":
+            print("\n  STOPPING: eBay token rejected mid-run (expired?). Refresh token.txt and re-run.")
+            break
         if live:
             save_ledger(led)
         time.sleep(args.sleep)
