@@ -22,6 +22,19 @@ BMW chassis/body variant.
 | `notes` | US-specific caveats, engine-rename notes, exclusions |
 | `sources` | reference URL(s) |
 
+## Engine map (`bmw_engine_map.json` / `.csv` / `.xlsx`)
+The `(chassis, trim) → engine` map — the backbone of **Rule B**. 397 entries covering all 368
+reference (chassis, trim) pairs (more entries than pairs because badges that changed engine mid-run get
+one row per engine, with a `year_range`). Fields: `engine_code` (BMW family, e.g. `N55`, `B58`, `S63`,
+normalized from variants like `N63B44T4`→`N63`), `engine` (description w/ displacement), `fuel`
+(gas/diesel/phev/ev), `year_range`, `confidence`, `verified`, `notes`. Regenerate/validate with
+`python3 ../scripts/build_engine_map.py` (fails if any reference pair lacks an engine).
+
+Why per-`(chassis, trim)`: the same badge is a *different engine* across generations (335i N54→N55;
+328i N52 six→N20 four; 550i N62→N63), so a flat badge→engine map would be wrong. This is what lets
+**Rule B** group engine parts by true engine family — precise for SUVs too (X5 `xDrive40i` → B58),
+where eBay's Model (`X5`) can't encode the engine.
+
 ## How the rules consume it
 - **Rule A (body/interior/most parts):** donor's chassis → add *all* `trims` × (`us_start_year`..`us_end_year`).
 - **Rule B (engine parts):** donor's chassis → add *only the donor's own trim* × the same year range.

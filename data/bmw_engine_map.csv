@@ -1,0 +1,398 @@
+chassis_code,trim,engine_code,engine,fuel,year_range,confidence,verified,notes
+E30,318i,M10,1.8L SOHC I4 gas,gas,1984-1985,high,no,Carryover M10B18; replaced by M42 in 1991.
+E30,318i,M42,1.8L DOHC 16v I4 gas,gas,1991-1991,high,no,1991 318i sedan returned with DOHC M42B18.
+E30,318is,M42,1.8L DOHC 16v I4 gas,gas,1990-1991,high,no,
+E30,325e,M20,2.7L SOHC I6 gas (eta),gas,1984-1987,high,no,Low-rev 'eta' M20B27.
+E30,325es,M20,2.7L SOHC I6 gas (eta),gas,1985-1987,high,no,Sport version of 325e.
+E30,325,M20,2.5L SOHC I6 gas,gas,1988-1991,medium,no,Base 325 (RWD) M20B25.
+E30,325i,M20,2.5L SOHC I6 gas,gas,1987-1991,high,no,
+E30,325is,M20,2.5L SOHC I6 gas,gas,1987-1991,high,no,
+E30,325ix,M20,2.5L SOHC I6 gas,gas,1988-1991,high,no,AWD.
+E30 M3,M3,S14,2.3L DOHC 16v I4 gas,gas,1988-1991,high,no,US S14B23 ~192hp.
+E36,318i,M42,1.8L DOHC 16v I4 gas,gas,1992-1995,high,no,
+E36,318i,M44,1.9L DOHC 16v I4 gas,gas,1996-1999,high,no,M44B19 from 1996.
+E36,318is,M42,1.8L DOHC 16v I4 gas,gas,1992-1995,high,no,
+E36,318is,M44,1.9L DOHC 16v I4 gas,gas,1996-1997,high,no,Coupe ended 1997.
+E36,318ti,M42,1.8L DOHC 16v I4 gas,gas,1995-1995,high,no,Compact hatch.
+E36,318ti,M44,1.9L DOHC 16v I4 gas,gas,1996-1999,high,no,
+E36,323i,M52,2.5L DOHC I6 gas,gas,1998-1999,high,no,M52B25.
+E36,323is,M52,2.5L DOHC I6 gas,gas,1998-1999,high,no,M52B25 coupe.
+E36,325i,M50,2.5L DOHC I6 gas,gas,1992-1995,high,no,M50B25 / M50TU.
+E36,325is,M50,2.5L DOHC I6 gas,gas,1992-1995,high,no,
+E36,328i,M52,2.8L DOHC I6 gas,gas,1996-1999,high,no,M52B28.
+E36,328is,M52,2.8L DOHC I6 gas,gas,1996-1999,high,no,M52B28 coupe.
+E36 M3,M3,S50,3.0L DOHC I6 gas,gas,1995-1995,high,no,US-only S50B30US (240hp).
+E36 M3,M3,S52,3.2L DOHC I6 gas,gas,1996-1999,high,no,US-only S52B32 (240hp).
+E46,323i,M52,2.5L DOHC I6 gas,gas,1999-2000,high,no,M52TUB25.
+E46,323Ci,M52,2.5L DOHC I6 gas,gas,2000-2000,high,no,M52TUB25 coupe.
+E46,325i,M54,2.5L DOHC I6 gas,gas,2001-2005,high,no,M54B25.
+E46,325xi,M54,2.5L DOHC I6 gas,gas,2001-2005,high,no,AWD.
+E46,325Ci,M54,2.5L DOHC I6 gas,gas,2001-2006,high,no,Coupe/convertible to 2006.
+E46,328i,M52,2.8L DOHC I6 gas,gas,1999-2000,high,no,M52TUB28; replaced by 330i in 2001.
+E46,328Ci,M52,2.8L DOHC I6 gas,gas,2000-2000,high,no,M52TUB28 coupe.
+E46,330i,M54,3.0L DOHC I6 gas,gas,2001-2005,high,no,M54B30.
+E46,330xi,M54,3.0L DOHC I6 gas,gas,2001-2005,high,no,AWD.
+E46,330Ci,M54,3.0L DOHC I6 gas,gas,2001-2006,high,no,Coupe/convertible to 2006.
+E46 M3,M3,S54,3.2L DOHC I6 gas,gas,2001-2006,high,no,S54B32 (333hp).
+E90,325i,N52,3.0L I6 gas (detuned ~215hp),gas,2006-2006,high,no,"US 325i = N52B30 detuned, NOT the ROW 2.5L; renamed 328i in 2007."
+E90,325xi,N52,3.0L I6 gas (detuned),gas,2006-2006,high,no,AWD.
+E90,328i,N52,3.0L I6 gas,gas,2007-2011,high,no,N52B30 230hp; SULEV states used N51.
+E90,328xi,N52,3.0L I6 gas,gas,2007-2008,high,no,AWD; renamed 328i xDrive in 2009.
+E90,328i xDrive,N52,3.0L I6 gas,gas,2009-2011,high,no,N52/N51.
+E90,330i,N52,3.0L I6 gas,gas,2006-2006,high,no,N52B30 255hp; replaced by 335i in 2007.
+E90,330xi,N52,3.0L I6 gas,gas,2006-2006,high,no,AWD.
+E90,335i,N54,3.0L twin-turbo I6 gas,gas,2007-2010,high,no,N54B30 300hp.
+E90,335i,N55,3.0L single-turbo I6 gas,gas,2011-2011,high,no,Switched to N55 for final sedan year.
+E90,335i xDrive,N54,3.0L twin-turbo I6 gas,gas,2008-2010,high,no,AWD.
+E90,335i xDrive,N55,3.0L single-turbo I6 gas,gas,2011-2011,high,no,AWD final year.
+E90,335d,M57,3.0L twin-turbo I6 diesel,diesel,2009-2011,high,no,M57D30 265hp.
+E91,325i,N52,3.0L I6 gas (detuned),gas,2006-2006,high,no,Sports Wagon.
+E91,325xi,N52,3.0L I6 gas (detuned),gas,2006-2006,high,no,AWD wagon.
+E91,328i,N52,3.0L I6 gas,gas,2007-2012,high,no,Wagon.
+E91,328i xDrive,N52,3.0L I6 gas,gas,2009-2012,high,no,AWD wagon.
+E92,328i,N52,3.0L I6 gas,gas,2007-2013,high,no,Coupe N52/N51.
+E92,328xi,N52,3.0L I6 gas,gas,2007-2008,high,no,AWD coupe.
+E92,328i xDrive,N52,3.0L I6 gas,gas,2009-2013,high,no,AWD coupe.
+E92,335i,N54,3.0L twin-turbo I6 gas,gas,2007-2010,high,no,Coupe.
+E92,335i,N55,3.0L single-turbo I6 gas,gas,2011-2013,high,no,LCI coupe.
+E92,335xi,N54,3.0L twin-turbo I6 gas,gas,2008-2010,high,no,AWD; renamed 335i xDrive 2009.
+E92,335i xDrive,N54,3.0L twin-turbo I6 gas,gas,2009-2010,high,no,AWD coupe.
+E92,335i xDrive,N55,3.0L single-turbo I6 gas,gas,2011-2013,high,no,AWD coupe LCI.
+E92,335is,N54,3.0L twin-turbo I6 gas (higher tune),gas,2011-2013,high,no,335is KEPT N54 (320hp) even after base moved to N55.
+E93,328i,N52,3.0L I6 gas,gas,2007-2013,high,no,Convertible.
+E93,335i,N54,3.0L twin-turbo I6 gas,gas,2007-2010,high,no,Convertible.
+E93,335i,N55,3.0L single-turbo I6 gas,gas,2011-2013,high,no,Convertible LCI.
+E93,335is,N54,3.0L twin-turbo I6 gas (higher tune),gas,2011-2013,high,no,Kept N54 (320hp).
+E90 M3,M3,S65,4.0L DOHC V8 gas,gas,2008-2011,high,no,S65B40 414hp sedan.
+E92 M3,M3,S65,4.0L DOHC V8 gas,gas,2008-2013,high,no,Coupe.
+E93 M3,M3,S65,4.0L DOHC V8 gas,gas,2008-2013,high,no,Convertible.
+F30,320i,N20,2.0L turbo I4 gas,gas,2013-2018,high,no,320i kept N20 entire US run (never B48).
+F30,328i,N20,2.0L turbo I4 gas,gas,2012-2016,high,no,N20B20 240hp; badge became 330i in 2016.
+F30,328d,N47,2.0L turbo I4 diesel,diesel,2014-2018,high,no,US 328d = N47 throughout (no B47).
+F30,330i,B48,2.0L turbo I4 gas,gas,2016-2018,high,no,B48B20 248hp; replaced 328i in LCI.
+F30,335i,N55,3.0L turbo I6 gas,gas,2012-2015,high,no,N55B30 300hp; became 340i in 2016.
+F30,340i,B58,3.0L turbo I6 gas,gas,2016-2018,high,no,B58B30 320hp; replaced 335i in LCI.
+F30,ActiveHybrid 3,N55,3.0L turbo I6 gas + electric (full hybrid),gas,2013-2015,high,no,Non-plug-in hybrid.
+F31,328i xDrive,N20,2.0L turbo I4 gas,gas,2014-2016,high,no,Wagon; became 330i xDrive in 2017.
+F31,328d xDrive,N47,2.0L turbo I4 diesel,diesel,2014-2018,high,no,Diesel wagon AWD.
+F31,330i xDrive,B48,2.0L turbo I4 gas,gas,2017-2019,high,no,Wagon LCI.
+F34,328i xDrive,N20,2.0L turbo I4 gas,gas,2014-2016,high,no,3 GT.
+F34,335i xDrive,N55,3.0L turbo I6 gas,gas,2014-2016,high,no,GT; became 340i xDrive in 2017.
+F34,340i xDrive,B58,3.0L turbo I6 gas,gas,2017-2019,high,no,GT LCI.
+G20,330i,B48,2.0L turbo I4 gas,gas,2019-2026,high,no,B48B20 255hp.
+G20,330i xDrive,B48,2.0L turbo I4 gas,gas,2019-2026,high,no,AWD.
+G20,330e,B48,2.0L turbo I4 gas + electric (PHEV),phev,2020-2026,high,no,Plug-in hybrid.
+G20,330e xDrive,B48,2.0L turbo I4 gas + electric (PHEV),phev,2021-2026,high,no,PHEV AWD.
+G20,M340i,B58,3.0L turbo I6 gas,gas,2020-2026,high,no,B58 (48V MHEV from LCI) 382hp.
+G20,M340i xDrive,B58,3.0L turbo I6 gas,gas,2020-2026,high,no,AWD.
+F80 M3,M3,S55,3.0L twin-turbo I6 gas,gas,2015-2018,high,no,S55B30 425hp.
+F80 M3,M3 Competition,S55,3.0L twin-turbo I6 gas (higher tune),gas,2016-2018,high,no,444hp.
+F80 M3,M3 CS,S55,3.0L twin-turbo I6 gas (higher tune),gas,2018-2018,high,no,453hp.
+G80 M3,M3,S58,3.0L twin-turbo I6 gas,gas,2021-2026,high,no,S58B30 473hp (manual RWD base).
+G80 M3,M3 Competition,S58,3.0L twin-turbo I6 gas (higher tune),gas,2021-2026,high,no,503hp.
+G80 M3,M3 Competition xDrive,S58,3.0L twin-turbo I6 gas (higher tune),gas,2022-2026,high,no,503hp AWD.
+G80 M3,M3 CS,S58,3.0L twin-turbo I6 gas (higher tune),gas,2024-2026,high,no,543hp AWD.
+E82,128i,N52,3.0L N/A I6 gas,gas,2008-2013,high,no,N52B30 (N51 SULEV states).
+E82,135i,N54,3.0L twin-turbo I6 gas,gas,2008-2010,high,no,
+E82,135i,N55,3.0L turbo I6 gas,gas,2011-2013,high,no,Mid-cycle switch to N55.
+E82,135is,N55,3.0L turbo I6 gas (higher tune),gas,2013-2013,high,no,US-only 320hp.
+E82,1 Series M,N54,3.0L twin-turbo I6 gas,gas,2011-2011,high,no,1M Coupe 335hp.
+E88,128i,N52,3.0L N/A I6 gas,gas,2008-2013,high,no,Convertible.
+E88,135i,N54,3.0L twin-turbo I6 gas,gas,2008-2010,high,no,Convertible.
+E88,135i,N55,3.0L turbo I6 gas,gas,2011-2013,high,no,Convertible.
+E88,135is,N55,3.0L turbo I6 gas (higher tune),gas,2013-2013,high,no,Convertible 320hp.
+F22,228i,N20,2.0L turbo I4 gas,gas,2014-2016,high,no,Replaced by 230i in 2017.
+F22,230i,B48,2.0L turbo I4 gas,gas,2017-2021,high,no,
+F22,M235i,N55,3.0L turbo I6 gas,gas,2014-2016,high,no,Replaced by M240i in 2017.
+F22,M240i,B58,3.0L turbo I6 gas,gas,2017-2021,high,no,
+F23,228i,N20,2.0L turbo I4 gas,gas,2015-2016,high,no,Convertible.
+F23,230i,B48,2.0L turbo I4 gas,gas,2017-2021,high,no,Convertible.
+F23,M235i,N55,3.0L turbo I6 gas,gas,2015-2016,high,no,Convertible.
+F23,M240i,B58,3.0L turbo I6 gas,gas,2017-2021,high,no,Convertible.
+F44,228i xDrive Gran Coupe,B46,2.0L turbo I4 gas,gas,2020-2025,high,no,Transverse FAAR; B46 (B48 family).
+F44,M235i xDrive Gran Coupe,B48,2.0L turbo I4 gas,gas,2020-2025,high,no,Transverse B48 high-output 301hp.
+G42,230i,B48,2.0L turbo I4 gas,gas,2022-2026,high,no,255hp.
+G42,M240i,B58,3.0L turbo I6 gas,gas,2022-2026,high,no,382hp.
+F87,M2,N55,3.0L turbo I6 gas,gas,2016-2018,high,no,Base M2 365hp.
+F87,M2 Competition,S55,3.0L twin-turbo I6 gas,gas,2019-2020,high,no,"S55 from M3/M4, 405hp."
+F87,M2 CS,S55,3.0L twin-turbo I6 gas (higher tune),gas,2020-2021,high,no,444hp.
+G87,M2,S58,3.0L twin-turbo I6 gas,gas,2023-2026,high,no,453-473hp.
+G87,M2 CS,S58,3.0L twin-turbo I6 gas (higher tune),gas,2025-2026,high,no,523hp.
+F32,428i,N20,2.0L turbo I4 gas,gas,2014-2016,high,no,Coupe; replaced by 430i in 2017.
+F32,430i,B48,2.0L turbo I4 gas,gas,2017-2020,high,no,Coupe.
+F32,435i,N55,3.0L turbo I6 gas,gas,2014-2016,high,no,Coupe; replaced by 440i in 2017.
+F32,440i,B58,3.0L turbo I6 gas,gas,2017-2020,high,no,Coupe.
+F33,428i,N20,2.0L turbo I4 gas,gas,2014-2016,high,no,Convertible.
+F33,430i,B48,2.0L turbo I4 gas,gas,2017-2020,high,no,Convertible.
+F33,435i,N55,3.0L turbo I6 gas,gas,2014-2016,high,no,Convertible.
+F33,440i,B58,3.0L turbo I6 gas,gas,2017-2020,high,no,Convertible.
+F36,428i,N20,2.0L turbo I4 gas,gas,2015-2016,high,no,Gran Coupe.
+F36,430i,B48,2.0L turbo I4 gas,gas,2017-2020,high,no,Gran Coupe.
+F36,435i,N55,3.0L turbo I6 gas,gas,2015-2016,high,no,Gran Coupe.
+F36,440i,B58,3.0L turbo I6 gas,gas,2017-2020,high,no,Gran Coupe.
+G22,430i,B48,2.0L turbo I4 gas,gas,2021-2026,high,no,Coupe 255hp.
+G22,440i,B58,3.0L turbo I6 gas,gas,2021-2026,high,no,Coupe 382hp.
+G23,430i,B48,2.0L turbo I4 gas,gas,2021-2026,high,no,Convertible.
+G23,440i,B58,3.0L turbo I6 gas,gas,2021-2026,high,no,Convertible.
+G26,430i,B48,2.0L turbo I4 gas,gas,2022-2026,high,no,Gran Coupe.
+G26,440i,B58,3.0L turbo I6 gas,gas,2022-2026,high,no,Gran Coupe.
+F82,M4,S55,3.0L twin-turbo I6 gas,gas,2015-2020,high,no,Coupe 425hp.
+F82,M4 Competition,S55,3.0L twin-turbo I6 gas (higher tune),gas,2016-2020,high,no,444hp.
+F82,M4 CS,S55,3.0L twin-turbo I6 gas (higher tune),gas,2018-2019,high,no,454hp.
+F82,M4 GTS,S55,3.0L twin-turbo I6 gas (water injection),gas,2016-2016,high,no,493hp.
+F83,M4,S55,3.0L twin-turbo I6 gas,gas,2015-2020,high,no,Convertible.
+F83,M4 Competition,S55,3.0L twin-turbo I6 gas (higher tune),gas,2016-2020,high,no,Convertible 444hp.
+G82,M4,S58,3.0L twin-turbo I6 gas,gas,2021-2026,high,no,Coupe 473hp.
+G82,M4 Competition,S58,3.0L twin-turbo I6 gas (higher tune),gas,2021-2026,high,no,503hp.
+G82,M4 CS,S58,3.0L twin-turbo I6 gas (higher tune),gas,2024-2026,high,no,543hp.
+G82,M4 CSL,S58,3.0L twin-turbo I6 gas (top tune),gas,2023-2023,high,no,543hp limited.
+G83,M4 Competition,S58,3.0L twin-turbo I6 gas (higher tune),gas,2022-2026,high,no,"Convertible; US = Competition xDrive only, 503hp."
+E39,525i,M54,2.5L I6 gas,gas,2001-2003,high,no,Facelift M54B25.
+E39,528i,M52,2.8L I6 gas,gas,1997-2000,high,no,M52/M52TU; replaced by 530i in 2001.
+E39,530i,M54,3.0L I6 gas,gas,2001-2003,high,no,M54B30.
+E39,540i,M62,4.4L V8 gas,gas,1997-2003,high,no,M62/M62TU.
+E39 M5,M5,S62,5.0L V8 gas,gas,2000-2003,high,no,S62B50.
+E60,525i,M54,2.5L I6 gas,gas,2004-2005,high,no,Early E60.
+E60,525i,N52,3.0L I6 gas (detuned),gas,2006-2007,high,no,Facelift 525i fitted detuned N52 3.0L.
+E60,528i,N52,3.0L I6 gas,gas,2008-2010,high,no,Replaced 525i/530i in US for 2008.
+E60,530i,M54,3.0L I6 gas,gas,2004-2005,high,no,Early E60 M54B30.
+E60,530i,N52,3.0L I6 gas,gas,2006-2007,high,no,Facelift N52.
+E60,530xi,N52,3.0L I6 gas,gas,2006-2007,high,no,AWD.
+E60,535i,N54,3.0L twin-turbo I6 gas,gas,2008-2010,high,no,E60 535i = N54 (never N55).
+E60,535xi,N54,3.0L twin-turbo I6 gas,gas,2008-2010,high,no,AWD N54.
+E60,545i,N62,4.4L V8 gas,gas,2004-2005,high,no,N62B44; replaced by 550i in 2006.
+E60,550i,N62,4.8L V8 gas,gas,2006-2010,high,no,E60 550i = N62B48 (not N63).
+E61,530xi,N52,3.0L I6 gas,gas,2006-2007,high,no,Wagon AWD.
+E61,535xi,N54,3.0L twin-turbo I6 gas,gas,2008-2008,high,no,Wagon N54.
+E61,535i xDrive,N54,3.0L twin-turbo I6 gas,gas,2009-2010,high,no,Wagon; renamed xDrive.
+E60 M5,M5,S85,5.0L V10 gas,gas,2006-2010,high,no,S85B50.
+F10,528i,N52,3.0L I6 gas,gas,2011-2011,high,no,Early F10 528i N52 before N20 switch.
+F10,528i,N20,2.0L turbo I4 gas,gas,2012-2016,high,no,Switched to N20 for 2012.
+F10,535i,N55,3.0L turbo I6 gas,gas,2011-2016,high,no,N55 single-turbo.
+F10,535d,N57,3.0L turbo I6 diesel,diesel,2014-2016,high,no,
+F10,550i,N63,4.4L twin-turbo V8 gas,gas,2011-2016,high,no,F10 550i = N63 (E60 was N62).
+F10,ActiveHybrid 5,N55,3.0L turbo I6 gas + electric (full hybrid),gas,2012-2016,high,no,Non-plug-in.
+F10 M5,M5,S63,4.4L twin-turbo V8 gas,gas,2013-2016,high,no,S63tu.
+F07,535i GT,N55,3.0L turbo I6 gas,gas,2010-2017,high,no,5 GT.
+F07,535i GT xDrive,N55,3.0L turbo I6 gas,gas,2010-2017,high,no,AWD.
+F07,550i GT,N63,4.4L twin-turbo V8 gas,gas,2010-2017,high,no,
+F07,550i GT xDrive,N63,4.4L twin-turbo V8 gas,gas,2010-2017,high,no,AWD.
+G30,530i,B48,2.0L turbo I4 gas,gas,2017-2023,high,no,
+G30,530i xDrive,B48,2.0L turbo I4 gas,gas,2017-2023,high,no,AWD.
+G30,530e,B48,2.0L turbo I4 gas + electric (PHEV),phev,2018-2023,high,no,530e/530e xDrive PHEV.
+G30,540i,B58,3.0L turbo I6 gas,gas,2017-2023,high,no,MHEV from 2021.
+G30,540i xDrive,B58,3.0L turbo I6 gas,gas,2017-2023,high,no,AWD.
+G30,M550i xDrive,N63,4.4L twin-turbo V8 gas,gas,2018-2023,high,no,
+F90 M5,M5,S63,4.4L twin-turbo V8 gas,gas,2018-2023,high,no,
+F90 M5,M5 Competition,S63,4.4L twin-turbo V8 gas (higher tune),gas,2019-2023,high,no,
+F90 M5,M5 CS,S63,4.4L twin-turbo V8 gas (top tune),gas,2022-2023,high,no,
+G60,530i,B48,2.0L turbo I4 gas (MHEV),gas,2024-2026,high,no,
+G60,530i xDrive,B48,2.0L turbo I4 gas (MHEV),gas,2024-2026,high,no,AWD.
+G60,540i xDrive,B58,3.0L turbo I6 gas (MHEV),gas,2024-2026,high,no,
+G60,550e xDrive,B58,3.0L turbo I6 gas + electric (PHEV),phev,2024-2026,high,no,
+E63,645Ci,N62,4.4L V8 gas,gas,2004-2005,high,no,N62B44 coupe.
+E63,650i,N62,4.8L V8 gas,gas,2006-2010,high,no,N62B48.
+E64,645Ci,N62,4.4L V8 gas,gas,2004-2005,high,no,Convertible.
+E64,650i,N62,4.8L V8 gas,gas,2006-2010,high,no,Convertible.
+E63/E64 M6,M6,S85,5.0L V10 gas,gas,2006-2010,high,no,S85B50 (shared with E60 M5).
+F13,640i,N55,3.0L turbo I6 gas,gas,2012-2018,high,no,Coupe.
+F13,640i xDrive,N55,3.0L turbo I6 gas,gas,2013-2018,high,no,AWD.
+F13,650i,N63,4.4L twin-turbo V8 gas,gas,2012-2018,high,no,Coupe.
+F13,650i xDrive,N63,4.4L twin-turbo V8 gas,gas,2013-2018,high,no,AWD.
+F12,640i,N55,3.0L turbo I6 gas,gas,2012-2018,high,no,Convertible.
+F12,640i xDrive,N55,3.0L turbo I6 gas,gas,2013-2018,high,no,AWD.
+F12,650i,N63,4.4L twin-turbo V8 gas,gas,2012-2018,high,no,Convertible.
+F12,650i xDrive,N63,4.4L twin-turbo V8 gas,gas,2013-2018,high,no,AWD.
+F06,640i,N55,3.0L turbo I6 gas,gas,2013-2019,high,no,Gran Coupe.
+F06,640i xDrive,N55,3.0L turbo I6 gas,gas,2013-2019,high,no,AWD.
+F06,650i,N63,4.4L twin-turbo V8 gas,gas,2013-2019,high,no,Gran Coupe.
+F06,650i xDrive,N63,4.4L twin-turbo V8 gas,gas,2013-2019,high,no,AWD.
+F06/F12/F13 M6,M6,S63,4.4L twin-turbo V8 gas,gas,2013-2019,high,no,S63tu.
+F06/F12/F13 M6,M6 Competition,S63,4.4L twin-turbo V8 gas (higher tune),gas,2014-2019,high,no,
+G32,640i xDrive Gran Turismo,B58,3.0L turbo I6 gas,gas,2018-2019,high,no,6 GT.
+E38,740i,M60,4.0L V8 gas,gas,1995-1995,high,no,1995 used M60B40 before M62.
+E38,740i,M62,4.4L V8 gas,gas,1996-2001,high,no,M62B44 (M62TU 1999+).
+E38,740iL,M60,4.0L V8 gas,gas,1995-1995,high,no,LWB.
+E38,740iL,M62,4.4L V8 gas,gas,1996-2001,high,no,LWB M62.
+E38,750iL,M73,5.4L V12 gas,gas,1995-2001,high,no,M73 V12.
+E65,745i,N62,4.4L V8 gas,gas,2002-2005,high,no,N62B44; renamed 750i in 2006.
+E65,750i,N62,4.8L V8 gas,gas,2006-2008,high,no,N62B48.
+E65,760i,N73,6.0L V12 gas,gas,2003-2008,high,no,N73.
+E66,745Li,N62,4.4L V8 gas,gas,2002-2005,high,no,LWB N62B44.
+E66,750Li,N62,4.8L V8 gas,gas,2006-2008,high,no,LWB N62B48.
+E66,760Li,N73,6.0L V12 gas,gas,2003-2008,high,no,LWB V12.
+E66,Alpina B7,N62,4.4L supercharged V8 gas,gas,2007-2008,high,no,Supercharged N62 ~500hp.
+F01,740i,N54,3.0L twin-turbo I6 gas,gas,2011-2012,high,no,US 740i launched with N54.
+F01,740i,N55,3.0L turbo I6 gas,gas,2013-2015,high,no,Facelift switched to N55.
+F01,750i,N63,4.4L twin-turbo V8 gas,gas,2009-2015,high,no,N63 (N63TU from 2013).
+F01,ActiveHybrid 7,N63,4.4L twin-turbo V8 gas + electric,gas,2011-2012,high,no,Gen1 mild hybrid V8.
+F01,ActiveHybrid 7,N55,3.0L turbo I6 gas + electric,gas,2013-2015,high,no,Gen2 I6 full hybrid.
+F01,Alpina B7,N63,4.4L twin-turbo V8 gas (Alpina),gas,2011-2015,high,no,Uprated twin-turbo N63.
+F02,740Li,N54,3.0L twin-turbo I6 gas,gas,2011-2012,high,no,LWB pre-facelift.
+F02,740Li,N55,3.0L turbo I6 gas,gas,2013-2015,high,no,LWB post-facelift.
+F02,750Li,N63,4.4L twin-turbo V8 gas,gas,2009-2015,high,no,N63 / N63TU.
+F02,760Li,N74,6.0L twin-turbo V12 gas,gas,2010-2015,high,no,N74 flagship.
+F02,740Ld,N57,3.0L turbo I6 diesel,diesel,2015-2015,high,no,"740Ld xDrive, US 2015."
+F02,ActiveHybrid 7L,N63,4.4L twin-turbo V8 gas + electric,gas,2011-2012,high,no,LWB gen1.
+F02,ActiveHybrid 7L,N55,3.0L turbo I6 gas + electric,gas,2013-2015,medium,no,Gen2 I6 hybrid where LWB offered.
+F02,Alpina B7L,N63,4.4L twin-turbo V8 gas (Alpina),gas,2011-2015,high,no,LWB Alpina.
+G11,740i,B58,3.0L turbo I6 gas,gas,2016-2022,high,no,
+G11,750i,N63,4.4L twin-turbo V8 gas,gas,2016-2022,high,no,N63TU2/TU3.
+G11,745e,B58,3.0L turbo I6 gas + electric (PHEV),phev,2020-2022,high,no,Replaced earlier 740e (B48) PHEV.
+G11,M760i,N74,6.6L twin-turbo V12 gas,gas,2017-2022,high,no,M760i xDrive.
+G12,740Li,B58,3.0L turbo I6 gas,gas,2016-2022,high,no,LWB.
+G12,750Li,N63,4.4L twin-turbo V8 gas,gas,2016-2022,high,no,LWB.
+G12,745Le,B58,3.0L turbo I6 gas + electric (PHEV),phev,2020-2022,high,no,LWB PHEV.
+G12,M760Li,N74,6.6L twin-turbo V12 gas,gas,2017-2022,high,no,LWB V12.
+G12,Alpina B7,N63,4.4L twin-turbo V8 gas (Alpina),gas,2017-2022,high,no,~600hp.
+G70,740i,B58,3.0L turbo I6 gas (MHEV),gas,2023-2026,high,no,48V mild hybrid.
+G70,760i,N63,4.4L twin-turbo V8 gas (MHEV),gas,2023-2026,high,no,760i xDrive.
+E31,850i,M70,5.0L V12 gas,gas,1991-1994,high,no,M70B50.
+E31,850Ci,M73,5.4L V12 gas,gas,1995-1997,high,no,M73; earliest 1994 850Ci carried M70.
+E31,840Ci,M60,4.0L V8 gas,gas,1994-1995,high,no,M60B40.
+E31,840Ci,M62,4.4L V8 gas,gas,1996-1997,high,no,M62B44.
+E31,850CSi,S70,5.6L V12 gas,gas,1994-1995,high,no,M-developed S70B56 ~375hp.
+G15,840i,B58,3.0L turbo I6 gas,gas,2019-2026,high,no,Coupe.
+G15,M850i,N63,4.4L twin-turbo V8 gas,gas,2019-2026,high,no,M850i xDrive.
+G14,840i,B58,3.0L turbo I6 gas,gas,2019-2026,high,no,Convertible.
+G14,M850i,N63,4.4L twin-turbo V8 gas,gas,2019-2026,high,no,Convertible.
+G16,840i,B58,3.0L turbo I6 gas,gas,2020-2026,high,no,Gran Coupe.
+G16,M850i,N63,4.4L twin-turbo V8 gas,gas,2020-2026,high,no,Gran Coupe.
+F92,M8,S63,4.4L twin-turbo V8 gas,gas,2020-2026,high,no,Coupe ~600hp.
+F92,M8 Competition,S63,4.4L twin-turbo V8 gas (higher tune),gas,2020-2026,high,no,~617hp.
+F91,M8,S63,4.4L twin-turbo V8 gas,gas,2020-2026,high,no,Convertible.
+F91,M8 Competition,S63,4.4L twin-turbo V8 gas (higher tune),gas,2020-2026,high,no,Convertible.
+F93,M8,S63,4.4L twin-turbo V8 gas,gas,2020-2026,high,no,Gran Coupe.
+F93,M8 Competition,S63,4.4L twin-turbo V8 gas (higher tune),gas,2020-2026,high,no,Gran Coupe.
+E36/7,Z3 1.9,M44,1.9L I4 gas,gas,1996-1998,high,no,Early Z3 1.9 = M44.
+E36/7,Z3 2.3,M52,2.5L I6 gas,gas,2000-2000,medium,no,Z3 2.3 badge (2000) actually carried 2.5L M52TU.
+E36/7,Z3 2.5i,M54,2.5L I6 gas,gas,2001-2002,high,no,M54B25.
+E36/7,Z3 2.8,M52,2.8L I6 gas,gas,1997-2000,high,no,M52B28 / M52TU.
+E36/7,Z3 3.0i,M54,3.0L I6 gas,gas,2001-2002,high,no,M54B30.
+E36/7,M Roadster,S52,3.2L I6 gas,gas,1998-2000,high,no,US S52 through 2000.
+E36/7,M Roadster,S54,3.2L I6 gas,gas,2001-2002,high,no,Switched to S54.
+E36/8,Z3 2.8,M52,2.8L I6 gas,gas,1999-2000,high,no,Coupe M52TU.
+E36/8,Z3 3.0i,M54,3.0L I6 gas,gas,2001-2002,high,no,Coupe M54B30.
+E36/8,M Coupe,S52,3.2L I6 gas,gas,1999-2000,high,no,US S52 through 2000.
+E36/8,M Coupe,S54,3.2L I6 gas,gas,2001-2002,high,no,Switched to S54.
+E52,Z8,S62,5.0L V8 gas,gas,2000-2003,high,no,S62 (shared with E39 M5).
+E52,Alpina Roadster V8,M62,4.8L V8 gas (Alpina),gas,2003-2003,medium,no,"Alpina 4.8L V8 (M62-based), auto, ~375hp."
+E85,Z4 2.5i,M54,2.5L I6 gas,gas,2003-2005,high,no,Pre-facelift M54B25.
+E85,Z4 3.0i,M54,3.0L I6 gas,gas,2003-2005,high,no,Pre-facelift M54B30.
+E85,Z4 2.5si,N52,2.5L I6 gas,gas,2006-2008,medium,no,Post-facelift N52; limited/no US availability - verify.
+E85,Z4 3.0si,N52,3.0L I6 gas,gas,2006-2008,high,no,Post-facelift N52B30.
+E85,Z4 M Roadster,S54,3.2L I6 gas,gas,2006-2008,high,no,S54 (carryover M engine).
+E86,Z4 3.0si,N52,3.0L I6 gas,gas,2006-2008,high,no,Coupe N52B30.
+E86,Z4 M Coupe,S54,3.2L I6 gas,gas,2006-2008,high,no,S54.
+E89,sDrive30i,N52,3.0L N/A I6 gas,gas,2009-2012,high,no,N52B30.
+E89,sDrive35i,N54,3.0L twin-turbo I6 gas,gas,2009-2016,high,no,N54B30.
+E89,sDrive35is,N54,3.0L twin-turbo I6 gas (higher tune),gas,2011-2016,high,no,~335hp.
+E89,sDrive28i,N20,2.0L turbo I4 gas,gas,2012-2016,high,no,Replaced N52 30i.
+G29,sDrive30i,B48,2.0L turbo I4 gas,gas,2019-2026,high,no,
+G29,M40i,B58,3.0L turbo I6 gas,gas,2019-2026,high,no,
+E84,sDrive28i,N20,2.0L turbo I4 gas,gas,2013-2015,high,no,
+E84,xDrive28i,N52,3.0L N/A I6 gas,gas,2013-2013,medium,no,Earliest 2013 xDrive28i shipped with N52 before N20.
+E84,xDrive28i,N20,2.0L turbo I4 gas,gas,2013-2015,high,no,Mainstream N20.
+E84,xDrive35i,N55,3.0L turbo I6 gas,gas,2013-2015,high,no,
+F48,sDrive28i,B46,2.0L turbo I4 gas,gas,2016-2022,high,no,B46 (B48 family US variant).
+F48,xDrive28i,B46,2.0L turbo I4 gas,gas,2016-2022,high,no,
+U11,xDrive28i,B48,2.0L turbo I4 gas,gas,2023-2026,high,no,
+U11,M35i,B48,2.0L turbo I4 gas (high output),gas,2023-2026,high,no,~312hp.
+F39,sDrive28i,B46,2.0L turbo I4 gas,gas,2018-2023,high,no,
+F39,xDrive28i,B46,2.0L turbo I4 gas,gas,2018-2023,high,no,
+F39,M35i,B48,2.0L turbo I4 gas (high output),gas,2019-2023,high,no,~302hp.
+U10,xDrive28i,B48,2.0L turbo I4 gas,gas,2024-2026,high,no,
+U10,M35i,B48,2.0L turbo I4 gas (high output),gas,2024-2026,high,no,~312hp.
+E83,2.5i,M54,2.5L N/A I6 gas,gas,2004-2006,high,no,Pre-facelift M54B25.
+E83,3.0i,M54,3.0L N/A I6 gas,gas,2004-2006,high,no,Pre-facelift M54B30.
+E83,3.0si,N52,3.0L N/A I6 gas,gas,2007-2010,high,no,Facelift N52B30.
+E83,xDrive30i,N52,3.0L N/A I6 gas,gas,2009-2010,high,no,Renamed 3.0si; same N52.
+F25,xDrive28i,N52,3.0L N/A I6 gas,gas,2011-2012,high,no,Early F25 N52 before N20.
+F25,xDrive28i,N20,2.0L turbo I4 gas,gas,2013-2017,high,no,Switched to N20 for 2013+.
+F25,xDrive35i,N55,3.0L turbo I6 gas,gas,2011-2017,high,no,N55B30.
+F25,xDrive28d,N47,2.0L turbo I4 diesel,diesel,2015-2017,high,no,N47 diesel.
+F25,sDrive28i,N20,2.0L turbo I4 gas,gas,2013-2017,high,no,RWD N20.
+G01,sDrive30i,B48,2.0L turbo I4 gas,gas,2018-2024,high,no,RWD.
+G01,xDrive30i,B48,2.0L turbo I4 gas,gas,2018-2024,high,no,
+G01,M40i,B58,3.0L turbo I6 gas,gas,2018-2024,high,no,
+G01,xDrive30e,B48,2.0L turbo I4 gas + electric (PHEV),phev,2020-2024,high,no,
+G45,X3 30 xDrive,B48,2.0L turbo I4 gas (MHEV),gas,2025-2026,high,no,
+G45,X3 M50 xDrive,B58,3.0L turbo I6 gas (MHEV),gas,2025-2026,high,no,
+F26,xDrive28i,N20,2.0L turbo I4 gas,gas,2015-2018,high,no,
+F26,xDrive35i,N55,3.0L turbo I6 gas,gas,2015-2018,high,no,
+F26,M40i,N55,3.0L turbo I6 gas,gas,2016-2017,high,no,Early M40i N55 before B58.
+F26,M40i,B58,3.0L turbo I6 gas,gas,2018-2018,medium,no,Final MY adopted B58.
+G02,xDrive30i,B48,2.0L turbo I4 gas,gas,2019-2025,high,no,
+G02,M40i,B58,3.0L turbo I6 gas,gas,2019-2025,high,no,
+F97,X3 M,S58,3.0L twin-turbo I6 gas,gas,2020-2024,high,no,
+F97,X3 M Competition,S58,3.0L twin-turbo I6 gas (higher tune),gas,2020-2024,high,no,~503hp.
+F98,X4 M,S58,3.0L twin-turbo I6 gas,gas,2020-2025,high,no,
+F98,X4 M Competition,S58,3.0L twin-turbo I6 gas (higher tune),gas,2020-2025,high,no,~503hp.
+E53,3.0i,M54,3.0L N/A I6 gas,gas,2000-2006,high,no,M54B30.
+E53,4.4i,M62,4.4L N/A V8 gas,gas,2000-2003,high,no,Pre-facelift M62TU.
+E53,4.4i,N62,4.4L N/A V8 gas,gas,2004-2006,high,no,Facelift switched to N62B44.
+E53,4.6is,M62,4.6L N/A V8 gas,gas,2002-2003,high,no,"M62B46 sport, pre-facelift."
+E53,4.8is,N62,4.8L N/A V8 gas,gas,2004-2006,high,no,N62B48 flagship.
+E70,3.0si,N52,3.0L N/A I6 gas,gas,2007-2008,high,no,Renamed xDrive30i in 2009.
+E70,4.8i,N62,4.8L N/A V8 gas,gas,2007-2008,high,no,Renamed xDrive48i in 2009.
+E70,xDrive30i,N52,3.0L N/A I6 gas,gas,2009-2010,high,no,Post-2009 naming of 3.0si.
+E70,xDrive48i,N62,4.8L N/A V8 gas,gas,2009-2010,high,no,Post-2009 naming of 4.8i.
+E70,xDrive35i,N55,3.0L turbo I6 gas,gas,2011-2013,high,no,LCI N55.
+E70,xDrive50i,N63,4.4L twin-turbo V8 gas,gas,2011-2013,high,no,LCI N63.
+E70,xDrive35d,M57,3.0L turbo I6 diesel,diesel,2009-2010,high,no,M57 diesel.
+F15,sDrive35i,N55,3.0L turbo I6 gas,gas,2014-2018,high,no,RWD.
+F15,xDrive35i,N55,3.0L turbo I6 gas,gas,2014-2018,high,no,AWD.
+F15,xDrive35d,N57,3.0L turbo I6 diesel,diesel,2014-2018,high,no,
+F15,xDrive40e,N20,2.0L turbo I4 gas + electric (PHEV),phev,2016-2018,high,no,PHEV badged 40e.
+F15,xDrive50i,N63,4.4L twin-turbo V8 gas,gas,2014-2018,high,no,
+G05,xDrive40i,B58,3.0L turbo I6 gas (MHEV),gas,2019-2026,high,no,
+G05,sDrive40i,B58,3.0L turbo I6 gas (MHEV),gas,2020-2026,high,no,RWD.
+G05,M50i,N63,4.4L twin-turbo V8 gas,gas,2020-2022,high,no,N63 M Performance (not S63); replaced by M60i in 2023.
+G05,M60i,N63,4.4L twin-turbo V8 gas (MHEV),gas,2023-2026,high,no,N63 (not S63); successor to M50i.
+G05,xDrive45e,B58,3.0L turbo I6 gas + electric (PHEV),phev,2021-2023,high,no,
+G05,xDrive50e,B58,3.0L turbo I6 gas + electric (PHEV),phev,2024-2026,high,no,Successor to 45e (LCI).
+E71,xDrive35i,N54,3.0L twin-turbo I6 gas,gas,2008-2010,high,no,Early X6 N54.
+E71,xDrive35i,N55,3.0L turbo I6 gas,gas,2011-2014,high,no,Switched to N55 for 2011+.
+E71,xDrive50i,N63,4.4L twin-turbo V8 gas,gas,2008-2014,high,no,
+E71,ActiveHybrid X6,N63,4.4L twin-turbo V8 gas + electric,phev,2010-2011,medium,no,"N63 V8 two-mode hybrid (full hybrid, small battery)."
+F16,sDrive35i,N55,3.0L turbo I6 gas,gas,2015-2019,high,no,RWD.
+F16,xDrive35i,N55,3.0L turbo I6 gas,gas,2015-2019,high,no,AWD.
+F16,xDrive50i,N63,4.4L twin-turbo V8 gas,gas,2015-2019,high,no,
+G06,sDrive40i,B58,3.0L turbo I6 gas,gas,2020-2026,high,no,RWD.
+G06,xDrive40i,B58,3.0L turbo I6 gas (MHEV),gas,2020-2026,high,no,AWD.
+G06,M50i,N63,4.4L twin-turbo V8 gas,gas,2020-2022,high,no,N63; replaced by M60i in 2023.
+G06,M60i,N63,4.4L twin-turbo V8 gas (MHEV),gas,2023-2026,high,no,N63 (not S63).
+G07,xDrive40i,B58,3.0L turbo I6 gas (MHEV),gas,2019-2026,high,no,
+G07,xDrive50i,N63,4.4L twin-turbo V8 gas,gas,2019-2022,high,no,Pre-LCI; replaced by M60i in 2023.
+G07,M50i,N63,4.4L twin-turbo V8 gas,gas,2020-2022,high,no,N63 M Performance.
+G07,M60i,N63,4.4L twin-turbo V8 gas (MHEV),gas,2023-2026,high,no,Replaced 50i and M50i at LCI.
+G07,Alpina XB7,N63,4.4L twin-turbo V8 gas (Alpina),gas,2021-2026,high,no,Alpina-tuned N63.
+E70 X5 M,X5 M,S63,4.4L twin-turbo V8 gas,gas,2010-2013,high,no,S63 first-gen M V8.
+F85,X5 M,S63,4.4L twin-turbo V8 gas,gas,2015-2018,high,no,S63B44T2.
+F95,X5 M,S63,4.4L twin-turbo V8 gas (MHEV),gas,2020-2026,high,no,S63B44T4 48V.
+F95,X5 M Competition,S63,4.4L twin-turbo V8 gas (higher tune),gas,2020-2026,high,no,
+E71 X6 M,X6 M,S63,4.4L twin-turbo V8 gas,gas,2010-2014,high,no,S63 first-gen.
+F86,X6 M,S63,4.4L twin-turbo V8 gas,gas,2015-2019,high,no,S63B44T2.
+F96,X6 M,S63,4.4L twin-turbo V8 gas (MHEV),gas,2020-2026,high,no,S63B44T4.
+F96,X6 M Competition,S63,4.4L twin-turbo V8 gas (higher tune),gas,2020-2026,high,no,
+I01,i3,EV-single-motor,Single rear electric motor (BEV),ev,2014-2021,high,no,RWD BEV.
+I01,i3s,EV-single-motor,"Single rear electric motor (BEV, higher output)",ev,2018-2021,high,no,Sport variant.
+I01,Range Extender (REx),REx,EV + 647cc 2-cyl gas range-extender generator,phev,2014-2021,high,no,Gas engine is a generator only; does not drive wheels.
+I12,i8,B38,"1.5L turbo I3 gas + electric (PHEV, AWD)",phev,2014-2020,high,no,B38 rear + e-motor front.
+I15,i8 Roadster,B38,"1.5L turbo I3 gas + electric (PHEV, AWD)",phev,2019-2020,high,no,Convertible; larger battery.
+G26 (i4),eDrive35,EV-single-motor,Single electric motor RWD (BEV),ev,2022-2026,high,no,"Entry i4, smaller battery."
+G26 (i4),eDrive40,EV-single-motor,Single electric motor RWD (BEV),ev,2022-2026,high,no,
+G26 (i4),xDrive40,EV-dual-motor,Dual electric motor AWD (BEV),ev,2023-2026,high,no,
+G26 (i4),M50,EV-dual-motor,Dual electric motor AWD performance (BEV),ev,2022-2026,high,no,
+G26 (i4),M60,EV-dual-motor,Dual electric motor AWD (BEV),ev,2022-2026,low,no,"US i4 flagship is M50, not M60 - likely does not exist; verify/remove."
+G60 (i5),eDrive40,EV-single-motor,Single electric motor RWD (BEV),ev,2024-2026,high,no,
+G60 (i5),xDrive40,EV-dual-motor,Dual electric motor AWD (BEV),ev,2024-2026,high,no,
+G60 (i5),M60,EV-dual-motor,Dual electric motor AWD performance (BEV),ev,2024-2026,high,no,i5 M60 xDrive.
+G70 (i7),eDrive50,EV-single-motor,Single electric motor RWD (BEV),ev,2024-2026,high,no,
+G70 (i7),xDrive60,EV-dual-motor,Dual electric motor AWD (BEV),ev,2023-2026,high,no,Launch variant.
+G70 (i7),M70,EV-dual-motor,Dual electric motor AWD performance (BEV),ev,2024-2026,high,no,
+I20,xDrive50,EV-dual-motor,Dual electric motor AWD (BEV),ev,2022-2024,high,no,Launch; superseded by xDrive60 (LCI).
+I20,M60,EV-dual-motor,Dual electric motor AWD performance (BEV),ev,2022-2025,high,no,Superseded by M70 (LCI).
+I20,xDrive45,EV-dual-motor,Dual electric motor AWD (BEV),ev,2025-2026,high,no,LCI entry.
+I20,xDrive60,EV-dual-motor,Dual electric motor AWD (BEV),ev,2025-2026,high,no,"LCI, larger battery."
+I20,M70,EV-dual-motor,Dual electric motor AWD performance (BEV),ev,2025-2026,high,no,LCI flagship.
