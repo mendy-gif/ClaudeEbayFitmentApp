@@ -244,9 +244,13 @@ If we go Path A via `bulkMigrateListing`, migrating a listing into the Inventory
    (all, incl. radiators), `262059` Accessory Belts, `33572` Starters/Alternators/ECUs/Wiring. Exhaust,
    A/C & Heating, EV/Hybrid parts, and everything else = Rule A. `scripts/classify_part.py` labels any
    categoryId by ancestry.
-7. **Then build** the apply pipeline (rule engine → eBay writer `createOrReplaceProductCompatibility`),
-   sized for Path A / one-time push. Needs the `sell.inventory` *write* scope. **This is the only
-   remaining build** — the full brain (chassis data, eBay vocab, engine map, rules, classification) is done.
+7. ~~**Build the writer.**~~ **✅ BUILT 2026-08-15 (dry-run verified)** — `scripts/ebay_writer.py` turns
+   generated rows into a `createOrReplaceProductCompatibility` PUT payload. Dry-run by default (prints the
+   exact URL + JSON body); `--live` writes. `--detect` reads the donor vehicle + category off a live
+   listing; `--category` auto-classifies Rule A/B. **Remaining to go live:** (a) a token with the
+   `sell.inventory` **write** scope (a one-line scope change vs. the read-only tokens used so far);
+   (b) the relist-persistence check — write compatibility to one real SKU, confirm it survives Dismantly's
+   relist. That live one-SKU write is the safest first production test.
 
 ---
 
