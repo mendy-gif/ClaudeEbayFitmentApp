@@ -1,0 +1,4812 @@
+{
+  "root": "6030",
+  "count": 469,
+  "nodes": [
+    {
+      "categoryId": "6030",
+      "categoryName": "Car & Truck Parts & Accessories",
+      "leaf": false,
+      "ancestors": [],
+      "path": "Car & Truck Parts & Accessories"
+    },
+    {
+      "categoryId": "9886",
+      "categoryName": "Other Car & Truck Parts & Accessories",
+      "leaf": true,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Other Car & Truck Parts & Accessories"
+    },
+    {
+      "categoryId": "33542",
+      "categoryName": "Air Conditioning & Heating",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating"
+    },
+    {
+      "categoryId": "33543",
+      "categoryName": "A/C Compressors & Clutches",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > A/C Compressors & Clutches"
+    },
+    {
+      "categoryId": "33544",
+      "categoryName": "A/C Hoses & Fittings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > A/C Hoses & Fittings"
+    },
+    {
+      "categoryId": "33545",
+      "categoryName": "HVAC Controls & Control Units",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > HVAC Controls & Control Units"
+    },
+    {
+      "categoryId": "33547",
+      "categoryName": "A/C Evaporators",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > A/C Evaporators"
+    },
+    {
+      "categoryId": "46094",
+      "categoryName": "Other Air Conditioning & Heating",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > Other Air Conditioning & Heating"
+    },
+    {
+      "categoryId": "61117",
+      "categoryName": "Cabin Air Filters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > Cabin Air Filters"
+    },
+    {
+      "categoryId": "61864",
+      "categoryName": "A/C Condensers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > A/C Condensers"
+    },
+    {
+      "categoryId": "173863",
+      "categoryName": "HVAC Temperature Sensors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > HVAC Temperature Sensors"
+    },
+    {
+      "categoryId": "262074",
+      "categoryName": "A/C Expansion Valves",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > A/C Expansion Valves"
+    },
+    {
+      "categoryId": "262075",
+      "categoryName": "A/C Pressure Switches",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > A/C Pressure Switches"
+    },
+    {
+      "categoryId": "262076",
+      "categoryName": "A/C Receiver Dryers & Accumulators",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > A/C Receiver Dryers & Accumulators"
+    },
+    {
+      "categoryId": "262077",
+      "categoryName": "Blowers & Fans",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > Blowers & Fans"
+    },
+    {
+      "categoryId": "33546",
+      "categoryName": "HVAC Blower Motors & Wheels",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542",
+        "262077"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > Blowers & Fans > HVAC Blower Motors & Wheels"
+    },
+    {
+      "categoryId": "262078",
+      "categoryName": "HVAC Blower Modules & Resistors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542",
+        "262077"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > Blowers & Fans > HVAC Blower Modules & Resistors"
+    },
+    {
+      "categoryId": "262079",
+      "categoryName": "Additional Blower & Fan Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542",
+        "262077"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > Blowers & Fans > Additional Blower & Fan Parts"
+    },
+    {
+      "categoryId": "262080",
+      "categoryName": "Heater Control Valves",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > Heater Control Valves"
+    },
+    {
+      "categoryId": "262081",
+      "categoryName": "Heater Cores",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > Heater Cores"
+    },
+    {
+      "categoryId": "262082",
+      "categoryName": "HVAC Control Unit Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > HVAC Control Unit Parts"
+    },
+    {
+      "categoryId": "262083",
+      "categoryName": "HVAC Vent Actuators",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33542"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air Conditioning & Heating > HVAC Vent Actuators"
+    },
+    {
+      "categoryId": "33549",
+      "categoryName": "Air & Fuel Delivery",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery"
+    },
+    {
+      "categoryId": "33550",
+      "categoryName": "Carburetors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Carburetors"
+    },
+    {
+      "categoryId": "33551",
+      "categoryName": "Carburetor Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Carburetor Parts"
+    },
+    {
+      "categoryId": "33555",
+      "categoryName": "Fuel Pumps & Sending Units",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Pumps & Sending Units"
+    },
+    {
+      "categoryId": "33556",
+      "categoryName": "Fuel Tanks & Filler Necks",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Tanks & Filler Necks"
+    },
+    {
+      "categoryId": "33557",
+      "categoryName": "Air Intake & Fuel Sensors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors"
+    },
+    {
+      "categoryId": "33558",
+      "categoryName": "Throttle Bodies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Throttle Bodies"
+    },
+    {
+      "categoryId": "33626",
+      "categoryName": "Vacuum Pumps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Vacuum Pumps"
+    },
+    {
+      "categoryId": "33659",
+      "categoryName": "Air Filters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Filters"
+    },
+    {
+      "categoryId": "33660",
+      "categoryName": "Fuel Filters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Filters"
+    },
+    {
+      "categoryId": "33668",
+      "categoryName": "Gaskets, Seals & O-Rings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Gaskets, Seals & O-Rings"
+    },
+    {
+      "categoryId": "36474",
+      "categoryName": "Intake Manifolds",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Intake Manifolds"
+    },
+    {
+      "categoryId": "42604",
+      "categoryName": "Other Air & Fuel Delivery",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Other Air & Fuel Delivery"
+    },
+    {
+      "categoryId": "43946",
+      "categoryName": "Air Filter Housings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Filter Housings"
+    },
+    {
+      "categoryId": "61259",
+      "categoryName": "Throttle Cables & Linkages",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Throttle Cables & Linkages"
+    },
+    {
+      "categoryId": "173950",
+      "categoryName": "Hoses, Lines & Pipes",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Hoses, Lines & Pipes"
+    },
+    {
+      "categoryId": "174107",
+      "categoryName": "Turbos, Superchargers & Intercoolers",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Turbos, Superchargers & Intercoolers"
+    },
+    {
+      "categoryId": "33741",
+      "categoryName": "Superchargers & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549",
+        "174107"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Turbos, Superchargers & Intercoolers > Superchargers & Parts"
+    },
+    {
+      "categoryId": "33742",
+      "categoryName": "Turbos & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549",
+        "174107"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Turbos, Superchargers & Intercoolers > Turbos & Parts"
+    },
+    {
+      "categoryId": "262073",
+      "categoryName": "Intercoolers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549",
+        "174107"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Turbos, Superchargers & Intercoolers > Intercoolers"
+    },
+    {
+      "categoryId": "262070",
+      "categoryName": "Fuel Injection Parts",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Injection Parts"
+    },
+    {
+      "categoryId": "33553",
+      "categoryName": "Additional Fuel Injection Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549",
+        "262070"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Injection Parts > Additional Fuel Injection Parts"
+    },
+    {
+      "categoryId": "33554",
+      "categoryName": "Fuel Injectors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549",
+        "262070"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Injection Parts > Fuel Injectors"
+    },
+    {
+      "categoryId": "262071",
+      "categoryName": "High Pressure Fuel Pump",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549",
+        "262070"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Injection Parts > High Pressure Fuel Pump"
+    },
+    {
+      "categoryId": "262072",
+      "categoryName": "Fuel Tank Caps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33549"
+      ],
+      "path": "Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Tank Caps"
+    },
+    {
+      "categoryId": "33559",
+      "categoryName": "Brakes & Brake Parts",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts"
+    },
+    {
+      "categoryId": "33560",
+      "categoryName": "Additional ABS Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Additional ABS Parts"
+    },
+    {
+      "categoryId": "33561",
+      "categoryName": "Brake Hoses, Lines & Fittings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Brake Hoses, Lines & Fittings"
+    },
+    {
+      "categoryId": "33563",
+      "categoryName": "Calipers & Brackets",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Calipers & Brackets"
+    },
+    {
+      "categoryId": "33564",
+      "categoryName": "Brake Disc Rotors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Brake Disc Rotors"
+    },
+    {
+      "categoryId": "33565",
+      "categoryName": "Brake Drums",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Brake Drums"
+    },
+    {
+      "categoryId": "33566",
+      "categoryName": "Master Cylinders",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Master Cylinders"
+    },
+    {
+      "categoryId": "33568",
+      "categoryName": "Brake Cables",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Brake Cables"
+    },
+    {
+      "categoryId": "33571",
+      "categoryName": "Wheel Cylinders",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Wheel Cylinders"
+    },
+    {
+      "categoryId": "42605",
+      "categoryName": "Other Brake Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Other Brake Parts"
+    },
+    {
+      "categoryId": "57357",
+      "categoryName": "Brake Pads",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Brake Pads"
+    },
+    {
+      "categoryId": "61739",
+      "categoryName": "Brake Shoes",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Brake Shoes"
+    },
+    {
+      "categoryId": "173511",
+      "categoryName": "Brake Component Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Brake Component Kits"
+    },
+    {
+      "categoryId": "174020",
+      "categoryName": "Brake Pad Wear Sensors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Brake Pad Wear Sensors"
+    },
+    {
+      "categoryId": "174021",
+      "categoryName": "Brake Boosters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Brake Boosters"
+    },
+    {
+      "categoryId": "262084",
+      "categoryName": "ABS & Stability Hydraulic Units",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > ABS & Stability Hydraulic Units"
+    },
+    {
+      "categoryId": "262085",
+      "categoryName": "ABS Control Modules",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > ABS Control Modules"
+    },
+    {
+      "categoryId": "262086",
+      "categoryName": "ABS Speed Sensors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > ABS Speed Sensors"
+    },
+    {
+      "categoryId": "262087",
+      "categoryName": "Brake Pad & Shoe Hardware",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Brake Pad & Shoe Hardware"
+    },
+    {
+      "categoryId": "262088",
+      "categoryName": "Additional Brake Sensors & Switches",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Additional Brake Sensors & Switches"
+    },
+    {
+      "categoryId": "262089",
+      "categoryName": "Brake Relays",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Brake Relays"
+    },
+    {
+      "categoryId": "262090",
+      "categoryName": "Rebuild Kits & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Rebuild Kits & Parts"
+    },
+    {
+      "categoryId": "262091",
+      "categoryName": "Reservoirs & Caps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Reservoirs & Caps"
+    },
+    {
+      "categoryId": "262092",
+      "categoryName": "Wires, Cables & Connectors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33559"
+      ],
+      "path": "Car & Truck Parts & Accessories > Brakes & Brake Parts > Wires, Cables & Connectors"
+    },
+    {
+      "categoryId": "33572",
+      "categoryName": "Starters, Alternators, ECUs & Wiring",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring"
+    },
+    {
+      "categoryId": "33575",
+      "categoryName": "Battery Accessories",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Battery Accessories"
+    },
+    {
+      "categoryId": "33577",
+      "categoryName": "Voltage Regulators",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Voltage Regulators"
+    },
+    {
+      "categoryId": "33578",
+      "categoryName": "Other Starters, Alternators, ECUs & Wiring",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Other Starters, Alternators, ECUs & Wiring"
+    },
+    {
+      "categoryId": "33596",
+      "categoryName": "ECUs & Computer Modules",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules"
+    },
+    {
+      "categoryId": "177697",
+      "categoryName": "Alternators & Generators",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Alternators & Generators"
+    },
+    {
+      "categoryId": "177698",
+      "categoryName": "Alternator & Generator Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Alternator & Generator Parts"
+    },
+    {
+      "categoryId": "177699",
+      "categoryName": "Starter Motors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Starter Motors"
+    },
+    {
+      "categoryId": "177700",
+      "categoryName": "Starter Motor Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Starter Motor Parts"
+    },
+    {
+      "categoryId": "179846",
+      "categoryName": "Batteries",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Batteries"
+    },
+    {
+      "categoryId": "179847",
+      "categoryName": "Wiring Harnesses, Cables & Connectors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors"
+    },
+    {
+      "categoryId": "262221",
+      "categoryName": "Fuses & Fuse Boxes",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Fuses & Fuse Boxes"
+    },
+    {
+      "categoryId": "262222",
+      "categoryName": "Relays",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33572"
+      ],
+      "path": "Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Relays"
+    },
+    {
+      "categoryId": "33579",
+      "categoryName": "Steering & Suspension",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension"
+    },
+    {
+      "categoryId": "33580",
+      "categoryName": "Control Arms, Ball Joints & Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Control Arms, Ball Joints & Assemblies"
+    },
+    {
+      "categoryId": "33581",
+      "categoryName": "Camber & Caster Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Camber & Caster Parts"
+    },
+    {
+      "categoryId": "33582",
+      "categoryName": "Leaf & Coil Springs",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Leaf & Coil Springs"
+    },
+    {
+      "categoryId": "33587",
+      "categoryName": "Pitman & Idler Arms",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Pitman & Idler Arms"
+    },
+    {
+      "categoryId": "33588",
+      "categoryName": "Power Steering Pumps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Power Steering Pumps"
+    },
+    {
+      "categoryId": "33589",
+      "categoryName": "Gearboxes, Rack & Pinions",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Gearboxes, Rack & Pinions"
+    },
+    {
+      "categoryId": "33590",
+      "categoryName": "Shocks, Struts & Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Shocks, Struts & Assemblies"
+    },
+    {
+      "categoryId": "33592",
+      "categoryName": "Sway Bars, Links & Bushings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Sway Bars, Links & Bushings"
+    },
+    {
+      "categoryId": "33593",
+      "categoryName": "Tie Rods & Steering Linkages",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Tie Rods & Steering Linkages"
+    },
+    {
+      "categoryId": "42609",
+      "categoryName": "Other Steering & Suspension Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Other Steering & Suspension Parts"
+    },
+    {
+      "categoryId": "170141",
+      "categoryName": "Wheel Bearings, Hubs & Seals",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Wheel Bearings, Hubs & Seals"
+    },
+    {
+      "categoryId": "174090",
+      "categoryName": "Suspension Component Replacement Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Suspension Component Replacement Kits"
+    },
+    {
+      "categoryId": "174091",
+      "categoryName": "Self-Leveling Suspension Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Self-Leveling Suspension Parts"
+    },
+    {
+      "categoryId": "174093",
+      "categoryName": "Steering Columns",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Steering Columns"
+    },
+    {
+      "categoryId": "262223",
+      "categoryName": "Gearbox, Rack & Pinion Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Gearbox, Rack & Pinion Parts"
+    },
+    {
+      "categoryId": "262224",
+      "categoryName": "King Pins",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > King Pins"
+    },
+    {
+      "categoryId": "262225",
+      "categoryName": "Power Steering Hoses",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Power Steering Hoses"
+    },
+    {
+      "categoryId": "262226",
+      "categoryName": "Power Steering Pump Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Power Steering Pump Parts"
+    },
+    {
+      "categoryId": "262227",
+      "categoryName": "Radius, Swing & Trailing Arms",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Radius, Swing & Trailing Arms"
+    },
+    {
+      "categoryId": "262228",
+      "categoryName": "Shock & Strut Mounts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Shock & Strut Mounts"
+    },
+    {
+      "categoryId": "262229",
+      "categoryName": "Steering & Suspension Bushings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Steering & Suspension Bushings"
+    },
+    {
+      "categoryId": "262230",
+      "categoryName": "Steering Knuckles",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Steering Knuckles"
+    },
+    {
+      "categoryId": "262231",
+      "categoryName": "Steering Stabilizers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33579"
+      ],
+      "path": "Car & Truck Parts & Accessories > Steering & Suspension > Steering Stabilizers"
+    },
+    {
+      "categoryId": "33599",
+      "categoryName": "Engine Cooling Components",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components"
+    },
+    {
+      "categoryId": "33600",
+      "categoryName": "Fan & Shroud Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Fan & Shroud Assemblies"
+    },
+    {
+      "categoryId": "33601",
+      "categoryName": "Coolant Hoses",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Coolant Hoses"
+    },
+    {
+      "categoryId": "33602",
+      "categoryName": "Radiators",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Radiators"
+    },
+    {
+      "categoryId": "33603",
+      "categoryName": "Thermostats & Housings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Thermostats & Housings"
+    },
+    {
+      "categoryId": "33604",
+      "categoryName": "Water Pumps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Water Pumps"
+    },
+    {
+      "categoryId": "46095",
+      "categoryName": "Engine Oil Coolers & Lines",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Engine Oil Coolers & Lines"
+    },
+    {
+      "categoryId": "46096",
+      "categoryName": "Other Engine Cooling Components",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Other Engine Cooling Components"
+    },
+    {
+      "categoryId": "174030",
+      "categoryName": "Expansion & Overflow Tanks",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Expansion & Overflow Tanks"
+    },
+    {
+      "categoryId": "262117",
+      "categoryName": "Caps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Caps"
+    },
+    {
+      "categoryId": "262118",
+      "categoryName": "Clamps & Hardware",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Clamps & Hardware"
+    },
+    {
+      "categoryId": "262119",
+      "categoryName": "Fan Blades",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Fan Blades"
+    },
+    {
+      "categoryId": "262120",
+      "categoryName": "Fan Clutches",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Fan Clutches"
+    },
+    {
+      "categoryId": "262121",
+      "categoryName": "Fan Motors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Fan Motors"
+    },
+    {
+      "categoryId": "262122",
+      "categoryName": "Gaskets, Seals & O-Rings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Gaskets, Seals & O-Rings"
+    },
+    {
+      "categoryId": "262123",
+      "categoryName": "Temperature Sensors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33599"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engine Cooling Components > Temperature Sensors"
+    },
+    {
+      "categoryId": "33605",
+      "categoryName": "Exhaust & Emission Systems",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems"
+    },
+    {
+      "categoryId": "33606",
+      "categoryName": "Air Bypass Valves",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Air Bypass Valves"
+    },
+    {
+      "categoryId": "33607",
+      "categoryName": "EGR Parts & Valves",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > EGR Parts & Valves"
+    },
+    {
+      "categoryId": "33610",
+      "categoryName": "Secondary Air & Smog Pumps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Secondary Air & Smog Pumps"
+    },
+    {
+      "categoryId": "33629",
+      "categoryName": "Catalytic Converters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Catalytic Converters"
+    },
+    {
+      "categoryId": "33630",
+      "categoryName": "Exhaust System Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Exhaust System Kits"
+    },
+    {
+      "categoryId": "33632",
+      "categoryName": "Manifolds & Headers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Manifolds & Headers"
+    },
+    {
+      "categoryId": "33633",
+      "categoryName": "Exhaust Pipes & Tips",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Exhaust Pipes & Tips"
+    },
+    {
+      "categoryId": "33634",
+      "categoryName": "Clamps, Flanges, Hangers & Hardware",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Clamps, Flanges, Hangers & Hardware"
+    },
+    {
+      "categoryId": "33636",
+      "categoryName": "Mufflers & Resonators",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Mufflers & Resonators"
+    },
+    {
+      "categoryId": "33666",
+      "categoryName": "Exhaust Gaskets",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Exhaust Gaskets"
+    },
+    {
+      "categoryId": "46097",
+      "categoryName": "Other Exhaust & Emission Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Other Exhaust & Emission Parts"
+    },
+    {
+      "categoryId": "63276",
+      "categoryName": "Oxygen Sensors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Oxygen Sensors"
+    },
+    {
+      "categoryId": "174028",
+      "categoryName": "Particulate Filters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Particulate Filters"
+    },
+    {
+      "categoryId": "174044",
+      "categoryName": "Heat Shields, Wraps & Sleeves",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Heat Shields, Wraps & Sleeves"
+    },
+    {
+      "categoryId": "261897",
+      "categoryName": "Solenoids",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Solenoids"
+    },
+    {
+      "categoryId": "261898",
+      "categoryName": "Emission Gaskets",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Emission Gaskets"
+    },
+    {
+      "categoryId": "261899",
+      "categoryName": "Fuel Vapor Canisters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Fuel Vapor Canisters"
+    },
+    {
+      "categoryId": "262142",
+      "categoryName": "Diesel Exhaust Fluid System Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Diesel Exhaust Fluid System Parts"
+    },
+    {
+      "categoryId": "262143",
+      "categoryName": "Emissions Hardware & Components",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Emissions Hardware & Components"
+    },
+    {
+      "categoryId": "262144",
+      "categoryName": "Switches",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33605"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exhaust & Emission Systems > Switches"
+    },
+    {
+      "categoryId": "33612",
+      "categoryName": "Engines & Engine Parts",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts"
+    },
+    {
+      "categoryId": "6778",
+      "categoryName": "Oil Pumps & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Oil Pumps & Parts"
+    },
+    {
+      "categoryId": "33613",
+      "categoryName": "Engine Blocks",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Engine Blocks"
+    },
+    {
+      "categoryId": "33615",
+      "categoryName": "Engines",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Engines"
+    },
+    {
+      "categoryId": "33616",
+      "categoryName": "Crankshafts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Crankshafts"
+    },
+    {
+      "categoryId": "33617",
+      "categoryName": "Cylinder Heads",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Cylinder Heads"
+    },
+    {
+      "categoryId": "33619",
+      "categoryName": "Engine Bearings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Engine Bearings"
+    },
+    {
+      "categoryId": "33620",
+      "categoryName": "Engine Rebuild Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Engine Rebuild Kits"
+    },
+    {
+      "categoryId": "33622",
+      "categoryName": "Oil Drain Plugs, Filler Caps & Dipsticks",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Oil Drain Plugs, Filler Caps & Dipsticks"
+    },
+    {
+      "categoryId": "33623",
+      "categoryName": "Pistons & Rings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Pistons & Rings"
+    },
+    {
+      "categoryId": "33661",
+      "categoryName": "Oil Filters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Oil Filters"
+    },
+    {
+      "categoryId": "38657",
+      "categoryName": "Oil Pans",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Oil Pans"
+    },
+    {
+      "categoryId": "50454",
+      "categoryName": "Engine Mounts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Engine Mounts"
+    },
+    {
+      "categoryId": "61304",
+      "categoryName": "Other Engine Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Other Engine Parts"
+    },
+    {
+      "categoryId": "174087",
+      "categoryName": "Service Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Service Kits"
+    },
+    {
+      "categoryId": "262124",
+      "categoryName": "Connecting Rods & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Connecting Rods & Parts"
+    },
+    {
+      "categoryId": "262125",
+      "categoryName": "Engine Sensors & Switches",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Engine Sensors & Switches"
+    },
+    {
+      "categoryId": "262126",
+      "categoryName": "Gaskets, Seals & Hardware",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Gaskets, Seals & Hardware"
+    },
+    {
+      "categoryId": "33665",
+      "categoryName": "Gaskets & Seals",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262126"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Gaskets, Seals & Hardware > Gaskets & Seals"
+    },
+    {
+      "categoryId": "262127",
+      "categoryName": "Brackets & Hardware",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262126"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Gaskets, Seals & Hardware > Brackets & Hardware"
+    },
+    {
+      "categoryId": "262128",
+      "categoryName": "Gasket Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262126"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Gaskets, Seals & Hardware > Gasket Kits"
+    },
+    {
+      "categoryId": "262129",
+      "categoryName": "Hardware Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262126"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Gaskets, Seals & Hardware > Hardware Kits"
+    },
+    {
+      "categoryId": "262130",
+      "categoryName": "Timing Components & Kits",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Timing Components & Kits"
+    },
+    {
+      "categoryId": "262131",
+      "categoryName": "Guide Rails",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262130"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Timing Components & Kits > Guide Rails"
+    },
+    {
+      "categoryId": "262132",
+      "categoryName": "Sprockets",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262130"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Timing Components & Kits > Sprockets"
+    },
+    {
+      "categoryId": "262133",
+      "categoryName": "Tensioners & Pulleys",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262130"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Timing Components & Kits > Tensioners & Pulleys"
+    },
+    {
+      "categoryId": "262134",
+      "categoryName": "Timing Belts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262130"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Timing Components & Kits > Timing Belts"
+    },
+    {
+      "categoryId": "262135",
+      "categoryName": "Timing Chains",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262130"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Timing Components & Kits > Timing Chains"
+    },
+    {
+      "categoryId": "262136",
+      "categoryName": "Timing Covers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262130"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Timing Components & Kits > Timing Covers"
+    },
+    {
+      "categoryId": "262137",
+      "categoryName": "Timing Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262130"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Timing Components & Kits > Timing Kits"
+    },
+    {
+      "categoryId": "262138",
+      "categoryName": "Valvetrain Components",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33612"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Valvetrain Components"
+    },
+    {
+      "categoryId": "33614",
+      "categoryName": "Camshafts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262138"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Valvetrain Components > Camshafts"
+    },
+    {
+      "categoryId": "33621",
+      "categoryName": "Valves",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262138"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Valvetrain Components > Valves"
+    },
+    {
+      "categoryId": "33624",
+      "categoryName": "Rocker Arms & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262138"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Valvetrain Components > Rocker Arms & Parts"
+    },
+    {
+      "categoryId": "33627",
+      "categoryName": "Rocker & Valve Covers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262138"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Valvetrain Components > Rocker & Valve Covers"
+    },
+    {
+      "categoryId": "61338",
+      "categoryName": "Tappets & Lifters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262138"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Valvetrain Components > Tappets & Lifters"
+    },
+    {
+      "categoryId": "262139",
+      "categoryName": "Push Rods",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262138"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Valvetrain Components > Push Rods"
+    },
+    {
+      "categoryId": "262140",
+      "categoryName": "Valve Guides, Springs & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262138"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Valvetrain Components > Valve Guides, Springs & Parts"
+    },
+    {
+      "categoryId": "262141",
+      "categoryName": "Variable Valve Timing Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33612",
+        "262138"
+      ],
+      "path": "Car & Truck Parts & Accessories > Engines & Engine Parts > Valvetrain Components > Variable Valve Timing Parts"
+    },
+    {
+      "categoryId": "33637",
+      "categoryName": "Exterior Parts & Accessories",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories"
+    },
+    {
+      "categoryId": "14769",
+      "categoryName": "Other Exterior Parts & Accessories",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Other Exterior Parts & Accessories"
+    },
+    {
+      "categoryId": "33638",
+      "categoryName": "Spoilers & Wings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Spoilers & Wings"
+    },
+    {
+      "categoryId": "33639",
+      "categoryName": "Antennas",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Antennas"
+    },
+    {
+      "categoryId": "33643",
+      "categoryName": "Emblems & Ornaments",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Emblems & Ornaments"
+    },
+    {
+      "categoryId": "33645",
+      "categoryName": "Grilles",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Grilles"
+    },
+    {
+      "categoryId": "33648",
+      "categoryName": "Exterior Locks & Lock Hardware",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware"
+    },
+    {
+      "categoryId": "33650",
+      "categoryName": "Running Boards & Step Bars",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Running Boards & Step Bars"
+    },
+    {
+      "categoryId": "33654",
+      "categoryName": "Body Moldings & Trims",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Body Moldings & Trims"
+    },
+    {
+      "categoryId": "33683",
+      "categoryName": "Glass & Window Parts",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Glass & Window Parts"
+    },
+    {
+      "categoryId": "6781",
+      "categoryName": "Additional Glass & Window Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "33683"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Glass & Window Parts > Additional Glass & Window Parts"
+    },
+    {
+      "categoryId": "33684",
+      "categoryName": "Auto Glass",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "33683"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Glass & Window Parts > Auto Glass"
+    },
+    {
+      "categoryId": "33685",
+      "categoryName": "Window Seals, Gaskets & Trims",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "33683"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Glass & Window Parts > Window Seals, Gaskets & Trims"
+    },
+    {
+      "categoryId": "63689",
+      "categoryName": "Window Tinting",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "33683"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Glass & Window Parts > Window Tinting"
+    },
+    {
+      "categoryId": "50445",
+      "categoryName": "Decals & Vinyls",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Decals & Vinyls"
+    },
+    {
+      "categoryId": "50456",
+      "categoryName": "Car & Truck Covers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Car & Truck Covers"
+    },
+    {
+      "categoryId": "52638",
+      "categoryName": "License Plates & Frames",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > License Plates & Frames"
+    },
+    {
+      "categoryId": "63688",
+      "categoryName": "Snow Plows & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Snow Plows & Parts"
+    },
+    {
+      "categoryId": "174111",
+      "categoryName": "Wipers & Washers",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Wipers & Washers"
+    },
+    {
+      "categoryId": "61941",
+      "categoryName": "Wiper Linkages, Transmissions & Motors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "174111"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Wipers & Washers > Wiper Linkages, Transmissions & Motors"
+    },
+    {
+      "categoryId": "174112",
+      "categoryName": "Washer Pumps, Reservoirs & Nozzles",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "174111"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Wipers & Washers > Washer Pumps, Reservoirs & Nozzles"
+    },
+    {
+      "categoryId": "174113",
+      "categoryName": "Wiper Arms",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "174111"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Wipers & Washers > Wiper Arms"
+    },
+    {
+      "categoryId": "179852",
+      "categoryName": "Wiper Blades & Refills",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "174111"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Wipers & Washers > Wiper Blades & Refills"
+    },
+    {
+      "categoryId": "262179",
+      "categoryName": "Additional Wiper & Washer Components",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "174111"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Wipers & Washers > Additional Wiper & Washer Components"
+    },
+    {
+      "categoryId": "262145",
+      "categoryName": "Bumpers & Components",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Bumpers & Components"
+    },
+    {
+      "categoryId": "33640",
+      "categoryName": "Bumpers & Reinforcements",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262145"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Bumpers & Components > Bumpers & Reinforcements"
+    },
+    {
+      "categoryId": "38658",
+      "categoryName": "Air Dams",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262145"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Bumpers & Components > Air Dams"
+    },
+    {
+      "categoryId": "262146",
+      "categoryName": "Bumper Inserts & Covers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262145"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Bumpers & Components > Bumper Inserts & Covers"
+    },
+    {
+      "categoryId": "262147",
+      "categoryName": "Doors, Trunk Lids & Hatches",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches"
+    },
+    {
+      "categoryId": "33647",
+      "categoryName": "Liftgates",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262147"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Liftgates"
+    },
+    {
+      "categoryId": "33656",
+      "categoryName": "Hatches & Trunk Lids",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262147"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Hatches & Trunk Lids"
+    },
+    {
+      "categoryId": "179850",
+      "categoryName": "Doors & Door Skins",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262147"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Doors & Door Skins"
+    },
+    {
+      "categoryId": "179851",
+      "categoryName": "Door Handles",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262147"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Door Handles"
+    },
+    {
+      "categoryId": "262148",
+      "categoryName": "Door Seals",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262147"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Door Seals"
+    },
+    {
+      "categoryId": "262149",
+      "categoryName": "Cargo & Sliding Doors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262147"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Cargo & Sliding Doors"
+    },
+    {
+      "categoryId": "262150",
+      "categoryName": "Lift Supports, Latches, Hinges & Additional Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262147"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Lift Supports, Latches, Hinges & Additional Parts"
+    },
+    {
+      "categoryId": "262152",
+      "categoryName": "Frame Rails & Subframes",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Frame Rails & Subframes"
+    },
+    {
+      "categoryId": "262153",
+      "categoryName": "Guards & Protection",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Guards & Protection"
+    },
+    {
+      "categoryId": "38659",
+      "categoryName": "Sun Visors, Wind & Bug Deflectors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262153"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Guards & Protection > Sun Visors, Wind & Bug Deflectors"
+    },
+    {
+      "categoryId": "50455",
+      "categoryName": "Splash Guards & Mud Flaps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262153"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Guards & Protection > Splash Guards & Mud Flaps"
+    },
+    {
+      "categoryId": "50457",
+      "categoryName": "Additional Guards & Protection",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262153"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Guards & Protection > Additional Guards & Protection"
+    },
+    {
+      "categoryId": "262154",
+      "categoryName": "Grille Guards & Light Protectors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262153"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Guards & Protection > Grille Guards & Light Protectors"
+    },
+    {
+      "categoryId": "262155",
+      "categoryName": "Hoods",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Hoods"
+    },
+    {
+      "categoryId": "33646",
+      "categoryName": "Hood Panels",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262155"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Hoods > Hood Panels"
+    },
+    {
+      "categoryId": "262156",
+      "categoryName": "Hinges, Latches & Additional Hood Components",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262155"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Hoods > Hinges, Latches & Additional Hood Components"
+    },
+    {
+      "categoryId": "262157",
+      "categoryName": "Hood Scoops & Vents",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262155"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Hoods > Hood Scoops & Vents"
+    },
+    {
+      "categoryId": "262158",
+      "categoryName": "Lift Supports & Prop Rods",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262155"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Hoods > Lift Supports & Prop Rods"
+    },
+    {
+      "categoryId": "262159",
+      "categoryName": "Horns",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Horns"
+    },
+    {
+      "categoryId": "262160",
+      "categoryName": "Side View Mirrors",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Side View Mirrors"
+    },
+    {
+      "categoryId": "262161",
+      "categoryName": "Mirror Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262160"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Side View Mirrors > Mirror Assemblies"
+    },
+    {
+      "categoryId": "262162",
+      "categoryName": "Mirror Components",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262160"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Side View Mirrors > Mirror Components"
+    },
+    {
+      "categoryId": "262163",
+      "categoryName": "Mirror Glass",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262160"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Side View Mirrors > Mirror Glass"
+    },
+    {
+      "categoryId": "262164",
+      "categoryName": "Mounts, Brackets & Hardware",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Mounts, Brackets & Hardware"
+    },
+    {
+      "categoryId": "262165",
+      "categoryName": "Panels",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Panels"
+    },
+    {
+      "categoryId": "33644",
+      "categoryName": "Fenders",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262165"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Panels > Fenders"
+    },
+    {
+      "categoryId": "262166",
+      "categoryName": "Body Side & Quarter Panels",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262165"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Panels > Body Side & Quarter Panels"
+    },
+    {
+      "categoryId": "262167",
+      "categoryName": "Fuel Doors & Components",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262165"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Panels > Fuel Doors & Components"
+    },
+    {
+      "categoryId": "262168",
+      "categoryName": "Additional Panels",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262165"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Panels > Additional Panels"
+    },
+    {
+      "categoryId": "262169",
+      "categoryName": "Roofs, Tops & Sunroofs",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Roofs, Tops & Sunroofs"
+    },
+    {
+      "categoryId": "262170",
+      "categoryName": "Convertible Tops & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262169"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Roofs, Tops & Sunroofs > Convertible Tops & Parts"
+    },
+    {
+      "categoryId": "262171",
+      "categoryName": "Hardtops, Roof Panels & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262169"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Roofs, Tops & Sunroofs > Hardtops, Roof Panels & Parts"
+    },
+    {
+      "categoryId": "262172",
+      "categoryName": "Sunroofs & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262169"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Roofs, Tops & Sunroofs > Sunroofs & Parts"
+    },
+    {
+      "categoryId": "262173",
+      "categoryName": "Additional Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262169"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Roofs, Tops & Sunroofs > Additional Parts"
+    },
+    {
+      "categoryId": "262174",
+      "categoryName": "Spare Tire Carriers & Covers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Spare Tire Carriers & Covers"
+    },
+    {
+      "categoryId": "262175",
+      "categoryName": "Truck Beds & Parts",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33637"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Truck Beds & Parts"
+    },
+    {
+      "categoryId": "33655",
+      "categoryName": "Truck Bed Accessories",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262175"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Truck Beds & Parts > Truck Bed Accessories"
+    },
+    {
+      "categoryId": "262176",
+      "categoryName": "Hinges, Latches & Additional Components",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262175"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Truck Beds & Parts > Hinges, Latches & Additional Components"
+    },
+    {
+      "categoryId": "262177",
+      "categoryName": "Truck Beds & Repair Sections",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262175"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Truck Beds & Parts > Truck Beds & Repair Sections"
+    },
+    {
+      "categoryId": "262178",
+      "categoryName": "Tailgates",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33637",
+        "262175"
+      ],
+      "path": "Car & Truck Parts & Accessories > Exterior Parts & Accessories > Truck Beds & Parts > Tailgates"
+    },
+    {
+      "categoryId": "33687",
+      "categoryName": "Ignition Systems & Components",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components"
+    },
+    {
+      "categoryId": "33690",
+      "categoryName": "Distributors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Distributors"
+    },
+    {
+      "categoryId": "33691",
+      "categoryName": "Ignition Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Ignition Kits"
+    },
+    {
+      "categoryId": "33692",
+      "categoryName": "Ignition Wires & Coil Boots",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Ignition Wires & Coil Boots"
+    },
+    {
+      "categoryId": "46101",
+      "categoryName": "Other Ignition Systems & Components",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Other Ignition Systems & Components"
+    },
+    {
+      "categoryId": "174070",
+      "categoryName": "Glow Plugs",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Glow Plugs"
+    },
+    {
+      "categoryId": "174072",
+      "categoryName": "Spark Plugs",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Spark Plugs"
+    },
+    {
+      "categoryId": "262180",
+      "categoryName": "Distributor Caps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Distributor Caps"
+    },
+    {
+      "categoryId": "262181",
+      "categoryName": "Distributor Rotors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Distributor Rotors"
+    },
+    {
+      "categoryId": "262182",
+      "categoryName": "Additional Distributor Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Additional Distributor Parts"
+    },
+    {
+      "categoryId": "262183",
+      "categoryName": "Ignition Coils",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Ignition Coils"
+    },
+    {
+      "categoryId": "262184",
+      "categoryName": "Ignition Condensers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Ignition Condensers"
+    },
+    {
+      "categoryId": "262185",
+      "categoryName": "Ignition Modules",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Ignition Modules"
+    },
+    {
+      "categoryId": "262186",
+      "categoryName": "Ignition Points",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33687"
+      ],
+      "path": "Car & Truck Parts & Accessories > Ignition Systems & Components > Ignition Points"
+    },
+    {
+      "categoryId": "33694",
+      "categoryName": "Interior Parts & Accessories",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories"
+    },
+    {
+      "categoryId": "9887",
+      "categoryName": "Other Interior Parts & Accessories",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Other Interior Parts & Accessories"
+    },
+    {
+      "categoryId": "33672",
+      "categoryName": "Gauges",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Gauges"
+    },
+    {
+      "categoryId": "33675",
+      "categoryName": "Instrument Clusters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "33672"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Gauges > Instrument Clusters"
+    },
+    {
+      "categoryId": "43951",
+      "categoryName": "Instrument & Gauge Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "33672"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Gauges > Instrument & Gauge Parts"
+    },
+    {
+      "categoryId": "262192",
+      "categoryName": "Individual Gauges",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "33672"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Gauges > Individual Gauges"
+    },
+    {
+      "categoryId": "33696",
+      "categoryName": "Door Panels",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Door Panels"
+    },
+    {
+      "categoryId": "33697",
+      "categoryName": "Floor Mats, Carpets & Cargo Liners",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Floor Mats, Carpets & Cargo Liners"
+    },
+    {
+      "categoryId": "33699",
+      "categoryName": "Rear View Mirrors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Rear View Mirrors"
+    },
+    {
+      "categoryId": "33700",
+      "categoryName": "Pedal Assemblies, Pads & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Pedal Assemblies, Pads & Parts"
+    },
+    {
+      "categoryId": "33704",
+      "categoryName": "Steering Wheels & Horn Buttons",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Steering Wheels & Horn Buttons"
+    },
+    {
+      "categoryId": "33705",
+      "categoryName": "Trim",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim"
+    },
+    {
+      "categoryId": "33706",
+      "categoryName": "Window Motors & Regulators",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Window Motors & Regulators"
+    },
+    {
+      "categoryId": "46102",
+      "categoryName": "Sun Visors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Sun Visors"
+    },
+    {
+      "categoryId": "50459",
+      "categoryName": "Switches & Controls",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls"
+    },
+    {
+      "categoryId": "174077",
+      "categoryName": "Shift Knobs",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Shift Knobs"
+    },
+    {
+      "categoryId": "174078",
+      "categoryName": "Parking Brake Levers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Parking Brake Levers"
+    },
+    {
+      "categoryId": "174079",
+      "categoryName": "Handbrake & Shift Boots",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Handbrake & Shift Boots"
+    },
+    {
+      "categoryId": "174080",
+      "categoryName": "Headliners & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Headliners & Parts"
+    },
+    {
+      "categoryId": "174084",
+      "categoryName": "Cargo Covers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Cargo Covers"
+    },
+    {
+      "categoryId": "179848",
+      "categoryName": "Window Cranks, Grab Handles & Door Pulls",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Window Cranks, Grab Handles & Door Pulls"
+    },
+    {
+      "categoryId": "180120",
+      "categoryName": "Steering Wheel Covers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Steering Wheel Covers"
+    },
+    {
+      "categoryId": "262187",
+      "categoryName": "Center, Overhead Consoles & Parts",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Center, Overhead Consoles & Parts"
+    },
+    {
+      "categoryId": "262188",
+      "categoryName": "Center & Overhead Consoles",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262187"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Center, Overhead Consoles & Parts > Center & Overhead Consoles"
+    },
+    {
+      "categoryId": "262189",
+      "categoryName": "Center & Overhead Console Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262187"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Center, Overhead Consoles & Parts > Center & Overhead Console Parts"
+    },
+    {
+      "categoryId": "262190",
+      "categoryName": "Dash Panels & Glove Boxes",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Dash Panels & Glove Boxes"
+    },
+    {
+      "categoryId": "33698",
+      "categoryName": "Glove Boxes, Doors & Latches",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262190"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Dash Panels & Glove Boxes > Glove Boxes, Doors & Latches"
+    },
+    {
+      "categoryId": "262191",
+      "categoryName": "Dash Panels",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262190"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Dash Panels & Glove Boxes > Dash Panels"
+    },
+    {
+      "categoryId": "262193",
+      "categoryName": "Interior Hardware & Clips",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Hardware & Clips"
+    },
+    {
+      "categoryId": "262194",
+      "categoryName": "Interior Locks & Lock Hardware",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Locks & Lock Hardware"
+    },
+    {
+      "categoryId": "262195",
+      "categoryName": "Interior Safety",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety"
+    },
+    {
+      "categoryId": "33725",
+      "categoryName": "Seat Belts & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262195"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts"
+    },
+    {
+      "categoryId": "177710",
+      "categoryName": "Airbags",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262195"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbags"
+    },
+    {
+      "categoryId": "177711",
+      "categoryName": "Airbag Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262195"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbag Parts"
+    },
+    {
+      "categoryId": "262196",
+      "categoryName": "Other Interior Safety",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262195"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Other Interior Safety"
+    },
+    {
+      "categoryId": "262197",
+      "categoryName": "Mobility & Adaptive Driving Controls",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Mobility & Adaptive Driving Controls"
+    },
+    {
+      "categoryId": "262198",
+      "categoryName": "Power Outlets & Lighters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Power Outlets & Lighters"
+    },
+    {
+      "categoryId": "262199",
+      "categoryName": "Seats, Parts & Accessories",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Seats, Parts & Accessories"
+    },
+    {
+      "categoryId": "33701",
+      "categoryName": "Seats",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262199"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Seats, Parts & Accessories > Seats"
+    },
+    {
+      "categoryId": "33702",
+      "categoryName": "Seat Covers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262199"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Seats, Parts & Accessories > Seat Covers"
+    },
+    {
+      "categoryId": "50458",
+      "categoryName": "Seat Belt Shoulder Pads",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262199"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Seats, Parts & Accessories > Seat Belt Shoulder Pads"
+    },
+    {
+      "categoryId": "262200",
+      "categoryName": "Headrests",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262199"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Seats, Parts & Accessories > Headrests"
+    },
+    {
+      "categoryId": "262201",
+      "categoryName": "Additional Seat Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262199"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Seats, Parts & Accessories > Additional Seat Parts"
+    },
+    {
+      "categoryId": "262202",
+      "categoryName": "Storage & Organizers",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Storage & Organizers"
+    },
+    {
+      "categoryId": "63690",
+      "categoryName": "Cargo Nets, Pet Barriers & Storage Bins",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262202"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Storage & Organizers > Cargo Nets, Pet Barriers & Storage Bins"
+    },
+    {
+      "categoryId": "63691",
+      "categoryName": "Cup Holders",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262202"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Storage & Organizers > Cup Holders"
+    },
+    {
+      "categoryId": "180117",
+      "categoryName": "Garbage Cans",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262202"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Storage & Organizers > Garbage Cans"
+    },
+    {
+      "categoryId": "262203",
+      "categoryName": "Additional Storage & Organizers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694",
+        "262202"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Storage & Organizers > Additional Storage & Organizers"
+    },
+    {
+      "categoryId": "262204",
+      "categoryName": "Sun & Privacy Shades",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33694"
+      ],
+      "path": "Car & Truck Parts & Accessories > Interior Parts & Accessories > Sun & Privacy Shades"
+    },
+    {
+      "categoryId": "33707",
+      "categoryName": "Lighting & Lamps",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps"
+    },
+    {
+      "categoryId": "33708",
+      "categoryName": "Park & Combination Light Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Park & Combination Light Assemblies"
+    },
+    {
+      "categoryId": "33709",
+      "categoryName": "Fog Light Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Fog Light Assemblies"
+    },
+    {
+      "categoryId": "33710",
+      "categoryName": "Headlight Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Headlight Assemblies"
+    },
+    {
+      "categoryId": "33712",
+      "categoryName": "Interior Light Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Interior Light Assemblies"
+    },
+    {
+      "categoryId": "33715",
+      "categoryName": "Side Marker Light Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Side Marker Light Assemblies"
+    },
+    {
+      "categoryId": "33716",
+      "categoryName": "Tail Light Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Tail Light Assemblies"
+    },
+    {
+      "categoryId": "33717",
+      "categoryName": "Turn Signal Light Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Turn Signal Light Assemblies"
+    },
+    {
+      "categoryId": "172517",
+      "categoryName": "Light Bulbs & LEDs",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Light Bulbs & LEDs"
+    },
+    {
+      "categoryId": "174062",
+      "categoryName": "Reflectors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Reflectors"
+    },
+    {
+      "categoryId": "174065",
+      "categoryName": "Other Lighting & Lamps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Other Lighting & Lamps"
+    },
+    {
+      "categoryId": "262205",
+      "categoryName": "Center & Third Brake Light Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Center & Third Brake Light Assemblies"
+    },
+    {
+      "categoryId": "262206",
+      "categoryName": "Daytime Running Lights",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Daytime Running Lights"
+    },
+    {
+      "categoryId": "262207",
+      "categoryName": "Headlight Ballasts & Igniters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Headlight Ballasts & Igniters"
+    },
+    {
+      "categoryId": "262208",
+      "categoryName": "License Plate Light Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > License Plate Light Assemblies"
+    },
+    {
+      "categoryId": "262209",
+      "categoryName": "Light Mounts & Brackets",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Light Mounts & Brackets"
+    },
+    {
+      "categoryId": "262210",
+      "categoryName": "Sockets, Connectors & Wiring",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Sockets, Connectors & Wiring"
+    },
+    {
+      "categoryId": "262212",
+      "categoryName": "Accessory Lighting",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33707"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Accessory Lighting"
+    },
+    {
+      "categoryId": "121985",
+      "categoryName": "Warning Lights",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707",
+        "262212"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Accessory Lighting > Warning Lights"
+    },
+    {
+      "categoryId": "184669",
+      "categoryName": "Light Bars",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707",
+        "262212"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Accessory Lighting > Light Bars"
+    },
+    {
+      "categoryId": "262213",
+      "categoryName": "Accessory & Off Road Lighting",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707",
+        "262212"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Accessory Lighting > Accessory & Off Road Lighting"
+    },
+    {
+      "categoryId": "262214",
+      "categoryName": "Wheel & Underbody Lights",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33707",
+        "262212"
+      ],
+      "path": "Car & Truck Parts & Accessories > Lighting & Lamps > Accessory Lighting > Wheel & Underbody Lights"
+    },
+    {
+      "categoryId": "33726",
+      "categoryName": "Transmission & Drivetrain",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain"
+    },
+    {
+      "categoryId": "33662",
+      "categoryName": "Transmission Filters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Transmission Filters"
+    },
+    {
+      "categoryId": "33727",
+      "categoryName": "Automatic Transmission Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Automatic Transmission Parts"
+    },
+    {
+      "categoryId": "33728",
+      "categoryName": "Axle Housings & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts"
+    },
+    {
+      "categoryId": "33729",
+      "categoryName": "CV Joints, Boots & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > CV Joints, Boots & Parts"
+    },
+    {
+      "categoryId": "33732",
+      "categoryName": "Flywheels & Flexplates",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Flywheels & Flexplates"
+    },
+    {
+      "categoryId": "33733",
+      "categoryName": "Manual Transmission Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Manual Transmission Parts"
+    },
+    {
+      "categoryId": "33736",
+      "categoryName": "Shifters, Cables & Linkages",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Shifters, Cables & Linkages"
+    },
+    {
+      "categoryId": "46103",
+      "categoryName": "Transmission Rebuild Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Transmission Rebuild Kits"
+    },
+    {
+      "categoryId": "46104",
+      "categoryName": "Other Transmission & Drivetrain",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Other Transmission & Drivetrain"
+    },
+    {
+      "categoryId": "63692",
+      "categoryName": "Torque Converters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Torque Converters"
+    },
+    {
+      "categoryId": "171115",
+      "categoryName": "Automatic Transmission",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Automatic Transmission"
+    },
+    {
+      "categoryId": "171117",
+      "categoryName": "Manual Transmission",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Manual Transmission"
+    },
+    {
+      "categoryId": "174106",
+      "categoryName": "Transmission Sensors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Transmission Sensors"
+    },
+    {
+      "categoryId": "262238",
+      "categoryName": "Axles",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Axles"
+    },
+    {
+      "categoryId": "262239",
+      "categoryName": "Clutch Parts & Kits",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Clutch Parts & Kits"
+    },
+    {
+      "categoryId": "61265",
+      "categoryName": "Clutch Cables",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262239"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Clutch Parts & Kits > Clutch Cables"
+    },
+    {
+      "categoryId": "262240",
+      "categoryName": "Clutch Hydraulics",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262239"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Clutch Parts & Kits > Clutch Hydraulics"
+    },
+    {
+      "categoryId": "262241",
+      "categoryName": "Clutch Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262239"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Clutch Parts & Kits > Clutch Kits"
+    },
+    {
+      "categoryId": "262242",
+      "categoryName": "Additional Clutch Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262239"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Clutch Parts & Kits > Additional Clutch Parts"
+    },
+    {
+      "categoryId": "262243",
+      "categoryName": "CV Axle Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > CV Axle Assemblies"
+    },
+    {
+      "categoryId": "262244",
+      "categoryName": "Differentials, Assemblies & Parts",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Differentials, Assemblies & Parts"
+    },
+    {
+      "categoryId": "262245",
+      "categoryName": "Differential Assemblies",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262244"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Differentials, Assemblies & Parts > Differential Assemblies"
+    },
+    {
+      "categoryId": "262246",
+      "categoryName": "Differential Bearings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262244"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Differentials, Assemblies & Parts > Differential Bearings"
+    },
+    {
+      "categoryId": "262247",
+      "categoryName": "Differential Rebuild Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262244"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Differentials, Assemblies & Parts > Differential Rebuild Kits"
+    },
+    {
+      "categoryId": "262248",
+      "categoryName": "Seals & Gaskets",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262244"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Differentials, Assemblies & Parts > Seals & Gaskets"
+    },
+    {
+      "categoryId": "262249",
+      "categoryName": "Additional Differential Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262244"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Differentials, Assemblies & Parts > Additional Differential Parts"
+    },
+    {
+      "categoryId": "262250",
+      "categoryName": "Driveshafts & Parts",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Driveshafts & Parts"
+    },
+    {
+      "categoryId": "262251",
+      "categoryName": "Driveshafts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262250"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Driveshafts & Parts > Driveshafts"
+    },
+    {
+      "categoryId": "262252",
+      "categoryName": "Driveshaft Bearings & U-Joints",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262250"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Driveshafts & Parts > Driveshaft Bearings & U-Joints"
+    },
+    {
+      "categoryId": "262253",
+      "categoryName": "Additional Driveshaft Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726",
+        "262250"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Driveshafts & Parts > Additional Driveshaft Parts"
+    },
+    {
+      "categoryId": "262254",
+      "categoryName": "Drivetrain Hardware & Fasteners",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Drivetrain Hardware & Fasteners"
+    },
+    {
+      "categoryId": "262255",
+      "categoryName": "Oil Coolers & Lines",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Oil Coolers & Lines"
+    },
+    {
+      "categoryId": "262256",
+      "categoryName": "Transfer Cases",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Transfer Cases"
+    },
+    {
+      "categoryId": "262257",
+      "categoryName": "Transfer Case Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Transfer Case Parts"
+    },
+    {
+      "categoryId": "262258",
+      "categoryName": "Transmission & Drivetrain Mounts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Transmission & Drivetrain Mounts"
+    },
+    {
+      "categoryId": "262259",
+      "categoryName": "Transmission Control Modules",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Transmission Control Modules"
+    },
+    {
+      "categoryId": "262260",
+      "categoryName": "Transmission Gaskets & Seals",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Transmission Gaskets & Seals"
+    },
+    {
+      "categoryId": "262261",
+      "categoryName": "Wiring, Harnesses & Connectors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33726"
+      ],
+      "path": "Car & Truck Parts & Accessories > Transmission & Drivetrain > Wiring, Harnesses & Connectors"
+    },
+    {
+      "categoryId": "33743",
+      "categoryName": "Wheels, Tires & Parts",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts"
+    },
+    {
+      "categoryId": "33747",
+      "categoryName": "Valve Stems & Caps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Valve Stems & Caps"
+    },
+    {
+      "categoryId": "33749",
+      "categoryName": "Wheel Nuts, Bolts & Studs",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel Nuts, Bolts & Studs"
+    },
+    {
+      "categoryId": "122154",
+      "categoryName": "Wheel Spacers, Adapters & Hub Centric Rings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel Spacers, Adapters & Hub Centric Rings"
+    },
+    {
+      "categoryId": "179679",
+      "categoryName": "Wheels",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheels"
+    },
+    {
+      "categoryId": "179680",
+      "categoryName": "Tires",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Tires"
+    },
+    {
+      "categoryId": "179681",
+      "categoryName": "Wheel & Tire Packages",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel & Tire Packages"
+    },
+    {
+      "categoryId": "179684",
+      "categoryName": "Other Wheel & Tire Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Other Wheel & Tire Parts"
+    },
+    {
+      "categoryId": "179696",
+      "categoryName": "Tire Pressure Monitoring Sensor",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Tire Pressure Monitoring Sensor"
+    },
+    {
+      "categoryId": "262263",
+      "categoryName": "Wheel Hub Caps, Center Caps & Trim Rings",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33743"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel Hub Caps, Center Caps & Trim Rings"
+    },
+    {
+      "categoryId": "33744",
+      "categoryName": "Wheel Hub Caps & Trim Rings",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743",
+        "262263"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel Hub Caps, Center Caps & Trim Rings > Wheel Hub Caps & Trim Rings"
+    },
+    {
+      "categoryId": "43961",
+      "categoryName": "Wheel Center Caps",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743",
+        "262263"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel Hub Caps, Center Caps & Trim Rings > Wheel Center Caps"
+    },
+    {
+      "categoryId": "180123",
+      "categoryName": "Rim Protectors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743",
+        "262263"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel Hub Caps, Center Caps & Trim Rings > Rim Protectors"
+    },
+    {
+      "categoryId": "262264",
+      "categoryName": "Wheel & Tire Accessories",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "33743"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel & Tire Accessories"
+    },
+    {
+      "categoryId": "33746",
+      "categoryName": "Other Tire Accessories",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743",
+        "262264"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel & Tire Accessories > Other Tire Accessories"
+    },
+    {
+      "categoryId": "180090",
+      "categoryName": "Tire Chains, Anti-Skid & Socks",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743",
+        "262264"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel & Tire Accessories > Tire Chains, Anti-Skid & Socks"
+    },
+    {
+      "categoryId": "262265",
+      "categoryName": "Spare Tire Jack & Tool Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "33743",
+        "262264"
+      ],
+      "path": "Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel & Tire Accessories > Spare Tire Jack & Tool Kits"
+    },
+    {
+      "categoryId": "177701",
+      "categoryName": "Electric, Hybrid & PHEV Specific Parts",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts"
+    },
+    {
+      "categoryId": "177705",
+      "categoryName": "Control Modules",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Control Modules"
+    },
+    {
+      "categoryId": "177706",
+      "categoryName": "Converters & Inverters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Converters & Inverters"
+    },
+    {
+      "categoryId": "177707",
+      "categoryName": "Conversion Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Conversion Kits"
+    },
+    {
+      "categoryId": "177709",
+      "categoryName": "Other Electric, Hybrid & PHEV Specific Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Other Electric, Hybrid & PHEV Specific Parts"
+    },
+    {
+      "categoryId": "262093",
+      "categoryName": "Air Conditioner Compressors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Air Conditioner Compressors"
+    },
+    {
+      "categoryId": "262094",
+      "categoryName": "Batteries, BMS & Fuel Cells",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Batteries, BMS & Fuel Cells"
+    },
+    {
+      "categoryId": "177703",
+      "categoryName": "Batteries",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262094"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Batteries, BMS & Fuel Cells > Batteries"
+    },
+    {
+      "categoryId": "262095",
+      "categoryName": "Battery Management Systems (BMS)",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262094"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Batteries, BMS & Fuel Cells > Battery Management Systems (BMS)"
+    },
+    {
+      "categoryId": "262096",
+      "categoryName": "Battery & BMS Units",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262094"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Batteries, BMS & Fuel Cells > Battery & BMS Units"
+    },
+    {
+      "categoryId": "262097",
+      "categoryName": "Fuel Cells & Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262094"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Batteries, BMS & Fuel Cells > Fuel Cells & Parts"
+    },
+    {
+      "categoryId": "262098",
+      "categoryName": "Charging Units",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Charging Units"
+    },
+    {
+      "categoryId": "262099",
+      "categoryName": "Charging Stations",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262098"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Charging Units > Charging Stations"
+    },
+    {
+      "categoryId": "262100",
+      "categoryName": "Mobile Charging",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262098"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Charging Units > Mobile Charging"
+    },
+    {
+      "categoryId": "262101",
+      "categoryName": "Charging Components",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Charging Components"
+    },
+    {
+      "categoryId": "177702",
+      "categoryName": "Other Charging Components",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262101"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Charging Components > Other Charging Components"
+    },
+    {
+      "categoryId": "262102",
+      "categoryName": "Charging Cables",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262101"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Charging Components > Charging Cables"
+    },
+    {
+      "categoryId": "262103",
+      "categoryName": "Charger Carry Cases",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262101"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Charging Components > Charger Carry Cases"
+    },
+    {
+      "categoryId": "262104",
+      "categoryName": "Charging Converters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262101"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Charging Components > Charging Converters"
+    },
+    {
+      "categoryId": "262105",
+      "categoryName": "Charger Holders",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262101"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Charging Components > Charger Holders"
+    },
+    {
+      "categoryId": "262106",
+      "categoryName": "Charging Upgrade Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262101"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Charging Components > Charging Upgrade Kits"
+    },
+    {
+      "categoryId": "262107",
+      "categoryName": "Cooling Components",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Cooling Components"
+    },
+    {
+      "categoryId": "262108",
+      "categoryName": "Heatsinks",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262107"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Cooling Components > Heatsinks"
+    },
+    {
+      "categoryId": "262109",
+      "categoryName": "Fans",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262107"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Cooling Components > Fans"
+    },
+    {
+      "categoryId": "262110",
+      "categoryName": "Cooling Plates",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262107"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Cooling Components > Cooling Plates"
+    },
+    {
+      "categoryId": "262111",
+      "categoryName": "Drivetrain Motors & Parts",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Drivetrain Motors & Parts"
+    },
+    {
+      "categoryId": "177708",
+      "categoryName": "Drivetrain Motors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262111"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Drivetrain Motors & Parts > Drivetrain Motors"
+    },
+    {
+      "categoryId": "262112",
+      "categoryName": "Drivetrain Motor Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701",
+        "262111"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Drivetrain Motors & Parts > Drivetrain Motor Parts"
+    },
+    {
+      "categoryId": "262113",
+      "categoryName": "High Voltage Circuit Fuses & Breakers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > High Voltage Circuit Fuses & Breakers"
+    },
+    {
+      "categoryId": "262114",
+      "categoryName": "Relays & Contactors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Relays & Contactors"
+    },
+    {
+      "categoryId": "262115",
+      "categoryName": "Switches",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Switches"
+    },
+    {
+      "categoryId": "262116",
+      "categoryName": "Wiring Harnesses, Cables & Connectors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "177701"
+      ],
+      "path": "Car & Truck Parts & Accessories > Electric, Hybrid & PHEV Specific Parts > Wiring Harnesses, Cables & Connectors"
+    },
+    {
+      "categoryId": "180143",
+      "categoryName": "Towing Parts & Accessories",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories"
+    },
+    {
+      "categoryId": "33570",
+      "categoryName": "Trailer Brake Controllers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Trailer Brake Controllers"
+    },
+    {
+      "categoryId": "33653",
+      "categoryName": "Trailer Hitches",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Trailer Hitches"
+    },
+    {
+      "categoryId": "38789",
+      "categoryName": "Wiring, Harnesses & Connectors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Wiring, Harnesses & Connectors"
+    },
+    {
+      "categoryId": "38790",
+      "categoryName": "Other Towing Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Other Towing Parts"
+    },
+    {
+      "categoryId": "173832",
+      "categoryName": "Towing Mirrors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Towing Mirrors"
+    },
+    {
+      "categoryId": "180144",
+      "categoryName": "Tow Bars & Poles",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Tow Bars & Poles"
+    },
+    {
+      "categoryId": "180145",
+      "categoryName": "Tow Balls & Ball Mounts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Tow Balls & Ball Mounts"
+    },
+    {
+      "categoryId": "262233",
+      "categoryName": "Towing Accessories",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "180143"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Towing Accessories"
+    },
+    {
+      "categoryId": "61960",
+      "categoryName": "Tow Ropes & Chains",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143",
+        "262233"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Towing Accessories > Tow Ropes & Chains"
+    },
+    {
+      "categoryId": "184629",
+      "categoryName": "Hitch Pins & Locks",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143",
+        "262233"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Towing Accessories > Hitch Pins & Locks"
+    },
+    {
+      "categoryId": "262234",
+      "categoryName": "Hitch Extenders & Adapters",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143",
+        "262233"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Towing Accessories > Hitch Extenders & Adapters"
+    },
+    {
+      "categoryId": "262235",
+      "categoryName": "Safety Chains & Cables",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143",
+        "262233"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Towing Accessories > Safety Chains & Cables"
+    },
+    {
+      "categoryId": "262236",
+      "categoryName": "Weight Distribution & Sway Control",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143",
+        "262233"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Towing Accessories > Weight Distribution & Sway Control"
+    },
+    {
+      "categoryId": "262237",
+      "categoryName": "Other Towing Accessories",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "180143",
+        "262233"
+      ],
+      "path": "Car & Truck Parts & Accessories > Towing Parts & Accessories > Towing Accessories > Other Towing Accessories"
+    },
+    {
+      "categoryId": "262059",
+      "categoryName": "Accessory Belts",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Accessory Belts"
+    },
+    {
+      "categoryId": "262060",
+      "categoryName": "Belts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262059"
+      ],
+      "path": "Car & Truck Parts & Accessories > Accessory Belts > Belts"
+    },
+    {
+      "categoryId": "262061",
+      "categoryName": "Idlers & Tensioners",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262059"
+      ],
+      "path": "Car & Truck Parts & Accessories > Accessory Belts > Idlers & Tensioners"
+    },
+    {
+      "categoryId": "262062",
+      "categoryName": "Pulleys",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262059"
+      ],
+      "path": "Car & Truck Parts & Accessories > Accessory Belts > Pulleys"
+    },
+    {
+      "categoryId": "262063",
+      "categoryName": "Other Belt Parts",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262059"
+      ],
+      "path": "Car & Truck Parts & Accessories > Accessory Belts > Other Belt Parts"
+    },
+    {
+      "categoryId": "262064",
+      "categoryName": "Advanced Driver Assistance Systems",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems"
+    },
+    {
+      "categoryId": "38728",
+      "categoryName": "Cruise Control Components",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262064"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Cruise Control Components"
+    },
+    {
+      "categoryId": "258037",
+      "categoryName": "Parking Assistance",
+      "leaf": false,
+      "ancestors": [
+        "6030",
+        "262064"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance"
+    },
+    {
+      "categoryId": "61523",
+      "categoryName": "Parking Sensors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262064",
+        "258037"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors"
+    },
+    {
+      "categoryId": "174593",
+      "categoryName": "Parking Cameras",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262064",
+        "258037"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Cameras"
+    },
+    {
+      "categoryId": "184616",
+      "categoryName": "Camera, Monitor & Sensor Kits",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262064",
+        "258037"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Camera, Monitor & Sensor Kits"
+    },
+    {
+      "categoryId": "258038",
+      "categoryName": "Other Parking Assistance",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262064",
+        "258037"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Other Parking Assistance"
+    },
+    {
+      "categoryId": "262065",
+      "categoryName": "Alert & Warning Devices",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262064"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Alert & Warning Devices"
+    },
+    {
+      "categoryId": "262066",
+      "categoryName": "ADAS Control Modules",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262064"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > ADAS Control Modules"
+    },
+    {
+      "categoryId": "262067",
+      "categoryName": "Lidar & Radar Sensors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262064"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Lidar & Radar Sensors"
+    },
+    {
+      "categoryId": "262068",
+      "categoryName": "Visible Cameras",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262064"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Visible Cameras"
+    },
+    {
+      "categoryId": "262069",
+      "categoryName": "Other Advanced Driver Assistance Systems",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262064"
+      ],
+      "path": "Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Other Advanced Driver Assistance Systems"
+    },
+    {
+      "categoryId": "262215",
+      "categoryName": "Racks & Cargo Carriers",
+      "leaf": false,
+      "ancestors": [
+        "6030"
+      ],
+      "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers"
+    },
+    {
+      "categoryId": "33651",
+      "categoryName": "Roof Racks & Cross Bars",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262215"
+      ],
+      "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers > Roof Racks & Cross Bars"
+    },
+    {
+      "categoryId": "79067",
+      "categoryName": "Ski & Snowboard Racks",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262215"
+      ],
+      "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers > Ski & Snowboard Racks"
+    },
+    {
+      "categoryId": "121984",
+      "categoryName": "Cargo Boxes, Bags & Baskets",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262215"
+      ],
+      "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers > Cargo Boxes, Bags & Baskets"
+    },
+    {
+      "categoryId": "173830",
+      "categoryName": "Bike Racks",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262215"
+      ],
+      "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers > Bike Racks"
+    },
+    {
+      "categoryId": "173831",
+      "categoryName": "Straps & Tie-Downs",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262215"
+      ],
+      "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers > Straps & Tie-Downs"
+    },
+    {
+      "categoryId": "262216",
+      "categoryName": "Anchors",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262215"
+      ],
+      "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers > Anchors"
+    },
+    {
+      "categoryId": "262217",
+      "categoryName": "Cargo Bars",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262215"
+      ],
+      "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers > Cargo Bars"
+    },
+    {
+      "categoryId": "262218",
+      "categoryName": "Watersport Racks",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262215"
+      ],
+      "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers > Watersport Racks"
+    },
+    {
+      "categoryId": "262219",
+      "categoryName": "Roof Rack Accessories",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262215"
+      ],
+      "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers > Roof Rack Accessories"
+    },
+    {
+      "categoryId": "262220",
+      "categoryName": "Other Racks & Cargo Carriers",
+      "leaf": true,
+      "ancestors": [
+        "6030",
+        "262215"
+      ],
+      "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers > Other Racks & Cargo Carriers"
+    }
+  ]
+}
