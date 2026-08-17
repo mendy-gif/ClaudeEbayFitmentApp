@@ -196,7 +196,35 @@ def _chassis_expand(sku, shopify, sd, n_trad, sample, terr, rule, ref, emap, eba
     return res, donor_str, None
 
 
-def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify=None, pnf=None):
+def expand_partnumber_rows(vehicles, rule, ref, emap, ebay, cache=None):
+    """Expand each part-number historical vehicle (year, make, model) through the SAME
+    chassis rules used on the donor, unioned + deduped. Falls back to the literal row
+    when a vehicle can't be resolved (ambiguous generation / model not found) or is a
+    Rule-B bare nameplate with no derivable engine. Result is a superset of the literal
+    rows. Memoized by (model, year, rule) in `cache` so repeated vehicles compute once."""
+    if cache is None:
+        cache = {}
+    out, seen = [], set()
+    for (y, mk, md) in vehicles:
+        ck = (md, y, rule)
+        rows = cache.get(ck)
+        if rows is None:
+            try:
+                res = FR.expand(md, y, rule, ref, emap, ebay)
+                usable = res.get("ok") and not (rule.upper() == "B" and not res.get("donor_engines"))
+                rows = res["rows"] if usable else [{"Year": y, "Make": mk, "Model": md}]
+            except Exception:  # noqa: BLE001 - never let one bad row break the SKU
+                rows = [{"Year": y, "Make": mk, "Model": md}]
+            cache[ck] = rows
+        for r in rows:
+            key = (r["Year"], r["Make"], r["Model"], r.get("Trim"))
+            if key not in seen:
+                seen.add(key)
+                out.append(r)
+    return out
+
+
+def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify=None, pnf=None, pn_cache=None):
     s, off = api("GET", f"/sell/inventory/v1/offer?{urllib.parse.urlencode({'sku': sku})}", tok)
     offers = off.get("offers", []) if s == 200 else []
     if s in (401, 403):
@@ -218,7 +246,9 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
 
     sd = (shopify or {}).get(str(sku)) or (shopify or {}).get(sku)
     rule, why = classify_rule(category, tree, inc, exc, default)
-    pn_rows = [{"Year": y, "Make": mk, "Model": md} for (y, mk, md) in (pnf or {}).get(sku, ())]
+    # Part-number vehicles get the SAME chassis-family expansion as the donor (Rule A/B),
+    # falling back to the literal vehicle when unresolvable. See expand_partnumber_rows.
+    pn_rows = expand_partnumber_rows((pnf or {}).get(sku, ()), rule, ref, emap, ebay, pn_cache) if pnf else []
 
     res, donor_str, fail = _chassis_expand(sku, shopify, sd, n_trad, sample, terr, rule, ref, emap, ebay)
     # A chassis basis is missing entirely. Return that verdict UNLESS part-number rows
@@ -315,10 +345,11 @@ def main():
             sys.exit("ERROR: --from-shopify needs data/shopify_donors.json (run: python3 scripts/shopify_donor.py --dump)")
         shopify = json.load(open(sp, encoding="utf-8"))
 
-    pnf = None
+    pnf, pn_cache = None, {}
     if args.partnumber_fitment:
         pnf = load_partnumber_fitment(args.partnumber_fitment)
-        print(f"  part-number fitment: {len(pnf)} SKU(s), {sum(len(v) for v in pnf.values())} rows loaded")
+        print(f"  part-number fitment: {len(pnf)} SKU(s), {sum(len(v) for v in pnf.values())} rows loaded"
+              f" (expanded to chassis families at push time)")
 
     if args.mode == "audit":
         return run_audit(tok, ref, emap, ebay, tree, inc, exc, default, led, args, live)
@@ -343,13 +374,13 @@ def main():
         if entry and not pn_pending:
             rows.append({"sku": sku, "action": "skip", "reason": "already in ledger"})
         else:
-            r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf)
+            r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache)
             if r["action"] == "auth_error":                  # try to self-heal (auto-refresh mode)
                 nt = refresh_token()
                 if nt and nt != tok:
                     tok = nt
                     print(f"  [{i}/{len(skus)}] {sku}: token auto-refreshed, retrying")
-                    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf)
+                    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache)
             rows.append(r)
         counts[rows[-1]["action"]] = counts.get(rows[-1]["action"], 0) + 1
         print(f"  [{i}/{len(skus)}] {sku}: {rows[-1]['action']} - {rows[-1].get('reason','')[:80]}")

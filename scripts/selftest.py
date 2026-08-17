@@ -132,12 +132,23 @@ def c_partnumber_and_union():
     else:
         bad(f"part-number fitment too small ({len(pnf)})")
     # vocabulary consistency: every pn model must be in the eBay catalog
-    _, _, vocab = FR.load_all()
+    ref, emap, vocab = FR.load_all()
     bad_models = {md for rows in pnf.values() for (_, _, md) in rows if md not in vocab}
     if not bad_models:
         ok("all part-number models are in the eBay catalog vocabulary")
     else:
         bad(f"{len(bad_models)} part-number models NOT in catalog: {sorted(bad_models)[:6]}")
+    # chassis-family expansion of part-number rows must be a superset of the literal rows
+    cache, viol, sample = {}, 0, list(pnf.items())[:100]
+    for _, veh in sample:
+        lit = {(y, mk, md) for (y, mk, md) in veh}
+        exp = {(r["Year"], r["Make"], r["Model"]) for r in B.expand_partnumber_rows(veh, "A", ref, emap, vocab, cache)}
+        if any(v not in exp for v in lit):
+            viol += 1
+    if viol == 0:
+        ok(f"part-number chassis expansion is a superset of literal (sampled {len(sample)} SKUs)")
+    else:
+        bad(f"part-number expansion dropped literal vehicles in {viol}/{len(sample)} SKUs")
     # union + dedupe on the full tuple (chassis rows + pn rows)
     chassis = [{"Year": 2014, "Make": "BMW", "Model": "328i"},
                {"Year": 2015, "Make": "BMW", "Model": "328i"}]
