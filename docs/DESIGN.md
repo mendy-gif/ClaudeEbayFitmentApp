@@ -1,7 +1,8 @@
 # BMW Chassis-Family Fitment — Design & Decisions
 
-**Status:** Design agreed on core approach; one load-bearing test still required before building.
-**Last updated:** 2026-08-13
+**Status:** Built and live — pipeline pushes chassis-family + part-number fitment to real listings
+(Path A confirmed; Shopify donor source + eBay-category classification + part-number union all wired).
+**Last updated:** 2026-08-17
 **Scope:** The "fast fitment" layer only — broad, rule-based BMW compatibility applied at scale. Granular cross-series fitment (parts that also fit 4-/5-series, etc.) stays in the slower DPC-research track and is explicitly **out of scope** here.
 
 ---

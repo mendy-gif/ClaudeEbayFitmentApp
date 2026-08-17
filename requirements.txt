@@ -1,0 +1,7 @@
+# This project runs on the Python standard library alone for the eBay/Shopify pipeline.
+# The ONLY third-party dependency is openpyxl, and only if you rebuild the reference
+# tables from Excel (scripts/build_reference.py, build_engine_map.py, and
+# spreadsheet-fitment/scripts/build_fitment_table.py). The daily sweep does not need it.
+#
+#   pip3 install -r requirements.txt
+openpyxl>=3.1
