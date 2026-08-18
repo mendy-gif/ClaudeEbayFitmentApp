@@ -20,7 +20,32 @@ DBUSER="tbadmin"
 DBPASS="altabe"
 
 die() { echo "ERROR: $*" >&2; exit 1; }
-have_docker() { command -v docker >/dev/null 2>&1 || die "docker not found. Install Docker Desktop first."; }
+have_docker() {
+  if ! command -v docker >/dev/null 2>&1; then
+    cat >&2 <<'MSG'
+ERROR: docker is not installed.
+
+  1. Download Docker Desktop for "Mac with Apple chip":
+       https://www.docker.com/products/docker-desktop/
+  2. Open the .dmg and drag Docker into Applications.
+  3. Launch Docker from Applications and accept the prompts.
+  4. Docker Desktop -> Settings -> General -> tick
+       "Use Rosetta for x86_64/amd64 emulation"
+     (the Transbase binaries are Intel-only; this makes them fast)
+  5. Wait for the whale icon in the menu bar to stop animating, then re-run.
+MSG
+    exit 1
+  fi
+  if ! docker info >/dev/null 2>&1; then
+    cat >&2 <<'MSG'
+ERROR: docker is installed but the engine is not running.
+
+  Open Docker Desktop from Applications and wait for the whale icon in the
+  menu bar to settle, then run this again.
+MSG
+    exit 1
+  fi
+}
 
 run_in() {  # run a command in a throwaway container with rom + data mounted
   docker run --rm --platform "$PLATFORM" \
