@@ -4,7 +4,7 @@ Plain-English status. Updated as work happens, so a new chat (or you) can pick u
 without re-reading the whole history. Technical detail lives in `CLAUDE.md` and
 `docs/DESIGN.md`; this is the running summary.
 
-**Last updated:** 2026-08-18 (automation validated end-to-end)
+**Last updated:** 2026-08-18 (automation validated; throughput now capped by eBay's API quota)
 
 ---
 
@@ -59,6 +59,28 @@ in on Aug 18.
 credentials accepted, self-test green, fitment pushed, and the audit reporting
 `100.0% (265/265)` of displayable listings showing, `LEAKING: none`. Run #6 also confirmed
 the GitHub Actions runtime upgrade off the deprecated Node.js 20.
+
+## The real constraint: eBay's daily API allowance
+
+Every SKU costs one eBay "Trading" call just to check what fitment a listing already has,
+before we touch it. That allowance is a **daily** quota, and it is now the thing limiting
+how fast the backlog clears -- not our code, and not the clock.
+
+Measured on run #7 (2026-08-18), which asked for 1,500 SKUs:
+
+| | |
+|---|---|
+| Productive | 14m 52s -> **42 listings pushed** |
+| Hit eBay's limit at | **SKU 867 of 1,500** |
+| Wasted afterwards | 42m 16s -> 626 SKUs, **0 pushes** |
+
+74% of that run was spent asking a question eBay had already refused to answer. The sweep
+now stops the moment it sees that refusal, and the nightly cap is **700** -- sized to the
+allowance (700 guard reads + up to 300 for the audit) rather than to wall-clock time.
+
+Practical effect: the backlog clears over roughly **10 nights** rather than 5. Worth
+checking whether the eBay developer account is on the default application limit or a raised
+one -- if it can be raised, that number drops sharply.
 
 ## Known dead ends (not fixable)
 
@@ -115,7 +137,14 @@ the summary at the bottom.
 - [x] ~~Visually confirm a listing page~~ -- **confirmed by mendy on 2026-08-18.** The
       fitment table renders on the live storefront. Verified across 10 listings spanning
       different chassis, including the Rule A/B pair below.
-- [ ] **7,500 listings still to sweep** — the nightly job works through these.
+- [ ] **7,500 listings still to sweep** — the nightly job works through these at 700/night.
+- [ ] **Recover 42 orphaned pushes.** Run #7 pushed 42 listings, then its git push was
+      rejected (someone pushed to the branch mid-run) and the record was discarded. They
+      carry correct fitment on eBay but are absent from the ledger, so the guard now skips
+      them as if hand-curated. SKUs and the one-line recovery command are in
+      `data/orphaned_pushes.txt`. Needs a fresh daily quota.
+- [ ] **Check the eBay app's API call limit** in the developer portal — the default cap is
+      what currently sets the 10-night timeline.
 
 ## Working agreement
 
