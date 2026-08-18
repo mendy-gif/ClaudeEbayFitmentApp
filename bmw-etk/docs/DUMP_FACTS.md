@@ -165,6 +165,30 @@ Ignore its instructions. One line is still useful confirmation of the data model
 ETK has a **"Parts Use"** function, "check which vehicles a particular part is fitted
 to" -- exactly the part -> vehicles direction this project needs.
 
+## Platform decision: Windows first, Mac as backup
+
+The disc is a **Windows product**: `transbase/transbase.exe`, `tbadm32.exe`,
+`tbi32.exe`, `createdb.bat`, `setup.exe`, `install_server.exe`, `standalone/ETK.exe`,
+and the install script we decoded is a `.cmd`. The Linux build is the secondary path.
+
+Running it on Windows removes both risk points of the container route:
+
+| Risk on macOS | On Windows |
+|---------------|------------|
+| Build a container and coax 2022 x86_64 Linux binaries into running on Apple Silicon under Rosetta | Gone -- no Docker, no emulation |
+| The ROM database was *built on Windows*; will it load on Linux? | Gone -- same OS it was authored for |
+
+It also allows installing the real ETK application, giving a **reference UI to verify
+our exported data against** -- look a part up in BMW's own interface and confirm the
+CSV agrees. The Linux route offers no such cross-check.
+
+Open questions about the Windows host: CPU architecture (AMD64 wanted; ARM64
+reintroduces emulation), Windows version, free space (~20 GB), and whether drive
+letters D:, L:, P: are available -- `postinstallDataDB.cmd` hardcodes them but honours
+`ibaseInstallDriveD` / `...L` / `...P` overrides.
+
+The macOS/Docker route below stays the documented fallback.
+
 ## Route: decided
 
 Route 1 (read the archive directly) is **ruled out** -- the payload is a Transbase
