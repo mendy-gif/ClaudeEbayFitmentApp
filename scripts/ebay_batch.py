@@ -182,6 +182,34 @@ def trading_write_compat(item_id, rows, tok, retries=3):
     return "error", "exhausted retries"
 
 
+def read_inventory_compat(sku, tok):
+    """Read back the compatibility eBay actually KEPT in the Inventory store for a SKU,
+    as rows [{Year:int, Make, Model[, Trim]}]. Returns (rows, err).
+
+    This is the validator step: the Inventory API partial-accepts an over-included set
+    (warning 25023) and silently DROPS rows it can't validate, so what it stores is the
+    known-good subset -- safe to mirror to the all-or-nothing Trading store. rows is None
+    on a read failure so the caller never mistakes 'read broke' for 'eBay dropped all'."""
+    path = f"/sell/inventory/v1/inventory_item/{urllib.parse.quote(sku, safe='')}/product_compatibility"
+    s, p = api("GET", path, tok)
+    if s in (401, 403):
+        return None, f"auth HTTP {s}"
+    if s == 404:
+        return [], "no compatibility on record"      # truthful empty (SKU has none)
+    if s != 200:
+        return None, f"HTTP {s}"
+    rows = []
+    for cp in p.get("compatibleProducts", []):
+        props = {pr.get("name", "").lower(): pr.get("value") for pr in cp.get("compatibilityProperties", [])}
+        y = str(props.get("year", "")).strip()
+        if y.isdigit() and props.get("make") and props.get("model"):
+            r = {"Year": int(y), "Make": props["make"], "Model": props["model"]}
+            if props.get("trim"):
+                r["Trim"] = props["trim"]
+            rows.append(r)
+    return rows, None
+
+
 def load_partnumber_fitment(path):
     """Approach-2 part-number history -> {sku: set((year:int, make, ebay_model))}.
     Drops STOCK-prefixed guids (not live eBay SKUs) and UNMAPPED model rows."""
@@ -422,22 +450,51 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
            "models": ",".join(models_used), "action": "push", "reason": note}
 
     if live:
-        # Write to the Trading (display) store so it actually shows on the listing.
-        # We only get here when the guard confirmed <=1 existing vehicle, and we only
-        # ever touch a listing with a live PUBLISHED offer -> cannot revive an ended item.
-        status, detail = trading_write_compat(listing_id, combined, tok)
-        if status == "ok":
-            row["action"] = "pushed"
-            if detail and detail.startswith("Warning"):     # some rows dropped by eBay
-                row["reason"] = f"{note} [{detail}]"
-            led[sku] = {"listingId": listing_id, "rule": rule if chassis_rows else "-",
-                        "n": len(combined), "models": models_used, "src": sources}
-        elif status == "auth":
+        # DUAL-WRITE, with the Inventory store as a free validator:
+        #   1. PUT our full (over-included) set to the Inventory store. eBay keeps only the
+        #      rows it can validate and drops the rest (partial-accept warning 25023). This
+        #      write does not display on the listing by itself, but it FILTERS our set.
+        #   2. Read back that eBay-validated subset.
+        #   3. Write the validated subset to the Trading (display) store. Trading is
+        #      all-or-nothing (error 21916724 rejects the whole call on any invalid row),
+        #      so pre-filtering through Inventory is what lets it accept -- and DISPLAY.
+        # Net: safe over-inclusion + immediate display, and both stores end up in sync.
+        # We only reach here with <=1 existing vehicle (the guard) on a live PUBLISHED
+        # offer -> touching compatibility can never revive an ended/sold item.
+        inv_path = f"/sell/inventory/v1/inventory_item/{urllib.parse.quote(sku, safe='')}/product_compatibility"
+        st, resp = api("PUT", inv_path, tok, rows_to_payload(combined))
+        if st in (401, 403):
             row["action"] = "auth_error"
-            row["reason"] = f"trading write auth: {detail}"
-        else:
+            row["reason"] = f"inventory write auth HTTP {st}"
+        elif st not in (200, 201, 204):
             row["action"] = "error"
-            row["reason"] = f"trading write failed: {detail}"
+            row["reason"] = f"inventory write HTTP {st}: {json.dumps(resp)[:160]}"
+        else:
+            valid, verr = read_inventory_compat(sku, tok)
+            if valid is None:
+                row["action"] = "error"
+                row["reason"] = f"validated read-back failed: {verr}"
+            elif not valid:
+                row["action"] = "error"
+                row["reason"] = "eBay validated 0 rows (nothing valid to display)"
+            else:
+                status, detail = trading_write_compat(listing_id, valid, tok)
+                if status == "ok":
+                    row["action"] = "pushed"
+                    row["n_vehicles"] = len(valid)
+                    dropped = len(combined) - len(valid)
+                    note2 = note + (f" [{dropped} dropped by eBay]" if dropped > 0 else "")
+                    if detail and detail.startswith("Warning"):
+                        note2 += f" [{detail}]"
+                    row["reason"] = note2
+                    led[sku] = {"listingId": listing_id, "rule": rule if chassis_rows else "-",
+                                "n": len(valid), "models": sorted({r["Model"] for r in valid}), "src": sources}
+                elif status == "auth":
+                    row["action"] = "auth_error"
+                    row["reason"] = f"trading write auth: {detail}"
+                else:
+                    row["action"] = "error"
+                    row["reason"] = f"trading write failed: {detail}"
     return row
 
 
