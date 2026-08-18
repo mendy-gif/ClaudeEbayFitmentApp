@@ -44,7 +44,16 @@ chassis rules and the part-number history.
 8. **Connection details** (the ETK product's own installer defaults, not personal
    credentials): database `etk_publ` (catalog), user `tbadmin`, password `altabe`,
    codepage utf8. Also `etk_nutzer` (user data) and `etk_preise` (prices).
-9. **The disc `Readme.txt` is stale** — it describes a 1990s Windows 95 version.
+9. **utbi options take NO space before their value** — `-c400`, not `-c 400`.
+   With a space, utbi reads the number as the database name and reports
+   `database <400@etkdb> does not exist`, which looks like a database fault but is
+   an argument-parsing one.
+10. **Both `tbi` and `utbi` are network clients** — there is no local/direct mode.
+   `tbmux -tbk tbkernel -tbs tbserver` must be running **in the same container** as
+   the query (kernel serves clients on 2024, server on 2025).
+11. **`desc` is the catalogue** — `desc` alone lists every table, `desc <table>`
+   describes one. Table type `R` means a read-only ROM table.
+12. **The disc `Readme.txt` is stale** — it describes a 1990s Windows 95 version.
    Ignore its instructions.
 
 ## Canonical commands (run on the Mac, never from a Claude cloud session)

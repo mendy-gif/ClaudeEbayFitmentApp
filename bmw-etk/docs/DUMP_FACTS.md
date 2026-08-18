@@ -274,6 +274,43 @@ Database Romfile(s)
 **Four CD-ROM volumes** -- definitive confirmation that `rfile000.002` is required
 and that BMW's `postinstallDataDB.cmd` is wrong for this data package.
 
+## WE CAN READ THE CATALOG (confirmed)
+
+`tbmux` starts the kernel and server together, both ports come up, and utbi returns
+real rows:
+
+```
+LISTEN 0 5 0.0.0.0:2024  users:(("tbmux",pid=21,fd=15))
+LISTEN 0 5 0.0.0.0:2025  users:(("tbmux",pid=21,fd=16))
+
+ttype | username | tname
+R     | tbadmin  | w_baureihe             <- model series (chassis)
+R     | tbadmin  | w_bildtaf              <- parts diagram
+R     | tbadmin  | w_bildtafzub           <- diagram <-> parts
+R     | tbadmin  | w_bildtafzub_baureihe  <- diagram <-> chassis
+```
+
+`ttype = R` means a ROM (read-only) table. `desc` with no argument lists every
+table; `desc <table>` describes one.
+
+### utbi options take NO space before their value
+
+`-c400`, **not** `-c 400`. With a space, utbi treats the number as the database name
+and reports `database <400@etkdb> does not exist` -- which is exactly what happened
+and looked like a database problem rather than an argument problem.
+
+### The working recipe
+
+```sh
+tbadmin -bfnv                                       # boot the databases
+tbmux -tbk $TRANSBASE/tbkernel -tbs $TRANSBASE/tbserver &
+utbi -c400 -w60 etk_publ tbadmin altabe "select ...;"
+# or interactively:
+printf 'set columns 400\nset width 80\ndesc\nquit\n' | utbi etk_publ tbadmin altabe
+```
+
+The server must run in the **same container** as the query.
+
 ## Both clients are NETWORK clients -- the kernel must run
 
 **Correction to an earlier belief: `utbi` is not a local client.** It fails
