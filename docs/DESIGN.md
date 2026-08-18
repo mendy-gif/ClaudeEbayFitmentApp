@@ -247,6 +247,62 @@ This is why §5.1's test isn't just a detail — it determines whether this is a
 - **→ Sending a padded year range is safe.** The phantom years (e.g. 2016–2019 335i) come back as warnings; the real years go through. No trim table, no pre-trimming required.
 - Optional hardening: the **Metadata API** `getCompatibilitiesBySpecification` returns valid combinations for a category — use it to pre-validate (or to *generate* exact rows) if we ever want zero warning noise.
 
+### 5.5 WHY FITMENT WASN'T DISPLAYING — the trim-spelling bug (SOLVED LIVE 2026-08-18)
+
+> **✅ PROVEN LIVE on SKU `52566`** (F15 X5, N55 turbo, Rule B). Trading display store went
+> **0 → 14 vehicles**. Root cause was not what we assumed.
+
+**The bug.** eBay's vehicle catalog spells a trim with its body-style suffix:
+`xDrive35i Sport Utility 4-Door`. Our rules emit BMW shorthand: `xDrive35i`. A row whose Trim
+is not *verbatim* in the catalog is **accepted by the Inventory API — HTTP 200, stored, reads
+back fine — and then silently omitted from what the listing displays.** No warning, no error.
+That is why pushes looked successful for months while listings showed nothing.
+
+Note this contradicts the §5.3 assumption that Inventory partial-accepts and reports drops.
+It does that for an invalid **Model** (warning `25023`, as seen with `M2 CS`). It does **not**
+do it for an invalid **Trim** — that failure is completely silent.
+
+**Scope.** Rule A emits *trimless* rows, which always displayed fine (eBay treats a trimless
+row as a wildcard and expands it to every trim for that year/model — 7 pushed rows became 49
+displayed). So the bug hit **only Rule B / engine parts**. Of the first 281 ledgered pushes,
+the 128 Rule B ones were invisible.
+
+**The fix.** `scripts/ebay_compat_catalog.py` asks eBay what the catalog actually contains
+(Taxonomy `get_compatibility_property_values`) and repairs every row before the push:
+
+- Trim shorthand → catalog spelling, by word-boundary prefix match. `xDrive35i` also picks up
+  the genuine sub-trims `xDrive35i Excellence` and `xDrive35i M Sport` — same drivetrain, so
+  correct for Rule B. `M` never matches `M550i`.
+- A Year/Make/Model absent from the catalog is dropped (this is what correctly removes the
+  padded phantom years — e.g. 19 of 32 rows on an E36 Z3 donor).
+- An unmatched trim is **dropped for Rule B** (an engine part must never widen to all engines)
+  and **downgraded to trimless for Rule A** (the family fits anyway).
+- The X3/X5/X6 chassis have no trim breakdown in our engine map, so the expander repeats the
+  model name as the trim (`Trim="X3"` on `Model="X3"`, 8% of Rule B rows). That is not a trim;
+  it is treated as trimless rather than dropped.
+
+**Two mechanical gotchas this uncovered:**
+
+1. **The Trading API cannot write these listings at all.** `ReviseFixedPriceItem` answers every
+   attempt with `[21919474] "Inventory-based listing management is not currently supported by
+   this tool"` because the listings are Inventory-API-managed. Any design that routes the
+   display write through Trading is a dead end — the earlier dual-write could never have
+   worked. **The Inventory write displays on its own**, once the rows are catalog-valid. Trading
+   remains the correct store to *read* (it is what displays).
+2. **A trimless row is a wildcard.** Preserving the listing's existing donor vehicle as a
+   trimless `Year/Make/Model` row re-added every excluded engine to a Rule B part — a trimless
+   `2018 BMW X5` pulled in the `xDrive35d` diesel and the X5 M, turning 17 pushed rows into 41
+   displayed ones. Donor rows are now only kept for a Year/Model our own rows do not cover.
+
+**Token note.** The Taxonomy API needs the plain `api_scope`, which the `sell.inventory` user
+token does not carry. `ebay_compat_catalog.py` mints a separate **client-credentials
+application token** from the same client id/secret — no user consent needed. Catalog answers
+are cached in `data/ebay_compat_cache.json` (regenerable; safe to delete).
+
+**Re-pushing the invisible ones.** Ledger entries are stamped with `CATALOG_ERA` (`"cat1"`).
+Entries written before this fix lack the stamp and are re-processed automatically on the next
+sweep instead of being skipped, so the 128 invisible Rule B pushes self-heal.
+
 ### 5.4 Also worth knowing
 
 - **Adding compatibility to a live Trading Item:** `ReviseItem` / `ReviseFixedPriceItem` with `Item.ItemCompatibilityList` adds compatibilities to an existing Item by Item ID; duplicates are ignored; `ReplaceAll=true` wipes. Restriction: an item with bids or ending within 12h can still *add* but not *delete* compatibilities. (This is the Path-B mechanism.)

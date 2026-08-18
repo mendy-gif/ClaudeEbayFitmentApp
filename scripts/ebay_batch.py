@@ -41,12 +41,19 @@ import fitment_rules as FR          # noqa: E402
 import classify_part as CP          # noqa: E402
 from ebay_writer import rows_to_payload  # noqa: E402
 from ebay_inspect import trading_getitem_compat  # noqa: E402
+import ebay_compat_catalog as CAT   # noqa: E402
 
 BASE = "https://api.ebay.com"
 LEDGER = os.path.join(ROOT, "data", "pushed_ledger.json")
 PLAN = os.path.join(ROOT, "data", "batch_plan.csv")
 ERRLOG = os.path.join(ROOT, "data", "sweep_errors.log")
 PLAN_COLS = ["sku", "listingId", "donor", "rule", "engine", "n_vehicles", "sources", "models", "action", "reason"]
+
+# Bump when a change makes previously-pushed fitment wrong or invisible; ledger entries
+# stamped with an older value are re-processed instead of skipped. "cat1" = the first
+# release that validates trims against eBay's vehicle catalog (before it, pushes stored
+# fine but displayed nothing).
+CATALOG_ERA = "cat1"
 
 
 def log_error(sku, action, reason):
@@ -115,81 +122,22 @@ def api(method, path, tok, body=None, retries=3):
             return None, {"_transport_error": str(e)}
 
 
-def trading_write_compat(item_id, rows, tok, retries=3):
-    """Write compatibility to the DISPLAY store via the Trading API ReviseFixedPriceItem
-    (by ItemID) -- this is what actually shows on the live listing (the Inventory-API
-    by-SKU write does not display until the offer is republished). ReplaceAll=true sets
-    exactly our rows; the caller's guard ensures we only write listings with <=1 existing
-    vehicle, so nothing curated is clobbered. Returns (status, detail): status in
-    {'ok','auth','error'}."""
-    from xml.sax.saxutils import escape
-    import xml.etree.ElementTree as ET
-    compat = []
-    for r in rows:
-        parts = [("Year", str(r["Year"])), ("Make", r["Make"]), ("Model", r["Model"])]
-        if r.get("Trim"):
-            parts.append(("Trim", r["Trim"]))
-        nv = "".join(f"<NameValueList><Name>{n}</Name><Value>{escape(str(v))}</Value></NameValueList>"
-                     for n, v in parts)
-        compat.append(f"<Compatibility>{nv}</Compatibility>")
-    body = (
-        '<?xml version="1.0" encoding="utf-8"?>'
-        '<ReviseFixedPriceItemRequest xmlns="urn:ebay:apis:eBLBaseComponents">'
-        f'<Item><ItemID>{escape(str(item_id))}</ItemID>'
-        f'<ItemCompatibilityList><ReplaceAll>true</ReplaceAll>{"".join(compat)}</ItemCompatibilityList>'
-        '</Item></ReviseFixedPriceItemRequest>'
-    )
-    hdrs = {"X-EBAY-API-CALL-NAME": "ReviseFixedPriceItem", "X-EBAY-API-SITEID": "100",
-            "X-EBAY-API-COMPATIBILITY-LEVEL": "1199", "X-EBAY-API-IAF-TOKEN": tok,
-            "Content-Type": "text/xml"}
-    ns = "{urn:ebay:apis:eBLBaseComponents}"
-    for attempt in range(retries):
-        req = urllib.request.Request(BASE + "/ws/api.dll", data=body.encode("utf-8"), method="POST", headers=hdrs)
-        try:
-            with urllib.request.urlopen(req) as r:
-                raw = r.read().decode("utf-8", "replace")
-        except urllib.error.HTTPError as e:
-            if e.code in (401, 403):
-                return "auth", f"HTTP {e.code}"
-            if 500 <= e.code < 600 and attempt < retries - 1:
-                time.sleep(2 ** attempt); continue
-            return "error", f"HTTP {e.code}: {e.read().decode('utf-8', 'replace')[:200]}"
-        except urllib.error.URLError as e:
-            if attempt < retries - 1:
-                time.sleep(2 ** attempt); continue
-            return "error", f"transport: {e}"
-        try:
-            root = ET.fromstring(raw)
-        except ET.ParseError as e:
-            return "error", f"xml parse: {e}"
-        ack = root.findtext(f"{ns}Ack")
-        if ack in ("Success", "Warning"):
-            if ack == "Warning":                   # partial-accept: eBay dropped some rows -- surface it
-                w = [se.findtext(f"{ns}LongMessage") or se.findtext(f"{ns}ShortMessage")
-                     for se in root.findall(f"{ns}Errors")]
-                return "ok", "Warning: " + "; ".join(m for m in w if m)[:200]
-            return "ok", "Success"
-        errs, auth = [], False
-        for se in root.findall(f"{ns}Errors"):
-            eid = se.findtext(f"{ns}ErrorCode") or ""
-            msg = se.findtext(f"{ns}LongMessage") or se.findtext(f"{ns}ShortMessage") or ""
-            errs.append(f"[{eid}] {msg}")
-            if eid in ("931", "932", "16110", "21916884") or "token" in msg.lower():
-                auth = True
-        if auth:
-            return "auth", "; ".join(errs)[:200]
-        return "error", f"Ack={ack}: {'; '.join(errs)[:220]}"
-    return "error", "exhausted retries"
+# NOTE: there used to be a trading_write_compat() here that mirrored compatibility into the
+# DISPLAY store via Trading ReviseFixedPriceItem. It is gone because it CANNOT work on these
+# listings: they are Inventory-API-managed, and Trading answers every revise attempt with
+#   [21919474] "Inventory-based listing management is not currently supported by this tool."
+# regardless of how valid the rows are. The Inventory write displays on its own once the rows
+# match eBay's vehicle catalog -- see the catalog repair step in process_sku().
 
 
 def read_inventory_compat(sku, tok):
     """Read back the compatibility eBay actually KEPT in the Inventory store for a SKU,
     as rows [{Year:int, Make, Model[, Trim]}]. Returns (rows, err).
 
-    This is the validator step: the Inventory API partial-accepts an over-included set
-    (warning 25023) and silently DROPS rows it can't validate, so what it stores is the
-    known-good subset -- safe to mirror to the all-or-nothing Trading store. rows is None
-    on a read failure so the caller never mistakes 'read broke' for 'eBay dropped all'."""
+    This is a read-back confirmation, NOT a validator: the Inventory store keeps whatever
+    you send it verbatim, including trims eBay's catalog does not recognise (which then
+    display as nothing). Validation happens before the write, in ebay_compat_catalog.
+    rows is None on a read failure so the caller never mistakes 'read broke' for 'empty'."""
     path = f"/sell/inventory/v1/inventory_item/{urllib.parse.quote(sku, safe='')}/product_compatibility"
     s, p = api("GET", path, tok)
     if s in (401, 403):
@@ -368,7 +316,7 @@ def expand_partnumber_rows(vehicles, rule, ref, emap, ebay, cache=None):
     return out
 
 
-def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify=None, pnf=None, pn_cache=None):
+def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify=None, pnf=None, pn_cache=None, force=False):
     s, off = api("GET", f"/sell/inventory/v1/offer?{urllib.parse.urlencode({'sku': sku})}", tok)
     offers = off.get("offers", []) if s == 200 else []
     if s in (401, 403):
@@ -385,12 +333,12 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
     # Trading count is the "already expanded" guard in both paths (with retry). In the
     # Shopify path it is NOT the donor source, so n_trad==0 no longer means "skip".
     n_trad, sample, terr = trading_compat_retry(listing_id, tok) if listing_id else (None, [], "no listingId")
-    if n_trad is not None and n_trad > 1:
+    if n_trad is not None and n_trad > 1 and not force:
         return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": f"already {n_trad} vehicles (multi-fit/expanded)"}
     # FAIL CLOSED: if the guard read failed (or there's no listingId), we cannot tell
     # whether this listing already has curated fitment -> skip rather than risk a PUT
     # that overwrites it. (A push only happens when we KNOW the listing has <=1 vehicle.)
-    if n_trad is None:
+    if n_trad is None and not force:
         return {"sku": sku, "listingId": listing_id, "action": "skip",
                 "reason": f"guard read failed ({terr}) - skipped to protect existing fitment"}
 
@@ -425,10 +373,20 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
     # write never drops known-good fitment -- critical for the pn-only rescue, where the
     # part-number rows may not include the car the part actually came off. Kept at the
     # Model level (no trim) = a clean, valid superset row.
+    #
+    # BUT: a trimless row is a WILDCARD -- eBay expands it to every trim in the catalog for
+    # that Year/Model. On a Rule B (engine-restricted) part that silently re-adds the very
+    # engines the rule excluded: a trimless "2018 BMW X5" pulled in the xDrive35d diesel and
+    # the X5 M. So we only keep a donor row for a Year/Model our own rows do not already
+    # cover. Nothing is lost (a donor on some other year/model is still preserved) and the
+    # engine restriction survives.
+    covered = {(r["Year"], r["Make"], r["Model"]) for r in chassis_rows + pn_rows}
     donor_rows = []
     for nv in (sample or []):
         y = str(nv.get("Year", "")).strip()
         if y.isdigit() and nv.get("Make") and nv.get("Model"):
+            if (int(y), nv["Make"], nv["Model"]) in covered:
+                continue
             donor_rows.append({"Year": int(y), "Make": nv["Make"], "Model": nv["Model"]})
 
     combined, seen = [], set()                            # dedupe on the full tuple
@@ -449,16 +407,40 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
            "n_vehicles": len(combined), "sources": "+".join(sources),
            "models": ",".join(models_used), "action": "push", "reason": note}
 
+    # ---- CATALOG REPAIR (the step that makes fitment actually display) --------------
+    # Our rules emit BMW shorthand trims ("xDrive35i"); eBay's vehicle catalog spells them
+    # with a body-style suffix ("xDrive35i Sport Utility 4-Door"). The Inventory API stores
+    # an unrecognised trim happily (HTTP 200, reads back fine) but the listing DISPLAYS
+    # nothing for it. So we repair every row against eBay's own catalog before pushing.
+    # Rule B rows carry an engine restriction -- an unmatched trim is dropped rather than
+    # widened to trimless, so an engine part never claims to fit every engine. Rule A rows
+    # cover the whole chassis family anyway, so trimless is a fine fallback there.
+    on_unmatched = "drop" if (rule == "B" and chassis_rows) else "trimless"
+    combined, creport = CAT.validate_rows(combined, on_unmatched=on_unmatched)
+    if creport["retrimmed"] or creport["trimless"] or creport["dropped_vehicle"] or creport["dropped_trim"]:
+        bits = [f"{creport[k]} {k}" for k in ("retrimmed", "trimless", "dropped_vehicle", "dropped_trim")
+                if creport[k]]
+        note += f" [catalog: {', '.join(bits)}]"
+    if creport["lookup_failed"]:
+        note += f" [catalog lookup failed x{creport['lookup_failed']} -- rows passed through unverified]"
+    row["n_vehicles"] = len(combined)
+    row["models"] = ",".join(sorted({r["Model"] for r in combined}))
+    row["reason"] = note
+    if not combined:
+        row["action"] = "skip"
+        row["reason"] = "no rows survived eBay catalog validation: " + "; ".join(creport["notes"][:3])
+        return row
+
     if live:
-        # DUAL-WRITE, with the Inventory store as a free validator:
-        #   1. PUT our full (over-included) set to the Inventory store. eBay keeps only the
-        #      rows it can validate and drops the rest (partial-accept warning 25023). This
-        #      write does not display on the listing by itself, but it FILTERS our set.
-        #   2. Read back that eBay-validated subset.
-        #   3. Write the validated subset to the Trading (display) store. Trading is
-        #      all-or-nothing (error 21916724 rejects the whole call on any invalid row),
-        #      so pre-filtering through Inventory is what lets it accept -- and DISPLAY.
-        # Net: safe over-inclusion + immediate display, and both stores end up in sync.
+        # SINGLE WRITE to the Inventory store, by SKU.
+        #
+        # These listings are Inventory-API-managed, and the Trading API flatly REFUSES to
+        # revise them: ReviseFixedPriceItem returns error 21919474 ("Inventory-based listing
+        # management is not currently supported by this tool") no matter how valid the rows
+        # are. The old dual-write could therefore never have displayed anything. The
+        # Inventory write DOES display -- once the rows match eBay's catalog, which is what
+        # the repair step above guarantees.
+        #
         # We only reach here with <=1 existing vehicle (the guard) on a live PUBLISHED
         # offer -> touching compatibility can never revive an ended/sold item.
         inv_path = f"/sell/inventory/v1/inventory_item/{urllib.parse.quote(sku, safe='')}/product_compatibility"
@@ -470,31 +452,19 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
             row["action"] = "error"
             row["reason"] = f"inventory write HTTP {st}: {json.dumps(resp)[:160]}"
         else:
-            valid, verr = read_inventory_compat(sku, tok)
-            if valid is None:
+            stored, verr = read_inventory_compat(sku, tok)
+            if stored is None:
                 row["action"] = "error"
-                row["reason"] = f"validated read-back failed: {verr}"
-            elif not valid:
+                row["reason"] = f"read-back failed: {verr}"
+            elif not stored:
                 row["action"] = "error"
-                row["reason"] = "eBay validated 0 rows (nothing valid to display)"
+                row["reason"] = "eBay stored 0 rows"
             else:
-                status, detail = trading_write_compat(listing_id, valid, tok)
-                if status == "ok":
-                    row["action"] = "pushed"
-                    row["n_vehicles"] = len(valid)
-                    dropped = len(combined) - len(valid)
-                    note2 = note + (f" [{dropped} dropped by eBay]" if dropped > 0 else "")
-                    if detail and detail.startswith("Warning"):
-                        note2 += f" [{detail}]"
-                    row["reason"] = note2
-                    led[sku] = {"listingId": listing_id, "rule": rule if chassis_rows else "-",
-                                "n": len(valid), "models": sorted({r["Model"] for r in valid}), "src": sources}
-                elif status == "auth":
-                    row["action"] = "auth_error"
-                    row["reason"] = f"trading write auth: {detail}"
-                else:
-                    row["action"] = "error"
-                    row["reason"] = f"trading write failed: {detail}"
+                row["action"] = "pushed"
+                row["n_vehicles"] = len(stored)
+                led[sku] = {"listingId": listing_id, "rule": rule if chassis_rows else "-",
+                            "n": len(stored), "models": sorted({r["Model"] for r in stored}),
+                            "src": sources, "cv": CATALOG_ERA}
     return row
 
 
@@ -517,6 +487,10 @@ def main():
     ap.add_argument("--live", action="store_true")
     ap.add_argument("--sleep", type=float, default=0.3, help="seconds between SKUs (rate-limit pacing)")
     ap.add_argument("--token")
+    ap.add_argument("--force", action="store_true",
+                    help="re-push even if the listing already shows >1 vehicle (bypasses the "
+                         "'already expanded' guard). Use with an explicit --sku when correcting "
+                         "fitment that was pushed with bad trims.")
     args = ap.parse_args()
     tok = token(args)
 
@@ -574,17 +548,22 @@ def main():
         # Skip ledgered SKUs, UNLESS part-number rows exist that weren't applied yet
         # (so the combined run can add Approach-2 fitment to chassis-only pushes).
         entry = led.get(sku) if (args.mode == "apply" and not args.sku) else None  # explicit --sku always reprocesses
+        # Entries written before the catalog-validation fix pushed trims eBay does not
+        # recognise, so they display NOTHING. Re-process them automatically rather than
+        # trusting a ledger row that records a push which never actually showed up.
+        if entry and entry.get("cv") != CATALOG_ERA:
+            entry = None
         pn_pending = bool(pnf) and sku in pnf and "pn" not in set((entry or {}).get("src", []))
         if entry and not pn_pending:
             rows.append({"sku": sku, "action": "skip", "reason": "already in ledger"})
         else:
-            r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache)
+            r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force)
             if r["action"] == "auth_error":                  # try to self-heal (auto-refresh mode)
                 nt = refresh_token()
                 if nt and nt != tok:
                     tok = nt
                     print(f"  [{i}/{len(skus)}] {sku}: token auto-refreshed, retrying")
-                    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache)
+                    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force)
             rows.append(r)
         counts[rows[-1]["action"]] = counts.get(rows[-1]["action"], 0) + 1
         print(f"  [{i}/{len(skus)}] {sku}: {rows[-1]['action']} - {rows[-1].get('reason','')[:80]}")

@@ -1,25 +1,29 @@
 #!/usr/bin/env python3
 """
-Diagnose WHY the Trading (display) store rejects a compatibility push.
+Diagnose why a SKU's fitment does or does not DISPLAY on its live listing.
 
-The Inventory store is lenient (keeps whatever validates loosely); the Trading store
-validates each Year/Make/Model[/Trim] against eBay's strict vehicle catalog and is
-ALL-OR-NOTHING (error 21916724 rejects the whole call on any single bad combo). This
-tool builds the same rows the runner would push for one SKU, then tries them against
-Trading in escalating fallbacks, printing eBay's FULL response each time and STOPPING
-at the first variant that succeeds:
+WHAT WE LEARNED WITH THIS TOOL (the answer, kept here so it isn't rediscovered):
 
-  1. full set, with Trim       (Rule-B engine restriction preserved)
-  2. drop Trim, keep Year/Model (base combos -- almost always in eBay's catalog)
-  3. one row at a time         (isolates exactly which combos eBay rejects)
+  1. eBay's vehicle catalog spells trims with a body-style suffix. Our rules emit BMW
+     shorthand ("xDrive35i"); the catalog wants "xDrive35i Sport Utility 4-Door". The
+     Inventory API accepts the shorthand (HTTP 200, stores it, reads it back) but the
+     listing DISPLAYS nothing for it. This hit every Rule B (engine) part -- Rule A rows
+     are trimless, so they always displayed. scripts/ebay_compat_catalog.py now repairs
+     trims against eBay's catalog before the push, which fixes it.
 
-A failed all-or-nothing call changes nothing on the listing, so this is safe to run on
-a live SKU (variants 1-2 that SUCCEED will set that SKU's displayed fitment -- fine on a
-test SKU you're iterating on).
+  2. The Trading API CANNOT write these listings at all. ReviseFixedPriceItem answers
+     every attempt with [21919474] "Inventory-based listing management is not currently
+     supported by this tool", because the listings are Inventory-API-managed. Any plan
+     that routes the display write through Trading is a dead end; the Inventory write
+     displays on its own once the rows are catalog-valid.
+
+So the Trading probes below are now a DIAGNOSTIC ONLY -- expect 21919474 on a normal
+inventory-managed listing. The useful output is section [0], which compares the rows we
+would push against eBay's actual catalog and names any that would be dropped.
 
 Usage:
   python3 scripts/ebay_trading_debug.py 52566 --token "$(python3 scripts/ebay_auth.py)"
-  python3 scripts/ebay_trading_debug.py 52566 --rule B --token "..."
+  python3 scripts/ebay_trading_debug.py 52566 --probe-trading   # also try the Trading writes
 """
 import argparse
 import json
@@ -35,6 +39,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(ROOT, "scripts"))
 import fitment_rules as FR            # noqa: E402
 import classify_part as CP            # noqa: E402
+import ebay_compat_catalog as CAT     # noqa: E402
 
 BASE = "https://api.ebay.com"
 NS = "{urn:ebay:apis:eBLBaseComponents}"
@@ -163,6 +168,8 @@ def main():
     ap.add_argument("sku")
     ap.add_argument("--rule", choices=["A", "B"], help="force a rule (default: classify from category)")
     ap.add_argument("--token")
+    ap.add_argument("--probe-trading", action="store_true",
+                    help="also attempt the Trading writes (expect 21919474 on inventory-managed listings)")
     ap.add_argument("--one-by-one", action="store_true",
                     help="also probe every row individually to map exactly which combos eBay rejects")
     args = ap.parse_args()
@@ -181,6 +188,21 @@ def main():
     print(f"Rule {rule}: {len(rows)} row(s), engines={res.get('donor_engines')}")
     for r in rows:
         print("   ", {k: r[k] for k in ("Year", "Make", "Model") if k in r}, ("Trim=" + r["Trim"]) if r.get("Trim") else "")
+
+    print("\n[0] Catalog check -- what eBay's vehicle catalog actually contains:")
+    on_unmatched = "drop" if rule == "B" else "trimless"
+    good, rep = CAT.validate_rows(rows, on_unmatched=on_unmatched)
+    print(f"    {len(rows)} row(s) in -> {len(good)} row(s) that will display "
+          f"(kept={rep['kept']} retrimmed={rep['retrimmed']} trimless={rep['trimless']} "
+          f"dropped={rep['dropped_vehicle'] + rep['dropped_trim']} lookup_failed={rep['lookup_failed']})")
+    for n in rep["notes"][:10]:
+        print(f"       ! {n}")
+    for g in good:
+        print("    OK ", g)
+    if not args.probe_trading:
+        print("\n(Trading write probes skipped -- pass --probe-trading to run them. They are")
+        print(" expected to fail with 21919474 on an Inventory-API-managed listing.)")
+        return
 
     print("\n[1] Full set, WITH Trim (what the runner pushes):")
     ack, errs, tr = trading_write(lid, rows, tok)

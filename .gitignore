@@ -17,3 +17,7 @@ __pycache__/
 *.pyc
 .venv/
 venv/
+
+# never commit: token caches + ETK data
+*token_cache*.json
+bmw-etk/
