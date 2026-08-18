@@ -255,6 +255,58 @@ Usage: tbadmin -C[f|F][nv] dbname [<parameter> ...]
 control, all four files, `-F` instead of `-f` in case it is blocking on a CD-insert
 prompt, and `r=<dir>` letting tbadmin discover the romfiles itself.
 
+## The catalog is ATTACHED AND BOOTED (confirmed)
+
+`tbadmin -i etk_publ` reports:
+
+```
+Database Name = etk_publ@etkdb          Status  = booted
+Database Home = /data/etk_publ          Codepage = Utf8
+Rom Size      = 12000 MB                DB Type = CD_Retrieval
+DB-Identification = TB_2001             Page Size = 4 KB
+Database Romfile(s)
+  /rom/files/rfile000.000   on CD-ROM 'CD_1'
+  /rom/files/rfile000.001   on CD-ROM 'CD_2'
+  /rom/files/rfile000.002   on CD-ROM 'CD_3'
+  /rom/files/rfile001.000   on CD-ROM 'CD_4'
+```
+
+**Four CD-ROM volumes** -- definitive confirmation that `rfile000.002` is required
+and that BMW's `postinstallDataDB.cmd` is wrong for this data package.
+
+## Use utbi, not tbi: it is a LOCAL client
+
+`tbi` is a network client and always fails with
+`server <2024> at <etkdb> not reachable` unless `tbserver` **and** `tbkernel` are both
+running (see `rc.TransBase`). **`utbi` talks to the database directly and needs no
+server at all** -- that is the connection route this project uses.
+
+Its SQL is a **positional argument**; there is **no `-f` option**:
+
+```
+utbi [options] [ dbname [ uname [ passwd [ SQL command ] ] ] ]
+  -Fc  separate fields by c      -h   no column headers/footers
+  -qc  quote fields with c       -H   HTML output
+  -cN  line width (default 80)   -a   autocommit
+  -wN  column width (default 10) -CN  consistency level (default 3)
+```
+
+So a query is:
+
+```
+utbi -c 400 -w 40 etk_publ tbadmin altabe "select * from systable;"
+```
+
+and CSV export will be `-F',' -q'"' -h`.
+
+**Trap:** passing `-f` makes utbi print its usage text. An earlier version of this
+project treated "no error keywords in the output" as success, so 26 files of usage
+text were written as if they were a schema dump. Any success check must reject a
+tool's own usage message.
+
+The full tool list on the disc also includes `tbarc`, `tbcheck`, `tbdiff`, `tbmkrom`,
+`tbtar`, `tbstatis`, `ufi`, `tbkernel`, `tbmux`, and **`tbjdbc.jar` / `tbjdbcx.jar`**.
+
 ## The engine RUNS on Apple Silicon (confirmed)
 
 `tbadmin` executes under Docker + QEMU on an arm64 Mac and prints its usage. All

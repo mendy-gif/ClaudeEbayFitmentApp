@@ -6,6 +6,7 @@
 #   bash bmw-etk/docker/etk-db.sh params C  # tbadmin's own docs for an option
 #   bash bmw-etk/docker/etk-db.sh create    # attach the ROM files as database etk_publ
 #   bash bmw-etk/docker/etk-db.sh sql "select ..."   # run one SQL statement
+#   bash bmw-etk/docker/etk-db.sh catalog   # find the system catalogue (raw output)
 #   bash bmw-etk/docker/etk-db.sh explore   # dump the schema to bmw-etk/data/schema/
 #   bash bmw-etk/docker/etk-db.sh reset     # clear the database volume and start over
 #   bash bmw-etk/docker/etk-db.sh shell     # interactive shell inside the container
@@ -167,6 +168,15 @@ explore)
     -v "$ROM":/rom:ro -v "$VOLUME":/data -v "$ROOT/data/schema":/out \
     -v "$HERE/explore.sh":/explore.sh:ro \
     "$IMAGE" bash /explore.sh
+  ;;
+
+catalog)
+  have_docker
+  "$DOCKER" run --rm --platform "$PLATFORM" --hostname "$HOSTNAME_FIXED" \
+    -e DB="$DB" -e DBUSER="$DBUSER" -e DBPASS="$DBPASS" \
+    -v "$ROM":/rom:ro -v "$VOLUME":/data \
+    -v "$HERE/catalog_probe.sh":/catalog_probe.sh:ro \
+    "$IMAGE" bash /catalog_probe.sh
   ;;
 
 reset)

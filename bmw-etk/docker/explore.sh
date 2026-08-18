@@ -23,10 +23,13 @@ elapsed() { echo $(( $(date +%s) - STARTED )); }
 MODE=""          # how to reach the database, decided once below
 SERVER_STARTED=0
 
+# utbi is a LOCAL client -- no tbserver required -- and takes SQL as a POSITIONAL
+# argument. It has no -f option; passing one just prints usage.
+#   utbi [options] [ dbname [ uname [ passwd [ SQL command ] ] ] ]
+# -c widens the line, -w widens each column (defaults 80/10 truncate everything).
 raw_tbi() {
   local secs="${2:-$TBI_TIMEOUT}"
-  printf '%s\n' "$1" > /tmp/q.sql
-  timeout -k 10 "$secs" "$TRANSBASE/tbi" -f /tmp/q.sql "$DB" "$DBU" "$PASS" 2>&1
+  timeout -k 10 "$secs" "$TRANSBASE/utbi" -c 400 -w 40 "$DB" "$DBU" "$PASS" "$1" 2>&1
   local rc=$?
   [ "$rc" -eq 124 ] && echo "*** TIMED OUT after ${secs}s ***"
   return 0
@@ -45,7 +48,13 @@ echo "--- dblist.ini ---"; cat "$TRANSBASE/dblist.ini" 2>/dev/null | head
 echo "--- tbadmin -i ---"; "$TRANSBASE/tbadmin" -i "$DB" 2>&1 | strip | head -25
 
 PROBE="select * from systable;"
-bad() { grep -qiE 'error|does not exist|cannot|refused|not reachable|no such|syntax' "$1"; }
+bad() {
+  grep -qiE 'error|does not exist|cannot|refused|not reachable|no such|syntax|not found' "$1" && return 0
+  # A tool's own usage text is a failure, not a result -- this was mistaken for
+  # success once already and produced a directory full of junk.
+  grep -qiE '^ *(UTBI|TBI) Usage|^Usage:|UTBI Options|UTBI Commands' "$1" && return 0
+  return 1
+}
 
 try_mode() {  # try_mode <label>; sets MODE on success
   [ -n "$MODE" ] && return 0
