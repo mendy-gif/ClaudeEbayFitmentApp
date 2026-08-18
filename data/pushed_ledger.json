@@ -8,7 +8,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5305": {
     "listingId": "407151963325",
@@ -19,7 +20,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5528": {
     "listingId": "407151943637",
@@ -30,7 +32,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5625": {
     "listingId": "407141752538",
@@ -41,7 +44,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "53081": {
     "listingId": "407151924374",
@@ -52,18 +56,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "52223": {
     "listingId": "407151924317",
     "rule": "B",
-    "n": 32,
+    "n": 40,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "52566": {
     "listingId": "407151924143",
@@ -80,7 +86,7 @@
   "53466": {
     "listingId": "407151924243",
     "rule": "A",
-    "n": 42,
+    "n": 40,
     "models": [
       "530e",
       "530i",
@@ -92,12 +98,13 @@
     "src": [
       "chassis",
       "pn"
-    ]
+    ],
+    "cv": "cat1"
   },
   "53395": {
     "listingId": "407151924313",
     "rule": "B",
-    "n": 32,
+    "n": 13,
     "models": [
       "323i",
       "323is",
@@ -106,7 +113,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "52672": {
     "listingId": "407151924278",
@@ -117,12 +125,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "53398": {
     "listingId": "407151924398",
     "rule": "B",
-    "n": 32,
+    "n": 13,
     "models": [
       "323i",
       "323is",
@@ -131,7 +140,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "32479": {
     "listingId": "407151924385",
@@ -148,24 +158,26 @@
   "52410": {
     "listingId": "407151924379",
     "rule": "B",
-    "n": 32,
+    "n": 40,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "53094": {
     "listingId": "407151924408",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "8478": {
     "listingId": "407151924381",
@@ -176,7 +188,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "32704": {
     "listingId": "407151924354",
@@ -187,127 +200,122 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "52407": {
     "listingId": "407151924287",
     "rule": "B",
-    "n": 32,
+    "n": 40,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "52406": {
     "listingId": "407151924226",
     "rule": "B",
-    "n": 32,
+    "n": 40,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5642": {
     "listingId": "407151918851",
     "rule": "A",
-    "n": 35,
-    "models": [
-      "740Li",
-      "745Le",
-      "750Li",
-      "Alpina B7",
-      "M760Li"
-    ],
-    "src": [
-      "chassis"
-    ]
-  },
-  "5649": {
-    "listingId": "407151917569",
-    "rule": "A",
-    "n": 35,
-    "models": [
-      "740Li",
-      "745Le",
-      "750Li",
-      "Alpina B7",
-      "M760Li"
-    ],
-    "src": [
-      "chassis"
-    ]
-  },
-  "5651": {
-    "listingId": "407151917358",
-    "rule": "A",
-    "n": 35,
-    "models": [
-      "740Li",
-      "745Le",
-      "750Li",
-      "Alpina B7",
-      "M760Li"
-    ],
-    "src": [
-      "chassis"
-    ]
-  },
-  "6053": {
-    "listingId": "407151886383",
-    "rule": "B",
-    "n": 14,
+    "n": 10,
     "models": [
       "750Li",
       "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
+  },
+  "5649": {
+    "listingId": "407151917569",
+    "rule": "A",
+    "n": 10,
+    "models": [
+      "750Li",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "5651": {
+    "listingId": "407151917358",
+    "rule": "A",
+    "n": 10,
+    "models": [
+      "750Li",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "6053": {
+    "listingId": "407151886383",
+    "rule": "B",
+    "n": 10,
+    "models": [
+      "750Li",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
   },
   "5659": {
     "listingId": "407151914478",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5770": {
     "listingId": "407151911121",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "53597": {
     "listingId": "407151911062",
     "rule": "B",
-    "n": 7,
+    "n": 6,
     "models": [
       "M550i xDrive"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3156": {
     "listingId": "407151909358",
@@ -318,39 +326,39 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5948": {
     "listingId": "407151903298",
     "rule": "A",
-    "n": 35,
-    "models": [
-      "740Li",
-      "745Le",
-      "750Li",
-      "Alpina B7",
-      "M760Li"
-    ],
-    "src": [
-      "chassis"
-    ]
-  },
-  "5986": {
-    "listingId": "407151899895",
-    "rule": "B",
-    "n": 14,
+    "n": 10,
     "models": [
       "750Li",
       "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
+  },
+  "5986": {
+    "listingId": "407151899895",
+    "rule": "B",
+    "n": 10,
+    "models": [
+      "750Li",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
   },
   "60972": {
     "listingId": "407151899557",
     "rule": "A",
-    "n": 60,
+    "n": 31,
     "models": [
       "325i",
       "325xi",
@@ -365,12 +373,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "61848": {
     "listingId": "407118127992",
     "rule": "A",
-    "n": 21,
+    "n": 17,
     "models": [
       "328i",
       "335i",
@@ -378,102 +387,106 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "6020": {
     "listingId": "407151893965",
     "rule": "B",
-    "n": 14,
+    "n": 10,
     "models": [
       "750Li",
       "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "6022": {
     "listingId": "407151893549",
     "rule": "B",
-    "n": 14,
+    "n": 10,
     "models": [
       "750Li",
       "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "6048": {
     "listingId": "407151887392",
     "rule": "B",
-    "n": 14,
+    "n": 10,
     "models": [
       "750Li",
       "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "6039": {
     "listingId": "407151887362",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "6047": {
     "listingId": "407151887085",
     "rule": "B",
-    "n": 14,
+    "n": 10,
     "models": [
       "750Li",
       "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "6054": {
     "listingId": "407151886085",
     "rule": "B",
-    "n": 14,
+    "n": 10,
     "models": [
       "750Li",
       "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "53780": {
     "listingId": "407151882182",
     "rule": "-",
-    "n": 24,
+    "n": 15,
     "models": [
       "750Li",
-      "ActiveHybrid 7L",
       "Alpina B7L",
       "X5",
       "X6"
     ],
     "src": [
       "pn"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60962": {
     "listingId": "407151878757",
     "rule": "B",
-    "n": 42,
+    "n": 20,
     "models": [
       "325i",
       "325xi",
@@ -485,12 +498,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "4060": {
     "listingId": "407151876840",
     "rule": "A",
-    "n": 48,
+    "n": 41,
     "models": [
       "330e",
       "330e xDrive",
@@ -501,12 +515,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "61079": {
     "listingId": "407151874658",
     "rule": "A",
-    "n": 21,
+    "n": 17,
     "models": [
       "328i",
       "335i",
@@ -514,7 +529,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "52535": {
     "listingId": "407087042817",
@@ -525,23 +541,25 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64307": {
     "listingId": "407151834251",
     "rule": "B",
-    "n": 7,
+    "n": 6,
     "models": [
       "M6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "61078": {
     "listingId": "407151860122",
     "rule": "A",
-    "n": 21,
+    "n": 17,
     "models": [
       "328i",
       "335i",
@@ -549,12 +567,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "61080": {
     "listingId": "407151860300",
     "rule": "A",
-    "n": 21,
+    "n": 17,
     "models": [
       "328i",
       "335i",
@@ -562,7 +581,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "61051": {
     "listingId": "407151845767",
@@ -573,23 +593,25 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64342": {
     "listingId": "407151839818",
     "rule": "A",
-    "n": 7,
+    "n": 6,
     "models": [
       "M6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "61069": {
     "listingId": "407151838740",
     "rule": "A",
-    "n": 21,
+    "n": 17,
     "models": [
       "328i",
       "335i",
@@ -597,12 +619,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "61077": {
     "listingId": "407151838514",
     "rule": "A",
-    "n": 21,
+    "n": 17,
     "models": [
       "328i",
       "335i",
@@ -610,29 +633,32 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64328": {
     "listingId": "407151835665",
     "rule": "B",
-    "n": 7,
+    "n": 6,
     "models": [
       "M6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64311": {
     "listingId": "407151835644",
     "rule": "B",
-    "n": 7,
+    "n": 6,
     "models": [
       "M6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "61059": {
     "listingId": "407151836081",
@@ -643,73 +669,80 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64315": {
     "listingId": "407151834739",
     "rule": "B",
-    "n": 7,
+    "n": 6,
     "models": [
       "M6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64308": {
     "listingId": "407151829974",
     "rule": "B",
-    "n": 7,
+    "n": 6,
     "models": [
       "M6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64305": {
     "listingId": "407151829924",
     "rule": "A",
-    "n": 7,
+    "n": 6,
     "models": [
       "M6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64337": {
     "listingId": "407151823026",
     "rule": "A",
-    "n": 7,
+    "n": 6,
     "models": [
       "M6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1613": {
     "listingId": "407151822383",
     "rule": "B",
-    "n": 6,
+    "n": 4,
     "models": [
       "440i"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62200": {
     "listingId": "407096081616",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "63284": {
     "listingId": "407111095511",
@@ -720,7 +753,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62033": {
     "listingId": "407127686966",
@@ -731,7 +765,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62074": {
     "listingId": "407101755940",
@@ -742,7 +777,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62092": {
     "listingId": "407088893371",
@@ -753,7 +789,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62156": {
     "listingId": "407088819961",
@@ -764,18 +801,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62201": {
     "listingId": "407096081573",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62704": {
     "listingId": "407127650180",
@@ -786,7 +825,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62087": {
     "listingId": "407086984669",
@@ -797,18 +837,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62169": {
     "listingId": "407086976379",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62063": {
     "listingId": "407101763492",
@@ -819,7 +861,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62079": {
     "listingId": "407087014868",
@@ -830,18 +873,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62085": {
     "listingId": "407086980523",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62100": {
     "listingId": "407086987202",
@@ -852,7 +897,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62103": {
     "listingId": "407086993926",
@@ -863,7 +909,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62142": {
     "listingId": "407096165624",
@@ -874,18 +921,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62161": {
     "listingId": "407086802530",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62384": {
     "listingId": "407127707464",
@@ -896,7 +945,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62054": {
     "listingId": "407086725047",
@@ -907,18 +957,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62059": {
     "listingId": "407127714388",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62080": {
     "listingId": "407101747614",
@@ -929,7 +981,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62093": {
     "listingId": "407088893375",
@@ -940,7 +993,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62101": {
     "listingId": "407086986444",
@@ -951,106 +1005,116 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62171": {
     "listingId": "407127709402",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62173": {
     "listingId": "407088898644",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62057": {
     "listingId": "407127712240",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62060": {
     "listingId": "407087055543",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62070": {
     "listingId": "407087026378",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62163": {
     "listingId": "407096108158",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62166": {
     "listingId": "407127690822",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62167": {
     "listingId": "407127715841",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62071": {
     "listingId": "407087026433",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62083": {
     "listingId": "407086991836",
@@ -1061,18 +1125,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62088": {
     "listingId": "407086980392",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62091": {
     "listingId": "407088885627",
@@ -1083,40 +1149,44 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62096": {
     "listingId": "407088897768",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62098": {
     "listingId": "407086980508",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62170": {
     "listingId": "407086802621",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62383": {
     "listingId": "407127650291",
@@ -1127,7 +1197,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62705": {
     "listingId": "407127704451",
@@ -1138,51 +1209,56 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62061": {
     "listingId": "407087001657",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62064": {
     "listingId": "407101755905",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62069": {
     "listingId": "407088898164",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62089": {
     "listingId": "407086984638",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62102": {
     "listingId": "407086984626",
@@ -1193,7 +1269,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62143": {
     "listingId": "407096165595",
@@ -1204,7 +1281,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62151": {
     "listingId": "407127650317",
@@ -1215,18 +1293,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62058": {
     "listingId": "407086716992",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62072": {
     "listingId": "407087005794",
@@ -1237,29 +1317,32 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62075": {
     "listingId": "407087022447",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62077": {
     "listingId": "407088814194",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62082": {
     "listingId": "407086994432",
@@ -1270,29 +1353,32 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62148": {
     "listingId": "407096142676",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62160": {
     "listingId": "407088824705",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62164": {
     "listingId": "407088869475",
@@ -1303,7 +1389,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62165": {
     "listingId": "407088873915",
@@ -1314,18 +1401,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62055": {
     "listingId": "407101775095",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62065": {
     "listingId": "407101755921",
@@ -1336,7 +1425,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62086": {
     "listingId": "407101747629",
@@ -1347,18 +1437,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62138": {
     "listingId": "407086800196",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62153": {
     "listingId": "407088823249",
@@ -1369,18 +1461,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62174": {
     "listingId": "407086802588",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62175": {
     "listingId": "407086802634",
@@ -1391,7 +1485,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62139": {
     "listingId": "407096175104",
@@ -1402,7 +1497,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62154": {
     "listingId": "407086802587",
@@ -1413,35 +1509,38 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62145": {
     "listingId": "407096156324",
     "rule": "B",
-    "n": 10,
+    "n": 14,
     "models": [
       "X6"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5610": {
     "listingId": "407151704029",
     "rule": "B",
-    "n": 16,
+    "n": 14,
     "models": [
       "M340i",
       "M340i xDrive"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5619": {
     "listingId": "407151704227",
     "rule": "A",
-    "n": 48,
+    "n": 41,
     "models": [
       "330e",
       "330e xDrive",
@@ -1452,7 +1551,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1588": {
     "listingId": "407151690883",
@@ -1463,12 +1563,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "61075": {
     "listingId": "407151681626",
     "rule": "A",
-    "n": 60,
+    "n": 31,
     "models": [
       "325i",
       "325xi",
@@ -1483,7 +1584,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3656": {
     "listingId": "407151678792",
@@ -1494,12 +1596,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "61074": {
     "listingId": "407151659962",
     "rule": "A",
-    "n": 60,
+    "n": 31,
     "models": [
       "325i",
       "325xi",
@@ -1514,7 +1617,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1683": {
     "listingId": "407151650081",
@@ -1525,24 +1629,26 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5602": {
     "listingId": "407151645174",
     "rule": "B",
-    "n": 16,
+    "n": 14,
     "models": [
       "M340i",
       "M340i xDrive"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5526": {
     "listingId": "407151645013",
     "rule": "A",
-    "n": 48,
+    "n": 41,
     "models": [
       "330e",
       "330e xDrive",
@@ -1553,72 +1659,72 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5524": {
     "listingId": "407151644939",
     "rule": "B",
-    "n": 16,
+    "n": 14,
     "models": [
       "M340i",
       "M340i xDrive"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64412": {
     "listingId": "407151609374",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5516": {
     "listingId": "407151608165",
     "rule": "B",
-    "n": 16,
+    "n": 14,
     "models": [
       "M340i",
       "M340i xDrive"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64381": {
     "listingId": "407151537857",
     "rule": "B",
-    "n": 7,
+    "n": 4,
     "models": [
       "750i"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64419": {
     "listingId": "407151603267",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64442": {
     "listingId": "407151597071",
@@ -1629,7 +1735,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3625": {
     "listingId": "407084318313",
@@ -1640,12 +1747,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "4880": {
     "listingId": "407151586899",
     "rule": "A",
-    "n": 18,
+    "n": 8,
     "models": [
       "328i xDrive",
       "335i xDrive",
@@ -1653,7 +1761,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1798": {
     "listingId": "406971771108",
@@ -1664,27 +1773,26 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64434": {
     "listingId": "407151578630",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5433": {
     "listingId": "407151568602",
     "rule": "A",
-    "n": 48,
+    "n": 41,
     "models": [
       "330e",
       "330e xDrive",
@@ -1695,68 +1803,64 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64384": {
     "listingId": "407151537856",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64428": {
     "listingId": "407151552962",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64427": {
     "listingId": "407151552936",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64429": {
     "listingId": "407151550021",
     "rule": "B",
-    "n": 7,
+    "n": 4,
     "models": [
       "750i"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "4045": {
     "listingId": "407104489533",
     "rule": "A",
-    "n": 48,
+    "n": 41,
     "models": [
       "330e",
       "330e xDrive",
@@ -1767,48 +1871,46 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64382": {
     "listingId": "407151537770",
     "rule": "B",
-    "n": 7,
+    "n": 4,
     "models": [
       "750i"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64383": {
     "listingId": "407151537851",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5941": {
     "listingId": "407151537185",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "6461": {
     "listingId": "407151503107",
@@ -1819,7 +1921,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "6470": {
     "listingId": "407151502198",
@@ -1830,7 +1933,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "6452": {
     "listingId": "407151503029",
@@ -1841,7 +1945,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "6462": {
     "listingId": "407151501986",
@@ -1852,42 +1957,39 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64296": {
     "listingId": "407151488419",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64297": {
     "listingId": "407151488365",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5262": {
     "listingId": "407151488246",
     "rule": "A",
-    "n": 48,
+    "n": 41,
     "models": [
       "330e",
       "330e xDrive",
@@ -1898,127 +2000,122 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "53266": {
     "listingId": "407151451920",
     "rule": "B",
-    "n": 7,
+    "n": 6,
     "models": [
       "M550i xDrive"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1614": {
     "listingId": "407151450410",
     "rule": "B",
-    "n": 6,
+    "n": 4,
     "models": [
       "440i"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64387": {
     "listingId": "407151443655",
     "rule": "B",
-    "n": 7,
+    "n": 4,
     "models": [
       "750i"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "63020": {
     "listingId": "407151443030",
     "rule": "B",
-    "n": 14,
+    "n": 12,
     "models": [
       "320i",
       "328i"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64202": {
     "listingId": "407151431364",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64209": {
     "listingId": "407151427770",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64210": {
     "listingId": "407151427822",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64208": {
     "listingId": "407151427829",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "64211": {
     "listingId": "407151427731",
     "rule": "A",
-    "n": 35,
+    "n": 10,
     "models": [
-      "740Li",
-      "745Le",
       "750Li",
-      "Alpina B7",
-      "M760Li"
+      "Alpina B7"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1123": {
     "listingId": "407151405252",
@@ -2029,12 +2126,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "62416": {
     "listingId": "407151332247",
     "rule": "A",
-    "n": 49,
+    "n": 30,
     "models": [
       "320i",
       "328d",
@@ -2046,12 +2144,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "61045": {
     "listingId": "407151271973",
     "rule": "A",
-    "n": 60,
+    "n": 31,
     "models": [
       "325i",
       "325xi",
@@ -2066,12 +2165,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60947": {
     "listingId": "407151165695",
     "rule": "A",
-    "n": 60,
+    "n": 31,
     "models": [
       "325i",
       "325xi",
@@ -2086,12 +2186,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60967": {
     "listingId": "407151146662",
     "rule": "A",
-    "n": 60,
+    "n": 31,
     "models": [
       "325i",
       "325xi",
@@ -2106,12 +2207,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60969": {
     "listingId": "407151142672",
     "rule": "B",
-    "n": 42,
+    "n": 20,
     "models": [
       "325i",
       "325xi",
@@ -2123,12 +2225,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60954": {
     "listingId": "407151141456",
     "rule": "A",
-    "n": 60,
+    "n": 31,
     "models": [
       "325i",
       "325xi",
@@ -2143,12 +2246,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60953": {
     "listingId": "407151124974",
     "rule": "A",
-    "n": 60,
+    "n": 31,
     "models": [
       "325i",
       "325xi",
@@ -2163,12 +2267,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60948": {
     "listingId": "407151079304",
     "rule": "A",
-    "n": 60,
+    "n": 31,
     "models": [
       "325i",
       "325xi",
@@ -2183,12 +2288,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60949": {
     "listingId": "407151079014",
     "rule": "B",
-    "n": 42,
+    "n": 20,
     "models": [
       "325i",
       "325xi",
@@ -2200,23 +2306,25 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2882": {
     "listingId": "407149021976",
     "rule": "B",
-    "n": 5,
+    "n": 11,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "4116": {
     "listingId": "407148884792",
     "rule": "A",
-    "n": 48,
+    "n": 41,
     "models": [
       "330e",
       "330e xDrive",
@@ -2227,7 +2335,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5280": {
     "listingId": "407149375411",
@@ -2238,18 +2347,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5554": {
     "listingId": "407148993640",
     "rule": "B",
-    "n": 7,
+    "n": 3,
     "models": [
       "340i"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2605": {
     "listingId": "407149661171",
@@ -2260,18 +2371,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "4913": {
     "listingId": "407148994382",
     "rule": "B",
-    "n": 14,
+    "n": 6,
     "models": [
       "X3"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5396": {
     "listingId": "407149267161",
@@ -2282,12 +2395,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60593": {
     "listingId": "407148870527",
     "rule": "A",
-    "n": 30,
+    "n": 26,
     "models": [
       "528i",
       "535d",
@@ -2297,7 +2411,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2425": {
     "listingId": "407149664506",
@@ -2308,12 +2423,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3929": {
     "listingId": "407148884623",
     "rule": "A",
-    "n": 48,
+    "n": 41,
     "models": [
       "330e",
       "330e xDrive",
@@ -2324,12 +2440,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "4046": {
     "listingId": "407148891505",
     "rule": "A",
-    "n": 48,
+    "n": 41,
     "models": [
       "330e",
       "330e xDrive",
@@ -2340,7 +2457,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5279": {
     "listingId": "407149363847",
@@ -2351,7 +2469,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2132": {
     "listingId": "407148994525",
@@ -2362,24 +2481,26 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "4925": {
     "listingId": "407148993642",
     "rule": "B",
-    "n": 12,
+    "n": 11,
     "models": [
       "535i",
       "ActiveHybrid 5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60822": {
     "listingId": "407149049520",
     "rule": "A",
-    "n": 21,
+    "n": 17,
     "models": [
       "328i",
       "335i",
@@ -2387,18 +2508,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3719": {
     "listingId": "407148993115",
     "rule": "B",
-    "n": 14,
+    "n": 19,
     "models": [
       "X3"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2255": {
     "listingId": "407149284492",
@@ -2409,7 +2532,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2431": {
     "listingId": "407149663413",
@@ -2420,12 +2544,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60809": {
     "listingId": "407149128822",
     "rule": "A",
-    "n": 21,
+    "n": 17,
     "models": [
       "328i",
       "335i",
@@ -2433,7 +2558,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2706": {
     "listingId": "407148962314",
@@ -2444,23 +2570,25 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2883": {
     "listingId": "407149021890",
     "rule": "B",
-    "n": 5,
+    "n": 11,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3930": {
     "listingId": "407148884920",
     "rule": "A",
-    "n": 48,
+    "n": 41,
     "models": [
       "330e",
       "330e xDrive",
@@ -2471,31 +2599,34 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60705": {
     "listingId": "407148908278",
     "rule": "B",
-    "n": 12,
+    "n": 11,
     "models": [
       "535i",
       "ActiveHybrid 5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60759": {
     "listingId": "407148776645",
     "rule": "B",
-    "n": 12,
+    "n": 11,
     "models": [
       "535i",
       "ActiveHybrid 5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60797": {
     "listingId": "407149109867",
@@ -2506,23 +2637,25 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2881": {
     "listingId": "407149022145",
     "rule": "B",
-    "n": 5,
+    "n": 11,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60821": {
     "listingId": "407149049279",
     "rule": "A",
-    "n": 21,
+    "n": 17,
     "models": [
       "328i",
       "335i",
@@ -2530,7 +2663,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60845": {
     "listingId": "407149154226",
@@ -2541,18 +2675,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "4909": {
     "listingId": "407148993119",
     "rule": "B",
-    "n": 14,
+    "n": 6,
     "models": [
       "X3"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5390": {
     "listingId": "407149305921",
@@ -2563,7 +2699,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2705": {
     "listingId": "407148962269",
@@ -2574,7 +2711,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5278": {
     "listingId": "407149358710",
@@ -2585,35 +2723,38 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2884": {
     "listingId": "407149021523",
     "rule": "B",
-    "n": 5,
+    "n": 11,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60612": {
     "listingId": "407148828465",
     "rule": "B",
-    "n": 12,
+    "n": 11,
     "models": [
       "535i",
       "ActiveHybrid 5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60595": {
     "listingId": "407148867062",
     "rule": "A",
-    "n": 30,
+    "n": 26,
     "models": [
       "528i",
       "535d",
@@ -2623,12 +2764,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60596": {
     "listingId": "407148867061",
     "rule": "A",
-    "n": 30,
+    "n": 26,
     "models": [
       "528i",
       "535d",
@@ -2638,28 +2780,28 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60068": {
     "listingId": "407148665697",
     "rule": "A",
-    "n": 42,
+    "n": 24,
     "models": [
-      "740Ld",
       "740Li",
       "750Li",
       "760Li",
-      "ActiveHybrid 7L",
       "Alpina B7L"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60703": {
     "listingId": "407148745809",
     "rule": "A",
-    "n": 30,
+    "n": 26,
     "models": [
       "528i",
       "535d",
@@ -2669,24 +2811,26 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60765": {
     "listingId": "407148774277",
     "rule": "B",
-    "n": 12,
+    "n": 11,
     "models": [
       "535i",
       "ActiveHybrid 5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60594": {
     "listingId": "407148871063",
     "rule": "A",
-    "n": 30,
+    "n": 26,
     "models": [
       "528i",
       "535d",
@@ -2696,7 +2840,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3974": {
     "listingId": "407147376293",
@@ -2707,19 +2852,21 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60768": {
     "listingId": "407147397803",
     "rule": "B",
-    "n": 12,
+    "n": 11,
     "models": [
       "535i",
       "ActiveHybrid 5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2438": {
     "listingId": "407147377254",
@@ -2730,18 +2877,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3551": {
     "listingId": "407146916748",
     "rule": "B",
-    "n": 32,
+    "n": 40,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2782": {
     "listingId": "407147108589",
@@ -2752,7 +2901,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5303": {
     "listingId": "407147107633",
@@ -2763,12 +2913,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60597": {
     "listingId": "407147143154",
     "rule": "A",
-    "n": 30,
+    "n": 26,
     "models": [
       "528i",
       "535d",
@@ -2778,12 +2929,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60598": {
     "listingId": "407147143090",
     "rule": "A",
-    "n": 30,
+    "n": 26,
     "models": [
       "528i",
       "535d",
@@ -2793,12 +2945,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60638": {
     "listingId": "407147187141",
     "rule": "A",
-    "n": 30,
+    "n": 26,
     "models": [
       "528i",
       "535d",
@@ -2808,18 +2961,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2876": {
     "listingId": "407146998180",
     "rule": "B",
-    "n": 5,
+    "n": 11,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2904": {
     "listingId": "407146996595",
@@ -2830,7 +2985,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5315": {
     "listingId": "407147107587",
@@ -2841,12 +2997,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60107": {
     "listingId": "407147046709",
     "rule": "A",
-    "n": 28,
+    "n": 14,
     "models": [
       "428i",
       "430i",
@@ -2855,19 +3012,21 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60609": {
     "listingId": "407147126740",
     "rule": "B",
-    "n": 12,
+    "n": 11,
     "models": [
       "535i",
       "ActiveHybrid 5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1817": {
     "listingId": "407147056586",
@@ -2878,12 +3037,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60639": {
     "listingId": "407147184878",
     "rule": "A",
-    "n": 30,
+    "n": 26,
     "models": [
       "528i",
       "535d",
@@ -2893,12 +3053,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60600": {
     "listingId": "407147142402",
     "rule": "A",
-    "n": 30,
+    "n": 26,
     "models": [
       "528i",
       "535d",
@@ -2908,29 +3069,32 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3895": {
     "listingId": "407146906587",
     "rule": "B",
-    "n": 14,
+    "n": 19,
     "models": [
       "X3"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1443": {
     "listingId": "407146976525",
     "rule": "B",
-    "n": 6,
+    "n": 4,
     "models": [
       "440i"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2244": {
     "listingId": "407146941120",
@@ -2941,18 +3105,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2613": {
     "listingId": "407146953228",
     "rule": "B",
-    "n": 14,
+    "n": 9,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3810": {
     "listingId": "407146902515",
@@ -2963,7 +3129,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3893": {
     "listingId": "407146949665",
@@ -2974,7 +3141,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "5346": {
     "listingId": "407147141869",
@@ -2985,12 +3153,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "667": {
     "listingId": "407146952872",
     "rule": "B",
-    "n": 21,
+    "n": 15,
     "models": [
       "750i",
       "ActiveHybrid 7",
@@ -2998,7 +3167,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1728": {
     "listingId": "407147101984",
@@ -3009,7 +3179,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2783": {
     "listingId": "407147108371",
@@ -3020,23 +3191,25 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2887": {
     "listingId": "407146999181",
     "rule": "B",
-    "n": 5,
+    "n": 11,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60245": {
     "listingId": "407147006598",
     "rule": "A",
-    "n": 28,
+    "n": 14,
     "models": [
       "428i",
       "430i",
@@ -3045,7 +3218,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "6579": {
     "listingId": "407147040982",
@@ -3056,7 +3230,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "976": {
     "listingId": "407146966461",
@@ -3067,7 +3242,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "979": {
     "listingId": "407146966777",
@@ -3078,7 +3254,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1720": {
     "listingId": "407146990990",
@@ -3089,7 +3266,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1723": {
     "listingId": "407146990998",
@@ -3100,18 +3278,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2564": {
     "listingId": "407146954422",
     "rule": "B",
-    "n": 5,
+    "n": 11,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2850": {
     "listingId": "407146953761",
@@ -3122,12 +3302,13 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "60246": {
     "listingId": "407147016465",
     "rule": "A",
-    "n": 28,
+    "n": 14,
     "models": [
       "428i",
       "430i",
@@ -3136,18 +3317,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "992": {
     "listingId": "407146966623",
     "rule": "B",
-    "n": 7,
+    "n": 16,
     "models": [
       "X3"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3802": {
     "listingId": "407146886852",
@@ -3158,7 +3341,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3894": {
     "listingId": "407146906142",
@@ -3169,7 +3353,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3795": {
     "listingId": "407146876261",
@@ -3180,7 +3365,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3811": {
     "listingId": "407146901044",
@@ -3191,29 +3377,32 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3914": {
     "listingId": "407146887007",
     "rule": "B",
-    "n": 14,
+    "n": 19,
     "models": [
       "X3"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3604": {
     "listingId": "407146918398",
     "rule": "B",
-    "n": 32,
+    "n": 40,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3803": {
     "listingId": "407146873735",
@@ -3224,7 +3413,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3890": {
     "listingId": "407146902101",
@@ -3235,18 +3425,20 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3907": {
     "listingId": "407146900815",
     "rule": "B",
-    "n": 14,
+    "n": 19,
     "models": [
       "X3"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3812": {
     "listingId": "407146906020",
@@ -3257,7 +3449,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "1416": {
     "listingId": "407145089071",
@@ -3268,7 +3461,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2326": {
     "listingId": "407145089979",
@@ -3279,7 +3473,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2327": {
     "listingId": "407145089744",
@@ -3290,40 +3485,44 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3926": {
     "listingId": "407145111605",
     "rule": "B",
-    "n": 14,
+    "n": 19,
     "models": [
       "X3"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2895": {
     "listingId": "407145073102",
     "rule": "B",
-    "n": 5,
+    "n": 11,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2645": {
     "listingId": "407145084293",
     "rule": "B",
-    "n": 5,
+    "n": 11,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2200": {
     "listingId": "407145073208",
@@ -3334,7 +3533,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3033": {
     "listingId": "407144978837",
@@ -3345,7 +3545,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2361": {
     "listingId": "407145030071",
@@ -3356,29 +3557,32 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2874": {
     "listingId": "407145072868",
     "rule": "B",
-    "n": 5,
+    "n": 11,
     "models": [
       "X5"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "662": {
     "listingId": "407144848785",
     "rule": "B",
-    "n": 7,
+    "n": 16,
     "models": [
       "X3"
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3073": {
     "listingId": "407144978580",
@@ -3389,7 +3593,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "3180": {
     "listingId": "407144978636",
@@ -3400,7 +3605,8 @@
     ],
     "src": [
       "chassis"
-    ]
+    ],
+    "cv": "cat1"
   },
   "2765": {
     "listingId": "407144978619",

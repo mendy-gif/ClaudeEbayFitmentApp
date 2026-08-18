@@ -1,41 +1,401 @@
 sku,listingId,donor,rule,engine,n_vehicles,sources,models,action,reason
-3456,407153748543,BMW X5 [G05],B,B58,40,chassis,X5,pushed,"category not in tree -> default [catalog: 21 retrimmed, 11 dropped_trim]"
-4766,407153748284,BMW X3 [G01],B,B46,7,chassis,X3,pushed,category not in tree -> default
-3242,407153748026,BMW X5 [G05],B,N63,14,chassis,X5,pushed,"category not in tree -> default [catalog: 7 retrimmed, 9 dropped_trim]"
-2972,407153747986,BMW X3 [G01],B,B58,7,chassis,X3,pushed,category not in tree -> default [catalog: 7 retrimmed]
-1620,407153747421,BMW 440i [F36],B,B58,4,chassis,440i,pushed,category not in tree -> default [catalog: 2 dropped_vehicle]
+2765,,,,,,,,skip,already in ledger
+2975,,,,,,,,skip,already in ledger
+2969,,,,,,,,skip,already in ledger
+3038,,,,,,,,skip,already in ledger
+3198,,,,,,,,skip,already in ledger
+60963,,,,,,,,skip,already in ledger
+61039,,,,,,,,skip,already in ledger
+61038,,,,,,,,skip,already in ledger
+61160,,,,,,,,skip,already in ledger
+61104,,,,,,,,skip,already in ledger
+61166,,,,,,,,skip,already in ledger
+61163,,,,,,,,skip,already in ledger
+61164,,,,,,,,skip,already in ledger
+61159,,,,,,,,skip,already in ledger
+6359,,,,,,,,skip,already in ledger
+61090,,,,,,,,skip,already in ledger
+52566,,,,,,,,skip,already in ledger
+6317,,,,,,,,skip,already in ledger
+61129,,,,,,,,skip,already in ledger
+61130,,,,,,,,skip,already in ledger
+61153,,,,,,,,skip,already in ledger
+6088,,,,,,,,skip,already in ledger
+6086,,,,,,,,skip,already in ledger
+6082,,,,,,,,skip,already in ledger
+1620,,,,,,,,skip,already in ledger
+2972,,,,,,,,skip,already in ledger
+3242,,,,,,,,skip,already in ledger
+4766,,,,,,,,skip,already in ledger
+3456,,,,,,,,skip,already in ledger
 6084,407153705075,,,,,,,skip,already 3 vehicles (multi-fit/expanded)
 6075,407153705104,,,,,,,skip,already 87 vehicles (multi-fit/expanded)
-6082,407153705169,BMW 530i [G30],B,B46,7,chassis,530i,pushed,category not in tree -> default
-6086,407153699579,BMW 530i [G30],A,,40,chassis,"530e,530i,530i xDrive,540i,540i xDrive,M550i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Center, Overhead Consoles & Parts > Center & Overhead Console Parts) [catalog: 2 dropped_vehicle]"
-6088,407153694555,BMW 530i [G30],A,,40,chassis,"530e,530i,530i xDrive,540i,540i xDrive,M550i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning & Heating > HVAC Controls & Control Units) [catalog: 2 dropped_vehicle]
 6098,407153666472,,,,,,,skip,already 60 vehicles (multi-fit/expanded)
-61153,407153654539,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim)
-61130,407153650149,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim)
 48020,407153668154,BMW 135i [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
 6325,407153618939,,,,,,,skip,already 4 vehicles (multi-fit/expanded)
-61129,407153638173,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning & Heating > HVAC Controls & Control Units)
 6333,407153610616,,,,,,,skip,already 73 vehicles (multi-fit/expanded)
-6317,407153634997,BMW 530i [G30],B,B46,7,chassis,530i,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Injection Parts > Additional Fuel Injection Parts)
 6355,407153602438,,,,,,,skip,already 132 vehicles (multi-fit/expanded)
 32479,,,,,,,,skip,already in ledger
 6358,407153583877,,,,,,,skip,already 373 vehicles (multi-fit/expanded)
 6357,407153583298,,,,,,,skip,already 22 vehicles (multi-fit/expanded)
-52566,407151924143,BMW X5 [F15],B,N55,14,chassis,X5,pushed,"under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Turbos, Superchargers & Intercoolers > Turbos & Parts) [catalog: 10 retrimmed]"
 26858,,,,,,,,skip,offer read HTTP 404
-61090,407153591409,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Wheel Bearings, Hubs & Seals) [catalog: 29 dropped_vehicle]"
-6359,407153583653,BMW 530i [G30],B,B46,7,chassis,530i,pushed,category not in tree -> default
-61159,407153515711,BMW X3 [G01],A,,7,chassis,X3,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Center, Overhead Consoles & Parts > Center & Overhead Console Parts)"
-61164,407153499357,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Cargo Covers)
-61163,407153498301,BMW X3 [G01],A,,7,chassis,X3,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Floor Mats, Carpets & Cargo Liners)"
-61166,407153476834,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Rear View Mirrors)
-61104,407153472708,BMW X3 [G01],B,B46,7,chassis,X3,pushed,category not in tree -> default
-61160,407153467986,BMW X3 [G01],A,,7,chassis,X3,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Camera, Monitor & Sensor Kits)"
-61038,407153421705,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts) [catalog: 29 dropped_vehicle]
-61039,407153419738,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts) [catalog: 29 dropped_vehicle]
-60963,407153413880,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Gauges > Instrument Clusters) [catalog: 29 dropped_vehicle]
-3198,407144978261,BMW X3 [G01],B,B58,7,chassis,X3,pushed,"under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Turbos, Superchargers & Intercoolers > Turbos & Parts) [catalog: 7 retrimmed]"
-3038,407144978361,BMW X3 [G01],B,B58,7,chassis,X3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors) [catalog: 7 retrimmed]"
-2969,407144978325,BMW X3 [G01],B,B58,7,chassis,X3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Fuses & Fuse Boxes) [catalog: 7 retrimmed]"
-2975,407144978483,BMW X3 [G01],B,B58,7,chassis,X3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors) [catalog: 7 retrimmed]"
-2765,407144978619,BMW X3 [G01],B,B58,7,chassis,X3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 7 retrimmed]"
+3180,407144978636,BMW X3 [G01],B,B58,7,chassis,X3,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Pumps & Sending Units) [catalog: 7 retrimmed]
+3073,407144978580,BMW X3 [G01],B,B58,7,chassis,X3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 7 retrimmed]"
+662,407144848785,BMW X3 [F25],B,N55,16,chassis,X3,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Tank Caps) [catalog: 7 retrimmed]
+2874,407145072868,BMW X5 [F15],B,N63,11,chassis,X5,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Pumps & Sending Units) [catalog: 5 retrimmed]
+2361,407145030071,BMW X6 [F86],B,RAW_S63B44T2,5,chassis,X6,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Expansion & Overflow Tanks)
+3033,407144978837,BMW X3 [G01],B,B58,7,chassis,X3,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Pumps & Sending Units) [catalog: 7 retrimmed]
+2200,407145073208,BMW X3 [G01],B,RAW_B46B20O0,7,chassis,X3,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Injection Parts > Additional Fuel Injection Parts)
+2645,407145084293,BMW X5 [F15],B,N63,11,chassis,X5,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Water Pumps) [catalog: 5 retrimmed]
+2895,407145073102,BMW X5 [F15],B,N63,11,chassis,X5,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Throttle Bodies) [catalog: 5 retrimmed]
+3926,407145111605,BMW X3 [F25],B,N20,19,chassis,X3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors) [catalog: 10 retrimmed, 4 dropped_trim]"
+2327,407145089744,BMW X6 [F86],B,RAW_S63B44T2,5,chassis,X6,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Expansion & Overflow Tanks)
+2326,407145089979,BMW X6 [F86],B,RAW_S63B44T2,5,chassis,X6,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Expansion & Overflow Tanks)
+1416,407145089071,BMW X3 [G01],B,B58,7,chassis,X3,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Pumps & Sending Units) [catalog: 7 retrimmed]
+3812,407146906020,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Emblems & Ornaments)
+3907,407146900815,BMW X3 [F25],B,N20,19,chassis,X3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Starter Motors) [catalog: 10 retrimmed, 4 dropped_trim]"
+3890,407146902101,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware)
+3803,407146873735,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Body Moldings & Trims)
+3604,407146918398,BMW X5 [G05],B,B58,40,chassis,X5,pushed,"under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Pumps & Sending Units) [catalog: 21 retrimmed, 11 dropped_trim]"
+3914,407146887007,BMW X3 [F25],B,N20,19,chassis,X3,pushed,"under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors) [catalog: 10 retrimmed, 4 dropped_trim]"
+3811,407146901044,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Parts > Calipers & Brackets)
+3795,407146876261,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim)
+3894,407146906142,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
+3802,407146886852,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim)
+992,407146966623,BMW X3 [F25],B,N55,16,chassis,X3,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Coolant Hoses) [catalog: 7 retrimmed]
+60246,407147016465,BMW 435i [F32],A,,14,chassis,"428i,430i,435i,440i",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts) [catalog: 14 dropped_vehicle]
+2850,407146953761,BMW X3 [G01],B,B58,7,chassis,X3,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Radiators) [catalog: 7 retrimmed]
+2564,407146954422,BMW X5 [F15],B,N63,11,chassis,X5,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Engine Oil Coolers & Lines) [catalog: 5 retrimmed]
+1723,407146990998,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Oil Coolers & Lines)
+1720,407146990990,BMW X3 [G01],B,B58,7,chassis,X3,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Throttle Bodies) [catalog: 7 retrimmed]
+979,407146966777,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Oil Coolers & Lines)
+976,407146966461,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Parts > ABS & Stability Hydraulic Units)
+6579,407147040982,BMW X5 [E70],A,,7,chassis,X5,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim)
+60245,407147006598,BMW 435i [F32],A,,14,chassis,"428i,430i,435i,440i",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts) [catalog: 14 dropped_vehicle]
+2887,407146999181,BMW X5 [F15],B,N63,11,chassis,X5,pushed,under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine Parts > Other Engine Parts) [catalog: 5 retrimmed]
+2783,407147108371,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Body Moldings & Trims)
+1728,407147101984,BMW X3 [G01],B,B58,7,chassis,X3,pushed,under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine Parts > Engine Mounts) [catalog: 7 retrimmed]
+667,407146952872,BMW 750i [F01],B,N63,15,chassis,"750i,ActiveHybrid 7,Alpina B7",pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Radiators) [catalog: 6 dropped_vehicle]
+5346,407147141869,BMW X5 [E70],A,,7,chassis,X5,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware)
+3893,407146949665,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Oil Coolers & Lines)
+3810,407146902515,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Parts > Calipers & Brackets)
+2613,407146953228,BMW X5 [E70],B,N62,9,chassis,X5,pushed,"under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Engine Oil Coolers & Lines) [catalog: 5 retrimmed, 9 dropped_trim]"
+2244,407146941120,BMW X6 [F86],B,RAW_S63B44T2,5,chassis,X6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Pumps & Sending Units)
+1443,407146976525,BMW 440i [F36],B,B58,4,chassis,440i,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Starter Motors) [catalog: 2 dropped_vehicle]"
+3895,407146906587,BMW X3 [F25],B,N20,19,chassis,X3,pushed,"under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Tank Caps) [catalog: 10 retrimmed, 4 dropped_trim]"
+60600,407147142402,BMW 535i [F10],A,,26,chassis,"528i,535d,535i,550i,ActiveHybrid 5",pushed,not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Self-Leveling Suspension Parts) [catalog: 4 dropped_vehicle]
+60639,407147184878,BMW 535i [F10],A,,26,chassis,"528i,535d,535i,550i,ActiveHybrid 5",pushed,not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps > Tail Light Assemblies) [catalog: 4 dropped_vehicle]
+1817,407147056586,BMW 430i [G22],B,B46,6,chassis,430i,pushed,category not in tree -> default
+60609,407147126740,BMW 535i [F10],B,N55,11,chassis,"535i,ActiveHybrid 5",pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 1 dropped_vehicle]"
+60107,407147046709,BMW 435i [F32],A,,14,chassis,"428i,430i,435i,440i",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 14 dropped_vehicle]
+5315,407147107587,BMW X5 [E70],A,,7,chassis,X5,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Gauges > Instrument Clusters)
+2904,407146996595,BMW X3 [G01],B,B58,7,chassis,X3,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Water Pumps) [catalog: 7 retrimmed]
+2876,407146998180,BMW X5 [F15],B,N63,11,chassis,X5,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Starter Motors) [catalog: 5 retrimmed]"
+60638,407147187141,BMW 535i [F10],A,,26,chassis,"528i,535d,535i,550i,ActiveHybrid 5",pushed,not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps > Tail Light Assemblies) [catalog: 4 dropped_vehicle]
+60598,407147143090,BMW 535i [F10],A,,26,chassis,"528i,535d,535i,550i,ActiveHybrid 5",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Side View Mirrors > Mirror Components) [catalog: 4 dropped_vehicle]
+60597,407147143154,BMW 535i [F10],A,,26,chassis,"528i,535d,535i,550i,ActiveHybrid 5",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Side View Mirrors > Mirror Components) [catalog: 4 dropped_vehicle]
+5303,407147107633,BMW X5 [E70],A,,7,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Door Handles)"
+2782,407147108589,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Body Moldings & Trims)
+3551,407146916748,BMW X5 [G05],B,B58,40,chassis,X5,pushed,"under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Water Pumps) [catalog: 21 retrimmed, 11 dropped_trim]"
+2438,407147377254,BMW X6 [F86],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts)
+60768,407147397803,BMW 535i [F10],B,N55,11,chassis,"535i,ActiveHybrid 5",pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Intake Manifolds) [catalog: 1 dropped_vehicle]
+3974,407147376293,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Driveshafts & Parts > Driveshafts)
+60594,407148871063,BMW 535i [F10],A,,26,chassis,"528i,535d,535i,550i,ActiveHybrid 5",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware) [catalog: 4 dropped_vehicle]
+60765,407148774277,BMW 535i [F10],B,N55,11,chassis,"535i,ActiveHybrid 5",pushed,under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine Parts > Oil Filters) [catalog: 1 dropped_vehicle]
+60703,407148745809,BMW 535i [F10],A,,26,chassis,"528i,535d,535i,550i,ActiveHybrid 5",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim) [catalog: 4 dropped_vehicle]
+60068,407148665697,BMW 750Li [F02],A,,24,chassis,"740Li,750Li,760Li,Alpina B7L",pushed,not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning & Heating > HVAC Controls & Control Units) [catalog: 18 dropped_vehicle]
+60596,407148867061,BMW 535i [F10],A,,26,chassis,"528i,535d,535i,550i,ActiveHybrid 5",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware) [catalog: 4 dropped_vehicle]
+60595,407148867062,BMW 535i [F10],A,,26,chassis,"528i,535d,535i,550i,ActiveHybrid 5",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware) [catalog: 4 dropped_vehicle]
+60612,407148828465,BMW 535i [F10],B,N55,11,chassis,"535i,ActiveHybrid 5",pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors) [catalog: 1 dropped_vehicle]"
+2884,407149021523,BMW X5 [F15],B,N63,11,chassis,X5,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors) [catalog: 5 retrimmed]
+5278,407149358710,BMW X5 [E70],A,,7,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheels)"
+2705,407148962269,BMW X5 [F15],A,,5,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Wheel Bearings, Hubs & Seals)"
+5390,407149305921,BMW X5 [E70],A,,7,chassis,X5,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Spoilers & Wings)
+4909,407148993119,BMW X3 [E83],B,N52,6,chassis,X3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 6 retrimmed, 8 dropped_trim]"
+60845,407149154226,BMW 328i [E93],B,N52,7,chassis,328i,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Alternators & Generators)"
+60821,407149049279,BMW 328i [E93],A,,17,chassis,"328i,335i,335is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Other Exterior Parts & Accessories) [catalog: 4 dropped_vehicle]
+2881,407149022145,BMW X5 [F15],B,N63,11,chassis,X5,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Water Pumps) [catalog: 5 retrimmed]
+60797,407149109867,BMW 328i [E93],B,N52,7,chassis,328i,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors)
+60759,407148776645,BMW 535i [F10],B,N55,11,chassis,"535i,ActiveHybrid 5",pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Water Pumps) [catalog: 1 dropped_vehicle]
+60705,407148908278,BMW 535i [F10],B,N55,11,chassis,"535i,ActiveHybrid 5",pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Radiators) [catalog: 1 dropped_vehicle]
+3930,407148884920,BMW 330i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps > Tail Light Assemblies) [catalog: 7 dropped_vehicle]
+2883,407149021890,BMW X5 [F15],B,N63,11,chassis,X5,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors) [catalog: 5 retrimmed]
+2706,407148962314,BMW X5 [F15],A,,5,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Wheel Bearings, Hubs & Seals)"
+60809,407149128822,BMW 328i [E93],A,,17,chassis,"328i,335i,335is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 4 dropped_vehicle]
+2431,407149663413,BMW X6 [F86],B,RAW_S63B44T2,5,chassis,X6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors)"
+2255,407149284492,BMW X6 [F86],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbags)
+3719,407148993115,BMW X3 [F25],B,N20,19,chassis,X3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 10 retrimmed, 4 dropped_trim]"
+60822,407149049520,BMW 328i [E93],A,,17,chassis,"328i,335i,335is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Other Exterior Parts & Accessories) [catalog: 4 dropped_vehicle]
+4925,407148993642,BMW 535i [F10],B,N55,11,chassis,"535i,ActiveHybrid 5",pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 1 dropped_vehicle]"
+2132,407148994525,BMW X5 [F85],B,RAW_S63B44T2,4,chassis,X5,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules)"
+5279,407149363847,BMW X5 [E70],A,,7,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheels)"
+4046,407148891505,BMW 330i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Wheel Bearings, Hubs & Seals) [catalog: 7 dropped_vehicle]"
+3929,407148884623,BMW 330i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps > Tail Light Assemblies) [catalog: 7 dropped_vehicle]
+2425,407149664506,BMW X6 [F86],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Lidar & Radar Sensors)
+60593,407148870527,BMW 535i [F10],A,,26,chassis,"528i,535d,535i,550i,ActiveHybrid 5",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware) [catalog: 4 dropped_vehicle]
+5396,407149267161,BMW X5 [E70],A,,7,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Lift Supports, Latches, Hinges & Additional Parts)"
+4913,407148994382,BMW X3 [E83],B,N52,6,chassis,X3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 6 retrimmed, 8 dropped_trim]"
+2605,407149661171,BMW X6 [F86],A,,5,chassis,X6,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Shocks, Struts & Assemblies)"
+5554,407148993640,BMW 340i [F30],B,B58,3,chassis,340i,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 4 dropped_vehicle]"
+5280,407149375411,BMW X5 [E70],A,,7,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheels)"
+4116,407148884792,BMW 330i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps > Tail Light Assemblies) [catalog: 7 dropped_vehicle]
+2882,407149021976,BMW X5 [F15],B,N63,11,chassis,X5,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors) [catalog: 5 retrimmed]
+60949,407151079014,BMW 328i [E90],B,N52,20,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi",pushed,category not in tree -> default [catalog: 22 dropped_vehicle]
+60948,407151079304,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 29 dropped_vehicle]
+60953,407151124974,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 29 dropped_vehicle]
+60954,407151141456,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Roofs, Tops & Sunroofs > Sunroofs & Parts) [catalog: 29 dropped_vehicle]"
+60969,407151142672,BMW 328i [E90],B,N52,20,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi",pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 22 dropped_vehicle]"
+60967,407151146662,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 29 dropped_vehicle]
+60947,407151165695,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 29 dropped_vehicle]
+61045,407151271973,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbags) [catalog: 29 dropped_vehicle]
+62416,407151332247,BMW 335i [F30],A,,30,chassis,"320i,328d,328i,330i,335i,340i,ActiveHybrid 3",pushed,not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Self-Leveling Suspension Parts) [catalog: 19 dropped_vehicle]
+1123,407151405252,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Bumpers & Components > Bumpers & Reinforcements)
+64211,407151427731,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Window Motors & Regulators) [catalog: 25 dropped_vehicle]
+64208,407151427829,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Window Motors & Regulators) [catalog: 25 dropped_vehicle]
+64210,407151427822,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Window Motors & Regulators) [catalog: 25 dropped_vehicle]
+64209,407151427770,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Window Motors & Regulators) [catalog: 25 dropped_vehicle]
+64202,407151431364,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Center, Overhead Consoles & Parts > Center & Overhead Console Parts) [catalog: 25 dropped_vehicle]"
+63020,407151443030,BMW 328i [F30],B,N20,12,chassis,"320i,328i",pushed,category not in tree -> default [catalog: 2 dropped_vehicle]
+64387,407151443655,BMW 750i [G12],B,,4,chassis,750i,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 3 dropped_vehicle]"
+1614,407151450410,BMW 440i [F36],B,B58,4,chassis,440i,pushed,"under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Turbos, Superchargers & Intercoolers > Turbos & Parts) [catalog: 2 dropped_vehicle]"
+53266,407151451920,BMW M550i [G30],B,N63,6,chassis,M550i xDrive,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Pumps & Sending Units) [catalog: 1 dropped_vehicle]
+5262,407151488246,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors) [catalog: 7 dropped_vehicle]
+64297,407151488365,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts) [catalog: 25 dropped_vehicle]
+64296,407151488419,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts) [catalog: 25 dropped_vehicle]
+6462,407151501986,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts)
+6452,407151503029,BMW X3 [G01],A,,7,chassis,X3,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Camera, Monitor & Sensor Kits)"
+6470,407151502198,BMW X3 [G01],A,,7,chassis,X3,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Mounts, Brackets & Hardware)"
+6461,407151503107,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Body Moldings & Trims)
+5941,407151537185,BMW 750Li [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Other Exterior Parts & Accessories) [catalog: 25 dropped_vehicle]
+64383,407151537851,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Self-Leveling Suspension Parts) [catalog: 25 dropped_vehicle]
+64382,407151537770,BMW 750i [G12],B,,4,chassis,750i,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors) [catalog: 3 dropped_vehicle]
+4045,407104489533,BMW 330i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts) [catalog: 7 dropped_vehicle]
+64429,407151550021,BMW 750i [G12],B,,4,chassis,750i,pushed,category not in tree -> default [catalog: 3 dropped_vehicle]
+64427,407151552936,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exhaust & Emission Systems > Other Exhaust & Emission Parts) [catalog: 25 dropped_vehicle]
+64428,407151552962,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exhaust & Emission Systems > Other Exhaust & Emission Parts) [catalog: 25 dropped_vehicle]
+64384,407151537856,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Self-Leveling Suspension Parts) [catalog: 25 dropped_vehicle]
+5433,407151568602,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exhaust & Emission Systems > Mufflers & Resonators) [catalog: 7 dropped_vehicle]
+64434,407151578630,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Visible Cameras) [catalog: 25 dropped_vehicle]
+1798,406971771108,BMW X6 [F86],A,,5,chassis,X6,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Seats, Parts & Accessories > Seats)"
+4880,407151586899,BMW 340 [F34],A,,8,chassis,"328i xDrive,335i xDrive,340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Seats, Parts & Accessories > Seats) [catalog: 10 dropped_vehicle]"
+3625,407084318313,BMW X5 [G05],A,,8,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Wheel Bearings, Hubs & Seals)"
+64442,407151597071,BMW X3 [G01],A,,7,chassis,X3,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Wheel Bearings, Hubs & Seals)"
+64419,407151603267,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Self-Leveling Suspension Parts) [catalog: 25 dropped_vehicle]
+64381,407151537857,BMW 750i [G12],B,,4,chassis,750i,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors) [catalog: 3 dropped_vehicle]
+5516,407151608165,BMW M340i [G20],B,B58,14,chassis,"M340i,M340i xDrive",pushed,category not in tree -> default [catalog: 2 dropped_vehicle]
+64412,407151609374,BMW 750i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Oil Coolers & Lines) [catalog: 25 dropped_vehicle]
+5524,407151644939,BMW M340i [G20],B,B58,14,chassis,"M340i,M340i xDrive",pushed,category not in tree -> default [catalog: 2 dropped_vehicle]
+5526,407151645013,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Pedal Assemblies, Pads & Parts) [catalog: 7 dropped_vehicle]"
+5602,407151645174,BMW M340i [G20],B,B58,14,chassis,"M340i,M340i xDrive",pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 2 dropped_vehicle]"
+1683,407151650081,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Horns)
+61074,407151659962,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps > Tail Light Assemblies) [catalog: 29 dropped_vehicle]
+3656,407151678792,BMW 330i [G20],B,B46,8,chassis,330i,pushed,under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine Parts > Engines)
+61075,407151681626,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Other Exterior Parts & Accessories) [catalog: 29 dropped_vehicle]
+1588,407151690883,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Other Exterior Parts & Accessories)
+5619,407151704227,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim) [catalog: 7 dropped_vehicle]
+5610,407151704029,BMW M340i [G20],B,B58,14,chassis,"M340i,M340i xDrive",pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Water Pumps) [catalog: 2 dropped_vehicle]
+62145,407096156324,BMW X6 [F16],B,N55,14,chassis,X6,pushed,category not in tree -> default [catalog: 10 retrimmed]
+62154,407086802587,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Body Moldings & Trims)
+62139,407096175104,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Gauges > Instrument Clusters)
+62175,407086802634,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning & Heating > A/C Compressors & Clutches)
+62174,407086802588,BMW X6 [F16],B,N55,14,chassis,X6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Alternators & Generators) [catalog: 10 retrimmed]"
+62153,407088823249,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Oil Coolers & Lines)
+62138,407086800196,BMW X6 [F16],B,N55,14,chassis,X6,pushed,category not in tree -> default [catalog: 10 retrimmed]
+62086,407101747629,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
+62065,407101755921,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Shift Knobs)
+62055,407101775095,BMW X6 [F16],B,N55,14,chassis,X6,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Expansion & Overflow Tanks) [catalog: 10 retrimmed]
+62165,407088873915,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts)
+62164,407088869475,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts)
+62160,407088824705,BMW X6 [F16],B,N55,14,chassis,X6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Intake Manifolds) [catalog: 10 retrimmed]
+62148,407096142676,BMW X6 [F16],B,N55,14,chassis,X6,pushed,category not in tree -> default [catalog: 10 retrimmed]
+62082,407086994432,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
+62077,407088814194,BMW X6 [F16],B,N55,14,chassis,X6,pushed,under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine Parts > Other Engine Parts) [catalog: 10 retrimmed]
+62075,407087022447,BMW X6 [F16],B,N55,14,chassis,X6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors) [catalog: 10 retrimmed]"
+62072,407087005794,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
+62058,407086716992,BMW X6 [F16],B,N55,14,chassis,X6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Starter Motors) [catalog: 10 retrimmed]"
+62151,407127650317,BMW X6 [F16],A,,5,chassis,X6,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Gearboxes, Rack & Pinions)"
+62143,407096165595,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware)
+62102,407086984626,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Steering Wheels & Horn Buttons)
+62089,407086984638,BMW X6 [F16],B,N55,14,chassis,X6,pushed,category not in tree -> default [catalog: 10 retrimmed]
+62069,407088898164,BMW X6 [F16],B,N55,14,chassis,X6,pushed,category not in tree -> default [catalog: 10 retrimmed]
+62064,407101755905,BMW X6 [F16],B,N55,14,chassis,X6,pushed,category not in tree -> default [catalog: 10 retrimmed]
+62061,407087001657,BMW X6 [F16],B,N55,14,chassis,X6,pushed,category not in tree -> default [catalog: 10 retrimmed]
+62705,407127704451,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Transfer Cases)
+62383,407127650291,BMW X6 [F16],A,,5,chassis,X6,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Doors & Door Skins)"
+62170,407086802621,BMW X6 [F16],B,N55,14,chassis,X6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Pumps & Sending Units) [catalog: 10 retrimmed]
+62098,407086980508,BMW X6 [F16],B,N55,14,chassis,X6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 10 retrimmed]"
+62096,407088897768,BMW X6 [F16],B,N55,14,chassis,X6,pushed,category not in tree -> default [catalog: 10 retrimmed]
+62091,407088885627,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim)
+62088,407086980392,BMW X6 [F16],B,N55,14,chassis,X6,pushed,category not in tree -> default [catalog: 10 retrimmed]
+62083,407086991836,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
+62071,407087026433,BMW X6 [F16],B,N55,14,chassis,X6,pushed,category not in tree -> default [catalog: 10 retrimmed]
+62167,407127715841,BMW X6 [F16],B,N55,14,chassis,X6,pushed,"under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Turbos, Superchargers & Intercoolers > Turbos & Parts) [catalog: 10 retrimmed]"
+62166,407127690822,BMW X6 [F16],B,N55,14,chassis,X6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Injection Parts > Fuel Injectors) [catalog: 10 retrimmed]
+62163,407096108158,BMW X6 [F16],B,N55,14,chassis,X6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Injection Parts > Additional Fuel Injection Parts) [catalog: 10 retrimmed]
+62070,407087026378,BMW X6 [F16],B,N55,14,chassis,X6,pushed,category not in tree -> default [catalog: 10 retrimmed]
+62060,407087055543,BMW X6 [F16],B,N55,14,chassis,X6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Throttle Bodies) [catalog: 10 retrimmed]
+62057,407127712240,BMW X6 [F16],B,N55,14,chassis,X6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 10 retrimmed]"
+62173,407088898644,BMW X6 [F16],B,N55,14,chassis,X6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 10 retrimmed]"
+62171,407127709402,BMW X6 [F16],B,N55,14,chassis,X6,pushed,under engine ancestor 33687 (Car & Truck Parts & Accessories > Ignition Systems & Components > Ignition Coils) [catalog: 10 retrimmed]
+62101,407086986444,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Horns)
+62093,407088893375,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim)
+62080,407101747614,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
+62059,407127714388,BMW X6 [F16],B,N55,14,chassis,X6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Fuses & Fuse Boxes) [catalog: 10 retrimmed]"
+62054,407086725047,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps > Tail Light Assemblies)
+62384,407127707464,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Towing Parts & Accessories > Trailer Hitches)
+62161,407086802530,BMW X6 [F16],B,N55,14,chassis,X6,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Engine Oil Coolers & Lines) [catalog: 10 retrimmed]
+62142,407096165624,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware)
+62103,407086993926,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Rear View Mirrors)
+62100,407086987202,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
+62085,407086980523,BMW X6 [F16],B,N55,14,chassis,X6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 10 retrimmed]"
+62079,407087014868,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
+62063,407101763492,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
+62169,407086976379,BMW X6 [F16],B,N55,14,chassis,X6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors) [catalog: 10 retrimmed]
+62087,407086984669,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
+62704,407127650180,BMW X6 [F16],A,,5,chassis,X6,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Differentials, Assemblies & Parts > Differential Assemblies)"
+62201,407096081573,BMW X6 [F16],B,N55,14,chassis,X6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors) [catalog: 10 retrimmed]"
+62156,407088819961,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Oil Coolers & Lines)
+62092,407088893371,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim)
+62074,407101755940,BMW X6 [F16],A,,5,chassis,X6,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Camera, Monitor & Sensor Kits)"
+62033,407127686966,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Automatic Transmission)
+63284,407111095511,BMW X6 [F16],A,,5,chassis,X6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Parts > ABS & Stability Hydraulic Units)
+62200,407096081616,BMW X6 [F16],B,N55,14,chassis,X6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors) [catalog: 10 retrimmed]"
+1613,407151822383,BMW 440i [F36],B,B58,4,chassis,440i,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Other Air & Fuel Delivery) [catalog: 2 dropped_vehicle]
+64337,407151823026,BMW M6 [F06],A,,6,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Rear View Mirrors) [catalog: 1 dropped_vehicle]
+64305,407151829924,BMW M6 [F06],A,,6,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Self-Leveling Suspension Parts) [catalog: 1 dropped_vehicle]
+64308,407151829974,BMW M6 [F06],B,S63,6,chassis,M6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors) [catalog: 1 dropped_vehicle]
+64315,407151834739,BMW M6 [F06],B,S63,6,chassis,M6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Fuses & Fuse Boxes) [catalog: 1 dropped_vehicle]"
+61059,407151836081,BMW 328i [E93],B,N52,7,chassis,328i,pushed,category not in tree -> default
+64311,407151835644,BMW M6 [F06],B,S63,6,chassis,M6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors) [catalog: 1 dropped_vehicle]"
+64328,407151835665,BMW M6 [F06],B,S63,6,chassis,M6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors) [catalog: 1 dropped_vehicle]"
+61077,407151838514,BMW 328i [E93],A,,17,chassis,"328i,335i,335is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Steering Wheels & Horn Buttons) [catalog: 4 dropped_vehicle]
+61069,407151838740,BMW 328i [E93],A,,17,chassis,"328i,335i,335is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 4 dropped_vehicle]
+64342,407151839818,BMW M6 [F06],A,,6,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware) [catalog: 1 dropped_vehicle]
+61051,407151845767,BMW 328i [E93],B,N52,7,chassis,328i,pushed,under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine Parts > Oil Filters)
+61080,407151860300,BMW 328i [E93],A,,17,chassis,"328i,335i,335is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 4 dropped_vehicle]
+61078,407151860122,BMW 328i [E93],A,,17,chassis,"328i,335i,335is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim) [catalog: 4 dropped_vehicle]
+64307,407151834251,BMW M6 [F06],B,S63,6,chassis,M6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors) [catalog: 1 dropped_vehicle]
+52535,407087042817,BMW Z4 [E85],A,,6,chassis,Z4,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Driveshafts & Parts > Driveshafts)
+61079,407151874658,BMW 328i [E93],A,,17,chassis,"328i,335i,335is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Gauges > Instrument Clusters) [catalog: 4 dropped_vehicle]
+4060,407151876840,BMW 330i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbags) [catalog: 7 dropped_vehicle]
+60962,407151878757,BMW 328i [E90],B,N52,20,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi",pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Water Pumps) [catalog: 22 dropped_vehicle]
+53780,407151882182,,-,,15,pn,"750Li,Alpina B7L,X5,X6",pushed,part-number only [catalog: 9 dropped_vehicle]
+6054,407151886085,BMW 750Li [G12],B,N63,10,chassis,"750Li,Alpina B7",pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Intake Manifolds) [catalog: 4 dropped_vehicle]
+6047,407151887085,BMW 750Li [G12],B,N63,10,chassis,"750Li,Alpina B7",pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Throttle Bodies) [catalog: 4 dropped_vehicle]
+6039,407151887362,BMW 750Li [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Driveshafts & Parts > Driveshafts) [catalog: 25 dropped_vehicle]
+6048,407151887392,BMW 750Li [G12],B,N63,10,chassis,"750Li,Alpina B7",pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Throttle Bodies) [catalog: 4 dropped_vehicle]
+6022,407151893549,BMW 750Li [G12],B,N63,10,chassis,"750Li,Alpina B7",pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors) [catalog: 4 dropped_vehicle]
+6020,407151893965,BMW 750Li [G12],B,N63,10,chassis,"750Li,Alpina B7",pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors) [catalog: 4 dropped_vehicle]
+61848,407118127992,BMW 335i [E93],A,,17,chassis,"328i,335i,335is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning & Heating > A/C Compressors & Clutches) [catalog: 4 dropped_vehicle]
+60972,407151899557,BMW 328i [E90],A,,31,chassis,"325i,325xi,328i,328i xDrive,328xi,330i,330xi,335d,335i,335i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts) [catalog: 29 dropped_vehicle]
+5986,407151899895,BMW 750Li [G12],B,N63,10,chassis,"750Li,Alpina B7",pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Expansion & Overflow Tanks) [catalog: 4 dropped_vehicle]
+5948,407151903298,BMW 750Li [G12],A,,10,chassis,"750Li,Alpina B7",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Shocks, Struts & Assemblies) [catalog: 25 dropped_vehicle]"
+3156,407151909358,BMW X3 [F25],A,,7,chassis,X3,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Doors & Door Skins)"
+53597,407151911062,BMW M550i [G30],B,N63,6,chassis,M550i xDrive,pushed,category not in tree -> default [catalog: 1 dropped_vehicle]
+5770,407151911121,BMW 750Li [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck Parts & Accessories) [catalog: 25 dropped_vehicle]
+5659,407151914478,BMW 750Li [G12],A,,10,chassis,"750Li,Alpina B7",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Pedal Assemblies, Pads & Parts) [catalog: 25 dropped_vehicle]"
+6053,407151886383,BMW 750Li [G12],B,N63,10,chassis,"750Li,Alpina B7",pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Intake Manifolds) [catalog: 4 dropped_vehicle]
+5651,407151917358,BMW 750Li [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim) [catalog: 25 dropped_vehicle]
+5649,407151917569,BMW 750Li [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim) [catalog: 25 dropped_vehicle]
+5642,407151918851,BMW 750Li [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 25 dropped_vehicle]
+52406,407151924226,BMW X5 [G05],B,B58,40,chassis,X5,pushed,"category not in tree -> default [catalog: 21 retrimmed, 11 dropped_trim]"
+52407,407151924287,BMW X5 [G05],B,B58,40,chassis,X5,pushed,"category not in tree -> default [catalog: 21 retrimmed, 11 dropped_trim]"
+32704,407151924354,BMW X3 [G01],B,B46,7,chassis,X3,pushed,category not in tree -> default
+8478,407151924381,BMW M3 [E93],B,S65,6,chassis,M3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules)"
+53094,407151924408,BMW X5 [F15],B,N55,14,chassis,X5,pushed,category not in tree -> default [catalog: 10 retrimmed]
+52410,407151924379,BMW X5 [G05],B,B58,40,chassis,X5,pushed,"category not in tree -> default [catalog: 21 retrimmed, 11 dropped_trim]"
+53398,407151924398,BMW Z3 [E36],B,M52,13,chassis,"323i,323is,328i,328is",pushed,category not in tree -> default [catalog: 19 dropped_vehicle]
+52672,407151924278,BMW X5 [G05],A,,8,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Control Arms, Ball Joints & Assemblies)"
+53395,407151924313,BMW Z3 [E36],B,M52,13,chassis,"323i,323is,328i,328is",pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 19 dropped_vehicle]"
+53466,407151924243,BMW M550i [G30],A,,40,chassis+pn,"530e,530i,530i xDrive,540i,540i xDrive,M550i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Control Arms, Ball Joints & Assemblies) (+42 part# rows) [catalog: 2 dropped_vehicle]"
+52223,407151924317,BMW X5 [G05],B,B58,40,chassis,X5,pushed,"under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Radiators) [catalog: 21 retrimmed, 11 dropped_trim]"
+53081,407151924374,BMW X5 [F15],A,,5,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Control Arms, Ball Joints & Assemblies)"
+5625,407141752538,BMW X3 [G01],A,,7,chassis,X3,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Wheels, Tires & Parts > Wheel & Tire Accessories > Spare Tire Jack & Tool Kits)"
+5528,407151943637,BMW X5 [E70],A,,7,chassis,X5,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Transfer Cases)
+5305,407151963325,BMW X5 [E70],A,,7,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Door Handles)"
+5306,407151964817,BMW X5 [E70],A,,7,chassis,X5,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Door Handles)"
+64480,407151963708,,,,,,,skip,no Shopify donor for SKU
+44748,407151925016,,,,,,,skip,already 238 vehicles (multi-fit/expanded)
+39090,407151924945,,,,,,,skip,already 69 vehicles (multi-fit/expanded)
+19026,407151925026,,,,,,,skip,already 194 vehicles (multi-fit/expanded)
+39223,407151924985,,,,,,,skip,already 85 vehicles (multi-fit/expanded)
+32721,407151924987,,,,,,,skip,already 2 vehicles (multi-fit/expanded)
+48968,407151924764,,,,,,,skip,already 16 vehicles (multi-fit/expanded)
+38296,407151924548,,,,,,,skip,already 2 vehicles (multi-fit/expanded)
+38790,407151924862,,,,,,,skip,already 69 vehicles (multi-fit/expanded)
+51059,407151924620,,,,,,,skip,already 14 vehicles (multi-fit/expanded)
+49904,407151924657,,,,,,,skip,already 87 vehicles (multi-fit/expanded)
+42466,407151924662,,,,,,,skip,already 108 vehicles (multi-fit/expanded)
+42668,407151924698,,,,,,,skip,already 182 vehicles (multi-fit/expanded)
+46108,407151924545,,,,,,,skip,already 69 vehicles (multi-fit/expanded)
+42492,407151924635,,,,,,,skip,already 95 vehicles (multi-fit/expanded)
+46312,407151924338,,,,,,,skip,already 32 vehicles (multi-fit/expanded)
+46251,407151924479,,,,,,,skip,already 50 vehicles (multi-fit/expanded)
+15611,407151924361,,,,,,,skip,already 62 vehicles (multi-fit/expanded)
+40666,407151924482,,,,,,,skip,already 35 vehicles (multi-fit/expanded)
+46299,407151924323,,,,,,,skip,already 49 vehicles (multi-fit/expanded)
+52233,407151924376,,,,,,,skip,already 23 vehicles (multi-fit/expanded)
+30084,407151924468,,,,,,,skip,no Shopify donor for SKU
+25611,407151924407,BMW M3 [None],A,,,,,review,unresolved chassis: series 'None' not in BMW reference
+33527,,,,,,,,skip,offer read HTTP 404
+38396,407151924514,,,,,,,skip,already 9 vehicles (multi-fit/expanded)
+12036,,,,,,,,skip,offer read HTTP 404
+12038,,,,,,,,skip,offer read HTTP 404
+14221,,,,,,,,skip,offer read HTTP 404
+18274,,,,,,,,skip,offer read HTTP 404
+31832,,,,,,,,skip,offer read HTTP 404
+48406,407151924378,BMW 428i [None],A,,,,,review,unresolved chassis: series 'None' not in BMW reference
+11880,,,,,,,,skip,offer read HTTP 404
+12029,,,,,,,,skip,offer read HTTP 404
+15435,,,,,,,,skip,offer read HTTP 404
+47524,407151924435,,,,,,,skip,already 41 vehicles (multi-fit/expanded)
+11806,,,,,,,,skip,offer read HTTP 404
+14561,,,,,,,,skip,offer read HTTP 404
+11869,,,,,,,,skip,offer read HTTP 404
+12549,,,,,,,,skip,offer read HTTP 404
+45466,407151924337,,,,,,,skip,no Shopify donor for SKU
+12610,,,,,,,,skip,offer read HTTP 404
+14518,,,,,,,,skip,offer read HTTP 404
+38789,407151924252,,,,,,,skip,already 52 vehicles (multi-fit/expanded)
+17606,,,,,,,,skip,offer read HTTP 404
+19609,,,,,,,,skip,offer read HTTP 404
+17349,,,,,,,,skip,offer read HTTP 404
+45498,407151924246,,,,,,,skip,already 18 vehicles (multi-fit/expanded)
+45501,407151924370,,,,,,,skip,no Shopify donor for SKU
+47526,407151924335,,,,,,,skip,already 100 vehicles (multi-fit/expanded)
+9979,,,,,,,,skip,offer read HTTP 404
+14562,,,,,,,,skip,offer read HTTP 404
+16155,,,,,,,,skip,offer read HTTP 404
+17378,,,,,,,,skip,offer read HTTP 404
+17348,,,,,,,,skip,offer read HTTP 404
+44640,407151924330,BMW 340i [None],A,,,,,review,unresolved chassis: series 'None' not in BMW reference
+47264,407151924316,,,,,,,skip,already 28 vehicles (multi-fit/expanded)
+47796,407151924250,,,,,,,skip,already 64 vehicles (multi-fit/expanded)
+49529,407151924369,,,,,,,skip,already 2 vehicles (multi-fit/expanded)
+43522,,,,,,,,skip,offer read HTTP 404
+45343,407151924362,,,,,,,skip,no Shopify donor for SKU
+41523,,,,,,,,skip,offer read HTTP 404
+50188,407151924125,,,,,,,skip,already 2 vehicles (multi-fit/expanded)
+25825,407151924421,BMW 535i [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
+48292,407151924433,BMW X3 [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
+46288,407151924417,BMW X6 [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
+46285,407151924411,BMW X6 [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
+33850,407151924347,BMW 135i [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
+21993,407151924365,BMW 435i [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
+24509,407151924366,BMW 435i [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
+21982,407151924345,BMW 335i [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
+27763,407151924343,BMW X6 [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
+50094,407151924312,BMW 750i [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
+51768,,,,,,,,skip,offer read HTTP 404
+42990,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+45993,407151924326,BMW M550i [None],B,,,,,review,unresolved chassis: series 'None' not in BMW reference
+47758,,,,,,,,skip,offer read HTTP 404
+2198,407151908430,,,,,,,skip,no Shopify donor for SKU
+5936,407151904765,,,,,,,skip,already 30 vehicles (multi-fit/expanded)
+6010,407151897345,,,,,,,skip,already 90 vehicles (multi-fit/expanded)
+3277,407151896854,,,,,,,skip,no Shopify donor for SKU
+5765,407151896187,,,,,,,skip,no Shopify donor for SKU
+6012,407151895510,,,,,,,skip,already 21 vehicles (multi-fit/expanded)
+6023,407151894348,,,,,,,skip,already 321 vehicles (multi-fit/expanded)
+3858,407151892981,,,,,,,skip,no Shopify donor for SKU
+60146,407151887220,,,,,,,skip,no Shopify donor for SKU

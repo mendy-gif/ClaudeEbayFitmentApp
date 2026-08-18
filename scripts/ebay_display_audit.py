@@ -252,9 +252,11 @@ def main():
         for c in bad:
             t = by_cat[c][0]
             rules = sorted({d["rule"] for d in detail if d["categoryId"] == c})
-            hint = ("all Rule B -> most likely still the trim bug; re-check after a re-sweep"
-                    if rules == ["B"] else
-                    "includes Rule A -> a genuine CATEGORY-level display problem")
+            # Rule A rows are trimless and always displayed even before the catalog fix, so a
+            # category failing on Rule A too cannot be the trim bug.
+            hint = ("includes Rule A -> a genuine CATEGORY-level display problem"
+                    if "A" in rules else
+                    "all engine-restricted -> re-check after a re-sweep, else category-level")
             print(f"   cat {c}: 0/{t}   [{','.join(rules)}] {hint}")
             p = category_path(c, tree)
             if p:
