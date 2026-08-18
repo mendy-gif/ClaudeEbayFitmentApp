@@ -14,7 +14,10 @@ name: Fitment sweep
 
 on:
   schedule:
-    - cron: "0 7 * * *"          # daily 07:00 UTC (~03:00 ET) — quiet hours
+    # 07:30 UTC, deliberately AFTER eBay's daily API quota resets at 07:00 UTC. Firing at
+    # 07:00 exactly would race the reset and could spend the run against yesterday's
+    # exhausted allowance. (~03:30 ET, still quiet hours.)
+    - cron: "30 7 * * *"
   workflow_dispatch:             # allow manual runs from the Actions tab
     inputs:
       limit:
