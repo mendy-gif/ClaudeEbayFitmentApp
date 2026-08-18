@@ -75,4 +75,6 @@ python3 bmw-etk/scripts/jetarch.py dump    "/Volumes/BMW ETK 2020-01" --at 1671
 | `ISO not mounted at ...` | Run step 1. ISOs do not survive a reboot. |
 | `Database <etk_publ@...> does not exist` | The container hostname was not pinned, or the registry was not persisted. Both are handled now; if it recurs, run `etk-db.sh reset` then `create`. |
 | Attach fails with `unexpected: c_f_c_1` | A romfile is missing from the `rf=` list. All **four** are required, including `rfile000.002`, which BMW's own script omits. |
+| Script hangs at `Username for 'https://github.com':` | Something tried to push from the Mac, which has no stored GitHub credentials. Press Ctrl-C. Scripts set `GIT_TERMINAL_PROMPT=0` so this fails fast rather than hanging; pushes happen from the Claude session. |
+| A run shows no output until it finishes | You piped it into `tail`, which buffers. Read `~/etk_overnight.log` instead — it is written live. |
 | Everything is very slow | Expected. The binaries are 32-bit Intel and run under QEMU emulation on Apple Silicon; Rosetta cannot help because it only accelerates 64-bit. |

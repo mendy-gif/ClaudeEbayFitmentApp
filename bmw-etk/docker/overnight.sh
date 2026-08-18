@@ -127,15 +127,23 @@ head -40 "$SCHEMA/rowcounts.txt" 2>/dev/null || echo "(no row counts)"
 [ -f "$SCHEMA/INCOMPLETE.txt" ] && cat "$SCHEMA/INCOMPLETE.txt"
 
 echo
-echo "########## 5. COMMIT SCHEMA METADATA ##########"
-# Table and column names only -- no catalog content. Failure here is harmless.
-cd "$REPO" && {
-  git add -A bmw-etk/data/schema 2>/dev/null
-  git -c user.email=mendy@justsomecarparts.com -c user.name=mendy \
-      commit -q -m "BMW ETK: overnight schema dump from the attached catalog" 2>/dev/null \
-    && git push -u origin claude/bmw-etk-database-sqohoo 2>&1 | tail -2 \
-    || echo "(nothing new to commit, or push unavailable -- fine)"
-}
+echo "########## 5. SAVE SCHEMA METADATA ##########"
+# Commit locally only. NEVER push from here: an unattended run must not block on a
+# credential prompt, and this Mac has no stored GitHub credentials -- pushes are
+# done from the Claude session. GIT_TERMINAL_PROMPT=0 makes any git operation that
+# wants input fail immediately instead of hanging forever.
+export GIT_TERMINAL_PROMPT=0
+if [ -n "$(ls -A "$SCHEMA" 2>/dev/null | grep -v '^\.gitkeep$')" ]; then
+  cd "$REPO" && {
+    git add -A bmw-etk/data/schema 2>/dev/null
+    git -c user.email=mendy@justsomecarparts.com -c user.name=mendy \
+        commit -q -m "BMW ETK: overnight schema dump from the attached catalog" 2>/dev/null \
+      && echo "Committed locally. To publish: git push -u origin claude/bmw-etk-database-sqohoo" \
+      || echo "(nothing new to commit)"
+  }
+else
+  echo "No schema files were produced, so nothing to commit."
+fi
 
 echo
 echo "================================================================"
