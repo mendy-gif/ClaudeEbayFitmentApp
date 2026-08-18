@@ -217,6 +217,30 @@ CONT part-boundary handling on the real 5.7 GB archive, not just on synthetic te
 | rfile000.002 | 5,279,744 |
 | rfile001.000 | 1,792,589,824 |
 
+## The Transbase binaries are 32-bit i386 (not x86_64)
+
+`file` inside the container reports:
+
+```
+/opt/transbase/tbadmin:  ELF 32-bit LSB executable, Intel 80386, version 1 (SYSV),
+                         dynamically linked, interpreter /lib/ld-linux.so.2,
+                         for GNU/Linux 2.2.5, stripped
+```
+
+Same for `tbi` and `tbserver`. Two consequences:
+
+- **Rosetta does not help.** Rosetta 2 accelerates 64-bit x86 only, so Docker falls
+  back to QEMU (`qemu-i386` appears in the error output). It works, just slower.
+- **A 64-bit container has no 32-bit loader**, giving
+  `qemu-i386: Could not open '/lib/ld-linux.so.2'`. The image must either add i386
+  multiarch libraries or use a natively 32-bit base.
+
+"for GNU/Linux 2.2.5" is a 1999-era kernel target, so these are very old binaries;
+an older base distribution is the safer choice.
+
+The image now handles both routes: `linux/amd64` with i386 multiarch (default), and
+`ETK_PLATFORM=linux/386` with `i386/debian:bullseye-slim` as the fallback.
+
 ## Platform decision: Windows first, Mac as backup
 
 The disc is a **Windows product**: `transbase/transbase.exe`, `tbadm32.exe`,

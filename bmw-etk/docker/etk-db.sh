@@ -6,6 +6,9 @@
 #   bash bmw-etk/docker/etk-db.sh create    # attach the ROM files as database etk_publ
 #   bash bmw-etk/docker/etk-db.sh sql "select ..."   # run one SQL statement
 #   bash bmw-etk/docker/etk-db.sh shell     # interactive shell inside the container
+#
+# If the amd64 + i386-multiarch build will not run the binaries, retry natively
+# 32-bit:  ETK_PLATFORM=linux/386 bash bmw-etk/docker/etk-db.sh build
 set -uo pipefail
 
 HERE="$(cd "$(dirname "$0")" && pwd)"
@@ -14,7 +17,13 @@ ISO="${ETK_ISO:-/Volumes/BMW ETK 2020-01}"
 ROM="$ROOT/dump/rfiles"
 IMAGE="etk-transbase"
 VOLUME="etk-data"
-PLATFORM="linux/amd64"
+PLATFORM="${ETK_PLATFORM:-linux/amd64}"
+# The Transbase binaries are 32-bit i386. On linux/amd64 we add i386 multiarch
+# libraries; on linux/386 the whole base image is already 32-bit.
+case "$PLATFORM" in
+  linux/386) BASE_IMAGE="i386/debian:bullseye-slim" ;;
+  *)         BASE_IMAGE="debian:bullseye-slim" ;;
+esac
 DB="etk_publ"
 DBUSER="tbadmin"
 DBPASS="altabe"
@@ -74,8 +83,9 @@ build)
   have_docker
   [ -d "$ISO" ] || die "ISO not mounted at: $ISO  (set ETK_ISO to override)"
   cp "$ISO/transbase_linux/transbase_linux.tar.gz" "$HERE/" || die "could not copy the Transbase tarball"
-  echo "Building $IMAGE for $PLATFORM (emulated on Apple Silicon)..."
-  "$DOCKER" build --platform "$PLATFORM" -t "$IMAGE" "$HERE" || die "build failed"
+  echo "Building $IMAGE for $PLATFORM from $BASE_IMAGE (emulated on Apple Silicon)..."
+  "$DOCKER" build --platform "$PLATFORM" --build-arg BASE_IMAGE="$BASE_IMAGE" \
+    -t "$IMAGE" "$HERE" || die "build failed"
   rm -f "$HERE/transbase_linux.tar.gz"
   "$DOCKER" volume create "$VOLUME" >/dev/null
   echo "Built. Next: bash $0 probe"
@@ -86,8 +96,14 @@ probe)
   echo "=== binary architecture ==="
   run_in bash -lc 'file $TRANSBASE/tbadmin $TRANSBASE/tbi $TRANSBASE/tbserver 2>&1'
   echo
+  echo "=== 32-bit loader present? (needed: /lib/ld-linux.so.2) ==="
+  run_in bash -lc 'ls -la /lib/ld-linux.so.2 2>&1; echo "container arch: $(dpkg --print-architecture)"'
+  echo
+  echo "=== libraries the binaries need (any \"not found\" is the problem) ==="
+  run_in bash -lc 'ldd $TRANSBASE/tbadmin 2>&1 | head -20'
+  echo
   echo "=== do they actually run? (a usage message here is SUCCESS) ==="
-  run_in bash -lc '$TRANSBASE/tbadmin 2>&1 | head -20; echo "--- exit $? ---"'
+  run_in bash -lc '$TRANSBASE/tbadmin > /tmp/o 2>&1; echo "--- exit $? ---"; head -25 /tmp/o'
   echo
   echo "=== ROM files visible in the container ==="
   run_in bash -lc 'ls -la /rom/files 2>/dev/null || ls -la /rom'
