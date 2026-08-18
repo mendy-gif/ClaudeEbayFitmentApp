@@ -333,7 +333,13 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
     # Trading count is the "already expanded" guard in both paths (with retry). In the
     # Shopify path it is NOT the donor source, so n_trad==0 no longer means "skip".
     n_trad, sample, terr = trading_compat_retry(listing_id, tok) if listing_id else (None, [], "no listingId")
-    if n_trad is not None and n_trad > 1 and not force:
+    # The guard exists to protect fitment SOMEONE ELSE curated -- never to protect our own.
+    # If the SKU is in the ledger we put that fitment there, so we may replace it. Without
+    # this exemption a listing we pushed WRONG stays wrong forever: the bad rows display as
+    # >1 vehicle, the guard reads that as "curated", and every future sweep skips it. That
+    # is exactly the state the wildcard leak leaves behind (SKU 8478: 6 pushed, 17 shown).
+    ours = sku in led
+    if n_trad is not None and n_trad > 1 and not force and not ours:
         return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": f"already {n_trad} vehicles (multi-fit/expanded)"}
     # FAIL CLOSED: if the guard read failed (or there's no listingId), we cannot tell
     # whether this listing already has curated fitment -> skip rather than risk a PUT

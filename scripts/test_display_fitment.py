@@ -421,6 +421,16 @@ def t_runner():
     true('entry.get("cv") != CATALOG_ERA' in src,
          "ledger entries predating the catalog fix are re-processed, not skipped")
 
+    # The "already expanded" guard protects fitment SOMEONE ELSE curated. If it also
+    # blocked our own past pushes, a listing we got wrong could never be corrected -- the
+    # bad rows read as ">1 vehicle" and every future sweep would skip it. That is exactly
+    # the trap a wildcard leak leaves behind.
+    true("ours = sku in led" in src,
+         "the runner knows which listings' fitment it authored")
+    true("and not ours" in src.split("already {n_trad} vehicles")[0].rsplit("if n_trad", 1)[-1]
+         if "already {n_trad} vehicles" in src else False,
+         "the guard exempts SKUs we pushed, so our own bad pushes stay correctable")
+
 
 # ============================================================= 7. end-to-end on real data
 def t_real_data():
