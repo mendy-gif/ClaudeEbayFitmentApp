@@ -1,43 +1,77 @@
-# BMW ETK database project
+# BMW ETK → part fitment data
 
-Goal: take a BMW ETK (Elektronischer Teilekatalog) database dump, understand its
-schema, and distill a clean **part number → vehicle/chassis** table that can be fed
-into the eBay fitment project as a third fitment source.
+Turning a BMW dealer parts-catalogue disc (**ETK**, *Elektronischer Teilekatalog*)
+into data we can query — so eBay listings can say exactly which cars a part fits.
 
-Later (not built yet, but the schema exploration should confirm the columns exist):
+> **New here?** Start with [`docs/RUNBOOK.md`](docs/RUNBOOK.md) for the commands, or
+> [`docs/DUMP_FACTS.md`](docs/DUMP_FACTS.md) for how the disc actually works.
 
-1. **VIN decoder** — VIN → chassis/type code, model, year, engine, option ("SA") codes.
-2. **VIN → part compatibility checker** — given a VIN + part number, does it fit?
-   Needs part↔vehicle links, production-date ranges, and option-code filters.
+## Why
 
-## Ground rules
+The eBay fitment project expands compatibility from a donor vehicle to a whole BMW
+chassis family using rules. That is deliberately broad. The ETK knows the *real*
+answer — which parts BMW fitted to which vehicles, down to build dates and factory
+options. Distilling that gives a third, far more precise fitment source.
 
-- **The raw dump is never committed.** It lives in `bmw-etk/dump/` which is gitignored,
-  along with every database-ish extension (`.bak`, `.mdf`, `.fdb`, `.db`, `.iso`, …).
-  Only derived, distilled tables in `bmw-etk/data/` get committed.
-- Like the eBay side: Claude writes the scripts, the human runs them on the Mac.
+## Goals, in order
+
+| # | Goal | Status |
+|---|------|--------|
+| 1 | **part number → vehicle/chassis** table, fed into the eBay project | in progress |
+| 2 | **VIN decoder** — VIN → chassis, model, year, engine, SA option codes | not started |
+| 3 | **VIN + part number → does it fit?** using build dates and option codes | not started |
+
+Goals 2 and 3 need the same tables as goal 1 plus production-date ranges and option
+codes, so the schema work serves all three.
+
+## How it works
+
+```
+BMW ETK 2020-01.iso                     mounted read-only, never copied into git
+  └── ETK-Data_*.jetarch.part1..6       5.7 GB in six parts, one custom container
+        └── files/rfile000.000 .002,    a Transbase CD-ROM database
+            files/rfile001.000
+              └── attached by tbadmin inside a Docker container
+                    └── queried with tbi  →  CSV  →  distilled tables
+```
+
+Three things had to be worked out, none of them documented publicly:
+
+1. **The `.jetarch` container format** — decoded byte by byte from its own header.
+   `scripts/jetarch.py` now reads and extracts it.
+2. **Which database engine** — Transbase, a niche 2004 commercial RDBMS, shipped on
+   the disc as 32-bit Intel Linux binaries.
+3. **How to attach the catalogue** — BMW's own install script omits one of the four
+   ROM files; the attach only succeeds with all four.
 
 ## Layout
 
-- `scripts/identify_dump.py` — tells you what the dump actually is (reads only file
-  headers, instant on a multi-GB file). Works on a file or a whole folder.
-- `dump/` — put the raw dump here. Gitignored.
-- `data/` — distilled outputs (committed).
-- `docs/` — schema notes as we learn them.
-
-## Step 1 — identify the dump
-
-```bash
-python3 bmw-etk/scripts/identify_dump.py /path/to/your/dump
+```
+bmw-etk/
+├── CLAUDE.md            project memory — read this first if you are Claude
+├── README.md            this file
+├── docs/
+│   ├── DUMP_FACTS.md    the technical record: formats, commands, decisions
+│   └── RUNBOOK.md       copy-paste commands for common tasks
+├── scripts/             reading the disc (Python stdlib + shell only)
+├── docker/              running Transbase and querying the catalogue
+├── dump/                raw extracted data — GITIGNORED, never committed
+└── data/                distilled output — committed
 ```
 
-## Step 1a — if the dump is an ISO
+## Ground rules
 
-macOS mounts ISOs natively (read-only, copies nothing, no Docker needed):
+- **The raw catalogue is never committed.** `dump/` and every database-ish file
+  extension are gitignored. Only derived tables in `data/` go into git.
+- **Claude writes the code; the human runs it.** A Claude cloud session cannot see
+  the Mac where the disc lives, so every step is a command you paste and a result you
+  paste back.
+- ETK data is BMW's licensed catalogue. Using it privately to work out fitment for
+  parts you are actually selling is ordinary practice; republishing the catalogue
+  itself is not the goal, which is why only distilled tables are kept.
 
-```bash
-bash bmw-etk/scripts/mount_iso.sh "/path/to/BMW ETK 2020-01.iso"
-```
+## Current state
 
-This mounts it, lists the contents, and runs `identify_dump.py` on the mount point
-to find the real database inside. Unmount later with `hdiutil detach /Volumes/<name>`.
+The catalogue **attaches and boots**. Transbase runs under Docker on Apple Silicon,
+the database `etk_publ` is live, and the next step is dumping the schema to find the
+part↔vehicle tables. See `docs/DUMP_FACTS.md` for everything established so far.

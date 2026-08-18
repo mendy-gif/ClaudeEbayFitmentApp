@@ -140,7 +140,7 @@ create)
     echo "=== tbadmin -i (does Transbase see it?) ==="
     run_in bash -lc '$TRANSBASE/tbadmin -i '"$DB"' 2>&1 | tail -30'
     echo
-    echo "Next: bash bmw-etk/docker/etk-db.sh tables"
+    echo "Next: bash bmw-etk/docker/etk-db.sh explore"
   else
     echo "No invocation succeeded. Paste the output above back to Claude."
   fi
