@@ -1,0 +1,41 @@
+{
+ "_comment": "eBay categories proven NOT to render a fitment table. Rows pushed to these are stored but never shown, whatever we send (verified by pushing verbatim catalog trims). Excluded from the audit display-rate threshold so the nightly guard does not cry wolf. Regenerate with scripts/ebay_display_audit.py over the full ledger.",
+ "categories": {
+  "107062": {
+   "displaying": 0,
+   "skus_seen": 19
+  },
+  "169395": {
+   "displaying": 0,
+   "skus_seen": 2
+  },
+  "174119": {
+   "displaying": 0,
+   "skus_seen": 3
+  },
+  "179671": {
+   "displaying": 0,
+   "skus_seen": 7
+  },
+  "179679": {
+   "displaying": 0,
+   "skus_seen": 3
+  },
+  "21647": {
+   "displaying": 0,
+   "skus_seen": 2
+  },
+  "262265": {
+   "displaying": 0,
+   "skus_seen": 1
+  },
+  "33643": {
+   "displaying": 0,
+   "skus_seen": 1
+  },
+  "38771": {
+   "displaying": 0,
+   "skus_seen": 1
+  }
+ }
+}

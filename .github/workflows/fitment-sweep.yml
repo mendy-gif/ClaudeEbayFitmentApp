@@ -18,9 +18,16 @@ on:
   workflow_dispatch:             # allow manual runs from the Actions tab
     inputs:
       limit:
-        description: "Max SKUs to process (blank = all)"
+        description: "Max SKUs to process (blank = the nightly default below)"
         required: false
         default: ""
+
+env:
+  # Cap each unattended run. The ledger resumes, so a backlog is worked off over
+  # several nights instead of one multi-hour unsupervised push -- and a bad night
+  # costs one batch, not the whole store. Once caught up, nightly runs only see
+  # NEW listings and finish well under this. Override per-run via the input above.
+  NIGHTLY_LIMIT: "1500"
 
 concurrency:                     # never let two sweeps overlap (they'd double-read)
   group: fitment-sweep
@@ -41,6 +48,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Self-test (offline) -- never push live on broken logic
+        run: python3 scripts/selftest.py
+
       - name: Refresh Shopify donor dump
         env:
           SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
@@ -54,14 +64,37 @@ jobs:
           EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
         run: |
           LIMIT="${{ github.event.inputs.limit }}"
+          LIMIT="${LIMIT:-$NIGHTLY_LIMIT}"
           python3 scripts/ebay_batch.py apply --from-shopify --from-inventory --live \
-            ${LIMIT:+--limit "$LIMIT"}
+            --partnumber-fitment spreadsheet-fitment/data/built/ebay_ready_fitment.csv \
+            --limit "$LIMIT"
+
+      # The whole point. A push returning HTTP 200 proves nothing -- eBay stores a row
+      # with an unrecognised trim and silently omits it from the listing, which is how
+      # months of "successful" sweeps displayed nothing (docs/DESIGN.md sec 5.5). Verify
+      # what the listings actually SHOW, and fail the job if it regresses.
+      - name: Verify the fitment actually displays
+        env:
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: |
+          # pipefail is NOT on by default in Actions' bash, so `cmd | tee` would report
+          # tee's exit status (always 0) and the --fail-under guard would never fire.
+          set -o pipefail
+          python3 scripts/ebay_display_audit.py --recent 300 --quiet \
+            --fail-under 70 --csv data/display_audit.csv | tee audit.txt && rc=0 || rc=$?
+          { echo '### Fitment display audit'; echo '```'; cat audit.txt; echo '```'; } \
+            >> "$GITHUB_STEP_SUMMARY"
+          exit $rc
 
       - name: Commit updated dump + ledger
+        if: always()          # a failed audit must still record what was pushed
         run: |
           git config user.name  "fitment-bot"
           git config user.email "fitment-bot@users.noreply.github.com"
-          git add data/shopify_donors.json data/pushed_ledger.json data/batch_plan.csv
+          git add data/shopify_donors.json data/pushed_ledger.json data/batch_plan.csv \
+                  data/ebay_compat_cache.json data/display_audit.csv
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else

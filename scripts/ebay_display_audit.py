@@ -58,6 +58,17 @@ sys.path.insert(0, os.path.join(ROOT, "scripts"))
 BASE = "https://api.ebay.com"
 LEDGER = os.path.join(ROOT, "data", "pushed_ledger.json")
 TREE = os.path.join(ROOT, "data", "ebay_motors_categories.json")
+NONDISPLAY = os.path.join(ROOT, "data", "nondisplay_categories.json")
+
+
+def load_nondisplay():
+    """Categories eBay simply does not render a fitment table in. Rows pushed there are
+    stored but never shown, whatever we send -- so counting them against the display-rate
+    threshold would fail the nightly job forever for something we cannot fix."""
+    try:
+        return set(json.load(open(NONDISPLAY, encoding="utf-8")).get("categories", {}))
+    except (ValueError, OSError):
+        return set()
 
 
 def token(args):
@@ -82,8 +93,8 @@ def rest(path, tok):
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             return json.loads(r.read().decode("utf-8", "replace") or "{}")
-    except (urllib.error.HTTPError, urllib.error.URLError, ValueError):
-        return {}
+    except (urllib.error.HTTPError, urllib.error.URLError, ValueError, OSError):
+        return {}       # OSError covers socket.timeout, which is NOT a URLError
 
 
 def trading_rows(item_id, tok):
@@ -103,9 +114,12 @@ def trading_rows(item_id, tok):
         with urllib.request.urlopen(req, timeout=60) as r:
             raw = r.read().decode("utf-8", "replace")
     except urllib.error.HTTPError as e:
-        raw = e.read().decode("utf-8", "replace")
-    except urllib.error.URLError:
-        return None
+        try:
+            raw = e.read().decode("utf-8", "replace")
+        except OSError:
+            return None
+    except (urllib.error.URLError, OSError):
+        return None     # OSError covers socket.timeout, which is NOT a URLError
     if "<Ack>Failure</Ack>" in raw and "<Compatibility>" not in raw:
         return None
     out = []
@@ -169,10 +183,26 @@ def category_path(cid, tree):
     return " > ".join(hit[-2:]) if hit else ""
 
 
+def _write_csv(path, detail):
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["sku", "listingId", "categoryId", "rule",
+                                          "stored", "displayed", "leaked", "status"])
+        w.writeheader()
+        w.writerows(detail)
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--limit", type=int, help="only audit the first N ledgered SKUs")
+    ap.add_argument("--recent", type=int, metavar="N",
+                    help="audit the N most recently pushed SKUs instead of the oldest. This is "
+                         "what a post-sweep regression check wants -- --limit samples the oldest "
+                         "entries, which a fresh sweep never touched.")
+    ap.add_argument("--fail-under", type=float, metavar="PCT",
+                    help="exit non-zero if fewer than PCT%% of audited SKUs display. Lets CI "
+                         "fail loudly on a regression instead of pushing invisible fitment "
+                         "night after night, which is exactly how the trim bug survived.")
     ap.add_argument("--csv", metavar="PATH", help="write per-SKU detail here")
     ap.add_argument("--token")
     ap.add_argument("--quiet", action="store_true", help="summary only, no per-SKU lines")
@@ -183,7 +213,12 @@ def main():
         sys.exit(f"no ledger at {LEDGER} -- nothing pushed yet")
     led = json.load(open(LEDGER, encoding="utf-8"))
     tree = json.load(open(TREE, encoding="utf-8")) if os.path.exists(TREE) else None
-    skus = list(led)[: args.limit] if args.limit else list(led)
+    if args.recent:
+        skus = list(led)[-args.recent:]
+    elif args.limit:
+        skus = list(led)[: args.limit]
+    else:
+        skus = list(led)
     print(f"Auditing {len(skus)} ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)\n")
 
     detail, by_rule, by_cat = [], collections.defaultdict(lambda: [0, 0]), collections.defaultdict(lambda: [0, 0])
@@ -254,20 +289,41 @@ def main():
             rules = sorted({d["rule"] for d in detail if d["categoryId"] == c})
             # Rule A rows are trimless and always displayed even before the catalog fix, so a
             # category failing on Rule A too cannot be the trim bug.
-            hint = ("includes Rule A -> a genuine CATEGORY-level display problem"
-                    if "A" in rules else
-                    "all engine-restricted -> re-check after a re-sweep, else category-level")
+            known = " [known non-displaying category]" if c in load_nondisplay() else ""
+            hint = (("includes Rule A -> a genuine CATEGORY-level display problem"
+                     if "A" in rules else
+                     "all engine-restricted -> re-check after a re-sweep, else category-level")
+                    + known)
             print(f"   cat {c}: 0/{t}   [{','.join(rules)}] {hint}")
             p = category_path(c, tree)
             if p:
                 print(f"            {p}")
 
+    if args.fail_under is not None:
+        dead = load_nondisplay()
+        scored = [d for d in detail if d["categoryId"] not in dead]
+        excluded = len(detail) - len(scored)
+        if not scored:
+            print(f"\nNothing to score ({excluded} SKU(s) all in known non-displaying "
+                  f"categories) -- threshold not applied.")
+        else:
+            sgood = sum(1 for d in scored if d["status"] != "INVISIBLE")
+            pct = 100.0 * sgood / len(scored)
+            note = (f" ({excluded} SKU(s) excluded: categories eBay never renders fitment in)"
+                    if excluded else "")
+            if pct < args.fail_under:
+                print(f"\nFAIL: {pct:.1f}% of scorable SKUs display ({sgood}/{len(scored)}), "
+                      f"below the {args.fail_under}% threshold.{note}\n"
+                      f"Fitment is being pushed but not shown -- stop sweeping until this is "
+                      f"understood.")
+                if args.csv:
+                    _write_csv(args.csv, detail)
+                sys.exit(1)
+            print(f"\nDisplay rate {pct:.1f}% ({sgood}/{len(scored)}) is at or above the "
+                  f"{args.fail_under}% threshold.{note}")
+
     if args.csv:
-        with open(args.csv, "w", newline="", encoding="utf-8") as f:
-            w = csv.DictWriter(f, fieldnames=["sku", "listingId", "categoryId", "rule",
-                                              "stored", "displayed", "leaked", "status"])
-            w.writeheader()
-            w.writerows(detail)
+        _write_csv(args.csv, detail)
         print(f"\nPer-SKU detail -> {args.csv}")
 
 
