@@ -1,6 +1,6 @@
 sku,listingId,donor,rule,engine,n_vehicles,sources,models,action,reason
-980,,,,,,,,skip,already in ledger
-890,,,,,,,,skip,already in ledger
-1529,,,,,,,,skip,already in ledger
-1370,,,,,,,,skip,already in ledger
-1353,,,,,,,,skip,already in ledger
+61224,407154250613,,,,,,,skip,"guard read failed (Ack=Failure: Your application has exceeded usage limit on this call, please make call to GetAPIAccessRules to check your call usage.) - skipped to protect existing fitment"
+61219,407154250548,,,,,,,skip,"guard read failed (Ack=Failure: Your application has exceeded usage limit on this call, please make call to GetAPIAccessRules to check your call usage.) - skipped to protect existing fitment"
+61231,407154249864,,,,,,,skip,"guard read failed (Ack=Failure: Your application has exceeded usage limit on this call, please make call to GetAPIAccessRules to check your call usage.) - skipped to protect existing fitment"
+61257,407154249874,,,,,,,skip,"guard read failed (Ack=Failure: Your application has exceeded usage limit on this call, please make call to GetAPIAccessRules to check your call usage.) - skipped to protect existing fitment"
+61263,407154249856,,,,,,,skip,"guard read failed (Ack=Failure: Your application has exceeded usage limit on this call, please make call to GetAPIAccessRules to check your call usage.) - skipped to protect existing fitment"

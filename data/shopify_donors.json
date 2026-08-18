@@ -519,16 +519,6 @@
     "universal": "False",
     "engine_family": null
   },
-  "24491": {
-    "sku": "24491",
-    "make": "BMW",
-    "model": "X5",
-    "series": null,
-    "engine_code_raw": null,
-    "part_type": "Right Passenger Side Windshield Drip Molding Trim",
-    "universal": "False",
-    "engine_family": null
-  },
   "24509": {
     "sku": "24509",
     "make": "BMW",
@@ -556,6 +546,16 @@
     "series": null,
     "engine_code_raw": null,
     "part_type": "Condenser w/ Dryer",
+    "universal": "False",
+    "engine_family": null
+  },
+  "25550": {
+    "sku": "25550",
+    "make": "BMW",
+    "model": "540i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Rear Right Passenger Spindle Knuckle w/ Bearing",
     "universal": "False",
     "engine_family": null
   },
@@ -705,7 +705,27 @@
     "model": "550i",
     "series": null,
     "engine_code_raw": null,
-    "part_type": null,
+    "part_type": "Steering Wheel Assembly",
+    "universal": "False",
+    "engine_family": null
+  },
+  "27608": {
+    "sku": "27608",
+    "make": "BMW",
+    "model": "550i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Rear Right Passenger Control Arm",
+    "universal": "False",
+    "engine_family": null
+  },
+  "27310": {
+    "sku": "27310",
+    "make": "BMW",
+    "model": "550i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Rear Right Passenger Spindle Knuckle w/ Bearing",
     "universal": "False",
     "engine_family": null
   },
@@ -726,6 +746,16 @@
     "series": null,
     "engine_code_raw": null,
     "part_type": "Hood Bonnet Shell Panel",
+    "universal": "False",
+    "engine_family": null
+  },
+  "28396": {
+    "sku": "28396",
+    "make": "BMW",
+    "model": "750Li",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": null,
     "universal": "False",
     "engine_family": null
   },
@@ -829,6 +859,16 @@
     "universal": "False",
     "engine_family": null
   },
+  "29284": {
+    "sku": "29284",
+    "make": "BMW",
+    "model": "540i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Rear Right Passenger Spindle Knuckle w/ Bearing",
+    "universal": "False",
+    "engine_family": null
+  },
   "29807": {
     "sku": "29807",
     "make": "BMW",
@@ -859,6 +899,36 @@
     "universal": "False",
     "engine_family": null
   },
+  "29851": {
+    "sku": "29851",
+    "make": "BMW",
+    "model": "750i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "ABS Pump Module",
+    "universal": "False",
+    "engine_family": null
+  },
+  "29926": {
+    "sku": "29926",
+    "make": "BMW",
+    "model": "540i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Rear Left Driver Control Arm",
+    "universal": "False",
+    "engine_family": null
+  },
+  "30202": {
+    "sku": "30202",
+    "make": "BMW",
+    "model": "X3",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "ABS Pump Module",
+    "universal": "False",
+    "engine_family": null
+  },
   "30257": {
     "sku": "30257",
     "make": "BMW",
@@ -886,6 +956,16 @@
     "series": null,
     "engine_code_raw": null,
     "part_type": "Front Right Passenger Brake Caliper",
+    "universal": "False",
+    "engine_family": null
+  },
+  "30084": {
+    "sku": "30084",
+    "make": "BMW",
+    "model": "135i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Front Rear Left Right Interior Trim SET",
     "universal": "False",
     "engine_family": null
   },
@@ -1259,6 +1339,16 @@
     "universal": "False",
     "engine_family": null
   },
+  "32078": {
+    "sku": "32078",
+    "make": "BMW",
+    "model": "X3",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "ABS Pump Module",
+    "universal": "False",
+    "engine_family": null
+  },
   "32811": {
     "sku": "32811",
     "make": "BMW",
@@ -1278,6 +1368,16 @@
     "part_type": "Front Left Right Door Triangle Corner Speaker Assemblys SET",
     "universal": "False",
     "engine_family": "B46"
+  },
+  "32721": {
+    "sku": "32721",
+    "make": "BMW",
+    "model": "X3",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Rear Left or Right Spring Strut Shock Absorber",
+    "universal": "False",
+    "engine_family": null
   },
   "32725": {
     "sku": "32725",
@@ -1328,6 +1428,16 @@
     "part_type": "Left Driver Side Skirt Rocker Panel",
     "universal": "False",
     "engine_family": null
+  },
+  "32739": {
+    "sku": "32739",
+    "make": "BMW",
+    "model": "X3",
+    "series": "G01",
+    "engine_code_raw": "B46",
+    "part_type": "Misc",
+    "universal": "False",
+    "engine_family": "B46"
   },
   "32748": {
     "sku": "32748",
@@ -1799,6 +1909,16 @@
     "universal": "False",
     "engine_family": "B46"
   },
+  "36349": {
+    "sku": "36349",
+    "make": "BMW",
+    "model": "430i",
+    "series": null,
+    "engine_code_raw": "B46B20O1",
+    "part_type": "Rear Right Passenger Frame Cut Quarter Panel",
+    "universal": "False",
+    "engine_family": "B46"
+  },
   "36363": {
     "sku": "36363",
     "make": "BMW",
@@ -2139,6 +2259,16 @@
     "universal": "False",
     "engine_family": null
   },
+  "37006": {
+    "sku": "37006",
+    "make": "BMW",
+    "model": "430i",
+    "series": null,
+    "engine_code_raw": "B46B20O1",
+    "part_type": "Steering Wheel Assembly",
+    "universal": "False",
+    "engine_family": "B46"
+  },
   "36828": {
     "sku": "36828",
     "make": "BMW",
@@ -2251,16 +2381,6 @@
   },
   "36288": {
     "sku": "36288",
-    "make": "BMW",
-    "model": "X3",
-    "series": null,
-    "engine_code_raw": null,
-    "part_type": null,
-    "universal": "False",
-    "engine_family": null
-  },
-  "36287": {
-    "sku": "36287",
     "make": "BMW",
     "model": "X3",
     "series": null,
@@ -3429,16 +3549,6 @@
     "universal": "False",
     "engine_family": null
   },
-  "40840": {
-    "sku": "40840",
-    "make": "BMW",
-    "model": "330i",
-    "series": null,
-    "engine_code_raw": null,
-    "part_type": "Rear Right Passenger Control Arms SET",
-    "universal": "False",
-    "engine_family": null
-  },
   "40910": {
     "sku": "40910",
     "make": "BMW",
@@ -3949,16 +4059,6 @@
     "universal": "False",
     "engine_family": null
   },
-  "42060": {
-    "sku": "42060",
-    "make": "BMW",
-    "model": "X3",
-    "series": null,
-    "engine_code_raw": null,
-    "part_type": "Wheel Rim",
-    "universal": "False",
-    "engine_family": null
-  },
   "42061": {
     "sku": "42061",
     "make": "BMW",
@@ -4056,6 +4156,16 @@
     "series": null,
     "engine_code_raw": null,
     "part_type": "Engine",
+    "universal": "False",
+    "engine_family": null
+  },
+  "30677": {
+    "sku": "30677",
+    "make": "BMW",
+    "model": "330i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Rear Right Passenger Spindle Knuckle w/ Bearing",
     "universal": "False",
     "engine_family": null
   },
@@ -4479,6 +4589,16 @@
     "universal": "False",
     "engine_family": null
   },
+  "42869": {
+    "sku": "42869",
+    "make": "BMW",
+    "model": "330i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Front Left Driver Side Mirror Glass",
+    "universal": "False",
+    "engine_family": null
+  },
   "42815": {
     "sku": "42815",
     "make": "BMW",
@@ -4809,6 +4929,16 @@
     "universal": "False",
     "engine_family": null
   },
+  "43198": {
+    "sku": "43198",
+    "make": "BMW",
+    "model": "X3",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Front Right Passenger Door Shell Panel",
+    "universal": "False",
+    "engine_family": null
+  },
   "43462": {
     "sku": "43462",
     "make": "BMW",
@@ -5016,6 +5146,16 @@
     "series": null,
     "engine_code_raw": null,
     "part_type": "Transmission Transfer Case",
+    "universal": "False",
+    "engine_family": null
+  },
+  "44748": {
+    "sku": "44748",
+    "make": "BMW",
+    "model": "335i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Radiator Fan Shroud Housing w/ Motor",
     "universal": "False",
     "engine_family": null
   },
@@ -5439,6 +5579,16 @@
     "universal": "False",
     "engine_family": null
   },
+  "45880": {
+    "sku": "45880",
+    "make": "BMW",
+    "model": "M235i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Front Rear Left Right Brake Caliper SET",
+    "universal": "False",
+    "engine_family": null
+  },
   "45902": {
     "sku": "45902",
     "make": "BMW",
@@ -5665,7 +5815,7 @@
     "model": "M550i",
     "series": null,
     "engine_code_raw": null,
-    "part_type": "Fuel Injector",
+    "part_type": "Engine Motor Fuel Injector SET",
     "universal": "False",
     "engine_family": null
   },
@@ -5919,6 +6069,16 @@
     "universal": "False",
     "engine_family": null
   },
+  "46096": {
+    "sku": "46096",
+    "make": "BMW",
+    "model": "X5",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Hood Bonnet Shell Panel",
+    "universal": "False",
+    "engine_family": null
+  },
   "46077": {
     "sku": "46077",
     "make": "BMW",
@@ -6026,6 +6186,16 @@
     "series": null,
     "engine_code_raw": null,
     "part_type": "Wheel Rim SET",
+    "universal": "False",
+    "engine_family": null
+  },
+  "45917": {
+    "sku": "45917",
+    "make": "BMW",
+    "model": "M550i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Right Passenger Knee Airbag Air Bag",
     "universal": "False",
     "engine_family": null
   },
@@ -6186,16 +6356,6 @@
     "series": null,
     "engine_code_raw": null,
     "part_type": "Decklid Liftgate Trunk Module",
-    "universal": "False",
-    "engine_family": null
-  },
-  "45631": {
-    "sku": "45631",
-    "make": "BMW",
-    "model": "X6",
-    "series": null,
-    "engine_code_raw": null,
-    "part_type": "EKP Fuel Pump Module",
     "universal": "False",
     "engine_family": null
   },
@@ -6526,16 +6686,6 @@
     "series": null,
     "engine_code_raw": null,
     "part_type": "Rear Left Driver Spring Strut Shock Absorber",
-    "universal": "False",
-    "engine_family": null
-  },
-  "46370": {
-    "sku": "46370",
-    "make": "BMW",
-    "model": "X5",
-    "series": null,
-    "engine_code_raw": null,
-    "part_type": "Wheel Rim",
     "universal": "False",
     "engine_family": null
   },
@@ -8689,16 +8839,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "49988": {
-    "sku": "49988",
-    "make": "BMW",
-    "model": "X5",
-    "series": null,
-    "engine_code_raw": null,
-    "part_type": "Liftgate Trunk Lid Release Handle Switch",
-    "universal": "False",
-    "engine_family": null
-  },
   "50004": {
     "sku": "50004",
     "make": "BMW",
@@ -9799,6 +9939,16 @@
     "universal": "False",
     "engine_family": null
   },
+  "51785": {
+    "sku": "51785",
+    "make": "BMW",
+    "model": "435i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": null,
+    "universal": "False",
+    "engine_family": null
+  },
   "51775": {
     "sku": "51775",
     "make": "BMW",
@@ -9985,17 +10135,7 @@
     "model": "X5",
     "series": "G05",
     "engine_code_raw": "B58B30M1",
-    "part_type": "Rear Left Driver Door Lock Actuator",
-    "universal": "False",
-    "engine_family": "B58"
-  },
-  "52378": {
-    "sku": "52378",
-    "make": "BMW",
-    "model": "X5",
-    "series": "G05",
-    "engine_code_raw": "B58B30M1",
-    "part_type": "Front Left Driver Fender Brackets SET",
+    "part_type": "Rear Left Driver Door Latch Lock Actuator",
     "universal": "False",
     "engine_family": "B58"
   },
@@ -10409,6 +10549,16 @@
     "universal": "False",
     "engine_family": "B58"
   },
+  "52648": {
+    "sku": "52648",
+    "make": "BMW",
+    "model": "X5",
+    "series": "G05",
+    "engine_code_raw": "B58B30M1",
+    "part_type": "Front Propeller Driveshaft Drive Shaft",
+    "universal": "False",
+    "engine_family": "B58"
+  },
   "52602": {
     "sku": "52602",
     "make": "BMW",
@@ -10749,16 +10899,6 @@
     "universal": "False",
     "engine_family": "N55"
   },
-  "53018": {
-    "sku": "53018",
-    "make": "BMW",
-    "model": "X5",
-    "series": "F15",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Front or Rear Right Passenger Exterior Door Handle w/ Comfort Access",
-    "universal": "False",
-    "engine_family": "N55"
-  },
   "53042": {
     "sku": "53042",
     "make": "BMW",
@@ -11055,7 +11195,7 @@
     "model": "Z3",
     "series": "E36",
     "engine_code_raw": "M52B28O0",
-    "part_type": "Right Rear Quarter Panel",
+    "part_type": "Rear Right Passenger Frame Cut Quarter Panel",
     "universal": "False",
     "engine_family": "M52"
   },
@@ -11065,7 +11205,7 @@
     "model": "Z3",
     "series": "E36",
     "engine_code_raw": "M52B28O0",
-    "part_type": "Left Rear Quarter Panel",
+    "part_type": "Rear Left Driver Frame Cut Quarter Panel",
     "universal": "False",
     "engine_family": "M52"
   },
@@ -11249,33 +11389,23 @@
     "universal": "False",
     "engine_family": "N55"
   },
-  "53786": {
-    "sku": "53786",
-    "make": "BMW",
-    "model": "335i",
-    "series": "F30",
-    "engine_code_raw": "N55B30M0",
-    "part_type": null,
-    "universal": "False",
-    "engine_family": "N55"
-  },
-  "52875": {
-    "sku": "52875",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F97",
-    "engine_code_raw": "S58",
-    "part_type": "Fuel Vapor Charcoal Canister",
-    "universal": "False",
-    "engine_family": "S58"
-  },
   "51940": {
     "sku": "51940",
     "make": "BMW",
     "model": "X3",
     "series": "F97",
     "engine_code_raw": "S58",
-    "part_type": "Front Differential",
+    "part_type": "Front Axle Carrier Differential",
+    "universal": "False",
+    "engine_family": "S58"
+  },
+  "51928": {
+    "sku": "51928",
+    "make": "BMW",
+    "model": "X3",
+    "series": "F97",
+    "engine_code_raw": "S58",
+    "part_type": "Left Driver Side Fender",
     "universal": "False",
     "engine_family": "S58"
   },
@@ -11415,7 +11545,7 @@
     "model": "M550i",
     "series": "G30",
     "engine_code_raw": "N63B44O2",
-    "part_type": "Fuel Injector",
+    "part_type": "Engine Motor Fuel Injector SET",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -11556,6 +11686,16 @@
     "series": "G30",
     "engine_code_raw": "N63B44O2",
     "part_type": "Bumper PDC Parking Distance Sensor",
+    "universal": "False",
+    "engine_family": "N63"
+  },
+  "53251": {
+    "sku": "53251",
+    "make": "BMW",
+    "model": "M550i",
+    "series": "G30",
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Liftagte Trunk Lid Emblem",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -11969,16 +12109,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "54027": {
-    "sku": "54027",
-    "make": "BMW",
-    "model": "750i",
-    "series": "G12",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Headlight Switch",
-    "universal": "False",
-    "engine_family": "N63"
-  },
   "54034": {
     "sku": "54034",
     "make": "BMW",
@@ -12046,6 +12176,16 @@
     "series": "G30",
     "engine_code_raw": "N63B44O2",
     "part_type": "Headlight Leveling Level Sensor",
+    "universal": "False",
+    "engine_family": "N63"
+  },
+  "54140": {
+    "sku": "54140",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Engine Motor Fuel Injector SET",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -13045,7 +13185,7 @@
     "model": "750i",
     "series": "F01",
     "engine_code_raw": "N63B44O1",
-    "part_type": "Right Front Seat Belt",
+    "part_type": "Misc",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -13155,7 +13295,7 @@
     "model": "750i",
     "series": "F01",
     "engine_code_raw": "N63B44O1",
-    "part_type": "Hood",
+    "part_type": "Hood Bonnet Shell Panel",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -13779,16 +13919,6 @@
     "universal": "False",
     "engine_family": "N54"
   },
-  "53873": {
-    "sku": "53873",
-    "make": "BMW",
-    "model": "335i",
-    "series": "E93",
-    "engine_code_raw": "N54B30O0",
-    "part_type": "Wheel Rim SET",
-    "universal": "False",
-    "engine_family": "N54"
-  },
   "587": {
     "sku": "587",
     "make": "BMW",
@@ -14016,16 +14146,6 @@
     "series": "G22",
     "engine_code_raw": "B46B20O1",
     "part_type": "Rear Right Passenger Half Shaft Output CV Axle",
-    "universal": "False",
-    "engine_family": "B46"
-  },
-  "1979": {
-    "sku": "1979",
-    "make": "BMW",
-    "model": "430i",
-    "series": "G22",
-    "engine_code_raw": "B46B20O1",
-    "part_type": "Left Driver Reinforcement Radiator Bracket",
     "universal": "False",
     "engine_family": "B46"
   },
@@ -14266,16 +14386,6 @@
     "series": "G30",
     "engine_code_raw": "N63B44O2",
     "part_type": "Rear Middle Center Seatbelt Seat Belt Buckle",
-    "universal": "False",
-    "engine_family": "N63"
-  },
-  "53266": {
-    "sku": "53266",
-    "make": "BMW",
-    "model": "M550i",
-    "series": "G30",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Gas Tank Sending Unit Assembly",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -14615,7 +14725,7 @@
     "model": "528i",
     "series": "F10",
     "engine_code_raw": "N20B20O0",
-    "part_type": "Front Seat Control Module",
+    "part_type": "Front Left or Right Seat Control Module",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -14645,7 +14755,7 @@
     "model": "528i",
     "series": "F10",
     "engine_code_raw": "N20B20O0",
-    "part_type": "Front Seat Control Module",
+    "part_type": "Front Left or Right Seat Control Module",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -15289,16 +15399,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "53475": {
-    "sku": "53475",
-    "make": "BMW",
-    "model": "M550i",
-    "series": "G30",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Stereo Audio Amp Amplifier",
-    "universal": "False",
-    "engine_family": "N63"
-  },
   "53468": {
     "sku": "53468",
     "make": "BMW",
@@ -15794,10 +15894,10 @@
     "make": "BMW",
     "model": "750Li",
     "series": null,
-    "engine_code_raw": "raw_N63T",
+    "engine_code_raw": null,
     "part_type": "Front Right Passenger Headlight w/ Modules SET",
     "universal": "False",
-    "engine_family": "raw_N63T"
+    "engine_family": null
   },
   "2199": {
     "sku": "2199",
@@ -15838,16 +15938,6 @@
     "part_type": "Intake Manifold",
     "universal": "False",
     "engine_family": "raw_B46B20O0"
-  },
-  "52529": {
-    "sku": "52529",
-    "make": "BMW",
-    "model": "Z4",
-    "series": "E85",
-    "engine_code_raw": "M54",
-    "part_type": "Emergency Handle Brake Cover w/ Boot",
-    "universal": "False",
-    "engine_family": "M54"
   },
   "52531": {
     "sku": "52531",
@@ -16586,16 +16676,6 @@
     "series": "F86",
     "engine_code_raw": "raw_S63B44T2",
     "part_type": "Left Driver Brake Air Duct",
-    "universal": "False",
-    "engine_family": "raw_S63B44T2"
-  },
-  "2514": {
-    "sku": "2514",
-    "make": "BMW",
-    "model": "X6",
-    "series": "F86",
-    "engine_code_raw": "raw_S63B44T2",
-    "part_type": "Rear Trunk Cargo Net Clasp Rings SET",
     "universal": "False",
     "engine_family": "raw_S63B44T2"
   },
@@ -17395,7 +17475,7 @@
     "model": "528i",
     "series": "F10",
     "engine_code_raw": "N20B20O0",
-    "part_type": "Left Rear Blind Spot Radar",
+    "part_type": "Rear Left Driver Blind Spot Lane Sensor Radar Module",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -17465,7 +17545,7 @@
     "model": "528i",
     "series": "F10",
     "engine_code_raw": "N20B20O0",
-    "part_type": "Fuel Cap Cover",
+    "part_type": "Gas Cover Assembly",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -17475,7 +17555,7 @@
     "model": "528i",
     "series": "F10",
     "engine_code_raw": "N20B20O0",
-    "part_type": "Engine Wiring Wire Harness",
+    "part_type": "Engine Motor Wiring Wire Harness",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -17495,7 +17575,7 @@
     "model": "528i",
     "series": "F10",
     "engine_code_raw": "N20B20O0",
-    "part_type": "Front Left Driver Seat Switch",
+    "part_type": "Front Left Driver Seat Control Switch",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -19059,16 +19139,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "1195": {
-    "sku": "1195",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N20B20O0",
-    "part_type": "Rear Left or Right Brake Caliper Actuator",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "1192": {
     "sku": "1192",
     "make": "BMW",
@@ -19076,16 +19146,6 @@
     "series": "F25",
     "engine_code_raw": "N20B20O0",
     "part_type": "Engine Oil Cooler",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "1189": {
-    "sku": "1189",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N20B20O0",
-    "part_type": "ABS Pump Module",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -21449,16 +21509,6 @@
     "universal": "False",
     "engine_family": "B58"
   },
-  "1462": {
-    "sku": "1462",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "engine_code_raw": "B58B30M0",
-    "part_type": "Left Driver Engine Bay Cover Panel Seal Trim SET",
-    "universal": "False",
-    "engine_family": "B58"
-  },
   "1467": {
     "sku": "1467",
     "make": "BMW",
@@ -21956,16 +22006,6 @@
     "series": "F36",
     "engine_code_raw": "B58B30M0",
     "part_type": "Front Left Right Scuff Plate Door Sill SET",
-    "universal": "False",
-    "engine_family": "B58"
-  },
-  "1614": {
-    "sku": "1614",
-    "make": "BMW",
-    "model": "440i",
-    "series": "F36",
-    "engine_code_raw": "B58B30M0",
-    "part_type": "Engine Motor Turbo Charger Tube Pipe",
     "universal": "False",
     "engine_family": "B58"
   },
@@ -22714,10 +22754,10 @@
     "make": "BMW",
     "model": "X3",
     "series": "F97",
-    "engine_code_raw": "raw_S58B30T0",
+    "engine_code_raw": "S58",
     "part_type": "Front Rear Left Right Brake Disc Rotors SET",
     "universal": "False",
-    "engine_family": "raw_S58B30T0"
+    "engine_family": "S58"
   },
   "52974": {
     "sku": "52974",
@@ -24879,16 +24919,6 @@
     "universal": "False",
     "engine_family": "B58"
   },
-  "1642": {
-    "sku": "1642",
-    "make": "BMW",
-    "model": "440i",
-    "series": "F36",
-    "engine_code_raw": "B58B30M0",
-    "part_type": "Front Right Passenger Seatbelt Seat Belt Retractor",
-    "universal": "False",
-    "engine_family": "B58"
-  },
   "1659": {
     "sku": "1659",
     "make": "BMW",
@@ -25288,16 +25318,6 @@
     "part_type": "Front Left Driver Door Shell Panel",
     "universal": "False",
     "engine_family": "raw_S63B44T2"
-  },
-  "40683": {
-    "sku": "40683",
-    "make": "BMW",
-    "model": "X6",
-    "series": null,
-    "engine_code_raw": "raw_N55B30M0",
-    "part_type": "Liftgate Trunk Lid Reverse Camera",
-    "universal": "False",
-    "engine_family": "raw_N55B30M0"
   },
   "51965": {
     "sku": "51965",
@@ -26149,16 +26169,6 @@
     "universal": "False",
     "engine_family": "raw_S58B30T0"
   },
-  "1175": {
-    "sku": "1175",
-    "make": "BMW",
-    "model": "M2",
-    "series": "G87",
-    "engine_code_raw": "raw_S58B30T0",
-    "part_type": "Engine Motor HPFP High Pressure Fuel Pump",
-    "universal": "False",
-    "engine_family": "raw_S58B30T0"
-  },
   "1178": {
     "sku": "1178",
     "make": "BMW",
@@ -26979,16 +26989,6 @@
     "universal": "False",
     "engine_family": "B58"
   },
-  "827": {
-    "sku": "827",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "engine_code_raw": "B58B30M0",
-    "part_type": "Left Driver Side Skirt Rocker Panel",
-    "universal": "False",
-    "engine_family": "B58"
-  },
   "818": {
     "sku": "818",
     "make": "BMW",
@@ -27384,10 +27384,10 @@
     "make": "BMW",
     "model": "X3",
     "series": null,
-    "engine_code_raw": "raw_B46B20O0",
+    "engine_code_raw": null,
     "part_type": "Engine Oil Filter Housing",
     "universal": "False",
-    "engine_family": "raw_B46B20O0"
+    "engine_family": null
   },
   "1123": {
     "sku": "1123",
@@ -28024,10 +28024,10 @@
     "make": "BMW",
     "model": "X6",
     "series": "F86",
-    "engine_code_raw": "raw_S63B44T2",
+    "engine_code_raw": "S63B44T2",
     "part_type": "Liftgate Trunk Lid Lock Unlock Switch",
     "universal": "False",
-    "engine_family": "raw_S63B44T2"
+    "engine_family": "S63"
   },
   "2361": {
     "sku": "2361",
@@ -28074,10 +28074,10 @@
     "make": "BMW",
     "model": "X6",
     "series": "F86",
-    "engine_code_raw": "raw_S63B44T2",
+    "engine_code_raw": "S63B44T2",
     "part_type": "Transmission Switch Shifter",
     "universal": "False",
-    "engine_family": "raw_S63B44T2"
+    "engine_family": "S63"
   },
   "2352": {
     "sku": "2352",
@@ -28224,10 +28224,10 @@
     "make": "BMW",
     "model": "X6",
     "series": "F86",
-    "engine_code_raw": "raw_S63B44T2",
+    "engine_code_raw": "S63B44T2",
     "part_type": "Surround View Camera",
     "universal": "False",
-    "engine_family": "raw_S63B44T2"
+    "engine_family": "S63"
   },
   "2414": {
     "sku": "2414",
@@ -28379,16 +28379,6 @@
     "universal": "False",
     "engine_family": "N62"
   },
-  "2215": {
-    "sku": "2215",
-    "make": "BMW",
-    "model": "X5",
-    "series": "E70",
-    "engine_code_raw": "N62B48B",
-    "part_type": "Stereo Audio Amp Amplifier",
-    "universal": "False",
-    "engine_family": "N62"
-  },
   "2611": {
     "sku": "2611",
     "make": "BMW",
@@ -28479,16 +28469,6 @@
     "universal": "False",
     "engine_family": "raw_S63B44T2"
   },
-  "1933": {
-    "sku": "1933",
-    "make": "BMW",
-    "model": "X5",
-    "series": "F85",
-    "engine_code_raw": "S63B44T2",
-    "part_type": "Left Driver Secondary Auxiliary Radiator",
-    "universal": "False",
-    "engine_family": "S63"
-  },
   "2001": {
     "sku": "2001",
     "make": "BMW",
@@ -28514,10 +28494,10 @@
     "make": "BMW",
     "model": "X5",
     "series": "F85",
-    "engine_code_raw": "raw_S63B44T2",
+    "engine_code_raw": "S63B44T2",
     "part_type": "Front Left Driver Half Shaft Output CV Axle",
     "universal": "False",
-    "engine_family": "raw_S63B44T2"
+    "engine_family": "S63"
   },
   "1960": {
     "sku": "1960",
@@ -29454,10 +29434,10 @@
     "make": "BMW",
     "model": "X5",
     "series": "F85",
-    "engine_code_raw": "raw_S63B44T2",
+    "engine_code_raw": "S63B44T2",
     "part_type": "Rear Left Right Liftgate Trunk Lid Strut Shock Supports SET",
     "universal": "False",
-    "engine_family": "raw_S63B44T2"
+    "engine_family": "S63"
   },
   "2136": {
     "sku": "2136",
@@ -29534,10 +29514,10 @@
     "make": "BMW",
     "model": "X1",
     "series": null,
-    "engine_code_raw": "raw_B46O",
+    "engine_code_raw": null,
     "part_type": "Front Left Driver Side Mirror Assembly",
     "universal": "False",
-    "engine_family": "raw_B46O"
+    "engine_family": null
   },
   "36094": {
     "sku": "36094",
@@ -30509,16 +30489,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "3794": {
-    "sku": "3794",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N20B20A",
-    "part_type": "Rear Center Console Air Vent Grille",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "3784": {
     "sku": "3784",
     "make": "BMW",
@@ -31119,16 +31089,6 @@
     "universal": "False",
     "engine_family": "B46"
   },
-  "3931": {
-    "sku": "3931",
-    "make": "BMW",
-    "model": "330i",
-    "series": "G20",
-    "engine_code_raw": "B46B20O1",
-    "part_type": "Bumper PDC Parking Distance Sensor",
-    "universal": "False",
-    "engine_family": "B46"
-  },
   "3927": {
     "sku": "3927",
     "make": "BMW",
@@ -31249,16 +31209,6 @@
     "universal": "False",
     "engine_family": "N55"
   },
-  "695": {
-    "sku": "695",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Liftgate Trunk Lid Liftgate Lock Latch Actuator",
-    "universal": "False",
-    "engine_family": "N55"
-  },
   "698": {
     "sku": "698",
     "make": "BMW",
@@ -31276,16 +31226,6 @@
     "series": "F25",
     "engine_code_raw": "N55B30M0",
     "part_type": "Front Axle Carrier Differential",
-    "universal": "False",
-    "engine_family": "N55"
-  },
-  "838": {
-    "sku": "838",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Rear Propeller Driveshaft Drive Shaft",
     "universal": "False",
     "engine_family": "N55"
   },
@@ -34839,16 +34779,6 @@
     "universal": "False",
     "engine_family": "B46"
   },
-  "4226": {
-    "sku": "4226",
-    "make": "BMW",
-    "model": "330i",
-    "series": "G20",
-    "engine_code_raw": "B46B20O1",
-    "part_type": "Bdc Body Domain Fem Control Module",
-    "universal": "False",
-    "engine_family": "B46"
-  },
   "4224": {
     "sku": "4224",
     "make": "BMW",
@@ -35974,10 +35904,10 @@
     "make": "BMW",
     "model": "X6",
     "series": "F86",
-    "engine_code_raw": "raw_S63B44T2",
+    "engine_code_raw": "S63B44T2",
     "part_type": "Complete Interior",
     "universal": "False",
-    "engine_family": "raw_S63B44T2"
+    "engine_family": "S63"
   },
   "2101": {
     "sku": "2101",
@@ -38349,16 +38279,6 @@
     "universal": "False",
     "engine_family": "B46"
   },
-  "4244": {
-    "sku": "4244",
-    "make": "BMW",
-    "model": "330i",
-    "series": "G20",
-    "engine_code_raw": "B46B20O1",
-    "part_type": "Steering Gear Rack & Pinion",
-    "universal": "False",
-    "engine_family": "B46"
-  },
   "4847": {
     "sku": "4847",
     "make": "BMW",
@@ -39519,16 +39439,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "47242": {
-    "sku": "47242",
-    "make": "BMW",
-    "model": "750i",
-    "series": null,
-    "engine_code_raw": "raw_N63B44O1",
-    "part_type": "Car Stereo Radio Reciever Headunit Head Unit",
-    "universal": "False",
-    "engine_family": "raw_N63B44O1"
-  },
   "3423": {
     "sku": "3423",
     "make": "BMW",
@@ -40516,16 +40426,6 @@
     "series": "G20",
     "engine_code_raw": "B58B30O1",
     "part_type": "Headlight Leveling Level Sensor",
-    "universal": "False",
-    "engine_family": "B58"
-  },
-  "5331": {
-    "sku": "5331",
-    "make": "BMW",
-    "model": "M340i",
-    "series": "G20",
-    "engine_code_raw": "B58B30O1",
-    "part_type": "Bumper PDC Parking Distance Sensor",
     "universal": "False",
     "engine_family": "B58"
   },
@@ -41536,16 +41436,6 @@
     "series": "F30",
     "engine_code_raw": "B58B30M0",
     "part_type": "Liftgate Trunk Lid Reverse Camera",
-    "universal": "False",
-    "engine_family": "B58"
-  },
-  "5588": {
-    "sku": "5588",
-    "make": "BMW",
-    "model": "340i",
-    "series": "F30",
-    "engine_code_raw": "B58B30M0",
-    "part_type": "Engine Motor Cooling Auxiliary Water Pump",
     "universal": "False",
     "engine_family": "B58"
   },
@@ -43069,16 +42959,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "5851": {
-    "sku": "5851",
-    "make": "BMW",
-    "model": "750Li",
-    "series": "G12",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Hood Bonnet Safety Lock Latches SET",
-    "universal": "False",
-    "engine_family": "N63"
-  },
   "5845": {
     "sku": "5845",
     "make": "BMW",
@@ -43096,16 +42976,6 @@
     "series": "G12",
     "engine_code_raw": "N63B44O2",
     "part_type": "Front Right Passenger Bumper Fog Lamp Light",
-    "universal": "False",
-    "engine_family": "N63"
-  },
-  "5841": {
-    "sku": "5841",
-    "make": "BMW",
-    "model": "750Li",
-    "series": "G12",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Front Left Driver Bumper Fog Lamp Light",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -43159,16 +43029,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "5902": {
-    "sku": "5902",
-    "make": "BMW",
-    "model": "750Li",
-    "series": "G12",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Muffler Exhaust Flap Actuator",
-    "universal": "False",
-    "engine_family": "N63"
-  },
   "5910": {
     "sku": "5910",
     "make": "BMW",
@@ -43206,16 +43066,6 @@
     "series": "G05",
     "engine_code_raw": "B58B30M1",
     "part_type": "Gas Cover",
-    "universal": "False",
-    "engine_family": "B58"
-  },
-  "3450": {
-    "sku": "3450",
-    "make": "BMW",
-    "model": "X5",
-    "series": "G05",
-    "engine_code_raw": "B58B30M1",
-    "part_type": "Anti Theft Siren Alarm Module",
     "universal": "False",
     "engine_family": "B58"
   },
@@ -43806,16 +43656,6 @@
     "series": "G20",
     "engine_code_raw": "B46B20O1",
     "part_type": "Rear Power Distribution Fuse Box",
-    "universal": "False",
-    "engine_family": "B46"
-  },
-  "3767": {
-    "sku": "3767",
-    "make": "BMW",
-    "model": "330i",
-    "series": "G20",
-    "engine_code_raw": "B46B20O1",
-    "part_type": "ABS Pump Module",
     "universal": "False",
     "engine_family": "B46"
   },
@@ -45169,16 +45009,6 @@
     "universal": "False",
     "engine_family": "N54"
   },
-  "4718": {
-    "sku": "4718",
-    "make": "BMW",
-    "model": "535i",
-    "series": "E60",
-    "engine_code_raw": "N54B30O0",
-    "part_type": "Front Left Right Side Windshield Drip Trim Molding SET",
-    "universal": "False",
-    "engine_family": "N54"
-  },
   "4657": {
     "sku": "4657",
     "make": "BMW",
@@ -45814,10 +45644,10 @@
     "make": "BMW",
     "model": "None",
     "series": null,
-    "engine_code_raw": "raw_B58",
+    "engine_code_raw": null,
     "part_type": "Rear Windshield Wiper Motor",
     "universal": "False",
-    "engine_family": "raw_B58"
+    "engine_family": null
   },
   "47841": {
     "sku": "47841",
@@ -46639,16 +46469,6 @@
     "universal": "False",
     "engine_family": "N54"
   },
-  "4643": {
-    "sku": "4643",
-    "make": "BMW",
-    "model": "535i",
-    "series": "E60",
-    "engine_code_raw": "N54B30O0",
-    "part_type": "Gear Selector Controller Shifter Knob Panel Assembly",
-    "universal": "False",
-    "engine_family": "N54"
-  },
   "4486": {
     "sku": "4486",
     "make": "BMW",
@@ -46745,7 +46565,7 @@
     "model": "340i",
     "series": "F30",
     "engine_code_raw": "B58B30M0",
-    "part_type": "AFTERMARKET",
+    "part_type": "Engine Motor Air Duct Tube Hose",
     "universal": "False",
     "engine_family": "B58"
   },
@@ -47376,16 +47196,6 @@
     "series": "G01",
     "engine_code_raw": "B46B20B",
     "part_type": "Engine Motor ECU DME Computer Module",
-    "universal": "False",
-    "engine_family": "B46"
-  },
-  "6381": {
-    "sku": "6381",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "engine_code_raw": "B46B20B",
-    "part_type": "Right Passenger Curtain Roof Airbag Air Bag",
     "universal": "False",
     "engine_family": "B46"
   },
@@ -49459,16 +49269,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "6418": {
-    "sku": "6418",
-    "make": "BMW",
-    "model": "530i",
-    "series": "G30",
-    "engine_code_raw": "B46B20O0",
-    "part_type": "Wheel Rim",
-    "universal": "False",
-    "engine_family": "B46"
-  },
   "6419": {
     "sku": "6419",
     "make": "BMW",
@@ -50439,16 +50239,6 @@
     "universal": "False",
     "engine_family": "B46"
   },
-  "4060": {
-    "sku": "4060",
-    "make": "BMW",
-    "model": "330i",
-    "series": "G20",
-    "engine_code_raw": "B46B20O1",
-    "part_type": "Steering Wheel Airbag Air Bag",
-    "universal": "False",
-    "engine_family": "B46"
-  },
   "4117": {
     "sku": "4117",
     "make": "BMW",
@@ -50619,16 +50409,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "60258": {
-    "sku": "60258",
-    "make": "BMW",
-    "model": "M550i xDrive",
-    "series": "G30",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Wheel Rim",
-    "universal": "False",
-    "engine_family": "N63"
-  },
   "60260": {
     "sku": "60260",
     "make": "BMW",
@@ -50651,26 +50431,6 @@
   },
   "60262": {
     "sku": "60262",
-    "make": "BMW",
-    "model": "530i",
-    "series": "G30",
-    "engine_code_raw": "B46B20O0",
-    "part_type": "Wheel Rim",
-    "universal": "False",
-    "engine_family": "B46"
-  },
-  "60265": {
-    "sku": "60265",
-    "make": "BMW",
-    "model": "530i",
-    "series": "G30",
-    "engine_code_raw": "B46B20O0",
-    "part_type": "Wheel Rim",
-    "universal": "False",
-    "engine_family": "B46"
-  },
-  "60264": {
-    "sku": "60264",
     "make": "BMW",
     "model": "530i",
     "series": "G30",
@@ -51769,16 +51529,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "6710": {
-    "sku": "6710",
-    "make": "BMW",
-    "model": "750Li",
-    "series": "F02",
-    "engine_code_raw": "N63B44O1",
-    "part_type": "Knob Controller",
-    "universal": "False",
-    "engine_family": "N63"
-  },
   "6706": {
     "sku": "6706",
     "make": "BMW",
@@ -51976,16 +51726,6 @@
     "series": "F02",
     "engine_code_raw": "N63B44O1",
     "part_type": "Rear Left Driver Spring Strut Shock Absorber",
-    "universal": "False",
-    "engine_family": "N63"
-  },
-  "60030": {
-    "sku": "60030",
-    "make": "BMW",
-    "model": "750Li",
-    "series": "F02",
-    "engine_code_raw": "N63B44O1",
-    "part_type": "Front Left Driver Side Mirror Glass",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -53369,16 +53109,6 @@
     "universal": "False",
     "engine_family": "N55"
   },
-  "60593": {
-    "sku": "60593",
-    "make": "BMW",
-    "model": "535i",
-    "series": "F10",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Front Right Passenger Door Latch Lock Actuator",
-    "universal": "False",
-    "engine_family": "N55"
-  },
   "60609": {
     "sku": "60609",
     "make": "BMW",
@@ -54449,16 +54179,6 @@
     "universal": "False",
     "engine_family": "N52"
   },
-  "60800": {
-    "sku": "60800",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E93",
-    "engine_code_raw": "N52B30M1",
-    "part_type": "Battery Power Distribution Box",
-    "universal": "False",
-    "engine_family": "N52"
-  },
   "60809": {
     "sku": "60809",
     "make": "BMW",
@@ -54796,16 +54516,6 @@
     "series": "E70",
     "engine_code_raw": "N55B30A",
     "part_type": "Left Driver Brake Air Duct",
-    "universal": "False",
-    "engine_family": "N55"
-  },
-  "5489": {
-    "sku": "5489",
-    "make": "BMW",
-    "model": "X5",
-    "series": "E70",
-    "engine_code_raw": "N55B30A",
-    "part_type": "Transmission Oil Cooler Hose Pipe Lines",
     "universal": "False",
     "engine_family": "N55"
   },
@@ -55516,16 +55226,6 @@
     "series": "G20",
     "engine_code_raw": "B58B30O1",
     "part_type": "Front Left Driver Spring Strut Shock Absorber",
-    "universal": "False",
-    "engine_family": "B58"
-  },
-  "5328": {
-    "sku": "5328",
-    "make": "BMW",
-    "model": "M340i",
-    "series": "G20",
-    "engine_code_raw": "B58B30O1",
-    "part_type": "Bumper PDC Parking Distance Sensor",
     "universal": "False",
     "engine_family": "B58"
   },
@@ -57769,16 +57469,6 @@
     "universal": "False",
     "engine_family": "B46"
   },
-  "61361": {
-    "sku": "61361",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "engine_code_raw": "B46B20O0",
-    "part_type": "Engine Motor Throttle Body",
-    "universal": "False",
-    "engine_family": "B46"
-  },
   "61358": {
     "sku": "61358",
     "make": "BMW",
@@ -58286,16 +57976,6 @@
     "series": "G30",
     "engine_code_raw": "N63B44O2",
     "part_type": "Right Passenger Side Skirt Rocker Panel",
-    "universal": "False",
-    "engine_family": "N63"
-  },
-  "5918": {
-    "sku": "5918",
-    "make": "BMW",
-    "model": "M550i xDrive",
-    "series": "G30",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Rear Bumper Reinforcement Rebar Bar",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -59519,16 +59199,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "6537": {
-    "sku": "6537",
-    "make": "BMW",
-    "model": "M550i xDrive",
-    "series": "G30",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Front Rear Left Right Brake Caliper SET",
-    "universal": "False",
-    "engine_family": "N63"
-  },
   "6522": {
     "sku": "6522",
     "make": "BMW",
@@ -60189,16 +59859,6 @@
     "universal": "False",
     "engine_family": "B46"
   },
-  "60336": {
-    "sku": "60336",
-    "make": "BMW",
-    "model": "530i",
-    "series": "G30",
-    "engine_code_raw": "B46B20O0",
-    "part_type": "Front Left Right Sun Visor SET",
-    "universal": "False",
-    "engine_family": "B46"
-  },
   "60410": {
     "sku": "60410",
     "make": "BMW",
@@ -60459,16 +60119,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "61926": {
-    "sku": "61926",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N20B20A",
-    "part_type": "Rear Left Right Liftgate Trunk Lid Strut Shock Supports SET",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "61879": {
     "sku": "61879",
     "make": "BMW",
@@ -60476,16 +60126,6 @@
     "series": "F25",
     "engine_code_raw": "N20B20A",
     "part_type": "Front Right Passenger Fender Flare Arch Trim Molding",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "61869": {
-    "sku": "61869",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N20B20A",
-    "part_type": "Rear Trunk Cargo Net Clasp Rings SET",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -60769,16 +60409,6 @@
     "universal": "False",
     "engine_family": "N55"
   },
-  "60701": {
-    "sku": "60701",
-    "make": "BMW",
-    "model": "535i",
-    "series": "F10",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Gas Accelarator Pedal",
-    "universal": "False",
-    "engine_family": "N55"
-  },
   "60702": {
     "sku": "60702",
     "make": "BMW",
@@ -60946,16 +60576,6 @@
     "series": "G30",
     "engine_code_raw": "B46B20O0",
     "part_type": "Front Right Passenger Spring Strut Shock Absorber Bracket",
-    "universal": "False",
-    "engine_family": "B46"
-  },
-  "60431": {
-    "sku": "60431",
-    "make": "BMW",
-    "model": "530i",
-    "series": "G30",
-    "engine_code_raw": "B46B20O0",
-    "part_type": "Front Bumper Radiator Air Flap Shutter w/ Kidney Grilles",
     "universal": "False",
     "engine_family": "B46"
   },
@@ -61345,7 +60965,7 @@
     "model": "X6",
     "series": "F16",
     "engine_code_raw": "N55B30M0",
-    "part_type": null,
+    "part_type": "Battery Power Distribution Terminal Module",
     "universal": "False",
     "engine_family": "N55"
   },
@@ -61385,7 +61005,7 @@
     "model": "X6",
     "series": "F16",
     "engine_code_raw": "N55B30M0",
-    "part_type": null,
+    "part_type": "Battery Power Distribution Box",
     "universal": "False",
     "engine_family": "N55"
   },
@@ -61608,16 +61228,6 @@
     "part_type": "Engine Motor Ignition Injector Wiring Wire Harness",
     "universal": "False",
     "engine_family": "B46"
-  },
-  "3568": {
-    "sku": "3568",
-    "make": "BMW",
-    "model": "X5",
-    "series": "G05",
-    "engine_code_raw": "B58B30M1",
-    "part_type": "Front Left Driver Fender Flare Arch Trim Molding",
-    "universal": "False",
-    "engine_family": "B58"
   },
   "61611": {
     "sku": "61611",
@@ -62679,16 +62289,6 @@
     "universal": "False",
     "engine_family": "N55"
   },
-  "62271": {
-    "sku": "62271",
-    "make": "BMW",
-    "model": "335i",
-    "series": "F30",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Front Left Driver Sun Visor",
-    "universal": "False",
-    "engine_family": "N55"
-  },
   "62281": {
     "sku": "62281",
     "make": "BMW",
@@ -62766,16 +62366,6 @@
     "series": "F30",
     "engine_code_raw": "N55B30M0",
     "part_type": "AUX / USB Charger Port Socket",
-    "universal": "False",
-    "engine_family": "N55"
-  },
-  "62356": {
-    "sku": "62356",
-    "make": "BMW",
-    "model": "335i",
-    "series": "F30",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Radiator Lower Mounting Brackets SET",
     "universal": "False",
     "engine_family": "N55"
   },
@@ -62965,7 +62555,7 @@
     "model": "335i",
     "series": "F30",
     "engine_code_raw": "N55B30M0",
-    "part_type": "Secondary Auxiliary Radiator",
+    "part_type": "Headlight Leveling Level Sensor",
     "universal": "False",
     "engine_family": "N55"
   },
@@ -63256,16 +62846,6 @@
     "series": "E93",
     "engine_code_raw": "N52B30M1",
     "part_type": "Front AC Heater Climate Control Switch",
-    "universal": "False",
-    "engine_family": "N52"
-  },
-  "61065": {
-    "sku": "61065",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E93",
-    "engine_code_raw": "N52B30M1",
-    "part_type": "CONVERTIBLE Rear Left Driver Window Regulator Motor Glass SET",
     "universal": "False",
     "engine_family": "N52"
   },
@@ -64329,16 +63909,6 @@
     "universal": "False",
     "engine_family": "N52"
   },
-  "61002": {
-    "sku": "61002",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E90",
-    "engine_code_raw": "N52B30M1",
-    "part_type": "Front Left Right Sun Visor SET",
-    "universal": "False",
-    "engine_family": "N52"
-  },
   "61004": {
     "sku": "61004",
     "make": "BMW",
@@ -64739,16 +64309,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "61864": {
-    "sku": "61864",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N20B20A",
-    "part_type": "Front Left Driver Fender Brackets SET",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "61868": {
     "sku": "61868",
     "make": "BMW",
@@ -65089,16 +64649,6 @@
     "universal": "False",
     "engine_family": "N52"
   },
-  "62828": {
-    "sku": "62828",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E90",
-    "engine_code_raw": "N52B30",
-    "part_type": "Rear Left Driver Outer Tail Light",
-    "universal": "False",
-    "engine_family": "N52"
-  },
   "62836": {
     "sku": "62836",
     "make": "BMW",
@@ -65106,16 +64656,6 @@
     "series": "E90",
     "engine_code_raw": "N52B30",
     "part_type": "Front Left Driver Headlight w/ Modules SET",
-    "universal": "False",
-    "engine_family": "N52"
-  },
-  "62835": {
-    "sku": "62835",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E90",
-    "engine_code_raw": "N52B30",
-    "part_type": "Left Right Side Cowl Covers SET",
     "universal": "False",
     "engine_family": "N52"
   },
@@ -65569,16 +65109,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "61378": {
-    "sku": "61378",
-    "make": "BMW",
-    "model": "335i",
-    "series": "E93",
-    "engine_code_raw": "N54B30A",
-    "part_type": "Radiator Fan Shroud Housing w/ Motor",
-    "universal": "False",
-    "engine_family": "N54"
-  },
   "1618": {
     "sku": "1618",
     "make": "BMW",
@@ -65976,16 +65506,6 @@
     "series": "F30",
     "engine_code_raw": "N47D20O1",
     "part_type": "Front Rear Left Right Scuff Plate Door Sill SET",
-    "universal": "False",
-    "engine_family": "N47"
-  },
-  "62573": {
-    "sku": "62573",
-    "make": "BMW",
-    "model": "328i",
-    "series": "F30",
-    "engine_code_raw": "N47D20O1",
-    "part_type": "Gear Selector Controller Shifter Knob Panel Assembly",
     "universal": "False",
     "engine_family": "N47"
   },
@@ -66479,16 +65999,6 @@
     "universal": "False",
     "engine_family": "S58"
   },
-  "62650": {
-    "sku": "62650",
-    "make": "BMW",
-    "model": "328i",
-    "series": "F30",
-    "engine_code_raw": "N47D20O1",
-    "part_type": "Front Left Right Upper Bumper Cover Kidney Grilles SET",
-    "universal": "False",
-    "engine_family": "N47"
-  },
   "62655": {
     "sku": "62655",
     "make": "BMW",
@@ -66778,16 +66288,6 @@
     "part_type": "Rear Left Driver Inner Tail Light",
     "universal": "False",
     "engine_family": "N63"
-  },
-  "1460": {
-    "sku": "1460",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "engine_code_raw": "B58B30M0",
-    "part_type": "Right Passenger Engine Bay Cover Panel Seal Trim SET",
-    "universal": "False",
-    "engine_family": "B58"
   },
   "49329": {
     "sku": "49329",
@@ -67189,16 +66689,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "63328": {
-    "sku": "63328",
-    "make": "BMW",
-    "model": "320i",
-    "series": "F30",
-    "engine_code_raw": "N20B20U0",
-    "part_type": "Headlight Switch",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "63335": {
     "sku": "63335",
     "make": "BMW",
@@ -67286,16 +66776,6 @@
     "series": "F30",
     "engine_code_raw": "N20B20U0",
     "part_type": "Liftgate Trunk Lid Liftgate Lock Latch Actuator",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "63332": {
-    "sku": "63332",
-    "make": "BMW",
-    "model": "320i",
-    "series": "F30",
-    "engine_code_raw": "N20B20U0",
-    "part_type": "Steering Wheel Sensor Clockspring",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -67446,16 +66926,6 @@
     "series": "E90",
     "engine_code_raw": "N52B30",
     "part_type": "Front Right Passenger Seat Control Switch",
-    "universal": "False",
-    "engine_family": "N52"
-  },
-  "62971": {
-    "sku": "62971",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E90",
-    "engine_code_raw": "N52B30",
-    "part_type": "Transmission Transfer Case",
     "universal": "False",
     "engine_family": "N52"
   },
@@ -67628,16 +67098,6 @@
     "part_type": "SRS Airbag Air Bag Module",
     "universal": "False",
     "engine_family": null
-  },
-  "63020": {
-    "sku": "63020",
-    "make": "BMW",
-    "model": "328i",
-    "series": "F30",
-    "engine_code_raw": "N20B20O0",
-    "part_type": "Stereo Audio Amp Amplifier",
-    "universal": "False",
-    "engine_family": "N20"
   },
   "63014": {
     "sku": "63014",
@@ -67936,26 +67396,6 @@
     "series": "F30",
     "engine_code_raw": "N20B20O0",
     "part_type": "Rear Right Passenger Control Arms SET",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "63269": {
-    "sku": "63269",
-    "make": "BMW",
-    "model": "328i",
-    "series": "F30",
-    "engine_code_raw": "N20B20O0",
-    "part_type": "Engine Motor Ignition Injector Wiring Wire Harness",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "63270": {
-    "sku": "63270",
-    "make": "BMW",
-    "model": "328i",
-    "series": "F30",
-    "engine_code_raw": "N20B20O0",
-    "part_type": "Engine Motor Wiring Wire Harness",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -68345,7 +67785,7 @@
     "model": "528i",
     "series": "F10",
     "engine_code_raw": "N20B20O0",
-    "part_type": "Instrument Cluster Speedometer",
+    "part_type": "Instrument Speedometer Guage Cluster",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -68365,7 +67805,7 @@
     "model": "528i",
     "series": "F10",
     "engine_code_raw": "N20B20O0",
-    "part_type": "Front Tow Hook Cover",
+    "part_type": "Front Bumper Tow Hook Insert Cover",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -68395,19 +67835,9 @@
     "model": "528i",
     "series": "F10",
     "engine_code_raw": "N20B20O0",
-    "part_type": "Rear PDC Wire Wiring Harness",
+    "part_type": "Rear Bumper PDC Parking Sensor Wiring Wire Harness",
     "universal": "False",
     "engine_family": "N20"
-  },
-  "42593": {
-    "sku": "42593",
-    "make": "BMW",
-    "model": "428i",
-    "series": null,
-    "engine_code_raw": null,
-    "part_type": "Stereo Audio Amp Amplifier",
-    "universal": "False",
-    "engine_family": null
   },
   "5767": {
     "sku": "5767",
@@ -68446,16 +67876,6 @@
     "series": "F30",
     "engine_code_raw": "N20B20O0",
     "part_type": "Engine Cover",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "1160": {
-    "sku": "1160",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N20B20O0",
-    "part_type": "Sunroof Sun Roof Glass Motor",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -68529,16 +67949,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "63023": {
-    "sku": "63023",
-    "make": "BMW",
-    "model": "328i",
-    "series": "F30",
-    "engine_code_raw": "N20B20O0",
-    "part_type": "Front Left Driver Key Lock Mechanism w/ Key",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "63271": {
     "sku": "63271",
     "make": "BMW",
@@ -68596,16 +68006,6 @@
     "series": "F30",
     "engine_code_raw": "N20B20U0",
     "part_type": "Engine Motor Throttle Body",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "63499": {
-    "sku": "63499",
-    "make": "BMW",
-    "model": "320i",
-    "series": "F30",
-    "engine_code_raw": "N20B20U0",
-    "part_type": "Engine Motor HPFP High Pressure Fuel Pump",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -69109,16 +68509,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "63652": {
-    "sku": "63652",
-    "make": "BMW",
-    "model": "320i",
-    "series": "F30",
-    "engine_code_raw": "N20B20U0",
-    "part_type": "Rear Right Passenger Outer Tail Light",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "63610": {
     "sku": "63610",
     "make": "BMW",
@@ -69319,16 +68709,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "63670": {
-    "sku": "63670",
-    "make": "BMW",
-    "model": "320i",
-    "series": "F30",
-    "engine_code_raw": "N20B20U0",
-    "part_type": "Hood Bonnet Hinges SET",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "63661": {
     "sku": "63661",
     "make": "BMW",
@@ -69446,16 +68826,6 @@
     "series": "F30",
     "engine_code_raw": "N20B20U0",
     "part_type": "Front Left Driver Fender Brackets SET",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "63719": {
-    "sku": "63719",
-    "make": "BMW",
-    "model": "320i",
-    "series": "F30",
-    "engine_code_raw": "N20B20U0",
-    "part_type": "Coolant Expansion Tank Reservoir",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -70669,26 +70039,6 @@
     "universal": "False",
     "engine_family": "N55"
   },
-  "60159": {
-    "sku": "60159",
-    "make": "BMW",
-    "model": "435i",
-    "series": "F32",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Monitor Display Screen",
-    "universal": "False",
-    "engine_family": "N55"
-  },
-  "60109": {
-    "sku": "60109",
-    "make": "BMW",
-    "model": "435i",
-    "series": "F32",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Steering Wheel Airbag Air Bag",
-    "universal": "False",
-    "engine_family": "N55"
-  },
   "60154": {
     "sku": "60154",
     "make": "BMW",
@@ -71249,16 +70599,6 @@
     "universal": "False",
     "engine_family": "B46"
   },
-  "63975": {
-    "sku": "63975",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "engine_code_raw": "B46B20O0",
-    "part_type": "Front Left Driver Seatbelt Seat Belt Buckle",
-    "universal": "False",
-    "engine_family": "B46"
-  },
   "63936": {
     "sku": "63936",
     "make": "BMW",
@@ -71609,16 +70949,6 @@
     "universal": "False",
     "engine_family": "N52"
   },
-  "5504": {
-    "sku": "5504",
-    "make": "BMW",
-    "model": "M340i",
-    "series": "G20",
-    "engine_code_raw": "B58B30O1",
-    "part_type": "Rear Bumper PDC Parking Sensor Wiring Wire Harness",
-    "universal": "False",
-    "engine_family": "B58"
-  },
   "60680": {
     "sku": "60680",
     "make": "BMW",
@@ -71676,16 +71006,6 @@
     "series": "E70",
     "engine_code_raw": "N62B48B",
     "part_type": "Rear Right Passenger Fender Flare Arch Trim Molding",
-    "universal": "False",
-    "engine_family": "N62"
-  },
-  "6659": {
-    "sku": "6659",
-    "make": "BMW",
-    "model": "X5",
-    "series": "E70",
-    "engine_code_raw": "N62B48B",
-    "part_type": "Front Left Driver Fender Flare Arch Trim Molding",
     "universal": "False",
     "engine_family": "N62"
   },
@@ -72296,16 +71616,6 @@
     "series": "F02",
     "engine_code_raw": "N63B44O1",
     "part_type": "Front Bumper Cover",
-    "universal": "False",
-    "engine_family": "N63"
-  },
-  "60099": {
-    "sku": "60099",
-    "make": "BMW",
-    "model": "750Li",
-    "series": "F02",
-    "engine_code_raw": "N63B44O1",
-    "part_type": "Front Rear Left Right Interior Trim SET",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -72949,16 +72259,6 @@
     "universal": "False",
     "engine_family": "N55"
   },
-  "53849": {
-    "sku": "53849",
-    "make": "BMW",
-    "model": "335i",
-    "series": "F30",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Engine Oil Cooler Hose Pipe Lines",
-    "universal": "False",
-    "engine_family": "N55"
-  },
   "60559": {
     "sku": "60559",
     "make": "BMW",
@@ -73299,16 +72599,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "61962": {
-    "sku": "61962",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N20B20A",
-    "part_type": "Steering Wheel Airbag Air Bag",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "61975": {
     "sku": "61975",
     "make": "BMW",
@@ -73336,16 +72626,6 @@
     "series": "F25",
     "engine_code_raw": "N20B20A",
     "part_type": "Automatic Transmission Assembly",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "62385": {
-    "sku": "62385",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N20B20A",
-    "part_type": "Front Clip Frame Radiator Support Assembly",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -73469,16 +72749,6 @@
     "universal": "False",
     "engine_family": "N47"
   },
-  "48020": {
-    "sku": "48020",
-    "make": "BMW",
-    "model": "135i",
-    "series": null,
-    "engine_code_raw": null,
-    "part_type": "EKP Fuel Pump Module",
-    "universal": "False",
-    "engine_family": null
-  },
   "47811": {
     "sku": "47811",
     "make": "BMW",
@@ -73559,26 +72829,6 @@
     "universal": "False",
     "engine_family": "N52"
   },
-  "63462": {
-    "sku": "63462",
-    "make": "BMW",
-    "model": "328i",
-    "series": "F30",
-    "engine_code_raw": "N20B20O0",
-    "part_type": "Rear Axle Carrier Differential",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "63086": {
-    "sku": "63086",
-    "make": "BMW",
-    "model": "328i",
-    "series": "F30",
-    "engine_code_raw": "N20B20O0",
-    "part_type": "Hood Bonnet Shell Panel",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "63519": {
     "sku": "63519",
     "make": "BMW",
@@ -73646,16 +72896,6 @@
     "series": "F30",
     "engine_code_raw": "N20B20O0",
     "part_type": "Gear Selector Controller Shifter Knob Panel Assembly",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "63091": {
-    "sku": "63091",
-    "make": "BMW",
-    "model": "328i",
-    "series": "F30",
-    "engine_code_raw": "N20B20O0",
-    "part_type": "Right Passenger Side Skirt Rocker Panel",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -73979,16 +73219,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "60737": {
-    "sku": "60737",
-    "make": "BMW",
-    "model": "M550i xDrive",
-    "series": "G30",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "VVT Variable Valve Timing Actuator",
-    "universal": "False",
-    "engine_family": "N63"
-  },
   "60744": {
     "sku": "60744",
     "make": "BMW",
@@ -74259,16 +73489,6 @@
     "universal": "False",
     "engine_family": "N63"
   },
-  "60613": {
-    "sku": "60613",
-    "make": "BMW",
-    "model": "M550i xDrive",
-    "series": "G30",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Front Left Driver Exterior Door Handle w/ Comfort Access",
-    "universal": "False",
-    "engine_family": "N63"
-  },
   "1638": {
     "sku": "1638",
     "make": "BMW",
@@ -74366,16 +73586,6 @@
     "series": "G30",
     "engine_code_raw": "N63B44O2",
     "part_type": "Engine Motor Cooling Auxiliary Water Pump",
-    "universal": "False",
-    "engine_family": "N63"
-  },
-  "60572": {
-    "sku": "60572",
-    "make": "BMW",
-    "model": "M550i xDrive",
-    "series": "G30",
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Front Bumper Radiator Air Flap Shutter Motor Actuator",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -74529,16 +73739,6 @@
     "universal": "False",
     "engine_family": "N55"
   },
-  "60281": {
-    "sku": "60281",
-    "make": "BMW",
-    "model": "435i",
-    "series": "F32",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Left Driver Brake Air Duct",
-    "universal": "False",
-    "engine_family": "N55"
-  },
   "60360": {
     "sku": "60360",
     "make": "BMW",
@@ -74576,16 +73776,6 @@
     "series": "F32",
     "engine_code_raw": "N55B30M0",
     "part_type": "Front Left Driver Control Arms SET",
-    "universal": "False",
-    "engine_family": "N55"
-  },
-  "60344": {
-    "sku": "60344",
-    "make": "BMW",
-    "model": "435i",
-    "series": "F32",
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Rear Left Driver Spindle Knuckle w/ Bearing",
     "universal": "False",
     "engine_family": "N55"
   },
@@ -75879,16 +75069,6 @@
     "universal": "False",
     "engine_family": null
   },
-  "64223": {
-    "sku": "64223",
-    "make": "BMW",
-    "model": "750i",
-    "series": "G12",
-    "engine_code_raw": null,
-    "part_type": "Steering Wheel Switch Buttons",
-    "universal": "False",
-    "engine_family": null
-  },
   "64234": {
     "sku": "64234",
     "make": "BMW",
@@ -75996,16 +75176,6 @@
     "series": "G12",
     "engine_code_raw": null,
     "part_type": "Front Right Passenger Bumper Fog Lamp Light",
-    "universal": "False",
-    "engine_family": null
-  },
-  "64253": {
-    "sku": "64253",
-    "make": "BMW",
-    "model": "750i",
-    "series": "G12",
-    "engine_code_raw": null,
-    "part_type": "Emblem Badge Symbol Logo",
     "universal": "False",
     "engine_family": null
   },
@@ -77149,16 +76319,6 @@
     "universal": "False",
     "engine_family": "B46"
   },
-  "61124": {
-    "sku": "61124",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "engine_code_raw": "B46B20O0",
-    "part_type": "Right Passenger Side Skirt Rocker Panel Carpet Light Module",
-    "universal": "False",
-    "engine_family": "B46"
-  },
   "61121": {
     "sku": "61121",
     "make": "BMW",
@@ -77529,16 +76689,6 @@
     "universal": "False",
     "engine_family": "N51"
   },
-  "61446": {
-    "sku": "61446",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E93",
-    "engine_code_raw": "N51B30M0",
-    "part_type": "BCM Body Control Module",
-    "universal": "False",
-    "engine_family": "N51"
-  },
   "61448": {
     "sku": "61448",
     "make": "BMW",
@@ -77586,16 +76736,6 @@
     "series": "E93",
     "engine_code_raw": "N51B30M0",
     "part_type": "Suspension Height Level Sensor",
-    "universal": "False",
-    "engine_family": "N51"
-  },
-  "61456": {
-    "sku": "61456",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E93",
-    "engine_code_raw": "N51B30M0",
-    "part_type": "Steering Wheel Switch Buttons",
     "universal": "False",
     "engine_family": "N51"
   },
@@ -77786,16 +76926,6 @@
     "series": "E93",
     "engine_code_raw": "N51B30M0",
     "part_type": "Emergency Handle Brake Cover w/ Boot",
-    "universal": "False",
-    "engine_family": "N51"
-  },
-  "61522": {
-    "sku": "61522",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E93",
-    "engine_code_raw": "N51B30M0",
-    "part_type": "Liftgate Trunk Lid Emblem",
     "universal": "False",
     "engine_family": "N51"
   },
@@ -78235,7 +77365,7 @@
     "model": "M550i",
     "series": "G30",
     "engine_code_raw": "N63B44O2",
-    "part_type": null,
+    "part_type": "Bdc Body Domain Fem Control Module w/ Key",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -78258,5 +77388,1165 @@
     "part_type": "Rear Power Distribution Fuse Box",
     "universal": "False",
     "engine_family": "N55"
+  },
+  "5126": {
+    "sku": "5126",
+    "make": "BMW",
+    "model": "340",
+    "series": "F34",
+    "engine_code_raw": "B58B30M0",
+    "part_type": "Engine Motor Throttle Body",
+    "universal": "False",
+    "engine_family": "B58"
+  },
+  "53780": {
+    "sku": "53780",
+    "make": "BMW",
+    "model": "528i",
+    "series": "F10",
+    "engine_code_raw": "N20B20O0",
+    "part_type": "Steering Wheel Vibration Generator Motor w/ Module SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "62351": {
+    "sku": "62351",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Rear Smart Opener Sensor Module W/ Harness & Strap SET",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "4135": {
+    "sku": "4135",
+    "make": "BMW",
+    "model": "330i",
+    "series": "G20",
+    "engine_code_raw": "B46B20O1",
+    "part_type": "Gear Selector Controller Shifter Knob Panel Assembly",
+    "universal": "False",
+    "engine_family": "B46"
+  },
+  "6356": {
+    "sku": "6356",
+    "make": "BMW",
+    "model": "530i",
+    "series": "G30",
+    "engine_code_raw": "B46B20O0",
+    "part_type": "Engine Motor Transmission Wiring Wire Harness SET",
+    "universal": "False",
+    "engine_family": "B46"
+  },
+  "62382": {
+    "sku": "62382",
+    "make": "BMW",
+    "model": "X6",
+    "series": "F16",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Rear Bumper Cover w/ Diffuser",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "63588": {
+    "sku": "63588",
+    "make": "BMW",
+    "model": "328i",
+    "series": "E90",
+    "engine_code_raw": "N52B30",
+    "part_type": "Rear Left Driver Spindle Knuckle w/ Bearing",
+    "universal": "False",
+    "engine_family": "N52"
+  },
+  "62353": {
+    "sku": "62353",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Fuel Vapor Charcoal Canister",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62355": {
+    "sku": "62355",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Windshield Reservoir Tank Assembly",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62395": {
+    "sku": "62395",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Hood Bonnet Shell Panel",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62397": {
+    "sku": "62397",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Front Right Passenger Fender Panel",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62398": {
+    "sku": "62398",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Sunroof Sun Roof Glass Cover Trim",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62399": {
+    "sku": "62399",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Rear Trunk Cargo Floor Carpet Spare Tire Cover",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62396": {
+    "sku": "62396",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Front Left Driver Fender Panel",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62417": {
+    "sku": "62417",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Headlight Leveling Level Sensor",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62413": {
+    "sku": "62413",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Engine Oil Cooler Line Return Flow SET",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62418": {
+    "sku": "62418",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Alarm Horns SET",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62419": {
+    "sku": "62419",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Front Left Right Brake Caliper SET",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62522": {
+    "sku": "62522",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Wheel Rim",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62523": {
+    "sku": "62523",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Wheel Rim",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "63020": {
+    "sku": "63020",
+    "make": "BMW",
+    "model": "328i",
+    "series": "F30",
+    "engine_code_raw": "N20B20O0",
+    "part_type": "Stereo Audio Amp Amplifier",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "1614": {
+    "sku": "1614",
+    "make": "BMW",
+    "model": "440i",
+    "series": "F36",
+    "engine_code_raw": "B58B30M0",
+    "part_type": "Engine Motor Turbo Charger Tube Pipe",
+    "universal": "False",
+    "engine_family": "B58"
+  },
+  "5918": {
+    "sku": "5918",
+    "make": "BMW",
+    "model": "M550i xDrive",
+    "series": "G30",
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Rear Bumper Reinforcement Rebar Bar",
+    "universal": "False",
+    "engine_family": "N63"
+  },
+  "53266": {
+    "sku": "53266",
+    "make": "BMW",
+    "model": "M550i",
+    "series": "G30",
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Gas Tank Sending Unit Assembly",
+    "universal": "False",
+    "engine_family": "N63"
+  },
+  "62712": {
+    "sku": "62712",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": null,
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62737": {
+    "sku": "62737",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Front Left Driver Spindle Knuckle w/ Bearing",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62720": {
+    "sku": "62720",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Engine Motor HPFP High Pressure Fuel Pump",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62719": {
+    "sku": "62719",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Engine Motor Generator Alternator",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62708": {
+    "sku": "62708",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Engine Motor Injector SET",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62716": {
+    "sku": "62716",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Engine Motor Fuel Injector Rail Line",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62711": {
+    "sku": "62711",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Engine Motor Intake Manifold",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "62710": {
+    "sku": "62710",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Bdc Body Domain Fem Control Module w/ Key",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "63285": {
+    "sku": "63285",
+    "make": "BMW",
+    "model": "335i",
+    "series": "F30",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Transmission Oil Cooler Heat Exchanger",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "63459": {
+    "sku": "63459",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Right Passenger Fender Panel",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63458": {
+    "sku": "63458",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Left Driver Fender Panel",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63461": {
+    "sku": "63461",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Right Passenger Side Skirt Rocker Panel",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63460": {
+    "sku": "63460",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Left Driver Side Skirt Rocker Panel",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63492": {
+    "sku": "63492",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": null,
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63504": {
+    "sku": "63504",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Turbo Charger Wastegate Actuator",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63502": {
+    "sku": "63502",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Engine Water Heater Control Valve Pump",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63496": {
+    "sku": "63496",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Engine Motor Ignition Coil SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63500": {
+    "sku": "63500",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Left Right Engine Bracket Support Mount SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63509": {
+    "sku": "63509",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Engine Motor Wiring Wire Harness",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63506": {
+    "sku": "63506",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Engine Motor A/C AC Compressor Clutch Pump Pulley",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63507": {
+    "sku": "63507",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Transmission Wiring Wire Harness",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63508": {
+    "sku": "63508",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": null,
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "6313": {
+    "sku": "6313",
+    "make": "BMW",
+    "model": "530i",
+    "series": "G30",
+    "engine_code_raw": "B46B20O0",
+    "part_type": "Front Bumper Reinforcement Rebar Bar",
+    "universal": "False",
+    "engine_family": "B46"
+  },
+  "63514": {
+    "sku": "63514",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Left Right Tie Rod W/ Boot SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63516": {
+    "sku": "63516",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Engine Pan Oil Level Leveling Sensor",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63512": {
+    "sku": "63512",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Cat Catalytic Oxygen O2 Lambda Probe Sensors SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63513": {
+    "sku": "63513",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Engine Motor Intake Manifold",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63577": {
+    "sku": "63577",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Axle Support Crossmember Subframe",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63596": {
+    "sku": "63596",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Stereo Audio Amp Amplifier",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63598": {
+    "sku": "63598",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Rear Power Distribution Fuse Box",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63593": {
+    "sku": "63593",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Headliner Overhead Dome Light Switch Module",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63599": {
+    "sku": "63599",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Bluetooth Module",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63602": {
+    "sku": "63602",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Battery Positive Fuse Terminal Cable",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63604": {
+    "sku": "63604",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Fuel Vapor Charcoal Canister",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63609": {
+    "sku": "63609",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Liftgate Trunk Lid Lock Unlock Switch",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63612": {
+    "sku": "63612",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Center Console Armrest Arm Rest",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63608": {
+    "sku": "63608",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Left Driver Door Master Window Switch",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63613": {
+    "sku": "63613",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front AC Heater Climate Control Switch",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63616": {
+    "sku": "63616",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "SRS Airbag Air Bag Module",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63614": {
+    "sku": "63614",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Car Stereo Radio Reciever Headunit Head Unit",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63618": {
+    "sku": "63618",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Steering Wheel Bare",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63626": {
+    "sku": "63626",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Rear View Interior Mirror",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63625": {
+    "sku": "63625",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Steering Wheel Trim",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63656": {
+    "sku": "63656",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Right Passenger Seat Airbag Air Bag",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63658": {
+    "sku": "63658",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Left Driver Side Mirror Assembly",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63659": {
+    "sku": "63659",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Left Driver Side Mirror Assembly",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63660": {
+    "sku": "63660",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Rear Left Right Scuff Plate Door Sill SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63668": {
+    "sku": "63668",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Emblem Badge Symbol Logo",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63667": {
+    "sku": "63667",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Alarm Horns SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63713": {
+    "sku": "63713",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Right Passenger Seat Control Switch",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63714": {
+    "sku": "63714",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Left Driver Seat Control Switch",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63665": {
+    "sku": "63665",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Fuel Gas Tank Sending Unit Assembly",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63718": {
+    "sku": "63718",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Radiator Lower Mounting Brackets SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63720": {
+    "sku": "63720",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Left Driver Side Skirt Rocker Panel Brackets SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63721": {
+    "sku": "63721",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Right Passenger Side Skirt Rocker Panel Brackets SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63724": {
+    "sku": "63724",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Left Right Side Windshield Drip Trim Molding SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63722": {
+    "sku": "63722",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Engine Air Filter Box Assembly",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63745": {
+    "sku": "63745",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Rear Trunk Cargo Floor Carpet Spare Tire Cover",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63818": {
+    "sku": "63818",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Rear Left Driver Half Shaft Output CV Axle",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63817": {
+    "sku": "63817",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Rear Right Passenger Half Shaft Output CV Axle",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63821": {
+    "sku": "63821",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Left or Right Spring Strut Shock Absorber",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63820": {
+    "sku": "63820",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Left Driver Spindle Knuckle w/ Bearing",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63822": {
+    "sku": "63822",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Left or Right Spring Strut Shock Absorber",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63824": {
+    "sku": "63824",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": null,
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63823": {
+    "sku": "63823",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Rear Right Passenger Control Arms SET",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63825": {
+    "sku": "63825",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Radiator Fan Shroud Housing w/ Motor",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63826": {
+    "sku": "63826",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Front Left Driver Headlight",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63827": {
+    "sku": "63827",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Rear Right Passenger Spindle Knuckle w/ Bearing",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "63828": {
+    "sku": "63828",
+    "make": "BMW",
+    "model": "320i",
+    "series": "F30",
+    "engine_code_raw": "N20B20U0",
+    "part_type": "Rear Left Driver Spindle Knuckle w/ Bearing",
+    "universal": "False",
+    "engine_family": "N20"
+  },
+  "4060": {
+    "sku": "4060",
+    "make": "BMW",
+    "model": "330i",
+    "series": "G20",
+    "engine_code_raw": "B46B20O1",
+    "part_type": "Steering Wheel Airbag Air Bag",
+    "universal": "False",
+    "engine_family": "B46"
+  },
+  "61566": {
+    "sku": "61566",
+    "make": "BMW",
+    "model": "535i",
+    "series": "F10",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "ABS Pump Module",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "60146": {
+    "sku": "60146",
+    "make": "BMW",
+    "model": "435i",
+    "series": "F32",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Bumper PDC Parking Distance Sensor",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "64480": {
+    "sku": "64480",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Front Bumper PDC Parking Sensor Wiring Wire Harness",
+    "universal": "False",
+    "engine_family": null
+  },
+  "3858": {
+    "sku": "3858",
+    "make": "BMW",
+    "model": "330i",
+    "series": "G20",
+    "engine_code_raw": "B46B20O1",
+    "part_type": "Front Left or Right Side Mirror Motor Actuator",
+    "universal": "False",
+    "engine_family": "B46"
+  },
+  "5765": {
+    "sku": "5765",
+    "make": "BMW",
+    "model": "750Li",
+    "series": "G12",
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Wheel Rim",
+    "universal": "False",
+    "engine_family": "N63"
+  },
+  "3277": {
+    "sku": "3277",
+    "make": "BMW",
+    "model": "X5",
+    "series": "G05",
+    "engine_code_raw": "B58B30M1",
+    "part_type": "Front Left Driver Door Triangle Corner Speaker Assembly",
+    "universal": "False",
+    "engine_family": "B58"
+  },
+  "2198": {
+    "sku": "2198",
+    "make": "BMW",
+    "model": "X3",
+    "series": "G01",
+    "engine_code_raw": null,
+    "part_type": "Engine Motor Generator Alternator",
+    "universal": "False",
+    "engine_family": null
+  },
+  "48020": {
+    "sku": "48020",
+    "make": "BMW",
+    "model": "135i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "EKP Fuel Pump Module",
+    "universal": "False",
+    "engine_family": null
+  },
+  "53944": {
+    "sku": "53944",
+    "make": "BMW",
+    "model": "X3",
+    "series": "G01",
+    "engine_code_raw": "B58B30M0",
+    "part_type": "Bumper PDC Parking Distance Sensor",
+    "universal": "False",
+    "engine_family": "B58"
+  },
+  "53959": {
+    "sku": "53959",
+    "make": "BMW",
+    "model": "X3",
+    "series": "G01",
+    "engine_code_raw": "B58B30M0",
+    "part_type": "Bumper PDC Parking Distance Sensor",
+    "universal": "False",
+    "engine_family": "B58"
+  },
+  "53971": {
+    "sku": "53971",
+    "make": "BMW",
+    "model": "X3",
+    "series": "G01",
+    "engine_code_raw": "B58B30M0",
+    "part_type": "Rear Right Passenger Half Shaft Output CV Axle",
+    "universal": "False",
+    "engine_family": "B58"
+  },
+  "38413": {
+    "sku": "38413",
+    "make": "BMW",
+    "model": "750i",
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": "Front Right Passenger Fender Brackets SET",
+    "universal": "False",
+    "engine_family": null
+  },
+  "6596": {
+    "sku": "6596",
+    "make": "BMW",
+    "model": "X5",
+    "series": "E70",
+    "engine_code_raw": "N62B48B",
+    "part_type": "Engine Motor ECU DME Computer w/ Cas & Key SET",
+    "universal": "False",
+    "engine_family": "N62"
+  },
+  "6197": {
+    "sku": "6197",
+    "make": "BMW",
+    "model": "M550i xDrive",
+    "series": "G30",
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Left Driver Side Skirt Rocker Panel",
+    "universal": "False",
+    "engine_family": "N63"
+  },
+  "6426-1": {
+    "sku": "6426-1",
+    "make": "BMW",
+    "model": "X5",
+    "series": "E70",
+    "engine_code_raw": "N62B48B",
+    "part_type": "Wheel Rim SET",
+    "universal": "False",
+    "engine_family": "N62"
+  },
+  "6195": {
+    "sku": "6195",
+    "make": "BMW",
+    "model": "M550i xDrive",
+    "series": "G30",
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Right Passenger Side Skirt Rocker Panel",
+    "universal": "False",
+    "engine_family": "N63"
+  },
+  "5955": {
+    "sku": "5955",
+    "make": "BMW",
+    "model": "435i",
+    "series": "F32",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Left Driver Side Skirt Rocker Panel",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "5163": {
+    "sku": "5163",
+    "make": "BMW",
+    "model": "340",
+    "series": "F34",
+    "engine_code_raw": "B58B30M0",
+    "part_type": "Steering Gear Rack & Pinion",
+    "universal": "False",
+    "engine_family": "B58"
+  },
+  "2394": {
+    "sku": "2394",
+    "make": "BMW",
+    "model": "X6",
+    "series": "F86",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Front Right Passenger Bumper Cover Grille",
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "5951": {
+    "sku": "5951",
+    "make": "BMW",
+    "model": "435i",
+    "series": "F32",
+    "engine_code_raw": "N55B30M0",
+    "part_type": "Right Passenger Side Skirt Rocker Panel",
+    "universal": "False",
+    "engine_family": "N55"
+  },
+  "1893": {
+    "sku": "1893",
+    "make": "BMW",
+    "model": "430i",
+    "series": "G22",
+    "engine_code_raw": "B46B20O1",
+    "part_type": "Front Left Driver Spindle Knuckle w/ Bearing",
+    "universal": "False",
+    "engine_family": "B46"
+  },
+  "1968": {
+    "sku": "1968",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Front Left Right Side Windshield Drip Trim Molding SET",
+    "universal": "False",
+    "engine_family": "S63"
   }
 }
