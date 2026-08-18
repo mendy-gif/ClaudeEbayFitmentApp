@@ -48,14 +48,41 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Check required secrets
+        env:
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: |
+          missing=""
+          [ -z "$EBAY_CLIENT_ID" ]     && missing="$missing EBAY_CLIENT_ID"
+          [ -z "$EBAY_CLIENT_SECRET" ] && missing="$missing EBAY_CLIENT_SECRET"
+          [ -z "$EBAY_REFRESH_TOKEN" ] && missing="$missing EBAY_REFRESH_TOKEN"
+          if [ -n "$missing" ]; then
+            echo "Missing required repository secret(s):$missing" >> "$GITHUB_STEP_SUMMARY"
+            echo "Add them under Settings > Secrets and variables > Actions." >> "$GITHUB_STEP_SUMMARY"
+            echo "Values come from ebay_auth.json on the Mac (client_id, client_secret, refresh_token)." >> "$GITHUB_STEP_SUMMARY"
+            echo "Missing required secret(s):$missing"
+            exit 1
+          fi
+          echo "eBay secrets present."
+
       - name: Self-test (offline) -- never push live on broken logic
         run: python3 scripts/selftest.py
 
-      - name: Refresh Shopify donor dump
+      # Optional. The donor dump is committed, so the sweep works without Shopify creds --
+      # it just won't pick up SKUs added since the dump was last refreshed. Only the eBay
+      # secrets are actually required to run.
+      - name: Refresh Shopify donor dump (skipped if no Shopify secrets)
         env:
           SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
           SHOPIFY_TOKEN: ${{ secrets.SHOPIFY_TOKEN }}
-        run: python3 scripts/shopify_donor.py --dump
+        run: |
+          if [ -z "$SHOPIFY_STORE" ] || [ -z "$SHOPIFY_TOKEN" ]; then
+            echo "No Shopify secrets set -- using the committed donor dump as-is."
+            exit 0
+          fi
+          python3 scripts/shopify_donor.py --dump
 
       - name: Push fitment (live)
         env:
