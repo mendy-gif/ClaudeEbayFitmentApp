@@ -4,7 +4,7 @@ Plain-English status. Updated as work happens, so a new chat (or you) can pick u
 without re-reading the whole history. Technical detail lives in `CLAUDE.md` and
 `docs/DESIGN.md`; this is the running summary.
 
-**Last updated:** 2026-08-18
+**Last updated:** 2026-08-18 (automation validated end-to-end)
 
 ---
 
@@ -51,9 +51,14 @@ because "the push succeeded" was treated as proof. It isn't. Only what the listi
 At 1,500/night the backlog clears in about 5 nights. After that, nightly runs only see
 new listings and finish in minutes.
 
-**History:** the schedule had been firing since Aug 15 and failing in ~10 seconds every
-night because the GitHub credentials were never added. It never pushed anything. The
-credentials went in on Aug 18.
+**History:** the schedule fired nightly from Aug 15 and failed in ~10 seconds every time
+-- the GitHub credentials were never added, so it never pushed anything. Credentials went
+in on Aug 18.
+
+**Validated Aug 18.** Run #5 (25 SKUs) and run #6 (5 SKUs) both passed end to end:
+credentials accepted, self-test green, fitment pushed, and the audit reporting
+`100.0% (265/265)` of displayable listings showing, `LEAKING: none`. Run #6 also confirmed
+the GitHub Actions runtime upgrade off the deprecated Node.js 20.
 
 ## Known dead ends (not fixable)
 
@@ -89,8 +94,8 @@ the summary at the bottom.
 
 ## Open items
 
-- [ ] **Bump the GitHub Actions versions.** They warn that Node.js 20 is deprecated;
-      harmless now, will eventually break the nightly job.
+- [x] ~~Bump the GitHub Actions versions off deprecated Node.js 20~~ -- done, validated
+      by run #6.
 - [ ] **No Shopify credentials on this Mac.** The donor data is committed so everything
       works, but new SKUs added in Shopify won't be discovered automatically until this
       is sorted.
