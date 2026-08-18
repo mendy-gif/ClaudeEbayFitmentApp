@@ -217,6 +217,34 @@ CONT part-boundary handling on the real 5.7 GB archive, not just on synthetic te
 | rfile000.002 | 5,279,744 |
 | rfile001.000 | 1,792,589,824 |
 
+## The engine RUNS on Apple Silicon (confirmed)
+
+`tbadmin` executes under Docker + QEMU on an arm64 Mac and prints its usage. All
+libraries resolve, including the **old** ncurses variants:
+
+```
+libncurses.so.5 => /lib/i386-linux-gnu/libncurses.so.5
+libtinfo.so.5   => /lib/i386-linux-gnu/libtinfo.so.5
+/lib/ld-linux.so.2 (0x00400000)
+```
+
+The `linux/amd64` + i386-multiarch route works; the `linux/386` fallback was not
+needed. Recipe: `debian:bullseye-slim`, `dpkg --add-architecture i386`, then
+`libc6:i386 libstdc++6:i386 zlib1g:i386 libncurses5:i386 libtinfo5:i386`.
+
+Its own usage text confirms the reading of the install script:
+
+```
+-C    attach to CD-ROM database
+```
+
+So the `rfile*` blobs are a **CD-ROM database** -- read-only, attached in place.
+That suggests attaching does not duplicate the 5.7 GB, though this is unconfirmed.
+
+`tbadmin` options: `-b` boot, `-s` shutdown, `-r` reboot, `-i` inform, `-c` create,
+`-a` alter, `-d` delete, `-C` attach CD-ROM, `-M` migrate, `-drec` disk recovery.
+`tbadmin params <option>` prints per-option documentation.
+
 ## The Transbase binaries are 32-bit i386 (not x86_64)
 
 `file` inside the container reports:

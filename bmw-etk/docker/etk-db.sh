@@ -3,6 +3,7 @@
 #
 #   bash bmw-etk/docker/etk-db.sh build     # build the image from the ISO's tarball
 #   bash bmw-etk/docker/etk-db.sh probe     # what the binaries are, do they run
+#   bash bmw-etk/docker/etk-db.sh params C  # tbadmin's own docs for an option
 #   bash bmw-etk/docker/etk-db.sh create    # attach the ROM files as database etk_publ
 #   bash bmw-etk/docker/etk-db.sh sql "select ..."   # run one SQL statement
 #   bash bmw-etk/docker/etk-db.sh shell     # interactive shell inside the container
@@ -109,18 +110,37 @@ probe)
   run_in bash -lc 'ls -la /rom/files 2>/dev/null || ls -la /rom'
   ;;
 
+params)
+  have_docker
+  opt="${2:-C}"
+  run_in bash -lc "\$TRANSBASE/tbadmin params $opt 2>&1"
+  ;;
+
 create)
   have_docker
-  echo "Attaching the ROM files as database '$DB' (this is the real test)..."
+  echo "=== the exact syntax tbadmin expects for -C (attach to CD-ROM database) ==="
+  run_in bash -lc '$TRANSBASE/tbadmin params C 2>&1'
+  echo
+  echo "=== attaching the ROM files as database '"'"'$DB'"'"' ==="
   run_in bash -lc '
-    set -x
     ROMDIR=/rom
     [ -d /rom/files ] && ROMDIR=/rom/files
+    echo "ROM directory: $ROMDIR"
+    ls -la "$ROMDIR"
     mkdir -p /data/'"$DB"'
+    set -x
     $TRANSBASE/tbadmin -Cf '"$DB"' h=/data/'"$DB"' cp=utf8 p='"$DBPASS"' \
       rf=$ROMDIR/rfile000.000 rf=$ROMDIR/rfile000.001 rf=$ROMDIR/rfile001.000
-    echo "--- tbadmin exit $? ---"
-    ls -la /data/'"$DB"'
+    rc=$?
+    set +x
+    echo "--- tbadmin exit $rc ---"
+    echo
+    echo "=== what landed in /data ==="
+    ls -laR /data | head -40
+    du -sh /data
+    echo
+    echo "=== does Transbase now know about the database? ==="
+    $TRANSBASE/tbadmin -i '"$DB"' 2>&1 | head -30
   '
   ;;
 
