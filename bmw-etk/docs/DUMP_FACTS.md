@@ -36,14 +36,20 @@ continuous record stream:
 'FILE'  u16 name_len  name[name_len]  u64 declared_size
     then repeatedly:
         'CHNK'  u64 chunk_len  data[chunk_len]
-'SIGN'  u64 len  data[len]          -- package signature block
+'SIGN'  u32 len  data[len]          -- package signature block (DER)
 ```
+
+**Length-field widths differ per marker.** FILE and CHNK carry u64 lengths;
+**SIGN carries a u32**. Verified against the real archive: SIGN at logical offset
+1671 declares 0x2e = 46 bytes of DER (payload begins `30 2c 02 14`, an ASN.1
+SEQUENCE), and 1671 + 4 + 4 + 46 = 1725, which is exactly where the next FILE
+record (`CustomActionData.txt`) begins.
 
 All integers big-endian. `SIGN` records appear between file records; they hold the
 package signature (`package.properties` notes that `meta-inf/Manifest.mf` content is
-"omitted, as generated during signing"). Unknown 4-char markers are assumed to share
-the `MARKER + u64 length + payload` shape, and the parser **validates the guess** by
-checking it lands on a known marker -- it reports a hex window rather than silently
+"omitted, as generated during signing"). For any marker whose width is not yet known,
+the parser tries u32 then u64 and **accepts a width only if skipping that many bytes
+lands on a known marker** -- otherwise it reports a hex window rather than silently
 producing corrupt output.
 
 `package.properties` is the first entry: `name=ETK-Data`, `version=3.220.006`,

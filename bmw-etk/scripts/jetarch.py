@@ -35,6 +35,10 @@ MAGIC = b"RLFF"
 PART_HEADER = 8
 M_FILE, M_CHNK, M_SIGN = b"FILE", b"CHNK", b"SIGN"
 KNOWN = {M_FILE, M_CHNK, M_SIGN}
+# Width in bytes of the length field that follows each marker. FILE and CHNK
+# carry u64 lengths; SIGN carries a u32 (verified against the real archive:
+# SIGN at 1671 + 4 + 4 + 46 lands exactly on the FILE record at 1725).
+LENGTH_WIDTH = {M_CHNK: 8, M_SIGN: 4}
 COPY_BUF = 1 << 20
 
 
@@ -177,6 +181,37 @@ def hexwin(rd, center, before=48, after=112):
     return "\n".join(lines)
 
 
+def resolve_block(rd, marker, here):
+    """Work out the length field for a non-FILE marker at logical offset `here`.
+
+    Tries the known width for this marker first, then the alternatives, and
+    accepts a width only if skipping that many bytes lands on a marker we
+    recognise (or on clean end-of-stream). Returns (length, width, end) or None.
+    """
+    candidates = []
+    known = LENGTH_WIDTH.get(marker)
+    if known:
+        candidates.append(known)
+    for width in (4, 8):
+        if width not in candidates:
+            candidates.append(width)
+
+    for width in candidates:
+        rd.seek(here + 4)
+        raw = rd.read(width)
+        if len(raw) < width:
+            continue
+        length = int.from_bytes(raw, "big")
+        end = here + 4 + width + length
+        if end > rd.total:
+            continue
+        rd.seek(end)
+        probe = rd.read(4)
+        if not probe or probe in KNOWN:
+            return length, width, end
+    return None
+
+
 def walk(rd, on_file, on_other=None, strict=False):
     """Walk the record stream. Returns (file_count, marker_census, problems)."""
     census, problems = {}, []
@@ -211,30 +246,18 @@ def walk(rd, on_file, on_other=None, strict=False):
             files += 1
             continue
 
-        # Any other marker: assume MARKER + u64 length + payload, then verify
-        # we land on a marker we recognise. Never guess silently.
-        raw = rd.read(8)
-        if len(raw) < 8:
-            problems.append(f"{marker!r} at {here:,}: truncated length field")
-            break
-        length = struct.unpack(">Q", raw)[0]
-        payload_at = rd.tell()
-        if length > rd.total - payload_at:
+        # Any other marker: resolve its length field by trying candidate widths
+        # and keeping only the one that lands on a known marker. Never guess.
+        resolved = resolve_block(rd, marker, here)
+        if resolved is None:
             problems.append(
-                f"{marker!r} at {here:,}: implausible length {length:,}\n"
-                + hexwin(rd, here))
+                f"{marker!r} at {here:,}: could not read its length as u32 or u64 "
+                f"-- neither lands on a known marker\n" + hexwin(rd, here))
             break
-        rd.seek(payload_at + length)
-        probe = rd.read(4)
-        rd.seek(payload_at + length)
-        if probe and probe not in KNOWN:
-            problems.append(
-                f"{marker!r} at {here:,}: skipped {length:,} bytes but landed on "
-                f"{probe!r}, not a known marker\n" + hexwin(rd, here))
-            if strict:
-                break
+        length, width, end = resolved
+        rd.seek(end)
         if on_other:
-            on_other(marker, here, length)
+            on_other(marker, here, length, width)
     return files, census, problems
 
 
