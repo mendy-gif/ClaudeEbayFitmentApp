@@ -1,26 +1,6 @@
 sku,listingId,donor,rule,engine,n_vehicles,sources,models,action,reason
-839,407127249905,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Other Exterior Parts & Accessories)
-53944,407153911837,,,,,,,skip,no Shopify donor for SKU
-60233,407089207173,,,,,,,skip,already 73 vehicles (multi-fit/expanded)
-5864,407071025352,,,,,,,skip,already 73 vehicles (multi-fit/expanded)
-6191,407153965246,,,,,,,skip,already 73 vehicles (multi-fit/expanded)
-3482,407153965707,BMW X5 [G05],B,B58,40,chassis,X5,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors) [catalog: 21 retrimmed, 11 dropped_trim]"
-6192,407153965331,,,,,,,skip,already 73 vehicles (multi-fit/expanded)
-6193,407153965227,,,,,,,skip,already 73 vehicles (multi-fit/expanded)
-60072,407153965140,,,,,,,skip,already 59 vehicles (multi-fit/expanded)
-5956,407153965263,,,,,,,skip,already 145 vehicles (multi-fit/expanded)
-1128,407153965850,,,,,,,skip,no Shopify donor for SKU
-681,407153965745,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts)
-1968,407153965816,,,,,,,skip,already 13 vehicles (multi-fit/expanded)
-688,407153965859,BMW X3 [F25],B,N55,16,chassis,X3,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules) [catalog: 7 retrimmed]"
-856,407153965925,BMW 750i [F01],A,,22,chassis,"740i,750i,750i xDrive,ActiveHybrid 7,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck Parts & Accessories) [catalog: 7 dropped_vehicle]
-1161,407153965763,,,,,,,skip,no Shopify donor for SKU
-1353,407153965854,BMW X3 [F25],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware)
-1370,407153965844,BMW X3 [G01],A,,7,chassis,X3,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Control Arms, Ball Joints & Assemblies)"
-1529,407153965753,BMW X3 [G01],A,,7,chassis,X3,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Door Handles)"
-2020,407153965769,,,,,,,skip,already 121 vehicles (multi-fit/expanded)
-890,407153965868,BMW 750i [F01],A,,22,chassis,"740i,750i,750i xDrive,ActiveHybrid 7,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck Parts & Accessories) [catalog: 7 dropped_vehicle]
-1893,407153965764,,,,,,,skip,no Shopify donor for SKU
-980,407153965821,BMW X3 [F25],A,,7,chassis,X3,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Wheel Bearings, Hubs & Seals)"
-2394,407153965583,,,,,,,skip,no Shopify donor for SKU
-2947,407153965461,,,,,,,skip,already 12 vehicles (multi-fit/expanded)
+980,,,,,,,,skip,already in ledger
+890,,,,,,,,skip,already in ledger
+1529,,,,,,,,skip,already in ledger
+1370,,,,,,,,skip,already in ledger
+1353,,,,,,,,skip,already in ledger
