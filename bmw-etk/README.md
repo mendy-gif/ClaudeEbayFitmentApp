@@ -30,3 +30,14 @@ Later (not built yet, but the schema exploration should confirm the columns exis
 ```bash
 python3 bmw-etk/scripts/identify_dump.py /path/to/your/dump
 ```
+
+## Step 1a — if the dump is an ISO
+
+macOS mounts ISOs natively (read-only, copies nothing, no Docker needed):
+
+```bash
+bash bmw-etk/scripts/mount_iso.sh "/path/to/BMW ETK 2020-01.iso"
+```
+
+This mounts it, lists the contents, and runs `identify_dump.py` on the mount point
+to find the real database inside. Unmount later with `hdiutil detach /Volumes/<name>`.
