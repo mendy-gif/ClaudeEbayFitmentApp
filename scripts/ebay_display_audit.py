@@ -97,6 +97,11 @@ def rest(path, tok):
         return {}       # OSError covers socket.timeout, which is NOT a URLError
 
 
+class RateLimited(RuntimeError):
+    """eBay refused the call on quota (error 518). Every further read will fail too, so
+    stop rather than spending the rest of the allowance discovering that 300 times."""
+
+
 def trading_rows(item_id, tok):
     """The compatibility rows the DISPLAY store holds, as [{Year,Make,Model,Trim}].
     None if the read failed (distinct from an empty list, which means 'displays nothing')."""
@@ -120,6 +125,8 @@ def trading_rows(item_id, tok):
             return None
     except (urllib.error.URLError, OSError):
         return None     # OSError covers socket.timeout, which is NOT a URLError
+    if "<ErrorCode>518</ErrorCode>" in raw:
+        raise RateLimited("eBay call limit exceeded (error 518)")
     if "<Ack>Failure</Ack>" in raw and "<Compatibility>" not in raw:
         return None
     out = []
@@ -223,6 +230,7 @@ def main():
 
     detail, by_rule, by_cat = [], collections.defaultdict(lambda: [0, 0]), collections.defaultdict(lambda: [0, 0])
     unreadable = 0
+    rate_limited = False
     for i, sku in enumerate(skus, 1):
         off = rest("/sell/inventory/v1/offer?" + urllib.parse.urlencode({"sku": sku}), tok)
         pub = [o for o in off.get("offers", []) if o.get("status") == "PUBLISHED"]
@@ -234,7 +242,12 @@ def main():
         stored = len(pushed_rows)
         if stored == 0:
             continue
-        shown_rows = trading_rows(lid, tok) if lid else None
+        try:
+            shown_rows = trading_rows(lid, tok) if lid else None
+        except RateLimited as e:
+            print(f"\n  STOPPED at {i}/{len(skus)}: {e}")
+            rate_limited = True
+            break
         if shown_rows is None:
             unreadable += 1
             continue
@@ -257,6 +270,10 @@ def main():
             print(f"  [{i}/{len(skus)}] {sku:>8}  cat={cid:<7} rule={rule}  stored={stored:<4} displayed={shown:<4}{flag}")
 
     n = len(detail)
+    if rate_limited and n == 0:
+        sys.exit("\nCOULD NOT AUDIT: eBay's call limit (error 518) was hit before a single "
+                 "listing could be read. The quota resets daily. Nothing is known about "
+                 "whether fitment is displaying -- this is not a pass.")
     if not n:
         sys.exit("\nNo ledgered SKU has stored compatibility on a published offer.")
     good = sum(1 for d in detail if d["status"] == "OK")
@@ -298,6 +315,18 @@ def main():
             p = category_path(c, tree)
             if p:
                 print(f"            {p}")
+
+    attempted = len(detail) + unreadable
+    if attempted and unreadable / attempted > 0.2:
+        print(f"\nINCONCLUSIVE: {unreadable} of {attempted} listings could not be read"
+              + (" (eBay call limit)" if rate_limited else "")
+              + f", so this audit only saw {len(detail)}. That is not enough to say anything "
+              f"about whether fitment is displaying.")
+        if args.csv:
+            _write_csv(args.csv, detail)
+        # Exit non-zero when a threshold was requested: a run that could not verify itself
+        # must not report success. Silence here is exactly how the trim bug survived.
+        sys.exit(1 if args.fail_under is not None else 0)
 
     if args.fail_under is not None:
         dead = load_nondisplay()
