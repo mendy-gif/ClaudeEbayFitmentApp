@@ -6,6 +6,7 @@
 #   bash bmw-etk/docker/etk-db.sh params C  # tbadmin's own docs for an option
 #   bash bmw-etk/docker/etk-db.sh create    # attach the ROM files as database etk_publ
 #   bash bmw-etk/docker/etk-db.sh sql "select ..."   # run one SQL statement
+#   bash bmw-etk/docker/etk-db.sh reset     # clear the database volume and start over
 #   bash bmw-etk/docker/etk-db.sh shell     # interactive shell inside the container
 #
 # If the amd64 + i386-multiarch build will not run the binaries, retry natively
@@ -113,13 +114,13 @@ probe)
 params)
   have_docker
   opt="${2:-C}"
-  run_in bash -lc "\$TRANSBASE/tbadmin params $opt 2>&1"
+  run_in bash -lc "\$TRANSBASE/tbadmin params -$opt 2>&1 | head -40"
   ;;
 
 create)
   have_docker
   echo "=== the exact syntax tbadmin expects for -C (attach to CD-ROM database) ==="
-  run_in bash -lc '$TRANSBASE/tbadmin params C 2>&1'
+  run_in bash -lc '$TRANSBASE/tbadmin params -C 2>&1 | head -40'
   echo
   echo "=== attaching the ROM files as database '"'"'$DB'"'"' ==="
   run_in bash -lc '
@@ -127,7 +128,19 @@ create)
     [ -d /rom/files ] && ROMDIR=/rom/files
     echo "ROM directory: $ROMDIR"
     ls -la "$ROMDIR"
-    mkdir -p /data/'"$DB"'
+    # tbadmin creates h= itself and fails with "File exists" if it is already
+    # there, so clear an empty leftover and refuse to clobber a real one.
+    if [ -d /data/'"$DB"' ]; then
+      if [ -z "$(ls -A /data/'"$DB"' 2>/dev/null)" ]; then
+        echo "(removing empty /data/'"$DB"' so tbadmin can create it itself)"
+        rmdir /data/'"$DB"'
+      else
+        echo "ERROR: /data/'"$DB"' already exists and holds data."
+        echo "       Run:  bash bmw-etk/docker/etk-db.sh reset"
+        echo "       then: bash bmw-etk/docker/etk-db.sh create"
+        exit 1
+      fi
+    fi
     set -x
     $TRANSBASE/tbadmin -Cf '"$DB"' h=/data/'"$DB"' cp=utf8 p='"$DBPASS"' \
       rf=$ROMDIR/rfile000.000 rf=$ROMDIR/rfile000.001 rf=$ROMDIR/rfile001.000
@@ -151,6 +164,13 @@ sql)
   "$DOCKER" run --rm --platform "$PLATFORM" \
     -v "$ROM":/rom:ro -v "$VOLUME":/data -v /tmp/etk_query.sql:/tmp/q.sql:ro \
     "$IMAGE" bash -lc "\$TRANSBASE/tbi -f /tmp/q.sql $DB $DBUSER $DBPASS 2>&1"
+  ;;
+
+reset)
+  have_docker
+  echo "Clearing the database volume (the ROM files are untouched)..."
+  run_in bash -lc 'rm -rf /data/* /data/.[!.]* 2>/dev/null; ls -la /data'
+  echo "Cleared. Now run: bash bmw-etk/docker/etk-db.sh create"
   ;;
 
 shell)
