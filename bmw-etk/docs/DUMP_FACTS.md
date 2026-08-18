@@ -217,6 +217,44 @@ CONT part-boundary handling on the real 5.7 GB archive, not just on synthetic te
 | rfile000.002 | 5,279,744 |
 | rfile001.000 | 1,792,589,824 |
 
+## Attaching the CD-ROM database: partial progress
+
+`tbadmin -Cf` with BMW's exact parameters gets a long way and then fails:
+
+```
+Working ...
+attach to CD-ROM database etk_publ: unexpected: c_f_c_1      (exit 42)
+```
+
+Before failing it builds the database skeleton and **one companion index file per
+romfile**, so it does read them:
+
+```
+/data/etk_publ/{account,context,roms/cd}/
+/data/etk_publ/roms/cd/comp000.000   1,294,336
+/data/etk_publ/roms/cd/comp000.001   1,130,496
+/data/etk_publ/roms/cd/comp001.000     581,632
+```
+
+Prime suspect: **rfile000.002 is never passed.** Romfiles are named
+`rfile<volume>.<segment>`, so volume 000 has segments .000, .001 and **.002**, and
+volume 001 has .000. BMW's `postinstallDataDB.cmd` lists only three `rf=` arguments
+and omits `rfile000.002` -- consistent with only three companion files being built.
+
+`tbadmin params -C` also revealed options the install script does not use:
+
+```
+Usage: tbadmin -C[f|F][nv] dbname [<parameter> ...]
+  -f : interact at most for CD-Insert
+  -F : no interaction at all
+  r=<path>[,<CD-label>]    Database Romfile-Dir  (a whole directory)
+  rf=<file>[,<CD-label>]   Database Romfile
+```
+
+`docker/attach.sh` therefore tries six invocations in order -- BMW's three files as a
+control, all four files, `-F` instead of `-f` in case it is blocking on a CD-insert
+prompt, and `r=<dir>` letting tbadmin discover the romfiles itself.
+
 ## The engine RUNS on Apple Silicon (confirmed)
 
 `tbadmin` executes under Docker + QEMU on an arm64 Mac and prints its usage. All
