@@ -92,7 +92,16 @@ jobs:
             echo "No Shopify credentials set -- using the committed donor dump as-is."
             exit 0
           fi
-          python3 scripts/shopify_donor.py --dump
+          # Best-effort: a Shopify outage or a scope problem must not cancel the eBay
+          # sweep, which works fine on the committed dump. But it must be VISIBLE -- the
+          # script leaves the existing dump untouched on any failure, so continuing is safe.
+          if python3 scripts/shopify_donor.py --dump; then
+            echo "Donor dump refreshed from Shopify." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "WARNING: Shopify donor refresh FAILED -- swept using the committed dump," \
+                 "so cars parted out recently were not included. See the step log." \
+                 >> "$GITHUB_STEP_SUMMARY"
+          fi
 
       - name: Push fitment (live)
         env:

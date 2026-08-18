@@ -25,6 +25,7 @@ there is no token to paste. Same pattern as scripts/ebay_auth.py.
 Usage:
   python3 scripts/shopify_donor.py --sku 1194 63142      # look up specific SKUs
   python3 scripts/shopify_donor.py --dump                # dump ALL BMW donors -> data/shopify_donors.json
+  python3 scripts/shopify_donor.py --dump --force-shrink # allow a dump that halves the donor count
 """
 import json
 import os
@@ -113,13 +114,30 @@ def store_token():
     return store, tok
 
 
+class ShopifyError(RuntimeError):
+    """A Shopify API failure that must stop the run rather than look like empty data."""
+
+
 def gql(store, tok, query, variables):
+    """GraphQL call that FAILS LOUDLY. Shopify answers a rejected query with HTTP 200 and
+    an `errors` payload (bad token, missing read_products scope, throttling). Treating that
+    as "no products" is how a refresh silently wipes a good donor dump -- so raise instead."""
     url = f"https://{store}/admin/api/{API_VERSION}/graphql.json"
     data = json.dumps({"query": query, "variables": variables}).encode()
     req = urllib.request.Request(url, data=data, method="POST", headers={
         "X-Shopify-Access-Token": tok, "Content-Type": "application/json"})
-    with urllib.request.urlopen(req) as r:
-        return json.loads(r.read().decode("utf-8", "replace"))
+    try:
+        with urllib.request.urlopen(req, timeout=120) as r:
+            body = json.loads(r.read().decode("utf-8", "replace"))
+    except urllib.error.HTTPError as e:
+        raise ShopifyError(f"HTTP {e.code}: {e.read().decode('utf-8', 'replace')[:300]}") from None
+    except (urllib.error.URLError, ValueError, OSError) as e:
+        raise ShopifyError(f"transport: {e}") from None
+    if body.get("errors"):
+        raise ShopifyError(f"GraphQL errors: {json.dumps(body['errors'])[:300]}")
+    if body.get("data") is None:
+        raise ShopifyError(f"no data in response: {json.dumps(body)[:300]}")
+    return body
 
 
 def _tag_value(tags, prefix):
@@ -185,7 +203,7 @@ def fetch_by_skus(store, tok, skus):
     return out
 
 
-def dump_all(store, tok, vendor="BMW"):
+def dump_all(store, tok, vendor="BMW", force_shrink=False):
     out, cursor, page = {}, None, 0
     while True:
         q = ("query($q:String!,$after:String){ products(first:50, query:$q, after:$after) {"
@@ -203,8 +221,29 @@ def dump_all(store, tok, vendor="BMW"):
             break
         cursor = prods["pageInfo"]["endCursor"]
     path = os.path.join(ROOT, "data", "shopify_donors.json")
-    json.dump(out, open(path, "w", encoding="utf-8"), indent=2)
-    print(f"Wrote {len(out)} donors -> {os.path.relpath(path, ROOT)}")
+    previous = 0
+    try:
+        with open(path, encoding="utf-8") as f:
+            previous = len(json.load(f))
+    except (ValueError, OSError):
+        pass
+
+    # Sanity gate. The donor dump is the sweep's only source of donor vehicles; replacing a
+    # healthy one with a truncated result (a mid-pagination failure, a scope that silently
+    # returns nothing) would stall every future sweep without failing anything. A real
+    # inventory never collapses by half overnight, so treat that as a broken read.
+    if previous and len(out) < previous * 0.5 and not force_shrink:
+        raise ShopifyError(
+            f"refusing to overwrite {previous} donors with only {len(out)} -- this looks like "
+            f"a failed read, not a real inventory change. The existing dump is untouched. "
+            f"Re-run once the cause is understood, or pass --force-shrink if it is genuine.")
+
+    tmp = f"{path}.tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(out, f, indent=2)
+    os.replace(tmp, path)                      # atomic: never a half-written dump
+    delta = f" ({len(out) - previous:+d} vs previous {previous})" if previous else ""
+    print(f"Wrote {len(out)} donors{delta} -> {os.path.relpath(path, ROOT)}")
     return out
 
 
@@ -249,7 +288,14 @@ def main():
                  "SHOPIFY_CLIENT_ID + SHOPIFY_CLIENT_SECRET (env or shopify.env). "
                  "See this file's docstring.")
     if "--dump" in args:
-        dump_all(store, tok)
+        try:
+            dump_all(store, tok, force_shrink="--force-shrink" in args)
+        except ShopifyError as e:
+            sys.exit(f"ERROR: Shopify refresh failed -- {e}\n"
+                     "The existing donor dump was NOT modified. Common causes: the app is "
+                     "missing the read_products scope, the released app version predates the "
+                     "scope change, or the app and store are in different Shopify organizations "
+                     "(the client credentials grant requires the same org).")
         return
     if "--sku" in args:
         skus = args[args.index("--sku") + 1:]
