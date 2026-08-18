@@ -33,8 +33,13 @@ from bisect import bisect_right
 
 MAGIC = b"RLFF"
 PART_HEADER = 8
-M_FILE, M_CHNK, M_SIGN = b"FILE", b"CHNK", b"SIGN"
-KNOWN = {M_FILE, M_CHNK, M_SIGN}
+M_FILE, M_CHNK, M_SIGN, M_CONT = b"FILE", b"CHNK", b"SIGN", b"CONT"
+KNOWN = {M_FILE, M_CHNK, M_SIGN, M_CONT}
+# Markers with no length field: the marker is followed by a fixed number of
+# bytes. CONT sits at a part boundary and means "this file continues in the
+# next part" -- verified: CONT at 1,073,741,843 + 4 + 1 = 1,073,741,848, exactly
+# where part 1's payload ends and part 2's begins.
+FIXED_TAIL = {M_CONT: 1}
 # Width in bytes of the length field that follows each marker. FILE and CHNK
 # carry u64 lengths; SIGN carries a u32 (verified against the real archive:
 # SIGN at 1671 + 4 + 4 + 46 lands exactly on the FILE record at 1725).
@@ -235,6 +240,11 @@ def walk(rd, on_file, on_other=None, strict=False):
                     mk = _rd.read(4)
                     if len(mk) < 4:
                         return seen
+                    if mk in FIXED_TAIL:
+                        # A file's chunks continue across a part boundary.
+                        _census[mk] = _census.get(mk, 0) + 1
+                        _rd.read(FIXED_TAIL[mk])
+                        continue
                     if mk != M_CHNK:
                         _rd.seek(at)
                         return seen
@@ -244,6 +254,10 @@ def walk(rd, on_file, on_other=None, strict=False):
 
             on_file(name, declared, chunk_reader)
             files += 1
+            continue
+
+        if marker in FIXED_TAIL:
+            rd.read(FIXED_TAIL[marker])
             continue
 
         # Any other marker: resolve its length field by trying candidate widths
@@ -357,16 +371,33 @@ def cmd_extract(args):
     rd = MultiPartReader(find_parts(args.source))
     out_root = os.path.abspath(os.path.expanduser(args.out))
     os.makedirs(out_root, exist_ok=True)
-    done = {"n": 0, "bytes": 0}
+    done = {"n": 0, "bytes": 0, "skipped": 0}
+    patterns = [g.strip().lower() for g in args.only.split(",")] if args.only else None
+
+    def wanted(safe, declared):
+        if args.max_bytes and declared > args.max_bytes:
+            return False
+        if not patterns:
+            return True
+        low = safe.lower()
+        return any(fnmatch.fnmatch(low, g) or fnmatch.fnmatch(os.path.basename(low), g)
+                   for g in patterns)
 
     def on_file(name, declared, chunk_reader):
         safe = name.replace("\\", "/").lstrip("/")
-        if args.only and not fnmatch.fnmatch(safe.lower(), args.only.lower()):
-            chunk_reader(None)
-            return
         dest = os.path.normpath(os.path.join(out_root, safe))
         if dest != out_root and not dest.startswith(out_root + os.sep):
             print(f"  refusing unsafe path: {name}", file=sys.stderr)
+            chunk_reader(None)
+            return
+        # Entries ending in "/" are directory markers, not files. Creating a
+        # regular file for them would block the real directory of that name.
+        if safe.endswith("/"):
+            os.makedirs(dest, exist_ok=True)
+            chunk_reader(None)
+            return
+        if not wanted(safe, declared):
+            done["skipped"] += 1
             chunk_reader(None)
             return
         os.makedirs(os.path.dirname(dest) or out_root, exist_ok=True)
@@ -375,11 +406,14 @@ def cmd_extract(args):
         done["n"] += 1
         done["bytes"] += got
         if done["n"] <= 40 or done["n"] % 5000 == 0:
-            print(f"  {human(got):>12}  {safe}")
+            note = "" if got == declared else f"   [declared {declared:,}]"
+            print(f"  {human(got):>12}  {safe}{note}")
 
     _, _, problems = walk(rd, on_file)
     rd.close()
     print(f"\nExtracted {done['n']:,} files, {human(done['bytes'])} -> {out_root}")
+    if done["skipped"]:
+        print(f"Skipped {done['skipped']:,} entries not matching the filters.")
     report_problems(problems)
 
 
@@ -404,7 +438,10 @@ def main():
 
     p = sub.add_parser("extract", help="extract files")
     p.add_argument("source"); p.add_argument("-o", "--out", required=True)
-    p.add_argument("--only", help="glob filter, e.g. '*.sql'")
+    p.add_argument("--only", help="comma-separated globs, e.g. '*.sql,*.txt'; "
+                                  "matched against the full path and the basename")
+    p.add_argument("--max-bytes", type=int, default=0,
+                   help="skip entries whose declared size exceeds this")
     p.set_defaults(func=cmd_extract)
 
     args = ap.parse_args()

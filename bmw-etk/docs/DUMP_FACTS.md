@@ -39,6 +39,12 @@ continuous record stream:
 'SIGN'  u32 len  data[len]          -- package signature block (DER)
 ```
 
+`CONT` is a **part-boundary continuation marker** with no length field at all:
+just `'CONT'` plus one byte. Verified: CONT at logical offset 1,073,741,843 plus
+4 plus 1 = 1,073,741,848, exactly where part 1's payload ends and part 2's begins,
+with `CHNK` resuming immediately after. It appears **inside** a file's chunk
+sequence, so a single file's chunks span parts and the chunk loop must step over it.
+
 **Length-field widths differ per marker.** FILE and CHNK carry u64 lengths;
 **SIGN carries a u32**. Verified against the real archive: SIGN at logical offset
 1671 declares 0x2e = 46 bytes of DER (payload begins `30 2c 02 14`, an ASN.1
@@ -64,6 +70,27 @@ mid-chunk split boundaries, and interleaved SIGN records: extraction is byte-ide
 **This is why Docker may not be needed**: if the payload is loadable data (SQL, CSV,
 table exports) rather than opaque Transbase page files, we can read the catalog
 without ever starting the engine.
+
+## What is actually inside the archive
+
+Top-level payload (from `jetarch.py list`):
+
+```
+package.properties            1.6 KB   installer metadata
+CustomActionData.txt          268 B
+filelist.txt                  370 B    <- names the payload files
+filelist_script.txt           2 B
+files/                        0 B      directory entry
+files/postinstallDataDB.cmd   2.3 KB   <- HOW the data is loaded into Transbase
+files/relnotes.pdf          120.4 KB   release notes
+files/rfile000.000          ~2.0 GB    <- the bulk data; more rfileNNN.NNN expected
+```
+
+So the catalog is **not** shipped as loose SQL/CSV. It is a small number of large
+`rfileNNN.NNN` blobs plus a `postinstallDataDB.cmd` script that loads them. Reading
+that .cmd file is the next step: it names the tool and arguments used to load the
+data, which tells us whether the blobs are a Transbase archive (needs the engine) or
+a bulk-loader format (readable directly).
 
 ## Schema clues already visible
 
