@@ -206,6 +206,13 @@ def main():
                     help="audit the N most recently pushed SKUs instead of the oldest. This is "
                          "what a post-sweep regression check wants -- --limit samples the oldest "
                          "entries, which a fresh sweep never touched.")
+    ap.add_argument("--sample", type=int, metavar="N",
+                    help="audit a rotating slice of N SKUs from the WHOLE ledger, offset by the "
+                         "day of the year so coverage cycles over time. This is the drift check: "
+                         "--recent only ever looks at new work, so a listing overwritten by "
+                         "another system months ago would never be noticed.")
+    ap.add_argument("--fail-on-leak", action="store_true",
+                    help="exit non-zero if any listing displays a trim we never pushed")
     ap.add_argument("--fail-under", type=float, metavar="PCT",
                     help="exit non-zero if fewer than PCT%% of audited SKUs display. Lets CI "
                          "fail loudly on a regression instead of pushing invisible fitment "
@@ -220,7 +227,16 @@ def main():
         sys.exit(f"no ledger at {LEDGER} -- nothing pushed yet")
     led = json.load(open(LEDGER, encoding="utf-8"))
     tree = json.load(open(TREE, encoding="utf-8")) if os.path.exists(TREE) else None
-    if args.recent:
+    if args.sample:
+        allk = list(led)
+        n = min(args.sample, len(allk))
+        # Deterministic rotation: each day starts where the previous left off, so the whole
+        # ledger is covered over time without needing to remember a cursor anywhere.
+        import datetime
+        start = (datetime.date.today().timetuple().tm_yday * n) % max(len(allk), 1)
+        skus = [allk[(start + i) % len(allk)] for i in range(n)]
+        print(f"(rotating drift sample: {n} of {len(allk)} ledgered SKUs, offset {start})")
+    elif args.recent:
         skus = list(led)[-args.recent:]
     elif args.limit:
         skus = list(led)[: args.limit]
@@ -327,6 +343,14 @@ def main():
         # Exit non-zero when a threshold was requested: a run that could not verify itself
         # must not report success. Silence here is exactly how the trim bug survived.
         sys.exit(1 if args.fail_under is not None else 0)
+
+    if args.fail_on_leak and leaks:
+        print(f"\nFAIL: {len(leaks)} listing(s) display a trim we never pushed. Either a "
+              f"wildcard leaked from our own rows, or another system (Dismantly, PartOutPro, "
+              f"eBay auto-fitment) has rewritten the fitment on these listings.")
+        if args.csv:
+            _write_csv(args.csv, detail)
+        sys.exit(1)
 
     if args.fail_under is not None:
         dead = load_nondisplay()

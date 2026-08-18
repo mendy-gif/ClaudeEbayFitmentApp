@@ -142,13 +142,34 @@ jobs:
             >> "$GITHUB_STEP_SUMMARY"
           exit $rc
 
+      # Drift watch. Four systems write fitment to these listings -- Dismantly, PartOutPro,
+      # eBay's own auto-fitment, and historically MyFitment -- so what we pushed can be
+      # rewritten by any of them, silently. The step above only checks work from THIS run;
+      # this one samples the whole ledger on a rotating offset so older listings get
+      # revisited over time. Failing here emails whoever owns the repo.
+      - name: Drift watch (has anything overwritten our fitment?)
+        if: always()
+        env:
+          EBAY_CLIENT_ID: ${{ secrets.EBAY_CLIENT_ID }}
+          EBAY_CLIENT_SECRET: ${{ secrets.EBAY_CLIENT_SECRET }}
+          EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
+        run: |
+          set -o pipefail
+          python3 scripts/ebay_display_audit.py --sample 250 --quiet             --fail-on-leak --fail-under 60 --csv data/drift_audit.csv | tee drift.txt && rc=0 || rc=$?
+          { echo '### Drift watch (older listings)'; echo '```'; cat drift.txt; echo '```'; }             >> "$GITHUB_STEP_SUMMARY"
+          if [ $rc -ne 0 ]; then
+            echo "Fitment on previously-pushed listings no longer matches what we sent."                  >> "$GITHUB_STEP_SUMMARY"
+            echo "Most likely another system rewrote it. See data/drift_audit.csv."                  >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit $rc
+
       - name: Commit updated dump + ledger
         if: always()          # a failed audit must still record what was pushed
         run: |
           git config user.name  "fitment-bot"
           git config user.email "fitment-bot@users.noreply.github.com"
           git add data/shopify_donors.json data/pushed_ledger.json data/batch_plan.csv \
-                  data/ebay_compat_cache.json data/display_audit.csv
+                  data/ebay_compat_cache.json data/display_audit.csv data/drift_audit.csv
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
