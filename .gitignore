@@ -9,6 +9,9 @@ ebay_auth.json
 shopify.env
 secrets*
 
+# Generated runtime logs
+data/sweep_errors.log
+
 # Python
 __pycache__/
 *.pyc

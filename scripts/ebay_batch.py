@@ -45,7 +45,18 @@ from ebay_inspect import trading_getitem_compat  # noqa: E402
 BASE = "https://api.ebay.com"
 LEDGER = os.path.join(ROOT, "data", "pushed_ledger.json")
 PLAN = os.path.join(ROOT, "data", "batch_plan.csv")
+ERRLOG = os.path.join(ROOT, "data", "sweep_errors.log")
 PLAN_COLS = ["sku", "listingId", "donor", "rule", "engine", "n_vehicles", "sources", "models", "action", "reason"]
+
+
+def log_error(sku, action, reason):
+    """Append an error line to the log the instant it happens (flushed on close), so it
+    survives even a hard kill -- unlike batch_plan.csv, which is only written at the end."""
+    try:
+        with open(ERRLOG, "a", encoding="utf-8") as f:
+            f.write(f"{time.strftime('%Y-%m-%d %H:%M:%S')}\t{sku}\t{action}\t{reason}\n")
+    except OSError:
+        pass
 
 
 def token(args):
@@ -415,6 +426,8 @@ def main():
 
     print(f"Mode: {args.mode}{' (LIVE)' if live else ' (dry-run)'}  |  donor={'Shopify' if shopify is not None else 'eBay'}"
           f"  |  {len(skus)} SKU(s)  |  ledger has {len(led)}")
+    if live:
+        log_error("-", "run-start", f"{args.mode} live, {len(skus)} SKU(s)")   # delineates runs in the log
     rows, counts = [], {}
     for i, sku in enumerate(skus, 1):
         # Skip ledgered SKUs, UNLESS part-number rows exist that weren't applied yet
@@ -434,6 +447,8 @@ def main():
             rows.append(r)
         counts[rows[-1]["action"]] = counts.get(rows[-1]["action"], 0) + 1
         print(f"  [{i}/{len(skus)}] {sku}: {rows[-1]['action']} - {rows[-1].get('reason','')[:80]}")
+        if rows[-1]["action"] in ("error", "auth_error"):     # persist immediately (crash-safe)
+            log_error(sku, rows[-1]["action"], rows[-1].get("reason", ""))
         if rows[-1]["action"] == "auth_error":
             print("\n  STOPPING: eBay token rejected and no refresh credentials configured.")
             print("  Temp mode: refresh token.txt and re-run (ledger resumes). Or set up ebay_auth.json (docs sec 7).")
