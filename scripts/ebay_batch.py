@@ -164,7 +164,11 @@ def trading_write_compat(item_id, rows, tok, retries=3):
             return "error", f"xml parse: {e}"
         ack = root.findtext(f"{ns}Ack")
         if ack in ("Success", "Warning"):
-            return "ok", ack                       # Warning = partial-accept (invalid rows dropped)
+            if ack == "Warning":                   # partial-accept: eBay dropped some rows -- surface it
+                w = [se.findtext(f"{ns}LongMessage") or se.findtext(f"{ns}ShortMessage")
+                     for se in root.findall(f"{ns}Errors")]
+                return "ok", "Warning: " + "; ".join(m for m in w if m)[:200]
+            return "ok", "Success"
         errs, auth = [], False
         for se in root.findall(f"{ns}Errors"):
             eid = se.findtext(f"{ns}ErrorCode") or ""
@@ -389,8 +393,18 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
         reason = "ambiguous donor" if res.get("ambiguous") else res.get("reason", "")
         return {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule, "action": "review", "reason": reason}
 
+    # Preserve the listing's EXISTING donor vehicle (from the guard read) so a ReplaceAll
+    # write never drops known-good fitment -- critical for the pn-only rescue, where the
+    # part-number rows may not include the car the part actually came off. Kept at the
+    # Model level (no trim) = a clean, valid superset row.
+    donor_rows = []
+    for nv in (sample or []):
+        y = str(nv.get("Year", "")).strip()
+        if y.isdigit() and nv.get("Make") and nv.get("Model"):
+            donor_rows.append({"Year": int(y), "Make": nv["Make"], "Model": nv["Model"]})
+
     combined, seen = [], set()                            # dedupe on the full tuple
-    for r in chassis_rows + pn_rows:
+    for r in chassis_rows + pn_rows + donor_rows:
         key = (r["Year"], r["Make"], r["Model"], r.get("Trim"))
         if key not in seen:
             seen.add(key)
@@ -414,6 +428,8 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
         status, detail = trading_write_compat(listing_id, combined, tok)
         if status == "ok":
             row["action"] = "pushed"
+            if detail and detail.startswith("Warning"):     # some rows dropped by eBay
+                row["reason"] = f"{note} [{detail}]"
             led[sku] = {"listingId": listing_id, "rule": rule if chassis_rows else "-",
                         "n": len(combined), "models": models_used, "src": sources}
         elif status == "auth":
