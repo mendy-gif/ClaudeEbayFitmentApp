@@ -58,6 +58,7 @@ run_stage() {
     -v "$HERE/attach.sh":/attach.sh:ro \
     -v "$HERE/explore.sh":/explore.sh:ro \
     -v "$HERE/diagnose.sh":/diagnose.sh:ro \
+    -v "$HERE/start_transbase.sh":/start_transbase.sh:ro \
     "$IMAGE" "$@" &
   local pid=$!
   ( sleep "$limit"; "$DOCKER" kill "$CONTAINER" >/dev/null 2>&1 \

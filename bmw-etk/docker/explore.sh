@@ -45,54 +45,42 @@ echo "--- dblist.ini ---"; cat "$TRANSBASE/dblist.ini" 2>/dev/null | head
 echo "--- tbadmin -i ---"; "$TRANSBASE/tbadmin" -i "$DB" 2>&1 | strip | head -25
 
 PROBE="select * from systable;"
-bad() { grep -qiE 'error|does not exist|cannot|refused|not reachable|no such' "$1"; }
+bad() { grep -qiE 'error|does not exist|cannot|refused|not reachable|no such|syntax' "$1"; }
 
-try_mode() {  # try_mode <label> ; sets MODE on success
+try_mode() {  # try_mode <label>; sets MODE on success
   [ -n "$MODE" ] && return 0
   raw_tbi "$PROBE" > /tmp/try.out 2>&1
   if ! bad /tmp/try.out; then
-    MODE="$1"
-    echo "   connected via: $1"
-    return 0
+    MODE="$1"; echo "   >>> connected via: $1"; return 0
   fi
   echo "   no: $(strip < /tmp/try.out | head -3 | tr '\n' ' ')"
   return 1
 }
 
 echo
-echo "1. tbi directly"
-try_mode direct
-
-if [ -z "$MODE" ]; then
-  echo "2. boot the database first"
-  "$TRANSBASE/tbadmin" -b "$DB" 2>&1 | strip | head -8
-  try_mode booted
+echo "1. start Transbase the way BMW's rc.TransBase does (boot + kernel + server)"
+if [ -x /start_transbase.sh ]; then
+  bash /start_transbase.sh 2>&1 | sed 's/^/   /'
+else
+  echo "   (start_transbase.sh not mounted)"
 fi
+try_mode "bmw-startup"
 
 if [ -z "$MODE" ]; then
-  echo "3. start tbserver, then tbi"
-  start_server
-  strip < /tmp/tbserver.out | head -10
-  try_mode server
-fi
-
-if [ -z "$MODE" ]; then
-  echo "4. tbserver with the service ports from rc.tbenv"
-  TRANSBASE_SERVICENAMES=2024:2025 "$TRANSBASE/tbserver" > /tmp/tbserver2.out 2>&1 &
-  sleep 8
-  strip < /tmp/tbserver2.out | head -10
-  try_mode server-ports
+  echo "2. tbi directly (no server)"
+  try_mode direct
 fi
 
 if [ -z "$MODE" ] && [ -x "$TRANSBASE/utbi" ]; then
-  echo "5. utbi (local client, no server?)"
+  echo "3. utbi (local client, bypassing the server)"
   printf '%s\n' "$PROBE" > /tmp/q.sql
   timeout -k 10 "$TBI_TIMEOUT" "$TRANSBASE/utbi" -f /tmp/q.sql "$DB" "$DBU" "$PASS" > /tmp/try.out 2>&1
   if ! bad /tmp/try.out; then
     MODE=utbi
     raw_tbi() { printf '%s\n' "$1" > /tmp/q.sql
-                timeout -k 10 "${2:-$TBI_TIMEOUT}" "$TRANSBASE/utbi" -f /tmp/q.sql "$DB" "$DBU" "$PASS" 2>&1; return 0; }
-    echo "   connected via: utbi"
+                timeout -k 10 "${2:-$TBI_TIMEOUT}" "$TRANSBASE/utbi" -f /tmp/q.sql "$DB" "$DBU" "$PASS" 2>&1
+                return 0; }
+    echo "   >>> connected via: utbi"
   else
     echo "   no: $(strip < /tmp/try.out | head -3 | tr '\n' ' ')"
   fi
@@ -101,18 +89,26 @@ fi
 echo "CONNECTION MODE: ${MODE:-NONE}"
 
 if [ -z "$MODE" ]; then
-  echo "Could not reach the database. Last attempt output:"
-  strip < /tmp/try.out 2>/dev/null | head -40
+  echo "Could not reach the database. Full text of the last attempt:"
+  cat /tmp/try.out 2>/dev/null | head -60
   echo
   echo "--- dblist.ini at this point ---"
   cat "$TRANSBASE/dblist.ini" 2>&1 | head -20
+  echo
+  echo "--- tbadmin -i $DB ---"
+  "$TRANSBASE/tbadmin" -i "$DB" 2>&1 | strip | head -20
   exit 1
 fi
 
 q() {  # q <outfile> <sql>
   if ! budget_left; then echo "  -> SKIPPED $1 (out of time budget)"; return; fi
-  echo "  -> $1"
   { echo "-- $2"; raw_tbi "$2" | strip; } > "$OUT/$1" 2>&1
+  if bad "$OUT/$1"; then
+    echo "  -> $1  [ERROR: $(strip < "$OUT/$1" | head -2 | tail -1 | cut -c1-70)]"
+    mv "$OUT/$1" "$OUT/$1.error"
+  else
+    echo "  -> $1  ($(wc -l < "$OUT/$1") lines)"
+  fi
 }
 
 echo
