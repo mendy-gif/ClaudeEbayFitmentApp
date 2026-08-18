@@ -115,6 +115,69 @@ def api(method, path, tok, body=None, retries=3):
             return None, {"_transport_error": str(e)}
 
 
+def trading_write_compat(item_id, rows, tok, retries=3):
+    """Write compatibility to the DISPLAY store via the Trading API ReviseFixedPriceItem
+    (by ItemID) -- this is what actually shows on the live listing (the Inventory-API
+    by-SKU write does not display until the offer is republished). ReplaceAll=true sets
+    exactly our rows; the caller's guard ensures we only write listings with <=1 existing
+    vehicle, so nothing curated is clobbered. Returns (status, detail): status in
+    {'ok','auth','error'}."""
+    from xml.sax.saxutils import escape
+    import xml.etree.ElementTree as ET
+    compat = []
+    for r in rows:
+        parts = [("Year", str(r["Year"])), ("Make", r["Make"]), ("Model", r["Model"])]
+        if r.get("Trim"):
+            parts.append(("Trim", r["Trim"]))
+        nv = "".join(f"<NameValueList><Name>{n}</Name><Value>{escape(str(v))}</Value></NameValueList>"
+                     for n, v in parts)
+        compat.append(f"<Compatibility>{nv}</Compatibility>")
+    body = (
+        '<?xml version="1.0" encoding="utf-8"?>'
+        '<ReviseFixedPriceItemRequest xmlns="urn:ebay:apis:eBLBaseComponents">'
+        f'<Item><ItemID>{escape(str(item_id))}</ItemID>'
+        f'<ItemCompatibilityList><ReplaceAll>true</ReplaceAll>{"".join(compat)}</ItemCompatibilityList>'
+        '</Item></ReviseFixedPriceItemRequest>'
+    )
+    hdrs = {"X-EBAY-API-CALL-NAME": "ReviseFixedPriceItem", "X-EBAY-API-SITEID": "100",
+            "X-EBAY-API-COMPATIBILITY-LEVEL": "1199", "X-EBAY-API-IAF-TOKEN": tok,
+            "Content-Type": "text/xml"}
+    ns = "{urn:ebay:apis:eBLBaseComponents}"
+    for attempt in range(retries):
+        req = urllib.request.Request(BASE + "/ws/api.dll", data=body.encode("utf-8"), method="POST", headers=hdrs)
+        try:
+            with urllib.request.urlopen(req) as r:
+                raw = r.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code in (401, 403):
+                return "auth", f"HTTP {e.code}"
+            if 500 <= e.code < 600 and attempt < retries - 1:
+                time.sleep(2 ** attempt); continue
+            return "error", f"HTTP {e.code}: {e.read().decode('utf-8', 'replace')[:200]}"
+        except urllib.error.URLError as e:
+            if attempt < retries - 1:
+                time.sleep(2 ** attempt); continue
+            return "error", f"transport: {e}"
+        try:
+            root = ET.fromstring(raw)
+        except ET.ParseError as e:
+            return "error", f"xml parse: {e}"
+        ack = root.findtext(f"{ns}Ack")
+        if ack in ("Success", "Warning"):
+            return "ok", ack                       # Warning = partial-accept (invalid rows dropped)
+        errs, auth = [], False
+        for se in root.findall(f"{ns}Errors"):
+            eid = se.findtext(f"{ns}ErrorCode") or ""
+            msg = se.findtext(f"{ns}LongMessage") or se.findtext(f"{ns}ShortMessage") or ""
+            errs.append(f"[{eid}] {msg}")
+            if eid in ("931", "932", "16110", "21916884") or "token" in msg.lower():
+                auth = True
+        if auth:
+            return "auth", "; ".join(errs)[:200]
+        return "error", f"Ack={ack}: {'; '.join(errs)[:220]}"
+    return "error", "exhausted retries"
+
+
 def load_partnumber_fitment(path):
     """Approach-2 part-number history -> {sku: set((year:int, make, ebay_model))}.
     Drops STOCK-prefixed guids (not live eBay SKUs) and UNMAPPED model rows."""
@@ -345,15 +408,20 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
            "models": ",".join(models_used), "action": "push", "reason": note}
 
     if live:
-        payload = rows_to_payload(combined)
-        st, resp = api("PUT", f"/sell/inventory/v1/inventory_item/{urllib.parse.quote(sku, safe='')}/product_compatibility", tok, payload)
-        if st in (200, 201, 204):
+        # Write to the Trading (display) store so it actually shows on the listing.
+        # We only get here when the guard confirmed <=1 existing vehicle, and we only
+        # ever touch a listing with a live PUBLISHED offer -> cannot revive an ended item.
+        status, detail = trading_write_compat(listing_id, combined, tok)
+        if status == "ok":
             row["action"] = "pushed"
             led[sku] = {"listingId": listing_id, "rule": rule if chassis_rows else "-",
                         "n": len(combined), "models": models_used, "src": sources}
+        elif status == "auth":
+            row["action"] = "auth_error"
+            row["reason"] = f"trading write auth: {detail}"
         else:
             row["action"] = "error"
-            row["reason"] = f"PUT HTTP {st}: {json.dumps(resp)[:160]}"
+            row["reason"] = f"trading write failed: {detail}"
     return row
 
 
@@ -432,7 +500,7 @@ def main():
     for i, sku in enumerate(skus, 1):
         # Skip ledgered SKUs, UNLESS part-number rows exist that weren't applied yet
         # (so the combined run can add Approach-2 fitment to chassis-only pushes).
-        entry = led.get(sku) if args.mode == "apply" else None
+        entry = led.get(sku) if (args.mode == "apply" and not args.sku) else None  # explicit --sku always reprocesses
         pn_pending = bool(pnf) and sku in pnf and "pn" not in set((entry or {}).get("src", []))
         if entry and not pn_pending:
             rows.append({"sku": sku, "action": "skip", "reason": "already in ledger"})
