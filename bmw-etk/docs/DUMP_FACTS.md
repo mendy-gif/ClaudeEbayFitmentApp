@@ -4,59 +4,95 @@ Established facts about the source media. Update as we learn more.
 
 ## The media
 
-- **File:** `/Users/mendydonin/Downloads/BMW ETK 2020-01.iso` (an ISO disc image)
-- **Mounts at:** `/Volumes/BMW ETK 2020-01` (macOS mounts it natively, read-only)
-- **Repo lives at:** `/Users/mendydonin/Documents/GitHub/ClaudeEbayFitmentApp`
-- ETK data version **3.220.006**, disc dated April 2022, labelled "2020-01"
+- **File:** `/Users/mendydonin/Downloads/BMW ETK 2020-01.iso`
+- **Mounts at:** `/Volumes/BMW ETK 2020-01` (macOS mounts ISOs natively, read-only)
+- **Repo:** `/Users/mendydonin/Documents/GitHub/ClaudeEbayFitmentApp`
+- **Host Mac:** arm64 (Apple Silicon), macOS 26.5.1, ~386 GB free -- space is not a constraint
+- ETK data version **3.220.006**, publication date 20191212, disc labelled 01/2020
 
-## The database engine: Transbase
+## The database engine: Transbase (confirmed)
 
-The disc ships `transbase/` and `transbase_linux/` directories. BMW ETK is served by
-**Transbase**, a commercial RDBMS from Transaction Software GmbH (Munich) -- not
-SQL Server, Firebird, or anything mainstream.
+`transbase/transbase.exe` (Windows) and `transbase_linux/transbase_linux.tar.gz`
+(Linux) ship on the disc. Transbase is a commercial RDBMS from Transaction Software
+GmbH, Munich. No Python driver exists.
 
-Consequences:
+**But `javaclient/libs/tbjdbc.jar` is on the disc** -- the Transbase JDBC driver.
+That is the supported way to query the database without running the ETK app, and it
+needs only a JVM (the disc also carries `jdk/` and `jre_1.8.0_92.tar.gz`).
 
-- There is no off-the-shelf Python driver. Access is via Transbase's own tooling,
-  ODBC, or (most likely) the **JDBC driver** shipped in the Java stack on the disc.
-- `transbase_linux/` is a Linux server build, so a Linux container can run the
-  engine even though the host is a Mac.
+Linux service scripts: `transbase_linux/rc.TransBase`, `rc.tbenv`, `rc.tbstop`,
+`createdb.sh`. Schema DDL: `webretknutzer_tb.sql`, `webretkpreise_tb.sql`.
 
-## The data payload
+## The .jetarch container format (decoded)
 
-Six ~1 GB parts totalling ~5.8 GB:
+The six parts are one archive split at ~1 GiB. Format, verified field by field
+against the real header:
 
 ```
-ETK-Data_3.220.006_--.jetarch.part1 .. part6
-ETK-Data_3.220.006_--.md5.part1     .. part6   (checksum sidecars)
+'RLFF'  u32 version (0x02000001)
+repeating file records:
+    'FILE'  u16 name_len  name[name_len]  u64 declared_size
+    repeating chunks, until the next marker is not CHNK:
+        'CHNK'  u64 chunk_len  data[chunk_len]
 ```
 
-`.jetarch` is an ETK-specific archive. The parts reassemble (concatenate) into one
-archive that the installer restores into a Transbase database directory.
+All integers big-endian. `package.properties` is the first entry and identifies the
+package: `name=ETK-Data`, `version=3.220.006`, `ostype=WIN`, `targetenv=ETK`,
+author `msg systems ag`. "Jetstream" is msg systems' online update system.
 
-## Architecture on the disc
+`scripts/jetarch.py` implements this: `probe` / `list` / `extract`. It streams, so it
+runs in a few MB of RAM, and treats the six parts as one continuous stream.
+Verified on synthetic archives split mid-chunk -- extraction is byte-identical.
 
-It is a Java web application, not a desktop app:
+**This is why Docker may not be needed**: if the archive holds loadable data
+(SQL, CSV, or table exports) rather than opaque Transbase page files, we can read the
+catalog without ever starting the engine.
 
-- `javaserver/` (469 MB), `tomcat/`, `jdk/`, `jre_1.8.0_92.*` -- the server tier
-- `javaclient/` (50 MB), `javaclientws/` -- the client tier
-- `standalone/` -- a single-machine mode; the most promising route if it avoids Tomcat
-- `install_server.sh` -- a **Linux** install script, which is why a container is viable
-- `admintool/`, `migration/`, `ticker/`, `axis/` (SOAP), `etk_nutzer/` ("ETK user")
+## Schema clues already visible
+
+`Daten/updateNutzerDaten.sql` and `Daten/updatePublDaten.sql` are real ETK SQL and
+reveal the conventions:
+
+- German names with a `w_` prefix: `w_tipp`, `w_zub_kunde`, `w_zub_kunde_fahrzeug`,
+  `w_bildtafzub_marketing`, `w_btzeilenzub`, `w_marketingprodukt`
+- Transbase cross-database syntax `table@database`, e.g. `w_tipp@etk_nutzer`
+- `ct;` is Transbase's commit statement
+- Databases seen so far: `etk_nutzer` (user data), plus a prices database
+- `w_zub_kunde_fahrzeug.kundefzg_vin` -- a **VIN** column, relevant to goal 1
+
+Vocabulary that will matter when reading the schema:
+
+| German            | Meaning                                    |
+|-------------------|--------------------------------------------|
+| Teil              | part                                       |
+| Bildtafel (`bt`)  | illustrated parts diagram / plate          |
+| Zeile             | row (a line item on a diagram)             |
+| Fahrzeug (`fzg`)  | vehicle                                    |
+| Baureihe          | model series (the chassis family, e.g. E46)|
+| Typ               | type code                                  |
+| Sonderausstattung | "SA" special-equipment option code         |
+| Preise            | prices                                     |
+| Nutzer            | user                                       |
+
+## Note on Readme.txt
+
+`Readme.txt` on the disc is stale -- it describes a 1990s Windows 95 version
+(`C:\BMW95`, floppy-era install steps) and does not match this Java/Tomcat release.
+Ignore its instructions. One line is still useful confirmation of the data model:
+ETK has a **"Parts Use"** function, "check which vehicles a particular part is fitted
+to" -- exactly the part -> vehicles direction this project needs.
 
 ## Route options (in preference order)
 
-1. **Read the archive directly.** If `.jetarch` turns out to be a known container
-   (zip/gzip/tar/proprietary-but-simple), extract the Transbase data files and parse
-   them without ever running the engine. Cheapest, no Docker.
-2. **Run Transbase Linux in a container**, restore the archive, and query over
-   JDBC/ODBC to export the tables we need. Reliable, needs Docker.
-3. **Install the full ETK stack** in a Linux container (Tomcat + javaserver). Heaviest;
-   only if the data model is unreadable without the app's own logic.
+1. **Read the archive directly** with `jetarch.py`. Now viable -- format is decoded.
+   Depends on what the payload turns out to be.
+2. **Run Transbase Linux in a container**, restore, query over JDBC. Needs Docker,
+   and on Apple Silicon needs `--platform linux/amd64` emulation since the Linux
+   binaries are near-certainly x86_64.
+3. **Install the full ETK stack** (Tomcat + javaserver). Heaviest; last resort.
 
 ## Open questions
 
-- Is the Mac Apple Silicon or Intel? Transbase Linux binaries are near-certainly
-  x86_64, so on Apple Silicon a container needs `--platform linux/amd64` emulation.
-- Is there enough free disk? The restored database will likely exceed the 5.8 GB archive.
-- Does the disc include a Transbase JDBC driver jar we can drive directly?
+- What is actually inside the .jetarch? (next step: `jetarch.py list`)
+- Are the payload files raw Transbase database files, or loadable SQL/CSV?
+- Which tables carry part -> vehicle links, production date ranges, and SA codes?
