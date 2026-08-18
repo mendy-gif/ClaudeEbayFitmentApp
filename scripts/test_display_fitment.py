@@ -399,6 +399,66 @@ def t_no_real_state_touched():
        "the committed catalog cache is byte-identical after the whole run")
 
 
+def t_leak_detector():
+    """The audit's LEAK detector. It must fire on a genuine wildcard leak and stay silent on
+    the two things that legitimately inflate the displayed count, or it is useless -- a
+    detector that cries wolf gets ignored, which is how the trim bug survived so long."""
+    print("Leak detector (ebay_display_audit.leaked_trims):")
+    import ebay_display_audit as A
+
+    def R(year, model, trim=None, engine=None):
+        d = {"Year": str(year), "Make": "BMW", "Model": model}
+        if trim:
+            d["Trim"] = trim
+        if engine:
+            d["Engine"] = engine
+        return d
+
+    # POSITIVE CONTROL: we pushed only the petrol trim; eBay shows the diesel too.
+    pushed = [R(2018, "X5", "xDrive35i Sport Utility 4-Door")]
+    shown = [R(2018, "X5", "xDrive35i Sport Utility 4-Door"),
+             R(2018, "X5", "xDrive35d Sport Utility 4-Door")]
+    eq(A.leaked_trims(pushed, shown), ["2018 X5 xDrive35d Sport Utility 4-Door"],
+       "DETECTS a trim eBay displays that we never pushed (the wildcard fingerprint)")
+
+    # NEGATIVE 1: eBay splits one pushed row along an Engine axis we never specify. Both are
+    # the same trim and the same B58 -- this is correct, and row COUNTING would flag it.
+    pushed = [R(2024, "X3", "M40i Sport Utility 4-Door")]
+    shown = [R(2024, "X3", "M40i Sport Utility 4-Door", "3.0L l6 GAS DOHC Turbocharged"),
+             R(2024, "X3", "M40i Sport Utility 4-Door", "3.0L l6 MILD HYBRID EV-GAS (MHEV)")]
+    eq(A.leaked_trims(pushed, shown), [],
+       "does NOT fire when eBay expands one trim across engine variants (2 shown, 1 pushed)")
+    true(len(shown) > len(pushed),
+         "...and that case really does inflate the row count, which is why counting fails")
+
+    # NEGATIVE 2: a deliberately trimless push (Rule A, or Rule B with no engine on the
+    # donor). Everything shown is expected by definition -- we asked for the whole family.
+    pushed = [R(2010, "M3")]
+    shown = [R(2010, "M3", "Base Coupe 2-Door"), R(2010, "M3", "Base Convertible 2-Door"),
+             R(2010, "M3", "Base Sedan 4-Door")]
+    eq(A.leaked_trims(pushed, shown), [],
+       "does NOT fire on a deliberately trimless push (we asked for every trim)")
+
+    # A vehicle we never pushed at all is not ours to judge (curated by someone else).
+    eq(A.leaked_trims([R(2018, "X5", "xDrive35i Sport Utility 4-Door")],
+                      [R(2001, "Z3", "Base Roadster 2-Door")]), [],
+       "ignores vehicles we never pushed")
+
+    # Leaks are reported once each, sorted, however many rows carry them.
+    pushed = [R(2018, "X5", "xDrive35i Sport Utility 4-Door")]
+    shown = [R(2018, "X5", "xDrive35d Sport Utility 4-Door", "diesel A"),
+             R(2018, "X5", "xDrive35d Sport Utility 4-Door", "diesel B"),
+             R(2018, "X5", "M Sport Utility 4-Door")]
+    eq(A.leaked_trims(pushed, shown),
+       ["2018 X5 M Sport Utility 4-Door", "2018 X5 xDrive35d Sport Utility 4-Door"],
+       "each leaked trim is reported once, sorted")
+
+    # Year type must not matter (Inventory returns strings, our rows carry ints).
+    eq(A.leaked_trims([{"Year": 2018, "Make": "BMW", "Model": "X5", "Trim": "A"}],
+                      [{"Year": "2018", "Make": "BMW", "Model": "X5", "Trim": "B"}]),
+       ["2018 X5 B"], "int vs str Year does not break the comparison")
+
+
 # ============================================================= 6. runner integration
 def t_runner():
     print("Runner integration (ebay_batch):")
@@ -474,7 +534,7 @@ def t_real_data():
 
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()

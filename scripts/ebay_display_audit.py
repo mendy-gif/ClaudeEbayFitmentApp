@@ -14,15 +14,16 @@ Two different failures show up here, and they look OPPOSITE:
 
   INVISIBLE (displayed = 0)  -- nothing shows. The trim-spelling bug: eBay stored a trim it
                                 does not recognise and omitted it from the listing.
-  LEAKING   (displayed > stored, on a Rule B part) -- TOO MUCH shows. A trimless row is a
-                                WILDCARD: eBay fans it out to every trim for that year/model.
-                                On an engine-restricted part that silently re-adds the engines
-                                the rule excluded, so an N55 turbo starts claiming the diesel
-                                and the M car. This is how the leak was originally spotted:
-                                17 rows pushed, 41 displayed.
+  LEAKING   -- eBay displays a TRIM we never pushed. A trimless row is a WILDCARD: eBay fans
+               it out to every trim for that year/model, which on an engine-restricted part
+               silently re-adds the engines the rule excluded (an N55 turbo claiming the
+               diesel and the M car).
 
-On a Rule A part displayed > stored is expected and desirable -- the whole family really does
-fit, and the wildcard is doing its job.
+Note this compares TRIMS, not row counts. A higher displayed count is often perfectly
+correct: eBay also expands along an Engine axis we never specify, so one pushed 2024 X3
+M40i row legitimately becomes two displayed rows (petrol and mild-hybrid -- both the same
+B58). Counting rows flags that as a leak; comparing trims does not. And where we pushed a
+trimless row on purpose (Rule A), everything shown is expected by definition.
 
 It slices the result three ways, because the two known causes look different:
   * LEAKING     -- Rule B SKUs showing more than we pushed (see above).
@@ -45,6 +46,7 @@ import collections
 import csv
 import json
 import os
+import re
 import sys
 import urllib.error
 import urllib.parse
@@ -84,8 +86,9 @@ def rest(path, tok):
         return {}
 
 
-def trading_count(item_id, tok):
-    """Number of compatibility rows the DISPLAY store holds. -1 if the read failed."""
+def trading_rows(item_id, tok):
+    """The compatibility rows the DISPLAY store holds, as [{Year,Make,Model,Trim}].
+    None if the read failed (distinct from an empty list, which means 'displays nothing')."""
     body = ('<?xml version="1.0" encoding="utf-8"?>'
             '<GetItemRequest xmlns="urn:ebay:apis:eBLBaseComponents">'
             f'<ItemID>{item_id}</ItemID>'
@@ -102,10 +105,49 @@ def trading_count(item_id, tok):
     except urllib.error.HTTPError as e:
         raw = e.read().decode("utf-8", "replace")
     except urllib.error.URLError:
-        return -1
+        return None
     if "<Ack>Failure</Ack>" in raw and "<Compatibility>" not in raw:
-        return -1
-    return raw.count("<Compatibility>")
+        return None
+    out = []
+    for block in re.findall(r"<Compatibility>(.*?)</Compatibility>", raw, re.S):
+        d = dict(re.findall(r"<Name>(.*?)</Name><Value>(.*?)</Value>", block))
+        if d.get("Year") and d.get("Model"):
+            out.append(d)
+    return out
+
+
+def leaked_trims(pushed, shown):
+    """Trims eBay DISPLAYS that we never pushed -- the wildcard fingerprint.
+
+    Counting rows cannot detect this: eBay legitimately expands one pushed row across an
+    Engine axis we do not specify (a 2024 X3 M40i splits into plain petrol and mild-hybrid,
+    both genuinely the same B58). So compare TRIMS, per vehicle, and only for vehicles where
+    we were specific -- if we deliberately pushed a trimless row, everything shown is expected.
+    """
+    want = {}
+    for r in pushed:
+        key = (str(r["Year"]), r["Model"])
+        want.setdefault(key, set()).add(r.get("Trim") or "*")
+    leaked = set()
+    for r in shown:
+        key = (str(r.get("Year")), r.get("Model"))
+        allowed = want.get(key)
+        if not allowed or "*" in allowed:      # vehicle we never pushed, or pushed trimless
+            continue
+        if r.get("Trim") and r["Trim"] not in allowed:
+            leaked.add(f"{key[0]} {key[1]} {r['Trim']}")
+    return sorted(leaked)
+
+
+def inventory_rows(sku, tok):
+    q = urllib.parse.quote(sku, safe="")
+    out = []
+    for cp in rest(f"/sell/inventory/v1/inventory_item/{q}/product_compatibility", tok) \
+            .get("compatibleProducts", []):
+        d = {p.get("name"): p.get("value") for p in cp.get("compatibilityProperties", [])}
+        if d.get("Year") and d.get("Model"):
+            out.append(d)
+    return out
 
 
 def category_path(cid, tree):
@@ -153,30 +195,30 @@ def main():
             continue
         cid = str(pub[0].get("categoryId") or "?")
         lid = pub[0].get("listing", {}).get("listingId")
-        q = urllib.parse.quote(sku, safe="")
-        stored = len(rest(f"/sell/inventory/v1/inventory_item/{q}/product_compatibility", tok)
-                     .get("compatibleProducts", []))
+        pushed_rows = inventory_rows(sku, tok)
+        stored = len(pushed_rows)
         if stored == 0:
             continue
-        shown = trading_count(lid, tok) if lid else -1
-        if shown < 0:
+        shown_rows = trading_rows(lid, tok) if lid else None
+        if shown_rows is None:
             unreadable += 1
             continue
+        shown = len(shown_rows)
         rule = led[sku].get("rule", "?")
         ok = shown > 0
-        # Rule B rows are all trimmed, so they display 1:1. More displayed than pushed means
-        # a trimless wildcard slipped in and fanned out across the excluded engines.
-        leaking = rule == "B" and shown > stored
+        leaks_here = leaked_trims(pushed_rows, shown_rows)
+        leaking = bool(leaks_here)
         by_rule[rule][0] += 1
         by_rule[rule][1] += ok
         by_cat[cid][0] += 1
         by_cat[cid][1] += ok
         detail.append({"sku": sku, "listingId": lid, "categoryId": cid, "rule": rule,
                        "stored": stored, "displayed": shown,
+                       "leaked": "; ".join(leaks_here[:6]),
                        "status": "INVISIBLE" if not ok else ("LEAKING" if leaking else "OK")})
         if not args.quiet:
             flag = ("  <-- INVISIBLE" if not ok else
-                    "  <-- LEAKING (wildcard re-added excluded engines)" if leaking else "   ")
+                    f"  <-- LEAKING: {leaks_here[0]}" if leaking else "   ")
             print(f"  [{i}/{len(skus)}] {sku:>8}  cat={cid:<7} rule={rule}  stored={stored:<4} displayed={shown:<4}{flag}")
 
     n = len(detail)
@@ -191,9 +233,10 @@ def main():
         print(f"\nLEAKING: {len(leaks)} Rule B SKU(s) display MORE than we pushed -- a trimless")
         print("wildcard fanned out across the engines the rule excluded. These listings claim")
         print("fitment they should not (e.g. a petrol turbo advertised for the diesel):")
-        for d in sorted(leaks, key=lambda x: x["stored"] - x["displayed"])[:15]:
+        for d in sorted(leaks, key=lambda x: -x["displayed"])[:15]:
             print(f"   {d['sku']:>8}  pushed {d['stored']} -> displayed {d['displayed']}"
                   f"   listing {d['listingId']}")
+            print(f"             never pushed: {d['leaked']}")
         if len(leaks) > 15:
             print(f"   ... and {len(leaks) - 15} more")
     else:
@@ -220,7 +263,7 @@ def main():
     if args.csv:
         with open(args.csv, "w", newline="", encoding="utf-8") as f:
             w = csv.DictWriter(f, fieldnames=["sku", "listingId", "categoryId", "rule",
-                                              "stored", "displayed", "status"])
+                                              "stored", "displayed", "leaked", "status"])
             w.writeheader()
             w.writerows(detail)
         print(f"\nPer-SKU detail -> {args.csv}")
