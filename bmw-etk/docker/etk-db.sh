@@ -6,6 +6,7 @@
 #   bash bmw-etk/docker/etk-db.sh params C  # tbadmin's own docs for an option
 #   bash bmw-etk/docker/etk-db.sh create    # attach the ROM files as database etk_publ
 #   bash bmw-etk/docker/etk-db.sh sql "select ..."   # run one SQL statement
+#   bash bmw-etk/docker/etk-db.sh explore   # dump the schema to bmw-etk/data/schema/
 #   bash bmw-etk/docker/etk-db.sh reset     # clear the database volume and start over
 #   bash bmw-etk/docker/etk-db.sh shell     # interactive shell inside the container
 #
@@ -17,7 +18,9 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 ROOT="$(cd "$HERE/.." && pwd)"
 ISO="${ETK_ISO:-/Volumes/BMW ETK 2020-01}"
 ROM="$ROOT/dump/rfiles"
+SCHEMA_OUT="$ROOT/data/schema"
 IMAGE="etk-transbase"
+HOSTNAME_FIXED="etkdb"   # Transbase keys databases as <name>@<host>
 VOLUME="etk-data"
 PLATFORM="${ETK_PLATFORM:-linux/amd64}"
 # The Transbase binaries are 32-bit i386. On linux/amd64 we add i386 multiarch
@@ -75,7 +78,7 @@ MSG
 }
 
 run_in() {  # run a command in a throwaway container with rom + data mounted
-  "$DOCKER" run --rm --platform "$PLATFORM" \
+  "$DOCKER" run --rm --platform "$PLATFORM" --hostname "$HOSTNAME_FIXED" \
     -v "$ROM":/rom:ro -v "$VOLUME":/data \
     "$IMAGE" "$@"
 }
@@ -123,7 +126,7 @@ create)
   run_in bash -lc '$TRANSBASE/tbadmin params -C 2>&1 | head -40'
   echo
   echo "=== trying each plausible attach invocation until one succeeds ==="
-  "$DOCKER" run --rm --platform "$PLATFORM" \
+  "$DOCKER" run --rm --platform "$PLATFORM" --hostname "$HOSTNAME_FIXED" \
     -e DB="$DB" -e DBPASS="$DBPASS" \
     -v "$ROM":/rom:ro -v "$VOLUME":/data \
     -v "$HERE/attach.sh":/attach.sh:ro \
@@ -144,6 +147,28 @@ create)
   exit $rc
   ;;
 
+sql)
+  have_docker
+  [ -n "${2:-}" ] || die "usage: $0 sql \"select * from systable;\""
+  printf '%s\n' "$2" > /tmp/etk_query.sql
+  "$DOCKER" run --rm --platform "$PLATFORM" --hostname "$HOSTNAME_FIXED" \
+    -e DB="$DB" -e DBUSER="$DBUSER" -e DBPASS="$DBPASS" \
+    -v "$ROM":/rom:ro -v "$VOLUME":/data \
+    -v /tmp/etk_query.sql:/tmp/q.sql:ro \
+    -v "$HERE/query.sh":/query.sh:ro \
+    "$IMAGE" bash /query.sh /tmp/q.sql
+  ;;
+
+explore)
+  have_docker
+  mkdir -p "$ROOT/data/schema"
+  "$DOCKER" run --rm --platform "$PLATFORM" --hostname "$HOSTNAME_FIXED" \
+    -e DB="$DB" -e DBUSER="$DBUSER" -e DBPASS="$DBPASS" \
+    -v "$ROM":/rom:ro -v "$VOLUME":/data -v "$ROOT/data/schema":/out \
+    -v "$HERE/explore.sh":/explore.sh:ro \
+    "$IMAGE" bash /explore.sh
+  ;;
+
 reset)
   have_docker
   echo "Clearing the database volume (the ROM files are untouched)..."
@@ -153,7 +178,7 @@ reset)
 
 shell)
   have_docker
-  "$DOCKER" run --rm -it --platform "$PLATFORM" \
+  "$DOCKER" run --rm -it --platform "$PLATFORM" --hostname "$HOSTNAME_FIXED" \
     -v "$ROM":/rom:ro -v "$VOLUME":/data "$IMAGE" bash
   ;;
 

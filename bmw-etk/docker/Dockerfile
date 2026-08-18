@@ -40,8 +40,17 @@ RUN mkdir -p "$TRANSBASE" \
  && rm /tmp/transbase_linux.tar.gz \
  && chmod +x "$TRANSBASE"/tbadmin "$TRANSBASE"/tbi "$TRANSBASE"/tbserver 2>/dev/null || true
 
+# Keep a pristine copy of the shipped database registry; the entrypoint seeds the
+# persistent one from it on first run.
+RUN [ -f "$TRANSBASE/dblist.ini" ] && cp "$TRANSBASE/dblist.ini" "$TRANSBASE/dblist.ini.orig" || true
+
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # /rom  : the extracted rfile* ROM files, mounted read-only
 # /data : where the attached database lives (a named volume)
+# /out  : where schema dumps are written back to the host
 VOLUME ["/data"]
 WORKDIR /data
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/bin/bash"]
