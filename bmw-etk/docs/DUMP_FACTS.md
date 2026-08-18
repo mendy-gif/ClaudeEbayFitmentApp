@@ -73,26 +73,65 @@ without ever starting the engine.
 
 ## What is actually inside the archive
 
-Top-level payload (from `jetarch.py list`):
+Full payload (20 entries, 5.7 GB), from `jetarch.py list`:
 
 ```
-package.properties            1.6 KB   installer metadata
-CustomActionData.txt          268 B
-filelist.txt                  370 B    <- names the payload files
-filelist_script.txt           2 B
-files/                        0 B      directory entry
-files/postinstallDataDB.cmd   2.3 KB   <- HOW the data is loaded into Transbase
-files/relnotes.pdf          120.4 KB   release notes
-files/rfile000.000          ~2.0 GB    <- the bulk data; more rfileNNN.NNN expected
+package.properties               1.6 KB   Jetstream package metadata
+CustomActionData.txt             268 B    removes superseded 3.220.001-005 packages
+filelist.txt                     370 B    names the payload files
+filelist_script.txt              2 B
+preinstall.cmd / postinstall.cmd / prerecover.cmd / postrecover.cmd
+files/postinstallDataDB.cmd      2.3 KB   *** how the data is loaded ***
+files/relnotes.pdf             120.4 KB
+files/updateNutzerDaten.sql      3.6 KB
+files/updatePublDaten.sql        692 B
+files/version.txt                218 B
+files/start_publish_TransbaseDB_ab.sh   3.9 KB
+files/start_publishcr_spl_TB.sh         3.8 KB
+files/rfile000.000               2.0 GB   *** the database ***
+files/rfile000.001               2.0 GB
+files/rfile000.002               5.0 MB
+files/rfile001.000               1.7 GB
 ```
 
-So the catalog is **not** shipped as loose SQL/CSV. It is a small number of large
-`rfileNNN.NNN` blobs plus a `postinstallDataDB.cmd` script that loads them. Reading
-that .cmd file is the next step: it names the tool and arguments used to load the
-data, which tells us whether the blobs are a Transbase archive (needs the engine) or
-a bulk-loader format (readable directly).
+## How the data is loaded (decoded from postinstallDataDB.cmd)
 
-## Schema clues already visible
+```
+tbadm32.exe -Cf etk_publ h=<home>\ETK\transbase\etk_publ cp=utf8 p=altabe \
+            rf=rfile000.000 rf=rfile000.001 rf=rfile001.000
+```
+
+The German comment above it is "ROM-Files einspielen" -- load ROM files. So the
+`rfile*` blobs are a **Transbase read-only ROM database**, not a bulk-load format.
+They are the database itself in Transbase's page format, so **the engine is
+required**; there is no shortcut around it.
+
+Decoded parameters:
+
+| Token          | Meaning                                             |
+|----------------|-----------------------------------------------------|
+| `tbadm`        | Transbase admin tool (`tbadm32.exe` on Windows)      |
+| `-Cf`          | create database from ROM files                      |
+| `-df etk_publ` | drop the database first                             |
+| `etk_publ`     | **the catalog database** (publication data)         |
+| `etk_nutzer`   | the user/settings database                          |
+| `h=`           | database home directory                             |
+| `cp=utf8`      | codepage UTF-8                                      |
+| `p=altabe`     | password                                            |
+| `rf=`          | a ROM file to attach                                |
+| `tbi`          | Transbase interactive SQL shell                     |
+
+The update scripts are run as
+`tbi -f updatePublDaten.sql etk_publ tbadmin altabe`, which gives the connection
+parameters: database `etk_publ`, user **`tbadmin`**, password **`altabe`**. These are
+the ETK product's own fixed defaults baked into the installer, not personal
+credentials.
+
+Note `filelist.txt` and the .cmd reference only rfile000.000, rfile000.001 and
+rfile001.000 -- but the archive also carries **rfile000.002** (5 MB), which Transbase
+presumably picks up as a continuation segment. Extract all four.
+
+## Schema clues already visible## Schema clues already visible
 
 `Daten/updateNutzerDaten.sql` and `Daten/updatePublDaten.sql` are real ETK SQL and
 reveal the conventions:
@@ -126,17 +165,22 @@ Ignore its instructions. One line is still useful confirmation of the data model
 ETK has a **"Parts Use"** function, "check which vehicles a particular part is fitted
 to" -- exactly the part -> vehicles direction this project needs.
 
-## Route options (in preference order)
+## Route: decided
 
-1. **Read the archive directly** with `jetarch.py`. Now viable -- format is decoded.
-   Depends on what the payload turns out to be.
-2. **Run Transbase Linux in a container**, restore, query over JDBC. Needs Docker,
-   and on Apple Silicon needs `--platform linux/amd64` emulation since the Linux
-   binaries are near-certainly x86_64.
-3. **Install the full ETK stack** (Tomcat + javaserver). Heaviest; last resort.
+Route 1 (read the archive directly) is **ruled out** -- the payload is a Transbase
+ROM database, not loadable text. The container format is fully decoded and
+`jetarch.py` extracts the ROM files cleanly, but reading them means running the engine.
+
+**Route 2 it is:** run Transbase Linux in a Docker container, attach the ROM files
+with `tbadm -Cf`, and query with `tbi` (or over JDBC via `tbjdbc.jar`) to export the
+tables we need as CSV. On Apple Silicon this needs `--platform linux/amd64`, since the
+Linux binaries are x86_64.
+
+Route 3 (installing the full Tomcat + javaserver ETK stack) stays the last resort; we
+only need the database, not the web application.
 
 ## Open questions
 
-- What is actually inside the .jetarch? (next step: `jetarch.py list`)
-- Are the payload files raw Transbase database files, or loadable SQL/CSV?
 - Which tables carry part -> vehicle links, production date ranges, and SA codes?
+- Does `tbadm -Cf` copy the 5.7 GB or attach the ROM files in place?
+- Do the x86_64 Linux binaries run acceptably under Docker's Rosetta emulation?
