@@ -10,9 +10,17 @@ Shopify tags carry, per part:
 Because Shopify gives the CHASSIS CODE directly, no year->generation inference or
 VIN decoding is needed. The variant SKU matches the eBay SKU.
 
-Auth: set env vars (or a .env-style file the Codespace exports):
+Auth: set env vars (or a .env-style file / shopify.env at the repo root):
   SHOPIFY_STORE=yourstore.myshopify.com
-  SHOPIFY_TOKEN=shpat_...            (custom app Admin API token, read_products)
+  either  SHOPIFY_TOKEN=shpat_...          a static Admin API token, or
+  or      SHOPIFY_CLIENT_ID=... + SHOPIFY_CLIENT_SECRET=...
+
+Shopify stopped allowing new legacy custom apps (the ones with permanent shpat_ tokens)
+on 2026-01-01. For a server-to-server integration against your own store the supported
+route is now the CLIENT CREDENTIALS grant: create an app in the Dev Dashboard with the
+read_products scope, install it on the store, then hand this script the app's client id
+and secret -- it exchanges them for a 24h token on each run, so nothing expires and
+there is no token to paste. Same pattern as scripts/ebay_auth.py.
 
 Usage:
   python3 scripts/shopify_donor.py --sku 1194 63142      # look up specific SKUs
@@ -23,6 +31,7 @@ import os
 import re
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -43,20 +52,64 @@ B_KEYWORDS = [
 A_OVERRIDE = ["exhaust", "a/c", " ac ", "air condition", "heater", "climate", "blower", "cabin"]
 
 
+def mint_token(store, client_id, client_secret):
+    """Exchange app client credentials for a 24h Admin API token.
+
+    Shopify closed off creating legacy custom apps (with their permanent shpat_ tokens)
+    on 2026-01-01. The supported replacement for a server-to-server integration against
+    your OWN store is the client credentials grant: POST the app's client id/secret and
+    get back a token, no OAuth redirect and nothing to paste by hand. Same shape as the
+    eBay auth in scripts/ebay_auth.py.
+
+    Requires the app to be installed on the store with the read_products scope.
+    Returns None if unconfigured or the exchange fails.
+    """
+    if not (store and client_id and client_secret):
+        return None
+    body = urllib.parse.urlencode({
+        "grant_type": "client_credentials",
+        "client_id": client_id,
+        "client_secret": client_secret,
+    }).encode()
+    req = urllib.request.Request(
+        f"https://{store}/admin/oauth/access_token", data=body, method="POST",
+        headers={"Content-Type": "application/x-www-form-urlencoded"})
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return json.loads(r.read().decode("utf-8", "replace")).get("access_token")
+    except urllib.error.HTTPError as e:
+        detail = e.read().decode("utf-8", "replace")[:200]
+        print(f"WARNING: Shopify token exchange failed HTTP {e.code}: {detail}", file=sys.stderr)
+    except (urllib.error.URLError, ValueError, OSError) as e:
+        print(f"WARNING: Shopify token exchange failed: {e}", file=sys.stderr)
+    return None
+
+
 def store_token():
+    """(store, token). Prefers a static SHOPIFY_TOKEN; otherwise mints one from
+    SHOPIFY_CLIENT_ID / SHOPIFY_CLIENT_SECRET via the client credentials grant."""
     store = os.environ.get("SHOPIFY_STORE")
     tok = os.environ.get("SHOPIFY_TOKEN")
+    cid = os.environ.get("SHOPIFY_CLIENT_ID")
+    secret = os.environ.get("SHOPIFY_CLIENT_SECRET")
     for name in ("shopify_token.txt", "shopify.env"):
         p = os.path.join(ROOT, name)
-        if (not store or not tok) and os.path.exists(p):
-            for line in open(p, encoding="utf-8"):
-                line = line.strip()
-                if line.startswith("SHOPIFY_STORE="):
-                    store = store or line.split("=", 1)[1].strip()
-                elif line.startswith("SHOPIFY_TOKEN="):
-                    tok = tok or line.split("=", 1)[1].strip()
-                elif line and "=" not in line and not tok:
-                    tok = line  # a bare token in shopify_token.txt
+        if not os.path.exists(p):
+            continue
+        for line in open(p, encoding="utf-8"):
+            line = line.strip()
+            if line.startswith("SHOPIFY_STORE="):
+                store = store or line.split("=", 1)[1].strip()
+            elif line.startswith("SHOPIFY_TOKEN="):
+                tok = tok or line.split("=", 1)[1].strip()
+            elif line.startswith("SHOPIFY_CLIENT_ID="):
+                cid = cid or line.split("=", 1)[1].strip()
+            elif line.startswith("SHOPIFY_CLIENT_SECRET="):
+                secret = secret or line.split("=", 1)[1].strip()
+            elif line and "=" not in line and not tok:
+                tok = line  # a bare token in shopify_token.txt
+    if not tok:
+        tok = mint_token(store, cid, secret)
     return store, tok
 
 
@@ -192,7 +245,9 @@ def main():
         return
     store, tok = store_token()
     if not store or not tok:
-        sys.exit("ERROR: set SHOPIFY_STORE and SHOPIFY_TOKEN (env or shopify_token.txt/shopify.env)")
+        sys.exit("ERROR: set SHOPIFY_STORE plus either SHOPIFY_TOKEN, or "
+                 "SHOPIFY_CLIENT_ID + SHOPIFY_CLIENT_SECRET (env or shopify.env). "
+                 "See this file's docstring.")
     if "--dump" in args:
         dump_all(store, tok)
         return

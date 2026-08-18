@@ -77,9 +77,19 @@ jobs:
         env:
           SHOPIFY_STORE: ${{ secrets.SHOPIFY_STORE }}
           SHOPIFY_TOKEN: ${{ secrets.SHOPIFY_TOKEN }}
+          SHOPIFY_CLIENT_ID: ${{ secrets.SHOPIFY_CLIENT_ID }}
+          SHOPIFY_CLIENT_SECRET: ${{ secrets.SHOPIFY_CLIENT_SECRET }}
         run: |
-          if [ -z "$SHOPIFY_STORE" ] || [ -z "$SHOPIFY_TOKEN" ]; then
-            echo "No Shopify secrets set -- using the committed donor dump as-is."
+          # Either a static SHOPIFY_TOKEN, or client id/secret which the script exchanges
+          # for a 24h token (legacy custom apps, and their permanent tokens, were closed
+          # off on 2026-01-01). Without a donor refresh the sweep still runs -- it just
+          # cannot see cars parted out since the committed dump.
+          if [ -z "$SHOPIFY_STORE" ]; then
+            echo "No SHOPIFY_STORE set -- using the committed donor dump as-is."
+            exit 0
+          fi
+          if [ -z "$SHOPIFY_TOKEN" ] && { [ -z "$SHOPIFY_CLIENT_ID" ] || [ -z "$SHOPIFY_CLIENT_SECRET" ]; }; then
+            echo "No Shopify credentials set -- using the committed donor dump as-is."
             exit 0
           fi
           python3 scripts/shopify_donor.py --dump
