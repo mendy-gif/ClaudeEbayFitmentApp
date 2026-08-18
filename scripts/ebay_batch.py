@@ -28,6 +28,7 @@ import argparse
 import csv
 import json
 import os
+import socket
 import sys
 import time
 import urllib.error
@@ -72,7 +73,9 @@ def refresh_token():
         return None
 
 
-def api(method, path, tok, body=None):
+def api(method, path, tok, body=None, retries=3):
+    """eBay REST call with retry+backoff on 429/5xx and transport errors. The write
+    (createOrReplaceProductCompatibility) is idempotent, so retrying is safe."""
     headers = {"Authorization": f"Bearer {tok}", "Accept": "application/json"}
     data = None
     if body is not None:
@@ -80,18 +83,25 @@ def api(method, path, tok, body=None):
         headers["Content-Language"] = "en-US"
         data = json.dumps(body).encode()
     req = urllib.request.Request(BASE + path, data=data, method=method, headers=headers)
-    try:
-        with urllib.request.urlopen(req) as r:
-            raw = r.read().decode("utf-8", "replace")
-            return r.status, (json.loads(raw) if raw else {})
-    except urllib.error.HTTPError as e:
-        raw = e.read().decode("utf-8", "replace")
+    for attempt in range(retries):
         try:
-            return e.code, json.loads(raw)
-        except ValueError:
-            return e.code, {"_raw": raw}
-    except urllib.error.URLError as e:
-        return None, {"_transport_error": str(e)}
+            with urllib.request.urlopen(req) as r:
+                raw = r.read().decode("utf-8", "replace")
+                return r.status, (json.loads(raw) if raw else {})
+        except urllib.error.HTTPError as e:
+            raw = e.read().decode("utf-8", "replace")
+            if (e.code == 429 or 500 <= e.code < 600) and attempt < retries - 1:
+                time.sleep(2 ** attempt)          # 1s, 2s backoff
+                continue
+            try:
+                return e.code, json.loads(raw)
+            except ValueError:
+                return e.code, {"_raw": raw}
+        except urllib.error.URLError as e:         # timeout / transport blip
+            if attempt < retries - 1:
+                time.sleep(2 ** attempt)
+                continue
+            return None, {"_transport_error": str(e)}
 
 
 def load_partnumber_fitment(path):
@@ -112,11 +122,39 @@ def load_partnumber_fitment(path):
 
 
 def load_ledger():
-    return json.load(open(LEDGER, encoding="utf-8")) if os.path.exists(LEDGER) else {}
+    if not os.path.exists(LEDGER):
+        return {}
+    try:
+        return json.load(open(LEDGER, encoding="utf-8"))
+    except (ValueError, OSError) as e:            # corrupt/partial (e.g. interrupted write)
+        print(f"WARNING: ledger unreadable ({e}); starting fresh. Old file -> {LEDGER}.bak", file=sys.stderr)
+        try:
+            os.replace(LEDGER, LEDGER + ".bak")
+        except OSError:
+            pass
+        return {}
 
 
 def save_ledger(led):
-    json.dump(led, open(LEDGER, "w", encoding="utf-8"), indent=2)
+    """Atomic write: dump to a temp file then rename, so an interruption can never
+    leave a truncated ledger that bricks the next run."""
+    tmp = LEDGER + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(led, f, indent=2)
+    os.replace(tmp, LEDGER)
+
+
+def trading_compat_retry(listing_id, tok, retries=3):
+    """Trading 'already-expanded' read with retry. Returns (count, sample, err); count
+    is None only if ALL attempts failed -> the caller MUST fail closed (skip the SKU)."""
+    n, sample, terr = None, [], "no listingId"
+    for attempt in range(retries):
+        n, sample, terr = trading_getitem_compat(listing_id, tok)
+        if n is not None:
+            return n, sample, terr
+        if attempt < retries - 1:
+            time.sleep(2 ** attempt)
+    return n, sample, terr
 
 
 def enumerate_skus(tok, limit):
@@ -238,11 +276,17 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
     listing_id = pub[0].get("listing", {}).get("listingId")
     category = pub[0].get("categoryId")
 
-    # Trading count is used as the "already expanded" guard in both paths. In the
+    # Trading count is the "already expanded" guard in both paths (with retry). In the
     # Shopify path it is NOT the donor source, so n_trad==0 no longer means "skip".
-    n_trad, sample, terr = trading_getitem_compat(listing_id, tok) if listing_id else (None, [], "no listingId")
+    n_trad, sample, terr = trading_compat_retry(listing_id, tok) if listing_id else (None, [], "no listingId")
     if n_trad is not None and n_trad > 1:
         return {"sku": sku, "listingId": listing_id, "action": "skip", "reason": f"already {n_trad} vehicles (multi-fit/expanded)"}
+    # FAIL CLOSED: if the guard read failed (or there's no listingId), we cannot tell
+    # whether this listing already has curated fitment -> skip rather than risk a PUT
+    # that overwrites it. (A push only happens when we KNOW the listing has <=1 vehicle.)
+    if n_trad is None:
+        return {"sku": sku, "listingId": listing_id, "action": "skip",
+                "reason": f"guard read failed ({terr}) - skipped to protect existing fitment"}
 
     sd = (shopify or {}).get(str(sku)) or (shopify or {}).get(sku)
     rule, why = classify_rule(category, tree, inc, exc, default)
@@ -253,7 +297,9 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
     res, donor_str, fail = _chassis_expand(sku, shopify, sd, n_trad, sample, terr, rule, ref, emap, ebay)
     # A chassis basis is missing entirely. Return that verdict UNLESS part-number rows
     # exist for this SKU, in which case fall through and push those (the pn-only rescue).
-    if fail and not pn_rows:
+    # Exception: a NON-BMW donor always skips (never push BMW part-number fitment onto a
+    # non-BMW listing), even if a part-number row happens to collide on the SKU.
+    if fail and (not pn_rows or "non-BMW" in fail[1]):
         action, reason = fail
         d = {"sku": sku, "listingId": listing_id, "action": action, "reason": reason}
         if donor_str:
@@ -322,6 +368,10 @@ def main():
     args = ap.parse_args()
     tok = token(args)
 
+    # Every HTTP call gets a hard timeout so a single stalled socket can't freeze an
+    # unattended overnight run forever (it surfaces as a per-SKU error and the run continues).
+    socket.setdefaulttimeout(30)
+
     # Preflight: a cheap authenticated call. eBay user tokens expire in ~2h, and an
     # expired token otherwise shows up as "no published offer" on every SKU (a 401 that
     # the offer read swallows). Fail loud and early instead.
@@ -388,7 +438,7 @@ def main():
             print("\n  STOPPING: eBay token rejected and no refresh credentials configured.")
             print("  Temp mode: refresh token.txt and re-run (ledger resumes). Or set up ebay_auth.json (docs sec 7).")
             break
-        if live:
+        if live and rows[-1]["action"] == "pushed":     # only write when the ledger changed
             save_ledger(led)
         time.sleep(args.sleep)
 

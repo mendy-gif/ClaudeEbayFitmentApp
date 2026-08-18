@@ -183,11 +183,11 @@ def resolve_chassis(series, model, reference=None):
         return matched[0], f"disambiguated by model '{model}'"
     if len(matched) > 1:
         return exact.get(sn) or matched[0], "multi-match -> prefer plain"
-    plain = exact.get(sn)                            # no model match -> the non-M/EV row
-    if plain:
-        return plain, "no model match -> plain row"
-    return None, (f"ambiguous series '{series}' / model '{model}': "
-                  f"{[c['chassis_code'] for c in cands]}")
+    # No model match on a genuinely ambiguous bare code (a plain row AND an M/EV sibling).
+    # Don't guess the plain row: for an M-car donor with a missing/garbled Model tag that
+    # would push valid-but-wrong Rule-B rows eBay won't drop. Flag for review (skip) instead.
+    return None, (f"ambiguous series '{series}' / model '{model or '?'}': "
+                  f"{[c['chassis_code'] for c in cands]} - needs a Model to disambiguate")
 
 
 def _emit(row, rule, idx, ebay, donor_model=None, donor_engines=None, year=None, extra=None):
