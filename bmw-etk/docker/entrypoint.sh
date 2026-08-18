@@ -1,23 +1,25 @@
 #!/bin/bash
-# Keep Transbase's database registry on the /data volume.
+# Put the whole Transbase installation on the /data volume, not just a symlink.
 #
-# tbadmin records an attached database in $TRANSBASE/dblist.ini, but /opt/transbase
-# lives in the image layer, so that registration vanishes when a --rm container
-# exits -- which is why "tbadmin -i" reported the database missing right after a
-# successful attach. Symlinking it onto the persistent volume fixes that.
+# Why: tbadmin registers an attached database in $TRANSBASE/dblist.ini, but
+# /opt/transbase is an image layer, so that registration is lost when a --rm
+# container exits. Symlinking dblist.ini onto the volume does NOT work either --
+# tbadmin rewrites the file (write temp + rename), which replaces the symlink with
+# a regular file inside the image layer and leaves the persistent copy empty. That
+# is exactly what happened: the attach reported success while dblist.ini still read
+# "[databases]" with no entries.
 #
-# The container hostname is pinned by etk-db.sh (--hostname), because Transbase
-# qualifies databases as <name>@<host> and a random hostname per run would never
-# match a previous registration.
+# Copying the ~10 MB installation onto the volume once makes every piece of
+# Transbase state persistent, however it chooses to write it.
 set -e
-PERSIST=/data/_tbconf
-mkdir -p "$PERSIST"
-if [ ! -e "$PERSIST/dblist.ini" ]; then
-  if [ -e "$TRANSBASE/dblist.ini.orig" ]; then
-    cp "$TRANSBASE/dblist.ini.orig" "$PERSIST/dblist.ini"
-  else
-    : > "$PERSIST/dblist.ini"
-  fi
+IMAGE_TB=/opt/transbase
+PERSIST_TB=/data/transbase
+
+if [ ! -x "$PERSIST_TB/tbadmin" ]; then
+  mkdir -p "$PERSIST_TB"
+  cp -a "$IMAGE_TB/." "$PERSIST_TB/"
 fi
-ln -sf "$PERSIST/dblist.ini" "$TRANSBASE/dblist.ini"
+
+export TRANSBASE="$PERSIST_TB"
+export PATH="$PERSIST_TB:$PATH"
 exec "$@"

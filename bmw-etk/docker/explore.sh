@@ -45,30 +45,67 @@ echo "--- dblist.ini ---"; cat "$TRANSBASE/dblist.ini" 2>/dev/null | head
 echo "--- tbadmin -i ---"; "$TRANSBASE/tbadmin" -i "$DB" 2>&1 | strip | head -25
 
 PROBE="select * from systable;"
+bad() { grep -qiE 'error|does not exist|cannot|refused|not reachable|no such' "$1"; }
+
+try_mode() {  # try_mode <label> ; sets MODE on success
+  [ -n "$MODE" ] && return 0
+  raw_tbi "$PROBE" > /tmp/try.out 2>&1
+  if ! bad /tmp/try.out; then
+    MODE="$1"
+    echo "   connected via: $1"
+    return 0
+  fi
+  echo "   no: $(strip < /tmp/try.out | head -3 | tr '\n' ' ')"
+  return 1
+}
+
 echo
-echo "--- trying tbi directly ---"
-if raw_tbi "$PROBE" | tee /tmp/p1.out | strip | head -15; then :; fi
-if ! grep -qiE 'error|does not exist|cannot|refused|no such' /tmp/p1.out; then
-  MODE=direct
-else
-  echo "--- booting the database, retrying ---"
+echo "1. tbi directly"
+try_mode direct
+
+if [ -z "$MODE" ]; then
+  echo "2. boot the database first"
   "$TRANSBASE/tbadmin" -b "$DB" 2>&1 | strip | head -8
-  raw_tbi "$PROBE" > /tmp/p2.out 2>&1
-  if ! grep -qiE 'error|does not exist|cannot|refused|no such' /tmp/p2.out; then
-    MODE=booted
+  try_mode booted
+fi
+
+if [ -z "$MODE" ]; then
+  echo "3. start tbserver, then tbi"
+  start_server
+  strip < /tmp/tbserver.out | head -10
+  try_mode server
+fi
+
+if [ -z "$MODE" ]; then
+  echo "4. tbserver with the service ports from rc.tbenv"
+  TRANSBASE_SERVICENAMES=2024:2025 "$TRANSBASE/tbserver" > /tmp/tbserver2.out 2>&1 &
+  sleep 8
+  strip < /tmp/tbserver2.out | head -10
+  try_mode server-ports
+fi
+
+if [ -z "$MODE" ] && [ -x "$TRANSBASE/utbi" ]; then
+  echo "5. utbi (local client, no server?)"
+  printf '%s\n' "$PROBE" > /tmp/q.sql
+  timeout -k 10 "$TBI_TIMEOUT" "$TRANSBASE/utbi" -f /tmp/q.sql "$DB" "$DBU" "$PASS" > /tmp/try.out 2>&1
+  if ! bad /tmp/try.out; then
+    MODE=utbi
+    raw_tbi() { printf '%s\n' "$1" > /tmp/q.sql
+                timeout -k 10 "${2:-$TBI_TIMEOUT}" "$TRANSBASE/utbi" -f /tmp/q.sql "$DB" "$DBU" "$PASS" 2>&1; return 0; }
+    echo "   connected via: utbi"
   else
-    echo "--- starting tbserver, retrying ---"
-    start_server
-    strip < /tmp/tbserver.out | head -10
-    raw_tbi "$PROBE" > /tmp/p3.out 2>&1
-    grep -qiE 'error|does not exist|cannot|refused|no such' /tmp/p3.out || MODE=server
+    echo "   no: $(strip < /tmp/try.out | head -3 | tr '\n' ' ')"
   fi
 fi
+
 echo "CONNECTION MODE: ${MODE:-NONE}"
 
 if [ -z "$MODE" ]; then
   echo "Could not reach the database. Last attempt output:"
-  strip < /tmp/p3.out 2>/dev/null | head -40 || strip < /tmp/p1.out | head -40
+  strip < /tmp/try.out 2>/dev/null | head -40
+  echo
+  echo "--- dblist.ini at this point ---"
+  cat "$TRANSBASE/dblist.ini" 2>&1 | head -20
   exit 1
 fi
 

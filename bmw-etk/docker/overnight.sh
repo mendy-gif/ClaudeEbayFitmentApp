@@ -57,6 +57,7 @@ run_stage() {
     -v "$ROM":/rom:ro -v "$VOLUME":/data -v "$SCHEMA":/out \
     -v "$HERE/attach.sh":/attach.sh:ro \
     -v "$HERE/explore.sh":/explore.sh:ro \
+    -v "$HERE/diagnose.sh":/diagnose.sh:ro \
     "$IMAGE" "$@" &
   local pid=$!
   ( sleep "$limit"; "$DOCKER" kill "$CONTAINER" >/dev/null 2>&1 \
@@ -87,7 +88,7 @@ echo
 echo "########## 2. ATTACH ##########"
 # The registry now lives on the volume, so re-attach cleanly from scratch.
 "$DOCKER" run --rm --platform "$PLATFORM" --hostname "$HOSTNAME_FIXED" \
-  -v "$VOLUME":/data "$IMAGE" bash -lc 'rm -rf /data/etk_publ /data/_tbconf' >/dev/null 2>&1
+  -v "$VOLUME":/data "$IMAGE" bash -lc 'rm -rf /data/etk_publ /data/_tbconf /data/transbase' >/dev/null 2>&1
 run_stage attach "$ATTACH_MAX" bash /attach.sh
 ATTACH_RC=$?
 
@@ -99,9 +100,23 @@ if [ "$ATTACH_RC" -ne 0 ]; then
 fi
 
 echo
+echo "########## 2b. VERIFY REGISTRATION + DIAGNOSE ##########"
+# The previous run reported a successful attach while dblist.ini stayed empty,
+# so never trust the attach's exit code alone -- check the registry.
+run_stage diagnose 600 bash /diagnose.sh
+
+echo
 echo "########## 3. EXPLORE SCHEMA ##########"
 run_stage explore "$EXPLORE_MAX" bash /explore.sh
 EXPLORE_RC=$?
+
+echo
+echo "########## 3b. BMW's OWN SERVER INIT SCRIPT (for reference) ##########"
+for f in rc.TransBase rc.tbenv rc.tbstop; do
+  if [ -f "$ISO/transbase_linux/$f" ]; then
+    echo "--- $f ---"; sed -n '1,60p' "$ISO/transbase_linux/$f"; echo
+  fi
+done
 
 echo
 echo "########## 4. RESULTS ##########"
