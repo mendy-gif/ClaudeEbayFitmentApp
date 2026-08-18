@@ -20,8 +20,23 @@ DBUSER="tbadmin"
 DBPASS="altabe"
 
 die() { echo "ERROR: $*" >&2; exit 1; }
+
+# Docker Desktop does not always leave `docker` on the PATH of an already-open
+# terminal, so look in the places it actually installs the CLI.
+DOCKER=""
+find_docker() {
+  local c
+  for c in "$(command -v docker 2>/dev/null)" \
+           "$HOME/.docker/bin/docker" \
+           /usr/local/bin/docker \
+           /opt/homebrew/bin/docker \
+           /Applications/Docker.app/Contents/Resources/bin/docker; do
+    [ -n "$c" ] && [ -x "$c" ] && { DOCKER="$c"; return 0; }
+  done
+  return 1
+}
 have_docker() {
-  if ! command -v docker >/dev/null 2>&1; then
+  if ! find_docker; then
     cat >&2 <<'MSG'
 ERROR: docker is not installed.
 
@@ -36,19 +51,20 @@ ERROR: docker is not installed.
 MSG
     exit 1
   fi
-  if ! docker info >/dev/null 2>&1; then
+  if ! "$DOCKER" info >/dev/null 2>&1; then
     cat >&2 <<'MSG'
 ERROR: docker is installed but the engine is not running.
 
   Open Docker Desktop from Applications and wait for the whale icon in the
-  menu bar to settle, then run this again.
+  menu bar to settle (it animates while starting), then run this again.
 MSG
     exit 1
   fi
+  [ "$DOCKER" = "$(command -v docker 2>/dev/null)" ] || echo "(using docker at: $DOCKER)"
 }
 
 run_in() {  # run a command in a throwaway container with rom + data mounted
-  docker run --rm --platform "$PLATFORM" \
+  "$DOCKER" run --rm --platform "$PLATFORM" \
     -v "$ROM":/rom:ro -v "$VOLUME":/data \
     "$IMAGE" "$@"
 }
@@ -59,9 +75,9 @@ build)
   [ -d "$ISO" ] || die "ISO not mounted at: $ISO  (set ETK_ISO to override)"
   cp "$ISO/transbase_linux/transbase_linux.tar.gz" "$HERE/" || die "could not copy the Transbase tarball"
   echo "Building $IMAGE for $PLATFORM (emulated on Apple Silicon)..."
-  docker build --platform "$PLATFORM" -t "$IMAGE" "$HERE" || die "build failed"
+  "$DOCKER" build --platform "$PLATFORM" -t "$IMAGE" "$HERE" || die "build failed"
   rm -f "$HERE/transbase_linux.tar.gz"
-  docker volume create "$VOLUME" >/dev/null
+  "$DOCKER" volume create "$VOLUME" >/dev/null
   echo "Built. Next: bash $0 probe"
   ;;
 
@@ -96,14 +112,14 @@ sql)
   have_docker
   [ -n "${2:-}" ] || die "usage: $0 sql \"select * from ...\""
   printf '%s\n' "$2" > /tmp/etk_query.sql
-  docker run --rm --platform "$PLATFORM" \
+  "$DOCKER" run --rm --platform "$PLATFORM" \
     -v "$ROM":/rom:ro -v "$VOLUME":/data -v /tmp/etk_query.sql:/tmp/q.sql:ro \
     "$IMAGE" bash -lc "\$TRANSBASE/tbi -f /tmp/q.sql $DB $DBUSER $DBPASS 2>&1"
   ;;
 
 shell)
   have_docker
-  docker run --rm -it --platform "$PLATFORM" \
+  "$DOCKER" run --rm -it --platform "$PLATFORM" \
     -v "$ROM":/rom:ro -v "$VOLUME":/data "$IMAGE" bash
   ;;
 
