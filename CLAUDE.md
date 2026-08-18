@@ -51,7 +51,19 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
 9. **Trading CANNOT write these listings** — `ReviseFixedPriceItem` always fails with `21919474`
    ("Inventory-based listing management is not currently supported by this tool"). Trading is
    **read-only** for us. The Inventory write displays by itself once the rows are catalog-valid.
-10. **The ledger prevents double-work** but only records *pushes*; skips are re-evaluated each run (that's
+10. **WE ARE NOT THE ONLY SYSTEM WRITING FITMENT.** Dismantly, PartOutPro, eBay's own
+   auto-fitment setting, and (historically) MyFitment all push fitment to these listings.
+   So the "already expanded" guard is load-bearing — a listing showing vehicles we never
+   pushed belongs to one of them, and overwriting it destroys their work. It also means
+   **our** fitment can be overwritten by them; `scripts/ebay_display_audit.py` is how you
+   detect it (listings displaying vehicles we did not send).
+11. **Throughput is capped by eBay's Trading `GetItem` quota: 5,000 calls/day**, resetting
+   07:00 UTC. Every SKU costs one for the guard; each audit costs up to 300 more. Hence
+   `NIGHTLY_LIMIT: 700`. Read the live counter any time (app token, plain `api_scope`):
+   `GET https://api.ebay.com/developer/analytics/v1_beta/rate_limit/`. The Inventory API's
+   cap is 2,000,000/day by comparison — moving the guard there is the obvious speedup, but
+   see #10 for why it must be tested first.
+12. **The ledger prevents double-work** but only records *pushes*; skips are re-evaluated each run (that's
    why the same "already N vehicles / no donor" lines recur — harmless). Entries carry a `cv` stamp
    (`CATALOG_ERA`); entries older than the current era are re-processed automatically so fitment that
    was pushed but never displayed self-heals.
