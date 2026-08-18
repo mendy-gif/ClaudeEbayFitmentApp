@@ -75,6 +75,19 @@ commercial decision (it changes search placement and fees). **Decided against fo
 The list is recorded in `data/nondisplay_categories.json` so the nightly audit doesn't
 keep flagging them as failures.
 
+## The clearest proof it works
+
+Two parts off the SAME donor car (an E90 328i), pushed under different rules:
+
+| | SKU 60962 -- Rule B (water pump) | SKU 60972 -- Rule A (seatbelt buckle) |
+|---|---|---|
+| Displays | 325i, 325xi, 328i, 328xi, 330i, 330xi | 325i ... **335d, 335i, 335i xDrive** |
+| Count | 61 vehicles | 88 vehicles |
+
+The water pump is correctly restricted to the N52 six -- no 335i (N54 turbo), no 335d
+(diesel). The seatbelt correctly fits the whole family. That is Rule A and Rule B doing
+exactly what they are supposed to, visible on the live storefront.
+
 ## How to check on things yourself
 
 ```bash
@@ -99,9 +112,9 @@ the summary at the bottom.
 - [ ] **No Shopify credentials on this Mac.** The donor data is committed so everything
       works, but new SKUs added in Shopify won't be discovered automatically until this
       is sorted.
-- [ ] **Nobody has visually confirmed a listing page.** Every check so far reads eBay's
-      API. Opening a live listing and eyeballing the fitment box would close the last
-      gap in the evidence.
+- [x] ~~Visually confirm a listing page~~ -- **confirmed by mendy on 2026-08-18.** The
+      fitment table renders on the live storefront. Verified across 10 listings spanning
+      different chassis, including the Rule A/B pair below.
 - [ ] **7,500 listings still to sweep** — the nightly job works through these.
 
 ## Working agreement
