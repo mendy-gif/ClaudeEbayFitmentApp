@@ -198,14 +198,22 @@ def save_ledger(led):
     os.replace(tmp, LEDGER)
 
 
+class RateLimited(RuntimeError):
+    """eBay refused the call on quota (error 518). It is a DAILY allowance, so retrying
+    within the run is pointless -- every remaining SKU will fail the same way."""
+
+
 def trading_compat_retry(listing_id, tok, retries=3):
     """Trading 'already-expanded' read with retry. Returns (count, sample, err); count
-    is None only if ALL attempts failed -> the caller MUST fail closed (skip the SKU)."""
+    is None only if ALL attempts failed -> the caller MUST fail closed (skip the SKU).
+    Raises RateLimited when eBay reports the daily call limit, so the sweep can stop."""
     n, sample, terr = None, [], "no listingId"
     for attempt in range(retries):
         n, sample, terr = trading_getitem_compat(listing_id, tok)
         if n is not None:
             return n, sample, terr
+        if terr and "exceeded usage limit" in terr:
+            raise RateLimited(terr)
         if attempt < retries - 1:
             time.sleep(2 ** attempt)
     return n, sample, terr
@@ -549,7 +557,7 @@ def main():
           f"  |  {len(skus)} SKU(s)  |  ledger has {len(led)}")
     if live:
         log_error("-", "run-start", f"{args.mode} live, {len(skus)} SKU(s)")   # delineates runs in the log
-    rows, counts = [], {}
+    rows, counts, rate_limited = [], {}, False
     for i, sku in enumerate(skus, 1):
         # Skip ledgered SKUs, UNLESS part-number rows exist that weren't applied yet
         # (so the combined run can add Approach-2 fitment to chassis-only pushes).
@@ -563,7 +571,17 @@ def main():
         if entry and not pn_pending:
             rows.append({"sku": sku, "action": "skip", "reason": "already in ledger"})
         else:
-            r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force)
+            try:
+                r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force)
+            except RateLimited as e:
+                # The allowance is daily, so the remaining SKUs cannot succeed. Run #7 spent
+                # 40 minutes and 630 SKUs discovering this one call at a time; stop instead,
+                # and leave the rest for the next run (the ledger resumes exactly here).
+                print(f"\n  STOPPED at {i}/{len(skus)}: eBay daily call limit reached.")
+                print(f"  {len(skus) - i + 1} SKU(s) left for the next run. Detail: {str(e)[:120]}")
+                log_error(sku, "rate-limited", str(e)[:200])
+                rate_limited = True
+                break
             if r["action"] == "auth_error":                  # try to self-heal (auto-refresh mode)
                 nt = refresh_token()
                 if nt and nt != tok:
@@ -589,6 +607,10 @@ def main():
         for r in rows:
             w.writerow({c: r.get(c, "") for c in PLAN_COLS})
     print(f"\nSummary: {counts}")
+    if rate_limited:
+        print("NOTE: stopped early on eBay's daily call limit. Everything pushed before that "
+              "point IS recorded in the ledger; the rest resumes on the next run. If this "
+              "keeps happening, lower the per-run limit.")
     print(f"Plan written -> data/batch_plan.csv" + ("  |  ledger updated" if live else "  (dry-run; re-run 'apply --live' to write)"))
 
 

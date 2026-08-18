@@ -27,7 +27,12 @@ env:
   # several nights instead of one multi-hour unsupervised push -- and a bad night
   # costs one batch, not the whole store. Once caught up, nightly runs only see
   # NEW listings and finish well under this. Override per-run via the input above.
-  NIGHTLY_LIMIT: "1500"
+  #
+  # Sized to eBay's daily Trading call allowance, not to wall-clock. Every SKU costs a
+  # GetItem for the "already expanded" guard, and the audit costs up to 300 more. Run #7
+  # asked for 1500 and hit error 518 at SKU 867, wasting 40 minutes and ~630 SKUs on calls
+  # eBay had already stopped answering. 700 + 300 leaves headroom under a 5k/day app cap.
+  NIGHTLY_LIMIT: "700"
 
 concurrency:                     # never let two sweeps overlap (they'd double-read)
   group: fitment-sweep

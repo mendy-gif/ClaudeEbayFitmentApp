@@ -1,0 +1,52 @@
+# SKUs pushed live by workflow run #7 (2026-08-18) whose ledger record was LOST when the
+# bot's git push was rejected mid-run. They carry correct fitment on eBay but are absent
+# from data/pushed_ledger.json, so the "already expanded" guard will skip them forever as
+# if a human had curated them.
+#
+# Recovery (once the eBay daily call quota has reset):
+#   python3 scripts/ebay_batch.py apply --sku $(tr '\n' ' ' < data/orphaned_pushes.txt) \
+#     --from-shopify --partnumber-fitment spreadsheet-fitment/data/built/ebay_ready_fitment.csv \
+#     --force --live
+# The push is idempotent, so re-pushing is safe; it just records them properly this time.
+52367
+53691
+53705
+53704
+53767
+53738
+53803
+5811
+5812
+3814
+5572
+5806
+5804
+6194
+2358
+3179
+3197
+2127
+2417
+2353
+5961
+6416
+2713
+60198
+5564
+6038
+60088
+60197
+1914
+53492
+52980
+53959
+53210
+53251
+53775
+53613
+4697
+5162
+5270
+5429
+5430
+1756
