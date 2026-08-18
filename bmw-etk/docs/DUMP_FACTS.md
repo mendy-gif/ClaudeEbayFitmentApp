@@ -165,6 +165,58 @@ Ignore its instructions. One line is still useful confirmation of the data model
 ETK has a **"Parts Use"** function, "check which vehicles a particular part is fitted
 to" -- exactly the part -> vehicles direction this project needs.
 
+## The ROM files are platform-portable (important)
+
+The disc ships **one** set of `rfile*` data files but **two** engines
+(`transbase/` for Windows, `transbase_linux/`) with parallel create scripts
+(`createdb.bat` / `createdb.sh`) loading the same data. BMW therefore expects that
+single catalog to load under either OS. This substantially answers the earlier worry
+that a Windows-authored ROM database might not load on Linux, and makes the
+container route a real option rather than a weak fallback.
+
+## The Linux side, from createdb.sh and rc.tbenv
+
+`transbase_linux.tar.gz` holds 163 entries including the tools we need:
+`tbadmin` (admin/load), `tbi` (SQL shell), `tbserver` (server), plus `utbi`,
+`tbadmmsg`, `ccl`, `mkapf`, `diskrec` and the `optree/` catalog files.
+
+```sh
+# createdb.sh -- creating EMPTY databases (note lowercase -cf)
+tbadmin -cf etk_publ   p=tmp h=.../etk_publ typ=E ps=4096 lc=1024 rs=512000 d=,512000 cp=utf8
+tbadmin -cf etk_nutzer p=tmp h=.../etk_nutzer cp=utf8
+tbadmin -cf etk_preise p=tmp h=.../etk_preise cp=utf8
+tbi -f webretknutzer_tb.sql etk_nutzer tbadmin tmp
+tbi -f webretkpreise_tb.sql etk_preise tbadmin tmp
+```
+
+Note the case distinction: **`-cf` creates an empty database**, while the Windows
+install script uses **`-Cf` with `rf=` arguments to create from ROM files**. Three
+databases exist: `etk_publ` (the catalog), `etk_nutzer` (user data), `etk_preise`
+(prices).
+
+`rc.tbenv` gives the runtime environment:
+
+```sh
+TRANSBASE=/home/bmw/transbase
+TRANSBASE_SERVICENAMES=2024:2025      # the server's ports
+```
+
+**Only the database is needed** -- Tomcat, the javaserver and the javaclient are all
+irrelevant to exporting tables.
+
+## Extraction verified against real data
+
+All four ROM files extracted cleanly, and `rfile000.000` came out at exactly
+**2,147,459,072 bytes -- the size declared in its FILE record**. That confirms the
+CONT part-boundary handling on the real 5.7 GB archive, not just on synthetic tests.
+
+| File | Bytes |
+|------|-------|
+| rfile000.000 | 2,147,459,072 |
+| rfile000.001 | 2,147,463,168 |
+| rfile000.002 | 5,279,744 |
+| rfile001.000 | 1,792,589,824 |
+
 ## Platform decision: Windows first, Mac as backup
 
 The disc is a **Windows product**: `transbase/transbase.exe`, `tbadm32.exe`,
