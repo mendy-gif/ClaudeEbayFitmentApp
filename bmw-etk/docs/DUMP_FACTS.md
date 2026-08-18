@@ -25,28 +25,39 @@ Linux service scripts: `transbase_linux/rc.TransBase`, `rc.tbenv`, `rc.tbstop`,
 
 ## The .jetarch container format (decoded)
 
-The six parts are one archive split at ~1 GiB. Format, verified field by field
-against the real header:
+**Each of the six parts carries its own 8-byte header** -- they are not a naive
+split. Confirmed by `probe`: every part begins `RLFF` followed by a sequence word
+`0x02000000 | part_number` (0x02000001 .. 0x02000006).
+
+Strip those 8 bytes from each part, concatenate in part order, and the result is one
+continuous record stream:
 
 ```
-'RLFF'  u32 version (0x02000001)
-repeating file records:
-    'FILE'  u16 name_len  name[name_len]  u64 declared_size
-    repeating chunks, until the next marker is not CHNK:
+'FILE'  u16 name_len  name[name_len]  u64 declared_size
+    then repeatedly:
         'CHNK'  u64 chunk_len  data[chunk_len]
+'SIGN'  u64 len  data[len]          -- package signature block
 ```
 
-All integers big-endian. `package.properties` is the first entry and identifies the
-package: `name=ETK-Data`, `version=3.220.006`, `ostype=WIN`, `targetenv=ETK`,
-author `msg systems ag`. "Jetstream" is msg systems' online update system.
+All integers big-endian. `SIGN` records appear between file records; they hold the
+package signature (`package.properties` notes that `meta-inf/Manifest.mf` content is
+"omitted, as generated during signing"). Unknown 4-char markers are assumed to share
+the `MARKER + u64 length + payload` shape, and the parser **validates the guess** by
+checking it lands on a known marker -- it reports a hex window rather than silently
+producing corrupt output.
 
-`scripts/jetarch.py` implements this: `probe` / `list` / `extract`. It streams, so it
-runs in a few MB of RAM, and treats the six parts as one continuous stream.
-Verified on synthetic archives split mid-chunk -- extraction is byte-identical.
+`package.properties` is the first entry: `name=ETK-Data`, `version=3.220.006`,
+`ostype=WIN`, `targetenv=ETK`, author `msg systems ag`. "Jetstream" is msg systems'
+online update system.
 
-**This is why Docker may not be needed**: if the archive holds loadable data
-(SQL, CSV, or table exports) rather than opaque Transbase page files, we can read the
-catalog without ever starting the engine.
+`scripts/jetarch.py` implements `probe` / `list` / `dump` / `extract`. It streams, so
+a 5.8 GB archive is read in a few MB of RAM, and listing seeks past payloads instead
+of reading them. Verified against synthetic archives that reproduce per-part headers,
+mid-chunk split boundaries, and interleaved SIGN records: extraction is byte-identical.
+
+**This is why Docker may not be needed**: if the payload is loadable data (SQL, CSV,
+table exports) rather than opaque Transbase page files, we can read the catalog
+without ever starting the engine.
 
 ## Schema clues already visible
 

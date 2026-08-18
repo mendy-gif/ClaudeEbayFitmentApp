@@ -1,22 +1,26 @@
 #!/usr/bin/env python3
 """Read a BMW ETK ".jetarch" data package (msg systems' "Jetstream" container).
 
-Format, decoded from the archive header and verified field by field:
+Container layout, decoded from the real archive:
 
-    'RLFF'  u32 version
-    then repeating file records:
-        'FILE'  u16 name_len  name[name_len]  u64 declared_size
-        then repeating chunks (until the next marker is not CHNK):
-            'CHNK'  u64 chunk_len  data[chunk_len]
+  Every part file begins with its own 8-byte header:
+      'RLFF'  u32  (0x02000000 | part_number)
+  Stripping those 8 bytes from each part and concatenating in part order gives
+  one continuous record stream:
 
-All integers are big-endian. The six ETK-Data_*.jetarch.part* files are treated
-as one continuous stream, in part order.
+      'FILE'  u16 name_len  name[name_len]  u64 declared_size
+          then, repeatedly:
+              'CHNK'  u64 chunk_len  data[chunk_len]
+      'SIGN'  u64 len  data[len]        -- package signature block
+      (other 4-char markers are assumed to follow the same MARKER+u64+payload
+       shape, and the guess is validated by checking we land on a known marker)
 
-Nothing here loads the archive into memory -- it streams, so it runs in a few MB
-of RAM over a 5.8 GB archive.
+All integers are big-endian. Everything streams, so a 5.8 GB archive is read in a
+few MB of RAM, and listing seeks past payloads instead of reading them.
 
     python3 jetarch.py probe   "/Volumes/BMW ETK 2020-01"
     python3 jetarch.py list    "/Volumes/BMW ETK 2020-01"
+    python3 jetarch.py dump    "/Volumes/BMW ETK 2020-01" --at 1679
     python3 jetarch.py extract "/Volumes/BMW ETK 2020-01" -o out/ --only "*.sql"
 """
 import argparse
@@ -28,8 +32,9 @@ import sys
 from bisect import bisect_right
 
 MAGIC = b"RLFF"
-M_FILE = b"FILE"
-M_CHNK = b"CHNK"
+PART_HEADER = 8
+M_FILE, M_CHNK, M_SIGN = b"FILE", b"CHNK", b"SIGN"
+KNOWN = {M_FILE, M_CHNK, M_SIGN}
 COPY_BUF = 1 << 20
 
 
@@ -42,22 +47,39 @@ def human(n):
 
 
 class MultiPartReader:
-    """Presents an ordered list of files as one seekable read-only stream."""
+    """The parts, minus their per-part headers, as one seekable logical stream."""
 
-    def __init__(self, paths):
-        if not paths:
-            raise ValueError("no parts given")
+    def __init__(self, paths, header=PART_HEADER):
         self.paths = list(paths)
-        self.sizes = [os.path.getsize(p) for p in self.paths]
-        self.total = sum(self.sizes)
-        self.starts = []
-        off = 0
-        for size in self.sizes:
+        self.header = header
+        self.phys_sizes = [os.path.getsize(p) for p in self.paths]
+        self.data_sizes = [max(0, s - header) for s in self.phys_sizes]
+        self.total = sum(self.data_sizes)
+        self.starts, off = [], 0
+        for size in self.data_sizes:
             self.starts.append(off)
             off += size
-        self._idx = 0
-        self._fh = open(self.paths[0], "rb")
+        self._fh = None
+        self._idx = -1
         self._pos = 0
+        self._open(0, 0)
+
+    def part_headers(self):
+        """Return [(basename, magic, seq_word)] for sanity checking."""
+        out = []
+        for p in self.paths:
+            with open(p, "rb") as fh:
+                head = fh.read(self.header)
+            seq = struct.unpack(">I", head[4:8])[0] if len(head) >= 8 else None
+            out.append((os.path.basename(p), head[:4], seq))
+        return out
+
+    def _open(self, idx, data_off):
+        if self._fh:
+            self._fh.close()
+        self._idx = idx
+        self._fh = open(self.paths[idx], "rb")
+        self._fh.seek(self.header + data_off)
 
     def close(self):
         if self._fh:
@@ -70,11 +92,10 @@ class MultiPartReader:
     def seek(self, pos):
         pos = max(0, min(pos, self.total))
         idx = max(0, bisect_right(self.starts, pos) - 1)
-        if idx != self._idx:
-            self._fh.close()
-            self._idx = idx
-            self._fh = open(self.paths[idx], "rb")
-        self._fh.seek(pos - self.starts[idx])
+        # Skip over any zero-length parts.
+        while idx < len(self.paths) - 1 and self.data_sizes[idx] == 0:
+            idx += 1
+        self._open(idx, pos - self.starts[idx])
         self._pos = pos
 
     def read(self, n):
@@ -87,18 +108,12 @@ class MultiPartReader:
                 self._pos += len(buf)
                 continue
             if self._idx + 1 >= len(self.paths):
-                break  # genuine end of the whole stream
-            self._fh.close()
-            self._idx += 1
-            self._fh = open(self.paths[self._idx], "rb")
+                break
+            self._open(self._idx + 1, 0)
         return bytes(out)
 
     def copy_to(self, sink, count):
-        """Stream `count` bytes into an open file handle (or skip if None).
-
-        Skipping seeks rather than reads, so listing a 5.8 GB archive costs
-        almost nothing.
-        """
+        """Stream `count` bytes to `sink`; if sink is None, seek past them."""
         if sink is None:
             start = self._pos
             self.seek(min(self._pos + count, self.total))
@@ -108,24 +123,18 @@ class MultiPartReader:
             buf = self.read(min(COPY_BUF, left))
             if not buf:
                 break
-            if sink is not None:
-                sink.write(buf)
+            sink.write(buf)
             left -= len(buf)
         return count - left
 
 
 def find_parts(root):
-    """Locate the ordered .jetarch.partN files, given a folder or a part path."""
     root = os.path.expanduser(root)
     if os.path.isfile(root):
-        base = root
-        if ".jetarch.part" in base:
-            base = base.split(".jetarch.part")[0] + ".jetarch"
-        folder = os.path.dirname(base)
-        stem = os.path.basename(base)
+        base = root.split(".jetarch.part")[0] + ".jetarch"
+        folder, stem = os.path.dirname(base), os.path.basename(base)
     else:
         folder, stem = root, None
-
     parts = []
     for name in os.listdir(folder):
         if ".jetarch.part" not in name:
@@ -133,10 +142,9 @@ def find_parts(root):
         if stem and not name.startswith(stem):
             continue
         try:
-            num = int(name.split(".jetarch.part")[1])
+            parts.append((int(name.split(".jetarch.part")[1]), os.path.join(folder, name)))
         except ValueError:
             continue
-        parts.append((num, os.path.join(folder, name)))
     if not parts:
         sys.exit(f"No *.jetarch.part* files found in: {folder}")
     parts.sort()
@@ -146,180 +154,210 @@ def find_parts(root):
 def read_exact(rd, n, what):
     buf = rd.read(n)
     if len(buf) != n:
-        raise EOFError(f"stream ended early while reading {what} "
-                       f"(wanted {n}, got {len(buf)}, at offset {rd.tell()})")
+        raise EOFError(f"stream ended early reading {what} "
+                       f"(wanted {n}, got {len(buf)}, at logical offset {rd.tell()})")
     return buf
 
 
-def iter_entries(rd):
-    """Yield (name, declared_size, data_offset, chunks) walking the archive."""
-    head = read_exact(rd, 8, "archive header")
-    if head[:4] != MAGIC:
-        raise ValueError(f"not a jetarch: magic is {head[:4]!r}, expected {MAGIC!r}")
+def hexwin(rd, center, before=48, after=112):
+    """Render a hex/ASCII window around a logical offset (for diagnosis)."""
+    keep = rd.tell()
+    start = max(0, center - before)
+    rd.seek(start)
+    data = rd.read(before + after)
+    rd.seek(keep)
+    lines = []
+    for i in range(0, len(data), 16):
+        row = data[i:i + 16]
+        off = start + i
+        hx = " ".join(f"{b:02x}" for b in row).ljust(47)
+        asc = "".join(chr(b) if 32 <= b < 127 else "." for b in row)
+        mark = " <<<" if off <= center < off + 16 else ""
+        lines.append(f"  {off:>12,}  {hx}  {asc}{mark}")
+    return "\n".join(lines)
 
+
+def walk(rd, on_file, on_other=None, strict=False):
+    """Walk the record stream. Returns (file_count, marker_census, problems)."""
+    census, problems = {}, []
+    files = 0
     while True:
+        here = rd.tell()
         marker = rd.read(4)
         if len(marker) < 4:
-            return  # clean end of stream
-        if marker != M_FILE:
-            raise ValueError(
-                f"expected {M_FILE!r} at offset {rd.tell() - 4}, found {marker!r}. "
-                "The parts may be in the wrong order or one may be truncated.")
-        name_len = struct.unpack(">H", read_exact(rd, 2, "name length"))[0]
-        raw_name = read_exact(rd, name_len, "name")
-        name = raw_name.decode("utf-8", "replace")
-        declared = struct.unpack(">Q", read_exact(rd, 8, "declared size"))[0]
-        yield name, declared, rd.tell()
+            break
+        census[marker] = census.get(marker, 0) + 1
+
+        if marker == M_FILE:
+            name_len = struct.unpack(">H", read_exact(rd, 2, "name length"))[0]
+            name = read_exact(rd, name_len, "name").decode("utf-8", "replace")
+            declared = struct.unpack(">Q", read_exact(rd, 8, "declared size"))[0]
+
+            def chunk_reader(sink, _rd=rd, _census=census):
+                seen = 0
+                while True:
+                    at = _rd.tell()
+                    mk = _rd.read(4)
+                    if len(mk) < 4:
+                        return seen
+                    if mk != M_CHNK:
+                        _rd.seek(at)
+                        return seen
+                    _census[mk] = _census.get(mk, 0) + 1
+                    clen = struct.unpack(">Q", read_exact(_rd, 8, "chunk length"))[0]
+                    seen += _rd.copy_to(sink, clen)
+
+            on_file(name, declared, chunk_reader)
+            files += 1
+            continue
+
+        # Any other marker: assume MARKER + u64 length + payload, then verify
+        # we land on a marker we recognise. Never guess silently.
+        raw = rd.read(8)
+        if len(raw) < 8:
+            problems.append(f"{marker!r} at {here:,}: truncated length field")
+            break
+        length = struct.unpack(">Q", raw)[0]
+        payload_at = rd.tell()
+        if length > rd.total - payload_at:
+            problems.append(
+                f"{marker!r} at {here:,}: implausible length {length:,}\n"
+                + hexwin(rd, here))
+            break
+        rd.seek(payload_at + length)
+        probe = rd.read(4)
+        rd.seek(payload_at + length)
+        if probe and probe not in KNOWN:
+            problems.append(
+                f"{marker!r} at {here:,}: skipped {length:,} bytes but landed on "
+                f"{probe!r}, not a known marker\n" + hexwin(rd, here))
+            if strict:
+                break
+        if on_other:
+            on_other(marker, here, length)
+    return files, census, problems
 
 
-def walk(rd, on_entry):
-    """Walk every file record. on_entry(name, declared, chunk_reader) -> None.
-
-    chunk_reader(sink) streams the record's payload into `sink` (or discards it
-    when sink is None) and returns the number of bytes seen.
-    """
-    head = read_exact(rd, 8, "archive header")
-    if head[:4] != MAGIC:
-        raise ValueError(f"not a jetarch: magic is {head[:4]!r}, expected {MAGIC!r}")
-    count = 0
-    while True:
-        marker = rd.read(4)
-        if len(marker) < 4:
-            return count
-        if marker != M_FILE:
-            raise ValueError(
-                f"expected {M_FILE!r} at offset {rd.tell() - 4}, found {marker!r}. "
-                "Parts may be out of order or truncated.")
-        name_len = struct.unpack(">H", read_exact(rd, 2, "name length"))[0]
-        name = read_exact(rd, name_len, "name").decode("utf-8", "replace")
-        declared = struct.unpack(">Q", read_exact(rd, 8, "declared size"))[0]
-
-        def chunk_reader(sink, _rd=rd):
-            seen = 0
-            while True:
-                here = _rd.tell()
-                mk = _rd.read(4)
-                if len(mk) < 4:
-                    return seen
-                if mk != M_CHNK:
-                    _rd.seek(here)  # belongs to the next record
-                    return seen
-                clen = struct.unpack(">Q", read_exact(_rd, 8, "chunk length"))[0]
-                seen += _rd.copy_to(sink, clen)
-
-        on_entry(name, declared, chunk_reader)
-        count += 1
+def report_problems(problems):
+    if not problems:
+        return
+    print("\n!! Anomalies:", file=sys.stderr)
+    for p in problems:
+        print("  " + p.replace("\n", "\n  "), file=sys.stderr)
 
 
 def cmd_probe(args):
     parts = find_parts(args.source)
+    rd = MultiPartReader(parts)
     print(f"{len(parts)} part(s):\n")
-    total = 0
-    for path in parts:
-        size = os.path.getsize(path)
-        total += size
-        with open(path, "rb") as fh:
-            head = fh.read(16)
-        print(f"  {os.path.basename(path)}")
-        print(f"      size  {size:,} bytes ({human(size)})")
-        print(f"      head  {head[:8].hex(' ')}  {head[:8]!r}")
-        sidecar = path.replace(".jetarch.part", ".md5.part")
+    good = True
+    for i, (name, magic, seq) in enumerate(rd.part_headers(), 1):
+        phys = rd.phys_sizes[i - 1]
+        expect_seq = 0x02000000 | i
+        ok_magic = magic == MAGIC
+        ok_seq = seq == expect_seq
+        good &= ok_magic and ok_seq
+        print(f"  {name}")
+        print(f"      size    {phys:,} bytes ({human(phys)}), payload {human(rd.data_sizes[i-1])}")
+        print(f"      magic   {magic!r} {'OK' if ok_magic else '*** expected RLFF ***'}")
+        print(f"      seq     0x{seq:08x} {'OK' if ok_seq else f'*** expected 0x{expect_seq:08x} ***'}")
+        sidecar = parts[i - 1].replace(".jetarch.part", ".md5.part")
         if os.path.exists(sidecar):
             expected = open(sidecar).read().strip()
             if args.md5:
                 digest = hashlib.md5()
-                with open(path, "rb") as fh:
+                with open(parts[i - 1], "rb") as fh:
                     for block in iter(lambda: fh.read(1 << 22), b""):
                         digest.update(block)
                 actual = digest.hexdigest()
-                ok = "OK" if actual == expected else "*** MISMATCH ***"
-                print(f"      md5   {actual}  expected {expected}  {ok}")
+                print(f"      md5     {actual} {'OK' if actual == expected else '*** MISMATCH ***'}")
+                good &= actual == expected
             else:
-                print(f"      md5   expected {expected}  (re-run with --md5 to verify)")
-    print(f"\nCombined: {total:,} bytes ({human(total)})")
-    print("\nOnly part1 should begin with 'RLFF'. If a later part also starts with")
-    print("RLFF, the parts are separate archives rather than one split archive.")
+                print(f"      md5     expected {expected}  (--md5 to verify)")
+    rd.close()
+    print(f"\nLogical payload after stripping {PART_HEADER}-byte part headers: "
+          f"{rd.total:,} bytes ({human(rd.total)})")
+    print("\nAll part headers valid and in order." if good
+          else "\n*** Part headers look wrong -- check order/completeness. ***")
+
+
+def cmd_dump(args):
+    rd = MultiPartReader(find_parts(args.source))
+    print(f"Logical stream: {human(rd.total)}\n")
+    print(hexwin(rd, args.at, before=args.before, after=args.after))
+    rd.close()
 
 
 def cmd_list(args):
     parts = find_parts(args.source)
     rd = MultiPartReader(parts)
-    print(f"Reading {len(parts)} part(s), {human(rd.total)} total\n")
-
+    print(f"Reading {len(parts)} part(s), {human(rd.total)} of payload\n")
     by_ext, by_dir = {}, {}
-    entries, shown, total_bytes = 0, 0, 0
+    state = {"n": 0, "shown": 0, "bytes": 0}
 
-    def on_entry(name, declared, chunk_reader):
-        nonlocal entries, shown, total_bytes
-        actual = chunk_reader(None)  # skip the payload
-        entries += 1
-        total_bytes += actual
+    def on_file(name, declared, chunk_reader):
+        actual = chunk_reader(None)
+        state["n"] += 1
+        state["bytes"] += actual
         ext = os.path.splitext(name)[1].lower() or "(none)"
-        agg = by_ext.setdefault(ext, [0, 0])
-        agg[0] += 1
-        agg[1] += actual
-        top = name.replace("\\", "/").split("/")[0] if "/" in name.replace("\\", "/") else "(root)"
-        dagg = by_dir.setdefault(top, [0, 0])
-        dagg[0] += 1
-        dagg[1] += actual
-        if shown < args.limit:
-            flag = "" if actual == declared else f"  [declared {declared:,}]"
+        a = by_ext.setdefault(ext, [0, 0]); a[0] += 1; a[1] += actual
+        norm = name.replace("\\", "/")
+        top = norm.split("/")[0] if "/" in norm else "(root)"
+        d = by_dir.setdefault(top, [0, 0]); d[0] += 1; d[1] += actual
+        if state["shown"] < args.limit:
+            flag = "" if actual == declared else f"   [declared {declared:,}]"
             print(f"  {human(actual):>12}  {name}{flag}")
-            shown += 1
-        elif shown == args.limit:
-            print(f"  ... (further entries not printed; --limit to raise)")
-            shown += 1
-        if entries % 20000 == 0:
-            print(f"  [{entries:,} entries, {human(rd.tell())} scanned]", file=sys.stderr)
+            state["shown"] += 1
+        elif state["shown"] == args.limit:
+            print("  ... (raise --limit to print more)")
+            state["shown"] += 1
+        if state["n"] % 25000 == 0:
+            print(f"  [{state['n']:,} files, {human(rd.tell())} scanned]", file=sys.stderr)
 
-    try:
-        walk(rd, on_entry)
-    except (ValueError, EOFError) as exc:
-        print(f"\n!! Stopped: {exc}", file=sys.stderr)
-    finally:
-        rd.close()
+    files, census, problems = walk(rd, on_file)
+    rd.close()
 
-    print(f"\n=== {entries:,} entries, {human(total_bytes)} of payload ===")
+    print(f"\n=== {files:,} files, {human(state['bytes'])} of payload ===")
+    print("\nRecord markers seen:")
+    for mk, cnt in sorted(census.items(), key=lambda kv: -kv[1]):
+        print(f"  {mk!r:<10} {cnt:>10,}")
     print("\nBy extension:")
     for ext, (cnt, size) in sorted(by_ext.items(), key=lambda kv: -kv[1][1])[:30]:
-        print(f"  {ext:<14} {cnt:>9,} files  {human(size):>12}")
+        print(f"  {ext:<16} {cnt:>9,} files  {human(size):>12}")
     print("\nBy top-level folder:")
     for top, (cnt, size) in sorted(by_dir.items(), key=lambda kv: -kv[1][1])[:30]:
-        print(f"  {top:<28} {cnt:>9,} files  {human(size):>12}")
+        print(f"  {top:<30} {cnt:>9,} files  {human(size):>12}")
+    report_problems(problems)
 
 
 def cmd_extract(args):
-    parts = find_parts(args.source)
-    rd = MultiPartReader(parts)
+    rd = MultiPartReader(find_parts(args.source))
     out_root = os.path.abspath(os.path.expanduser(args.out))
     os.makedirs(out_root, exist_ok=True)
-    written = [0, 0]  # files, bytes
+    done = {"n": 0, "bytes": 0}
 
-    def on_entry(name, declared, chunk_reader):
+    def on_file(name, declared, chunk_reader):
         safe = name.replace("\\", "/").lstrip("/")
         if args.only and not fnmatch.fnmatch(safe.lower(), args.only.lower()):
             chunk_reader(None)
             return
         dest = os.path.normpath(os.path.join(out_root, safe))
-        if not dest.startswith(out_root + os.sep) and dest != out_root:
-            print(f"  skipping unsafe path: {name}", file=sys.stderr)
+        if dest != out_root and not dest.startswith(out_root + os.sep):
+            print(f"  refusing unsafe path: {name}", file=sys.stderr)
             chunk_reader(None)
             return
-        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        os.makedirs(os.path.dirname(dest) or out_root, exist_ok=True)
         with open(dest, "wb") as sink:
             got = chunk_reader(sink)
-        written[0] += 1
-        written[1] += got
-        if written[0] <= 40 or written[0] % 5000 == 0:
+        done["n"] += 1
+        done["bytes"] += got
+        if done["n"] <= 40 or done["n"] % 5000 == 0:
             print(f"  {human(got):>12}  {safe}")
 
-    try:
-        walk(rd, on_entry)
-    except (ValueError, EOFError) as exc:
-        print(f"\n!! Stopped: {exc}", file=sys.stderr)
-    finally:
-        rd.close()
-    print(f"\nExtracted {written[0]:,} files, {human(written[1])} -> {out_root}")
+    _, _, problems = walk(rd, on_file)
+    rd.close()
+    print(f"\nExtracted {done['n']:,} files, {human(done['bytes'])} -> {out_root}")
+    report_problems(problems)
 
 
 def main():
@@ -327,19 +365,22 @@ def main():
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
 
-    p = sub.add_parser("probe", help="check the parts and their checksums")
-    p.add_argument("source", help="folder holding the .jetarch.part files")
-    p.add_argument("--md5", action="store_true", help="verify md5 of each part (slow)")
+    p = sub.add_parser("probe", help="validate part headers and checksums")
+    p.add_argument("source"); p.add_argument("--md5", action="store_true")
     p.set_defaults(func=cmd_probe)
 
-    p = sub.add_parser("list", help="list what is inside without extracting")
-    p.add_argument("source")
-    p.add_argument("--limit", type=int, default=60, help="entries to print (default 60)")
+    p = sub.add_parser("list", help="list contents without extracting")
+    p.add_argument("source"); p.add_argument("--limit", type=int, default=60)
     p.set_defaults(func=cmd_list)
 
-    p = sub.add_parser("extract", help="extract files out of the archive")
-    p.add_argument("source")
-    p.add_argument("-o", "--out", required=True, help="destination folder")
+    p = sub.add_parser("dump", help="hex window at a logical offset")
+    p.add_argument("source"); p.add_argument("--at", type=int, required=True)
+    p.add_argument("--before", type=int, default=48)
+    p.add_argument("--after", type=int, default=112)
+    p.set_defaults(func=cmd_dump)
+
+    p = sub.add_parser("extract", help="extract files")
+    p.add_argument("source"); p.add_argument("-o", "--out", required=True)
     p.add_argument("--only", help="glob filter, e.g. '*.sql'")
     p.set_defaults(func=cmd_extract)
 
@@ -351,7 +392,6 @@ if __name__ == "__main__":
     try:
         main()
     except BrokenPipeError:
-        # Output was piped into something like `head`; that is not an error.
         try:
             sys.stdout.close()
         except Exception:
