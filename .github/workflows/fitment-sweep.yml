@@ -143,7 +143,31 @@ jobs:
                   data/ebay_compat_cache.json data/display_audit.csv
           if git diff --cached --quiet; then
             echo "No changes to commit."
-          else
-            git commit -m "Automated fitment sweep: refresh dump + ledger [skip ci]"
-            git push origin HEAD:${{ github.ref_name }}
+            exit 0
           fi
+          git commit -m "Automated fitment sweep: refresh dump + ledger [skip ci]"
+          # A sweep runs for the best part of an hour. If anyone pushes to the branch in
+          # that window the plain push is rejected and the run's entire record -- which
+          # SKUs were pushed -- is thrown away with the runner. That happened on run #7.
+          # Rebase onto whatever arrived and retry. These are append-mostly state files,
+          # so a rebase is the right merge: keep their commits, replay ours on top.
+          for attempt in 1 2 3 4 5; do
+            if git push origin HEAD:${{ github.ref_name }}; then
+              echo "State committed (attempt $attempt)."
+              exit 0
+            fi
+            echo "Push rejected -- someone else moved the branch. Rebasing and retrying."
+            git fetch origin ${{ github.ref_name }}
+            if ! git rebase FETCH_HEAD; then
+              # Only our own state files are in play, so preferring the freshly-swept
+              # version is correct; a conflict here must not lose the whole run.
+              git checkout --ours data/ 2>/dev/null || true
+              git add data/ 2>/dev/null || true
+              git rebase --continue || git rebase --abort
+            fi
+            sleep $((attempt * 5))
+          done
+          echo "ERROR: could not push the sweep state after 5 attempts." >> "$GITHUB_STEP_SUMMARY"
+          echo "The listings were updated on eBay but the ledger record was NOT saved," \
+               "so those SKUs will be re-evaluated next run." >> "$GITHUB_STEP_SUMMARY"
+          exit 1
