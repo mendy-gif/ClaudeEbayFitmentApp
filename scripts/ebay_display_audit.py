@@ -10,11 +10,22 @@ ledgered SKU and reports where they disagree:
     Inventory store (by SKU)   = what we wrote
     Trading store  (by ItemID) = what actually displays
 
-A displayed count HIGHER than the stored count is normal and good -- a trimless row is a
-wildcard eBay expands to every trim for that year/model. A displayed count of ZERO with a
-non-zero stored count is the failure we care about.
+Two different failures show up here, and they look OPPOSITE:
+
+  INVISIBLE (displayed = 0)  -- nothing shows. The trim-spelling bug: eBay stored a trim it
+                                does not recognise and omitted it from the listing.
+  LEAKING   (displayed > stored, on a Rule B part) -- TOO MUCH shows. A trimless row is a
+                                WILDCARD: eBay fans it out to every trim for that year/model.
+                                On an engine-restricted part that silently re-adds the engines
+                                the rule excluded, so an N55 turbo starts claiming the diesel
+                                and the M car. This is how the leak was originally spotted:
+                                17 rows pushed, 41 displayed.
+
+On a Rule A part displayed > stored is expected and desirable -- the whole family really does
+fit, and the wildcard is doing its job.
 
 It slices the result three ways, because the two known causes look different:
+  * LEAKING     -- Rule B SKUs showing more than we pushed (see above).
   * by RULE     -- the trim bug hit Rule B only (Rule A rows are trimless). Before the
                    catalog fix this read ~96% Rule A vs ~30% Rule B.
   * by CATEGORY -- a category at 0/N *including Rule A SKUs* is a genuine category-level
@@ -153,23 +164,40 @@ def main():
             continue
         rule = led[sku].get("rule", "?")
         ok = shown > 0
+        # Rule B rows are all trimmed, so they display 1:1. More displayed than pushed means
+        # a trimless wildcard slipped in and fanned out across the excluded engines.
+        leaking = rule == "B" and shown > stored
         by_rule[rule][0] += 1
         by_rule[rule][1] += ok
         by_cat[cid][0] += 1
         by_cat[cid][1] += ok
         detail.append({"sku": sku, "listingId": lid, "categoryId": cid, "rule": rule,
                        "stored": stored, "displayed": shown,
-                       "status": "OK" if ok else "INVISIBLE"})
+                       "status": "INVISIBLE" if not ok else ("LEAKING" if leaking else "OK")})
         if not args.quiet:
-            flag = "   " if ok else "  <-- INVISIBLE"
+            flag = ("  <-- INVISIBLE" if not ok else
+                    "  <-- LEAKING (wildcard re-added excluded engines)" if leaking else "   ")
             print(f"  [{i}/{len(skus)}] {sku:>8}  cat={cid:<7} rule={rule}  stored={stored:<4} displayed={shown:<4}{flag}")
 
     n = len(detail)
     if not n:
         sys.exit("\nNo ledgered SKU has stored compatibility on a published offer.")
     good = sum(1 for d in detail if d["status"] == "OK")
+    leaks = [d for d in detail if d["status"] == "LEAKING"]
     print(f"\n{'=' * 62}\nOVERALL: {good}/{n} display ({100 * good // n}%)"
           + (f"   [{unreadable} unreadable, skipped]" if unreadable else ""))
+
+    if leaks:
+        print(f"\nLEAKING: {len(leaks)} Rule B SKU(s) display MORE than we pushed -- a trimless")
+        print("wildcard fanned out across the engines the rule excluded. These listings claim")
+        print("fitment they should not (e.g. a petrol turbo advertised for the diesel):")
+        for d in sorted(leaks, key=lambda x: x["stored"] - x["displayed"])[:15]:
+            print(f"   {d['sku']:>8}  pushed {d['stored']} -> displayed {d['displayed']}"
+                  f"   listing {d['listingId']}")
+        if len(leaks) > 15:
+            print(f"   ... and {len(leaks) - 15} more")
+    else:
+        print("\nLEAKING: none -- every Rule B SKU displays exactly what we pushed.")
 
     print("\nBy RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):")
     for r, (t, d) in sorted(by_rule.items()):
