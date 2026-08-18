@@ -78,6 +78,9 @@ python3 scripts/ebay_inspect.py 1194
 
 # Spot-check that pushed fitment survived relists
 python3 scripts/ebay_batch.py audit --live
+
+# Did the pushed fitment actually DISPLAY? (read-only; run after a sweep)
+python3 scripts/ebay_display_audit.py --quiet
 ```
 
 `ebay_batch.py` modes: `plan` (dry-run) · `apply` (live writes) · `audit` (persistence check).
@@ -110,6 +113,9 @@ Key flags: `--from-shopify` (donor source), `--from-inventory` (enumerate live e
 - `scripts/ebay_auth.py` — mints 2h eBay tokens from an ~18-month refresh token.
 - `scripts/ebay_compat_catalog.py` — **the display gatekeeper.** Repairs/validates rows against eBay's
   real vehicle catalog (Taxonomy API) so the pushed fitment actually shows. `--trims 2014 BMW X5` to peek.
+- `scripts/ebay_display_audit.py` — read-only fleet check: for every ledgered SKU, does what we pushed
+  actually DISPLAY? Slices by rule + category. **Run this after a sweep** — the ledger only proves we
+  pushed, not that eBay showed it.
 - `scripts/ebay_inspect.py` — read-only per-SKU eBay diagnostic (both stores + item specifics).
 - `scripts/ebay_writer.py` — single-SKU compatibility writer (used by the batch runner).
 - `scripts/ebay_fetch_categories.py` / `ebay_fetch_bmw_catalog.py` — one-time reference builders.

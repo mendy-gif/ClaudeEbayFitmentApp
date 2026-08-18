@@ -299,6 +299,14 @@ token does not carry. `ebay_compat_catalog.py` mints a separate **client-credent
 application token** from the same client id/secret — no user consent needed. Catalog answers
 are cached in `data/ebay_compat_cache.json` (regenerable; safe to delete).
 
+**Measured fleet-wide (281 ledgered SKUs, before the fix):** Rule A **147/152 (96%)** displaying vs
+Rule B **39/128 (30%)** — the signature of a bug that only touches trimmed rows.
+`scripts/ebay_display_audit.py` reproduces this slice any time; re-run it after a sweep. A category
+sitting at 0/N *that includes Rule A SKUs* is a genuine category-level display problem rather than our
+row data — `179679` (0/3, all Rule A) is one, and SKU `32479` in `179671` displays nothing even when
+pushed with verbatim catalog trims, so a small residue of listings look unable to show compatibility
+at all. That is separate from this bug and still open.
+
 **Re-pushing the invisible ones.** Ledger entries are stamped with `CATALOG_ERA` (`"cat1"`).
 Entries written before this fix lack the stamp and are re-processed automatically on the next
 sweep instead of being skipped, so the 128 invisible Rule B pushes self-heal.
