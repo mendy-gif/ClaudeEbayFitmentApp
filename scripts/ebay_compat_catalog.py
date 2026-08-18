@@ -111,20 +111,45 @@ def _load_cache():
 
 
 def save_cache():
+    """Persist new catalog answers.
+
+    MERGES with whatever is already on disk instead of overwriting. Catalog answers are
+    append-only facts, so a union is always correct -- and it means a process holding only
+    a partial cache (a short --sku run, a parallel sweep, a test) can never shrink the file
+    it shares with everyone else.
+    """
     global _dirty
     if not _dirty:
         return
+    merged = {}
+    try:
+        with open(CACHE_FILE, encoding="utf-8") as f:
+            on_disk = json.load(f)
+        if isinstance(on_disk, dict):
+            merged.update(on_disk)
+    except (ValueError, OSError):
+        pass
+    merged.update(_load_cache())
     try:
         os.makedirs(os.path.dirname(CACHE_FILE), exist_ok=True)
-        tmp = CACHE_FILE + ".tmp"
-        json.dump(_load_cache(), open(tmp, "w", encoding="utf-8"), indent=0, sort_keys=True)
-        os.replace(tmp, CACHE_FILE)
+        tmp = f"{CACHE_FILE}.{os.getpid()}.tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(merged, f, indent=0, sort_keys=True)
+        os.replace(tmp, CACHE_FILE)          # atomic: readers never see a partial file
         _dirty = False
     except OSError:
         pass
 
 
 # --------------------------------------------------------------------------- lookups
+def _filter_safe(*values):
+    """The Taxonomy `filter` param is comma/colon delimited with no escaping, so a value
+    containing either would silently corrupt the query -- eBay would answer 400 and we
+    would read that as 'vehicle not in catalog' and DROP good rows. No BMW model needs
+    these characters today; if one ever does, fail the lookup (None) instead of lying."""
+    return not any(c in str(v) for v in values for c in ",:")
+
+
 def _property_values(prop, filt, retries=3):
     """Raw Taxonomy lookup. Returns a list of strings, or None on failure (!= empty)."""
     tok = _app_access_token()
@@ -170,6 +195,8 @@ def trims(year, make, model):
     c = _load_cache()
     if key in c:
         return c[key]
+    if not _filter_safe(year, make, model):
+        return None                                      # unrepresentable -> fail loudly
     vals = _property_values("Trim", f"Year:{year},Make:{make},Model:{model}")
     if vals is None:
         return None                                      # transient -- do NOT cache
@@ -185,6 +212,8 @@ def models(year, make):
     c = _load_cache()
     if key in c:
         return c[key]
+    if not _filter_safe(year, make):
+        return None
     vals = _property_values("Model", f"Year:{year},Make:{make}")
     if vals is None:
         return None
@@ -226,6 +255,7 @@ def validate_rows(rows, on_unmatched="drop"):
     """
     good, seen, report = [], set(), {"kept": 0, "retrimmed": 0, "trimless": 0,
                                      "dropped_vehicle": 0, "dropped_trim": 0, "lookup_failed": 0,
+                                     "wildcard_dropped": 0, "subsumed_by_wildcard": 0,
                                      "notes": []}
 
     def add(r):
@@ -274,8 +304,49 @@ def validate_rows(rows, on_unmatched="drop"):
             report["dropped_trim"] += 1
             report["notes"].append(f"{year} {make} {model}: trim '{our}' unknown -> dropped")
 
+    good = _resolve_wildcards(good, on_unmatched, report)
     save_cache()
     return good, report
+
+
+def _resolve_wildcards(rows, on_unmatched, report):
+    """A trimless row is a WILDCARD: eBay expands it to every trim for that Year/Model. So a
+    trimless row sitting alongside trimmed rows for the SAME vehicle silently overrides them.
+
+    That combination is reachable whenever sources are unioned -- e.g. Rule B chassis rows
+    carry the donor's engine trims while a part-number row fell back to the literal (trimless)
+    vehicle. Left alone, the wildcard re-adds exactly the engines Rule B excluded.
+
+    Resolve it in the direction the rule intends:
+      engine-restricted (on_unmatched="drop", Rule B) -> keep the trims, drop the wildcard
+      family-wide       (on_unmatched="trimless", Rule A) -> keep the wildcard, drop the
+                                                             trims it already subsumes
+    """
+    trimless, trimmed = set(), set()
+    for r in rows:
+        key = (r["Year"], r["Make"], r["Model"])
+        (trimmed if r.get("Trim") else trimless).add(key)
+    conflicted = trimless & trimmed
+    if not conflicted:
+        return rows
+    out = []
+    for r in rows:
+        key = (r["Year"], r["Make"], r["Model"])
+        if key not in conflicted:
+            out.append(r)
+            continue
+        if on_unmatched == "trimless":
+            if r.get("Trim"):                 # the wildcard already covers this row
+                report["subsumed_by_wildcard"] += 1
+                continue
+        elif not r.get("Trim"):               # engine-restricted: the wildcard must go
+            report["wildcard_dropped"] += 1
+            report["notes"].append(
+                f"{key[0]} {key[1]} {key[2]}: dropped trimless wildcard that would have "
+                "re-added every engine")
+            continue
+        out.append(r)
+    return out
 
 
 def main():

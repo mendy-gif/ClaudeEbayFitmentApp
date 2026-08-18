@@ -166,6 +166,23 @@ def c_partnumber_and_union():
         bad(f"union+dedupe wrong (expected 3, got {len(comb)})")
 
 
+def c_display_path():
+    """Run the display-path suite (scripts/test_display_fitment.py) as a subprocess so its
+    stubbing of the catalog module cannot leak into this process."""
+    import subprocess
+    r = subprocess.run([sys.executable, os.path.join(ROOT, "scripts", "test_display_fitment.py")],
+                       capture_output=True, text=True)
+    tail = (r.stdout.strip().splitlines() or ["(no output)"])[-1]
+    if r.returncode == 0:
+        ok(f"display-path tests: {tail.replace('Result: PASS  ', '')}")
+    else:
+        for line in r.stdout.splitlines():
+            if "FAIL" in line:
+                bad(f"display-path: {line.strip()}")
+        if r.returncode and "FAIL" not in r.stdout:
+            bad(f"display-path tests crashed: {(r.stderr or r.stdout).strip()[:200]}")
+
+
 def main():
     print("Offline self-test (no network)\n")
     check("Reference data:", c_reference)
@@ -173,6 +190,7 @@ def main():
     check("Classifier:", c_classify)
     check("Shopify donors:", c_donors)
     check("Part-number + union:", c_partnumber_and_union)
+    check("Display path (trim/catalog validation):", c_display_path)
     print(f"\nResult: {'FAIL' if fails else 'PASS'}  ({fails} fail, {warns} warn)")
     sys.exit(1 if fails else 0)
 
