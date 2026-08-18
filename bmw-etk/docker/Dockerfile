@@ -18,7 +18,7 @@ RUN set -eux; \
     arch="$(dpkg --print-architecture)"; \
     if [ "$arch" != "i386" ]; then dpkg --add-architecture i386; fi; \
     apt-get update; \
-    apt-get install -y --no-install-recommends ca-certificates procps file; \
+    apt-get install -y --no-install-recommends ca-certificates procps file iproute2 net-tools; \
     if [ "$arch" = "i386" ]; then \
       apt-get install -y --no-install-recommends libc6 libstdc++6 zlib1g; \
       apt-get install -y --no-install-recommends libncurses6 libtinfo6 || true; \

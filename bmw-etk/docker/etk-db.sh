@@ -167,6 +167,7 @@ explore)
     -e DB="$DB" -e DBUSER="$DBUSER" -e DBPASS="$DBPASS" \
     -v "$ROM":/rom:ro -v "$VOLUME":/data -v "$ROOT/data/schema":/out \
     -v "$HERE/explore.sh":/explore.sh:ro \
+    -v "$HERE/start_transbase.sh":/start_transbase.sh:ro \
     "$IMAGE" bash /explore.sh
   ;;
 
@@ -176,6 +177,7 @@ catalog)
     -e DB="$DB" -e DBUSER="$DBUSER" -e DBPASS="$DBPASS" \
     -v "$ROM":/rom:ro -v "$VOLUME":/data \
     -v "$HERE/catalog_probe.sh":/catalog_probe.sh:ro \
+    -v "$HERE/start_transbase.sh":/start_transbase.sh:ro \
     "$IMAGE" bash /catalog_probe.sh
   ;;
 

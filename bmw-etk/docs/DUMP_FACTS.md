@@ -274,14 +274,39 @@ Database Romfile(s)
 **Four CD-ROM volumes** -- definitive confirmation that `rfile000.002` is required
 and that BMW's `postinstallDataDB.cmd` is wrong for this data package.
 
-## Use utbi, not tbi: it is a LOCAL client
+## Both clients are NETWORK clients -- the kernel must run
 
-`tbi` is a network client and always fails with
-`server <2024> at <etkdb> not reachable` unless `tbserver` **and** `tbkernel` are both
-running (see `rc.TransBase`). **`utbi` talks to the database directly and needs no
-server at all** -- that is the connection route this project uses.
+**Correction to an earlier belief: `utbi` is not a local client.** It fails
+identically to `tbi`:
 
-Its SQL is a **positional argument**; there is **no `-f` option**:
+```
+Transbase Error Code 11023
+Connection refused(111): connect(sock=-1)
+server <2024> at <etkdb> not reachable
+```
+
+There is no direct/embedded access in this build. A server must be running **in the
+same container** as the query, since each `docker run` is a fresh container.
+
+`TRANSBASE_SERVICENAMES=2024:2025` is a **pair of ports**, and the evidence says how
+they split: starting `tbserver` alone produced
+`port for service <2025> is occupied, server already active?` while every client
+still tried to reach **2024**. So `tbserver` takes 2025 and **`tbkernel` serves
+clients on 2024**. Both are required, exactly as `rc.TransBase` does it:
+
+```sh
+tbadmin -bfnv                                  # boot all databases
+tbmux -tbk <kernel> -tbs <server> &            # preferred: both together
+# or, when tbmux is absent:
+tbserver -v &  ;  tbkernel -v &
+```
+
+`tbmux`, `tbkernel` and `tbserver` are all present in this build, so the `tbmux`
+branch applies.
+
+## utbi's calling convention
+
+`utbi`'s SQL is a **positional argument**; there is **no `-f` option**:
 
 ```
 utbi [options] [ dbname [ uname [ passwd [ SQL command ] ] ] ]
@@ -291,21 +316,17 @@ utbi [options] [ dbname [ uname [ passwd [ SQL command ] ] ] ]
   -wN  column width (default 10) -CN  consistency level (default 3)
 ```
 
-So a query is:
-
-```
-utbi -c 400 -w 40 etk_publ tbadmin altabe "select * from systable;"
-```
-
-and CSV export will be `-F',' -q'"' -h`.
+So a query is `utbi -c 400 -w 40 etk_publ tbadmin altabe "select ...;"`, and CSV
+export will be `-F',' -q'"' -h`. Interactive commands include
+`desc[ribe] [table|view]`, `x[ecute] <file>`, `ct` (commit) and `at`.
 
 **Trap:** passing `-f` makes utbi print its usage text. An earlier version of this
-project treated "no error keywords in the output" as success, so 26 files of usage
-text were written as if they were a schema dump. Any success check must reject a
-tool's own usage message.
+project treated "no error keywords in the output" as success, so a usage message was
+recorded as a successful connection and 26 files of usage text were written as if
+they were a schema dump. Any success check must reject a tool's own usage message.
 
-The full tool list on the disc also includes `tbarc`, `tbcheck`, `tbdiff`, `tbmkrom`,
-`tbtar`, `tbstatis`, `ufi`, `tbkernel`, `tbmux`, and **`tbjdbc.jar` / `tbjdbcx.jar`**.
+The full tool list also includes `tbarc`, `tbcheck`, `tbdiff`, `tbmkrom`, `tbtar`,
+`tbstatis`, `ufi`, and **`tbjdbc.jar` / `tbjdbcx.jar`**.
 
 ## The engine RUNS on Apple Silicon (confirmed)
 
