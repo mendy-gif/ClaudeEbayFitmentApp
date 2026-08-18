@@ -9,6 +9,30 @@ ebay_auth.json
 shopify.env
 secrets*
 
+# BMW ETK raw database dump — NEVER commit (multi-GB, licensed data)
+bmw-etk/dump/
+bmw-etk/raw/
+*.bak
+*.mdf
+*.ldf
+*.ndf
+*.fdb
+*.gdb
+*.iso
+*.dmg
+*.7z
+*.rar
+*.tar.gz
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+*.mdb
+*.accdb
+*.dbf
+*.trn
+
 # Python
 __pycache__/
 *.pyc
