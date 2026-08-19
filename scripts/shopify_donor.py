@@ -165,16 +165,27 @@ def classify_part_type(part_type):
     return "A", f"non-engine part_type ({part_type})"
 
 
-def parse_product(node):
+def parse_product(node, chassis_codes=frozenset()):
     tags = node.get("tags", [])
     sku = None
     for e in node.get("variants", {}).get("edges", []):
         sku = e["node"].get("sku") or sku
+    make = _tag_value(tags, "donor_vehicle.veh_make_") or _tag_value(tags, "make_")
+    series = _tag_value(tags, "donor_vehicle.veh_series_") or _tag_value(tags, "series_")
+
+    # Older products carry no donor tags -- the chassis code is only in the vendor field
+    # (vendor "F80", tags ["F80"], productType = the part number). A vendor matching a known
+    # BMW chassis code is therefore both the make AND the series for those.
+    vendor = (node.get("vendor") or "").strip()
+    if vendor.upper() in chassis_codes:
+        series = series or vendor.upper()
+        make = make or "BMW"
+
     return {
         "sku": sku,
-        "make": _tag_value(tags, "donor_vehicle.veh_make_") or _tag_value(tags, "make_"),
+        "make": make,
         "model": _tag_value(tags, "donor_vehicle.veh_model_") or _tag_value(tags, "model_"),
-        "series": _tag_value(tags, "donor_vehicle.veh_series_") or _tag_value(tags, "series_"),
+        "series": series,
         "engine_code_raw": _tag_value(tags, "donor_vehicle.veh_engine_code_") or _tag_value(tags, "engine_code_"),
         "part_type": _tag_value(tags, "part_type_"),
         "universal": _tag_value(tags, "is_universal_fitment_"),
@@ -185,6 +196,7 @@ PRODUCT_FIELDS = """
   edges { node {
     variants(first: 1) { edges { node { sku } } }
     tags
+    vendor
   } }
   pageInfo { hasNextPage endCursor }
 """
@@ -210,11 +222,39 @@ def fetch_by_skus(store, tok, skus):
 # excluded ~1,860 real BMW products, about 19% of the donor pool. The make lives in the tags
 # (`make_BMW` / `donor_vehicle.veh_make_BMW`), which is what parse_product already reads.
 # Union with vendor:BMW as well, since older products do use it: 9,718 vs 7,858 by vendor.
-BMW_QUERY = "status:active (tag:make_BMW OR vendor:BMW)"
+# Fetch ALL active products and decide what is BMW in Python. Filtering in the Shopify
+# query cannot express this store's reality:
+#   * `vendor:BMW` misses most of them -- the vendor is usually the CHASSIS CODE ("F80").
+#   * `tag:make_BMW` misses a whole generation of products that carry NO donor tags at all;
+#     SKU 17089 is "OEM BMW F80 F82 F87 M2 M3 M4 Steering Wheel" with tags exactly ["F80"].
+#   * A vendor:<code> OR-list for all 94 chassis codes exceeds the API's 10,000 count cap,
+#     so it cannot even be measured, let alone paginated reliably.
+# Paging the whole active catalogue costs a few hundred extra Shopify calls against a
+# 2,000,000/day allowance -- irrelevant -- and lets us apply the real test below.
+BMW_QUERY = "status:active"
+
+
+def _bmw_chassis_codes():
+    """Base chassis codes from the committed reference, e.g. {'F80','G05',...}. Used to
+    recognise a product whose ONLY BMW signal is a chassis code in the vendor field."""
+    try:
+        ref = json.load(open(os.path.join(ROOT, "data", "bmw_chassis_reference.json"),
+                             encoding="utf-8"))
+    except (ValueError, OSError):
+        return set()
+    rows = ref if isinstance(ref, list) else (ref.get("rows") or [])
+    out = set()
+    for r in rows:
+        code = (r.get("chassis_code") or "").strip()
+        if code:
+            out.add(code.split()[0].split("/")[0].upper())
+    return {c for c in out if c}
 
 
 def dump_all(store, tok, vendor="BMW", force_shrink=False):
     out, cursor, page = {}, None, 0
+    chassis_codes = _bmw_chassis_codes()
+    non_bmw = 0
     while True:
         # sortKey:ID is load-bearing. Without an explicit stable sort, Shopify orders a
         # filtered product query by relevance, which can shift between pages -- so a long
@@ -226,12 +266,20 @@ def dump_all(store, tok, vendor="BMW", force_shrink=False):
         r = gql(store, tok, q, {"q": BMW_QUERY, "after": cursor})
         prods = r.get("data", {}).get("products", {})
         for e in prods.get("edges", []):
-            d = parse_product(e["node"])
-            if d["sku"]:
-                d["engine_family"] = engine_family(d["engine_code_raw"])
-                out[d["sku"]] = d
+            d = parse_product(e["node"], chassis_codes)
+            if not d["sku"]:
+                continue
+            # We now page the whole active catalogue, so drop other makes here. A product is
+            # BMW if the tags say so, or if its vendor is a known BMW chassis code.
+            if (d.get("make") or "").strip().upper() != "BMW":
+                non_bmw += 1
+                continue
+            d["engine_family"] = engine_family(d["engine_code_raw"])
+            out[d["sku"]] = d
         page += 1
-        print(f"  page {page}: {len(out)} donors so far", file=sys.stderr)
+        if page % 20 == 0:
+            print(f"  page {page}: {len(out)} BMW donors ({non_bmw} other makes skipped)",
+                  file=sys.stderr)
         if not prods.get("pageInfo", {}).get("hasNextPage"):
             break
         cursor = prods["pageInfo"]["endCursor"]
