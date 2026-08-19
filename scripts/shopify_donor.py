@@ -173,13 +173,26 @@ def parse_product(node, chassis_codes=frozenset()):
     make = _tag_value(tags, "donor_vehicle.veh_make_") or _tag_value(tags, "make_")
     series = _tag_value(tags, "donor_vehicle.veh_series_") or _tag_value(tags, "series_")
 
-    # Older products carry no donor tags -- the chassis code is only in the vendor field
-    # (vendor "F80", tags ["F80"], productType = the part number). A vendor matching a known
-    # BMW chassis code is therefore both the make AND the series for those.
+    # The vendor field is used inconsistently on this store, so accept every shape it takes.
+    # Older products carry no donor tags at all -- the chassis code is only in the vendor
+    # (vendor "F80", tags ["F80"], productType = the part number), which makes the vendor both
+    # the make AND the series for those. Newer ones set vendor "BMW". Either must work, and
+    # so must a future cleanup that switches products from one to the other: mendy is
+    # reviewing the store separately, and a donor silently disappearing because its vendor was
+    # tidied up is exactly the kind of quiet loss this project keeps having to fix.
     vendor = (node.get("vendor") or "").strip()
     if vendor.upper() in chassis_codes:
         series = series or vendor.upper()
         make = make or "BMW"
+    elif vendor.upper() == "BMW":
+        make = make or "BMW"
+    # Last resort for the chassis: a bare chassis code among the tags (["F80"]), which is
+    # where it also lives on those older products.
+    if not series:
+        for t in tags:
+            if t.strip().upper() in chassis_codes:
+                series = t.strip().upper()
+                break
 
     return {
         "sku": sku,
