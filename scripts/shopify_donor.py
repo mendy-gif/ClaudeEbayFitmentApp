@@ -206,8 +206,13 @@ def fetch_by_skus(store, tok, skus):
 def dump_all(store, tok, vendor="BMW", force_shrink=False):
     out, cursor, page = {}, None, 0
     while True:
-        q = ("query($q:String!,$after:String){ products(first:50, query:$q, after:$after) {"
-             + PRODUCT_FIELDS + "} }")
+        # sortKey:ID is load-bearing. Without an explicit stable sort, Shopify orders a
+        # filtered product query by relevance, which can shift between pages -- so a long
+        # pagination silently returns some products twice and misses others. That is why an
+        # earlier dump captured 7,858 of 7,881 BMW products, losing real donors (SKUs 6407,
+        # 60087) that the query definitely matched.
+        q = ("query($q:String!,$after:String){ products(first:50, query:$q, after:$after, "
+             "sortKey:ID) {" + PRODUCT_FIELDS + "} }")
         r = gql(store, tok, q, {"q": f"vendor:{vendor} status:active", "after": cursor})
         prods = r.get("data", {}).get("products", {})
         for e in prods.get("edges", []):
