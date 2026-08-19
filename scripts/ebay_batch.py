@@ -47,6 +47,7 @@ BASE = "https://api.ebay.com"
 LEDGER = os.path.join(ROOT, "data", "pushed_ledger.json")
 PLAN = os.path.join(ROOT, "data", "batch_plan.csv")
 ERRLOG = os.path.join(ROOT, "data", "sweep_errors.log")
+SKIPCACHE = os.path.join(ROOT, "data", "skip_cache.json")
 PLAN_COLS = ["sku", "listingId", "donor", "rule", "engine", "n_vehicles", "sources", "models", "action", "reason"]
 
 # Bump when a change makes previously-pushed fitment wrong or invisible; ledger entries
@@ -154,6 +155,10 @@ def read_inventory_compat(sku, tok):
             r = {"Year": int(y), "Make": props["make"], "Model": props["model"]}
             if props.get("trim"):
                 r["Trim"] = props["trim"]
+            ttl = skip_ttl(r.get("reason")) if r["action"] in ("skip", "review") else None
+            if ttl:
+                skip_cache_updates[sku] = {"reason": (r.get("reason") or "")[:120],
+                                           "until": time.time() + ttl * 86400}
             rows.append(r)
     return rows, None
 
@@ -173,6 +178,47 @@ def load_partnumber_fitment(path):
             if y.isdigit() and mk and md:
                 out.setdefault(guid, set()).add((int(y), mk, md))
     return out
+
+
+# How long to trust a skip before re-checking it. The sweep sees 22k+ SKUs but can only
+# afford ~700 Trading calls a night, and most skips are stable facts -- a SKU with no eBay
+# listing today almost certainly has none tomorrow. Without this, every night re-spends its
+# whole budget rediscovering the same dead ends and never reaches new inventory.
+SKIP_TTL_DAYS = {
+    "non-BMW": 90,                    # never becomes a BMW
+    "offer read HTTP 404": 30,        # no listing for this SKU at all
+    "already": 30,                    # curated by another system; drift watch covers ours
+    "unresolved chassis": 30,         # a data gap, fixed by editing the reference not by retrying
+    "no published offer": 7,          # ended/sold -- but could be relisted
+    "no Shopify donor": 7,            # a donor tag could be added
+}
+
+
+def load_skip_cache():
+    try:
+        return json.load(open(SKIPCACHE, encoding="utf-8"))
+    except (ValueError, OSError):
+        return {}
+
+
+def save_skip_cache(cache):
+    try:
+        tmp = SKIPCACHE + ".tmp"
+        json.dump(cache, open(tmp, "w", encoding="utf-8"), indent=0, sort_keys=True)
+        os.replace(tmp, SKIPCACHE)
+    except OSError:
+        pass
+
+
+def skip_ttl(reason):
+    """Days to remember this skip, or None to always re-check (transient failures)."""
+    r = (reason or "").lower()
+    if "guard read failed" in r or "rate" in r or "http 5" in r:
+        return None                   # transient -- never cache a failure to LOOK
+    for key, days in SKIP_TTL_DAYS.items():
+        if key.lower() in r:
+            return days
+    return None
 
 
 def load_ledger():
@@ -219,21 +265,40 @@ def trading_compat_retry(listing_id, tok, retries=3):
     return n, sample, terr
 
 
-def enumerate_skus(tok, limit):
-    """List SKUs via getInventoryItems (paginated)."""
-    skus, offset = [], 0
+def enumerate_skus(tok, limit, in_stock_only=True):
+    """List SKUs via getInventoryItems (paginated).
+
+    Skips out-of-stock SKUs by default. These are one-of-a-kind salvage parts -- quantity 0
+    means it sold, and fitment on a sold listing helps nobody. The quantity is already in the
+    enumeration response, so filtering here costs NOTHING and saves a Trading call per SKU
+    later, which is the actual scarce resource (5,000/day).
+    """
+    skus, offset, dropped = [], 0, 0
     while True:
         s, p = api("GET", f"/sell/inventory/v1/inventory_item?limit=100&offset={offset}", tok)
         if s != 200:
             print(f"  getInventoryItems HTTP {s}: {json.dumps(p)[:200]}", file=sys.stderr)
             break
-        items = p.get("inventoryItems", [])
-        skus += [it.get("sku") for it in items if it.get("sku")]
+        for it in p.get("inventoryItems", []):
+            sku = it.get("sku")
+            if not sku:
+                continue
+            if in_stock_only:
+                qty = (it.get("availability", {})
+                         .get("shipToLocationAvailability", {})
+                         .get("quantity"))
+                if qty is not None and qty < 1:
+                    dropped += 1
+                    continue
+            skus.append(sku)
         if limit and len(skus) >= limit:
-            return skus[:limit]
+            skus = skus[:limit]
+            break
         if not p.get("next"):
             break
         offset += 100
+    if dropped:
+        print(f"  skipped {dropped} out-of-stock SKU(s) (sold -- fitment would help nobody)")
     return skus
 
 
@@ -337,6 +402,22 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
         return {"sku": sku, "action": "skip", "reason": f"no published offer ({why})"}
     listing_id = pub[0].get("listing", {}).get("listingId")
     category = pub[0].get("categoryId")
+
+    # CHEAP CHECKS FIRST. The Trading guard read below is the scarce resource -- 5,000/day,
+    # versus 2,000,000 for the Inventory calls above. eBay carries ~22k SKUs while Shopify has
+    # ~7.8k BMW donors, so roughly 14k SKUs can never produce fitment. Spending the expensive
+    # call on them before discovering that burned most of the daily budget on SKUs we were
+    # always going to skip. In the Shopify path the guard read is NOT the donor source (see
+    # _chassis_expand), so nothing is lost by deciding this first.
+    if shopify is not None:
+        sd_early = shopify.get(str(sku)) or shopify.get(sku)
+        has_pn = bool(pnf) and sku in pnf
+        if not sd_early and not has_pn:
+            return {"sku": sku, "listingId": listing_id, "action": "skip",
+                    "reason": "no Shopify donor for SKU"}
+        if sd_early and not has_pn and FR._norm(sd_early.get("make") or "") != "bmw":
+            return {"sku": sku, "listingId": listing_id, "action": "skip",
+                    "reason": f"non-BMW ({sd_early.get('make')}) - out of scope (BMW-only reference)"}
 
     # Trading count is the "already expanded" guard in both paths (with retry). In the
     # Shopify path it is NOT the donor source, so n_trad==0 no longer means "skip".
@@ -545,11 +626,35 @@ def main():
         return run_audit(tok, ref, emap, ebay, tree, inc, exc, default, led, args, live)
 
     # SKU source: explicit --sku, else eBay inventory, else (Shopify mode) the dump's keys.
-    skus = args.sku or (enumerate_skus(tok, args.limit) if args.from_inventory else [])
+    skus = args.sku or (enumerate_skus(tok, None) if args.from_inventory else [])
     if not skus and shopify is not None:
         skus = list(shopify.keys())
     if not skus:
         sys.exit("Provide --sku ..., --from-inventory, or --from-shopify (uses the dump's SKUs)")
+
+    # Apply --limit to SKUs actually WORTH processing, not to the raw enumeration.
+    # enumerate_skus returns eBay's list in a stable order, so slicing it directly meant the
+    # sweep saw the same head of the list every night -- and as the ledger grew, more of that
+    # head was already done. It would have converged to doing nothing while reporting success.
+    skipped_now = 0
+    if not args.sku:
+        total = len(skus)
+        cache = load_skip_cache()
+        now = time.time()
+        fresh = []
+        for sku in skus:
+            entry = led.get(sku)
+            pn_pending = bool(pnf) and sku in pnf and "pn" not in set((entry or {}).get("src", []))
+            if entry and entry.get("cv") == CATALOG_ERA and not pn_pending:
+                continue                                   # done, and done correctly
+            c = cache.get(sku)
+            if c and c.get("until", 0) > now:
+                skipped_now += 1
+                continue                                   # known dead end, not due a re-check
+            fresh.append(sku)
+        print(f"  {total} SKU(s) on eBay  |  {len(led)} ledgered  |  {skipped_now} cached skips"
+              f"  |  {len(fresh)} to consider")
+        skus = fresh
     if args.limit:
         skus = skus[: args.limit]
 
@@ -558,6 +663,7 @@ def main():
     if live:
         log_error("-", "run-start", f"{args.mode} live, {len(skus)} SKU(s)")   # delineates runs in the log
     rows, counts, rate_limited = [], {}, False
+    skip_cache_updates = {}
     for i, sku in enumerate(skus, 1):
         # Skip ledgered SKUs, UNLESS part-number rows exist that weren't applied yet
         # (so the combined run can add Approach-2 fitment to chassis-only pushes).
@@ -606,6 +712,16 @@ def main():
         w.writeheader()
         for r in rows:
             w.writerow({c: r.get(c, "") for c in PLAN_COLS})
+    if live and skip_cache_updates:
+        cache = load_skip_cache()
+        cache.update(skip_cache_updates)
+        # Drop entries whose TTL lapsed so the file cannot grow without bound.
+        now = time.time()
+        cache = {k: v for k, v in cache.items() if v.get("until", 0) > now}
+        save_skip_cache(cache)
+        print(f"Skip cache: +{len(skip_cache_updates)} recorded, {len(cache)} held "
+              f"(these are not re-checked until their TTL lapses)")
+
     print(f"\nSummary: {counts}")
     if rate_limited:
         print("NOTE: stopped early on eBay's daily call limit. Everything pushed before that "

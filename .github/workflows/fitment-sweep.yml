@@ -31,11 +31,11 @@ env:
   # costs one batch, not the whole store. Once caught up, nightly runs only see
   # NEW listings and finish well under this. Override per-run via the input above.
   #
-  # Sized to eBay's daily Trading call allowance, not to wall-clock. Every SKU costs a
-  # GetItem for the "already expanded" guard, and the audit costs up to 300 more. Run #7
-  # asked for 1500 and hit error 518 at SKU 867, wasting 40 minutes and ~630 SKUs on calls
-  # eBay had already stopped answering. 700 + 300 leaves headroom under a 5k/day app cap.
-  NIGHTLY_LIMIT: "700"
+  # Sized to eBay's daily Trading GetItem allowance (5,000), which is the scarce resource.
+  # Raised from 700 once the sweep stopped spending that call on SKUs it could never push:
+  # eBay carries ~22k SKUs but only ~8.4k have a donor, so the donor check now happens BEFORE
+  # the guard read. Worst case 2000 guard reads + 300 audit + 250 drift = 2,550 of 5,000.
+  NIGHTLY_LIMIT: "2000"
 
 concurrency:                     # never let two sweeps overlap (they'd double-read)
   group: fitment-sweep
@@ -169,7 +169,8 @@ jobs:
           git config user.name  "fitment-bot"
           git config user.email "fitment-bot@users.noreply.github.com"
           git add data/shopify_donors.json data/pushed_ledger.json data/batch_plan.csv \
-                  data/ebay_compat_cache.json data/display_audit.csv data/drift_audit.csv
+                  data/ebay_compat_cache.json data/display_audit.csv data/drift_audit.csv \
+                  data/skip_cache.json
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
