@@ -203,6 +203,16 @@ def fetch_by_skus(store, tok, skus):
     return out
 
 
+# Which Shopify products count as BMW donors.
+#
+# NOT `vendor:BMW`. On this store the vendor field is frequently the CHASSIS CODE -- a 2015
+# X5 door shell has vendor "F85", a 2020 X3 has "G01" -- so filtering on vendor silently
+# excluded ~1,860 real BMW products, about 19% of the donor pool. The make lives in the tags
+# (`make_BMW` / `donor_vehicle.veh_make_BMW`), which is what parse_product already reads.
+# Union with vendor:BMW as well, since older products do use it: 9,718 vs 7,858 by vendor.
+BMW_QUERY = "status:active (tag:make_BMW OR vendor:BMW)"
+
+
 def dump_all(store, tok, vendor="BMW", force_shrink=False):
     out, cursor, page = {}, None, 0
     while True:
@@ -213,7 +223,7 @@ def dump_all(store, tok, vendor="BMW", force_shrink=False):
         # 60087) that the query definitely matched.
         q = ("query($q:String!,$after:String){ products(first:50, query:$q, after:$after, "
              "sortKey:ID) {" + PRODUCT_FIELDS + "} }")
-        r = gql(store, tok, q, {"q": f"vendor:{vendor} status:active", "after": cursor})
+        r = gql(store, tok, q, {"q": BMW_QUERY, "after": cursor})
         prods = r.get("data", {}).get("products", {})
         for e in prods.get("edges", []):
             d = parse_product(e["node"])
