@@ -1,22 +1,98 @@
 {
+"t|1992|bmw|318i": [
+"Base Convertible 2-Door",
+"Base Sedan 4-Door"
+],
+"t|1992|bmw|318is": [
+"Base Coupe 2-Door"
+],
+"t|1992|bmw|318ti": [],
 "t|1992|bmw|323i": [],
 "t|1992|bmw|323is": [],
+"t|1992|bmw|325i": [
+"Base Convertible 2-Door",
+"Base Sedan 4-Door"
+],
+"t|1992|bmw|325is": [
+"Base Coupe 2-Door"
+],
 "t|1992|bmw|328i": [],
 "t|1992|bmw|328is": [],
+"t|1993|bmw|318i": [
+"Base Convertible 2-Door",
+"Base Sedan 4-Door"
+],
+"t|1993|bmw|318is": [
+"Base Coupe 2-Door"
+],
+"t|1993|bmw|318ti": [],
 "t|1993|bmw|323i": [],
 "t|1993|bmw|323is": [],
+"t|1993|bmw|325i": [
+"Base Convertible 2-Door",
+"Base Sedan 4-Door"
+],
+"t|1993|bmw|325is": [
+"Base Coupe 2-Door"
+],
 "t|1993|bmw|328i": [],
 "t|1993|bmw|328is": [],
+"t|1994|bmw|318i": [
+"Base Convertible 2-Door",
+"Base Sedan 4-Door"
+],
+"t|1994|bmw|318is": [
+"Base Coupe 2-Door"
+],
+"t|1994|bmw|318ti": [],
 "t|1994|bmw|323i": [],
 "t|1994|bmw|323is": [],
+"t|1994|bmw|325i": [
+"Base Convertible 2-Door",
+"Base Sedan 4-Door"
+],
+"t|1994|bmw|325is": [
+"Base Coupe 2-Door"
+],
 "t|1994|bmw|328i": [],
 "t|1994|bmw|328is": [],
+"t|1995|bmw|318i": [
+"Base Convertible 2-Door",
+"Base Sedan 4-Door"
+],
+"t|1995|bmw|318is": [
+"Base Coupe 2-Door"
+],
+"t|1995|bmw|318ti": [
+"Base Hatchback 2-Door"
+],
 "t|1995|bmw|323i": [],
 "t|1995|bmw|323is": [],
+"t|1995|bmw|325i": [
+"Base Convertible 2-Door",
+"Base Sedan 4-Door"
+],
+"t|1995|bmw|325is": [
+"Base Coupe 2-Door"
+],
 "t|1995|bmw|328i": [],
 "t|1995|bmw|328is": [],
+"t|1996|bmw|318i": [
+"Base Convertible 2-Door",
+"Base Sedan 4-Door"
+],
+"t|1996|bmw|318is": [
+"Base Coupe 2-Door"
+],
+"t|1996|bmw|318ti": [
+"Base Hatchback 2-Door"
+],
 "t|1996|bmw|323i": [],
 "t|1996|bmw|323is": [],
+"t|1996|bmw|325i": [
+"Base Sedan 4-Door"
+],
+"t|1996|bmw|325is": [],
 "t|1996|bmw|328i": [
 "Base Convertible 2-Door",
 "Base Sedan 4-Door"
@@ -24,16 +100,40 @@
 "t|1996|bmw|328is": [
 "Base Coupe 2-Door"
 ],
+"t|1997|bmw|318i": [
+"Base Convertible 2-Door",
+"Base Sedan 4-Door"
+],
+"t|1997|bmw|318is": [
+"Base Coupe 2-Door"
+],
+"t|1997|bmw|318ti": [
+"Base Hatchback 2-Door"
+],
 "t|1997|bmw|323i": [
 "Base Sedan 4-Door"
 ],
 "t|1997|bmw|323is": [],
+"t|1997|bmw|325i": [
+"Base Sedan 4-Door"
+],
+"t|1997|bmw|325is": [],
 "t|1997|bmw|328i": [
 "Base Convertible 2-Door",
 "Base Sedan 4-Door"
 ],
 "t|1997|bmw|328is": [
 "Base Coupe 2-Door"
+],
+"t|1998|bmw|318i": [
+"Base Convertible 2-Door",
+"Base Sedan 4-Door"
+],
+"t|1998|bmw|318is": [
+"Base Coupe 2-Door"
+],
+"t|1998|bmw|318ti": [
+"Base Hatchback 2-Door"
 ],
 "t|1998|bmw|323i": [
 "Base Convertible 2-Door",
@@ -42,12 +142,29 @@
 "t|1998|bmw|323is": [
 "Base Coupe 2-Door"
 ],
+"t|1998|bmw|325i": [],
+"t|1998|bmw|325is": [],
 "t|1998|bmw|328i": [
 "Base Convertible 2-Door",
 "Base Sedan 4-Door"
 ],
 "t|1998|bmw|328is": [
 "Base Coupe 2-Door"
+],
+"t|1998|bmw|z3": [
+"1.9i Convertible 2-Door",
+"2.8i Convertible 2-Door",
+"M Roadster Convertible 2-Door",
+"Roadster Convertible 2-Door"
+],
+"t|1999|bmw|318i": [
+"Base Convertible 2-Door"
+],
+"t|1999|bmw|318is": [
+"Base Coupe 2-Door"
+],
+"t|1999|bmw|318ti": [
+"Base Hatchback 2-Door"
 ],
 "t|1999|bmw|323i": [
 "Base Convertible 2-Door",
@@ -56,6 +173,8 @@
 "t|1999|bmw|323is": [
 "Base Coupe 2-Door"
 ],
+"t|1999|bmw|325i": [],
+"t|1999|bmw|325is": [],
 "t|1999|bmw|328i": [
 "Base Convertible 2-Door",
 "Base Sedan 4-Door"
@@ -995,6 +1114,10 @@
 "Base Sedan 4-Door",
 "Excellence Sedan 4-Door"
 ],
+"t|2016|bmw|750i xdrive": [
+"750i xDrive Sedan 4-Door",
+"Base Sedan 4-Door"
+],
 "t|2016|bmw|750li": [
 "Excellence Sedan 4-Door"
 ],
@@ -1166,6 +1289,9 @@
 "Base Sedan 4-Door",
 "M Sport Sedan 4-Door"
 ],
+"t|2018|bmw|340i gt xdrive": [
+"Base Hatchback 4-Door"
+],
 "t|2018|bmw|340i xdrive": [
 "Base Sedan 4-Door"
 ],
@@ -1223,6 +1349,10 @@
 "Gran Coupe Competition Edition Sedan 4-Door"
 ],
 "t|2018|bmw|m760li": [],
+"t|2018|bmw|x2": [
+"sDrive28i Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door"
+],
 "t|2018|bmw|x3": [
 "M40i Sport Utility 4-Door",
 "sDrive20i Executive Sport Utility 4-Door",
@@ -1319,6 +1449,15 @@
 ],
 "t|2019|bmw|m6": [],
 "t|2019|bmw|m760li": [],
+"t|2019|bmw|x2": [
+"M35i Sport Utility 4-Door",
+"sDrive18i Executive Sport Utility 4-Door",
+"sDrive20i Executive Plus Sport Utility 4-Door",
+"sDrive20i M Sport Sport Utility 4-Door",
+"sDrive20i M Sport X Sport Utility 4-Door",
+"sDrive28i Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door"
+],
 "t|2019|bmw|x3": [
 "M40i Sport Utility 4-Door",
 "sDrive20i Executive Sport Utility 4-Door",
@@ -1411,6 +1550,15 @@
 "Base Sedan 4-Door"
 ],
 "t|2020|bmw|m760li": [],
+"t|2020|bmw|x2": [
+"M35i Sport Utility 4-Door",
+"sDrive18i Executive Sport Utility 4-Door",
+"sDrive20i Executive Plus Sport Utility 4-Door",
+"sDrive20i M Sport Sport Utility 4-Door",
+"sDrive20i M Sport X Sport Utility 4-Door",
+"sDrive28i Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door"
+],
 "t|2020|bmw|x3": [
 "M Competition Sport Utility 4-Door",
 "M Sport Utility 4-Door",
@@ -1456,6 +1604,7 @@
 "Base Coupe 2-Door",
 "Coupe Coupe 2-Door"
 ],
+"t|2021|bmw|440i": [],
 "t|2021|bmw|530e": [
 "Base Sedan 4-Door"
 ],
@@ -1488,6 +1637,13 @@
 "Base Sedan 4-Door"
 ],
 "t|2021|bmw|m760li": [],
+"t|2021|bmw|x2": [
+"M35i Sport Utility 4-Door",
+"sDrive18i Executive Sport Utility 4-Door",
+"sDrive20i M Sport Sport Utility 4-Door",
+"sDrive28i Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door"
+],
 "t|2021|bmw|x3": [
 "M Competition Sport Utility 4-Door",
 "M Sport Utility 4-Door",
@@ -1526,6 +1682,7 @@
 "Base Coupe 2-Door",
 "Coupe Coupe 2-Door"
 ],
+"t|2022|bmw|440i": [],
 "t|2022|bmw|530e": [
 "Base Sedan 4-Door"
 ],
@@ -1558,6 +1715,13 @@
 "Base Sedan 4-Door"
 ],
 "t|2022|bmw|m760li": [],
+"t|2022|bmw|x2": [
+"M35i Sport Utility 4-Door",
+"sDrive18i Sport Utility 4-Door",
+"sDrive20i M Sport Sport Utility 4-Door",
+"sDrive28i Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door"
+],
 "t|2022|bmw|x3": [
 "M Competition Sport Utility 4-Door",
 "M Sport Utility 4-Door",
@@ -1598,6 +1762,7 @@
 "Base Coupe 2-Door",
 "Coupe Coupe 2-Door"
 ],
+"t|2023|bmw|440i": [],
 "t|2023|bmw|530e": [
 "Base Sedan 4-Door"
 ],
@@ -1621,6 +1786,14 @@
 ],
 "t|2023|bmw|m550i xdrive": [
 "Base Sedan 4-Door"
+],
+"t|2023|bmw|x2": [
+"M35i Sport Utility 4-Door",
+"sDrive18i Sport Utility 4-Door",
+"sDrive20i GoldPlay Sport Utility 4-Door",
+"sDrive20i M Sport Sport Utility 4-Door",
+"sDrive28i Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door"
 ],
 "t|2023|bmw|x3": [
 "M Competition Sport Utility 4-Door",
@@ -1660,6 +1833,7 @@
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
 ],
+"t|2024|bmw|440i": [],
 "t|2024|bmw|m340i": [
 "Base Sedan 4-Door"
 ],
@@ -1701,6 +1875,7 @@
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
 ],
+"t|2025|bmw|440i": [],
 "t|2025|bmw|m340i": [
 "Base Sedan 4-Door"
 ],
@@ -1739,6 +1914,7 @@
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
 ],
+"t|2026|bmw|440i": [],
 "t|2026|bmw|m340i": [
 "Base Sedan 4-Door"
 ],

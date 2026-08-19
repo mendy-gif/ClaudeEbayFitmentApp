@@ -10049,16 +10049,6 @@
     "universal": "False",
     "engine_family": "B58"
   },
-  "52394": {
-    "sku": "52394",
-    "make": "BMW",
-    "model": "X5",
-    "series": "G05",
-    "engine_code_raw": "B58B30M1",
-    "part_type": "Bumper PDC Parking Distance Sensor",
-    "universal": "False",
-    "engine_family": "B58"
-  },
   "52407": {
     "sku": "52407",
     "make": "BMW",
@@ -11355,7 +11345,7 @@
     "model": "Z3",
     "series": "E36",
     "engine_code_raw": "M52B28O0",
-    "part_type": null,
+    "part_type": "Operating Traction Switch",
     "universal": "False",
     "engine_family": "M52"
   },
@@ -16366,16 +16356,6 @@
     "series": "F15",
     "engine_code_raw": "N63B44O1",
     "part_type": "Bumper PDC Parking Distance Sensor",
-    "universal": "False",
-    "engine_family": "N63"
-  },
-  "2453": {
-    "sku": "2453",
-    "make": "BMW",
-    "model": "X5",
-    "series": "F15",
-    "engine_code_raw": "N63B",
-    "part_type": "Front Left Driver Seatbelt Seat Belt Buckle",
     "universal": "False",
     "engine_family": "N63"
   },
@@ -44249,16 +44229,6 @@
     "universal": "False",
     "engine_family": "B46"
   },
-  "6099": {
-    "sku": "6099",
-    "make": "BMW",
-    "model": "530i",
-    "series": "G30",
-    "engine_code_raw": "B46B20O0",
-    "part_type": "Engine Cover",
-    "universal": "False",
-    "engine_family": "B46"
-  },
   "6072": {
     "sku": "6072",
     "make": "BMW",
@@ -46526,16 +46496,6 @@
     "series": "F30",
     "engine_code_raw": "B58B30M0",
     "part_type": "Front Left Driver Brake Disc Rotor",
-    "universal": "False",
-    "engine_family": "B58"
-  },
-  "5544": {
-    "sku": "5544",
-    "make": "BMW",
-    "model": "340i",
-    "series": "F30",
-    "engine_code_raw": "B58B30M0",
-    "part_type": "Monitor Display Screen",
     "universal": "False",
     "engine_family": "B58"
   },
@@ -64519,16 +64479,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "61921": {
-    "sku": "61921",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N20B20A",
-    "part_type": "Front Right Passenger Side Mirror Assembly",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "61922": {
     "sku": "61922",
     "make": "BMW",
@@ -66686,16 +66636,6 @@
     "series": "F25",
     "engine_code_raw": "N20B20A",
     "part_type": "Transmission Oil Cooler Heat Exchanger",
-    "universal": "False",
-    "engine_family": "N20"
-  },
-  "63335": {
-    "sku": "63335",
-    "make": "BMW",
-    "model": "320i",
-    "series": "F30",
-    "engine_code_raw": "N20B20U0",
-    "part_type": "EKP Fuel Pump Module",
     "universal": "False",
     "engine_family": "N20"
   },
@@ -75429,16 +75369,6 @@
     "universal": "False",
     "engine_family": "N51"
   },
-  "61188": {
-    "sku": "61188",
-    "make": "BMW",
-    "model": "128i",
-    "series": "E82",
-    "engine_code_raw": "N51B30M0",
-    "part_type": "Front Left Driver Bumper Fog Lamp Light",
-    "universal": "False",
-    "engine_family": "N51"
-  },
   "61147": {
     "sku": "61147",
     "make": "BMW",
@@ -75516,16 +75446,6 @@
     "series": "E82",
     "engine_code_raw": "N51B30M0",
     "part_type": "Secondary Smog Air Injection Pump",
-    "universal": "False",
-    "engine_family": "N51"
-  },
-  "61148": {
-    "sku": "61148",
-    "make": "BMW",
-    "model": "128i",
-    "series": "E82",
-    "engine_code_raw": "N51B30M0",
-    "part_type": "Front Right Passenger Bumper Fog Lamp Light",
     "universal": "False",
     "engine_family": "N51"
   },
@@ -78548,5 +78468,115 @@
     "part_type": "Front Left Right Side Windshield Drip Trim Molding SET",
     "universal": "False",
     "engine_family": "S63"
+  },
+  "64555": {
+    "sku": "64555",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Engine Motor Fuel Injector Rail Line",
+    "universal": "False",
+    "engine_family": null
+  },
+  "64573": {
+    "sku": "64573",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Manifold Absolute Pressure (MAP) Sensor",
+    "universal": "False",
+    "engine_family": null
+  },
+  "64572": {
+    "sku": "64572",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Manifold Absolute Pressure (MAP) Sensor",
+    "universal": "False",
+    "engine_family": null
+  },
+  "64574": {
+    "sku": "64574",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Engine Motor HPFP High Pressure Fuel Pump",
+    "universal": "False",
+    "engine_family": null
+  },
+  "64568": {
+    "sku": "64568",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Engine Motor Throttle Body",
+    "universal": "False",
+    "engine_family": null
+  },
+  "64570": {
+    "sku": "64570",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Manifold Absolute Pressure (MAP) Sensor",
+    "universal": "False",
+    "engine_family": null
+  },
+  "64567": {
+    "sku": "64567",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Engine Motor Throttle Body",
+    "universal": "False",
+    "engine_family": null
+  },
+  "64571": {
+    "sku": "64571",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Manifold Absolute Pressure (MAP) Sensor",
+    "universal": "False",
+    "engine_family": null
+  },
+  "64563": {
+    "sku": "64563",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Right Passenger Engine Motor Intake Manifold",
+    "universal": "False",
+    "engine_family": null
+  },
+  "64559": {
+    "sku": "64559",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Engine Motor Starter",
+    "universal": "False",
+    "engine_family": null
+  },
+  "64561": {
+    "sku": "64561",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "engine_code_raw": null,
+    "part_type": "Cat Catalytic Oxygen O2 Lambda Probe Sensors SET",
+    "universal": "False",
+    "engine_family": null
   }
 }
