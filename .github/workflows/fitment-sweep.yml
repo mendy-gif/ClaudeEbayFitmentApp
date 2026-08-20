@@ -173,9 +173,12 @@ jobs:
         run: |
           git config user.name  "fitment-bot"
           git config user.email "fitment-bot@users.noreply.github.com"
-          git add data/shopify_donors.json data/pushed_ledger.json data/batch_plan.csv \
-                  data/ebay_compat_cache.json data/display_audit.csv data/drift_audit.csv \
-                  data/skip_cache.json
+          # `git add <missing file>` aborts the whole step with exit 128. Several of these
+          # only exist once a sweep has produced them -- skip_cache.json appears only after
+          # a live push -- so naming them individually meant one absent file discarded the
+          # entire run's state, including a donor refresh that had already succeeded. That
+          # is how run #10 was lost. `git add -A data/` handles absent files.
+          git add -A data/
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
