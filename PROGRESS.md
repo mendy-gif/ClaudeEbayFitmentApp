@@ -144,6 +144,45 @@ them as failures.
 - [ ] **Shopify store cleanup** — being assessed separately. The code already tolerates
       whatever the vendor field ends up as.
 
+## Parked: extend to Audi (decided 2026-08-19)
+
+**Agreed to do this, but only once BMW is finished.** Not started, nothing built.
+
+**The trigger to pick it back up:** the BMW backlog is swept and the nightly run has
+settled into steady state — i.e. it only finds newly-listed parts, not a queue of
+thousands. At that point the eBay API budget frees up and there is one *finished*
+dataset instead of several half-done ones.
+
+**Why Audi and not Mercedes:**
+
+| Make | Active listings | Verdict |
+|---|---|---|
+| BMW | 9,698 | in progress |
+| **Audi** | **961** (and growing — more Audis coming through the dismantling area lately) | **worth doing after BMW** |
+| Mercedes | 105 | not worth it — the same reference-building effort for a ninth of the payoff |
+| Porsche | 57 | no |
+
+**What already works for any make (~90% of the system):** eBay auth, the category
+classifier, trim-catalog validation, the push logic, the ledger, the audit, the drift
+watch, the nightly automation. None of it knows or cares that it is BMW.
+
+**What has to be built per make — this is the whole cost:** three reference datasets
+equivalent to `bmw_chassis_reference.json` (112 chassis with models and US year ranges),
+`bmw_engine_map.json` (396 engine rows), and `ebay_bmw_models.json` (269 eBay model
+names). For Audi that means the 8U / 8R / B8 / B9 / 8V / 4G platform codes.
+
+**Effort, realistically:** the BMW tables took about an hour of research with mendy
+confirming as we went. **Audi will take longer** — mendy knows Audi less well, so expect
+more verification against sources and fewer quick confirmations. Budget several sessions,
+not one.
+
+**The good news:** Dismantly already tags other makes' chassis codes — an Audi Q3 in the
+store carries `donor_vehicle.veh_series_8U`. So the input data is already in the right
+shape; it is only the reference tables that are missing.
+
+**Re-check the volume when starting.** 961 is today's number and Audi intake is rising,
+so it may well be higher by then.
+
 ## Things that write fitment besides us
 
 Dismantly, PartOutPro, eBay's own auto-fitment setting, and historically MyFitment all push
