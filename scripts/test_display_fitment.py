@@ -391,6 +391,48 @@ def t_cache_file_safety():
         CAT.CACHE_FILE, CAT._cache, CAT._dirty = saved_file, saved_cache, saved_dirty
 
 
+def t_read_inventory_compat():
+    """Parse the Inventory read-back. This had NO test, and a stray edit landed skip-cache
+    code inside it that referenced r["action"] on a vehicle row -- crashing the live sweep
+    with KeyError on the first listing it pushed. The function must return plain vehicle
+    rows and nothing else."""
+    print("Inventory read-back parsing:")
+    import ebay_batch
+
+    payload = {"compatibleProducts": [
+        {"compatibilityProperties": [{"name": "Year", "value": "2018"},
+                                     {"name": "Make", "value": "BMW"},
+                                     {"name": "Model", "value": "X5"},
+                                     {"name": "Trim", "value": "xDrive35i Sport Utility 4-Door"}]},
+        {"compatibilityProperties": [{"name": "Year", "value": "2019"},
+                                     {"name": "Make", "value": "BMW"},
+                                     {"name": "Model", "value": "X5"}]},
+        {"compatibilityProperties": [{"name": "Year", "value": "notayear"},
+                                     {"name": "Make", "value": "BMW"},
+                                     {"name": "Model", "value": "X5"}]},
+    ]}
+    saved = ebay_batch.api
+    ebay_batch.api = lambda method, path, tok, body=None, retries=3: (200, payload)
+    try:
+        rows, err = ebay_batch.read_inventory_compat("52566", "tok")
+        eq(err, None, "a good read reports no error")
+        eq(rows, [{"Year": 2018, "Make": "BMW", "Model": "X5",
+                   "Trim": "xDrive35i Sport Utility 4-Door"},
+                  {"Year": 2019, "Make": "BMW", "Model": "X5"}],
+           "returns clean vehicle rows, dropping the one with a non-numeric Year")
+        true(all(set(r) <= {"Year", "Make", "Model", "Trim"} for r in rows),
+             "rows carry ONLY vehicle fields -- no sweep bookkeeping leaked in here")
+
+        ebay_batch.api = lambda *a, **k: (404, {})
+        rows, err = ebay_batch.read_inventory_compat("52566", "tok")
+        eq(rows, [], "404 means the SKU genuinely has no compatibility")
+        ebay_batch.api = lambda *a, **k: (500, {})
+        rows, err = ebay_batch.read_inventory_compat("52566", "tok")
+        eq(rows, None, "a failed read returns None, never an empty list")
+    finally:
+        ebay_batch.api = saved
+
+
 def t_no_real_state_touched():
     """The suite itself must be side-effect free."""
     print("Test isolation:")
@@ -534,7 +576,7 @@ def t_real_data():
 
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()

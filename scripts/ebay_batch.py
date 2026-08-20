@@ -155,10 +155,6 @@ def read_inventory_compat(sku, tok):
             r = {"Year": int(y), "Make": props["make"], "Model": props["model"]}
             if props.get("trim"):
                 r["Trim"] = props["trim"]
-            ttl = skip_ttl(r.get("reason")) if r["action"] in ("skip", "review") else None
-            if ttl:
-                skip_cache_updates[sku] = {"reason": (r.get("reason") or "")[:120],
-                                           "until": time.time() + ttl * 86400}
             rows.append(r)
     return rows, None
 
@@ -694,6 +690,11 @@ def main():
                     tok = nt
                     print(f"  [{i}/{len(skus)}] {sku}: token auto-refreshed, retrying")
                     r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force)
+            # Remember stable skips so tomorrow's run does not re-check them (see SKIP_TTL_DAYS).
+            ttl = skip_ttl(r.get("reason")) if r.get("action") in ("skip", "review") else None
+            if ttl:
+                skip_cache_updates[sku] = {"reason": (r.get("reason") or "")[:120],
+                                           "until": time.time() + ttl * 86400}
             rows.append(r)
         counts[rows[-1]["action"]] = counts.get(rows[-1]["action"], 0) + 1
         print(f"  [{i}/{len(skus)}] {sku}: {rows[-1]['action']} - {rows[-1].get('reason','')[:80]}")
