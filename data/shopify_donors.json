@@ -292,12 +292,12 @@
   "18471": {
     "sku": "18471",
     "make": "BMW",
-    "model": null,
-    "series": "G12",
-    "engine_code_raw": null,
+    "model": "740i",
+    "series": null,
+    "engine_code_raw": "B58",
     "part_type": null,
-    "universal": null,
-    "engine_family": null
+    "universal": "False",
+    "engine_family": "B58"
   },
   "18531": {
     "sku": "18531",
@@ -11522,11 +11522,11 @@
   "30019": {
     "sku": "30019",
     "make": "BMW",
-    "model": null,
-    "series": "G01",
+    "model": "X3",
+    "series": null,
     "engine_code_raw": null,
     "part_type": null,
-    "universal": null,
+    "universal": "False",
     "engine_family": null
   },
   "30020": {
@@ -21586,16 +21586,6 @@
     "series": null,
     "engine_code_raw": null,
     "part_type": "Left Driver Side Skirt Rocker Panel",
-    "universal": "False",
-    "engine_family": null
-  },
-  "35692": {
-    "sku": "35692",
-    "make": "BMW",
-    "model": "X3",
-    "series": null,
-    "engine_code_raw": null,
-    "part_type": "Wheel Rim",
     "universal": "False",
     "engine_family": null
   },
@@ -51712,11 +51702,11 @@
   "44741": {
     "sku": "44741",
     "make": "BMW",
-    "model": null,
-    "series": "F30",
+    "model": "335i",
+    "series": null,
     "engine_code_raw": null,
     "part_type": null,
-    "universal": null,
+    "universal": "False",
     "engine_family": null
   },
   "44530": {
@@ -94589,16 +94579,6 @@
     "universal": "False",
     "engine_family": "N20"
   },
-  "1353": {
-    "sku": "1353",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "engine_code_raw": "N20B20O0",
-    "part_type": "Rear Left Driver Door Latch Lock Actuator",
-    "universal": "False",
-    "engine_family": "N20"
-  },
   "1368": {
     "sku": "1368",
     "make": "BMW",
@@ -112229,16 +112209,6 @@
     "universal": "False",
     "engine_family": "B58"
   },
-  "3071": {
-    "sku": "3071",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "engine_code_raw": "B58B30O1",
-    "part_type": "Engine Motor ECU DME Computer Module",
-    "universal": "False",
-    "engine_family": "B58"
-  },
   "3068": {
     "sku": "3068",
     "make": "BMW",
@@ -116576,16 +116546,6 @@
     "series": "G20",
     "engine_code_raw": "B58B30O1",
     "part_type": "Rear AC Heater Climate Control Switch",
-    "universal": "False",
-    "engine_family": "B58"
-  },
-  "5728": {
-    "sku": "5728",
-    "make": "BMW",
-    "model": "M340i",
-    "series": "G20",
-    "engine_code_raw": "B58B30O1",
-    "part_type": "AUX / USB Charger Port Socket",
     "universal": "False",
     "engine_family": "B58"
   },
@@ -144159,16 +144119,6 @@
     "universal": "False",
     "engine_family": "N55"
   },
-  "5860": {
-    "sku": "5860",
-    "make": "BMW",
-    "model": "530i",
-    "series": "G30",
-    "engine_code_raw": "B46B20O0",
-    "part_type": "Engine",
-    "universal": "False",
-    "engine_family": "B46"
-  },
   "60075": {
     "sku": "60075",
     "make": "BMW",
@@ -153542,11 +153492,11 @@
   "43300": {
     "sku": "43300",
     "make": "BMW",
-    "model": "320i",
+    "model": null,
     "series": null,
     "engine_code_raw": null,
-    "part_type": "Radiator Fan Shroud Housing w/ Motor",
-    "universal": "False",
+    "part_type": null,
+    "universal": null,
     "engine_family": null
   },
   "63556": {
@@ -153786,6 +153736,136 @@
     "series": "F85",
     "engine_code_raw": "S63B44T2",
     "part_type": "Front Left Driver Headlight w/ Modules SET",
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "44571": {
+    "sku": "44571",
+    "make": "BMW",
+    "model": null,
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": null,
+    "universal": null,
+    "engine_family": null
+  },
+  "63650": {
+    "sku": "63650",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Steering Wheel Airbag Air Bag",
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "63643": {
+    "sku": "63643",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Steering Wheel Sensor Clockspring",
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "63637": {
+    "sku": "63637",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Instrument Speedometer Guage Cluster",
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "63672": {
+    "sku": "63672",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Radiator Support Upper Cover Panel",
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "63651": {
+    "sku": "63651",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Front AC Heater Climate Control Switch",
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "39734": {
+    "sku": "39734",
+    "make": "BMW",
+    "model": null,
+    "series": null,
+    "engine_code_raw": null,
+    "part_type": null,
+    "universal": null,
+    "engine_family": null
+  },
+  "63673": {
+    "sku": "63673",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Engine Air Filter Box Assembly",
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "63674": {
+    "sku": "63674",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Front Right Passenger Side Mirror Assembly",
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "63675": {
+    "sku": "63675",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Front Left Driver Side Mirror Assembly",
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "63692": {
+    "sku": "63692",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Steering Wheel Trim",
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "63695": {
+    "sku": "63695",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": null,
+    "universal": "False",
+    "engine_family": "S63"
+  },
+  "63694": {
+    "sku": "63694",
+    "make": "BMW",
+    "model": "X5",
+    "series": "F85",
+    "engine_code_raw": "S63B44T2",
+    "part_type": "Stereo Audio Amp Amplifier",
     "universal": "False",
     "engine_family": "S63"
   }
