@@ -51,6 +51,11 @@ jobs:
       - uses: actions/checkout@v5
         with:
           ref: ${{ github.ref_name }}
+          # Full history. The default (fetch-depth: 1) is a SHALLOW clone, and `git rebase`
+          # against a freshly-fetched ref then dies with exit 128 -- which is exactly how
+          # run #10 lost its work: the sweep and both audits passed, then the commit step
+          # could not rebase onto a branch that had moved, and the whole run was discarded.
+          fetch-depth: 0
 
       - uses: actions/setup-python@v6
         with:
@@ -176,6 +181,7 @@ jobs:
             exit 0
           fi
           git commit -m "Automated fitment sweep: refresh dump + ledger [skip ci]"
+          MINE=$(git rev-parse HEAD)          # this run's state, to restore on conflict
           # A sweep runs for the best part of an hour. If anyone pushes to the branch in
           # that window the plain push is rejected and the run's entire record -- which
           # SKUs were pushed -- is thrown away with the runner. That happened on run #7.
@@ -188,12 +194,14 @@ jobs:
             fi
             echo "Push rejected -- someone else moved the branch. Rebasing and retrying."
             git fetch origin ${{ github.ref_name }}
-            if ! git rebase FETCH_HEAD; then
-              # Only our own state files are in play, so preferring the freshly-swept
-              # version is correct; a conflict here must not lose the whole run.
-              git checkout --ours data/ 2>/dev/null || true
+            if ! git -c core.editor=true rebase FETCH_HEAD; then
+              # Restore data/ explicitly from THIS run's commit. --ours/--theirs invert
+              # during a rebase, and the earlier version used --ours, which would have kept
+              # the remote's stale files and thrown away the sweep we just did. Naming the
+              # commit removes the ambiguity.
+              git checkout "$MINE" -- data/ 2>/dev/null || true
               git add data/ 2>/dev/null || true
-              git rebase --continue || git rebase --abort
+              git -c core.editor=true rebase --continue || git rebase --abort
             fi
             sleep $((attempt * 5))
           done
