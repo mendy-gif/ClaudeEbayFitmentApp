@@ -733,9 +733,33 @@ def t_donor_fields():
         d = SD.parse_product(node([], mf_vin=bad), CH)
         eq(d["vin"], None, f"malformed VIN {bad!r} rejected")
 
+    # Part number: the key the ETK catalogue is looked up by (docs/DESIGN.md 9).
+    def pnode(tags, pt="", **mf):
+        n = node(tags, **mf); n["productType"] = pt; return n
+    eq(SD.parse_product(pnode(["part_number_clean_7311201"]), CH)["part_number"], "7311201",
+       "part number from part_number_clean_")
+    eq(SD.parse_product(pnode(["part_number_7390327"]), CH)["part_number"], "7390327",
+       "part number from part_number_")
+    eq(SD.parse_product(pnode([], mf_part_number="7609460"), CH)["part_number"], "7609460",
+       "part number from the metafield")
+    eq(SD.parse_product(pnode([], pt="7847600"), CH)["part_number"], "7847600",
+       "productType used as a last resort when it looks like a part number")
+    # productType is NOT always a part number on this store -- junk must not flow through
+    # to an ETK lookup, where it would silently return no fitment.
+    # NB "AIRBAG12"/"LEFTDOOR" are the load-bearing cases: 7-11 alphanumerics, so the
+    # final shape check accepts them. Only the digits-only rule on productType rejects
+    # them, and without it a part TYPE would be sent to the ETK as a part NUMBER --
+    # which returns no fitment and looks exactly like "this part has no data".
+    for junk in ("Airbag", "", "12", "Left Door Assembly", "AIRBAG12", "LEFTDOOR", "SENSOR01"):
+        eq(SD.parse_product(pnode([], pt=junk), CH)["part_number"], None,
+           f"productType {junk!r} rejected as a part number")
+    eq(SD.parse_product(pnode(["part_number_clean_7311201"], pt="9999999"), CH)["part_number"],
+       "7311201", "tag wins over productType")
+
     # A product with nothing at all must stay empty rather than invent values.
     d = SD.parse_product(node([], vendor=""), CH)
-    eq([d["series"], d["year"], d["vin"]], [None, None, None], "empty product invents nothing")
+    eq([d["series"], d["year"], d["vin"], d["part_number"]], [None, None, None, None],
+       "empty product invents nothing")
 
 
 def run():

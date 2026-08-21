@@ -460,93 +460,117 @@ connection; the eBay push half runs on the refresh token alone.)
 
 ---
 
-## 9. Third fitment source: the BMW ETK parts catalogue (planned, 2026-08-21)
+## 9. Third fitment source: the BMW ETK parts catalogue
 
-Decided with mendy on 2026-08-21: **pull fitment data from the ETK project too.** Today the
-union has two sources (§4) — chassis rules from the donor, and part-number history from
-`spreadsheet-fitment/`. Both are *inferences*: one from the car the part came off, one from
-cars a part number has been seen on. The ETK is BMW's own electronic parts catalogue, so it
-is the first **authoritative** source available to this project — it states which vehicles a
-part number belongs to rather than inferring it.
+Agreed with mendy 2026-08-21. The union today has two sources (§4), both **inferences**:
+chassis rules (from the car the part came off) and part-number history (cars a number has
+been seen on). The ETK is BMW's own catalogue — the first **authoritative** source here.
 
-It is also the answer to two problems already on the books: the 2,781 listings whose donor
-data is missing entirely (§ PROGRESS "Open items"), and the donor VINs we started recording
-on 2026-08-21 but cannot yet decode.
+**Status (2026-08-21, updated after the ETK session reported in):** the database is built
+and operational, and the part→vehicle join is **proven**, not speculative as first written.
+A ready-made emitter already produces eBay-shaped rows.
 
-### 9.1 What the database actually contains
+### 9.1 What exists, and where
 
-From the schema mapped in `bmw-etk/data/schema/` (152 tables). The German column names are
-load-bearing, so they are spelled out here rather than left to be re-derived:
+Everything lives in a **separate repo** — `/Users/mendydonin/Documents/GitHub/BMW-ETK/`.
+**Do not modify anything inside it.** Open the database read-only:
 
-**`w_fztyp` — vehicle types (6,628 rows). The highest-value table, and the smallest.**
+```python
+sqlite3.connect("file:.../BMW-ETK/bmw-etk/data/etk_us.sqlite?mode=ro", uri=True)
+```
 
-| Column | Meaning | Why it matters here |
+US-market slice, English table names, verified row counts:
+
+| Table | Rows | What it is |
 |---|---|---|
-| `fztyp_typschl` `char(4)` | Typschlüssel — the 4-char type key | **This is VIN positions 4–7.** Decodes a VIN to a specific model |
-| `fztyp_baureihe` `varchar(4)` | Baureihe — the chassis | F30, G20 … our primary key for everything |
-| `fztyp_motor` `varchar(5)` | Engine code | The Rule B input we are missing on ~4,000 donors |
-| `fztyp_karosserie` | Body style | Sedan/Coupe/Touring — feeds the eBay trim |
-| `fztyp_vbez` / `fztyp_erwvbez` | Model designation | "328i", "M3" |
-| `fztyp_einsatz` | Production start | Year bounds, and LCI splits (§ CLAUDE.md #12) |
-| `fztyp_vbereich` `char(2)` | Vertriebsbereich — sales region | **The US filter.** ETK is global; eBay Motors is not |
-| `fztyp_lenkung` | Steering (LHD/RHD) | Second half of the US filter |
+| `fitment` | 7,419,431 | part → vehicle. **The join we needed.** |
+| `part` | 767,240 | part numbers + descriptions |
+| `supersession` | 170,843 | old → new, with `interchangeable` and `is_ambiguous` |
+| `row_note` | 966,527 | install caveats per (diagram, pos) |
+| `vin_range` | 292,069 | VIN-range validity |
+| `fitment_condition` | 417,130 | option gates (SA codes) |
+| `diagram_requirement` | 1,654 | **diagram-level** option gates |
+| `vehicle` | 1,066 | chassis / model / engine / years |
 
-**`w_teileersetzung` — part supersessions (9,951,034 rows).** Old part number → its
-replacement. Independently useful: our part-number matching currently misses a listing
-whenever BMW has superseded the number.
+Keyed on the **last 7 characters of a part number, uppercase**. The file is occasionally
+regenerated (~70s window) — retry odd failures rather than treating them as data problems.
 
-**`w_teileverwendungfzg_suche` — part usage by vehicle (158,959 rows).** Keyed
-`tvs_mospid`, which joins to `fztyp_mospid`. Note its columns do **not** include a part
-number, so this table alone is not the part→vehicle map — see 9.3.
+### 9.2 Use the ready-made emitter — do NOT write our own SQL
 
-### 9.2 Two wins, very different confidence
+`bmw-etk/scripts/ebay_fitment.py <part numbers>` already emits eBay-ready rows. Verified
+here on a real listing (SKU 13611, part 7311201):
 
-**A. VIN decoding — high confidence, small, do first.** `fztyp_typschl` is the 4-char key
-in VIN positions 4–7, so `w_fztyp` alone turns a donor VIN into chassis + engine + body.
-We began capturing VINs on 2026-08-21 (`shopify_donor.parse_product`), and 20 of 40 sampled
-no-chassis listings carry one. This is a 6,628-row lookup table — extract it to JSON, ship
-it in-repo, no database at runtime.
+```
+72127311201  Head airbag, left   F30   328i  N20   2011-2015
+72127311201  Head airbag, left   F30N  340i  B58   2014-2018
+72127311201  Head airbag, left   F36   435i  N55   2013-2016
+72127311201  Head airbag, left   F80   M3    S55   2012-2015
+72127311201  Head airbag, left   F87N  M2    N55   2016-2018
+```
 
-**B. Part number → vehicles — the real prize, but the join is unproven.** This is what would
-make fitment authoritative rather than rule-based, and it is the only source that helps a
-listing with no donor data at all.
+Note what that gives us: the donor was an **F80**, and our chassis rule would emit F80 only.
+The ETK says the same part also fits **F30, F36 and the M2** — cross-chassis fitment that
+neither existing source can derive from a donor. That is the whole value of this source.
 
-**C. Supersessions — cheap, orthogonal.** Improves source #2 without touching source #1.
+**The ETK session's explicit warning, recorded so it is not rediscovered:** do not write
+fitment-condition SQL against these tables. Three measured traps — exclude-only conditions,
+diagram-level option gates (1,654 diagrams, e.g. every towing-hitch part requires SA 235),
+and ambiguous mixed rows. Reuse the canonical aggregation in `bmw-etk/scripts/shopify_fitment.py`
+(`chassis_rows` + `merge_rows`) or consume `ebay_fitment.py` output. Background:
+`bmw-etk/docs/DUMP_FACTS.md`, "Condition-logic QC".
 
-### 9.3 The open technical question
+`fit_certainty` is three-state — all listed cars / VERIFY (option-dependent) / only-with-options.
+`--confirmed-only` drops gated rows. **A Rule B engine part must never be pushed on a VERIFY
+row**, for the same reason we do not pad Rule B with wildcards (CLAUDE.md #8).
 
-`w_teileverwendungfzg_suche` has no part-number column, so the part→vehicle path most likely
-runs through the Bildtafel (diagram) tables — a part appears on a diagram
-(`w_btzeilen*`), diagrams belong to a series (`w_bildtafzub_baureihe`), and lines carry
-validity ranges. **That join is not yet proven.** Establishing it is the first real task, and
-it should be validated against parts whose fitment we already know before anything is pushed.
+### 9.3 Conventions to mirror (decided with mendy on the ETK side)
 
-### 9.4 Constraints this source does NOT get to bypass
+1. **N-suffix chassis are LCI.** `F30N`, `F02N`, `E60N` merge into the base chassis **label**
+   with **era-split rows** — the year split is preserved, not flattened. Model×year
+   cross-constraints must survive the merge: a naive merge already shipped a real error
+   (a pre-LCI injector claiming N63TU 750LiX fitment). This dovetails with our own LCI work
+   (CLAUDE.md #12) and is a second, authoritative source for those splits.
+2. **Motorcycle chassis (`K##`) are excluded.**
+3. **Years floor at 1990.**
+4. **The catalogue cuts off in early 2020.** Post-2020 chassis (G8x, new G2x…) are absent
+   **by design** — their absence is not a data gap to chase. Open-ended ranges render as
+   `"2018-2020+"` and **must not be hard-capped at 2019**.
 
-1. **The catalog gatekeeper still applies.** ETK rows are BMW's vocabulary, not eBay's. They
-   go through `scripts/ebay_compat_catalog.py` like every other row, or they will be accepted,
-   stored, and silently not displayed (§5.5, CLAUDE.md #6).
-2. **ETK is a global catalogue.** Filter to US-market vehicles via `fztyp_vbereich` and
-   `fztyp_lenkung`. A European-only variant is harmless for Year/Make/Model (eBay drops what
-   is not in its catalog, #7) but is exactly the kind of thing that quietly widens a Rule B
-   engine set.
-3. **Authoritative ≠ correct for a used part.** The ETK says which vehicles a part number was
-   *fitted to from the factory*. It does not know that a salvage part is damaged, superseded,
-   or that mendy's listing is for the left one.
-4. **It is a third source in a union, not a replacement.** Chassis rules cover parts the ETK
-   has no listing-level part number for; the ETK covers listings with no donor data. Neither
-   subsumes the other.
+### 9.4 Supersessions are ONE-WAY
 
-### 9.5 Sequencing
+`supersession` maps **new replaces old**. Only 6 of 170,843 pairs are bidirectional. So a
+superseded number tells you the replacement, not that the two interchange. **`interchangeable
+= 'unknown'` must never be treated as yes** — that would silently widen fitment on a part we
+have not verified. Applied correctly it improves source #2, which currently misses a listing
+whenever BMW has replaced the number.
 
-The ETK work happens on `claude/bmw-etk-database-sqohoo`, where the Transbase container is
-already running and the catalogue is readable. Order: (A) extract `w_fztyp` → VIN decoder →
-backfill chassis/engine for donors we cannot otherwise resolve; (C) extract supersessions;
-(B) prove the part→vehicle join, validate against known-good fitment, then wire it into
-`ebay_batch.py` as a third source in the existing union.
+### 9.5 What this source does NOT get to bypass
 
-Do **not** block the nightly sweep on any of this. It keeps running on the two sources it
-has; the ETK adds coverage, it does not gate what already works.
+1. **The catalog gatekeeper still applies.** ETK rows are BMW's vocabulary, not eBay's
+   (`F30N`, `328iX`, `Hybrid 3`). They go through `scripts/ebay_compat_catalog.py` like every
+   other row or they will be accepted, stored, and silently not displayed (§5.5, CLAUDE.md #6).
+2. **Authoritative ≠ correct for a used part.** The ETK states factory fitment. It does not
+   know a salvage part is damaged, or that the listing is for the left one.
+3. **Third source in a union, not a replacement.** Chassis rules still cover listings with no
+   usable part number; the ETK covers listings with no donor data. Neither subsumes the other.
+
+### 9.6 Sequencing
+
+**Done 2026-08-21:** `parse_product` now captures `part_number` (tags → metafield →
+productType, junk rejected) — the ETK is keyed by part number and we were not recording one.
+Measured 35/40 on a real sample.
+
+Next, in order:
+
+1. **Measure reach** — how many of our ~15.5k listings have a part number the ETK knows.
+   Cheap, offline, and it sizes everything downstream.
+2. **Wire `ebay_fitment.py` output in as a third source** in the existing union in
+   `ebay_batch.py`, mapping ETK vocabulary → eBay's via `ebay_compat_catalog.py`, dropping
+   VERIFY rows on Rule B categories.
+3. **Supersessions into source #2**, honouring the one-way rule.
+4. `row_note` install caveats into item descriptions — additive, lowest priority.
+
+Do **not** block the nightly sweep on any of this.
 
 ## Appendix: answers to the five open questions
 

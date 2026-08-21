@@ -251,6 +251,7 @@ def parse_product(node, chassis_codes=frozenset()):
         "part_type": _tag_value(tags, "part_type_") or _mf(node, "mf_part_type"),
         "universal": _tag_value(tags, "is_universal_fitment_"),
         "vin": _donor_vin(tags, node),
+        "part_number": _part_number(tags, node),
     }
 
 
@@ -271,6 +272,8 @@ PRODUCT_FIELDS = """
     mf_vin: metafield(namespace: "custom", key: "donor_vehicle_vin") { value }
     mf_make: metafield(namespace: "custom", key: "donor_vehicle_veh_make") { value }
     mf_part_type: metafield(namespace: "custom", key: "part_type") { value }
+    mf_part_number: metafield(namespace: "custom", key: "part_number") { value }
+    productType
   } }
   pageInfo { hasNextPage endCursor }
 """
@@ -297,6 +300,27 @@ def _series_tag(tags):
         if v:
             return v
     return None
+
+
+def _part_number(tags, node):
+    """The BMW part number for this listing, or None.
+
+    Needed to look a listing up in the ETK catalogue (docs/DESIGN.md 9), which is keyed on
+    the LAST 7 characters of the number, uppercase. Four sources, in descending
+    trustworthiness -- `part_number_clean_` is Dismantly's normalised form, productType is
+    last because on this store it is *usually* the part number but not always.
+    """
+    v = (_tag_value(tags, "part_number_clean_") or _tag_value(tags, "part_number_")
+         or _mf(node, "mf_part_number"))
+    if not v:
+        pt = (node.get("productType") or "").strip()
+        v = pt if re.fullmatch(r"\d{7,11}", pt) else None
+    if not v:
+        return None
+    v = re.sub(r"[^0-9A-Za-z]", "", v).upper()
+    # ETK keys on the last 7; keep the full number here and let the consumer trim, but
+    # reject anything that cannot be a part number rather than passing junk downstream.
+    return v if re.fullmatch(r"[0-9A-Z]{7,11}", v) else None
 
 
 def _donor_vin(tags, node):

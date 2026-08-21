@@ -170,11 +170,13 @@ sensible Car & Truck Parts equivalent and stay as they are.
       Two routes now: ask Dismantly to backfill `veh_engine_code_`, or decode the donor VIN
       (we started recording it 2026-08-21) against the ETK's `w_fztyp` — see below.
 - [ ] **Pull fitment from the ETK catalogue (agreed 2026-08-21).** BMW's own parts catalogue
-      as a THIRD fitment source, alongside chassis rules and part-number history — and the
-      first authoritative one. Full plan in `docs/DESIGN.md` §9. Start with `w_fztyp`
-      (6,628 rows): its `fztyp_typschl` is VIN positions 4–7, so it decodes a donor VIN to
-      chassis + engine + body. The bigger prize, part number → vehicles, needs a join that
-      is **not yet proven**. Does not gate the nightly sweep.
+      as a THIRD fitment source — the first authoritative one. **The database is already
+      built and the part→vehicle join works**; `bmw-etk/scripts/ebay_fitment.py` emits
+      eBay-ready rows today. Verified on SKU 13611: the donor is an F80, our chassis rule
+      emits F80 only, and the ETK says the same airbag also fits F30, F36 and the M2 —
+      cross-chassis fitment neither current source can produce. Full plan, warnings and
+      conventions in `docs/DESIGN.md` §9. Next step is measuring how many of our listings
+      have a part number the ETK knows. Does not gate the nightly sweep.
 - [ ] **Shopify store cleanup** — being assessed separately. The code already tolerates
       whatever the vendor field ends up as.
 

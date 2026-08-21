@@ -18,11 +18,15 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
   (every car a part number has historically come off, from `spreadsheet-fitment/`). **Both sources are
   expanded the same way** — each part-number vehicle is run through the Rule A/B chassis-family logic
   too (not just the donor), falling back to the literal vehicle when it can't be resolved.
-- A **third source is planned**: the **BMW ETK parts catalogue** (`bmw-etk/`) — BMW's own data,
-  and the first *authoritative* source rather than an inference. Agreed 2026-08-21; full plan in
-  `docs/DESIGN.md` §9. Start with `w_fztyp` (6,628 rows) — its `fztyp_typschl` is VIN positions
-  4-7, so it decodes a donor VIN to chassis + engine + body. It does **not** bypass the catalog
-  gatekeeper (#6), and ETK is a GLOBAL catalogue so it must be filtered to US vehicles.
+- A **third source is coming**: the **BMW ETK parts catalogue** — BMW's own data, the first
+  *authoritative* source rather than an inference. It lives in a SEPARATE repo
+  (`/Users/mendydonin/Documents/GitHub/BMW-ETK/`) — **never modify anything in it**; open
+  `bmw-etk/data/etk_us.sqlite` read-only (`?mode=ro`). The part→vehicle join already works:
+  `bmw-etk/scripts/ebay_fitment.py <part numbers>` emits eBay-ready rows. **Do NOT write your
+  own fitment-condition SQL** — three measured traps (exclude-only conditions, diagram-level
+  option gates, ambiguous rows); reuse their aggregation. Rows still go through the catalog
+  gatekeeper (#6), and a `VERIFY` (option-dependent) row must never be pushed on a Rule B
+  part. Plan + conventions: `docs/DESIGN.md` §9.
 
 ## Golden facts / gotchas (the load-bearing knowledge)
 
