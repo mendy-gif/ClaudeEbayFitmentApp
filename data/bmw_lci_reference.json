@@ -1,0 +1,786 @@
+[
+ {
+  "chassis_code": "E30",
+  "lci_start_year": 1988,
+  "confidence": "med",
+  "verified": false,
+  "notes": "facelift ~MY1988"
+ },
+ {
+  "chassis_code": "E30 M3",
+  "lci_start_year": null,
+  "confidence": "derived-none",
+  "verified": false,
+  "notes": "follows E30, whose LCI 1988 predates this M car's run"
+ },
+ {
+  "chassis_code": "E31",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E36",
+  "lci_start_year": 1997,
+  "confidence": "low",
+  "verified": false,
+  "notes": "~MY1997 - VERIFY"
+ },
+ {
+  "chassis_code": "E36 M3",
+  "lci_start_year": 1997,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows E36 (LCI 1997)"
+ },
+ {
+  "chassis_code": "E38",
+  "lci_start_year": 1999,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E36/7",
+  "lci_start_year": 2000,
+  "confidence": "low",
+  "verified": false,
+  "notes": "Z3 ~MY2000 - VERIFY"
+ },
+ {
+  "chassis_code": "E39",
+  "lci_start_year": 2001,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E36/8",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "Z3 coupe"
+ },
+ {
+  "chassis_code": "E46",
+  "lci_start_year": 2002,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E39 M5",
+  "lci_start_year": 2001,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows E39 (LCI 2001)"
+ },
+ {
+  "chassis_code": "E52",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "Z8"
+ },
+ {
+  "chassis_code": "E53",
+  "lci_start_year": 2004,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E46 M3",
+  "lci_start_year": 2002,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows E46 (LCI 2002)"
+ },
+ {
+  "chassis_code": "E65",
+  "lci_start_year": 2006,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E66",
+  "lci_start_year": 2006,
+  "confidence": "med",
+  "verified": false,
+  "notes": "LWB = E65"
+ },
+ {
+  "chassis_code": "E85",
+  "lci_start_year": 2006,
+  "confidence": "med",
+  "verified": false,
+  "notes": "mendy to confirm"
+ },
+ {
+  "chassis_code": "E60",
+  "lci_start_year": 2008,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E63",
+  "lci_start_year": 2008,
+  "confidence": "med",
+  "verified": false,
+  "notes": "= E60"
+ },
+ {
+  "chassis_code": "E64",
+  "lci_start_year": 2008,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E83",
+  "lci_start_year": 2007,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E60 M5",
+  "lci_start_year": 2008,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows E60 (LCI 2008)"
+ },
+ {
+  "chassis_code": "E61",
+  "lci_start_year": 2008,
+  "confidence": "med",
+  "verified": false,
+  "notes": "touring = E60"
+ },
+ {
+  "chassis_code": "E63/E64 M6",
+  "lci_start_year": 2008,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows E63 (LCI 2008)"
+ },
+ {
+  "chassis_code": "E86",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "2006-2008"
+ },
+ {
+  "chassis_code": "E90",
+  "lci_start_year": 2009,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E91",
+  "lci_start_year": 2009,
+  "confidence": "med",
+  "verified": false,
+  "notes": "wagon = sedan"
+ },
+ {
+  "chassis_code": "E70",
+  "lci_start_year": 2011,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E92",
+  "lci_start_year": 2011,
+  "confidence": "med",
+  "verified": false,
+  "notes": "coupe = convertible"
+ },
+ {
+  "chassis_code": "E93",
+  "lci_start_year": 2011,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E71",
+  "lci_start_year": 2013,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E82",
+  "lci_start_year": 2012,
+  "confidence": "low",
+  "verified": false,
+  "notes": "~MY2012 - VERIFY"
+ },
+ {
+  "chassis_code": "E88",
+  "lci_start_year": 2012,
+  "confidence": "low",
+  "verified": false,
+  "notes": "= E82 - VERIFY"
+ },
+ {
+  "chassis_code": "E90 M3",
+  "lci_start_year": 2009,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows E90 (LCI 2009)"
+ },
+ {
+  "chassis_code": "E92 M3",
+  "lci_start_year": 2011,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows E92 (LCI 2011)"
+ },
+ {
+  "chassis_code": "E93 M3",
+  "lci_start_year": 2011,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows E93 (LCI 2011)"
+ },
+ {
+  "chassis_code": "E89",
+  "lci_start_year": 2013,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F01",
+  "lci_start_year": 2013,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F02",
+  "lci_start_year": 2013,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E70 X5 M",
+  "lci_start_year": 2011,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows E70 (LCI 2011)"
+ },
+ {
+  "chassis_code": "E71 X6 M",
+  "lci_start_year": 2013,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows E71 (LCI 2013)"
+ },
+ {
+  "chassis_code": "F07",
+  "lci_start_year": 2015,
+  "confidence": "med",
+  "verified": false,
+  "notes": "5 GT ~MY2015"
+ },
+ {
+  "chassis_code": "F10",
+  "lci_start_year": 2014,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F25",
+  "lci_start_year": 2015,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F12",
+  "lci_start_year": 2016,
+  "confidence": "low",
+  "verified": false,
+  "notes": "VERIFY"
+ },
+ {
+  "chassis_code": "F13",
+  "lci_start_year": 2016,
+  "confidence": "low",
+  "verified": false,
+  "notes": "VERIFY"
+ },
+ {
+  "chassis_code": "F30",
+  "lci_start_year": 2016,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "E84",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "US run 2013-2015"
+ },
+ {
+  "chassis_code": "F06",
+  "lci_start_year": 2016,
+  "confidence": "low",
+  "verified": false,
+  "notes": "VERIFY"
+ },
+ {
+  "chassis_code": "F06/F12/F13 M6",
+  "lci_start_year": 2016,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows F06 (LCI 2016)"
+ },
+ {
+  "chassis_code": "F10 M5",
+  "lci_start_year": 2014,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows F10 (LCI 2014)"
+ },
+ {
+  "chassis_code": "F15",
+  "lci_start_year": null,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": "no full LCI"
+ },
+ {
+  "chassis_code": "F22",
+  "lci_start_year": 2018,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F31",
+  "lci_start_year": 2016,
+  "confidence": "med",
+  "verified": false,
+  "notes": "wagon = F30"
+ },
+ {
+  "chassis_code": "F32",
+  "lci_start_year": 2018,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F33",
+  "lci_start_year": 2018,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": "mendy: = F32"
+ },
+ {
+  "chassis_code": "F34",
+  "lci_start_year": 2017,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "I01",
+  "lci_start_year": 2017,
+  "confidence": "med",
+  "verified": false,
+  "notes": "i3 MY2017"
+ },
+ {
+  "chassis_code": "I12",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F16",
+  "lci_start_year": null,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F23",
+  "lci_start_year": 2018,
+  "confidence": "med",
+  "verified": false,
+  "notes": "= F22"
+ },
+ {
+  "chassis_code": "F26",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "X4 unfacelifted"
+ },
+ {
+  "chassis_code": "F36",
+  "lci_start_year": 2018,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": "mendy: = F32"
+ },
+ {
+  "chassis_code": "F80 M3",
+  "lci_start_year": 2016,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows F30 (LCI 2016)"
+ },
+ {
+  "chassis_code": "F82",
+  "lci_start_year": 2018,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows F32 (LCI 2018)"
+ },
+ {
+  "chassis_code": "F83",
+  "lci_start_year": 2018,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows F33 (LCI 2018)"
+ },
+ {
+  "chassis_code": "F85",
+  "lci_start_year": null,
+  "confidence": "derived-none",
+  "verified": false,
+  "notes": "follows F15 (no LCI)"
+ },
+ {
+  "chassis_code": "F86",
+  "lci_start_year": null,
+  "confidence": "derived-none",
+  "verified": false,
+  "notes": "follows F16 (no LCI)"
+ },
+ {
+  "chassis_code": "F48",
+  "lci_start_year": 2020,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F87",
+  "lci_start_year": 2018,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows F22 (LCI 2018)"
+ },
+ {
+  "chassis_code": "G11",
+  "lci_start_year": 2020,
+  "confidence": "med",
+  "verified": false,
+  "notes": "= G12"
+ },
+ {
+  "chassis_code": "G12",
+  "lci_start_year": 2020,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G30",
+  "lci_start_year": 2021,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F39",
+  "lci_start_year": 2021,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F90 M5",
+  "lci_start_year": 2021,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows G30 (LCI 2021)"
+ },
+ {
+  "chassis_code": "G01",
+  "lci_start_year": 2022,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G32",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "US run 2018-2019 only; the 2021 facelift never reached the US"
+ },
+ {
+  "chassis_code": "G02",
+  "lci_start_year": 2022,
+  "confidence": "med",
+  "verified": false,
+  "notes": "= G01"
+ },
+ {
+  "chassis_code": "G05",
+  "lci_start_year": 2024,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G07",
+  "lci_start_year": 2023,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G14",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G15",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G20",
+  "lci_start_year": 2023,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G29",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "I15",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F44",
+  "lci_start_year": 2023,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "F91",
+  "lci_start_year": null,
+  "confidence": "derived-none",
+  "verified": false,
+  "notes": "follows G14 (no LCI)"
+ },
+ {
+  "chassis_code": "F92",
+  "lci_start_year": null,
+  "confidence": "derived-none",
+  "verified": false,
+  "notes": "follows G15 (no LCI)"
+ },
+ {
+  "chassis_code": "F93",
+  "lci_start_year": null,
+  "confidence": "derived-none",
+  "verified": false,
+  "notes": "follows G16 (no LCI)"
+ },
+ {
+  "chassis_code": "F95",
+  "lci_start_year": 2024,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows G05 (LCI 2024)"
+ },
+ {
+  "chassis_code": "F96",
+  "lci_start_year": 2024,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows G06 (LCI 2024)"
+ },
+ {
+  "chassis_code": "F97",
+  "lci_start_year": 2022,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows G01 (LCI 2022)"
+ },
+ {
+  "chassis_code": "F98",
+  "lci_start_year": 2022,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows G02 (LCI 2022)"
+ },
+ {
+  "chassis_code": "G06",
+  "lci_start_year": 2024,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G16",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G22",
+  "lci_start_year": null,
+  "confidence": "confirmed",
+  "verified": true,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G23",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "= G22"
+ },
+ {
+  "chassis_code": "G80 M3",
+  "lci_start_year": 2023,
+  "confidence": "derived",
+  "verified": true,
+  "notes": "follows G20 (LCI 2023)"
+ },
+ {
+  "chassis_code": "G82",
+  "lci_start_year": null,
+  "confidence": "derived-none",
+  "verified": false,
+  "notes": "follows G22 (no LCI)"
+ },
+ {
+  "chassis_code": "G26",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "= G22"
+ },
+ {
+  "chassis_code": "G26 (i4)",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G42",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "too new"
+ },
+ {
+  "chassis_code": "G83",
+  "lci_start_year": null,
+  "confidence": "derived-none",
+  "verified": false,
+  "notes": "follows G23 (no LCI)"
+ },
+ {
+  "chassis_code": "I20",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": ""
+ },
+ {
+  "chassis_code": "G70",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "too new"
+ },
+ {
+  "chassis_code": "G70 (i7)",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "too new"
+ },
+ {
+  "chassis_code": "G87",
+  "lci_start_year": null,
+  "confidence": "derived-none",
+  "verified": false,
+  "notes": "follows G42 (no LCI)"
+ },
+ {
+  "chassis_code": "U11",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "too new"
+ },
+ {
+  "chassis_code": "G60",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "too new"
+ },
+ {
+  "chassis_code": "G60 (i5)",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "too new"
+ },
+ {
+  "chassis_code": "U10",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "too new"
+ },
+ {
+  "chassis_code": "G45",
+  "lci_start_year": null,
+  "confidence": "med",
+  "verified": false,
+  "notes": "too new"
+ }
+]

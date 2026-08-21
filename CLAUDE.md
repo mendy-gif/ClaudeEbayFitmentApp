@@ -63,7 +63,16 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
    `GET https://api.ebay.com/developer/analytics/v1_beta/rate_limit/`. The Inventory API's
    cap is 2,000,000/day by comparison — moving the guard there is the obvious speedup, but
    see #10 for why it must be tested first.
-12. **The ledger prevents double-work** but only records *pushes*; skips are re-evaluated each run (that's
+12. **Headlights and taillights are year-restricted (LCI).** BMW facelifts a chassis
+   mid-generation and the lights change at the split, so a pre-LCI headlight does NOT fit a
+   post-LCI car of the same chassis. eBay categories `33710`/`33716` therefore narrow to the
+   donor's side of the split (`data/bmw_lci_reference.json`, `data/lci_categories.json`).
+   **The year-padding argument in DESIGN.md §5.3 does not cover this** — it holds because a
+   phantom *trim* is absent from eBay's catalog and gets dropped, but a post-LCI *year* is a
+   real vehicle, so nothing filters it and the buyer sees a genuine-looking match. With no
+   donor year recorded we keep the full range (mendy's call: no fitment is worse than a wide
+   range), so this can only improve on the old behaviour, never worsen it.
+13. **The ledger prevents double-work** but only records *pushes*; skips are re-evaluated each run (that's
    why the same "already N vehicles / no donor" lines recur — harmless). Entries carry a `cv` stamp
    (`CATALOG_ERA`); entries older than the current era are re-processed automatically so fitment that
    was pushed but never displayed self-heals.

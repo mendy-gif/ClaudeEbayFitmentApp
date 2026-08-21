@@ -164,6 +164,57 @@ def _model_matches_row(model, row):
     return mn in {_norm(ebay_model(t)) for t in row.get("trims", [])}
 
 
+LCI_REF = os.path.join(ROOT, "data", "bmw_lci_reference.json")
+_lci_cache = None
+
+
+def load_lci(path=None):
+    """{chassis_code: lci_start_year or None}. Empty dict if the file is absent."""
+    global _lci_cache
+    if _lci_cache is None or path:
+        try:
+            rows = json.load(open(path or LCI_REF, encoding="utf-8"))
+        except (ValueError, OSError):
+            rows = []
+        cache = {r["chassis_code"]: r.get("lci_start_year") for r in rows}
+        if path:
+            return cache
+        _lci_cache = cache
+    return _lci_cache
+
+
+def lci_window(chassis_code, donor_year, reference=None, lci=None):
+    """Year window for a facelift-sensitive part (headlight, taillight), or None.
+
+    BMW facelifts a chassis mid-generation and the lights change at that split, so a
+    pre-LCI headlight does NOT fit a post-LCI car of the same chassis. Returns the donor's
+    side of the split as (start, end); None means "do not narrow".
+
+    None is returned -- deliberately, keeping today's full-range behaviour -- when the
+    chassis never had a facelift, when we have no donor year, or when the split falls
+    outside the chassis's own run. mendy chose this over emitting nothing: a listing with
+    no fitment is worse than one whose year span is too wide. It can only ever improve on
+    the current behaviour, never worsen it.
+    """
+    lci = load_lci() if lci is None else lci
+    split = lci.get(chassis_code)
+    if not split or not donor_year:
+        return None
+    ref = reference if reference is not None else load_reference()
+    row = next((r for r in ref if r["chassis_code"] == chassis_code), None)
+    if not row:
+        return None
+    start = row["us_start_year"]
+    end = min(row.get("us_end_year") or MAX_YEAR, MAX_YEAR)
+    if not (start < split <= end):        # a split that cannot divide this run
+        return None
+    try:
+        dy = int(donor_year)
+    except (TypeError, ValueError):
+        return None
+    return (start, split - 1) if dy < split else (split, end)
+
+
 def resolve_chassis(series, model, reference=None):
     """Map a Shopify bare chassis code (+ donor Model) to one reference row.
     Returns (row, note) or (None, reason)."""
@@ -190,13 +241,20 @@ def resolve_chassis(series, model, reference=None):
                   f"{[c['chassis_code'] for c in cands]} - needs a Model to disambiguate")
 
 
-def _emit(row, rule, idx, ebay, donor_model=None, donor_engines=None, year=None, extra=None):
+def _emit(row, rule, idx, ebay, donor_model=None, donor_engines=None, year=None, extra=None,
+          year_window=None):
     """Expand one resolved reference row into eBay-compatibility rows. Shared by the
     model+year path (expand) and the chassis-code path (expand_from_chassis)."""
     chassis = row["chassis_code"]
     start = row["us_start_year"]
     end = min(row.get("us_end_year") or MAX_YEAR, MAX_YEAR)
     years = list(range(start, end + 1))
+    # Facelift-sensitive parts (headlights, taillights) narrow to the donor's side of the
+    # LCI split. Intersecting rather than replacing means a bad window can never widen the
+    # range beyond the chassis's own run.
+    if year_window:
+        lo, hi = year_window
+        years = [y for y in years if lo <= y <= hi]
     plate = nameplate_of(row)
     rule = rule.upper()
 
@@ -236,6 +294,7 @@ def _emit(row, rule, idx, ebay, donor_model=None, donor_engines=None, year=None,
     unmatched = [m for m in models_used if ebay and m not in ebay]
     out = {"ok": True, "chassis": chassis, "series": row.get("series"), "rule": rule,
            "nameplate": bool(plate), "year_range": [start, end],
+           "lci_window": list(year_window) if year_window else None,
            "donor_engines": sorted(donor_engines) if (rule == "B" and donor_engines) else None,
            "models": models_used, "unmatched_models": unmatched, "rows": rows}
     if extra:
@@ -263,7 +322,7 @@ def expand(donor_model, year, rule, reference=None, emap=None, ebay=None,
 
 
 def expand_from_chassis(chassis_code, rule, reference=None, emap=None, ebay=None,
-                        engine=None, donor_model=None):
+                        engine=None, donor_model=None, year_window=None):
     """Expand directly from a chassis code (the Shopify donor path). `engine` is a
     normalized engine family (e.g. 'S58') used for Rule B; `donor_model` disambiguates
     only if chassis_code is bare (delegated to resolve_chassis by the caller)."""
@@ -277,7 +336,7 @@ def expand_from_chassis(chassis_code, rule, reference=None, emap=None, ebay=None
     if rule.upper() == "B" and not donor_engines and not donor_model:
         return {"ok": False, "reason": f"Rule B on {chassis_code} needs an engine or donor model.", "rows": []}
     return _emit(row, rule, idx, ebay, donor_model=donor_model, donor_engines=donor_engines,
-                 extra={"resolved_from": chassis_code})
+                 extra={"resolved_from": chassis_code}, year_window=year_window)
 
 
 def _demo():

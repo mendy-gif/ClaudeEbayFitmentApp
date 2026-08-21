@@ -319,7 +319,7 @@ def resolve_lookup(donor, reference):
     return model, None
 
 
-def _chassis_expand(sku, shopify, sd, n_trad, sample, terr, rule, ref, emap, ebay):
+def _chassis_expand(sku, shopify, sd, n_trad, sample, terr, rule, ref, emap, ebay, year_window=None):
     """Determine the chassis-rule expansion for a SKU. Returns (res, donor_str, fail):
     res is the expand() dict (may be not-ok), or None if chassis couldn't be attempted;
     fail is (action, reason) when there's no chassis basis at all, else None. The caller
@@ -336,7 +336,8 @@ def _chassis_expand(sku, shopify, sd, n_trad, sample, terr, rule, ref, emap, eba
             return None, donor_str, ("review", f"unresolved chassis: {note}")
         try:
             res = FR.expand_from_chassis(row["chassis_code"], rule, ref, emap, ebay,
-                                         engine=sd.get("engine_family"), donor_model=model)
+                                         engine=sd.get("engine_family"), donor_model=model,
+                                         year_window=year_window)
         except Exception as e:  # noqa: BLE001
             return None, donor_str, ("skip", f"expand error: {e}")
         return res, donor_str, None
@@ -385,7 +386,8 @@ def expand_partnumber_rows(vehicles, rule, ref, emap, ebay, cache=None):
     return out
 
 
-def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify=None, pnf=None, pn_cache=None, force=False):
+def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify=None,
+                pnf=None, pn_cache=None, force=False, lci_inc=None, lci_exc=None):
     s, off = api("GET", f"/sell/inventory/v1/offer?{urllib.parse.urlencode({'sku': sku})}", tok)
     offers = off.get("offers", []) if s == 200 else []
     if s in (401, 403):
@@ -439,7 +441,18 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
     # falling back to the literal vehicle when unresolvable. See expand_partnumber_rows.
     pn_rows = expand_partnumber_rows((pnf or {}).get(sku, ()), rule, ref, emap, ebay, pn_cache) if pnf else []
 
-    res, donor_str, fail = _chassis_expand(sku, shopify, sd, n_trad, sample, terr, rule, ref, emap, ebay)
+    # Headlights and taillights change at a BMW facelift (LCI), so a pre-LCI light does not
+    # fit a post-LCI car of the same chassis. Unlike a phantom TRIM -- which eBay silently
+    # drops because it is not in its catalog -- a post-LCI year IS a real vehicle, so nothing
+    # filters it out and the buyer sees a genuine-looking match. Narrow to the donor's side.
+    year_window = None
+    if sd and CP.lci_restricted(category, tree, lci_inc or set(), lci_exc or set()):
+        row_lci, _n = FR.resolve_chassis(sd.get("series"), sd.get("model"), ref)
+        if row_lci:
+            year_window = FR.lci_window(row_lci["chassis_code"], sd.get("year"), ref)
+
+    res, donor_str, fail = _chassis_expand(sku, shopify, sd, n_trad, sample, terr, rule, ref,
+                                           emap, ebay, year_window=year_window)
     # A chassis basis is missing entirely. Return that verdict UNLESS part-number rows
     # exist for this SKU, in which case fall through and push those (the pn-only rescue).
     # Exception: a NON-BMW donor always skips (never push BMW part-number fitment onto a
@@ -601,6 +614,7 @@ def main():
 
     ref, emap, ebay = FR.load_all()
     tree = CP.load_tree()
+    lci_inc, lci_exc = CP.load_lci_config()
     inc, exc, default = CP.load_config()
     led = load_ledger()
     live = args.live and args.mode in ("apply", "audit")
@@ -674,7 +688,7 @@ def main():
             rows.append({"sku": sku, "action": "skip", "reason": "already in ledger"})
         else:
             try:
-                r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force)
+                r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force, lci_inc, lci_exc)
             except RateLimited as e:
                 # The allowance is daily, so the remaining SKUs cannot succeed. Run #7 spent
                 # 40 minutes and 630 SKUs discovering this one call at a time; stop instead,
@@ -689,7 +703,7 @@ def main():
                 if nt and nt != tok:
                     tok = nt
                     print(f"  [{i}/{len(skus)}] {sku}: token auto-refreshed, retrying")
-                    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force)
+                    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force, lci_inc, lci_exc)
             # Remember stable skips so tomorrow's run does not re-check them (see SKIP_TTL_DAYS).
             ttl = skip_ttl(r.get("reason")) if r.get("action") in ("skip", "review") else None
             if ttl:

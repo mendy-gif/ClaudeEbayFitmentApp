@@ -1,0 +1,113 @@
+chassis,series,full_range,light_donors_today,LCI_START_YEAR,confidence,pre_LCI_years,post_LCI_years,note
+E30,3 Series,1984-1991,0,1988,med,1984-1987,1988-1991,facelift ~MY1988
+E30 M3,M3,1988-1991,0,none,derived-none,,,"follows E30, whose LCI 1988 predates this M car's run"
+E31,8 Series (classic),1991-1997,0,none,med,,,
+E36,3 Series,1992-1999,0,1997,low,1992-1996,1997-1999,~MY1997 - VERIFY
+E36 M3,M3,1995-1999,0,1997,derived,1995-1996,1997-1999,follows E36 (LCI 1997)
+E38,7 Series,1995-2001,0,1999,med,1995-1998,1999-2001,
+E36/7,Z3 Roadster,1996-2002,0,2000,low,1996-1999,2000-2002,Z3 ~MY2000 - VERIFY
+E39,5 Series,1997-2003,0,2001,confirmed,1997-2000,2001-2003,
+E36/8,Z3 Coupe,1999-2002,0,none,med,,,Z3 coupe
+E46,3 Series,1999-2006,0,2002,confirmed,1999-2001,2002-2006,
+E39 M5,M5,2000-2003,0,2001,derived,2000-2000,2001-2003,follows E39 (LCI 2001)
+E52,Z8,2000-2003,0,none,med,,,Z8
+E53,X5,2000-2006,0,2004,confirmed,2000-2003,2004-2006,
+E46 M3,M3,2001-2006,0,2002,derived,2001-2001,2002-2006,follows E46 (LCI 2002)
+E65,7 Series (SWB),2002-2008,0,2006,med,2002-2005,2006-2008,
+E66,7 Series (LWB),2002-2008,0,2006,med,2002-2005,2006-2008,LWB = E65
+E85,Z4 Roadster,2003-2008,1,2006,med,2003-2005,2006-2008,mendy to confirm
+E60,5 Series Sedan,2004-2010,3,2008,confirmed,2004-2007,2008-2010,
+E63,6 Series Coupe,2004-2010,0,2008,med,2004-2007,2008-2010,= E60
+E64,6 Series Convertible,2004-2010,0,2008,med,2004-2007,2008-2010,
+E83,X3,2004-2010,3,2007,confirmed,2004-2006,2007-2010,
+E60 M5,M5,2006-2010,0,2008,derived,2006-2007,2008-2010,follows E60 (LCI 2008)
+E61,5 Series Touring,2006-2010,0,2008,med,2006-2007,2008-2010,touring = E60
+E63/E64 M6,M6,2006-2010,0,2008,derived,2006-2007,2008-2010,follows E63 (LCI 2008)
+E86,Z4 Coupe,2006-2008,0,none,med,,,2006-2008
+E90,3 Series Sedan,2006-2011,11,2009,confirmed,2006-2008,2009-2011,
+E91,3 Series Touring,2006-2012,0,2009,med,2006-2008,2009-2012,wagon = sedan
+E70,X5,2007-2013,11,2011,confirmed,2007-2010,2011-2013,
+E92,3 Series Coupe,2007-2013,0,2011,med,2007-2010,2011-2013,coupe = convertible
+E93,3 Series Convertible,2007-2013,24,2011,confirmed,2007-2010,2011-2013,
+E71,X6,2008-2014,0,2013,confirmed,2008-2012,2013-2014,
+E82,1 Series Coupe,2008-2013,7,2012,low,2008-2011,2012-2013,~MY2012 - VERIFY
+E88,1 Series Convertible,2008-2013,0,2012,low,2008-2011,2012-2013,= E82 - VERIFY
+E90 M3,M3 Sedan,2008-2011,0,2009,derived,2008-2008,2009-2011,follows E90 (LCI 2009)
+E92 M3,M3 Coupe,2008-2013,0,2011,derived,2008-2010,2011-2013,follows E92 (LCI 2011)
+E93 M3,M3 Convertible,2008-2013,0,2011,derived,2008-2010,2011-2013,follows E93 (LCI 2011)
+E89,Z4 Roadster,2009-2016,0,2013,med,2009-2012,2013-2016,
+F01,7 Series (SWB),2009-2015,4,2013,confirmed,2009-2012,2013-2015,
+F02,7 Series (LWB),2009-2015,11,2013,confirmed,2009-2012,2013-2015,
+E70 X5 M,X5 M,2010-2013,0,2011,derived,2010-2010,2011-2013,follows E70 (LCI 2011)
+E71 X6 M,X6 M,2010-2014,0,2013,derived,2010-2012,2013-2014,follows E71 (LCI 2013)
+F07,5 Series Gran Turismo,2010-2017,0,2015,med,2010-2014,2015-2017,5 GT ~MY2015
+F10,5 Series Sedan,2011-2016,23,2014,confirmed,2011-2013,2014-2016,
+F25,X3,2011-2017,20,2015,confirmed,2011-2014,2015-2017,
+F12,6 Series Convertible,2012-2018,0,2016,low,2012-2015,2016-2018,VERIFY
+F13,6 Series Coupe,2012-2018,0,2016,low,2012-2015,2016-2018,VERIFY
+F30,3 Series Sedan,2012-2018,30,2016,confirmed,2012-2015,2016-2018,
+E84,X1,2013-2015,0,none,med,,,US run 2013-2015
+F06,6 Series Gran Coupe,2013-2019,2,2016,low,2013-2015,2016-2019,VERIFY
+F06/F12/F13 M6,M6,2013-2019,0,2016,derived,2013-2015,2016-2019,follows F06 (LCI 2016)
+F10 M5,M5,2013-2016,0,2014,derived,2013-2013,2014-2016,follows F10 (LCI 2014)
+F15,X5,2014-2018,13,none,confirmed,,,no full LCI
+F22,2 Series Coupe,2014-2021,0,2018,confirmed,2014-2017,2018-2021,
+F31,3 Series Sports Wagon,2014-2019,0,2016,med,2014-2015,2016-2019,wagon = F30
+F32,4 Series Coupe,2014-2020,6,2018,confirmed,2014-2017,2018-2020,
+F33,4 Series Convertible,2014-2020,0,2018,confirmed,2014-2017,2018-2020,mendy: = F32
+F34,3 Series Gran Turismo,2014-2019,5,2017,confirmed,2014-2016,2017-2019,
+I01,i3,2014-2021,0,2017,med,2014-2016,2017-2021,i3 MY2017
+I12,i8 Coupe,2014-2020,0,none,med,,,
+F16,X6,2015-2019,2,none,confirmed,,,
+F23,2 Series Convertible,2015-2021,0,2018,med,2015-2017,2018-2021,= F22
+F26,X4,2015-2018,0,none,med,,,X4 unfacelifted
+F36,4 Series Gran Coupe,2015-2020,3,2018,confirmed,2015-2017,2018-2020,mendy: = F32
+F80 M3,M3 Sedan,2015-2018,0,2016,derived,2015-2015,2016-2018,follows F30 (LCI 2016)
+F82,M4 Coupe,2015-2020,0,2018,derived,2015-2017,2018-2020,follows F32 (LCI 2018)
+F83,M4 Convertible,2015-2020,0,2018,derived,2015-2017,2018-2020,follows F33 (LCI 2018)
+F85,X5 M,2015-2018,16,none,derived-none,,,follows F15 (no LCI)
+F86,X6 M,2015-2019,8,none,derived-none,,,follows F16 (no LCI)
+F48,X1,2016-2022,0,2020,med,2016-2019,2020-2022,
+F87,M2,2016-2021,0,2018,derived,2016-2017,2018-2021,follows F22 (LCI 2018)
+G11,7 Series (SWB),2016-2022,0,2020,med,2016-2019,2020-2022,= G12
+G12,7 Series (LWB),2016-2022,17,2020,confirmed,2016-2019,2020-2022,
+G30,5 Series Sedan,2017-2023,42,2021,confirmed,2017-2020,2021-2023,
+F39,X2,2018-2023,0,2021,med,2018-2020,2021-2023,
+F90 M5,M5,2018-2023,0,2021,derived,2018-2020,2021-2023,follows G30 (LCI 2021)
+G01,X3,2018-2024,36,2022,confirmed,2018-2021,2022-2024,
+G32,6 Series Gran Turismo,2018-2019,0,none,med,,,US run 2018-2019 only; the 2021 facelift never reached the US
+G02,X4,2019-2025,0,2022,med,2019-2021,2022-2025,= G01
+G05,X5,2019-2026,23,2024,confirmed,2019-2023,2024-2026,
+G07,X7,2019-2026,0,2023,med,2019-2022,2023-2026,
+G14,8 Series Convertible,2019-2026,0,none,med,,,
+G15,8 Series Coupe,2019-2026,0,none,med,,,
+G20,3 Series Sedan,2019-2026,18,2023,confirmed,2019-2022,2023-2026,
+G29,Z4 Roadster,2019-2026,0,none,med,,,
+I15,i8 Roadster,2019-2020,0,none,med,,,
+F44,2 Series Gran Coupe,2020-2025,0,2023,med,2020-2022,2023-2025,
+F91,M8 Convertible,2020-2026,0,none,derived-none,,,follows G14 (no LCI)
+F92,M8 Coupe,2020-2026,0,none,derived-none,,,follows G15 (no LCI)
+F93,M8 Gran Coupe,2020-2026,0,none,derived-none,,,follows G16 (no LCI)
+F95,X5 M,2020-2026,0,2024,derived,2020-2023,2024-2026,follows G05 (LCI 2024)
+F96,X6 M,2020-2026,0,2024,derived,2020-2023,2024-2026,follows G06 (LCI 2024)
+F97,X3 M,2020-2024,0,2022,derived,2020-2021,2022-2024,follows G01 (LCI 2022)
+F98,X4 M,2020-2025,0,2022,derived,2020-2021,2022-2025,follows G02 (LCI 2022)
+G06,X6,2020-2026,0,2024,med,2020-2023,2024-2026,
+G16,8 Series Gran Coupe,2020-2026,0,none,med,,,
+G22,4 Series Coupe,2021-2026,3,none,confirmed,,,
+G23,4 Series Convertible,2021-2026,0,none,med,,,= G22
+G80 M3,M3 Sedan,2021-2026,0,2023,derived,2021-2022,2023-2026,follows G20 (LCI 2023)
+G82,M4 Coupe,2021-2026,0,none,derived-none,,,follows G22 (no LCI)
+G26,4 Series Gran Coupe,2022-2026,0,none,med,,,= G22
+G26 (i4),i4,2022-2026,0,none,med,,,
+G42,2 Series Coupe,2022-2026,0,none,med,,,too new
+G83,M4 Convertible,2022-2026,0,none,derived-none,,,follows G23 (no LCI)
+I20,iX,2022-2026,0,none,med,,,
+G70,7 Series,2023-2026,0,none,med,,,too new
+G70 (i7),i7,2023-2026,0,none,med,,,too new
+G87,M2,2023-2026,3,none,derived-none,,,follows G42 (no LCI)
+U11,X1,2023-2026,0,none,med,,,too new
+G60,5 Series Sedan,2024-2026,0,none,med,,,too new
+G60 (i5),i5,2024-2026,0,none,med,,,too new
+U10,X2,2024-2026,0,none,med,,,too new
+G45,X3,2025-2026,0,none,med,,,too new

@@ -27,6 +27,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TREE = os.path.join(ROOT, "data", "ebay_motors_categories.json")
 CONFIG = os.path.join(ROOT, "data", "rule_b_categories.json")
+LCI_CONFIG = os.path.join(ROOT, "data", "lci_categories.json")
 
 
 def load_config():
@@ -35,6 +36,36 @@ def load_config():
     exclude = set(cfg.get("exclude_ids", []))
     default = cfg.get("default_when_category_unknown", "B").upper()
     return include, exclude, default
+
+
+def load_lci_config():
+    """Categories whose parts change at a facelift. Returns (include: set, exclude: set)."""
+    try:
+        cfg = json.load(open(LCI_CONFIG, encoding="utf-8"))
+    except (ValueError, OSError):
+        return set(), set()
+    return ({a["id"] for a in cfg.get("include_ancestors", []) if a.get("id")},
+            set(cfg.get("exclude_ids", [])))
+
+
+def lci_restricted(category_id, by_id, include, exclude):
+    """True if this category's parts are facelift-sensitive (headlights, taillights).
+
+    Same ancestor-set match as classify(), against the flat node list -- each node already
+    carries its full ancestor chain, so there is no tree walk. Unlike classify(), an unknown
+    category returns False: defaulting to "restricted" would silently narrow the years of
+    every part whose category is missing from the tree.
+    """
+    if not category_id or not by_id or not include:
+        return False
+    cid = str(category_id)
+    node = by_id.get(cid)
+    if node is None:
+        return False
+    chain = [str(a) for a in node.get("ancestors", [])] + [cid]
+    if exclude & set(chain):
+        return False
+    return bool(include & set(chain))
 
 
 def load_tree():

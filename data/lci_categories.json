@@ -1,0 +1,24 @@
+{
+  "_comment": "eBay categories whose parts change at a BMW facelift (LCI), so their fitment must be restricted to the donor's side of the split rather than the whole chassis year range. Same shape as rule_b_categories.json and read by the same ancestor-set match in classify_part.py.",
+  "_why": "Rule A pushes every year of a chassis. For a headlight that is wrong: a pre-LCI F30 light does not fit a 2017 F30. Unlike a phantom TRIM (which eBay drops because it is not in the catalog), a 2017 F30 is a real vehicle -- nothing filters it, and the buyer sees a genuine-looking match.",
+
+  "include_ancestors": [
+    {"id": "33710", "name": "Headlight Assemblies", "note": "Car & Truck Parts > Lighting & Lamps > Headlight Assemblies"},
+    {"id": "33716", "name": "Tail Light Assemblies", "note": "Car & Truck Parts > Lighting & Lamps > Tail Light Assemblies"}
+  ],
+
+  "exclude_ids": [],
+
+  "_candidates_not_yet_included": [
+    "33708 Park & Combination Light Assemblies -- often integrated into the headlight",
+    "33709 Fog Light Assemblies",
+    "33717 Turn Signal Light Assemblies",
+    "bumpers, kidney grilles and infotainment/cluster also change at LCI; widen once this is proven"
+  ],
+
+  "_deliberately_excluded": [
+    "172517 Light Bulbs & LEDs -- universal, not body-styled",
+    "262207 Headlight Ballasts & Igniters -- a module, not the lamp",
+    "33712 Interior Light Assemblies -- not part of the facelift"
+  ]
+}

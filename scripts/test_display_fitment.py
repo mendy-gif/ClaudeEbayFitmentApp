@@ -458,6 +458,78 @@ def t_donor_year():
     eq(SD.donor_year([]), None, "no tags -> no year")
 
 
+def t_lci_window():
+    """Headlights/taillights change at a BMW facelift (LCI), so a pre-LCI light must not be
+    pushed as fitting post-LCI cars. Unlike a phantom TRIM -- which eBay drops because its
+    catalog has no such vehicle -- a post-LCI YEAR is a real car, so nothing filters it and
+    the buyer sees a genuine-looking match."""
+    print("LCI year window:")
+    import fitment_rules as FR
+    ref, emap, ebay = FR.load_all()
+
+    eq(FR.lci_window("F30", 2014, ref), (2012, 2015),
+       "a pre-LCI donor gets the years before the split")
+    eq(FR.lci_window("F30", 2017, ref), (2016, 2018),
+       "a post-LCI donor gets the split year onwards")
+    eq(FR.lci_window("F30", 2016, ref), (2016, 2018),
+       "the split year itself belongs to the POST side")
+    eq(FR.lci_window("F30", None, ref), None,
+       "no donor year -> no window, i.e. today's full range (mendy's choice)")
+    eq(FR.lci_window("F15", 2016, ref), None,
+       "a chassis with no facelift is never narrowed")
+    eq(FR.lci_window("NOT-A-CHASSIS", 2014, ref), None, "an unknown chassis is not narrowed")
+    eq(FR.lci_window("F30", "nonsense", ref), None, "an unparseable donor year is not narrowed")
+    eq(FR.lci_window("F80 M3", 2015, ref), (2015, 2015),
+       "an M car inherits its base series' split (F80 M3 follows F30)")
+
+    full = FR.expand_from_chassis("F30", "A", ref, emap, ebay)
+    pre = FR.expand_from_chassis("F30", "A", ref, emap, ebay,
+                                 year_window=FR.lci_window("F30", 2014, ref))
+    post = FR.expand_from_chassis("F30", "A", ref, emap, ebay,
+                                  year_window=FR.lci_window("F30", 2017, ref))
+    yrs = lambda r: {x["Year"] for x in r["rows"]}
+
+    eq(yrs(full), set(range(2012, 2019)), "unwindowed expansion still covers the whole run")
+    # THE REGRESSION this feature exists for.
+    true(2017 not in yrs(pre) and 2018 not in yrs(pre),
+         "REGRESSION: a 2014 F30 light must never claim 2017 or 2018")
+    true(2012 not in yrs(post) and 2015 not in yrs(post),
+         "and a 2017 F30 light must never claim 2012-2015")
+    eq(yrs(pre) | yrs(post), yrs(full),
+       "the two sides together cover the run exactly -- no year lost, none invented")
+    eq(yrs(pre) & yrs(post), set(), "and they do not overlap")
+    true(len(pre["rows"]) < len(full["rows"]), "narrowing actually removes rows")
+    eq(pre["lci_window"], [2012, 2015], "the window is reported back for the plan/audit")
+    eq(full["lci_window"], None, "and is absent when nothing was narrowed")
+
+    # A window can only ever narrow, never widen beyond the chassis's own run.
+    silly = FR.expand_from_chassis("F30", "A", ref, emap, ebay, year_window=(1990, 2050))
+    eq(yrs(silly), yrs(full), "an over-wide window cannot invent years outside the chassis run")
+
+
+def t_lci_categories():
+    """Only headlight/taillight assemblies are facelift-restricted. Getting this wrong in
+    either direction is bad: too broad silently narrows unrelated parts, too narrow leaves
+    the original problem in place."""
+    print("LCI category classification:")
+    import classify_part as CP
+    tree = CP.load_tree()
+    inc, exc = CP.load_lci_config()
+    R = lambda cid: CP.lci_restricted(cid, tree, inc, exc)
+
+    true(R("33710"), "Headlight Assemblies is restricted")
+    true(R("33716"), "Tail Light Assemblies is restricted")
+    true(not R("172517"), "Light Bulbs are universal, not restricted")
+    true(not R("262207"), "Headlight Ballasts are a module, not the lamp")
+    true(not R("33742"), "an engine part (Turbos) is untouched")
+    true(not R("33725"), "an ordinary Rule A part (Seat Belts) is untouched")
+    true(not R("999999"), "an UNKNOWN category is NOT restricted -- defaulting to restricted "
+                          "would silently narrow every part missing from the tree")
+    true(not R(None), "no category -> not restricted")
+    true(not CP.lci_restricted("33710", tree, set(), set()),
+         "an empty config restricts nothing (the feature can be turned off by config alone)")
+
+
 def t_no_real_state_touched():
     """The suite itself must be side-effect free."""
     print("Test isolation:")
@@ -601,7 +673,7 @@ def t_real_data():
 
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_donor_year, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_donor_year, t_lci_window, t_lci_categories, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()
