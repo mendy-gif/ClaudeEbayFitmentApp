@@ -433,6 +433,31 @@ def t_read_inventory_compat():
         ebay_batch.api = saved
 
 
+def t_donor_year():
+    """The donor car's model year, used to pick which side of an LCI split a light belongs
+    to. A WRONG year is worse than none -- it would silently push a pre-facelift headlight
+    as fitting post-facelift cars -- so only the singular, authoritative tag counts."""
+    print("Donor year extraction:")
+    import shopify_donor as SD
+
+    eq(SD.donor_year(["donor_vehicle.veh_production_year_2015"]), 2015,
+       "reads the donor's model year")
+    eq(SD.donor_year(["donor_vehicle.veh_production_year_from_2017",
+                      "donor_vehicle.veh_production_year_2019",
+                      "donor_vehicle.veh_production_year_to_2023"]), 2019,
+       "finds the real year even when from_/to_ share the prefix and come first")
+    eq(SD.donor_year(["donor_vehicle.veh_production_year_from_2008",
+                      "donor_vehicle.veh_production_year_to_2021"]), None,
+       "a from/to SPAN is the listing's range, not the donor -- never treated as a year")
+    eq(SD.donor_year(["year_2014", "year_2015", "year_2016"]), None,
+       "the bare year_ tags are a listing range too, and are ignored")
+    eq(SD.donor_year(["donor_vehicle.veh_production_applicable_years_[2017.0; 2018.0]"]), None,
+       "the applicable_years list is not a donor year")
+    eq(SD.donor_year(["donor_vehicle.veh_production_year_1899"]), None,
+       "an implausible year is rejected rather than trusted")
+    eq(SD.donor_year([]), None, "no tags -> no year")
+
+
 def t_no_real_state_touched():
     """The suite itself must be side-effect free."""
     print("Test isolation:")
@@ -576,7 +601,7 @@ def t_real_data():
 
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_donor_year, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()

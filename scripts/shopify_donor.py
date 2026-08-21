@@ -165,6 +165,29 @@ def classify_part_type(part_type):
     return "A", f"non-engine part_type ({part_type})"
 
 
+def donor_year(tags):
+    """The donor car's model year, or None.
+
+    ONLY reads `donor_vehicle.veh_production_year_<YYYY>`, which is singular and describes
+    the actual car the part came off. There is a bare `year_<YYYY>` tag too, but on some
+    products that is a multi-year LISTING RANGE (SKU 15110 carries year_2014 through
+    year_2018), so using it as a fallback would silently invent a donor year. A wrong year
+    is worse than no year here: it decides which side of an LCI split a headlight lands on.
+    """
+    # Scan EVERY matching tag, not just the first. The same prefix also produces
+    # `..._production_year_from_2017` and `..._to_2023` (the listing's fitment span, not the
+    # donor), and _tag_value returns only the first hit -- so a product carrying from/to
+    # BEFORE the real year would lose it. Take the first value that is purely a year.
+    pre = "donor_vehicle.veh_production_year_"
+    for t in tags:
+        if not t.startswith(pre):
+            continue
+        v = t[len(pre):].strip()
+        if v.isdigit() and 1980 <= int(v) <= 2030:   # sanity bound; from_/to_ fail isdigit
+            return int(v)
+    return None
+
+
 def parse_product(node, chassis_codes=frozenset()):
     tags = node.get("tags", [])
     sku = None
@@ -199,6 +222,7 @@ def parse_product(node, chassis_codes=frozenset()):
         "make": make,
         "model": _tag_value(tags, "donor_vehicle.veh_model_") or _tag_value(tags, "model_"),
         "series": series,
+        "year": donor_year(tags),
         "engine_code_raw": _tag_value(tags, "donor_vehicle.veh_engine_code_") or _tag_value(tags, "engine_code_"),
         "part_type": _tag_value(tags, "part_type_"),
         "universal": _tag_value(tags, "is_universal_fitment_"),
