@@ -126,6 +126,32 @@ re-categorising those listings, which changes search placement and fees — **de
 Recorded in `data/nondisplay_categories.json` so the nightly audit does not keep flagging
 them as failures.
 
+## Watch: control modules moving out of a dead category (2026-08-21)
+
+mendy remapped TPMS / telematics / park-assist / suspension / fuel-pump / cooling-fan /
+body-control modules from eBay category **107062** (Performance & Racing > Electrical
+Components > *Other*, which never renders a fitment table) to **33596** (Car & Truck Parts >
+Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules, which does). New listings use
+the new category immediately; existing ones update as Dismantly resyncs, over roughly 40 days.
+
+~100 audited listings sit in 107062 carrying **1,223 pushed vehicle rows nobody can see**.
+
+**Expectation: no re-push needed.** Compatibility is stored against the SKU in the Inventory
+store, independent of category — the rows are already there, they just are not rendered.
+Moving the listing should make them appear on its own.
+
+**This is unverified.** No listing has crossed that boundary yet. Check in a couple of weeks:
+take a SKU from `data/dead_category_listings.csv` that has moved to 33596 and run
+`ebay_inspect.py` on it. If it displays, nothing to do. If it does not, those SKUs need a
+re-push — and note the guard will skip them, since they are already ledgered with the current
+`CATALOG_ERA`, so it would take `--force` with an explicit SKU list.
+
+Either way the overall display rate should climb over that window without us doing anything,
+and `107062` should eventually be removed from `data/nondisplay_categories.json`.
+
+The other ~85 dead-category listings (car audio, wheels, emblems, spare-tire kits) have no
+sensible Car & Truck Parts equivalent and stay as they are.
+
 ## Open items
 
 - [ ] **Backlog:** roughly 9,000+ listings still to sweep, at 2,000/night.
