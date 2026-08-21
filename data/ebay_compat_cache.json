@@ -18,6 +18,7 @@
 ],
 "t|1992|bmw|328i": [],
 "t|1992|bmw|328is": [],
+"t|1992|bmw|z3": [],
 "t|1993|bmw|318i": [
 "Base Convertible 2-Door",
 "Base Sedan 4-Door"
@@ -37,6 +38,7 @@
 ],
 "t|1993|bmw|328i": [],
 "t|1993|bmw|328is": [],
+"t|1993|bmw|z3": [],
 "t|1994|bmw|318i": [
 "Base Convertible 2-Door",
 "Base Sedan 4-Door"
@@ -56,6 +58,7 @@
 ],
 "t|1994|bmw|328i": [],
 "t|1994|bmw|328is": [],
+"t|1994|bmw|z3": [],
 "t|1995|bmw|318i": [
 "Base Convertible 2-Door",
 "Base Sedan 4-Door"
@@ -77,6 +80,7 @@
 ],
 "t|1995|bmw|328i": [],
 "t|1995|bmw|328is": [],
+"t|1995|bmw|z3": [],
 "t|1996|bmw|318i": [
 "Base Convertible 2-Door",
 "Base Sedan 4-Door"
@@ -99,6 +103,10 @@
 ],
 "t|1996|bmw|328is": [
 "Base Coupe 2-Door"
+],
+"t|1996|bmw|z3": [
+"Base Convertible 2-Door",
+"Roadster Convertible 2-Door"
 ],
 "t|1997|bmw|318i": [
 "Base Convertible 2-Door",
@@ -124,6 +132,11 @@
 ],
 "t|1997|bmw|328is": [
 "Base Coupe 2-Door"
+],
+"t|1997|bmw|z3": [
+"2.8i Convertible 2-Door",
+"Base Convertible 2-Door",
+"Roadster Convertible 2-Door"
 ],
 "t|1998|bmw|318i": [
 "Base Convertible 2-Door",
@@ -181,6 +194,14 @@
 ],
 "t|1999|bmw|328is": [
 "Base Coupe 2-Door"
+],
+"t|1999|bmw|z3": [
+"1.9i Convertible 2-Door",
+"2.8i Convertible 2-Door",
+"Coupe Coupe 2-Door",
+"M Coupe Coupe 2-Door",
+"M Roadster Convertible 2-Door",
+"Roadster Convertible 2-Door"
 ],
 "t|2001|bmw|z3": [
 "2.2i Convertible 2-Door",
@@ -1150,6 +1171,11 @@
 "Luxury Sedan 4-Door",
 "M Sport Sedan 4-Door"
 ],
+"t|2016|bmw|740i": [
+"740i Sedan 4-Door",
+"Base Sedan 4-Door",
+"Excellence Sedan 4-Door"
+],
 "t|2016|bmw|740li": [],
 "t|2016|bmw|745le": [],
 "t|2016|bmw|750i": [
@@ -1370,6 +1396,9 @@
 "M Sport Sedan 4-Door"
 ],
 "t|2018|bmw|540i xdrive": [
+"Base Sedan 4-Door"
+],
+"t|2018|bmw|740i xdrive": [
 "Base Sedan 4-Door"
 ],
 "t|2018|bmw|740li": [],
