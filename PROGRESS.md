@@ -160,13 +160,21 @@ sensible Car & Truck Parts equivalent and stay as they are.
       They carry correct fitment on eBay but are absent from the ledger, so the guard now
       skips them as if hand-curated. SKUs and the one-line recovery command are in
       `data/orphaned_pushes.txt`.
-- [ ] **1,176 BMW products have no chassis tag.** Their chassis appears only in the title
-      ("2011 BMW 335i **E93**"), often several at once, so extracting it is genuinely
-      ambiguous. The VIN is on those products and would decode reliably — the better route
-      if it is worth doing.
-- [ ] **Engine data on the older products.** The biggest remaining unlock: without an engine
-      code, Rule B (engine parts) produces nothing for them. Worth asking whether Dismantly
-      can backfill `veh_engine_code_` and `veh_model_`.
+- [x] **~2,781 BMW products had no chassis.** Mostly NOT missing — we were failing to read
+      it. The chassis is written under several names (`donor_vehicle.raw_veh_series_F80`,
+      the `custom.series` metafield, the vendor field, a bare tag) and we read one of them.
+      Fixed 2026-08-21; measured 38/40 recovered on a real sample, ~2,641 projected. Same
+      commit fixed `engine_family("raw_S55")` returning `raw_S55` as the family, which had
+      Rule B expanding against a phantom engine on 2,071 donors.
+- [ ] **Engine data on the older products.** Without an engine code Rule B produces nothing.
+      Two routes now: ask Dismantly to backfill `veh_engine_code_`, or decode the donor VIN
+      (we started recording it 2026-08-21) against the ETK's `w_fztyp` — see below.
+- [ ] **Pull fitment from the ETK catalogue (agreed 2026-08-21).** BMW's own parts catalogue
+      as a THIRD fitment source, alongside chassis rules and part-number history — and the
+      first authoritative one. Full plan in `docs/DESIGN.md` §9. Start with `w_fztyp`
+      (6,628 rows): its `fztyp_typschl` is VIN positions 4–7, so it decodes a donor VIN to
+      chassis + engine + body. The bigger prize, part number → vehicles, needs a join that
+      is **not yet proven**. Does not gate the nightly sweep.
 - [ ] **Shopify store cleanup** — being assessed separately. The code already tolerates
       whatever the vendor field ends up as.
 

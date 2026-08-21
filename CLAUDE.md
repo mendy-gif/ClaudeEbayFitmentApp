@@ -14,10 +14,15 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
   US year range.
 - **Rule B** (engine parts): donor's chassis → restrict to the donor's **engine family** × year range.
 - Which rule applies is decided by the listing's **eBay category** (see `data/rule_b_categories.json`).
-- Two fitment **sources**, unioned per SKU: **chassis rules** (from the donor) + **part-number history**
+- Two fitment **sources** today, unioned per SKU: **chassis rules** (from the donor) + **part-number history**
   (every car a part number has historically come off, from `spreadsheet-fitment/`). **Both sources are
   expanded the same way** — each part-number vehicle is run through the Rule A/B chassis-family logic
   too (not just the donor), falling back to the literal vehicle when it can't be resolved.
+- A **third source is planned**: the **BMW ETK parts catalogue** (`bmw-etk/`) — BMW's own data,
+  and the first *authoritative* source rather than an inference. Agreed 2026-08-21; full plan in
+  `docs/DESIGN.md` §9. Start with `w_fztyp` (6,628 rows) — its `fztyp_typschl` is VIN positions
+  4-7, so it decodes a donor VIN to chassis + engine + body. It does **not** bypass the catalog
+  gatekeeper (#6), and ETK is a GLOBAL catalogue so it must be filtered to US vehicles.
 
 ## Golden facts / gotchas (the load-bearing knowledge)
 
