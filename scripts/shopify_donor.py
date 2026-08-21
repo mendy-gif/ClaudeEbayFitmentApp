@@ -344,6 +344,18 @@ def dump_all(store, tok, vendor="BMW", force_shrink=False):
     os.replace(tmp, path)                      # atomic: never a half-written dump
     delta = f" ({len(out) - previous:+d} vs previous {previous})" if previous else ""
     print(f"Wrote {len(out)} donors{delta} -> {os.path.relpath(path, ROOT)}")
+    # Report the fields that downstream rules depend on, so a silently-missing one shows up
+    # in the run log instead of being discovered days later in the committed file. The donor
+    # year drives the LCI year-window for headlights/taillights; a dump written without it
+    # leaves that feature inert while everything still looks green.
+    have_year = sum(1 for v in out.values() if v.get("year"))
+    have_series = sum(1 for v in out.values() if v.get("series"))
+    have_engine = sum(1 for v in out.values() if v.get("engine_family"))
+    print(f"  fields: year {have_year}/{len(out)}  |  chassis {have_series}/{len(out)}"
+          f"  |  engine {have_engine}/{len(out)}")
+    if out and not have_year:
+        print("  WARNING: not one donor has a year -- the LCI window for lights cannot "
+              "apply, and lights will keep using the full chassis range.", file=sys.stderr)
     return out
 
 
