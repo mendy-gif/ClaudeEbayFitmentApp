@@ -671,9 +671,76 @@ def t_real_data():
         CAT._property_values = saved
 
 
+
+def t_donor_fields():
+    """Donor parsing across the tag spellings and metafields Dismantly actually emits.
+
+    Every check here is a bug that shipped. The store carries the same donor fact under
+    several names, and reading only one spelling silently dropped it -- which produces no
+    error anywhere, just a listing that never gets fitment.
+    """
+    print("Donor field extraction (tags + metafields):")
+    import shopify_donor as SD
+    CH = frozenset(["F80", "F22", "F30", "F10"])
+
+    def node(tags, vendor="BMW", **mf):
+        n = {"variants": {"edges": [{"node": {"sku": "TEST"}}]}, "tags": tags, "vendor": vendor}
+        n.update({k: {"value": v} for k, v in mf.items()})
+        return n
+
+    # engine_family: the "raw_" spelling must normalise, not pass through. Returning
+    # "raw_N20B20" as a FAMILY matched nothing in bmw_engine_map.json, so Rule B expanded
+    # against a phantom engine -- F30/N20 emits 14 rows, F30/raw_N20B emitted 7.
+    eq(SD.engine_family("raw_S55"), "S55", 'engine_family strips the "raw_" prefix')
+    eq(SD.engine_family("raw_N20B20"), "N20", "raw_ + full code -> family")
+    eq(SD.engine_family("S55B30A"), "S55", "plain code still normalises")
+    eq(SD.engine_family("N63"), "N63", "bare family passes through")
+    eq(SD.engine_family(None), None, "no code -> None")
+    for bad in ("raw_S55", "raw_N20B20", "raw_B46B20B"):
+        got = SD.engine_family(bad)
+        eq(got.startswith("raw_"), False, f"family for {bad!r} is never raw_-prefixed")
+
+    # The chassis is the field EVERY rule is built on. Three spellings, all real.
+    d = SD.parse_product(node(["donor_vehicle.veh_series_F30"]), CH)
+    eq(d["series"], "F30", "chassis from donor_vehicle.veh_series_")
+    d = SD.parse_product(node(["donor_vehicle.raw_veh_series_F80"]), CH)
+    eq(d["series"], "F80", "chassis from donor_vehicle.RAW_veh_series_ (was dropped)")
+    d = SD.parse_product(node([], mf_series="F22"), CH)
+    eq(d["series"], "F22", "chassis from the custom.series metafield (was never fetched)")
+    d = SD.parse_product(node(["F80"], vendor="BMW"), CH)
+    eq(d["series"], "F80", "bare chassis tag still works")
+
+    # A tag and a metafield disagreeing must not lose the tag: it is the synced value.
+    d = SD.parse_product(node(["donor_vehicle.veh_series_F30"], mf_series="F80"), CH)
+    eq(d["series"], "F30", "tag wins over metafield when both are present")
+
+    # Year: the metafield is a fallback ONLY. The tag rules already reject the multi-year
+    # listing span (year_2014..year_2018), and the fallback must not reintroduce it.
+    d = SD.parse_product(node([], mf_series="F22", mf_year="2016"), CH)
+    eq(d["year"], 2016, "year from the metafield when no tag")
+    d = SD.parse_product(node(["donor_vehicle.veh_production_year_2013"], mf_year="2019"), CH)
+    eq(d["year"], 2013, "donor-year TAG wins over the metafield")
+    for bad in ("", "not-a-year", "12", "3999"):
+        d = SD.parse_product(node([], mf_year=bad), CH)
+        eq(d["year"], None, f"metafield year {bad!r} rejected")
+
+    # VIN: recorded when present and exactly 17 chars, never half-captured.
+    d = SD.parse_product(node(["donor_vehicle.vin_WBA3A5C54DF453441"]), CH)
+    eq(d["vin"], "WBA3A5C54DF453441", "VIN from the tag")
+    d = SD.parse_product(node([], mf_vin="wbs3c9c55fj276167"), CH)
+    eq(d["vin"], "WBS3C9C55FJ276167", "VIN from the metafield, upper-cased")
+    for bad in ("TOOSHORT", "WBA3A5C54DF4534411111", ""):
+        d = SD.parse_product(node([], mf_vin=bad), CH)
+        eq(d["vin"], None, f"malformed VIN {bad!r} rejected")
+
+    # A product with nothing at all must stay empty rather than invent values.
+    d = SD.parse_product(node([], vendor=""), CH)
+    eq([d["series"], d["year"], d["vin"]], [None, None, None], "empty product invents nothing")
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_donor_year, t_lci_window, t_lci_categories, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_donor_year, t_donor_fields, t_lci_window, t_lci_categories, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()

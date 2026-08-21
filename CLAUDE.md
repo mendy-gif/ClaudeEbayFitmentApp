@@ -72,7 +72,18 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
    real vehicle, so nothing filters it and the buyer sees a genuine-looking match. With no
    donor year recorded we keep the full range (mendy's call: no fitment is worse than a wide
    range), so this can only improve on the old behaviour, never worsen it.
-13. **The ledger prevents double-work** but only records *pushes*; skips are re-evaluated each run (that's
+13. **The same donor fact lives under several names in Shopify — read them ALL.** The
+   chassis appears as `donor_vehicle.veh_series_F30`, as `donor_vehicle.raw_veh_series_F30`
+   (note `raw_veh` in the MIDDLE — `_tag_value` matches on `startswith`, so the shorter
+   prefix never fires), as the `custom.series` metafield, as the vendor field, and as a bare
+   tag (`["F30"]`). Reading only one spelling silently dropped the chassis on ~2,600
+   listings — and chassis is the field every rule is built on. The engine has the same
+   problem: `veh_engine_code_raw_S55` arrives as `"raw_S55"`, which `engine_family()` used to
+   return verbatim as the FAMILY. It matches nothing in `bmw_engine_map.json`, so Rule B
+   expanded against a phantom engine (F30 `N20` → 14 rows, `raw_N20B` → 7) on 2,071 donors.
+   **Nothing errors when this happens** — the listing just never gets fitment. `parse_product`
+   now reads every spelling; `t_donor_fields` in `test_display_fitment.py` locks each one down.
+14. **The ledger prevents double-work** but only records *pushes*; skips are re-evaluated each run (that's
    why the same "already N vehicles / no donor" lines recur — harmless). Entries carry a `cv` stamp
    (`CATALOG_ERA`); entries older than the current era are re-processed automatically so fitment that
    was pushed but never displayed self-heals.

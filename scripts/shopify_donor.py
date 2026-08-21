@@ -148,8 +148,22 @@ def _tag_value(tags, prefix):
 
 
 def engine_family(code):
+    """Normalise an engine code to its FAMILY (S58B30T0 -> S58).
+
+    Dismantly writes the code under two different tag spellings --
+    `donor_vehicle.veh_engine_code_S58B30T0` and
+    `donor_vehicle.veh_engine_code_raw_S58B30T0`. `_tag_value` matches on the shorter
+    prefix, so the second spelling arrives here as "raw_S58B30T0". The family regex is
+    anchored at the start, so it did not match, and the `else code` fallback returned
+    "raw_S58B30T0" verbatim as the family. That is not a family: it matches nothing in
+    bmw_engine_map.json, so Rule B silently expanded against a phantom engine (F30 with
+    "raw_N20B" emitted 7 rows where "N20" emits 14). It affected 2,071 donors.
+    """
     if not code:
         return None
+    code = code.strip()
+    if code.lower().startswith("raw_"):          # veh_engine_code_raw_S58... -> S58...
+        code = code[4:]
     m = re.match(r"^([A-Za-z]\d{2})", code)     # S58B30T0 -> S58
     return m.group(1).upper() if m else code
 
@@ -188,13 +202,21 @@ def donor_year(tags):
     return None
 
 
+def _mf_year(node):
+    """Donor year from `custom.donor_vehicle_veh_production_year`, validated like the tag."""
+    v = _mf(node, "mf_year")
+    if v and v.isdigit() and 1980 <= int(v) <= 2030:
+        return int(v)
+    return None
+
+
 def parse_product(node, chassis_codes=frozenset()):
     tags = node.get("tags", [])
     sku = None
     for e in node.get("variants", {}).get("edges", []):
         sku = e["node"].get("sku") or sku
-    make = _tag_value(tags, "donor_vehicle.veh_make_") or _tag_value(tags, "make_")
-    series = _tag_value(tags, "donor_vehicle.veh_series_") or _tag_value(tags, "series_")
+    make = _tag_value(tags, "donor_vehicle.veh_make_") or _tag_value(tags, "make_") or _mf(node, "mf_make")
+    series = _series_tag(tags) or _mf(node, "mf_series")
 
     # The vendor field is used inconsistently on this store, so accept every shape it takes.
     # Older products carry no donor tags at all -- the chassis code is only in the vendor
@@ -220,23 +242,69 @@ def parse_product(node, chassis_codes=frozenset()):
     return {
         "sku": sku,
         "make": make,
-        "model": _tag_value(tags, "donor_vehicle.veh_model_") or _tag_value(tags, "model_"),
+        "model": (_tag_value(tags, "donor_vehicle.veh_model_") or _tag_value(tags, "model_")
+                  or _mf(node, "mf_model")),
         "series": series,
-        "year": donor_year(tags),
-        "engine_code_raw": _tag_value(tags, "donor_vehicle.veh_engine_code_") or _tag_value(tags, "engine_code_"),
-        "part_type": _tag_value(tags, "part_type_"),
+        "year": donor_year(tags) or _mf_year(node),
+        "engine_code_raw": (_tag_value(tags, "donor_vehicle.veh_engine_code_")
+                            or _tag_value(tags, "engine_code_") or _mf(node, "mf_engine")),
+        "part_type": _tag_value(tags, "part_type_") or _mf(node, "mf_part_type"),
         "universal": _tag_value(tags, "is_universal_fitment_"),
+        "vin": _donor_vin(tags, node),
     }
 
 
+# The `custom.*` metafields carry the same donor facts as the tags, but they are populated
+# on products whose tags are missing or spelled differently -- SKU 13611 has NO readable
+# series tag (`donor_vehicle.raw_veh_series_F80`, see _series_tag) yet `custom.series` is
+# "F80". Tags alone lost the chassis on those products, which is the single field every
+# rule is built on. Fetch both and let parse_product prefer whichever is present.
 PRODUCT_FIELDS = """
   edges { node {
     variants(first: 1) { edges { node { sku } } }
     tags
     vendor
+    mf_series: metafield(namespace: "custom", key: "series") { value }
+    mf_model: metafield(namespace: "custom", key: "model") { value }
+    mf_engine: metafield(namespace: "custom", key: "donor_vehicle_veh_engine_code_raw") { value }
+    mf_year: metafield(namespace: "custom", key: "donor_vehicle_veh_production_year") { value }
+    mf_vin: metafield(namespace: "custom", key: "donor_vehicle_vin") { value }
+    mf_make: metafield(namespace: "custom", key: "donor_vehicle_veh_make") { value }
+    mf_part_type: metafield(namespace: "custom", key: "part_type") { value }
   } }
   pageInfo { hasNextPage endCursor }
 """
+
+
+def _mf(node, alias):
+    """Value of an aliased metafield, or None when absent/blank."""
+    m = node.get(alias)
+    if not isinstance(m, dict):
+        return None
+    v = (m.get("value") or "").strip()
+    return v or None
+
+
+def _series_tag(tags):
+    """The donor chassis from the tags, across BOTH spellings Dismantly emits.
+
+    `donor_vehicle.veh_series_F80` and `donor_vehicle.raw_veh_series_F80` both occur. Only
+    the first was matched, and `_tag_value` uses startswith, so `raw_veh_series_` never
+    fired -- the chassis was silently dropped on every product using it.
+    """
+    for pre in ("donor_vehicle.veh_series_", "donor_vehicle.raw_veh_series_", "series_"):
+        v = _tag_value(tags, pre)
+        if v:
+            return v
+    return None
+
+
+def _donor_vin(tags, node):
+    """The donor VIN -- tag `donor_vehicle.vin_<VIN>` or the `custom.donor_vehicle_vin`
+    metafield. Recorded but not yet decoded; a BMW VIN also encodes year and engine."""
+    v = _tag_value(tags, "donor_vehicle.vin_") or _mf(node, "mf_vin")
+    v = (v or "").strip().upper()
+    return v if len(v) == 17 else None
 
 
 def fetch_by_skus(store, tok, skus):
