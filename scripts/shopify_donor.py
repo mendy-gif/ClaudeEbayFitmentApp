@@ -130,6 +130,27 @@ def _is_throttled(errors):
     return True
 
 
+def _pace(body):
+    """Sleep just enough to keep the next query inside Shopify's leaky bucket.
+
+    Retrying AFTER a throttle works but is slow and noisy: the full catalogue is ~880
+    queries, and erroring on most of them turns a refresh into 40 minutes of backoff.
+    Shopify returns the bucket state on every SUCCESSFUL call, so pace off that and mostly
+    never get throttled at all. The retry in gql() stays as the safety net.
+    """
+    cost = (body.get("extensions") or {}).get("cost") or {}
+    ts = cost.get("throttleStatus") or {}
+    avail, rate = ts.get("currentlyAvailable"), ts.get("restoreRate")
+    need = cost.get("actualQueryCost") or cost.get("requestedQueryCost")
+    if not (avail is not None and rate and need):
+        return
+    # Keep one query's worth of headroom in the bucket.
+    if avail < need * 2:
+        wait = min((need * 2 - avail) / rate, 10.0)
+        if wait > 0:
+            time.sleep(wait)
+
+
 def gql(store, tok, query, variables, _tries=6):
     """GraphQL call that FAILS LOUDLY, but waits out rate limits first.
 
@@ -181,6 +202,7 @@ def gql(store, tok, query, variables, _tries=6):
             raise ShopifyError(f"GraphQL errors: {json.dumps(errors)[:300]}")
         if body.get("data") is None:
             raise ShopifyError(f"no data in response: {json.dumps(body)[:300]}")
+        _pace(body)
         return body
     raise ShopifyError(f"still throttled after {_tries} attempts")
 

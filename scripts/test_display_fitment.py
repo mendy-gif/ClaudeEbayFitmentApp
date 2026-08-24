@@ -828,6 +828,27 @@ def t_shopify_throttle():
             eq(True, False, "endless throttling must raise")
         except SD.ShopifyError:
             eq(len(calls), 3, "gives up after the configured number of tries")
+        # Proactive pacing: sleep when the bucket is low, not when it is healthy.
+        slept = []
+        SD.time.sleep = lambda n: slept.append(n)
+        def body(avail, need=280, rate=100):
+            return {"data": {"ok": 1}, "extensions": {"cost": {
+                "actualQueryCost": need,
+                "throttleStatus": {"currentlyAvailable": avail, "restoreRate": rate}}}}
+        SD.urllib.request.urlopen = lambda req, timeout=None: fake(body(1800))
+        slept.clear(); SD.gql("s", "t", "q", {})
+        eq(slept, [], "healthy bucket -> no sleep")
+        SD.urllib.request.urlopen = lambda req, timeout=None: fake(body(100))
+        slept.clear(); SD.gql("s", "t", "q", {})
+        eq(len(slept) == 1 and 0 < slept[0] <= 10, True, "low bucket -> a bounded sleep")
+        # Never trust the server into an unbounded wait.
+        SD.urllib.request.urlopen = lambda req, timeout=None: fake(body(0, need=99999, rate=1))
+        slept.clear(); SD.gql("s", "t", "q", {})
+        eq(slept[0] <= 10.0, True, "pacing sleep is capped, whatever the server claims")
+        # Missing cost data must not crash the refresh.
+        SD.urllib.request.urlopen = lambda req, timeout=None: fake({"data": {"ok": 1}})
+        slept.clear(); SD.gql("s", "t", "q", {})
+        eq(slept, [], "no cost extensions -> no sleep, no crash")
     finally:
         SD.urllib.request.urlopen, SD.time.sleep = saved_open, saved_sleep
 
