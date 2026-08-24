@@ -1,6 +1,11 @@
 {
   "root": "6030",
-  "count": 469,
+  "roots": [
+    "6030",
+    "38635",
+    "107057"
+  ],
+  "count": 708,
   "nodes": [
     {
       "categoryId": "6030",
@@ -4807,6 +4812,2445 @@
         "262215"
       ],
       "path": "Car & Truck Parts & Accessories > Racks & Cargo Carriers > Other Racks & Cargo Carriers"
+    },
+    {
+      "categoryId": "38635",
+      "categoryName": "In-Car Technology, GPS & Security",
+      "leaf": false,
+      "ancestors": [],
+      "path": "In-Car Technology, GPS & Security"
+    },
+    {
+      "categoryId": "14262",
+      "categoryName": "Radios for Parts",
+      "leaf": true,
+      "ancestors": [
+        "38635"
+      ],
+      "path": "In-Car Technology, GPS & Security > Radios for Parts"
+    },
+    {
+      "categoryId": "96370",
+      "categoryName": "Vintage Radios",
+      "leaf": true,
+      "ancestors": [
+        "38635"
+      ],
+      "path": "In-Car Technology, GPS & Security > Vintage Radios"
+    },
+    {
+      "categoryId": "138854",
+      "categoryName": "DIY for Speakers & Subwoofers",
+      "leaf": false,
+      "ancestors": [
+        "38635"
+      ],
+      "path": "In-Car Technology, GPS & Security > DIY for Speakers & Subwoofers"
+    },
+    {
+      "categoryId": "38770",
+      "categoryName": "Rear Shelves",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "138854"
+      ],
+      "path": "In-Car Technology, GPS & Security > DIY for Speakers & Subwoofers > Rear Shelves"
+    },
+    {
+      "categoryId": "57290",
+      "categoryName": "Adapter Rings",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "138854"
+      ],
+      "path": "In-Car Technology, GPS & Security > DIY for Speakers & Subwoofers > Adapter Rings"
+    },
+    {
+      "categoryId": "138855",
+      "categoryName": "Carpets",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "138854"
+      ],
+      "path": "In-Car Technology, GPS & Security > DIY for Speakers & Subwoofers > Carpets"
+    },
+    {
+      "categoryId": "138856",
+      "categoryName": "Insulation",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "138854"
+      ],
+      "path": "In-Car Technology, GPS & Security > DIY for Speakers & Subwoofers > Insulation"
+    },
+    {
+      "categoryId": "138857",
+      "categoryName": "Grills & Guards",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "138854"
+      ],
+      "path": "In-Car Technology, GPS & Security > DIY for Speakers & Subwoofers > Grills & Guards"
+    },
+    {
+      "categoryId": "179669",
+      "categoryName": "Enclosures",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "138854"
+      ],
+      "path": "In-Car Technology, GPS & Security > DIY for Speakers & Subwoofers > Enclosures"
+    },
+    {
+      "categoryId": "179670",
+      "categoryName": "Other Speakers & Subwoofers DIY",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "138854"
+      ],
+      "path": "In-Car Technology, GPS & Security > DIY for Speakers & Subwoofers > Other Speakers & Subwoofers DIY"
+    },
+    {
+      "categoryId": "139835",
+      "categoryName": "GPS & Sat Nav Devices",
+      "leaf": false,
+      "ancestors": [
+        "38635"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices"
+    },
+    {
+      "categoryId": "38776",
+      "categoryName": "Built-in Sat Nav",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > Built-in Sat Nav"
+    },
+    {
+      "categoryId": "139838",
+      "categoryName": "Other GPS & Sat Nav Devices",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > Other GPS & Sat Nav Devices"
+    },
+    {
+      "categoryId": "169366",
+      "categoryName": "GPS Accessories",
+      "leaf": false,
+      "ancestors": [
+        "38635",
+        "139835"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > GPS Accessories"
+    },
+    {
+      "categoryId": "60999",
+      "categoryName": "Holders & Mounts",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835",
+        "169366"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > GPS Accessories > Holders & Mounts"
+    },
+    {
+      "categoryId": "169367",
+      "categoryName": "Adapters & Chargers",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835",
+        "169366"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > GPS Accessories > Adapters & Chargers"
+    },
+    {
+      "categoryId": "169368",
+      "categoryName": "Antennas",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835",
+        "169366"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > GPS Accessories > Antennas"
+    },
+    {
+      "categoryId": "169370",
+      "categoryName": "Cases & Skins",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835",
+        "169366"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > GPS Accessories > Cases & Skins"
+    },
+    {
+      "categoryId": "169374",
+      "categoryName": "Screen Protectors",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835",
+        "169366"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > GPS Accessories > Screen Protectors"
+    },
+    {
+      "categoryId": "169375",
+      "categoryName": "Other GPS Accessories",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835",
+        "169366"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > GPS Accessories > Other GPS Accessories"
+    },
+    {
+      "categoryId": "184624",
+      "categoryName": "Replacement Batteries",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835",
+        "169366"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > GPS Accessories > Replacement Batteries"
+    },
+    {
+      "categoryId": "184625",
+      "categoryName": "Replacement Screens",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835",
+        "169366"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > GPS Accessories > Replacement Screens"
+    },
+    {
+      "categoryId": "184979",
+      "categoryName": "Portable GPS Systems",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > Portable GPS Systems"
+    },
+    {
+      "categoryId": "184980",
+      "categoryName": "GPS Software & Maps",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "139835"
+      ],
+      "path": "In-Car Technology, GPS & Security > GPS & Sat Nav Devices > GPS Software & Maps"
+    },
+    {
+      "categoryId": "169321",
+      "categoryName": "Dash Cams, Alarms & Security",
+      "leaf": false,
+      "ancestors": [
+        "38635"
+      ],
+      "path": "In-Car Technology, GPS & Security > Dash Cams, Alarms & Security"
+    },
+    {
+      "categoryId": "40016",
+      "categoryName": "Key Blanks",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169321"
+      ],
+      "path": "In-Car Technology, GPS & Security > Dash Cams, Alarms & Security > Key Blanks"
+    },
+    {
+      "categoryId": "53908",
+      "categoryName": "Car Keys, Fobs & Remotes",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169321"
+      ],
+      "path": "In-Car Technology, GPS & Security > Dash Cams, Alarms & Security > Car Keys, Fobs & Remotes"
+    },
+    {
+      "categoryId": "75329",
+      "categoryName": "Anti-Theft Car Alarms",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169321"
+      ],
+      "path": "In-Car Technology, GPS & Security > Dash Cams, Alarms & Security > Anti-Theft Car Alarms"
+    },
+    {
+      "categoryId": "169335",
+      "categoryName": "Other Car Dash Cams, Alarms & Security Devices",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169321"
+      ],
+      "path": "In-Car Technology, GPS & Security > Dash Cams, Alarms & Security > Other Car Dash Cams, Alarms & Security Devices"
+    },
+    {
+      "categoryId": "173712",
+      "categoryName": "Car Immobilizers",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169321"
+      ],
+      "path": "In-Car Technology, GPS & Security > Dash Cams, Alarms & Security > Car Immobilizers"
+    },
+    {
+      "categoryId": "173713",
+      "categoryName": "Car Tracking Systems",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169321"
+      ],
+      "path": "In-Car Technology, GPS & Security > Dash Cams, Alarms & Security > Car Tracking Systems"
+    },
+    {
+      "categoryId": "174121",
+      "categoryName": "Dash Cams",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169321"
+      ],
+      "path": "In-Car Technology, GPS & Security > Dash Cams, Alarms & Security > Dash Cams"
+    },
+    {
+      "categoryId": "184651",
+      "categoryName": "Remote Entry System Kits",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169321"
+      ],
+      "path": "In-Car Technology, GPS & Security > Dash Cams, Alarms & Security > Remote Entry System Kits"
+    },
+    {
+      "categoryId": "184652",
+      "categoryName": "Remote Start System Kits",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169321"
+      ],
+      "path": "In-Car Technology, GPS & Security > Dash Cams, Alarms & Security > Remote Start System Kits"
+    },
+    {
+      "categoryId": "185021",
+      "categoryName": "Anti-Sleep Systems",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169321"
+      ],
+      "path": "In-Car Technology, GPS & Security > Dash Cams, Alarms & Security > Anti-Sleep Systems"
+    },
+    {
+      "categoryId": "169423",
+      "categoryName": "Electronic Accessories",
+      "leaf": false,
+      "ancestors": [
+        "38635"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories"
+    },
+    {
+      "categoryId": "38642",
+      "categoryName": "Other Electronic Accessories",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Other Electronic Accessories"
+    },
+    {
+      "categoryId": "38759",
+      "categoryName": "Bluetooth & Handsfree Car Kits",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Bluetooth & Handsfree Car Kits"
+    },
+    {
+      "categoryId": "61012",
+      "categoryName": "Remote Controls",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Remote Controls"
+    },
+    {
+      "categoryId": "96371",
+      "categoryName": "Faceplates & Mounting Frames",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Faceplates & Mounting Frames"
+    },
+    {
+      "categoryId": "169347",
+      "categoryName": "Cables & Extensions",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Cables & Extensions"
+    },
+    {
+      "categoryId": "169350",
+      "categoryName": "Power Capacitors",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Power Capacitors"
+    },
+    {
+      "categoryId": "169391",
+      "categoryName": "Power Inverters",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Power Inverters"
+    },
+    {
+      "categoryId": "169395",
+      "categoryName": "Screens",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Screens"
+    },
+    {
+      "categoryId": "174120",
+      "categoryName": "Headphones",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Headphones"
+    },
+    {
+      "categoryId": "184619",
+      "categoryName": "Rear View Mirror Monitors",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Rear View Mirror Monitors"
+    },
+    {
+      "categoryId": "184626",
+      "categoryName": "Radio Removal Tools",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Radio Removal Tools"
+    },
+    {
+      "categoryId": "184977",
+      "categoryName": "Amplifier Parts & Accessories",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Amplifier Parts & Accessories"
+    },
+    {
+      "categoryId": "184978",
+      "categoryName": "Camera Detectors",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Camera Detectors"
+    },
+    {
+      "categoryId": "185017",
+      "categoryName": "Head Up Displays (HUDs)",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > Head Up Displays (HUDs)"
+    },
+    {
+      "categoryId": "185019",
+      "categoryName": "TV Tuners",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "169423"
+      ],
+      "path": "In-Car Technology, GPS & Security > Electronic Accessories > TV Tuners"
+    },
+    {
+      "categoryId": "171101",
+      "categoryName": "In-Car Entertainment",
+      "leaf": false,
+      "ancestors": [
+        "38635"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment"
+    },
+    {
+      "categoryId": "14268",
+      "categoryName": "Complete Sound Systems",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > Complete Sound Systems"
+    },
+    {
+      "categoryId": "14273",
+      "categoryName": "Crossovers",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > Crossovers"
+    },
+    {
+      "categoryId": "21647",
+      "categoryName": "Amplifiers",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > Amplifiers"
+    },
+    {
+      "categoryId": "38643",
+      "categoryName": "Equalizers",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > Equalizers"
+    },
+    {
+      "categoryId": "38771",
+      "categoryName": "Subwoofers",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > Subwoofers"
+    },
+    {
+      "categoryId": "122188",
+      "categoryName": "Car DVD Players",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > Car DVD Players"
+    },
+    {
+      "categoryId": "169382",
+      "categoryName": "CD & DVD Changers",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > CD & DVD Changers"
+    },
+    {
+      "categoryId": "169389",
+      "categoryName": "Signal Processors",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > Signal Processors"
+    },
+    {
+      "categoryId": "169473",
+      "categoryName": "Other In-Car Entertainment",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > Other In-Car Entertainment"
+    },
+    {
+      "categoryId": "174119",
+      "categoryName": "Car Stereos & Head Units",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > Car Stereos & Head Units"
+    },
+    {
+      "categoryId": "179671",
+      "categoryName": "Speakers",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > Speakers"
+    },
+    {
+      "categoryId": "179678",
+      "categoryName": "FM Transmitters",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > FM Transmitters"
+    },
+    {
+      "categoryId": "258035",
+      "categoryName": "Multimedia Players",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "171101"
+      ],
+      "path": "In-Car Technology, GPS & Security > In-Car Entertainment > Multimedia Players"
+    },
+    {
+      "categoryId": "179672",
+      "categoryName": "Terminals & Wiring",
+      "leaf": false,
+      "ancestors": [
+        "38635"
+      ],
+      "path": "In-Car Technology, GPS & Security > Terminals & Wiring"
+    },
+    {
+      "categoryId": "169324",
+      "categoryName": "Relays",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "179672"
+      ],
+      "path": "In-Car Technology, GPS & Security > Terminals & Wiring > Relays"
+    },
+    {
+      "categoryId": "169357",
+      "categoryName": "Distribution Blocks",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "179672"
+      ],
+      "path": "In-Car Technology, GPS & Security > Terminals & Wiring > Distribution Blocks"
+    },
+    {
+      "categoryId": "169358",
+      "categoryName": "Fuses & Fuse Holders",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "179672"
+      ],
+      "path": "In-Car Technology, GPS & Security > Terminals & Wiring > Fuses & Fuse Holders"
+    },
+    {
+      "categoryId": "174118",
+      "categoryName": "Audio Interface Cables",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "179672"
+      ],
+      "path": "In-Car Technology, GPS & Security > Terminals & Wiring > Audio Interface Cables"
+    },
+    {
+      "categoryId": "174122",
+      "categoryName": "Steering Wheel Interfaces",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "179672"
+      ],
+      "path": "In-Car Technology, GPS & Security > Terminals & Wiring > Steering Wheel Interfaces"
+    },
+    {
+      "categoryId": "179673",
+      "categoryName": "Adapters & Plugs",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "179672"
+      ],
+      "path": "In-Car Technology, GPS & Security > Terminals & Wiring > Adapters & Plugs"
+    },
+    {
+      "categoryId": "179675",
+      "categoryName": "Wiring & Wiring Harnesses",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "179672"
+      ],
+      "path": "In-Car Technology, GPS & Security > Terminals & Wiring > Wiring & Wiring Harnesses"
+    },
+    {
+      "categoryId": "179676",
+      "categoryName": "Terminals & Connectors",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "179672"
+      ],
+      "path": "In-Car Technology, GPS & Security > Terminals & Wiring > Terminals & Connectors"
+    },
+    {
+      "categoryId": "179677",
+      "categoryName": "Other Terminals & Wiring",
+      "leaf": true,
+      "ancestors": [
+        "38635",
+        "179672"
+      ],
+      "path": "In-Car Technology, GPS & Security > Terminals & Wiring > Other Terminals & Wiring"
+    },
+    {
+      "categoryId": "185012",
+      "categoryName": "Other In-Car Technology",
+      "leaf": true,
+      "ancestors": [
+        "38635"
+      ],
+      "path": "In-Car Technology, GPS & Security > Other In-Car Technology"
+    },
+    {
+      "categoryId": "107057",
+      "categoryName": "Performance & Racing Parts",
+      "leaf": false,
+      "ancestors": [],
+      "path": "Performance & Racing Parts"
+    },
+    {
+      "categoryId": "107058",
+      "categoryName": "Accessories",
+      "leaf": true,
+      "ancestors": [
+        "107057"
+      ],
+      "path": "Performance & Racing Parts > Accessories"
+    },
+    {
+      "categoryId": "107059",
+      "categoryName": "Auto Performance Parts",
+      "leaf": false,
+      "ancestors": [
+        "107057"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts"
+    },
+    {
+      "categoryId": "36475",
+      "categoryName": "Body Kits",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Body Kits"
+    },
+    {
+      "categoryId": "107060",
+      "categoryName": "Body & Exterior",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Body & Exterior"
+    },
+    {
+      "categoryId": "107066",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Other"
+    },
+    {
+      "categoryId": "133187",
+      "categoryName": "Driveline & Transmission",
+      "leaf": false,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Driveline & Transmission"
+    },
+    {
+      "categoryId": "133188",
+      "categoryName": "Transmission",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133187"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Driveline & Transmission > Transmission"
+    },
+    {
+      "categoryId": "133189",
+      "categoryName": "Rear End",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133187"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Driveline & Transmission > Rear End"
+    },
+    {
+      "categoryId": "133190",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133187"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Driveline & Transmission > Other"
+    },
+    {
+      "categoryId": "175553",
+      "categoryName": "Flywheels",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133187"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Driveline & Transmission > Flywheels"
+    },
+    {
+      "categoryId": "175554",
+      "categoryName": "Racing Clutches",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133187"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Driveline & Transmission > Racing Clutches"
+    },
+    {
+      "categoryId": "175555",
+      "categoryName": "Transmission Components",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133187"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Driveline & Transmission > Transmission Components"
+    },
+    {
+      "categoryId": "175556",
+      "categoryName": "Shifters",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133187"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Driveline & Transmission > Shifters"
+    },
+    {
+      "categoryId": "175557",
+      "categoryName": "Torque Converters",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133187"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Driveline & Transmission > Torque Converters"
+    },
+    {
+      "categoryId": "133191",
+      "categoryName": "Electrical Components",
+      "leaf": false,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Electrical Components"
+    },
+    {
+      "categoryId": "107062",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133191"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Electrical Components > Other"
+    },
+    {
+      "categoryId": "133192",
+      "categoryName": "Ignition",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133191"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Electrical Components > Ignition"
+    },
+    {
+      "categoryId": "133193",
+      "categoryName": "Chips, Programmers",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133191"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Electrical Components > Chips, Programmers"
+    },
+    {
+      "categoryId": "133194",
+      "categoryName": "Wiring Kits",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133191"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Electrical Components > Wiring Kits"
+    },
+    {
+      "categoryId": "173651",
+      "categoryName": "Tuning Devices & Software",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133191"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Electrical Components > Tuning Devices & Software"
+    },
+    {
+      "categoryId": "173652",
+      "categoryName": "Diagnostic Equipment & Tools",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133191"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Electrical Components > Diagnostic Equipment & Tools"
+    },
+    {
+      "categoryId": "133196",
+      "categoryName": "Fuel Systems",
+      "leaf": false,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Fuel Systems"
+    },
+    {
+      "categoryId": "133197",
+      "categoryName": "Fuel Injection & Pumps",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133196"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Fuel Systems > Fuel Injection & Pumps"
+    },
+    {
+      "categoryId": "133198",
+      "categoryName": "Fuel Pressure Regulators",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133196"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Fuel Systems > Fuel Pressure Regulators"
+    },
+    {
+      "categoryId": "133199",
+      "categoryName": "Hoses, Lines & Fittings",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133196"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Fuel Systems > Hoses, Lines & Fittings"
+    },
+    {
+      "categoryId": "133200",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133196"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Fuel Systems > Other"
+    },
+    {
+      "categoryId": "175568",
+      "categoryName": "Fuel Cells",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133196"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Fuel Systems > Fuel Cells"
+    },
+    {
+      "categoryId": "133201",
+      "categoryName": "Induction",
+      "leaf": false,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Induction"
+    },
+    {
+      "categoryId": "133202",
+      "categoryName": "Superchargers",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133201"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Induction > Superchargers"
+    },
+    {
+      "categoryId": "133203",
+      "categoryName": "Nitrous Oxide",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133201"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Induction > Nitrous Oxide"
+    },
+    {
+      "categoryId": "133204",
+      "categoryName": "Intake Manifolds",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133201"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Induction > Intake Manifolds"
+    },
+    {
+      "categoryId": "133205",
+      "categoryName": "Carburetors",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133201"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Induction > Carburetors"
+    },
+    {
+      "categoryId": "133206",
+      "categoryName": "Cold Air Intake",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133201"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Induction > Cold Air Intake"
+    },
+    {
+      "categoryId": "133207",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133201"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Induction > Other"
+    },
+    {
+      "categoryId": "175569",
+      "categoryName": "Turbo Chargers",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133201"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Induction > Turbo Chargers"
+    },
+    {
+      "categoryId": "133208",
+      "categoryName": "Interior",
+      "leaf": false,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Interior"
+    },
+    {
+      "categoryId": "107064",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133208"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Interior > Other"
+    },
+    {
+      "categoryId": "133209",
+      "categoryName": "Seats",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133208"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Interior > Seats"
+    },
+    {
+      "categoryId": "133210",
+      "categoryName": "Gauges",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133208"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Interior > Gauges"
+    },
+    {
+      "categoryId": "175570",
+      "categoryName": "Racing Harnesses",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "133208"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Interior > Racing Harnesses"
+    },
+    {
+      "categoryId": "171112",
+      "categoryName": "Engine & Components",
+      "leaf": false,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components"
+    },
+    {
+      "categoryId": "107063",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Other"
+    },
+    {
+      "categoryId": "171113",
+      "categoryName": "Racing Engines",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Racing Engines"
+    },
+    {
+      "categoryId": "175558",
+      "categoryName": "Camshafts",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Camshafts"
+    },
+    {
+      "categoryId": "175559",
+      "categoryName": "Connecting Rods",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Connecting Rods"
+    },
+    {
+      "categoryId": "175560",
+      "categoryName": "Crankshafts",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Crankshafts"
+    },
+    {
+      "categoryId": "175561",
+      "categoryName": "Cylinder Heads",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Cylinder Heads"
+    },
+    {
+      "categoryId": "175562",
+      "categoryName": "Engine Blocks",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Engine Blocks"
+    },
+    {
+      "categoryId": "175563",
+      "categoryName": "Fasteners & Stud Kits",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Fasteners & Stud Kits"
+    },
+    {
+      "categoryId": "175564",
+      "categoryName": "Gaskets & Seals",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Gaskets & Seals"
+    },
+    {
+      "categoryId": "175565",
+      "categoryName": "Pistons & Piston Rings",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Pistons & Piston Rings"
+    },
+    {
+      "categoryId": "175566",
+      "categoryName": "Timing Chains",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Timing Chains"
+    },
+    {
+      "categoryId": "175567",
+      "categoryName": "Valves & Valve Springs",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "171112"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Engine & Components > Valves & Valve Springs"
+    },
+    {
+      "categoryId": "173653",
+      "categoryName": "Exhaust",
+      "leaf": false,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Exhaust"
+    },
+    {
+      "categoryId": "173654",
+      "categoryName": "Bends",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "173653"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Exhaust > Bends"
+    },
+    {
+      "categoryId": "173655",
+      "categoryName": "Collector Mufflers",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "173653"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Exhaust > Collector Mufflers"
+    },
+    {
+      "categoryId": "173656",
+      "categoryName": "Collectors",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "173653"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Exhaust > Collectors"
+    },
+    {
+      "categoryId": "173657",
+      "categoryName": "Dyno Headers",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "173653"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Exhaust > Dyno Headers"
+    },
+    {
+      "categoryId": "173658",
+      "categoryName": "Header Bolts & Hardware",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "173653"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Exhaust > Header Bolts & Hardware"
+    },
+    {
+      "categoryId": "173659",
+      "categoryName": "Header Kits",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "173653"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Exhaust > Header Kits"
+    },
+    {
+      "categoryId": "173660",
+      "categoryName": "Turndowns",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "173653"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Exhaust > Turndowns"
+    },
+    {
+      "categoryId": "173666",
+      "categoryName": "V-Band Kits",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "173653"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Exhaust > V-Band Kits"
+    },
+    {
+      "categoryId": "173667",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "173653"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Exhaust > Other"
+    },
+    {
+      "categoryId": "175544",
+      "categoryName": "Chassis, Suspension & Brakes",
+      "leaf": false,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Chassis, Suspension & Brakes"
+    },
+    {
+      "categoryId": "33585",
+      "categoryName": "Lift Kits & Parts",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175544"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Chassis, Suspension & Brakes > Lift Kits & Parts"
+    },
+    {
+      "categoryId": "33586",
+      "categoryName": "Lower Kits & Parts",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175544"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Chassis, Suspension & Brakes > Lower Kits & Parts"
+    },
+    {
+      "categoryId": "175545",
+      "categoryName": "Coilovers",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175544"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Chassis, Suspension & Brakes > Coilovers"
+    },
+    {
+      "categoryId": "175546",
+      "categoryName": "Master Cylinders, Balance Bars",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175544"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Chassis, Suspension & Brakes > Master Cylinders, Balance Bars"
+    },
+    {
+      "categoryId": "175547",
+      "categoryName": "Performance Brake Calipers",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175544"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Chassis, Suspension & Brakes > Performance Brake Calipers"
+    },
+    {
+      "categoryId": "175548",
+      "categoryName": "Performance Brake Rotors",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175544"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Chassis, Suspension & Brakes > Performance Brake Rotors"
+    },
+    {
+      "categoryId": "175549",
+      "categoryName": "Racing Pads",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175544"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Chassis, Suspension & Brakes > Racing Pads"
+    },
+    {
+      "categoryId": "175550",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175544"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Chassis, Suspension & Brakes > Other"
+    },
+    {
+      "categoryId": "175551",
+      "categoryName": "Brake Fluid",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175544"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Chassis, Suspension & Brakes > Brake Fluid"
+    },
+    {
+      "categoryId": "175552",
+      "categoryName": "Performance Brake Lines, Hoses",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175544"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Chassis, Suspension & Brakes > Performance Brake Lines, Hoses"
+    },
+    {
+      "categoryId": "175571",
+      "categoryName": "Wheels & Tires",
+      "leaf": false,
+      "ancestors": [
+        "107057",
+        "107059"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Wheels & Tires"
+    },
+    {
+      "categoryId": "175572",
+      "categoryName": "Racing Wheels",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175571"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Wheels & Tires > Racing Wheels"
+    },
+    {
+      "categoryId": "175573",
+      "categoryName": "Racing Tires",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175571"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Wheels & Tires > Racing Tires"
+    },
+    {
+      "categoryId": "175574",
+      "categoryName": "Drag Racing Slicks",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175571"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Wheels & Tires > Drag Racing Slicks"
+    },
+    {
+      "categoryId": "175575",
+      "categoryName": "DOT-R Compound",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175571"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Wheels & Tires > DOT-R Compound"
+    },
+    {
+      "categoryId": "175576",
+      "categoryName": "Racing Tire & Wheel Packages",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175571"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Wheels & Tires > Racing Tire & Wheel Packages"
+    },
+    {
+      "categoryId": "175577",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "107059",
+        "175571"
+      ],
+      "path": "Performance & Racing Parts > Auto Performance Parts > Wheels & Tires > Other"
+    },
+    {
+      "categoryId": "107067",
+      "categoryName": "Fasteners, Fluids & Gaskets",
+      "leaf": true,
+      "ancestors": [
+        "107057"
+      ],
+      "path": "Performance & Racing Parts > Fasteners, Fluids & Gaskets"
+    },
+    {
+      "categoryId": "107070",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057"
+      ],
+      "path": "Performance & Racing Parts > Other"
+    },
+    {
+      "categoryId": "173668",
+      "categoryName": "Racing Equipment",
+      "leaf": false,
+      "ancestors": [
+        "107057"
+      ],
+      "path": "Performance & Racing Parts > Racing Equipment"
+    },
+    {
+      "categoryId": "173669",
+      "categoryName": "Electronics",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173668"
+      ],
+      "path": "Performance & Racing Parts > Racing Equipment > Electronics"
+    },
+    {
+      "categoryId": "173670",
+      "categoryName": "Pit Equipment",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173668"
+      ],
+      "path": "Performance & Racing Parts > Racing Equipment > Pit Equipment"
+    },
+    {
+      "categoryId": "173671",
+      "categoryName": "Shop Equipment",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173668"
+      ],
+      "path": "Performance & Racing Parts > Racing Equipment > Shop Equipment"
+    },
+    {
+      "categoryId": "173672",
+      "categoryName": "Timing & Scoring",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173668"
+      ],
+      "path": "Performance & Racing Parts > Racing Equipment > Timing & Scoring"
+    },
+    {
+      "categoryId": "173673",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173668"
+      ],
+      "path": "Performance & Racing Parts > Racing Equipment > Other"
+    },
+    {
+      "categoryId": "175615",
+      "categoryName": "Air to Fuel Ratio Meters",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173668"
+      ],
+      "path": "Performance & Racing Parts > Racing Equipment > Air to Fuel Ratio Meters"
+    },
+    {
+      "categoryId": "175616",
+      "categoryName": "Data Acquisition",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173668"
+      ],
+      "path": "Performance & Racing Parts > Racing Equipment > Data Acquisition"
+    },
+    {
+      "categoryId": "175617",
+      "categoryName": "Lap Timers",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173668"
+      ],
+      "path": "Performance & Racing Parts > Racing Equipment > Lap Timers"
+    },
+    {
+      "categoryId": "175618",
+      "categoryName": "Racing Radios",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173668"
+      ],
+      "path": "Performance & Racing Parts > Racing Equipment > Racing Radios"
+    },
+    {
+      "categoryId": "173674",
+      "categoryName": "Safety Equipment",
+      "leaf": false,
+      "ancestors": [
+        "107057"
+      ],
+      "path": "Performance & Racing Parts > Safety Equipment"
+    },
+    {
+      "categoryId": "173675",
+      "categoryName": "Boots",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173674"
+      ],
+      "path": "Performance & Racing Parts > Safety Equipment > Boots"
+    },
+    {
+      "categoryId": "173676",
+      "categoryName": "Gloves",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173674"
+      ],
+      "path": "Performance & Racing Parts > Safety Equipment > Gloves"
+    },
+    {
+      "categoryId": "173677",
+      "categoryName": "Head & Neck Restraints",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173674"
+      ],
+      "path": "Performance & Racing Parts > Safety Equipment > Head & Neck Restraints"
+    },
+    {
+      "categoryId": "173678",
+      "categoryName": "Helmets",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173674"
+      ],
+      "path": "Performance & Racing Parts > Safety Equipment > Helmets"
+    },
+    {
+      "categoryId": "173679",
+      "categoryName": "Safety Belts & Harnesses",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173674"
+      ],
+      "path": "Performance & Racing Parts > Safety Equipment > Safety Belts & Harnesses"
+    },
+    {
+      "categoryId": "173680",
+      "categoryName": "Suits",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173674"
+      ],
+      "path": "Performance & Racing Parts > Safety Equipment > Suits"
+    },
+    {
+      "categoryId": "173681",
+      "categoryName": "Undergarments & Socks",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173674"
+      ],
+      "path": "Performance & Racing Parts > Safety Equipment > Undergarments & Socks"
+    },
+    {
+      "categoryId": "173682",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "173674"
+      ],
+      "path": "Performance & Racing Parts > Safety Equipment > Other"
+    },
+    {
+      "categoryId": "175530",
+      "categoryName": "Asphalt Oval Racing Parts",
+      "leaf": false,
+      "ancestors": [
+        "107057"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts"
+    },
+    {
+      "categoryId": "175531",
+      "categoryName": "Dwarf/Legends",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Dwarf/Legends"
+    },
+    {
+      "categoryId": "175532",
+      "categoryName": "Ford Focus Midgets",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Ford Focus Midgets"
+    },
+    {
+      "categoryId": "175533",
+      "categoryName": "Late Models",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Late Models"
+    },
+    {
+      "categoryId": "175534",
+      "categoryName": "Midgets",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Midgets"
+    },
+    {
+      "categoryId": "175535",
+      "categoryName": "Mini Indy Cars",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Mini Indy Cars"
+    },
+    {
+      "categoryId": "175536",
+      "categoryName": "Mini Stock",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Mini Stock"
+    },
+    {
+      "categoryId": "175537",
+      "categoryName": "Modifieds",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Modifieds"
+    },
+    {
+      "categoryId": "175538",
+      "categoryName": "NASCAR/ARCA/ASA/Hooters",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > NASCAR/ARCA/ASA/Hooters"
+    },
+    {
+      "categoryId": "175539",
+      "categoryName": "Quarter Midget/Micro Stock",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Quarter Midget/Micro Stock"
+    },
+    {
+      "categoryId": "175540",
+      "categoryName": "Silver Crown",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Silver Crown"
+    },
+    {
+      "categoryId": "175541",
+      "categoryName": "Sportsman",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Sportsman"
+    },
+    {
+      "categoryId": "175542",
+      "categoryName": "Sprints",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Sprints"
+    },
+    {
+      "categoryId": "175543",
+      "categoryName": "Street Stock",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Street Stock"
+    },
+    {
+      "categoryId": "176932",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175530"
+      ],
+      "path": "Performance & Racing Parts > Asphalt Oval Racing Parts > Other"
+    },
+    {
+      "categoryId": "175578",
+      "categoryName": "Dirt Oval Racing Parts",
+      "leaf": false,
+      "ancestors": [
+        "107057"
+      ],
+      "path": "Performance & Racing Parts > Dirt Oval Racing Parts"
+    },
+    {
+      "categoryId": "175579",
+      "categoryName": "4 Cylinder",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175578"
+      ],
+      "path": "Performance & Racing Parts > Dirt Oval Racing Parts > 4 Cylinder"
+    },
+    {
+      "categoryId": "175580",
+      "categoryName": "Dwarfs/Legends",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175578"
+      ],
+      "path": "Performance & Racing Parts > Dirt Oval Racing Parts > Dwarfs/Legends"
+    },
+    {
+      "categoryId": "175581",
+      "categoryName": "Late Models",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175578"
+      ],
+      "path": "Performance & Racing Parts > Dirt Oval Racing Parts > Late Models"
+    },
+    {
+      "categoryId": "175582",
+      "categoryName": "Midgets",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175578"
+      ],
+      "path": "Performance & Racing Parts > Dirt Oval Racing Parts > Midgets"
+    },
+    {
+      "categoryId": "175583",
+      "categoryName": "Modifieds",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175578"
+      ],
+      "path": "Performance & Racing Parts > Dirt Oval Racing Parts > Modifieds"
+    },
+    {
+      "categoryId": "175584",
+      "categoryName": "Pro Stock",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175578"
+      ],
+      "path": "Performance & Racing Parts > Dirt Oval Racing Parts > Pro Stock"
+    },
+    {
+      "categoryId": "175585",
+      "categoryName": "Sprint Cars",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175578"
+      ],
+      "path": "Performance & Racing Parts > Dirt Oval Racing Parts > Sprint Cars"
+    },
+    {
+      "categoryId": "175586",
+      "categoryName": "Street Stock",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175578"
+      ],
+      "path": "Performance & Racing Parts > Dirt Oval Racing Parts > Street Stock"
+    },
+    {
+      "categoryId": "175587",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175578"
+      ],
+      "path": "Performance & Racing Parts > Dirt Oval Racing Parts > Other"
+    },
+    {
+      "categoryId": "175588",
+      "categoryName": "Drag Racing Parts",
+      "leaf": false,
+      "ancestors": [
+        "107057"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts"
+    },
+    {
+      "categoryId": "175589",
+      "categoryName": "Altered",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Altered"
+    },
+    {
+      "categoryId": "175590",
+      "categoryName": "Door Cars",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Door Cars"
+    },
+    {
+      "categoryId": "175591",
+      "categoryName": "Dragsters",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Dragsters"
+    },
+    {
+      "categoryId": "175592",
+      "categoryName": "Drifting",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Drifting"
+    },
+    {
+      "categoryId": "175593",
+      "categoryName": "Exhibition",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Exhibition"
+    },
+    {
+      "categoryId": "175594",
+      "categoryName": "Funny Car",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Funny Car"
+    },
+    {
+      "categoryId": "175595",
+      "categoryName": "Junior Dragster",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Junior Dragster"
+    },
+    {
+      "categoryId": "175596",
+      "categoryName": "Nostalgia",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Nostalgia"
+    },
+    {
+      "categoryId": "175597",
+      "categoryName": "Outlaw 10.5",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Outlaw 10.5"
+    },
+    {
+      "categoryId": "175598",
+      "categoryName": "Pro Modified",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Pro Modified"
+    },
+    {
+      "categoryId": "175599",
+      "categoryName": "Pro Stock",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Pro Stock"
+    },
+    {
+      "categoryId": "175600",
+      "categoryName": "Pro Street",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Pro Street"
+    },
+    {
+      "categoryId": "175601",
+      "categoryName": "Sport Compact",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Sport Compact"
+    },
+    {
+      "categoryId": "175602",
+      "categoryName": "Sportsman/Bracket",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Sportsman/Bracket"
+    },
+    {
+      "categoryId": "175603",
+      "categoryName": "Stock/Super Stock",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Stock/Super Stock"
+    },
+    {
+      "categoryId": "175604",
+      "categoryName": "Super Gas",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Super Gas"
+    },
+    {
+      "categoryId": "175605",
+      "categoryName": "Top Sportsman",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Top Sportsman"
+    },
+    {
+      "categoryId": "175606",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175588"
+      ],
+      "path": "Performance & Racing Parts > Drag Racing Parts > Other"
+    },
+    {
+      "categoryId": "175607",
+      "categoryName": "Kart Racing Parts",
+      "leaf": false,
+      "ancestors": [
+        "107057"
+      ],
+      "path": "Performance & Racing Parts > Kart Racing Parts"
+    },
+    {
+      "categoryId": "175608",
+      "categoryName": "Dirt Kart",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175607"
+      ],
+      "path": "Performance & Racing Parts > Kart Racing Parts > Dirt Kart"
+    },
+    {
+      "categoryId": "175609",
+      "categoryName": "Champ Kart",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175607"
+      ],
+      "path": "Performance & Racing Parts > Kart Racing Parts > Champ Kart"
+    },
+    {
+      "categoryId": "175610",
+      "categoryName": "Rotax",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175607"
+      ],
+      "path": "Performance & Racing Parts > Kart Racing Parts > Rotax"
+    },
+    {
+      "categoryId": "175611",
+      "categoryName": "Shifter Kart",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175607"
+      ],
+      "path": "Performance & Racing Parts > Kart Racing Parts > Shifter Kart"
+    },
+    {
+      "categoryId": "175612",
+      "categoryName": "Speedway Kart",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175607"
+      ],
+      "path": "Performance & Racing Parts > Kart Racing Parts > Speedway Kart"
+    },
+    {
+      "categoryId": "175613",
+      "categoryName": "Superkart",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175607"
+      ],
+      "path": "Performance & Racing Parts > Kart Racing Parts > Superkart"
+    },
+    {
+      "categoryId": "175614",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175607"
+      ],
+      "path": "Performance & Racing Parts > Kart Racing Parts > Other"
+    },
+    {
+      "categoryId": "175619",
+      "categoryName": "Off-Road Racing",
+      "leaf": false,
+      "ancestors": [
+        "107057"
+      ],
+      "path": "Performance & Racing Parts > Off-Road Racing"
+    },
+    {
+      "categoryId": "175620",
+      "categoryName": "PRO 2",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175619"
+      ],
+      "path": "Performance & Racing Parts > Off-Road Racing > PRO 2"
+    },
+    {
+      "categoryId": "175621",
+      "categoryName": "PRO 4",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175619"
+      ],
+      "path": "Performance & Racing Parts > Off-Road Racing > PRO 4"
+    },
+    {
+      "categoryId": "175622",
+      "categoryName": "PRO LITE",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175619"
+      ],
+      "path": "Performance & Racing Parts > Off-Road Racing > PRO LITE"
+    },
+    {
+      "categoryId": "175623",
+      "categoryName": "Single Buggy",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175619"
+      ],
+      "path": "Performance & Racing Parts > Off-Road Racing > Single Buggy"
+    },
+    {
+      "categoryId": "175624",
+      "categoryName": "Super Buggy",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175619"
+      ],
+      "path": "Performance & Racing Parts > Off-Road Racing > Super Buggy"
+    },
+    {
+      "categoryId": "175625",
+      "categoryName": "Other",
+      "leaf": true,
+      "ancestors": [
+        "107057",
+        "175619"
+      ],
+      "path": "Performance & Racing Parts > Off-Road Racing > Other"
     }
   ]
 }

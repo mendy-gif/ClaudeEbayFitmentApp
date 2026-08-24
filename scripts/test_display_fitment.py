@@ -937,9 +937,55 @@ def t_body_suffix_trims():
         CAT._property_values = saved
 
 
+
+def t_category_coverage():
+    """A category missing from the tree defaults to Rule B, and Rule B with no engine emits
+    nothing -- so a gap in the tree is silently a gap in fitment. These are the categories
+    that were missing on 2026-08-24 and the engine branches that must NOT have flipped to
+    Rule A when the tree was widened to cover them."""
+    print("Category coverage and Rule A/B classification:")
+    import classify_part as CP
+    by_id = CP.load_tree()
+    by_id = by_id[1] if isinstance(by_id, tuple) else by_id
+    inc, exc, default = CP.load_config()
+
+    # Bare ids and annotated objects must both parse -- mixing them used to raise
+    # TypeError inside set() and take the whole classifier down.
+    eq(CP._ids(["1", {"id": "2"}, {"id": 3}, None, ""]), {"1", "2", "3"},
+       "config ids parse from strings and objects alike")
+
+    # Car audio / electronics: real categories, on a sibling branch of 6030. Every one of
+    # these was classified as an ENGINE part and produced no fitment at all.
+    for cid, name in (("179671", "Speakers"), ("38771", "Subwoofers"),
+                      ("174119", "Car Stereos & Head Units"), ("169395", "Screens"),
+                      ("21647", "Amplifiers")):
+        eq(cid in by_id, True, f"{name} ({cid}) is in the category tree")
+        eq(CP.classify(cid, by_id, inc, exc, default)[0], "A", f"{name} is Rule A, not an engine part")
+
+    # The catch-all that was the largest non-displaying category in the audit.
+    eq(CP.classify("107062", by_id, inc, exc, default)[0], "A",
+       "Performance > Electrical > Other is forced Rule A by exclude_ids")
+
+    # Widening the tree must NOT relax the engine restriction. Each of these would have
+    # flipped from default-B to Rule A and claimed every engine in the chassis.
+    for cid, name in (("171113", "Racing Engines"), ("133197", "Fuel Injection & Pumps"),
+                      ("175569", "Turbo Chargers"), ("175558", "Camshafts"),
+                      ("175562", "Engine Blocks"), ("133192", "Performance Ignition"),
+                      ("133204", "Performance Intake Manifolds")):
+        eq(CP.classify(cid, by_id, inc, exc, default)[0], "B", f"{name} stays Rule B")
+
+    # And the pre-existing decisions are untouched.
+    eq(CP.classify("33612", by_id, inc, exc, default)[0], "B", "Engines & Engine Parts still B")
+    eq(CP.classify("33549", by_id, inc, exc, default)[0], "B", "Air & Fuel Delivery still B")
+    eq(CP.classify("33694", by_id, inc, exc, default)[0], "A", "Interior still A")
+    eq(CP.classify("33605", by_id, inc, exc, default)[0], "A", "Exhaust & Emission still A")
+    eq(CP.classify("173653", by_id, inc, exc, default)[0], "A", "Performance Exhaust mirrors it")
+    eq(default, "B", "an unknown category still defaults to the narrower rule")
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()

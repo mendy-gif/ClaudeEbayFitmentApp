@@ -1,29 +1,120 @@
 {
-  "_comment": "The ONE judgment in the pipeline: which eBay category branches count as ENGINE parts (Rule B). A listing whose categoryId is a descendant of any include-ancestor -> Rule B (fitment restricted to the donor's engine). Everything else -> Rule A (whole chassis family). exclude_ids override include (forced Rule A). See docs/DESIGN.md sec 6.1. IDs are eBay US Motors (category_tree 100) top-level branches under 6030, owner-confirmed 2026-08-15.",
-
+  "_comment": "The ONE judgment in the pipeline: which eBay category branches count as ENGINE parts (Rule B). A listing whose categoryId is a descendant of any include-ancestor -> Rule B (fitment restricted to the donor's engine). Everything else -> Rule A (whole chassis family). exclude_ids override include (forced Rule A). See docs/DESIGN.md sec 6.1. IDs are eBay US Motors (category_tree 100) branches under the roots listed in ebay_fetch_categories.DEFAULT_ROOTS (6030 Car & Truck Parts, 38635 In-Car Technology, 107057 Performance & Racing). 6030 owner-confirmed 2026-08-15; the Performance mirrors added 2026-08-24.",
   "default_when_category_unknown": "B",
   "_default_note": "If a listing's category is not in the fetched tree, default to Rule B (narrower/safer).",
-
   "include_ancestors": [
-    {"id": "33612", "name": "Engines & Engine Parts", "decision": "include", "note": "Core engine parts."},
-    {"id": "33549", "name": "Air & Fuel Delivery", "decision": "include", "note": "Injectors, throttle bodies, intake manifolds, fuel pumps, turbos live here."},
-    {"id": "33687", "name": "Ignition Systems & Components", "decision": "include", "note": "Coils, plugs, distributors."},
-    {"id": "33599", "name": "Engine Cooling Components", "decision": "include", "note": "Owner: ALL cooling incl radiators = engine."},
-    {"id": "262059", "name": "Accessory Belts", "decision": "include", "note": "Engine accessory drive."},
-    {"id": "33572", "name": "Starters, Alternators, ECUs & Wiring", "decision": "include", "note": "Owner-confirmed: starters/alternators/ECUs are engine-specific (accepts some wiring imprecision)."}
+    {
+      "id": "33612",
+      "name": "Engines & Engine Parts",
+      "decision": "include",
+      "note": "Core engine parts."
+    },
+    {
+      "id": "33549",
+      "name": "Air & Fuel Delivery",
+      "decision": "include",
+      "note": "Injectors, throttle bodies, intake manifolds, fuel pumps, turbos live here."
+    },
+    {
+      "id": "33687",
+      "name": "Ignition Systems & Components",
+      "decision": "include",
+      "note": "Coils, plugs, distributors."
+    },
+    {
+      "id": "33599",
+      "name": "Engine Cooling Components",
+      "decision": "include",
+      "note": "Owner: ALL cooling incl radiators = engine."
+    },
+    {
+      "id": "262059",
+      "name": "Accessory Belts",
+      "decision": "include",
+      "note": "Engine accessory drive."
+    },
+    {
+      "id": "33572",
+      "name": "Starters, Alternators, ECUs & Wiring",
+      "decision": "include",
+      "note": "Owner-confirmed: starters/alternators/ECUs are engine-specific (accepts some wiring imprecision)."
+    },
+    {
+      "id": "171112",
+      "name": "Performance > Engine & Components",
+      "decision": "include",
+      "note": "Mirrors 33612. Racing engines, camshafts, crankshafts, cylinder heads, blocks, pistons, valves."
+    },
+    {
+      "id": "133196",
+      "name": "Performance > Fuel Systems",
+      "decision": "include",
+      "note": "Mirrors 33549. Fuel injection & pumps, pressure regulators, fuel cells."
+    },
+    {
+      "id": "133201",
+      "name": "Performance > Induction",
+      "decision": "include",
+      "note": "Mirrors 33549's note (intake manifolds, turbos). Superchargers, cold air intake, carburetors."
+    },
+    {
+      "id": "133191",
+      "name": "Performance > Electrical Components",
+      "decision": "include",
+      "note": "Mirrors 33572 (ECUs/ignition are engine-specific): ignition, chips, programmers, tuning devices. Its 'Other' catch-all (107062) is excluded below -- see exclude_ids."
+    }
   ],
-
   "_rule_a_by_default": [
-    {"id": "33605", "name": "Exhaust & Emission Systems", "note": "Owner-confirmed Rule A."},
-    "33559 Brakes", "33579 Steering & Suspension", "33637 Exterior", "33694 Interior",
-    "33707 Lighting & Lamps", "33726 Transmission & Drivetrain", "33743 Wheels/Tires",
-    "180143 Towing", "262064 ADAS", "262215 Racks & Cargo", "9886 Other"
+    {
+      "id": "33605",
+      "name": "Exhaust & Emission Systems",
+      "note": "Owner-confirmed Rule A."
+    },
+    "33559 Brakes",
+    "33579 Steering & Suspension",
+    "33637 Exterior",
+    "33694 Interior",
+    "33707 Lighting & Lamps",
+    "33726 Transmission & Drivetrain",
+    "33743 Wheels/Tires",
+    "180143 Towing",
+    "262064 ADAS",
+    "262215 Racks & Cargo",
+    "9886 Other",
+    {
+      "id": "173653",
+      "name": "Performance > Exhaust",
+      "note": "Mirrors 33605, owner-confirmed Rule A."
+    },
+    {
+      "id": "133187",
+      "name": "Performance > Driveline & Transmission",
+      "note": "Mirrors 33726."
+    },
+    {
+      "id": "38635",
+      "name": "In-Car Technology, GPS & Security",
+      "note": "Speakers, subwoofers, amps, screens, head units, alarms. No engine branch anywhere in its 77 categories."
+    }
   ],
-
   "_decided_rule_a": [
-    {"id": "33542", "name": "Air Conditioning & Heating", "note": "Owner: Rule A (climate, chassis/model-specific)."},
-    {"id": "177701", "name": "Electric, Hybrid & PHEV Specific Parts", "note": "Owner: Rule A (whole chassis family)."}
+    {
+      "id": "33542",
+      "name": "Air Conditioning & Heating",
+      "note": "Owner: Rule A (climate, chassis/model-specific)."
+    },
+    {
+      "id": "177701",
+      "name": "Electric, Hybrid & PHEV Specific Parts",
+      "note": "Owner: Rule A (whole chassis family)."
+    }
   ],
-
-  "exclude_ids": []
+  "exclude_ids": [
+    {
+      "id": "107062",
+      "name": "Performance > Electrical Components > Other",
+      "decision": "exclude",
+      "note": "Forced Rule A. This is a catch-all, not an engine branch -- the listings that land here are camera modules, antennas, tailgate openers. It was the single largest non-displaying category in the 2026-08-24 audit (0/27) because it defaulted to Rule B and got engine-restricted trims."
+    }
+  ]
 }

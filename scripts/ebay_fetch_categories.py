@@ -29,6 +29,18 @@ API = {"prod": "https://api.ebay.com", "sandbox": "https://api.sandbox.ebay.com"
 CAR_TRUCK_PARTS = "6030"   # Car & Truck Parts & Accessories (US Motors)
 ENGINES = "33612"          # Car & Truck Engines & Engine Parts
 
+# Roots to fetch. 6030 alone is NOT enough: a category missing from this file defaults to
+# Rule B (rule_b_categories.json), and Rule B on a part with no engine emits nothing at all.
+# That is how speakers, subwoofers, amplifiers, screens, head units and a catch-all "Other"
+# came to be classified as engine parts -- 89 listings produced no fitment and another 90
+# were pushed wrongly engine-restricted in the 2026-08-24 sweep alone. Those categories are
+# real, they simply hang off sibling branches of Parts & Accessories (6028).
+DEFAULT_ROOTS = [
+    "6030",     # Car & Truck Parts & Accessories -- the bulk of the inventory
+    "38635",    # In-Car Technology, GPS & Security -- speakers, head units, screens, alarms
+    "107057",   # Performance & Racing Parts -- incl. the "Other" catch-all at 107062
+]
+
 
 def load_token(args):
     if args.token:
@@ -75,23 +87,41 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--token")
     ap.add_argument("--sandbox", action="store_true")
-    ap.add_argument("--category", default=CAR_TRUCK_PARTS, help=f"Root category to fetch (default {CAR_TRUCK_PARTS})")
+    ap.add_argument("--category", default=None,
+                    help=f"Single root to fetch (default: the {len(DEFAULT_ROOTS)} roots in DEFAULT_ROOTS)")
     ap.add_argument("--engines-only", action="store_true", help="Fetch the 33612 engine subtree and print its leaves")
     args = ap.parse_args()
 
     base = API["sandbox" if args.sandbox else "prod"]
     token = load_token(args)
-    root = ENGINES if args.engines_only else args.category
+    if args.engines_only:
+        roots = [ENGINES]
+    elif args.category:
+        roots = [args.category]
+    else:
+        roots = list(DEFAULT_ROOTS)
 
-    status, payload = get_subtree(base, root, token)
-    if status != 200 or "categorySubtreeNode" not in payload:
-        print(f"HTTP {status}: {json.dumps(payload)[:800]}", file=sys.stderr)
-        sys.exit(1)
-
-    flat = []
-    flatten(payload["categorySubtreeNode"], [], [], flat)
+    flat, seen = [], set()
+    for root in roots:
+        status, payload = get_subtree(base, root, token)
+        if status != 200 or "categorySubtreeNode" not in payload:
+            # One bad root must not silently shrink the file -- a category that vanishes
+            # from here starts defaulting to Rule B again, which is the bug this fixes.
+            print(f"Root {root}: HTTP {status}: {json.dumps(payload)[:400]}", file=sys.stderr)
+            sys.exit(1)
+        part = []
+        flatten(payload["categorySubtreeNode"], [], [], part)
+        added = 0
+        for n in part:
+            if n["categoryId"] in seen:
+                continue
+            seen.add(n["categoryId"])
+            flat.append(n)
+            added += 1
+        print(f"Root {root}: {len(part)} nodes ({added} new).")
+    root = roots[0]
     leaves = [n for n in flat if n["leaf"]]
-    print(f"Root {root}: {len(flat)} nodes, {len(leaves)} leaf categories.")
+    print(f"Total: {len(flat)} nodes, {len(leaves)} leaf categories.")
 
     if args.engines_only:
         print("\nEngine (33612) LEAF categories — these are the core Rule-B set:")
@@ -101,7 +131,7 @@ def main():
 
     out = os.path.join(ROOT, "data", "ebay_motors_categories.json")
     with open(out, "w", encoding="utf-8") as f:
-        json.dump({"root": root, "count": len(flat), "nodes": flat}, f, indent=2)
+        json.dump({"root": root, "roots": roots, "count": len(flat), "nodes": flat}, f, indent=2)
     print(f"Saved {len(flat)} nodes -> {os.path.relpath(out, ROOT)}")
     # Show the top-level branches so we can pick the engine-accessory ancestors to include.
     top = [n for n in flat if n["ancestors"] == [root]]

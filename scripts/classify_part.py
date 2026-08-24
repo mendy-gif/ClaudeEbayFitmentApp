@@ -30,10 +30,28 @@ CONFIG = os.path.join(ROOT, "data", "rule_b_categories.json")
 LCI_CONFIG = os.path.join(ROOT, "data", "lci_categories.json")
 
 
+def _ids(entries):
+    """Category ids from a config list that may hold bare ids or annotated objects.
+
+    `include_ancestors` has always been objects ({"id", "name", "note"}) while
+    `exclude_ids` was bare strings, so adding an annotated exclusion -- the natural thing
+    to do, since an exclusion is exactly the entry that needs its reasoning recorded --
+    raised TypeError deep inside a set(). Accept both shapes.
+    """
+    out = set()
+    for e in entries or []:
+        if isinstance(e, dict):
+            if e.get("id"):
+                out.add(str(e["id"]))
+        elif e:
+            out.add(str(e))
+    return out
+
+
 def load_config():
     cfg = json.load(open(CONFIG, encoding="utf-8"))
-    include = {a["id"] for a in cfg.get("include_ancestors", []) if a.get("id")}
-    exclude = set(cfg.get("exclude_ids", []))
+    include = _ids(cfg.get("include_ancestors"))
+    exclude = _ids(cfg.get("exclude_ids"))
     default = cfg.get("default_when_category_unknown", "B").upper()
     return include, exclude, default
 
