@@ -8,6 +8,87 @@ without re-reading the whole history. Technical detail lives in `CLAUDE.md` and
 
 ---
 
+## Plan for 2026-08-25 (written 2026-08-24)
+
+Four fixes went in today and all of them land on tonight's 07:30 UTC run. Nothing here
+needs doing by hand — this is what to CHECK, in order, and what to do about each answer.
+
+### 1. Did the donor dump actually refresh? (the gate — everything else depends on it)
+
+The refresh has been dead since 2026-08-21: Shopify throttled it at page 20, `gql()` had no
+retry, and the step reported SUCCESS with a green tick, so three sweeps ran against a stale
+dump without anyone noticing. Today's fix waits out the throttle, paces off Shopify's own
+bucket state, halves the page size, and **fails the run** if the refresh fails.
+
+```bash
+git pull
+python3 - <<'EOF'
+import json
+sd = json.load(open('data/shopify_donors.json'))
+b = [v for v in sd.values() if (v.get('make') or '').upper() == 'BMW']
+f = lambda k: sum(1 for v in b if v.get(k))
+print(f"BMW donors {len(b)} | chassis {f('series')} | engine {f('engine_family')} "
+      f"| year {f('year')} | VIN {f('vin')} | part# {f('part_number')}")
+EOF
+```
+
+| Result | Meaning |
+|---|---|
+| chassis ~15,380, VIN and part# **> 0** | Everything worked. Go to 2. |
+| chassis still **12,740**, VIN/part# **0** | The dump did not refresh. The run should be RED — read the "Refresh Shopify donor dump" step; if it still says THROTTLED the pacing was not enough and the page size needs to drop again. |
+
+### 2. Did the three fitment fixes land?
+
+Compare against today's baseline. `data/batch_plan.csv` is the run's own record.
+
+```bash
+python3 - <<'EOF'
+import csv, collections, re
+rows = list(csv.DictReader(open('data/batch_plan.csv')))
+print(dict(collections.Counter(r['action'] for r in rows)))
+c = collections.Counter(re.sub(r"'[^']*'", "'X'", re.sub(r'\d+', 'N', r.get('reason') or ''))[:60]
+                        for r in rows if r['action'] in ('review', 'skip'))
+for k, n in c.most_common(8):
+    print(f"  {n:>4}  {k}")
+EOF
+```
+
+Baseline from 2026-08-24 (out of 2,000), and what each should become:
+
+| Was | Count | Expect |
+|---|---|---|
+| `unresolved chassis: series 'None'` | 59 | **near 0** — the chassis is read from the metafield and the `raw_veh_series_` tag now |
+| `Rule B needs an engine or donor model` | 89 | **near 0** — they were speakers/antennas/modules misread as engine parts |
+| `trim 'X5 M' unknown` | 51 | **0** — eBay spells that trim `M` |
+| `already N vehicles` | 472 | unchanged — that guard protects other systems' work |
+| `no published offer` | 231 | unchanged — ended/sold listings |
+
+If any of the first three barely moves, the fix did not take effect — check the run used
+the new commits (`git log --oneline -6` should show today's four).
+
+### 3. The re-push decision (needs mendy)
+
+Listings pushed BEFORE today carry fitment built from the wrong classification. They are in
+the ledger, so the guard skips them forever — they will not self-heal.
+
+- **~40 in category 107062 and friends** — pushed engine-restricted when they are Rule A.
+  These currently display **nothing**. Biggest and most clearly wrong group.
+- **39 with a `raw_` engine family** — mendy already said these can stay wrong (2026-08-24).
+- Any X5 M / X6 M / X3 M listing pushed before today — dropped every row, so nothing to undo,
+  but they are ledgered and will not be retried without a force.
+
+Re-pushing means `--force` on a named set of SKUs. It re-reads each listing first, so it
+costs GetItem quota (5,000/day, and a normal sweep already uses ~2,000). **Do not run this
+until step 2 is green** — no point re-pushing through logic we have not confirmed.
+
+### 4. Then: wire in the ETK as the third fitment source
+
+Only possible once step 1 is green, because it needs the part numbers the dump now captures.
+Plan and constraints are in `docs/DESIGN.md` §9. Order: measure how many listings have a part
+number the ETK knows → wire `bmw-etk/scripts/ebay_fitment.py` output into the union in
+`ebay_batch.py` → map ETK vocabulary through `ebay_compat_catalog.py` → drop `VERIFY`
+(option-dependent) rows on Rule B categories. Do **not** write custom fitment-condition SQL.
+
 ## The headline
 
 Fitment was being pushed to eBay successfully for months and **displaying nothing** on
