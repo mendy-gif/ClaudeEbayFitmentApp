@@ -31,6 +31,7 @@ import json
 import os
 import re
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -118,26 +119,70 @@ class ShopifyError(RuntimeError):
     """A Shopify API failure that must stop the run rather than look like empty data."""
 
 
-def gql(store, tok, query, variables):
-    """GraphQL call that FAILS LOUDLY. Shopify answers a rejected query with HTTP 200 and
-    an `errors` payload (bad token, missing read_products scope, throttling). Treating that
-    as "no products" is how a refresh silently wipes a good donor dump -- so raise instead."""
+def _is_throttled(errors):
+    """True when Shopify's `errors` payload is purely a rate-limit rejection."""
+    if not errors:
+        return False
+    for e in errors:
+        code = ((e.get("extensions") or {}).get("code") or "").upper()
+        if code != "THROTTLED" and "throttl" not in (e.get("message") or "").lower():
+            return False            # a REAL error is mixed in -- do not retry it away
+    return True
+
+
+def gql(store, tok, query, variables, _tries=6):
+    """GraphQL call that FAILS LOUDLY, but waits out rate limits first.
+
+    Shopify answers a rejected query with HTTP 200 and an `errors` payload (bad token,
+    missing read_products scope, throttling). Treating that as "no products" is how a
+    refresh silently wipes a good donor dump -- so raise instead.
+
+    THROTTLED is the exception: it is not a failure, it is "ask again shortly". There was
+    no retry here, so the FIRST throttle killed the whole dump. That is exactly what
+    happened on 2026-08-21: adding 8 metafield lookups to a 50-product page raised the
+    query cost ~3.6x, Shopify started throttling, and the nightly donor refresh silently
+    stopped updating for three nights while the sweep carried on against a stale dump.
+    Back off using Shopify's own restoreRate when it tells us, and retry.
+    """
     url = f"https://{store}/admin/api/{API_VERSION}/graphql.json"
     data = json.dumps({"query": query, "variables": variables}).encode()
-    req = urllib.request.Request(url, data=data, method="POST", headers={
-        "X-Shopify-Access-Token": tok, "Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=120) as r:
-            body = json.loads(r.read().decode("utf-8", "replace"))
-    except urllib.error.HTTPError as e:
-        raise ShopifyError(f"HTTP {e.code}: {e.read().decode('utf-8', 'replace')[:300]}") from None
-    except (urllib.error.URLError, ValueError, OSError) as e:
-        raise ShopifyError(f"transport: {e}") from None
-    if body.get("errors"):
-        raise ShopifyError(f"GraphQL errors: {json.dumps(body['errors'])[:300]}")
-    if body.get("data") is None:
-        raise ShopifyError(f"no data in response: {json.dumps(body)[:300]}")
-    return body
+    delay = 2.0
+    for attempt in range(1, _tries + 1):
+        req = urllib.request.Request(url, data=data, method="POST", headers={
+            "X-Shopify-Access-Token": tok, "Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                body = json.loads(r.read().decode("utf-8", "replace"))
+        except urllib.error.HTTPError as e:
+            if e.code == 429 and attempt < _tries:      # rate limit at the HTTP layer
+                time.sleep(delay); delay = min(delay * 2, 60); continue
+            raise ShopifyError(f"HTTP {e.code}: {e.read().decode('utf-8', 'replace')[:300]}") from None
+        except (urllib.error.URLError, ValueError, OSError) as e:
+            if attempt < _tries:                         # transient network blip
+                time.sleep(delay); delay = min(delay * 2, 60); continue
+            raise ShopifyError(f"transport: {e}") from None
+
+        errors = body.get("errors")
+        if errors and _is_throttled(errors) and attempt < _tries:
+            # Prefer Shopify's own numbers: how far below the requested cost we are, and
+            # how fast the bucket refills. Falls back to exponential backoff.
+            wait = delay
+            cost = (body.get("extensions") or {}).get("cost") or {}
+            ts = cost.get("throttleStatus") or {}
+            need, avail = cost.get("requestedQueryCost"), ts.get("currentlyAvailable")
+            rate = ts.get("restoreRate")
+            if need is not None and avail is not None and rate:
+                wait = max(1.0, (need - avail) / rate + 0.5)
+            print(f"  throttled by Shopify, waiting {wait:.0f}s (attempt {attempt}/{_tries})",
+                  file=sys.stderr)
+            time.sleep(min(wait, 60)); delay = min(delay * 2, 60)
+            continue
+        if errors:
+            raise ShopifyError(f"GraphQL errors: {json.dumps(errors)[:300]}")
+        if body.get("data") is None:
+            raise ShopifyError(f"no data in response: {json.dumps(body)[:300]}")
+        return body
+    raise ShopifyError(f"still throttled after {_tries} attempts")
 
 
 def _tag_value(tags, prefix):
@@ -390,7 +435,10 @@ def dump_all(store, tok, vendor="BMW", force_shrink=False):
         # pagination silently returns some products twice and misses others. That is why an
         # earlier dump captured 7,858 of 7,881 BMW products, losing real donors (SKUs 6407,
         # 60087) that the query definitely matched.
-        q = ("query($q:String!,$after:String){ products(first:50, query:$q, after:$after, "
+        # 25, not 50: each node now costs ~11 points (8 metafield lookups), so a 50-product
+        # page runs ~550 and exhausts the bucket almost immediately. Halving the page
+        # halves the per-query cost; the retry above covers what is left.
+        q = ("query($q:String!,$after:String){ products(first:25, query:$q, after:$after, "
              "sortKey:ID) {" + PRODUCT_FIELDS + "} }")
         r = gql(store, tok, q, {"q": BMW_QUERY, "after": cursor})
         prods = r.get("data", {}).get("products", {})

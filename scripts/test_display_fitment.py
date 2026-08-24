@@ -762,9 +762,79 @@ def t_donor_fields():
        "empty product invents nothing")
 
 
+
+def t_shopify_throttle():
+    """Rate limiting must be waited out, never raised. A throttle is "ask again shortly";
+    treating it as a failure is what stopped the nightly donor refresh for three nights
+    on 2026-08-21 while the sweep carried on against a stale dump."""
+    print("Shopify throttle handling:")
+    import io, json as _json, urllib.error
+    import shopify_donor as SD
+
+    THROTTLED = [{"message": "Throttled", "extensions": {"code": "THROTTLED"}}]
+    eq(SD._is_throttled(THROTTLED), True, "THROTTLED code detected")
+    eq(SD._is_throttled([{"message": "Query cost is throttled"}]), True, "detected by message")
+    eq(SD._is_throttled([]), False, "no errors -> not throttled")
+    eq(SD._is_throttled(None), False, "None -> not throttled")
+    # The important one: a REAL error must never be retried away as if it were a throttle.
+    eq(SD._is_throttled(THROTTLED + [{"message": "Field 'nope' doesn't exist"}]), False,
+       "a real error mixed in is NOT throttling")
+    eq(SD._is_throttled([{"message": "Access denied for products field"}]), False,
+       "a scope error is NOT throttling")
+
+    calls = []
+    saved_open, saved_sleep = SD.urllib.request.urlopen, SD.time.sleep
+
+    def fake(body_obj):
+        return io.BytesIO(_json.dumps(body_obj).encode())
+
+    try:
+        SD.time.sleep = lambda *_a, **_k: None          # no real waiting in tests
+        # Two throttles, then success -> gql must return the data, not raise.
+        seq = [
+            {"errors": THROTTLED, "extensions": {"cost": {"requestedQueryCost": 550,
+             "throttleStatus": {"currentlyAvailable": 100, "restoreRate": 100}}}},
+            {"errors": THROTTLED},
+            {"data": {"products": {"edges": [], "pageInfo": {"hasNextPage": False}}}},
+        ]
+        def urlopen_seq(req, timeout=None):
+            calls.append(1)
+            return fake(seq[len(calls) - 1])
+        SD.urllib.request.urlopen = urlopen_seq
+        out = SD.gql("s", "t", "q", {})
+        eq(len(calls), 3, "retried twice, succeeded on the third attempt")
+        eq(out["data"]["products"]["edges"], [], "returns the successful body")
+
+        # A real error must still raise immediately -- exactly once, no retry storm.
+        calls.clear()
+        def urlopen_err(req, timeout=None):
+            calls.append(1)
+            return fake({"errors": [{"message": "Access denied"}]})
+        SD.urllib.request.urlopen = urlopen_err
+        try:
+            SD.gql("s", "t", "q", {})
+            eq(True, False, "a real GraphQL error must raise")
+        except SD.ShopifyError:
+            eq(len(calls), 1, "a real error raises on the FIRST attempt, no retries")
+
+        # Persistent throttling must eventually give up rather than hang forever.
+        calls.clear()
+        def urlopen_throttle(req, timeout=None):
+            calls.append(1)
+            return fake({"errors": THROTTLED})
+        SD.urllib.request.urlopen = urlopen_throttle
+        try:
+            SD.gql("s", "t", "q", {}, _tries=3)
+            eq(True, False, "endless throttling must raise")
+        except SD.ShopifyError:
+            eq(len(calls), 3, "gives up after the configured number of tries")
+    finally:
+        SD.urllib.request.urlopen, SD.time.sleep = saved_open, saved_sleep
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_donor_year, t_donor_fields, t_lci_window, t_lci_categories, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()

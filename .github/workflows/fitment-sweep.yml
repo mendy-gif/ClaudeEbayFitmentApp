@@ -114,6 +114,10 @@ jobs:
             echo "WARNING: Shopify donor refresh FAILED -- swept using the committed dump," \
                  "so cars parted out recently were not included. See the step log." \
                  >> "$GITHUB_STEP_SUMMARY"
+            # Make it FAIL THE RUN at the end (see "Donor refresh health"). A warning in
+            # the step summary is not enough: the refresh broke on 2026-08-21 and ran
+            # stale for three nights before anyone noticed, because the run stayed green.
+            echo "DONOR_REFRESH_FAILED=1" >> "$GITHUB_ENV"
           fi
 
       - name: Push fitment (live)
@@ -212,3 +216,15 @@ jobs:
           echo "The listings were updated on eBay but the ledger record was NOT saved," \
                "so those SKUs will be re-evaluated next run." >> "$GITHUB_STEP_SUMMARY"
           exit 1
+
+      # Runs LAST and only reports -- the sweep, the audits and the commit have all already
+      # happened by now. Its whole job is to make a stale donor dump impossible to miss:
+      # the eBay work is still valid, but it was done against yesterday's cars.
+      - name: Donor refresh health
+        if: always()
+        run: |
+          if [ "${DONOR_REFRESH_FAILED:-0}" = "1" ]; then
+            echo "::error title=Donor dump is stale::The Shopify refresh failed, so this sweep ran against the committed dump. Cars parted out since it was written were invisible. The eBay pushes that DID happen are fine."
+            exit 1
+          fi
+          echo "Donor dump refreshed normally."
