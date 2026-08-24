@@ -853,9 +853,93 @@ def t_shopify_throttle():
         SD.urllib.request.urlopen, SD.time.sleep = saved_open, saved_sleep
 
 
+
+def t_body_suffix_trims():
+    """eBay spells trims `<trim> <body style>`. Stripping the shared body style is what
+    makes an ambiguous trim resolvable -- and the ambiguity is not cosmetic: `M Sport
+    Utility 4-Door` is the X5 M (S63) while `M Sport Sport Utility 4-Door` is an ordinary
+    X5 with the M Sport package (N55). A prefix match returned both."""
+    print("Body-style suffix stripping (the 'M' vs 'M Sport' trap):")
+    X5 = ["Base Sport Utility 4-Door", "Excellence Sport Utility 4-Door",
+          "M Sport Sport Utility 4-Door", "M Sport Utility 4-Door",
+          "sDrive35i Sport Utility 4-Door", "xDrive35d Sport Utility 4-Door",
+          "xDrive35i Sport Utility 4-Door", "xDrive50i Sport Utility 4-Door"]
+
+    eq(CAT.match_trim("M", X5), ["M Sport Utility 4-Door"],
+       "'M' resolves to the X5 M ALONE, not the M Sport package")
+    # NB our rules never emit "M Sport" -- the engine map emits X3 M / X4 M / X5 M / X6 M
+    # and no bare M -- so this direction is insurance against a future reference row.
+    eq(CAT.match_trim("M Sport", X5), ["M Sport Sport Utility 4-Door"],
+       "'M Sport' resolves to the package ALONE, not the M car")
+    # The whole point: an S63 part must never land on an N55 car.
+    eq("M Sport Sport Utility 4-Door" in CAT.match_trim("M", X5), False,
+       "matching 'M' NEVER drags in the M Sport package")
+    eq("M Sport Utility 4-Door" in CAT.match_trim("M Sport", X5), False,
+       "matching 'M Sport' NEVER drags in the M car")
+
+    # Everything the prefix fallback already got right must be unchanged.
+    for t, want in (("xDrive35i", "xDrive35i Sport Utility 4-Door"),
+                    ("Base", "Base Sport Utility 4-Door"),
+                    ("xDrive50i", "xDrive50i Sport Utility 4-Door")):
+        eq(CAT.match_trim(t, X5), [want], f"{t} still matches exactly one")
+    eq(CAT.match_trim("35i", X5), [], "'35i' still never matches xDrive35i")
+    eq(CAT.match_trim("", X5), [], "empty trim matches nothing")
+
+    # A body style must be SHARED to count as one -- a single trim cannot be dismantled.
+    solo = ["Competition Coupe 2-Door"]
+    eq(CAT.match_trim("Competition", solo), ["Competition Coupe 2-Door"],
+       "one-entry catalog: prefix fallback still works")
+    eq(CAT.match_trim("Coupe", solo), [],
+       "the body style alone is not a trim, even in a one-entry catalog")
+
+    # A DRIVETRAIN shorthand must still expand to its sub-trims -- an xDrive35i with a
+    # package is still an xDrive35i, same engine. Only model DESIGNATIONS are narrowed.
+    sub = ["xDrive35i Sport Utility 4-Door", "xDrive35i M Sport Sport Utility 4-Door",
+           "xDrive35i Excellence Sport Utility 4-Door", "xDrive35d Sport Utility 4-Door"]
+    eq(sorted(CAT.match_trim("xDrive35i", sub)),
+       sorted(["xDrive35i Sport Utility 4-Door", "xDrive35i M Sport Sport Utility 4-Door",
+               "xDrive35i Excellence Sport Utility 4-Door"]),
+       "drivetrain shorthand still expands to every sub-trim")
+    eq("xDrive35d Sport Utility 4-Door" in CAT.match_trim("xDrive35i", sub), False,
+       "and the diesel is still never pulled in")
+
+    # "M" with no exact trim-name emits NOTHING rather than grabbing the package.
+    nom = ["M Sport Sport Utility 4-Door", "xDrive35i Sport Utility 4-Door"]
+    eq(CAT.match_trim("M", nom), [],
+       "no real M in the catalog -> emit nothing, never the M Sport package")
+
+    # Mixed body styles on one model: strip each entry's OWN shared suffix.
+    mixed = ["M Coupe 2-Door", "M Convertible 2-Door",
+             "Base Coupe 2-Door", "Base Convertible 2-Door"]
+    got = sorted(CAT.match_trim("M", mixed))
+    eq(got, ["M Convertible 2-Door", "M Coupe 2-Door"],
+       "'M' matches the M car in BOTH body styles, and nothing else")
+
+    # The trim that started this: "X5 M" on Model "X5" -> eBay's "M".
+    saved = CAT._property_values
+    try:
+        CAT._property_values = lambda *a, **k: list(X5)
+        rows = [{"Year": 2015, "Make": "BMW", "Model": "X5", "Trim": "X5 M"}]
+        good, rep = CAT.validate_rows([dict(r) for r in rows], on_unmatched="drop")
+        eq([g.get("Trim") for g in good], ["M Sport Utility 4-Door"],
+           "'X5 M' on Model X5 -> the X5 M trim (was dropped entirely)")
+        eq(rep["dropped_trim"], 0, "nothing dropped")
+        # Model name alone is still not a trim.
+        good2, _ = CAT.validate_rows([{"Year": 2015, "Make": "BMW", "Model": "X5",
+                                       "Trim": "X5"}], on_unmatched="drop")
+        eq([g.get("Trim", "") for g in good2], [""], "Trim 'X5' on Model X5 stays trimless")
+        # A model-prefixed trim that is NOT in the catalog must still be dropped on Rule B.
+        good3, rep3 = CAT.validate_rows([{"Year": 2015, "Make": "BMW", "Model": "X5",
+                                          "Trim": "X5 Nonsense"}], on_unmatched="drop")
+        eq(good3, [], "unknown model-prefixed trim is still dropped, not invented")
+        eq(rep3["dropped_trim"], 1, "and counted as dropped")
+    finally:
+        CAT._property_values = saved
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()

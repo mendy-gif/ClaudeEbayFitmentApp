@@ -227,13 +227,70 @@ def _norm(s):
     return " ".join(str(s).strip().lower().split())
 
 
+# Trims where our shorthand is a MODEL DESIGNATION rather than a drivetrain, so the prefix
+# rule below must not apply. "M" is the whole story: eBay lists the X5 M as trim `M` and an
+# ordinary X5 with the M Sport package as trim `M Sport`, and both begin "M ". Expanding a
+# drivetrain shorthand to its sub-trims is right -- an `xDrive35i M Sport` IS an xDrive35i,
+# same N55 -- but an `M Sport` is NOT an M, and pulling it in on a Rule B part claims an
+# S63-only part fits N55 cars.
+#
+# Deliberately NOT generalised. There is no structural difference between "M"/"M Sport" and
+# "xDrive35i"/"xDrive35i M Sport" -- both are a trim-name that is a strict prefix of another
+# trim-name. Only the meaning differs (M designates the car; M Sport qualifies it), so this
+# is a named list of designations, not an inferred rule that would quietly mis-fire.
+# "m sport" is here as symmetry insurance, not because it is currently reachable: the
+# engine map emits X3 M / X4 M / X5 M / X6 M and never a bare "M" or "M Sport". If a
+# future reference row ever does emit it, it must not drag in the real M car.
+_DESIGNATIONS = {"m", "m sport"}
+
+
+def _body_suffix(entry, catalog):
+    """The body-style tail of one catalog entry ("... Sport Utility 4-Door"), or "".
+
+    Every eBay trim is spelled `<trim> <body style>`, and the body style is SHARED across
+    a model's trims while the trim part is not. So a suffix that shows up on more than one
+    entry is the body style; the rest is the trim. Derived rather than hardcoded because
+    the tail varies by model and year ("Sport Utility 4-Door", "Coupe 2-Door", "Sedan
+    4-Door" ...) and a fixed list would silently stop matching the moment eBay adds one.
+    Longest qualifying suffix wins, so "M Sport Sport Utility 4-Door" loses only
+    "Sport Utility 4-Door" and keeps the trim "M Sport".
+    """
+    words = _norm(entry).split()
+    for start in range(1, len(words)):                  # never strip the whole entry
+        suffix = " ".join(words[start:])
+        if sum(1 for c in catalog if _norm(c).endswith(" " + suffix)) >= 2:
+            return suffix
+    return ""
+
+
+def _trim_names(catalog):
+    """{catalog entry -> its trim part with the body style removed}."""
+    out = {}
+    for c in catalog:
+        suffix = _body_suffix(c, catalog)
+        name = _norm(c)
+        if suffix and name.endswith(" " + suffix):
+            name = name[: -(len(suffix) + 1)].strip()
+        out[c] = name or _norm(c)
+    return out
+
+
 def match_trim(our_trim, catalog):
     """Map our shorthand trim onto eBay's catalog spellings.
 
     "xDrive35i" -> ["xDrive35i Sport Utility 4-Door"]      (body-style suffix added)
-    "M"         -> ["M Sport Utility 4-Door", "M Sport Sport Utility 4-Door"]
-    Word-boundary prefix match only, so "35i" never matches "xDrive35i" and
-    "M" never matches "M550i".
+    "M"         -> ["M Sport Utility 4-Door"]              (NOT "M Sport ...", see below)
+
+    The prefix fallback alone is ambiguous in a way that silently over-claims. eBay lists
+    both `M Sport Utility 4-Door` (the X5 M -- S63 engine) and `M Sport Sport Utility
+    4-Door` (an ordinary X5 with the M Sport package -- N55). Both start with "M ", so a
+    prefix match returned BOTH, which on a Rule B engine part puts an S63-only part on
+    cars that never had one. That is the same over-claim the engine restriction exists to
+    prevent. Stripping the shared body style first makes "M" match exactly one.
+
+    Order: exact on the full spelling, then exact on the trim part alone, and only then
+    the word-boundary prefix fallback -- so this can only ever sharpen a match that the
+    old code left ambiguous, never loosen one it got right.
     """
     want = _norm(our_trim)
     if not want:
@@ -241,6 +298,12 @@ def match_trim(our_trim, catalog):
     exact = [c for c in catalog if _norm(c) == want]
     if exact:
         return exact
+    if want in _DESIGNATIONS:
+        # Exact trim-name only, and NOTHING if there is no exact one. Falling through to
+        # the prefix rule here would put an S63 part on an N55 car; emitting nothing costs
+        # at most one listing's fitment, and Rule A turns it trimless rather than losing it.
+        names = _trim_names(catalog)
+        return [c for c in catalog if names[c] == want]
     return [c for c in catalog if _norm(c).startswith(want + " ")]
 
 
@@ -282,8 +345,15 @@ def validate_rows(rows, on_unmatched="drop"):
         # expander falls back to repeating the model name -- Trim "X3" on Model "X3". That
         # is not a trim, and eBay's catalog has no such value, so treat the row as trimless
         # rather than dropping it: the year/model fitment is still correct and useful.
-        if our and _norm(our) == _norm(model):
+        # The expander names M-variant chassis after the car ("X5 M" on Model "X5"), but
+        # eBay's catalog spells that trim just "M" -- the model is already the Model field.
+        # Unstripped, "X5 M" matched nothing and all 51 F85/F86/F97 listings in the
+        # 2026-08-24 sweep were dropped with "trim 'X5 M' unknown".
+        _m, _o = _norm(model), _norm(our) if our else ""
+        if _o and _o == _m:
             our = None
+        elif _o and _o.startswith(_m + " "):
+            our = _o[len(_m) + 1:]
         if not our:
             report["kept"] += 1
             add({"Year": year, "Make": make, "Model": model})
