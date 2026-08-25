@@ -26,6 +26,7 @@ displays and survives relist); writes go to the Inventory API by SKU. Token: tok
 """
 import argparse
 import csv
+import gzip
 import json
 import os
 import socket
@@ -163,7 +164,8 @@ def load_partnumber_fitment(path):
     """Approach-2 part-number history -> {sku: set((year:int, make, ebay_model))}.
     Drops STOCK-prefixed guids (not live eBay SKUs) and UNMAPPED model rows."""
     out = {}
-    with open(path, encoding="utf-8") as f:
+    opener = gzip.open if str(path).endswith(".gz") else open
+    with opener(path, "rt", encoding="utf-8") as f:
         for r in csv.DictReader(f):
             guid = (r.get("guid") or "").strip()
             if not guid or guid.upper().startswith("STOCK"):
@@ -387,7 +389,7 @@ def expand_partnumber_rows(vehicles, rule, ref, emap, ebay, cache=None):
 
 
 def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify=None,
-                pnf=None, pn_cache=None, force=False, lci_inc=None, lci_exc=None):
+                pnf=None, pn_cache=None, force=False, lci_inc=None, lci_exc=None, etk=None):
     s, off = api("GET", f"/sell/inventory/v1/offer?{urllib.parse.urlencode({'sku': sku})}", tok)
     offers = off.get("offers", []) if s == 200 else []
     if s in (401, 403):
@@ -448,6 +450,16 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
     # falling back to the literal vehicle when unresolvable. See expand_partnumber_rows.
     pn_rows = expand_partnumber_rows((pnf or {}).get(sku, ()), rule, ref, emap, ebay, pn_cache) if pnf else []
 
+    # The ETK is BMW's own catalogue, so its rows are taken LITERALLY -- deliberately NOT
+    # run through expand_partnumber_rows like the part-number history is. Part-number
+    # history is a sample of cars a number has been seen on, so widening it to the chassis
+    # family is a reasonable inference. The ETK already states the complete set, and the
+    # models it leaves out are ones BMW says the part does NOT fit -- expanding would put
+    # them back. For SKU 13611 the ETK gives 23 models where the donor's chassis reveals
+    # only M3; that breadth is the source's value and it is already correct.
+    etk_rows = [{"Year": y, "Make": mk, "Model": md}
+                for (y, mk, md) in sorted((etk or {}).get(sku, ()))]
+
     # Headlights and taillights change at a BMW facelift (LCI), so a pre-LCI light does not
     # fit a post-LCI car of the same chassis. Unlike a phantom TRIM -- which eBay silently
     # drops because it is not in its catalog -- a post-LCI year IS a real vehicle, so nothing
@@ -464,7 +476,7 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
     # exist for this SKU, in which case fall through and push those (the pn-only rescue).
     # Exception: a NON-BMW donor always skips (never push BMW part-number fitment onto a
     # non-BMW listing), even if a part-number row happens to collide on the SKU.
-    if fail and (not pn_rows or "non-BMW" in fail[1]):
+    if fail and ((not pn_rows and not etk_rows) or "non-BMW" in fail[1]):
         action, reason = fail
         d = {"sku": sku, "listingId": listing_id, "action": action, "reason": reason}
         if donor_str:
@@ -476,7 +488,7 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
         res = {"ok": False, "reason": fail[1] if fail else "no chassis", "rows": []}
     chassis_ok = res["ok"]
     chassis_rows = res["rows"] if chassis_ok else []
-    if not chassis_ok and not pn_rows:                    # chassis attempted but ambiguous/empty
+    if not chassis_ok and not pn_rows and not etk_rows:   # chassis attempted but ambiguous/empty
         reason = "ambiguous donor" if res.get("ambiguous") else res.get("reason", "")
         return {"sku": sku, "listingId": listing_id, "donor": donor_str, "rule": rule, "action": "review", "reason": reason}
 
@@ -491,7 +503,7 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
     # the X5 M. So we only keep a donor row for a Year/Model our own rows do not already
     # cover. Nothing is lost (a donor on some other year/model is still preserved) and the
     # engine restriction survives.
-    covered = {(r["Year"], r["Make"], r["Model"]) for r in chassis_rows + pn_rows}
+    covered = {(r["Year"], r["Make"], r["Model"]) for r in chassis_rows + pn_rows + etk_rows}
     donor_rows = []
     for nv in (sample or []):
         y = str(nv.get("Year", "")).strip()
@@ -501,17 +513,20 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
             donor_rows.append({"Year": int(y), "Make": nv["Make"], "Model": nv["Model"]})
 
     combined, seen = [], set()                            # dedupe on the full tuple
-    for r in chassis_rows + pn_rows + donor_rows:
+    for r in chassis_rows + pn_rows + etk_rows + donor_rows:
         key = (r["Year"], r["Make"], r["Model"], r.get("Trim"))
         if key not in seen:
             seen.add(key)
             combined.append(r)
 
-    sources = (["chassis"] if chassis_rows else []) + (["pn"] if pn_rows else [])
+    sources = ((["chassis"] if chassis_rows else []) + (["pn"] if pn_rows else [])
+               + (["etk"] if etk_rows else []))
     models_used = sorted({r["Model"] for r in combined})
-    note = why if chassis_rows else "part-number only"
+    note = why if chassis_rows else ("part-number/ETK only" if (pn_rows or etk_rows) else why)
     if chassis_rows and pn_rows:
         note += f" (+{len(pn_rows)} part# rows)"
+    if etk_rows:
+        note += f" (+{len(etk_rows)} ETK rows)"
     row = {"sku": sku, "listingId": listing_id, "donor": donor_str,
            "rule": rule if chassis_rows else "-",
            "engine": ",".join(res.get("donor_engines") or []) if chassis_ok else "",
@@ -624,6 +639,9 @@ def main():
                     help="donor = Shopify dump (data/shopify_donors.json); classification still by eBay category")
     ap.add_argument("--partnumber-fitment", metavar="CSV",
                     help="union in Approach-2 part-number history (e.g. spreadsheet-fitment/data/built/ebay_ready_fitment.csv)")
+    ap.add_argument("--etk-fitment", metavar="CSV",
+                    help="union in BMW's own ETK catalogue fitment (data/etk_fitment.csv, "
+                         "built by scripts/etk_fitment.py). Taken literally, not expanded.")
     ap.add_argument("--limit", type=int)
     ap.add_argument("--live", action="store_true")
     ap.add_argument("--sleep", type=float, default=0.3, help="seconds between SKUs (rate-limit pacing)")
@@ -663,6 +681,10 @@ def main():
             sys.exit("ERROR: --from-shopify needs data/shopify_donors.json (run: python3 scripts/shopify_donor.py --dump)")
         shopify = json.load(open(sp, encoding="utf-8"))
 
+    etk = None
+    if getattr(args, "etk_fitment", None):
+        etk = load_partnumber_fitment(args.etk_fitment)   # same CSV shape
+        print(f"  ETK fitment: {len(etk)} SKU(s), {sum(len(v) for v in etk.values())} rows loaded")
     pnf, pn_cache = None, {}
     if args.partnumber_fitment:
         pnf = load_partnumber_fitment(args.partnumber_fitment)
@@ -691,7 +713,13 @@ def main():
         fresh = []
         for sku in skus:
             entry = led.get(sku)
-            pn_pending = bool(pnf) and sku in pnf and "pn" not in set((entry or {}).get("src", []))
+            # A SKU already in the ledger is revisited when a source it has never been
+            # pushed from now has rows for it -- otherwise adding the ETK would only ever
+            # help listings we had not reached yet, and every SKU already done would keep
+            # its narrower donor-only fitment forever.
+            src = set((entry or {}).get("src", []))
+            pn_pending = (bool(pnf) and sku in pnf and "pn" not in src) or \
+                         (bool(etk) and sku in etk and "etk" not in src)
             if entry and entry.get("cv") == CATALOG_ERA and not pn_pending:
                 continue                                   # done, and done correctly
             c = cache.get(sku)
@@ -720,12 +748,14 @@ def main():
         # trusting a ledger row that records a push which never actually showed up.
         if entry and entry.get("cv") != CATALOG_ERA:
             entry = None
-        pn_pending = bool(pnf) and sku in pnf and "pn" not in set((entry or {}).get("src", []))
+        src = set((entry or {}).get("src", []))
+        pn_pending = (bool(pnf) and sku in pnf and "pn" not in src) or \
+                     (bool(etk) and sku in etk and "etk" not in src)
         if entry and not pn_pending:
             rows.append({"sku": sku, "action": "skip", "reason": "already in ledger"})
         else:
             try:
-                r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force, lci_inc, lci_exc)
+                r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force, lci_inc, lci_exc, etk)
             except RateLimited as e:
                 # The allowance is daily, so the remaining SKUs cannot succeed. Run #7 spent
                 # 40 minutes and 630 SKUs discovering this one call at a time; stop instead,
@@ -740,7 +770,7 @@ def main():
                 if nt and nt != tok:
                     tok = nt
                     print(f"  [{i}/{len(skus)}] {sku}: token auto-refreshed, retrying")
-                    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force, lci_inc, lci_exc)
+                    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force, lci_inc, lci_exc, etk)
             # Remember stable skips so tomorrow's run does not re-check them (see SKIP_TTL_DAYS).
             ttl = skip_ttl(r.get("reason")) if r.get("action") in ("skip", "review") else None
             if ttl:

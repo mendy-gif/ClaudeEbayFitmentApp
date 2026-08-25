@@ -1075,9 +1075,62 @@ def t_nondisplay_skip():
         EB._nondisplay = saved
 
 
+
+def t_etk_source():
+    """The ETK is BMW's own catalogue -- the first authoritative source, and the only one
+    that can name a chassis the donor never touched. Its rows are taken LITERALLY."""
+    print("ETK third source:")
+    import etk_fitment as ETK
+
+    # eBay's BMW vocabulary is per-variant ("328i", "M3", "328i xDrive"), not per-series,
+    # so the ETK's `model` maps onto eBay's MODEL. The one rewrite needed is xDrive.
+    for etk, want in (("328iX", "328i xDrive"), ("320iX", "320i xDrive"),
+                      ("328dX", "328d xDrive"), ("540iX", "540i xDrive"),
+                      ("328i", "328i"), ("M3", "M3"), ("Hybrid 3", "Hybrid 3"),
+                      ("530e", "530e")):
+        eq(ETK.to_ebay_model(etk), want, f"{etk} -> {want}")
+    for junk in ("", "   ", None, "?", "unknown"):
+        eq(ETK.to_ebay_model(junk), None, f"unusable model {junk!r} -> None")
+    # "X" alone is not a model with an xDrive suffix stripped off it.
+    eq(ETK.to_ebay_model("X"), "X", "a bare X is passed through, not turned into ' xDrive'")
+
+    def row(**kw):
+        base = {"part_number": "72127311201", "part_name": "Head airbag", "series": "3 Series",
+                "chassis": "F30", "model": "328i", "engine": "N20",
+                "year_from": "2012", "year_to": "2014", "fit_certainty": "all listed cars"}
+        base.update(kw); return base
+
+    by_pn = {"7311201": ["S1"]}
+    built, skipped = ETK.build([row()], by_pn)
+    eq(sorted({(r["year"], r["ebay_model"]) for r in built}),
+       [(2012, "328i"), (2013, "328i"), (2014, "328i")], "a year RANGE expands to one row per year")
+    eq({r["guid"] for r in built}, {"S1"}, "keyed by OUR sku, not the part number")
+    eq({r["make"] for r in built}, {"BMW"}, "make is BMW")
+
+    # One part number can be on several of our listings.
+    built2, _ = ETK.build([row()], {"7311201": ["S1", "S2"]})
+    eq(sorted({r["guid"] for r in built2}), ["S1", "S2"], "shared part number -> every SKU")
+
+    # An open-ended range must NOT be hard-capped -- the catalogue stops in early 2020 and
+    # capping at 2019 silently drops the newest cars.
+    b3, _ = ETK.build([row(year_from="2018", year_to="")], by_pn)
+    eq(sorted({r["year"] for r in b3}), [2018], "missing year_to -> just the start year, not a guess")
+
+    # Junk must be dropped, never guessed at.
+    _b, sk = ETK.build([row(year_from="")], by_pn)
+    eq(sk["no_year"], 1, "a row with no start year is dropped")
+    _b, sk = ETK.build([row(model="")], by_pn)
+    eq(sk["no_model"], 1, "a row with no model is dropped")
+    _b, sk = ETK.build([row(part_number="9999999")], by_pn)
+    eq(sk["no_sku"], 1, "a part number none of our SKUs carry is dropped")
+    # Years before 1990 are out of scope (the ETK reaches back to the 1960s).
+    b4, _ = ETK.build([row(year_from="1975", year_to="1992")], by_pn)
+    eq(sorted({r["year"] for r in b4}), [1990, 1991, 1992], "years floor at 1990")
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_etk_source, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()

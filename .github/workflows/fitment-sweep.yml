@@ -130,6 +130,7 @@ jobs:
           LIMIT="${LIMIT:-$NIGHTLY_LIMIT}"
           python3 scripts/ebay_batch.py apply --from-shopify --from-inventory --live \
             --partnumber-fitment spreadsheet-fitment/data/built/ebay_ready_fitment.csv \
+            --etk-fitment data/etk_fitment.csv.gz \
             --limit "$LIMIT"
 
       # The whole point. A push returning HTTP 200 proves nothing -- eBay stores a row
