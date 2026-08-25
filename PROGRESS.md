@@ -250,7 +250,7 @@ sensible Car & Truck Parts equivalent and stay as they are.
 - [ ] **Engine data on the older products.** Without an engine code Rule B produces nothing.
       Two routes now: ask Dismantly to backfill `veh_engine_code_`, or decode the donor VIN
       (we started recording it 2026-08-21) against the ETK's `w_fztyp` — see below.
-- [ ] **Pull fitment from the ETK catalogue (agreed 2026-08-21).** BMW's own parts catalogue
+- [x] **Pull fitment from the ETK catalogue (agreed 2026-08-21, LIVE 2026-08-25).** BMW's own parts catalogue
       as a THIRD fitment source — the first authoritative one. **The database is already
       built and the part→vehicle join works**; `bmw-etk/scripts/ebay_fitment.py` emits
       eBay-ready rows today. Verified on SKU 13611: the donor is an F80, our chassis rule
@@ -258,6 +258,10 @@ sensible Car & Truck Parts equivalent and stay as they are.
       cross-chassis fitment neither current source can produce. Full plan, warnings and
       conventions in `docs/DESIGN.md` §9. Next step is measuring how many of our listings
       have a part number the ETK knows. Does not gate the nightly sweep.
+      **Done:** 7,753 SKUs get 932k rows; SKU 13611 went from 4 rows (M3 only) to 92
+      catalog-valid rows across 23 models. Regenerate with `python3 scripts/etk_fitment.py`
+      whenever the donor dump refreshes — the .gz is committed because the ETK database
+      is local-only.
 - [ ] **Shopify store cleanup** — being assessed separately. The code already tolerates
       whatever the vendor field ends up as.
 

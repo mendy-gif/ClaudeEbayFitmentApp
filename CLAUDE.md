@@ -18,7 +18,7 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
   (every car a part number has historically come off, from `spreadsheet-fitment/`). **Both sources are
   expanded the same way** — each part-number vehicle is run through the Rule A/B chassis-family logic
   too (not just the donor), falling back to the literal vehicle when it can't be resolved.
-- A **third source is coming**: the **BMW ETK parts catalogue** — BMW's own data, the first
+- A **third source is LIVE** (2026-08-25): the **BMW ETK parts catalogue** — BMW's own data, the first
   *authoritative* source rather than an inference. It lives in a SEPARATE repo
   (`/Users/mendydonin/Documents/GitHub/BMW-ETK/`) — **never modify anything in it**; open
   `bmw-etk/data/etk_us.sqlite` read-only (`?mode=ro`). The part→vehicle join already works:
@@ -27,6 +27,16 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
   option gates, ambiguous rows); reuse their aggregation. Rows still go through the catalog
   gatekeeper (#6), and a `VERIFY` (option-dependent) row must never be pushed on a Rule B
   part. Plan + conventions: `docs/DESIGN.md` §9.
+- **How the ETK is wired in.** `scripts/etk_fitment.py` reads the donor part numbers, calls the
+  ETK's own emitter with `--confirmed-only` (option-gated rows excluded — we cannot tell at
+  extract time whether a SKU is Rule A or B), and writes `data/etk_fitment.csv.gz`: the same CSV
+  shape as the part-number source, keyed by our SKU. That derived file is **committed**, because
+  the 1 GB ETK database is local-only and the nightly job runs on GitHub. `ebay_batch
+  --etk-fitment` unions it in. **ETK rows are used LITERALLY** — deliberately NOT expanded to the
+  chassis family the way part-number history is: BMW already states the complete set, and the
+  models it omits are ones the part does not fit. Consequence worth knowing: on a Rule B part
+  the ETK legitimately overrides the engine restriction, because it knows rather than infers.
+  Regenerate after every donor refresh: `python3 scripts/etk_fitment.py`.
 
 ## Golden facts / gotchas (the load-bearing knowledge)
 
