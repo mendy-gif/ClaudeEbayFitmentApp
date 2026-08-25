@@ -407,6 +407,13 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
     # call on them before discovering that burned most of the daily budget on SKUs we were
     # always going to skip. In the Shopify path the guard read is NOT the donor source (see
     # _chassis_expand), so nothing is lost by deciding this first.
+    # eBay will not render a fitment table in some categories at all (car audio, the
+    # Performance "Other" catch-all). Decide that HERE, off the cheap Inventory read, so we
+    # never spend a Trading guard call on a listing whose fitment nobody can ever see.
+    if category and str(category) in load_nondisplay():
+        return {"sku": sku, "listingId": listing_id, "action": "skip",
+                "reason": f"category {category} never renders fitment on eBay"}
+
     if shopify is not None:
         sd_early = shopify.get(str(sku)) or shopify.get(sku)
         has_pn = bool(pnf) and sku in pnf
@@ -571,6 +578,36 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
                             "src": sources, "cv": CATALOG_ERA}
     return row
 
+
+
+NONDISPLAY = os.path.join(ROOT, "data", "nondisplay_categories.json")
+_nondisplay = None
+
+
+def load_nondisplay():
+    """Categories eBay stores fitment for but never RENDERS. Returns a set of ids.
+
+    Pushing here is not harmful, just pointless: the rows go in, read back correctly, and
+    no buyer ever sees them. Verified 2026-08-25 by pushing catalog-valid Rule A rows and
+    re-reading hours later -- SKU 30825 stored 24 vehicles and displayed 0. Skipping them
+    matters because the guard read costs one of 5,000 daily GetItem calls; 200 of the 717
+    pushes on 2026-08-25 went to these categories.
+
+    Only categories seen at least `skip_threshold` times with zero displays are skipped, so
+    one unlucky listing cannot silently switch a whole category off.
+    """
+    global _nondisplay
+    if _nondisplay is None:
+        try:
+            cfg = json.load(open(NONDISPLAY, encoding="utf-8"))
+        except (OSError, ValueError):
+            _nondisplay = set()
+            return _nondisplay
+        need = cfg.get("skip_threshold", 3)
+        _nondisplay = {str(c) for c, v in (cfg.get("categories") or {}).items()
+                       if (v or {}).get("displaying", 0) == 0
+                       and (v or {}).get("skus_seen", 0) >= need}
+    return _nondisplay
 
 def classify_rule(category, tree, inc, exc, default):
     if not category or tree is None:

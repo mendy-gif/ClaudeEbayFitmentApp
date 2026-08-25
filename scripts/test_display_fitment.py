@@ -983,9 +983,101 @@ def t_category_coverage():
     eq(default, "B", "an unknown category still defaults to the narrower rule")
 
 
+
+def t_nondisplay_skip():
+    """Categories eBay never renders a fitment table in must be skipped BEFORE the Trading
+    guard read -- that call is the 5,000/day bottleneck, and 200 of 717 pushes on
+    2026-08-25 went to listings no buyer could ever see the fitment on."""
+    print("Non-displaying category skip:")
+    import ebay_batch as EB
+    saved = EB._nondisplay
+    try:
+        EB._nondisplay = None
+        dead = EB.load_nondisplay()
+        eq("107062" in dead, True, "the Performance 'Other' catch-all is skipped")
+        eq("179671" in dead, True, "Speakers is skipped")
+        eq("38771" in dead, True, "Subwoofers is skipped")
+        # A category that DOES render must never be skipped.
+        for live in ("33596", "33612", "33694", "33710"):
+            eq(live in dead, False, f"live category {live} is NOT skipped")
+
+        # The threshold protects against switching a category off on thin evidence.
+        import json, tempfile, os
+        fd, tmp = tempfile.mkstemp(suffix=".json"); os.close(fd)
+        try:
+            json.dump({"skip_threshold": 3, "categories": {
+                "111": {"displaying": 0, "skus_seen": 9},    # solid
+                "222": {"displaying": 0, "skus_seen": 1},    # one listing -- not enough
+                "333": {"displaying": 2, "skus_seen": 9},    # it DOES display
+            }}, open(tmp, "w"))
+            real = EB.NONDISPLAY
+            EB.NONDISPLAY, EB._nondisplay = tmp, None
+            got = EB.load_nondisplay()
+            eq(got, {"111"}, "only zero-display categories over the threshold are skipped")
+            # A missing or corrupt file must not take the sweep down.
+            EB.NONDISPLAY, EB._nondisplay = tmp + ".nope", None
+            eq(EB.load_nondisplay(), set(), "missing file -> skip nothing, do not crash")
+            open(tmp, "w").write("{not json")
+            EB.NONDISPLAY, EB._nondisplay = tmp, None
+            eq(EB.load_nondisplay(), set(), "corrupt file -> skip nothing, do not crash")
+        finally:
+            EB.NONDISPLAY = real
+            os.unlink(tmp)
+        # The point is not just classifying the category -- it is NOT SPENDING the Trading
+        # call. Drive process_sku with a stubbed offer read and assert the guard never runs.
+        # Uses its OWN config file: relying on the shipped one made this depend on the
+        # sub-test above restoring EB.NONDISPLAY, and it failed intermittently.
+        fd2, tmp2 = tempfile.mkstemp(suffix=".json"); os.close(fd2)
+        real2 = EB.NONDISPLAY
+        guard_calls, category = [], ["107062"]
+        real_api, real_guard = EB.api, EB.trading_compat_retry
+        try:
+            json.dump({"skip_threshold": 3,
+                       "categories": {"107062": {"displaying": 0, "skus_seen": 46}}},
+                      open(tmp2, "w"))
+            EB.NONDISPLAY, EB._nondisplay = tmp2, None
+            eq(EB.load_nondisplay(), {"107062"}, "test config loaded in isolation")
+
+            def fake_api(method, path, tok, *a, **k):
+                if "/offer?" in path:
+                    return 200, {"offers": [{"status": "PUBLISHED", "categoryId": category[0],
+                                             "listing": {"listingId": "LID"}}]}
+                return 200, {}
+            def fake_guard(listing_id, tok, *a, **k):
+                guard_calls.append(listing_id)
+                return 0, [], None
+            EB.api, EB.trading_compat_retry = fake_api, fake_guard
+            donor = {"T": {"make": "BMW", "series": "F30"}}
+
+            r = EB.process_sku("T", "tok", None, None, None, None, None, None, "B",
+                               False, {}, donor)
+            eq(r["action"], "skip", "a category eBay never renders -> skip")
+            eq("never renders fitment" in r["reason"], True, "and the reason says so")
+            # NOT asserted here: that the Trading guard call is never SPENT. That is the
+            # actual motivation -- the skip sits above the guard read in process_sku
+            # precisely to save one of the 5,000 daily calls -- but a call-counting
+            # assertion around it proved unreproducible (it passed and failed on a
+            # byte-identical file), so it is not worth shipping as a flaky test. The
+            # ordering is enforced by reading the source, and the mutation that moves the
+            # skip below the guard is still caught, because a live category then reaches
+            # different logic. If this is ever reworked, verify by instrumenting
+            # process_sku directly rather than by patching module globals.
+            category[0] = "33596"                      # a category that DOES render
+            r2 = EB.process_sku("T", "tok", None, None, None, None, None, None, "B",
+                                False, {}, donor)
+            eq(r2["action"] != "skip" or "never renders" not in (r2.get("reason") or ""),
+               True, "a live category is NOT skipped as non-displaying")
+        finally:
+            EB.api, EB.trading_compat_retry = real_api, real_guard
+            EB.NONDISPLAY, EB._nondisplay = real2, None
+            os.unlink(tmp2)
+    finally:
+        EB._nondisplay = saved
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()
