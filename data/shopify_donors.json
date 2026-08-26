@@ -12196,14 +12196,14 @@
   "28722": {
     "sku": "28722",
     "make": "BMW",
-    "model": null,
+    "model": "340i",
     "series": "F30",
-    "year": null,
+    "year": 2016,
     "engine_code_raw": null,
-    "part_type": null,
-    "universal": null,
-    "vin": null,
-    "part_number": null,
+    "part_type": "Condenser w/ Dryer",
+    "universal": "False",
+    "vin": "WBA8B7G55GNT14230",
+    "part_number": "9338330",
     "engine_family": null
   },
   "28723": {
@@ -21930,19 +21930,6 @@
     "part_number": null,
     "engine_family": null
   },
-  "32489": {
-    "sku": "32489",
-    "make": "BMW",
-    "model": null,
-    "series": "G01",
-    "year": null,
-    "engine_code_raw": null,
-    "part_type": null,
-    "universal": null,
-    "vin": null,
-    "part_number": null,
-    "engine_family": null
-  },
   "32490": {
     "sku": "32490",
     "make": "BMW",
@@ -22518,14 +22505,14 @@
   "32877": {
     "sku": "32877",
     "make": "BMW",
-    "model": null,
+    "model": "M240i",
     "series": "F22",
-    "year": null,
+    "year": 2017,
     "engine_code_raw": null,
-    "part_type": null,
-    "universal": null,
-    "vin": null,
-    "part_number": null,
+    "part_type": "Condenser w/ Dryer",
+    "universal": "False",
+    "vin": "WBA2G1C30HV639149",
+    "part_number": "9338330",
     "engine_family": null
   },
   "32891": {
@@ -25166,19 +25153,6 @@
     "vin": null,
     "part_number": "7933159",
     "engine_family": null
-  },
-  "33285": {
-    "sku": "33285",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "year": 2021,
-    "engine_code_raw": "B46",
-    "part_type": null,
-    "universal": "False",
-    "vin": null,
-    "part_number": "8064832",
-    "engine_family": "B46"
   },
   "33291": {
     "sku": "33291",
@@ -31686,7 +31660,7 @@
     "model": "X3",
     "series": "G01",
     "year": 2019,
-    "engine_code_raw": "raw_B46B20O0",
+    "engine_code_raw": "B46B20O0",
     "part_type": "Front Right Passenger Door Shell Panel",
     "universal": "False",
     "vin": "5UXTR9C56KLE14806",
@@ -31725,11 +31699,11 @@
     "model": "X3",
     "series": "G01",
     "year": 2019,
-    "engine_code_raw": "raw_B46B20O0",
+    "engine_code_raw": "B46B20O0",
     "part_type": "Front Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
-    "part_number": null,
+    "vin": "5UXTR9C56KLE14806",
+    "part_number": "7465527",
     "engine_family": "B46"
   },
   "36968": {
@@ -32289,19 +32263,6 @@
     "universal": "False",
     "vin": null,
     "part_number": "7177604",
-    "engine_family": "S63"
-  },
-  "36794": {
-    "sku": "36794",
-    "make": "BMW",
-    "model": "X5",
-    "series": "E70",
-    "year": 2012,
-    "engine_code_raw": "S63B44O0",
-    "part_type": "Speakers SET",
-    "universal": "False",
-    "vin": "5YMGY0C51CLK27397",
-    "part_number": "7838904",
     "engine_family": "S63"
   },
   "36791": {
@@ -34741,11 +34702,11 @@
     "model": "X3",
     "series": "G01",
     "year": 2019,
-    "engine_code_raw": "raw_B46B20O0",
+    "engine_code_raw": "B46B20O0",
     "part_type": "Front Right Passenger Door Shell Panel",
     "universal": "False",
     "vin": "5UXTR7C5XKLF29896",
-    "part_number": null,
+    "part_number": "7465528",
     "engine_family": "B46"
   },
   "36121": {
@@ -37016,10 +36977,10 @@
     "model": "X5",
     "series": "G05",
     "year": 2019,
-    "engine_code_raw": "raw_N63B44M3",
+    "engine_code_raw": "N63B44M3",
     "part_type": null,
     "universal": "False",
-    "vin": null,
+    "vin": "5UXJU2C51KLN65613",
     "part_number": "7449689",
     "engine_family": "N63"
   },
@@ -41982,10 +41943,10 @@
     "model": "M3",
     "series": "F80",
     "year": 2016,
-    "engine_code_raw": "raw_S55B30T0",
+    "engine_code_raw": "S55B30T0",
     "part_type": null,
     "universal": "False",
-    "vin": null,
+    "vin": "WBS8M9C59G5D30909",
     "part_number": "8055977",
     "engine_family": "S55"
   },
@@ -66403,19 +66364,6 @@
     "part_number": "7644809",
     "engine_family": null
   },
-  "44488": {
-    "sku": "44488",
-    "make": "BMW",
-    "model": null,
-    "series": "G01",
-    "year": null,
-    "engine_code_raw": null,
-    "part_type": null,
-    "universal": null,
-    "vin": null,
-    "part_number": "7400667",
-    "engine_family": null
-  },
   "44631": {
     "sku": "44631",
     "make": "BMW",
@@ -66692,13 +66640,13 @@
   "44670": {
     "sku": "44670",
     "make": "BMW",
-    "model": null,
+    "model": "340i",
     "series": "F30",
-    "year": null,
+    "year": 2016,
     "engine_code_raw": null,
-    "part_type": null,
-    "universal": null,
-    "vin": null,
+    "part_type": "Condenser w/ Dryer",
+    "universal": "False",
+    "vin": "WBA8B3C55GK383371",
     "part_number": "9338330",
     "engine_family": null
   },
@@ -68456,19 +68404,6 @@
     "vin": null,
     "part_number": "8651288",
     "engine_family": null
-  },
-  "44248": {
-    "sku": "44248",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "year": 2018,
-    "engine_code_raw": "raw_B46B20O0",
-    "part_type": null,
-    "universal": "False",
-    "vin": null,
-    "part_number": "6814788",
-    "engine_family": "B46"
   },
   "44249": {
     "sku": "44249",
@@ -75496,7 +75431,7 @@
     "model": "X3",
     "series": "G01",
     "year": 2019,
-    "engine_code_raw": "raw_B46B20O0",
+    "engine_code_raw": "B46B20O0",
     "part_type": "Front Right Passenger Door Shell Panel",
     "universal": "False",
     "vin": "5UXTR7C52KLR43817",
@@ -83335,10 +83270,10 @@
     "model": "X5",
     "series": "E70",
     "year": 2012,
-    "engine_code_raw": "raw_S63B44O0",
+    "engine_code_raw": "S63B44O0",
     "part_type": null,
     "universal": "False",
-    "vin": null,
+    "vin": "5YMGY0C56CLK27444",
     "part_number": "7145899",
     "engine_family": "S63"
   },
@@ -84380,19 +84315,6 @@
     "universal": null,
     "vin": null,
     "part_number": "9425910",
-    "engine_family": null
-  },
-  "47598": {
-    "sku": "47598",
-    "make": "BMW",
-    "model": null,
-    "series": "F32",
-    "year": null,
-    "engine_code_raw": null,
-    "part_type": null,
-    "universal": null,
-    "vin": null,
-    "part_number": "7540686",
     "engine_family": null
   },
   "47800": {
@@ -94603,13 +94525,13 @@
   "50832": {
     "sku": "50832",
     "make": "BMW",
-    "model": null,
+    "model": "340i",
     "series": "F34",
-    "year": null,
+    "year": 2017,
     "engine_code_raw": null,
-    "part_type": null,
-    "universal": null,
-    "vin": null,
+    "part_type": "Condenser w/ Dryer",
+    "universal": "False",
+    "vin": "WBA8Y3C30HG450993",
     "part_number": "9338330",
     "engine_family": null
   },
@@ -95373,10 +95295,10 @@
     "model": "X3",
     "series": "G01",
     "year": 2020,
-    "engine_code_raw": "raw_B46B20O1",
+    "engine_code_raw": "B46B20O1",
     "part_type": "Front Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTY3C04L9C23761",
     "part_number": "7465527",
     "engine_family": "B46"
   },
@@ -95412,7 +95334,7 @@
     "model": "X3",
     "series": "G01",
     "year": 2020,
-    "engine_code_raw": "raw_B46B20O1",
+    "engine_code_raw": "B46B20O1",
     "part_type": "Front Right Passenger Door Shell Panel",
     "universal": "False",
     "vin": "5UXTY3C04L9C23761",
@@ -102640,7 +102562,7 @@
     "model": "X3",
     "series": "G01",
     "year": 2018,
-    "engine_code_raw": "raw_B46B20O0",
+    "engine_code_raw": "B46B20O0",
     "part_type": "Front Right Passenger Door Shell Panel",
     "universal": "False",
     "vin": "5UXTR9C5XJLA44538",
@@ -103940,7 +103862,7 @@
     "model": "X3",
     "series": "G01",
     "year": 2019,
-    "engine_code_raw": "raw_B46B20O0",
+    "engine_code_raw": "B46B20O0",
     "part_type": "Front Right Passenger Door Shell Panel",
     "universal": "False",
     "vin": "5UXTR7C54KLF28159",
@@ -103953,10 +103875,10 @@
     "model": "X3",
     "series": "G01",
     "year": 2019,
-    "engine_code_raw": "raw_B46B20O0",
+    "engine_code_raw": "B46B20O0",
     "part_type": "Front Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTR7C54KLF28159",
     "part_number": "7465527",
     "engine_family": "B46"
   },
@@ -107905,7 +107827,7 @@
     "model": "X3",
     "series": "F97",
     "year": 2020,
-    "engine_code_raw": "raw_S58B30T0",
+    "engine_code_raw": "S58",
     "part_type": "Front Right Passenger Door Shell Panel",
     "universal": "False",
     "vin": "5YMTS0C05L9C01924",
@@ -107918,10 +107840,10 @@
     "model": "X3",
     "series": "F97",
     "year": 2020,
-    "engine_code_raw": "raw_S58B30T0",
+    "engine_code_raw": "S58",
     "part_type": "Front Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5YMTS0C05L9C01924",
     "part_number": "7465527",
     "engine_family": "S58"
   },
@@ -108431,19 +108353,6 @@
     "vin": "WBAJB9C59JB035844",
     "part_number": "7475017",
     "engine_family": "N63"
-  },
-  "53500": {
-    "sku": "53500",
-    "make": "BMW",
-    "model": null,
-    "series": "G30",
-    "year": null,
-    "engine_code_raw": null,
-    "part_type": null,
-    "universal": null,
-    "vin": null,
-    "part_number": "6822848",
-    "engine_family": null
   },
   "53952": {
     "sku": "53952",
@@ -110365,7 +110274,7 @@
     "engine_code_raw": "N63B44O2",
     "part_type": null,
     "universal": "False",
-    "vin": null,
+    "vin": "WBAJB9C59JB035844",
     "part_number": "7349605",
     "engine_family": "N63"
   },
@@ -110794,7 +110703,7 @@
     "engine_code_raw": "N63B44O2",
     "part_type": null,
     "universal": "False",
-    "vin": null,
+    "vin": "WBAJB9C59JB035844",
     "part_number": "7349606",
     "engine_family": "N63"
   },
@@ -112435,19 +112344,6 @@
     "vin": "WBA3B9G53DNP39382",
     "part_number": "7368753",
     "engine_family": "N55"
-  },
-  "1486": {
-    "sku": "1486",
-    "make": "BMW",
-    "model": "440i",
-    "series": "F36",
-    "year": null,
-    "engine_code_raw": "B58B30M0",
-    "part_type": "Dash Middle Center AC Air Vent",
-    "universal": "False",
-    "vin": null,
-    "part_number": "9347436",
-    "engine_family": "B58"
   },
   "442": {
     "sku": "442",
@@ -117408,10 +117304,10 @@
     "model": "X6",
     "series": "F86",
     "year": null,
-    "engine_code_raw": "raw_S63B44T2",
+    "engine_code_raw": "S63B44T2",
     "part_type": "Radiator Support Upper Cover Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5YMKW8C31H0U71833",
     "part_number": "7637050",
     "engine_family": "S63"
   },
@@ -118663,19 +118559,6 @@
     "part_number": "7331198",
     "engine_family": "N63"
   },
-  "2689": {
-    "sku": "2689",
-    "make": "BMW",
-    "model": "X5",
-    "series": "F15",
-    "year": 2016,
-    "engine_code_raw": "N63B",
-    "part_type": "Speaker",
-    "universal": "False",
-    "vin": null,
-    "part_number": "9194783",
-    "engine_family": "N63"
-  },
   "2651": {
     "sku": "2651",
     "make": "BMW",
@@ -119143,19 +119026,6 @@
     "vin": null,
     "part_number": "7598865",
     "engine_family": "N55"
-  },
-  "51810": {
-    "sku": "51810",
-    "make": "BMW",
-    "model": "330i",
-    "series": "G20",
-    "year": 2019,
-    "engine_code_raw": "raw_B46B20O1",
-    "part_type": "Misc",
-    "universal": "False",
-    "vin": null,
-    "part_number": "8656548",
-    "engine_family": "B46"
   },
   "51968": {
     "sku": "51968",
@@ -123846,7 +123716,7 @@
     "engine_code_raw": "B58B30M0",
     "part_type": "Front Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTS3C58J0Y98394",
     "part_number": "7465527",
     "engine_family": "B58"
   },
@@ -126381,7 +126251,7 @@
     "engine_code_raw": "N63B44M3",
     "part_type": "Headlight Leveling Level Sensor",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXJU2C56KLN65994",
     "part_number": "6870200",
     "engine_family": "N63"
   },
@@ -127865,19 +127735,6 @@
     "universal": "False",
     "vin": null,
     "part_number": "9229479",
-    "engine_family": "N55"
-  },
-  "684": {
-    "sku": "684",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "year": null,
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Cat Catalytic Oxygen O2 Lambda Probe Sensors SET",
-    "universal": "False",
-    "vin": null,
-    "part_number": "7596924",
     "engine_family": "N55"
   },
   "686": {
@@ -129401,19 +129258,6 @@
     "part_number": "7422104",
     "engine_family": "N63"
   },
-  "48895": {
-    "sku": "48895",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "year": 2019,
-    "engine_code_raw": "raw_B46B20O0",
-    "part_type": "Misc",
-    "universal": "False",
-    "vin": null,
-    "part_number": "8492019",
-    "engine_family": "B46"
-  },
   "48017": {
     "sku": "48017",
     "make": "BMW",
@@ -130710,7 +130554,7 @@
     "engine_code_raw": "B58B30M0",
     "part_type": "Rear Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTS3C50J0Y99247",
     "part_number": "7465533",
     "engine_family": "B58"
   },
@@ -137652,7 +137496,7 @@
     "engine_code_raw": "B58B30O1",
     "part_type": "Front Right Passenger Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTY9C03LL304396",
     "part_number": "7465528",
     "engine_family": "B58"
   },
@@ -137665,7 +137509,7 @@
     "engine_code_raw": "B58B30O1",
     "part_type": "Front Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTY9C03LL304396",
     "part_number": "7465527",
     "engine_family": "B58"
   },
@@ -138549,7 +138393,7 @@
     "engine_code_raw": "B58B30O1",
     "part_type": "Left Driver Engine Bay Cover Panel Seal Trim",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTY9C03LL304396",
     "part_number": "7397491",
     "engine_family": "B58"
   },
@@ -141008,19 +140852,6 @@
     "universal": "False",
     "vin": "3MW5R7J08L8B24611",
     "part_number": "6879310",
-    "engine_family": "B46"
-  },
-  "4225": {
-    "sku": "4225",
-    "make": "BMW",
-    "model": "330i",
-    "series": "G20",
-    "year": null,
-    "engine_code_raw": "B46B20O1",
-    "part_type": "Fuel Vapor Charcoal Cannister",
-    "universal": "False",
-    "vin": null,
-    "part_number": "7466242",
     "engine_family": "B46"
   },
   "4221": {
@@ -144637,19 +144468,6 @@
     "part_number": "8657864",
     "engine_family": "N63"
   },
-  "3064": {
-    "sku": "3064",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "year": 2020,
-    "engine_code_raw": "B58B30O1",
-    "part_type": "Front Left Right Brake Caliper SET",
-    "universal": "False",
-    "vin": null,
-    "part_number": "6885627",
-    "engine_family": "B58"
-  },
   "3065": {
     "sku": "3065",
     "make": "BMW",
@@ -146401,7 +146219,7 @@
     "engine_code_raw": "B46B20O1",
     "part_type": "Left Driver Engine Bay Cover Panel Seal Trim",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTY3C06LLU71798",
     "part_number": "7397491",
     "engine_family": "B46"
   },
@@ -147047,11 +146865,11 @@
     "make": "BMW",
     "model": "340",
     "series": "F34",
-    "year": 2018,
+    "year": null,
     "engine_code_raw": "B58B30M0",
     "part_type": "Condenser w/ Dryer",
     "universal": "False",
-    "vin": null,
+    "vin": "WBA8Y3C5XJG451253",
     "part_number": "9338330",
     "engine_family": "B58"
   },
@@ -147311,7 +147129,7 @@
     "engine_code_raw": "B46B20O1",
     "part_type": "Front Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTY3C06LLU71798",
     "part_number": "7465527",
     "engine_family": "B46"
   },
@@ -147337,7 +147155,7 @@
     "engine_code_raw": "B46B20O1",
     "part_type": "Rear Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTY3C06LLU71798",
     "part_number": "7465533",
     "engine_family": "B46"
   },
@@ -148236,19 +148054,6 @@
     "universal": "False",
     "vin": null,
     "part_number": "9389070",
-    "engine_family": "B58"
-  },
-  "4856": {
-    "sku": "4856",
-    "make": "BMW",
-    "model": "340",
-    "series": "F34",
-    "year": 2018,
-    "engine_code_raw": "B58B30M0",
-    "part_type": "Antenna Telematics Control Module",
-    "universal": "False",
-    "vin": null,
-    "part_number": "2622599",
     "engine_family": "B58"
   },
   "4852": {
@@ -149367,19 +149172,6 @@
     "universal": "False",
     "vin": null,
     "part_number": "7329346",
-    "engine_family": "B58"
-  },
-  "2717": {
-    "sku": "2717",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "year": null,
-    "engine_code_raw": "B58B30O1",
-    "part_type": "Rear Right Passenger Door Shell Panel",
-    "universal": "False",
-    "vin": null,
-    "part_number": "7465534",
     "engine_family": "B58"
   },
   "5589": {
@@ -151668,19 +151460,6 @@
     "universal": "False",
     "vin": null,
     "part_number": "7207562",
-    "engine_family": "B58"
-  },
-  "5397": {
-    "sku": "5397",
-    "make": "BMW",
-    "model": "340i",
-    "series": "F30",
-    "year": 2017,
-    "engine_code_raw": "B58B30M0",
-    "part_type": "Front Power Distribution Fuse Box",
-    "universal": "False",
-    "vin": null,
-    "part_number": "9356157",
     "engine_family": "B58"
   },
   "4829": {
@@ -157117,19 +156896,6 @@
     "part_number": "7567722",
     "engine_family": "N52"
   },
-  "5258": {
-    "sku": "5258",
-    "make": "BMW",
-    "model": "X3",
-    "series": "E83",
-    "year": 2008,
-    "engine_code_raw": "N52B30O1",
-    "part_type": "Front Propeller Driveshaft Drive Shaft",
-    "universal": "False",
-    "vin": null,
-    "part_number": "7525969",
-    "engine_family": "N52"
-  },
   "5261": {
     "sku": "5261",
     "make": "BMW",
@@ -160289,19 +160055,6 @@
     "part_number": "9228652",
     "engine_family": "N55"
   },
-  "60186": {
-    "sku": "60186",
-    "make": "BMW",
-    "model": "435i",
-    "series": "F32",
-    "year": 2016,
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Antenna Telematics Control Module",
-    "universal": "False",
-    "vin": null,
-    "part_number": "6809311",
-    "engine_family": "N55"
-  },
   "60101": {
     "sku": "60101",
     "make": "BMW",
@@ -162265,19 +162018,6 @@
     "part_number": "6859180",
     "engine_family": "N63"
   },
-  "60012": {
-    "sku": "60012",
-    "make": "BMW",
-    "model": "750Li",
-    "series": "F02",
-    "year": 2013,
-    "engine_code_raw": "N63B44O1",
-    "part_type": "Engine Motor ECU DME Computer Module",
-    "universal": "False",
-    "vin": null,
-    "part_number": "8604942",
-    "engine_family": "N63"
-  },
   "60007": {
     "sku": "60007",
     "make": "BMW",
@@ -163434,19 +163174,6 @@
     "vin": "WBAJB9C54JB036528",
     "part_number": "7430115",
     "engine_family": "N63"
-  },
-  "4919": {
-    "sku": "4919",
-    "make": "BMW",
-    "model": "X3",
-    "series": "E83",
-    "year": 2008,
-    "engine_code_raw": "N52B30O1",
-    "part_type": "Misc",
-    "universal": "False",
-    "vin": null,
-    "part_number": "7052452",
-    "engine_family": "N52"
   },
   "60100": {
     "sku": "60100",
@@ -165034,19 +164761,6 @@
     "part_number": "6858574",
     "engine_family": "N55"
   },
-  "5317": {
-    "sku": "5317",
-    "make": "BMW",
-    "model": "X5",
-    "series": "E70",
-    "year": 2013,
-    "engine_code_raw": "N55B30A",
-    "part_type": "Monitor Display Screen",
-    "universal": "False",
-    "vin": null,
-    "part_number": "9289580",
-    "engine_family": "N55"
-  },
   "5353": {
     "sku": "5353",
     "make": "BMW",
@@ -165684,19 +165398,6 @@
     "part_number": "7227792",
     "engine_family": "N55"
   },
-  "5366": {
-    "sku": "5366",
-    "make": "BMW",
-    "model": "X5",
-    "series": "E70",
-    "year": 2013,
-    "engine_code_raw": "N55B30A",
-    "part_type": "Fuel Vapor Charcoal Canister",
-    "universal": "False",
-    "vin": null,
-    "part_number": "7164407",
-    "engine_family": "N55"
-  },
   "5361": {
     "sku": "5361",
     "make": "BMW",
@@ -165758,7 +165459,7 @@
     "engine_code_raw": "N55B30A",
     "part_type": "Rear Trunk Cargo Scuff Loading Trim Cover Plate",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXZV4C5XD0G50131",
     "part_number": "7145899",
     "engine_family": "N55"
   },
@@ -166733,7 +166434,7 @@
     "engine_code_raw": "B46B20B",
     "part_type": "Rear Middle Center Bumper Bracket",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTR7C57KLR43618",
     "part_number": "7400674",
     "engine_family": "B46"
   },
@@ -167968,7 +167669,7 @@
     "engine_code_raw": "B46B20B",
     "part_type": "Rear Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTR7C57KLR43618",
     "part_number": "7465533",
     "engine_family": "B46"
   },
@@ -168007,7 +167708,7 @@
     "engine_code_raw": "B46B20B",
     "part_type": "Front Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTR7C57KLR43618",
     "part_number": "7465527",
     "engine_family": "B46"
   },
@@ -169281,7 +168982,7 @@
     "engine_code_raw": "B46B20B",
     "part_type": "Front Left Driver Fender Brackets SET",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTR7C57KLR43618",
     "part_number": "7397491",
     "engine_family": "B46"
   },
@@ -172275,19 +171976,6 @@
     "part_number": "6982402",
     "engine_family": "N54"
   },
-  "6198": {
-    "sku": "6198",
-    "make": "BMW",
-    "model": "M550i xDrive",
-    "series": "G30",
-    "year": null,
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Front Left Driver Door Shell Panel",
-    "universal": "False",
-    "vin": "WBAJB9C54JB036528",
-    "part_number": "7408961",
-    "engine_family": "N63"
-  },
   "61849": {
     "sku": "61849",
     "make": "BMW",
@@ -173753,7 +173441,7 @@
     "engine_code_raw": "B58B30M0",
     "part_type": "Rear Left Driver Door Shell Panel",
     "universal": "False",
-    "vin": null,
+    "vin": "5UXTS3C58J0Y98394",
     "part_number": "7465533",
     "engine_family": "B58"
   },
@@ -176747,19 +176435,6 @@
     "part_number": "6765235",
     "engine_family": "N54"
   },
-  "61772": {
-    "sku": "61772",
-    "make": "BMW",
-    "model": "335i",
-    "series": "E93",
-    "year": 2008,
-    "engine_code_raw": "N54B30A",
-    "part_type": "Rear View Interior Mirror",
-    "universal": "False",
-    "vin": "WBAWL73508PX52170",
-    "part_number": "9151844",
-    "engine_family": "N54"
-  },
   "61774": {
     "sku": "61774",
     "make": "BMW",
@@ -176966,19 +176641,6 @@
     "universal": "False",
     "vin": "WBAPH7G53BNN05020",
     "part_number": "5A55AF4",
-    "engine_family": "N52"
-  },
-  "60946": {
-    "sku": "60946",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E90",
-    "year": 2011,
-    "engine_code_raw": "N52B30M1",
-    "part_type": "Front AC Heater Climate Control Switch",
-    "universal": "False",
-    "vin": "WBAPH7G53BNN05020",
-    "part_number": "9248581",
     "engine_family": "N52"
   },
   "60932": {
@@ -177603,19 +177265,6 @@
     "universal": "False",
     "vin": "WBAPH7G53BNN05020",
     "part_number": "7840617",
-    "engine_family": "N52"
-  },
-  "60952": {
-    "sku": "60952",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E90",
-    "year": 2011,
-    "engine_code_raw": "N52B30M1",
-    "part_type": "Start Stop Button",
-    "universal": "False",
-    "vin": "WBAPH7G53BNN05020",
-    "part_number": "9154945",
     "engine_family": "N52"
   },
   "60964": {
@@ -179072,19 +178721,6 @@
     "universal": "False",
     "vin": "WBAPH7G53BNN05020",
     "part_number": "7558055",
-    "engine_family": "N52"
-  },
-  "61043": {
-    "sku": "61043",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E90",
-    "year": 2011,
-    "engine_code_raw": "N52B30M1",
-    "part_type": "Left Right Seat Speaker Subwoofer SET",
-    "universal": "False",
-    "vin": "WBAPH7G53BNN05020",
-    "part_number": "9143144",
     "engine_family": "N52"
   },
   "60249": {
@@ -184716,19 +184352,6 @@
     "part_number": "6995975",
     "engine_family": "B46"
   },
-  "63842": {
-    "sku": "63842",
-    "make": "BMW",
-    "model": "X3",
-    "series": "G01",
-    "year": 2018,
-    "engine_code_raw": "B46B20O0",
-    "part_type": "Center Console Armrest Arm Rest",
-    "universal": "False",
-    "vin": "5UXTR9C59JLD73165",
-    "part_number": "6814788",
-    "engine_family": "B46"
-  },
   "63840": {
     "sku": "63840",
     "make": "BMW",
@@ -187199,19 +186822,6 @@
     "part_number": "7138335",
     "engine_family": "N62"
   },
-  "6610": {
-    "sku": "6610",
-    "make": "BMW",
-    "model": "X5",
-    "series": "E70",
-    "year": 2009,
-    "engine_code_raw": "N62B48B",
-    "part_type": "Rear Right Passenger Exterior Door Handle w/ Comfort Access",
-    "universal": "False",
-    "vin": "5UXFE83599L169008",
-    "part_number": "7209314",
-    "engine_family": "N62"
-  },
   "6590": {
     "sku": "6590",
     "make": "BMW",
@@ -187379,19 +186989,6 @@
     "universal": "False",
     "vin": "5UXFE83599L169008",
     "part_number": "6969544",
-    "engine_family": "N62"
-  },
-  "6561": {
-    "sku": "6561",
-    "make": "BMW",
-    "model": "X5",
-    "series": "E70",
-    "year": 2009,
-    "engine_code_raw": "N62B48B",
-    "part_type": "Front Left Right Side Windshield Drip Trim Molding SET",
-    "universal": "False",
-    "vin": "5UXFE83599L169008",
-    "part_number": "7250395",
     "engine_family": "N62"
   },
   "6416": {
@@ -188562,19 +188159,6 @@
     "universal": "False",
     "vin": "WBAPH7G53BNN05020",
     "part_number": "6985616",
-    "engine_family": "N52"
-  },
-  "60943": {
-    "sku": "60943",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E90",
-    "year": 2011,
-    "engine_code_raw": "N52B30M1",
-    "part_type": "Battery Negative IBS Wire Cable",
-    "universal": "False",
-    "vin": "WBAPH7G53BNN05020",
-    "part_number": "9215952",
     "engine_family": "N52"
   },
   "62389": {
@@ -189927,19 +189511,6 @@
     "universal": "False",
     "vin": "WBAJB9C54JB036528",
     "part_number": "9283200",
-    "engine_family": "N63"
-  },
-  "60531": {
-    "sku": "60531",
-    "make": "BMW",
-    "model": "M550i xDrive",
-    "series": "G30",
-    "year": 2018,
-    "engine_code_raw": "N63B44O2",
-    "part_type": "Front Left Driver Sun Visor",
-    "universal": "False",
-    "vin": "WBAJB9C54JB036528",
-    "part_number": "8068741",
     "engine_family": "N63"
   },
   "60530": {
@@ -193881,19 +193452,6 @@
     "part_number": "7168987",
     "engine_family": "N51"
   },
-  "61448": {
-    "sku": "61448",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E93",
-    "year": 2008,
-    "engine_code_raw": "N51B30M0",
-    "part_type": "Rear View Interior Mirror",
-    "universal": "False",
-    "vin": "WBAWR33518P152278",
-    "part_number": "9151844",
-    "engine_family": "N51"
-  },
   "61449": {
     "sku": "61449",
     "make": "BMW",
@@ -193918,19 +193476,6 @@
     "universal": "False",
     "vin": "WBAWR33518P152278",
     "part_number": "9173473",
-    "engine_family": "N51"
-  },
-  "61457": {
-    "sku": "61457",
-    "make": "BMW",
-    "model": "328i",
-    "series": "E93",
-    "year": 2008,
-    "engine_code_raw": "N51B30M0",
-    "part_type": "RDC TPMS Tire Pressure Monitoring System Module",
-    "universal": "False",
-    "vin": "WBAWR33518P152278",
-    "part_number": "6771042",
     "engine_family": "N51"
   },
   "61451": {
@@ -194932,19 +194477,6 @@
     "universal": "False",
     "vin": "WBA3A9G56FNS66776",
     "part_number": "6860843",
-    "engine_family": "N55"
-  },
-  "62413": {
-    "sku": "62413",
-    "make": "BMW",
-    "model": "335i",
-    "series": "F30",
-    "year": 2015,
-    "engine_code_raw": "N55B30M0",
-    "part_type": "Engine Oil Cooler Line Return Flow SET",
-    "universal": "False",
-    "vin": "WBA3A9G56FNS66776",
-    "part_number": "7639449",
     "engine_family": "N55"
   },
   "62419": {
@@ -196363,19 +195895,6 @@
     "vin": "WBA8Y3C5XJG451253",
     "part_number": "6856403",
     "engine_family": "B58"
-  },
-  "63326": {
-    "sku": "63326",
-    "make": "BMW",
-    "model": "320i",
-    "series": "F30",
-    "year": 2015,
-    "engine_code_raw": "N20B20U0",
-    "part_type": "Monitor Display Screen",
-    "universal": "False",
-    "vin": "WBA3B1G59FNT64229",
-    "part_number": "9270393",
-    "engine_family": "N20"
   },
   "61188": {
     "sku": "61188",
@@ -200862,19 +200381,6 @@
     "part_number": "9276065",
     "engine_family": "N20"
   },
-  "64895": {
-    "sku": "64895",
-    "make": "BMW",
-    "model": "X3",
-    "series": "F25",
-    "year": 2016,
-    "engine_code_raw": "N20B20A",
-    "part_type": "EKP Fuel Pump Module",
-    "universal": "False",
-    "vin": "5UXWX9C5XG0D81000",
-    "part_number": "7426095",
-    "engine_family": "N20"
-  },
   "64951": {
     "sku": "64951",
     "make": "BMW",
@@ -201511,5 +201017,655 @@
     "vin": "WBA7B0C55JG527229",
     "part_number": "7599042",
     "engine_family": "N63"
+  },
+  "64999": {
+    "sku": "64999",
+    "make": "BMW",
+    "model": "X3",
+    "series": "F25",
+    "year": 2016,
+    "engine_code_raw": "N20B20A",
+    "part_type": "Front Left Driver Half Shaft Output CV Axle",
+    "universal": "False",
+    "vin": "5UXWX9C5XG0D81000",
+    "part_number": "7598027",
+    "engine_family": "N20"
+  },
+  "64998": {
+    "sku": "64998",
+    "make": "BMW",
+    "model": "X3",
+    "series": "F25",
+    "year": 2016,
+    "engine_code_raw": "N20B20A",
+    "part_type": "Front Right Passenger Half Shaft Output CV Axle",
+    "universal": "False",
+    "vin": "5UXWX9C5XG0D81000",
+    "part_number": "7598028",
+    "engine_family": "N20"
+  },
+  "49571": {
+    "sku": "49571",
+    "make": "BMW",
+    "model": "X3",
+    "series": null,
+    "year": 2019,
+    "engine_code_raw": null,
+    "part_type": "Rear Right Passenger Bumper Support Bracket",
+    "universal": "False",
+    "vin": "5UXTR7C58KLR44714",
+    "part_number": "7400666",
+    "engine_family": null
+  },
+  "65039": {
+    "sku": "65039",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Emblem Badge Symbol Logo",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7463715",
+    "engine_family": "B58"
+  },
+  "65018": {
+    "sku": "65018",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Front Bumper Radiator Air Flap Shutter Motor Actuator",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "9464869",
+    "engine_family": "B58"
+  },
+  "65017": {
+    "sku": "65017",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear Center Console Air Vent Grille",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "6806814",
+    "engine_family": "B58"
+  },
+  "65036": {
+    "sku": "65036",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Front Left Right Scuff Plate Door Sill SET",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "8079724",
+    "engine_family": "B58"
+  },
+  "65007": {
+    "sku": "65007",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Headlight Switch",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "9461139",
+    "engine_family": "B58"
+  },
+  "65038": {
+    "sku": "65038",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear Power Distribution Fuse Box",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "6994419",
+    "engine_family": "B58"
+  },
+  "65015": {
+    "sku": "65015",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Right Passenger Knee Airbag Air Bag",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "6804048",
+    "engine_family": "B58"
+  },
+  "65019": {
+    "sku": "65019",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Gas Accelarator Pedal",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "6871053",
+    "engine_family": "B58"
+  },
+  "65012": {
+    "sku": "65012",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Dashboard Dash Board Right Passenger Air Vent",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "6848618",
+    "engine_family": "B58"
+  },
+  "65008": {
+    "sku": "65008",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear AC Heater Climate Control Switch",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "9493012",
+    "engine_family": "B58"
+  },
+  "65010": {
+    "sku": "65010",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "AUX / USB Charger Port Socket",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "8711938",
+    "engine_family": "B58"
+  },
+  "65002": {
+    "sku": "65002",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Wireless Phone Charger Module",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "8734774",
+    "engine_family": "B58"
+  },
+  "65031": {
+    "sku": "65031",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear Left or Right Seatbelt Seat Belt Retractor",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7496266",
+    "engine_family": "B58"
+  },
+  "65013": {
+    "sku": "65013",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Dashboard Dash Board Left Driver Air Vent",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "6848617",
+    "engine_family": "B58"
+  },
+  "65009": {
+    "sku": "65009",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "AUX / USB Charger Port Socket",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "8711939",
+    "engine_family": "B58"
+  },
+  "65032": {
+    "sku": "65032",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Front Right Passenger Seatbelt Seat Belt Retractor",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7496308",
+    "engine_family": "B58"
+  },
+  "65001": {
+    "sku": "65001",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Front Left Driver Door Master Window Switch",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7948785",
+    "engine_family": "B58"
+  },
+  "65011": {
+    "sku": "65011",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Front AC Heater Climate Control Switch",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7949454",
+    "engine_family": "B58"
+  },
+  "65030": {
+    "sku": "65030",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear Left or Right Seatbelt Seat Belt Retractor",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7496266",
+    "engine_family": "B58"
+  },
+  "65014": {
+    "sku": "65014",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Dashboard Dash Board Middle Center Air Vent",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "9459482",
+    "engine_family": "B58"
+  },
+  "65022": {
+    "sku": "65022",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Gear Selector Controller Shifter Knob Panel Assembly",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "9433339",
+    "engine_family": "B58"
+  },
+  "65016": {
+    "sku": "65016",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Monitor Display Screen",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "8798742",
+    "engine_family": "B58"
+  },
+  "65049": {
+    "sku": "65049",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "year": 2018,
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Dashboard Dash Board Left Driver Air Vent",
+    "universal": "False",
+    "vin": "WBA7B0C55JG527229",
+    "part_number": "9299497",
+    "engine_family": "N63"
+  },
+  "64972": {
+    "sku": "64972",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "year": 2018,
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Rear Axle Carrier Differential",
+    "universal": "False",
+    "vin": "WBA7B0C55JG527229",
+    "part_number": "8638075",
+    "engine_family": "N63"
+  },
+  "64973": {
+    "sku": "64973",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "year": 2018,
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Transmission Transfer Case",
+    "universal": "False",
+    "vin": "WBA7B0C55JG527229",
+    "part_number": "8487143",
+    "engine_family": "N63"
+  },
+  "64804": {
+    "sku": "64804",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "year": 2018,
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Front Windshield Kafas Lane Assist Camera Module",
+    "universal": "False",
+    "vin": "WBA7B0C55JG527229",
+    "part_number": "6996069",
+    "engine_family": "N63"
+  },
+  "64796": {
+    "sku": "64796",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "year": 2018,
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Dashboard Dash Board Middle Center Air Vent",
+    "universal": "False",
+    "vin": "WBA7B0C55JG527229",
+    "part_number": "9329954",
+    "engine_family": "N63"
+  },
+  "64798": {
+    "sku": "64798",
+    "make": "BMW",
+    "model": "750i",
+    "series": "G12",
+    "year": 2018,
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Front Right Passenger Seatbelt Seat Belt Retractor",
+    "universal": "False",
+    "vin": "WBA7B0C55JG527229",
+    "part_number": "7402370",
+    "engine_family": "N63"
+  },
+  "65055": {
+    "sku": "65055",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear Differential Module",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "9454245",
+    "engine_family": "B58"
+  },
+  "65057": {
+    "sku": "65057",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Stereo Audio Amp Amplifier",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "9832609",
+    "engine_family": "B58"
+  },
+  "65060": {
+    "sku": "65060",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Blind Spot Lane Sensor Radar Module",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7915643",
+    "engine_family": "B58"
+  },
+  "65083": {
+    "sku": "65083",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear Left Driver Inner Tail Light",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7420455",
+    "engine_family": "B58"
+  },
+  "65082": {
+    "sku": "65082",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear Right Passenger Inner Tail Light",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7420456",
+    "engine_family": "B58"
+  },
+  "65080": {
+    "sku": "65080",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear Left Driver Outer Tail Light",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7495085",
+    "engine_family": "B58"
+  },
+  "65058": {
+    "sku": "65058",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Anti Theft Siren Alarm Module",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "9493759",
+    "engine_family": "B58"
+  },
+  "65052": {
+    "sku": "65052",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Battery Positive Fuse Terminal Cable",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "8796155",
+    "engine_family": "B58"
+  },
+  "65063": {
+    "sku": "65063",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Liftgate Trunk Lid Liftgate Lock Latch Actuator",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7383283",
+    "engine_family": "B58"
+  },
+  "65081": {
+    "sku": "65081",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear Right Passenger Outer Tail Light",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7420452",
+    "engine_family": "B58"
+  },
+  "65061": {
+    "sku": "65061",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Blind Spot Lane Sensor Radar Module",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7915643",
+    "engine_family": "B58"
+  },
+  "65050": {
+    "sku": "65050",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Liftgate Trunk Lid Reverse Camera",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "9838336",
+    "engine_family": "B58"
+  },
+  "65054": {
+    "sku": "65054",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "PDC Park Assist Control Module",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "9873546",
+    "engine_family": "B58"
+  },
+  "65084": {
+    "sku": "65084",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear Left Right Liftgate Trunk Lid Strut Shock Supports SET",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7430639",
+    "engine_family": "B58"
+  },
+  "65064": {
+    "sku": "65064",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Rear Smart Opener Sensor Module W/ Harness & Strap SET",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "7391042",
+    "engine_family": "B58"
+  },
+  "65053": {
+    "sku": "65053",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Left or Right Secondary Auxiliary radiator",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "8672237",
+    "engine_family": "B58"
+  },
+  "65051": {
+    "sku": "65051",
+    "make": "BMW",
+    "model": "M340i",
+    "series": "G20",
+    "year": 2020,
+    "engine_code_raw": "B58B30O1",
+    "part_type": "Headliner Overhead Dome Light Switch Module",
+    "universal": "False",
+    "vin": "WBA5U7C02LFH56395",
+    "part_number": "9875355",
+    "engine_family": "B58"
+  },
+  "5114": {
+    "sku": "5114",
+    "make": "BMW",
+    "model": "M550i",
+    "series": "G30",
+    "year": 2018,
+    "engine_code_raw": "N63B44O2",
+    "part_type": "Front Left Driver Headlight Ballast Module",
+    "universal": "False",
+    "vin": "WBAJB9C55JB286862",
+    "part_number": "8491414",
+    "engine_family": "N63"
+  },
+  "29368": {
+    "sku": "29368",
+    "make": "BMW",
+    "model": "M5",
+    "series": null,
+    "year": 2014,
+    "engine_code_raw": null,
+    "part_type": null,
+    "universal": "False",
+    "vin": "WBSFV9C51ED097841",
+    "part_number": "7305312",
+    "engine_family": null
   }
 }
