@@ -1128,9 +1128,42 @@ def t_etk_source():
     eq(sorted({r["year"] for r in b4}), [1990, 1991, 1992], "years floor at 1990")
 
 
+
+def t_error_summary():
+    """A write failure is only actionable if you can read WHY. eBay puts the message after
+    ~120 characters of errorId/domain/subdomain/category boilerplate, so truncating the raw
+    envelope at 160 cut every message off mid-sentence -- all 14 failures on 2026-08-26 were
+    unreadable."""
+    print("eBay error summarising:")
+    import ebay_batch as EB
+    env = {"errors": [{"errorId": 25604, "domain": "API_INVENTORY", "subdomain": "Selling",
+                       "category": "Request", "message": "short form",
+                       "longMessage": "the full explanation of what went wrong",
+                       "parameters": [{"name": "sku", "value": "62223"}]}]}
+    got = EB._err_summary(env)
+    eq("the full explanation of what went wrong" in got, True, "the longMessage survives")
+    eq("25604" in got, True, "the errorId is kept")
+    eq("sku=62223" in got, True, "parameters are kept -- they name the offending value")
+    eq("subdomain" in got, False, "boilerplate is dropped")
+
+    # message only, no longMessage
+    eq("short form" in EB._err_summary({"errors": [{"errorId": 1, "message": "short form"}]}),
+       True, "falls back to message when longMessage is absent")
+    # Several errors at once are all reported, not just the first.
+    multi = {"errors": [{"errorId": 1, "message": "first"}, {"errorId": 2, "message": "second"}]}
+    got = EB._err_summary(multi)
+    eq("first" in got and "second" in got, True, "multiple errors are all summarised")
+    # An unrecognised shape must NOT be swallowed -- show the raw payload instead.
+    eq(EB._err_summary({"weird": 1}), '{"weird": 1}', "unknown shape falls back to raw JSON")
+    eq(EB._err_summary({}), "{}", "empty envelope falls back to raw JSON")
+    eq(EB._err_summary({"errors": []}), '{"errors": []}', "no errors -> raw JSON, not empty string")
+    eq(len(EB._err_summary({"errors": [{"errorId": 9, "message": "x" * 900}]})) <= 240, True,
+       "output stays bounded")
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_etk_source, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_etk_source, t_error_summary, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()

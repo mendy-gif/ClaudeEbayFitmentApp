@@ -576,7 +576,12 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
             row["reason"] = f"inventory write auth HTTP {st}"
         elif st not in (200, 201, 204):
             row["action"] = "error"
-            row["reason"] = f"inventory write HTTP {st}: {json.dumps(resp)[:160]}"
+            # Keep the eBay MESSAGE, not the first 160 characters of the envelope. The
+            # useful part ("Input error. Seller Inventory Service can not ...") sits after
+            # ~120 characters of errorId/domain/subdomain/category boilerplate, so the old
+            # truncation reliably cut it off mid-sentence -- 14 write failures on
+            # 2026-08-26 and the reason was unreadable in every one of them.
+            row["reason"] = f"inventory write HTTP {st}: {_err_summary(resp)}"
         else:
             stored, verr = read_inventory_compat(sku, tok)
             if stored is None:
@@ -623,6 +628,32 @@ def load_nondisplay():
                        if (v or {}).get("displaying", 0) == 0
                        and (v or {}).get("skus_seen", 0) >= need}
     return _nondisplay
+
+
+def _err_summary(resp, limit=240):
+    """The human-readable part of an eBay error envelope.
+
+    eBay returns {"errors":[{errorId, domain, subdomain, category, message, longMessage,
+    parameters...}]}. The message is what tells you what to do; everything before it is
+    fixed boilerplate. Falls back to the raw JSON when the shape is not what we expect,
+    so an unrecognised error is never swallowed.
+    """
+    try:
+        errs = resp.get("errors") or []
+        parts = []
+        for e in errs[:3]:
+            msg = (e.get("longMessage") or e.get("message") or "").strip()
+            eid = e.get("errorId")
+            params = e.get("parameters") or []
+            pv = " ".join(f"{p.get('name')}={p.get('value')}" for p in params
+                          if isinstance(p, dict) and p.get("value"))
+            parts.append(f"[{eid}] {msg}" + (f" ({pv})" if pv else ""))
+        out = " | ".join(p for p in parts if p.strip(" []"))
+        if out.strip():
+            return out[:limit]
+    except (AttributeError, TypeError):
+        pass
+    return json.dumps(resp)[:limit]
 
 def classify_rule(category, tree, inc, exc, default):
     if not category or tree is None:
