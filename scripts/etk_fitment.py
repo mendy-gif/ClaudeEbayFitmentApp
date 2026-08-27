@@ -38,25 +38,85 @@ OUT = os.path.join(ROOT, "data", "etk_fitment.csv.gz")
 ETK = os.path.expanduser("~/Documents/GitHub/BMW-ETK/bmw-etk")
 EMITTER = os.path.join(ETK, "scripts", "ebay_fitment.py")
 
-# eBay names the xDrive variants in full; the ETK suffixes the model with X ("328iX").
-# Everything else passes through -- eBay's BMW vocabulary is per-variant ("328i", "M3"),
-# not per-series, which is why the ETK's `model` maps to eBay's MODEL and not to a trim.
+# eBay's BMW vocabulary splits two ways, and getting this wrong silently binned 20% of
+# this source (192,722 rows on 2026-08-27):
+#
+#   SEDANS/COUPES -- the variant IS the model. "328i", "740i xDrive", "M340i" are all
+#     real entries in eBay's Model list, so the ETK designation maps straight across.
+#   X/Z MODELS    -- the model is BARE. eBay's list holds "X1".."X7", "XM", "Z3", "Z4",
+#     "Z8" and nothing longer; the variant belongs in the TRIM field, spelled
+#     "xDrive30i Sport Utility 4-Door". Sending "X3 30i xDrive" as a MODEL matches
+#     nothing and eBay drops the row without a word.
+#
+# The ETK writes the variant with xDrive as a SUFFIX ("X3 30i xDrive", "328iX"); eBay
+# writes it as a PREFIX ("xDrive30i"). M-variants are the exception -- eBay spells those
+# "M40i", with no xDrive at all, verified against the live catalog for 2018/2019 X3.
 _XDRIVE = re.compile(r"^(.*?)X$")
+_XZ_MODEL = re.compile(r"^(X[1-7]|XM|Z[3-8])(?:\s+(.*))?$")
+# MINI is a SEPARATE MAKE in eBay's catalog, but BMW's own catalogue files it under BMW --
+# 52,531 rows. They can never validate as a BMW, so drop them here rather than spend
+# catalog lookups discovering that every night. (Extending to MINI would mean emitting
+# make=MINI, which is a different piece of work.)
+_MINI = re.compile(r"\b(Cooper|Clubman|Countryman|Paceman|JCW|ALL4)\b", re.I)
+# Same story for Rolls-Royce, also a BMW Group marque filed under BMW in the catalogue.
+_ROLLS = re.compile(r"^(Phantom|Ghost|Wraith|Dawn|Cullinan|Spectre)\b", re.I)
+# The ETK writes "Hybrid 5"; eBay writes "ActiveHybrid 5".
+_HYBRID = re.compile(r"^Hybrid\s+([357])L?$", re.I)
 
 
-def to_ebay_model(etk_model):
-    """ETK model designation -> eBay's model vocabulary, or None if unusable."""
+def _x_trim(rest):
+    """The variant part of an X/Z designation -> eBay's TRIM spelling, or None."""
+    t = (rest or "").strip()
+    awd = False
+    if t.endswith(" xDrive"):                    # "50i xDrive"
+        t, awd = t[:-len(" xDrive")].strip(), True
+    elif re.match(r"^[A-Z]*\d+[a-z]X$", t):      # "40eX", and "M40iX" for the M-variants
+        t, awd = t[:-1], True
+    # xDrive is a PREFIX on the numeric variants ("xDrive50i") but M-variants carry no
+    # xDrive in eBay's spelling at all -- "M40i", not "xDriveM40i". Only prefix a variant
+    # that starts with a digit.
+    if awd and re.match(r"^\d", t):
+        t = "xDrive" + t
+    return t or None
+
+
+def to_ebay_vehicle(etk_model):
+    """ETK model designation -> (eBay Model, eBay Trim|None), or None if unusable.
+
+    Trim is None for models that carry their variant in the Model field (every sedan), and
+    set only for the X/Z models where eBay keeps them apart.
+    """
     m = (etk_model or "").strip()
     if not m or m.lower() in ("?", "unknown"):
         return None
+    if _MINI.search(m) or _ROLLS.match(m):
+        return None
+    hit = _HYBRID.match(m)
+    if hit:
+        # "Hybrid 7L" is the long-wheelbase 7; eBay has no separate entry, so both map to
+        # ActiveHybrid 7 -- correct, since the parts catalogue distinguishes them by body
+        # and eBay does not carry the distinction at Model level at all.
+        return f"ActiveHybrid {hit.group(1)}", None
+    if m.upper().startswith("ALPINA "):           # eBay spells it "Alpina B7", not "ALPINA B7"
+        m = "Alpina " + m[len("ALPINA "):].strip()
+    hit = _XZ_MODEL.match(m)
+    if hit:
+        return hit.group(1), _x_trim(hit.group(2))
     hit = _XDRIVE.match(m)
     if hit and hit.group(1) and not hit.group(1).endswith(" "):
-        # 328iX -> 328i xDrive. Guard against a bare "X" and against names that merely
-        # end in X for other reasons (there is no BMW model that does, but be explicit).
+        # 328iX -> "328i xDrive". Guard against a bare "X" and against names that merely
+        # end in X for other reasons. `e` covers the PHEVs (740eX -> "740e xDrive").
         base = hit.group(1)
-        if re.search(r"\d$|i$|d$", base):
-            return f"{base} xDrive"
-    return m
+        # `L` covers the long-wheelbase Alpinas ("ALPINA B7LX" -> "Alpina B7L xDrive").
+        if re.search(r"\d$|i$|d$|e$|L$", base):
+            return f"{base} xDrive", None
+    return m, None
+
+
+def to_ebay_model(etk_model):
+    """Back-compat shim: the model half only."""
+    hit = to_ebay_vehicle(etk_model)
+    return hit[0] if hit else None
 
 
 def load_donor_parts(limit=None, only=None):
@@ -115,10 +175,11 @@ def build(rows, sku_by_pn):
         if not skus:
             skipped["no_sku"] += 1
             continue
-        model = to_ebay_model(r.get("model"))
-        if not model:
+        hit = to_ebay_vehicle(r.get("model"))
+        if not hit:
             skipped["no_model"] += 1
             continue
+        model, trim = hit
         fr, to = (r.get("year_from") or "").strip(), (r.get("year_to") or "").strip()
         if not fr.isdigit():
             skipped["no_year"] += 1
@@ -131,6 +192,7 @@ def build(rows, sku_by_pn):
             for sku in skus:
                 out.append({"guid": sku, "part7": pn7, "year": year, "make": "BMW",
                             "raw_model": r.get("model") or "", "ebay_model": model,
+                            "trim": trim or "",
                             "mapping_flag": "etk", "title": r.get("part_name") or ""})
     return out, skipped
 
@@ -162,12 +224,13 @@ def main():
 
     if args.sku:
         for r in built[:60]:
-            print(f"  {r['guid']}  {r['year']} {r['make']} {r['ebay_model']}   ({r['raw_model']})")
+            print(f"  {r['guid']}  {r['year']} {r['make']} {r['ebay_model']}"
+                  f"{' ' + r['trim'] if r['trim'] else ''}   ({r['raw_model']})")
         return
     opener = gzip.open if args.out.endswith(".gz") else open
     with opener(args.out, "wt", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["guid", "part7", "year", "make", "raw_model",
-                                          "ebay_model", "mapping_flag", "title"])
+                                          "ebay_model", "trim", "mapping_flag", "title"])
         w.writeheader(); w.writerows(built)
     print(f"Wrote {args.out}", file=sys.stderr)
 

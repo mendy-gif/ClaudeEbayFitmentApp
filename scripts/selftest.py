@@ -133,7 +133,7 @@ def c_partnumber_and_union():
         bad(f"part-number fitment too small ({len(pnf)})")
     # vocabulary consistency: every pn model must be in the eBay catalog
     ref, emap, vocab = FR.load_all()
-    bad_models = {md for rows in pnf.values() for (_, _, md) in rows if md not in vocab}
+    bad_models = {md for rows in pnf.values() for (_, _, md, _t) in rows if md not in vocab}
     if not bad_models:
         ok("all part-number models are in the eBay catalog vocabulary")
     else:
@@ -141,7 +141,7 @@ def c_partnumber_and_union():
     # chassis-family expansion of part-number rows must be a superset of the literal rows
     cache, viol, sample = {}, 0, list(pnf.items())[:100]
     for _, veh in sample:
-        lit = {(y, mk, md) for (y, mk, md) in veh}
+        lit = {(y, mk, md) for (y, mk, md, _tr) in veh}   # trim is the 4th element
         exp = {(r["Year"], r["Make"], r["Model"]) for r in B.expand_partnumber_rows(veh, "A", ref, emap, vocab, cache)}
         if any(v not in exp for v in lit):
             viol += 1

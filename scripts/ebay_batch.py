@@ -161,8 +161,13 @@ def read_inventory_compat(sku, tok):
 
 
 def load_partnumber_fitment(path):
-    """Approach-2 part-number history -> {sku: set((year:int, make, ebay_model))}.
-    Drops STOCK-prefixed guids (not live eBay SKUs) and UNMAPPED model rows."""
+    """Approach-2 part-number history -> {sku: set((year:int, make, ebay_model, trim))}.
+    Drops STOCK-prefixed guids (not live eBay SKUs) and UNMAPPED model rows.
+
+    `trim` is "" for every part-number row and for most ETK rows -- eBay keeps the variant
+    in the MODEL for sedans ("740i xDrive" is a model). It is only set for the X/Z models,
+    where eBay's model is bare ("X5") and the variant belongs in the Trim field. It is ""
+    rather than None so the tuples stay sortable."""
     out = {}
     opener = gzip.open if str(path).endswith(".gz") else open
     with opener(path, "rt", encoding="utf-8") as f:
@@ -173,8 +178,9 @@ def load_partnumber_fitment(path):
             if (r.get("mapping_flag") or "").upper() == "UNMAPPED":
                 continue
             y, mk, md = (r.get("year") or "").strip(), (r.get("make") or "").strip(), (r.get("ebay_model") or "").strip()
+            tr = (r.get("trim") or "").strip()          # absent in the part-number CSV
             if y.isdigit() and mk and md:
-                out.setdefault(guid, set()).add((int(y), mk, md))
+                out.setdefault(guid, set()).add((int(y), mk, md, tr))
     return out
 
 
@@ -369,7 +375,7 @@ def expand_partnumber_rows(vehicles, rule, ref, emap, ebay, cache=None):
     if cache is None:
         cache = {}
     out, seen = [], set()
-    for (y, mk, md) in vehicles:
+    for (y, mk, md, _tr) in vehicles:
         ck = (md, y, rule)
         rows = cache.get(ck)
         if rows is None:
@@ -457,8 +463,16 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
     # models it leaves out are ones BMW says the part does NOT fit -- expanding would put
     # them back. For SKU 13611 the ETK gives 23 models where the donor's chassis reveals
     # only M3; that breadth is the source's value and it is already correct.
-    etk_rows = [{"Year": y, "Make": mk, "Model": md}
-                for (y, mk, md) in sorted((etk or {}).get(sku, ()))]
+    etk_rows = [dict({"Year": y, "Make": mk, "Model": md}, **({"Trim": tr} if tr else {}))
+                for (y, mk, md, tr) in sorted((etk or {}).get(sku, ()))]
+    # An ETK trim is a PRECISE statement from BMW ("X5" + "xDrive50i"), so it must never be
+    # widened to a trimless wildcard -- that would claim every X5 variant of that year,
+    # which is broader than BMW said and exactly the trap in DESIGN.md 5.3. Validate the
+    # ETK rows on their own with on_unmatched="drop" before they reach the shared pass.
+    # This can only be equal or better than before the model/trim split: those rows had an
+    # invalid MODEL and were dropped wholesale.
+    if etk_rows:
+        etk_rows, _etkrep = CAT.validate_rows(etk_rows, on_unmatched="drop")
 
     # Headlights and taillights change at a BMW facelift (LCI), so a pre-LCI light does not
     # fit a post-LCI car of the same chassis. Unlike a phantom TRIM -- which eBay silently

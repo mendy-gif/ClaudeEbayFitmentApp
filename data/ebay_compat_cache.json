@@ -418,6 +418,7 @@
 ],
 "t|1998|bmw|750ilp": [],
 "t|1998|bmw|m3 3.2": [],
+"t|1998|bmw|x5": [],
 "t|1998|bmw|x5 4.4i": [],
 "t|1998|bmw|z3": [
 "1.9i Convertible 2-Door",
@@ -483,6 +484,7 @@
 "t|1999|bmw|m5": [
 "Base Sedan 4-Door"
 ],
+"t|1999|bmw|x5": [],
 "t|1999|bmw|x5 3.0i": [],
 "t|1999|bmw|x5 4.4i": [],
 "t|1999|bmw|z3": [
@@ -1222,6 +1224,7 @@
 ],
 "t|2007|bmw|x5 3.0si": [],
 "t|2007|bmw|x5 4.8i": [],
+"t|2007|bmw|x6": [],
 "t|2007|bmw|x6 35i xdrive": [],
 "t|2007|bmw|x6 50i xdrive": [],
 "t|2007|bmw|z4": [
@@ -1328,6 +1331,7 @@
 "Base Sedan 4-Door",
 "Limited Edition Sedan 4-Door"
 ],
+"t|2008|bmw|activehybrid 7": [],
 "t|2008|bmw|alpina b7": [
 "Base Sedan 4-Door"
 ],
@@ -1371,6 +1375,10 @@
 "t|2008|bmw|x5 3.5d": [],
 "t|2008|bmw|x5 4.8i": [],
 "t|2008|bmw|x5 m": [],
+"t|2008|bmw|x6": [
+"xDrive35i Sport Utility 4-Door",
+"xDrive50i Sport Utility 4-Door"
+],
 "t|2008|bmw|x6 35i xdrive": [],
 "t|2008|bmw|x6 50i xdrive": [],
 "t|2008|bmw|x6 m": [],
@@ -1512,6 +1520,7 @@
 ],
 "t|2009|bmw|phantom": [],
 "t|2009|bmw|phantom ewb": [],
+"t|2009|bmw|x1": [],
 "t|2009|bmw|x1 28i": [],
 "t|2009|bmw|x1 28i xdrive": [],
 "t|2009|bmw|x1 35i xdrive": [],
@@ -1540,6 +1549,12 @@
 "t|2009|bmw|x5 4.8i": [],
 "t|2009|bmw|x5 50i xdrive": [],
 "t|2009|bmw|x5 m": [],
+"t|2009|bmw|x6": [
+"xDrive35i Sport Utility 4-Door",
+"xDrive35iA Sport Utility 4-Door",
+"xDrive50i Sport Utility 4-Door",
+"xDrive50iA Sport Utility 4-Door"
+],
 "t|2009|bmw|x6 35i xdrive": [],
 "t|2009|bmw|x6 50i xdrive": [],
 "t|2009|bmw|x6 m": [],
@@ -1674,11 +1689,13 @@
 "t|2010|bmw|760li": [
 "Base Sedan 4-Door"
 ],
+"t|2010|bmw|activehybrid 5": [],
 "t|2010|bmw|activehybrid 7": [],
 "t|2010|bmw|activehybrid 7l": [],
 "t|2010|bmw|alpina b7": [],
 "t|2010|bmw|alpina b7 xdrive": [],
 "t|2010|bmw|alpina b7l": [],
+"t|2010|bmw|alpina b7l xdrive": [],
 "t|2010|bmw|alpina b7lx": [],
 "t|2010|bmw|coop.s jcw": [],
 "t|2010|bmw|cooper": [],
@@ -1706,6 +1723,11 @@
 ],
 "t|2010|bmw|phantom": [],
 "t|2010|bmw|phantom ewb": [],
+"t|2010|bmw|x1": [
+"xDrive2.5i Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door",
+"xDrive28i Top Line Sport Utility 4-Door"
+],
 "t|2010|bmw|x1 28i": [],
 "t|2010|bmw|x1 28i xdrive": [],
 "t|2010|bmw|x1 35i xdrive": [],
@@ -1736,6 +1758,14 @@
 "t|2010|bmw|x5 4.8i": [],
 "t|2010|bmw|x5 50i xdrive": [],
 "t|2010|bmw|x5 m": [],
+"t|2010|bmw|x6": [
+"ActiveHybrid Sport Utility 4-Door",
+"M Sport Utility 4-Door",
+"xDrive35i Sport Utility 4-Door",
+"xDrive35iA Sport Utility 4-Door",
+"xDrive50i Sport Utility 4-Door",
+"xDrive50iA Sport Utility 4-Door"
+],
 "t|2010|bmw|x6 35i xdrive": [],
 "t|2010|bmw|x6 50i xdrive": [],
 "t|2010|bmw|x6 m": [],
@@ -1871,6 +1901,7 @@
 "t|2011|bmw|760li": [
 "Base Sedan 4-Door"
 ],
+"t|2011|bmw|activehybrid 3": [],
 "t|2011|bmw|activehybrid 5": [],
 "t|2011|bmw|activehybrid 7": [],
 "t|2011|bmw|activehybrid 7l": [],
@@ -1881,6 +1912,9 @@
 "Base Sedan 4-Door"
 ],
 "t|2011|bmw|alpina b7l": [
+"Base Sedan 4-Door"
+],
+"t|2011|bmw|alpina b7l xdrive": [
 "Base Sedan 4-Door"
 ],
 "t|2011|bmw|alpina b7lx": [],
@@ -1911,6 +1945,11 @@
 ],
 "t|2011|bmw|phantom": [],
 "t|2011|bmw|phantom ewb": [],
+"t|2011|bmw|x1": [
+"xDrive2.5i Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door",
+"xDrive28i Top Line Sport Utility 4-Door"
+],
 "t|2011|bmw|x1 28i": [],
 "t|2011|bmw|x1 28i xdrive": [],
 "t|2011|bmw|x1 35i xdrive": [],
@@ -1937,6 +1976,12 @@
 "t|2011|bmw|x5 35i xdrive": [],
 "t|2011|bmw|x5 50i xdrive": [],
 "t|2011|bmw|x5 m": [],
+"t|2011|bmw|x6": [
+"ActiveHybrid Sport Utility 4-Door",
+"M Sport Utility 4-Door",
+"xDrive35i Sport Utility 4-Door",
+"xDrive50i Sport Utility 4-Door"
+],
 "t|2011|bmw|x6 35i xdrive": [],
 "t|2011|bmw|x6 50i xdrive": [],
 "t|2011|bmw|x6 m": [],
@@ -2097,6 +2142,9 @@
 "t|2012|bmw|alpina b7l": [
 "Base Sedan 4-Door"
 ],
+"t|2012|bmw|alpina b7l xdrive": [
+"Base Sedan 4-Door"
+],
 "t|2012|bmw|alpina b7lx": [],
 "t|2012|bmw|coop.s jcw": [],
 "t|2012|bmw|cooper": [],
@@ -2125,6 +2173,12 @@
 ],
 "t|2012|bmw|phantom": [],
 "t|2012|bmw|phantom ewb": [],
+"t|2012|bmw|x1": [
+"sDrive20i Sport Utility 4-Door",
+"xDrive28i M Sport Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door",
+"xDrive28i Top Line Sport Utility 4-Door"
+],
 "t|2012|bmw|x1 28i": [],
 "t|2012|bmw|x1 28i xdrive": [],
 "t|2012|bmw|x1 35i xdrive": [],
@@ -2150,6 +2204,11 @@
 "t|2012|bmw|x5 35i xdrive": [],
 "t|2012|bmw|x5 50i xdrive": [],
 "t|2012|bmw|x5 m": [],
+"t|2012|bmw|x6": [
+"M Sport Utility 4-Door",
+"xDrive35i Sport Utility 4-Door",
+"xDrive50i Sport Utility 4-Door"
+],
 "t|2012|bmw|x6 35i xdrive": [],
 "t|2012|bmw|x6 50i xdrive": [],
 "t|2012|bmw|x6 m": [],
@@ -2336,6 +2395,9 @@
 "t|2013|bmw|alpina b7l": [
 "Base Sedan 4-Door"
 ],
+"t|2013|bmw|alpina b7l xdrive": [
+"Base Sedan 4-Door"
+],
 "t|2013|bmw|alpina b7lx": [],
 "t|2013|bmw|coop.s jcw": [],
 "t|2013|bmw|cooper": [],
@@ -2369,6 +2431,18 @@
 "t|2013|bmw|phantom": [],
 "t|2013|bmw|phantom ewb": [],
 "t|2013|bmw|wraith": [],
+"t|2013|bmw|x1": [
+"sDrive20i M Sport Sport Utility 4-Door",
+"sDrive20i Sport Utility 4-Door",
+"sDrive20i X Line Sport Utility 4-Door",
+"sDrive28i Sport Line Sport Utility 4-Door",
+"sDrive28i Sport Utility 4-Door",
+"sDrive28i X Line Sport Utility 4-Door",
+"xDrive28i M Sport Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door",
+"xDrive28i Top Line Sport Utility 4-Door",
+"xDrive35i Sport Utility 4-Door"
+],
 "t|2013|bmw|x1 28i": [],
 "t|2013|bmw|x1 28i xdrive": [],
 "t|2013|bmw|x1 35i xdrive": [],
@@ -2382,6 +2456,7 @@
 "t|2013|bmw|x3 28i": [],
 "t|2013|bmw|x3 28i xdrive": [],
 "t|2013|bmw|x3 35i xdrive": [],
+"t|2013|bmw|x4": [],
 "t|2013|bmw|x4 28i xdrive": [],
 "t|2013|bmw|x4 35i xdrive": [],
 "t|2013|bmw|x5": [
@@ -2397,6 +2472,13 @@
 "t|2013|bmw|x5 40ex": [],
 "t|2013|bmw|x5 50i xdrive": [],
 "t|2013|bmw|x5 m": [],
+"t|2013|bmw|x6": [
+"M Sport Utility 4-Door",
+"xDrive35i M Performance Sport Utility 4-Door",
+"xDrive35i Sport Utility 4-Door",
+"xDrive50i M Performance Sport Utility 4-Door",
+"xDrive50i Sport Utility 4-Door"
+],
 "t|2013|bmw|x6 35i": [],
 "t|2013|bmw|x6 35i xdrive": [],
 "t|2013|bmw|x6 50i xdrive": [],
@@ -2589,6 +2671,9 @@
 "t|2014|bmw|alpina b7l": [
 "Base Sedan 4-Door"
 ],
+"t|2014|bmw|alpina b7l xdrive": [
+"Base Sedan 4-Door"
+],
 "t|2014|bmw|alpina b7lx": [],
 "t|2014|bmw|coop.s jcw": [],
 "t|2014|bmw|cooper": [],
@@ -2627,6 +2712,17 @@
 "t|2014|bmw|phantom": [],
 "t|2014|bmw|phantom ewb": [],
 "t|2014|bmw|wraith": [],
+"t|2014|bmw|x1": [
+"Business Sport Utility 4-Door",
+"sDrive20i Sport Sport Utility 4-Door",
+"sDrive20i Sport Utility 4-Door",
+"sDrive20i X Line Sport Utility 4-Door",
+"sDrive28i Sport Utility 4-Door",
+"xDrive28i Sport Line Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door",
+"xDrive28i X Line Sport Utility 4-Door",
+"xDrive35i Sport Utility 4-Door"
+],
 "t|2014|bmw|x1 28i": [],
 "t|2014|bmw|x1 28i xdrive": [],
 "t|2014|bmw|x1 35i xdrive": [],
@@ -2642,6 +2738,7 @@
 "t|2014|bmw|x3 28i": [],
 "t|2014|bmw|x3 28i xdrive": [],
 "t|2014|bmw|x3 35i xdrive": [],
+"t|2014|bmw|x4": [],
 "t|2014|bmw|x4 28i xdrive": [],
 "t|2014|bmw|x4 35i xdrive": [],
 "t|2014|bmw|x4 m40i xdrive": [],
@@ -2661,6 +2758,11 @@
 "t|2014|bmw|x5 40ex": [],
 "t|2014|bmw|x5 50i xdrive": [],
 "t|2014|bmw|x5 m": [],
+"t|2014|bmw|x6": [
+"M Sport Utility 4-Door",
+"xDrive35i Sport Utility 4-Door",
+"xDrive50i Sport Utility 4-Door"
+],
 "t|2014|bmw|x6 35i": [],
 "t|2014|bmw|x6 35i xdrive": [],
 "t|2014|bmw|x6 50i xdrive": [],
@@ -2828,6 +2930,7 @@
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
 ],
+"t|2015|bmw|740e xdrive": [],
 "t|2015|bmw|740ex": [],
 "t|2015|bmw|740i": [
 "Base Sedan 4-Door"
@@ -2879,6 +2982,9 @@
 "Base Sedan 4-Door"
 ],
 "t|2015|bmw|alpina b7l": [
+"Base Sedan 4-Door"
+],
+"t|2015|bmw|alpina b7l xdrive": [
 "Base Sedan 4-Door"
 ],
 "t|2015|bmw|alpina b7lx": [],
@@ -2934,6 +3040,14 @@
 "t|2015|bmw|phantom": [],
 "t|2015|bmw|phantom ewb": [],
 "t|2015|bmw|wraith": [],
+"t|2015|bmw|x1": [
+"sDrive20iA Sport Utility 4-Door",
+"sDrive28i Sport Utility 4-Door",
+"Sport Line Sport Utility 4-Door",
+"X Line Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door",
+"xDrive35i Sport Utility 4-Door"
+],
 "t|2015|bmw|x1 28i": [],
 "t|2015|bmw|x1 28i xdrive": [],
 "t|2015|bmw|x1 35i xdrive": [],
@@ -2951,6 +3065,13 @@
 "t|2015|bmw|x3 28i": [],
 "t|2015|bmw|x3 28i xdrive": [],
 "t|2015|bmw|x3 35i xdrive": [],
+"t|2015|bmw|x4": [
+"xDrive28i Sport Utility 4-Door",
+"xDrive28i X Line Sport Utility 4-Door",
+"xDrive35i M Sport Sport Utility 4-Door",
+"xDrive35i Sport Utility 4-Door",
+"xDrive35i X Line Sport Utility 4-Door"
+],
 "t|2015|bmw|x4 28i xdrive": [],
 "t|2015|bmw|x4 35i xdrive": [],
 "t|2015|bmw|x4 m40i xdrive": [],
@@ -3085,6 +3206,7 @@
 "Base Sedan 4-Door"
 ],
 "t|2016|bmw|530e": [],
+"t|2016|bmw|530e xdrive": [],
 "t|2016|bmw|530ex": [],
 "t|2016|bmw|530i": [],
 "t|2016|bmw|530i xdrive": [],
@@ -3141,6 +3263,7 @@
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
 ],
+"t|2016|bmw|740e xdrive": [],
 "t|2016|bmw|740ex": [],
 "t|2016|bmw|740i": [
 "740i Sedan 4-Door",
@@ -3251,6 +3374,16 @@
 "t|2016|bmw|x3 30i xdrive": [],
 "t|2016|bmw|x3 35i xdrive": [],
 "t|2016|bmw|x3 m40i xdrive": [],
+"t|2016|bmw|x4": [
+"M Sport Sport Utility 4-Door",
+"M40i Sport Utility 4-Door",
+"X Line Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door",
+"xDrive28i X Line Sport Utility 4-Door",
+"xDrive35i M Sport Sport Utility 4-Door",
+"xDrive35i Sport Utility 4-Door",
+"xDrive35i X Line Sport Utility 4-Door"
+],
 "t|2016|bmw|x4 28i xdrive": [],
 "t|2016|bmw|x4 35i xdrive": [],
 "t|2016|bmw|x4 m40i xdrive": [],
@@ -3368,6 +3501,7 @@
 "Base Coupe 2-Door"
 ],
 "t|2017|bmw|530e": [],
+"t|2017|bmw|530e xdrive": [],
 "t|2017|bmw|530ex": [],
 "t|2017|bmw|530i": [
 "Base Sedan 4-Door",
@@ -3413,6 +3547,9 @@
 "t|2017|bmw|650i xdrive": [
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
+],
+"t|2017|bmw|740e xdrive": [
+"iPerformance Sedan 4-Door"
 ],
 "t|2017|bmw|740ex": [],
 "t|2017|bmw|740i": [
@@ -3534,6 +3671,12 @@
 "t|2017|bmw|x3 35i xdrive": [],
 "t|2017|bmw|x3 m": [],
 "t|2017|bmw|x3 m40i xdrive": [],
+"t|2017|bmw|x4": [
+"M40i Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door",
+"xDrive28i X Line Sport Utility 4-Door",
+"xDrive35i M Sport Sport Utility 4-Door"
+],
 "t|2017|bmw|x4 28i xdrive": [],
 "t|2017|bmw|x4 30i xdrive": [],
 "t|2017|bmw|x4 35i xdrive": [],
@@ -3668,6 +3811,9 @@
 "Base Sedan 4-Door",
 "iPerformance Sport Line Sedan 4-Door"
 ],
+"t|2018|bmw|530e xdrive": [
+"Base Sedan 4-Door"
+],
 "t|2018|bmw|530ex": [],
 "t|2018|bmw|530i": [
 "Base Sedan 4-Door",
@@ -3702,6 +3848,9 @@
 "t|2018|bmw|650i xdrive": [
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
+],
+"t|2018|bmw|740e xdrive": [
+"iPerformance Sedan 4-Door"
 ],
 "t|2018|bmw|740ex": [],
 "t|2018|bmw|740i": [
@@ -3831,6 +3980,12 @@
 "t|2018|bmw|x3 30i xdrive": [],
 "t|2018|bmw|x3 m": [],
 "t|2018|bmw|x3 m40i xdrive": [],
+"t|2018|bmw|x4": [
+"M40i Sport Utility 4-Door",
+"xDrive28i Sport Utility 4-Door",
+"xDrive28i X Line Sport Utility 4-Door",
+"xDrive35i M Sport Sport Utility 4-Door"
+],
 "t|2018|bmw|x4 28i xdrive": [],
 "t|2018|bmw|x4 30i xdrive": [],
 "t|2018|bmw|x4 m": [],
@@ -3935,6 +4090,9 @@
 "Base Sedan 4-Door",
 "iPerformance Sport Line Sedan 4-Door"
 ],
+"t|2019|bmw|530e xdrive": [
+"Base Sedan 4-Door"
+],
 "t|2019|bmw|530ex": [],
 "t|2019|bmw|530i": [
 "Base Sedan 4-Door",
@@ -3951,6 +4109,9 @@
 "Base Sedan 4-Door"
 ],
 "t|2019|bmw|640i xdrive": [],
+"t|2019|bmw|740e xdrive": [
+"iPerformance Sedan 4-Door"
+],
 "t|2019|bmw|740ex": [],
 "t|2019|bmw|740i": [
 "Base Sedan 4-Door",
@@ -4082,6 +4243,12 @@
 "t|2019|bmw|x3 30i xdrive": [],
 "t|2019|bmw|x3 m": [],
 "t|2019|bmw|x3 m40i xdrive": [],
+"t|2019|bmw|x4": [
+"M40i Sport Utility 4-Door",
+"xDrive30i Executive Sport Utility 4-Door",
+"xDrive30i Sport Utility 4-Door",
+"xDrive30i X Line Sport Utility 4-Door"
+],
 "t|2019|bmw|x4 30i xdrive": [],
 "t|2019|bmw|x4 m": [],
 "t|2019|bmw|x4 m40i xdrive": [],

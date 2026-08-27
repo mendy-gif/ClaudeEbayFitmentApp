@@ -23,6 +23,7 @@ WHAT THIS PROTECTS (all three were live bugs; see docs/DESIGN.md sec 5.5):
 The tests assert BEHAVIOUR, not the report counters, wherever possible -- a counter can be
 right while the emitted rows are wrong, and it is the rows that get pushed to eBay.
 """
+import csv
 import json
 import os
 import shutil
@@ -1083,17 +1084,54 @@ def t_etk_source():
     print("ETK third source:")
     import etk_fitment as ETK
 
-    # eBay's BMW vocabulary is per-variant ("328i", "M3", "328i xDrive"), not per-series,
-    # so the ETK's `model` maps onto eBay's MODEL. The one rewrite needed is xDrive.
-    for etk, want in (("328iX", "328i xDrive"), ("320iX", "320i xDrive"),
-                      ("328dX", "328d xDrive"), ("540iX", "540i xDrive"),
-                      ("328i", "328i"), ("M3", "M3"), ("Hybrid 3", "Hybrid 3"),
-                      ("530e", "530e")):
-        eq(ETK.to_ebay_model(etk), want, f"{etk} -> {want}")
+    # eBay's BMW vocabulary splits two ways and the ETK matches NEITHER exactly:
+    #   sedans  -- the variant IS the model ("328i", "740i xDrive"); ETK suffixes xDrive
+    #              with a bare X ("328iX"), so only that needs rewriting.
+    #   X/Z     -- eBay's model is BARE ("X5"); the variant goes in the TRIM field, spelled
+    #              with xDrive as a PREFIX ("xDrive50i"). The ETK writes it as a SUFFIX
+    #              inside the model ("X5 50i xDrive"), which matches no eBay model at all.
+    # Sending the ETK spelling as a MODEL binned 192,722 rows -- 20% of this source.
+    for etk, want in (("328iX", ("328i xDrive", None)), ("320iX", ("320i xDrive", None)),
+                      ("328dX", ("328d xDrive", None)), ("540iX", ("540i xDrive", None)),
+                      ("740eX", ("740e xDrive", None)),        # PHEVs end in e, not i/d
+                      ("328i", ("328i", None)), ("M3", ("M3", None)),
+                      ("M340i", ("M340i", None)), ("530e", ("530e", None)),
+                      # --- X/Z: model and trim come apart
+                      ("X5 50i xDrive", ("X5", "xDrive50i")),
+                      ("X3 30i xDrive", ("X3", "xDrive30i")),
+                      ("X5 35d xDrive", ("X5", "xDrive35d")),
+                      ("X5 40eX",       ("X5", "xDrive40e")),  # no-space trailing X
+                      ("Z4 30i xDrive", ("Z4", "xDrive30i")),
+                      # M-variants carry NO xDrive in eBay's spelling: "M40i Sport Utility
+                      # 4-Door", verified against the live 2018/2019 X3 catalog. Both ETK
+                      # spellings of it must land on the same trim.
+                      ("X3 M40i xDrive", ("X3", "M40i")),
+                      ("X3 M40iX",       ("X3", "M40i")),
+                      ("X5 M",           ("X5", "M")),
+                      ("X5",             ("X5", None)),
+                      ("XM",             ("XM", None)),
+                      # A bare variant (no xDrive) is left bare -- NOT guessed as sDrive.
+                      # The catalog check then keeps it only if eBay really has it.
+                      ("X3 30i", ("X3", "30i")),
+                      # iX is a MODEL in eBay's list, not an X-series SUV. Must not split.
+                      ("iX xDrive40", ("iX xDrive40", None)),
+                      ("ALPINA B7",  ("Alpina B7", None)),     # eBay cases it "Alpina"
+                      ("ALPINA B7LX", ("Alpina B7L xDrive", None)),
+                      ("Hybrid 3", ("ActiveHybrid 3", None)),  # eBay's name for it
+                      ("Hybrid 7L", ("ActiveHybrid 7", None))):
+        eq(ETK.to_ebay_vehicle(etk), want, f"{etk} -> {want}")
+
+    # MINI and Rolls-Royce are BMW Group marques that BMW's catalogue files under BMW, but
+    # eBay treats each as its OWN MAKE -- 68,888 rows that can never validate as a BMW.
+    for other in ("Cooper", "Cooper S", "Cooper S ALL4", "JCW ALL4", "Clubman",
+                  "Countryman", "Phantom", "Phantom EWB", "Ghost", "Wraith", "Cullinan"):
+        eq(ETK.to_ebay_vehicle(other), None, f"{other} is not a BMW -> dropped")
+
     for junk in ("", "   ", None, "?", "unknown"):
-        eq(ETK.to_ebay_model(junk), None, f"unusable model {junk!r} -> None")
+        eq(ETK.to_ebay_vehicle(junk), None, f"unusable model {junk!r} -> None")
     # "X" alone is not a model with an xDrive suffix stripped off it.
-    eq(ETK.to_ebay_model("X"), "X", "a bare X is passed through, not turned into ' xDrive'")
+    eq(ETK.to_ebay_vehicle("X"), ("X", None), "a bare X is passed through, not ' xDrive'")
+    eq(ETK.to_ebay_model("X5 50i xDrive"), "X5", "the back-compat shim returns the model half")
 
     def row(**kw):
         base = {"part_number": "72127311201", "part_name": "Head airbag", "series": "3 Series",
@@ -1127,6 +1165,42 @@ def t_etk_source():
     # Years before 1990 are out of scope (the ETK reaches back to the 1960s).
     b4, _ = ETK.build([row(year_from="1975", year_to="1992")], by_pn)
     eq(sorted({r["year"] for r in b4}), [1990, 1991, 1992], "years floor at 1990")
+
+    # --- the trim column reaches the CSV, and only for the models that need one
+    b5, _ = ETK.build([row(model="X5 50i xDrive", year_from="2015", year_to="2015")], by_pn)
+    eq([(r["ebay_model"], r["trim"]) for r in b5], [("X5", "xDrive50i")],
+       "an X-model row carries model and trim apart")
+    b6, _ = ETK.build([row(model="328iX", year_from="2015", year_to="2015")], by_pn)
+    eq([(r["ebay_model"], r["trim"]) for r in b6], [("328i xDrive", "")],
+       "a sedan keeps the variant in the model and emits an EMPTY trim, not None -- the "
+       "loader sorts these tuples and None is not comparable with str")
+    b7, _ = ETK.build([row(model="Cooper S", year_from="2015", year_to="2015")], by_pn)
+    eq(len(b7), 0, "a MINI row never reaches the CSV")
+
+    # --- ebay_batch must carry the trim end to end, and NEVER widen an ETK trim to a
+    # wildcard: "X5" alone claims every X5 variant of that year, which is broader than
+    # BMW said. That is the DESIGN.md 5.3 trap in a source whose whole value is precision.
+    import ebay_batch as EB
+    csvp = os.path.join(_TMPDIR, "etk_trim.csv")
+    with open(csvp, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["guid", "part7", "year", "make", "raw_model", "ebay_model", "trim",
+                    "mapping_flag", "title"])
+        w.writerow(["S1", "7311201", "2015", "BMW", "X5 50i xDrive", "X5", "xDrive50i", "etk", "t"])
+        w.writerow(["S1", "7311201", "2015", "BMW", "328iX", "328i xDrive", "", "etk", "t"])
+    got = EB.load_partnumber_fitment(csvp)
+    eq(got["S1"], {(2015, "BMW", "X5", "xDrive50i"), (2015, "BMW", "328i xDrive", "")},
+       "the loader carries the trim as a 4th element")
+    eq(sorted(got["S1"]) == sorted(got["S1"]), True, "the tuples are sortable (no None)")
+
+    # A part-number CSV has no trim column at all -- it must still load.
+    pnp = os.path.join(_TMPDIR, "pn_notrim.csv")
+    with open(pnp, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f)
+        w.writerow(["guid", "year", "make", "ebay_model", "mapping_flag"])
+        w.writerow(["S2", "2015", "BMW", "328i", "ok"])
+    eq(EB.load_partnumber_fitment(pnp)["S2"], {(2015, "BMW", "328i", "")},
+       "a CSV with no trim column still loads, trim defaulting to empty")
 
 
 

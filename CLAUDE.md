@@ -32,7 +32,15 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
   extract time whether a SKU is Rule A or B), and writes `data/etk_fitment.csv.gz`: the same CSV
   shape as the part-number source, keyed by our SKU. That derived file is **committed**, because
   the 1 GB ETK database is local-only and the nightly job runs on GitHub. `ebay_batch
-  --etk-fitment` unions it in. **ETK rows are used LITERALLY** — deliberately NOT expanded to the
+  --etk-fitment` unions it in. **eBay names X/Z models differently from every other BMW**:
+  sedans keep the variant in the MODEL (`740i xDrive` is a real eBay model), but the SUVs are
+  bare (`X5`) with the variant in the TRIM, spelled xDrive-first (`xDrive50i Sport Utility
+  4-Door`). BMW's catalogue writes it the other way round and all in one field (`X5 50i
+  xDrive`), which matched no eBay model and silently binned 20% of this source. `to_ebay_vehicle`
+  splits them, so the CSV now has a `trim` column. **An ETK trim is never widened to trimless** —
+  it is validated with `on_unmatched="drop"`, because a bare `X5` row is a wildcard (#8) and
+  would claim more than BMW said. MINI and Rolls-Royce are BMW Group marques the catalogue
+  files under BMW but eBay treats as separate MAKES — dropped at extract. **ETK rows are used LITERALLY** — deliberately NOT expanded to the
   chassis family the way part-number history is: BMW already states the complete set, and the
   models it omits are ones the part does not fit. Consequence worth knowing: on a Rule B part
   the ETK legitimately overrides the engine restriction, because it knows rather than infers.
