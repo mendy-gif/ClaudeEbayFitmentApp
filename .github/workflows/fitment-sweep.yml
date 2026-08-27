@@ -14,10 +14,17 @@ name: Fitment sweep
 
 on:
   schedule:
-    # 07:30 UTC, deliberately AFTER eBay's daily API quota resets at 07:00 UTC. Firing at
-    # 07:00 exactly would race the reset and could spend the run against yesterday's
-    # exhausted allowance. (~03:30 ET, still quiet hours.)
-    - cron: "30 7 * * *"
+    # 08:17 UTC. Two constraints:
+    #   * AFTER eBay's daily API quota reset at 07:00 UTC -- firing at 07:00 exactly would
+    #     race the reset and could spend the run against yesterday's exhausted allowance.
+    #   * NOT on :00 or :30. GitHub queues scheduled workflows behind every other cron on
+    #     the platform, and the round minutes are by far the most contended. Ours ran late
+    #     EVERY day it fired -- 33 min on 2026-08-22, 2h37 on 2026-08-24 -- and on
+    #     2026-08-27 it was dropped entirely (no run, ~$0 of Actions minutes billed that
+    #     day, so the job never started). An odd minute is the documented mitigation.
+    # A dropped schedule is a GitHub-side fact of life, not a repo problem: when it
+    # happens, Actions -> Fitment sweep -> "Run workflow" starts the identical job.
+    - cron: "17 8 * * *"
   workflow_dispatch:             # allow manual runs from the Actions tab
     inputs:
       limit:
