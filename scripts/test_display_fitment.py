@@ -23,6 +23,7 @@ WHAT THIS PROTECTS (all three were live bugs; see docs/DESIGN.md sec 5.5):
 The tests assert BEHAVIOUR, not the report counters, wherever possible -- a counter can be
 right while the emitted rows are wrong, and it is the rows that get pushed to eBay.
 """
+import json
 import os
 import shutil
 import sys
@@ -1161,9 +1162,90 @@ def t_error_summary():
        "output stays bounded")
 
 
+def t_nondisplay_learn():
+    """The audit named 258035 and 169368 as dead every night for days and nothing acted on
+    them, because nothing WROTE the skip list -- it only grew when a human hand-edited it.
+    learn_nondisplay closes the loop, and it has to be safe in both directions: too eager
+    and we permanently stop pushing to a category that works, which is invisible."""
+    print("nondisplay learning:")
+    import ebay_display_audit as A
+    path = os.path.join(_TMPDIR, "nd_learn.json")
+
+    def fresh(thresh=3):
+        json.dump({"categories": {}, "skip_threshold": thresh}, open(path, "w"))
+
+    def skiplist():
+        cfg = json.load(open(path))
+        need = cfg["skip_threshold"]
+        return sorted(c for c, v in cfg["categories"].items()
+                      if v["skus_seen"] >= need and not v["displaying"])
+
+    # --- the core claim: enough sightings, none displaying -> skip
+    fresh()
+    new, rev = A.learn_nondisplay([{"categoryId": "99999", "displayed": "0"}] * 3, path)
+    eq(new, ["99999"], "3 sightings with 0 displays -> newly skipped")
+    eq(skiplist(), ["99999"], "and it lands in the skip list")
+
+    # --- self-healing: ONE display is enough to take it back off
+    new, rev = A.learn_nondisplay([{"categoryId": "99999", "displayed": "7"}], path)
+    eq(rev, ["99999"], "a category that renders again is revived")
+    eq(skiplist(), [], "and leaves the skip list")
+
+    # --- evidence, not anecdote: below the threshold we watch but do not skip
+    fresh()
+    new, _ = A.learn_nondisplay([{"categoryId": "88888", "displayed": "0"}] * 2, path)
+    eq(new, [], "2 sightings is not enough to skip")
+    eq(json.load(open(path))["categories"]["88888"]["skus_seen"], 2, "but it IS recorded")
+    # ...and the third sighting, on a LATER run, tips it over. Counts must accumulate
+    # across runs or a nightly 250-SKU sample would never reach the threshold.
+    new, _ = A.learn_nondisplay([{"categoryId": "88888", "displayed": "0"}], path)
+    eq(new, ["88888"], "counts accumulate across runs, so the 3rd sighting skips it")
+
+    # --- a healthy category is never skipped, however many times it is seen
+    fresh()
+    A.learn_nondisplay([{"categoryId": "77777", "displayed": "12"}] * 50, path)
+    eq(skiplist(), [], "a category that displays is never skipped")
+    # A run where it happens to show nothing must NOT flip it -- displaying is cumulative,
+    # so past evidence of rendering outweighs one quiet sample. Conservative on purpose:
+    # over-pushing costs a GetItem call, wrongly skipping loses fitment silently.
+    A.learn_nondisplay([{"categoryId": "77777", "displayed": "0"}] * 10, path)
+    eq(skiplist(), [], "one quiet run does not condemn a category with a display history")
+
+    # --- junk input must not create phantom entries
+    fresh()
+    A.learn_nondisplay([{"categoryId": "", "displayed": "0"},
+                        {"categoryId": None, "displayed": "0"},
+                        {"displayed": "0"},
+                        {"categoryId": "66666", "displayed": "not-a-number"}], path)
+    cats = json.load(open(path))["categories"]
+    eq(sorted(cats), ["66666"], "blank/absent categoryIds are ignored")
+    eq(cats["66666"]["displaying"], 0, "an unparseable count reads as 'did not display'")
+
+    # --- a missing/corrupt file must not crash the audit
+    bad = os.path.join(_TMPDIR, "nd_bad.json")
+    open(bad, "w").write("{not json")
+    A.learn_nondisplay([{"categoryId": "55555", "displayed": "0"}] * 3, bad)
+    eq(json.load(open(bad))["categories"]["55555"]["skus_seen"], 3,
+       "a corrupt skip list is rebuilt, not fatal")
+
+    # --- MUTATION: the whole point is that ebay_batch then SKIPS these. Prove the
+    # threshold is load-bearing by reading it back through the consumer.
+    import ebay_batch as EB
+    fresh()
+    A.learn_nondisplay([{"categoryId": "44444", "displayed": "0"}] * 3, path)
+    saved, EB.NONDISPLAY, EB._nondisplay = EB.NONDISPLAY, path, None
+    try:
+        eq("44444" in EB.load_nondisplay(), True, "ebay_batch skips what the audit learned")
+        A.learn_nondisplay([{"categoryId": "44444", "displayed": "3"}], path)
+        EB._nondisplay = None
+        eq("44444" in EB.load_nondisplay(), False, "and stops skipping once it displays")
+    finally:
+        EB.NONDISPLAY, EB._nondisplay = saved, None
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_etk_source, t_error_summary, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_etk_source, t_error_summary, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()

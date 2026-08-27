@@ -809,7 +809,12 @@ def main():
                                            "until": time.time() + ttl * 86400}
             rows.append(r)
         counts[rows[-1]["action"]] = counts.get(rows[-1]["action"], 0) + 1
-        print(f"  [{i}/{len(skus)}] {sku}: {rows[-1]['action']} - {rows[-1].get('reason','')[:80]}")
+        _act, _why = rows[-1]["action"], rows[-1].get("reason", "")
+        # Routine lines are clipped to keep a 2,000-SKU log readable, but an ERROR is never
+        # clipped: for three nights the only record of a write failure was "[25023] Invalid
+        # compatibility information. The item co" -- the half that says WHY was past the cut.
+        print(f"  [{i}/{len(skus)}] {sku}: {_act} - "
+              f"{_why if _act == 'error' else _why[:80]}")
         if rows[-1]["action"] in ("error", "auth_error"):     # persist immediately (crash-safe)
             log_error(sku, rows[-1]["action"], rows[-1].get("reason", ""))
         if rows[-1]["action"] == "auth_error":

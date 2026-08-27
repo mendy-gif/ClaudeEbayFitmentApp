@@ -153,7 +153,7 @@ jobs:
           # pipefail is NOT on by default in Actions' bash, so `cmd | tee` would report
           # tee's exit status (always 0) and the --fail-under guard would never fire.
           set -o pipefail
-          python3 scripts/ebay_display_audit.py --recent 300 --quiet \
+          python3 scripts/ebay_display_audit.py --recent 300 --quiet --learn \
             --fail-under 70 --csv data/display_audit.csv | tee audit.txt && rc=0 || rc=$?
           { echo '### Fitment display audit'; echo '```'; cat audit.txt; echo '```'; } \
             >> "$GITHUB_STEP_SUMMARY"
@@ -172,7 +172,7 @@ jobs:
           EBAY_REFRESH_TOKEN: ${{ secrets.EBAY_REFRESH_TOKEN }}
         run: |
           set -o pipefail
-          python3 scripts/ebay_display_audit.py --sample 250 --quiet             --fail-on-leak --fail-under 60 --csv data/drift_audit.csv | tee drift.txt && rc=0 || rc=$?
+          python3 scripts/ebay_display_audit.py --sample 250 --quiet --learn             --fail-on-leak --fail-under 60 --csv data/drift_audit.csv | tee drift.txt && rc=0 || rc=$?
           { echo '### Drift watch (older listings)'; echo '```'; cat drift.txt; echo '```'; }             >> "$GITHUB_STEP_SUMMARY"
           if [ $rc -ne 0 ]; then
             echo "Fitment on previously-pushed listings no longer matches what we sent."                  >> "$GITHUB_STEP_SUMMARY"

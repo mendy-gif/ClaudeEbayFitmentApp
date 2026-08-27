@@ -190,6 +190,70 @@ def category_path(cid, tree):
     return " > ".join(hit[-2:]) if hit else ""
 
 
+def learn_nondisplay(detail, path=NONDISPLAY):
+    """Fold this run's per-category tallies into data/nondisplay_categories.json.
+
+    The audit has been NAMING dead categories every night while nothing folded them back
+    in, so the list only grew when a human hand-edited it -- 258035 and 169368 were both
+    reported for days before anyone acted. This closes that loop.
+
+    Counts accumulate across runs, and `displaying` is what makes it safe in BOTH
+    directions: ebay_batch only skips a category seen >= skip_threshold times with
+    displaying == 0, so one SKU that renders takes a category straight back off the skip
+    list. Categories already on it keep being audited (their ledgered SKUs are still in
+    the rotating sample), so a category eBay starts rendering can heal itself.
+
+    Returns (newly_skipped, revived) for the caller to report.
+    """
+    try:
+        cfg = json.load(open(path, encoding="utf-8"))
+    except (ValueError, OSError):
+        cfg = {"categories": {}, "skip_threshold": 3}
+    cats = cfg.setdefault("categories", {})
+    need = cfg.get("skip_threshold", 3)
+
+    def skipped(e):
+        return e and e.get("skus_seen", 0) >= need and not e.get("displaying")
+
+    seen, shown = {}, {}
+    for r in detail:
+        cid = str(r.get("categoryId") or "").strip()
+        if not cid:
+            continue
+        seen[cid] = seen.get(cid, 0) + 1
+        # `displayed` is a COUNT of vehicles rendered; anything non-zero means eBay drew a
+        # fitment table here, which is the only claim this file makes.
+        try:
+            n = int(str(r.get("displayed") or 0) or 0)
+        except ValueError:
+            n = 0
+        shown[cid] = shown.get(cid, 0) + (1 if n > 0 else 0)
+
+    new, revived = [], []
+    for cid, n in sorted(seen.items()):
+        was = skipped(cats.get(cid))
+        e = cats.setdefault(cid, {"displaying": 0, "skus_seen": 0})
+        e["skus_seen"] += n
+        e["displaying"] += shown[cid]
+        now = skipped(e)
+        if now and not was:
+            new.append(cid)
+        elif was and not now:
+            revived.append(cid)
+
+    cfg["categories"] = dict(sorted(cats.items(),
+                                    key=lambda kv: -kv[1].get("skus_seen", 0)))
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(cfg, f, indent=1)
+        f.write("\n")
+    return new, revived
+
+
+def _read_detail_csv(path):
+    with open(path, newline="", encoding="utf-8") as f:
+        return list(csv.DictReader(f))
+
+
 def _write_csv(path, detail):
     with open(path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["sku", "listingId", "categoryId", "rule",
@@ -218,9 +282,24 @@ def main():
                          "fail loudly on a regression instead of pushing invisible fitment "
                          "night after night, which is exactly how the trim bug survived.")
     ap.add_argument("--csv", metavar="PATH", help="write per-SKU detail here")
+    ap.add_argument("--learn", action="store_true",
+                    help="fold this run's per-category display tallies into "
+                         "data/nondisplay_categories.json, so categories eBay never renders "
+                         "get skipped by the next sweep instead of spending a GetItem call "
+                         "each. Self-healing: any category that displays comes back off.")
+    ap.add_argument("--learn-from", metavar="CSV",
+                    help="do only the --learn merge, reading an audit CSV written earlier. "
+                         "No eBay calls -- lets a past run's findings be applied for free.")
     ap.add_argument("--token")
     ap.add_argument("--quiet", action="store_true", help="summary only, no per-SKU lines")
     args = ap.parse_args()
+
+    if args.learn_from:                       # offline: no ledger, no token, no quota spent
+        new, revived = learn_nondisplay(_read_detail_csv(args.learn_from))
+        print(f"learned from {args.learn_from}: "
+              f"{len(new)} newly skipped {new or ''}, {len(revived)} revived {revived or ''}")
+        return 0
+
     tok = token(args)
 
     if not os.path.exists(LEDGER):
@@ -378,6 +457,16 @@ def main():
     if args.csv:
         _write_csv(args.csv, detail)
         print(f"\nPer-SKU detail -> {args.csv}")
+
+    if args.learn:
+        new_skips, revived = learn_nondisplay(detail)
+        if new_skips:
+            print(f"\nLearned {len(new_skips)} category(s) eBay never renders: "
+                  f"{', '.join(new_skips)} -- the next sweep skips them before spending a "
+                  f"GetItem call.")
+        if revived:
+            print(f"\n{len(revived)} category(s) started displaying again and are no longer "
+                  f"skipped: {', '.join(revived)}")
 
 
 if __name__ == "__main__":

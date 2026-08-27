@@ -53,6 +53,13 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
 4. **eBay user tokens expire in ~2 hours.** Manual `token.txt` mode stops loudly on 401 — refresh and
    re-run (the ledger resumes). `ebay_auth.json` mode mints fresh tokens automatically — use it for
    long sweeps.
+4b. **eBay refuses a compatibility write while money is in flight.** `HTTP 400 [25023]
+   ... cannot be changed or removed if an auction-style listing has a bid or ends within 12
+   hours, or a fixed price listing has a pending Best Offer.` This is the write error the
+   sweep hits (1 SKU on 2026-08-27) and it is **not a bug** — eBay is protecting a live
+   transaction. Nothing to fix: the ledger never records it, so the next run retries once
+   the offer resolves. Note 25023 is *also* the benign partial-accept warning in #7; the
+   difference is HTTP 400 (nothing stored) vs 200 (stored, some rows dropped).
 5. **The category tree file `data/ebay_motors_categories.json` MUST exist**, or the classifier silently
    defaults every listing to Rule B. It's committed; if missing, regenerate with
    `scripts/ebay_fetch_categories.py` (needs a token).
@@ -166,7 +173,13 @@ Key flags: `--from-shopify` (donor source), `--from-inventory` (enumerate live e
   real vehicle catalog (Taxonomy API) so the pushed fitment actually shows. `--trims 2014 BMW X5` to peek.
 - `scripts/ebay_display_audit.py` — read-only fleet check: for every ledgered SKU, does what we pushed
   actually DISPLAY? Slices by rule + category. **Run this after a sweep** — the ledger only proves we
-  pushed, not that eBay showed it.
+  pushed, not that eBay showed it. `--learn` folds the run's per-category tallies into
+  `data/nondisplay_categories.json` (the nightly passes it): a category seen ≥3 times with zero
+  displays gets skipped by the next sweep *before* the scarce `GetItem` guard call, and any single
+  display takes it straight back off. Counts accumulate across runs, and `displaying` is cumulative
+  — so a category with a display history is never condemned by one quiet sample. `--learn-from CSV`
+  applies a past run's CSV offline, no eBay calls. Before this, the audit *named* dead categories
+  nightly and nothing acted on them until a human hand-edited the file.
 - `scripts/ebay_inspect.py` — read-only per-SKU eBay diagnostic (both stores + item specifics).
 - `scripts/ebay_writer.py` — single-SKU compatibility writer (used by the batch runner).
 - `scripts/ebay_fetch_categories.py` / `ebay_fetch_bmw_catalog.py` — one-time reference builders.
