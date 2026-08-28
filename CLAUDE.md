@@ -58,6 +58,19 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
    stored but not catalog-valid (see #6) — Trading showing fewer vehicles than Inventory is the
    signature of that bug. Trading can lag a minute or two behind a write.
 3. **HTTP 200, 201, and 204 are ALL success** for the compatibility write (201 = first write to a SKU).
+3b. **Creating a NEW eBay authorization-code grant does NOT revoke the previous refresh
+   token** — measured on this keyset 2026-08-28, not assumed. A third consent was executed
+   and discarded while our grant kept minting fine. So re-consenting for extra scopes is
+   safe to do, but two related traps are real: (a) eBay **silently narrows** a scope it has
+   not provisioned rather than erroring — `sell.marketing` sailed through the authorize step
+   and then 403'd on report endpoints, having quietly granted only `.readonly`; and
+   (b) `sell.finances` is rejected outright at authorize because the keyset lacks it.
+   **Always check the GRANTED scopes in the token response, never trust the request.**
+   Provisioning a new scope is a developer-portal request against the app; no number of
+   consent rounds fixes it. The credential is now shared with the sibling reporting project
+   `~/Documents/GitHub/ebay-listing-reports/`, so any re-mint must update BOTH copies and
+   keep `sell.inventory` in the union. `scripts/nightly_local.sh` pre-flights the token
+   before any write for exactly this reason.
 4. **eBay user tokens expire in ~2 hours.** Manual `token.txt` mode stops loudly on 401 — refresh and
    re-run (the ledger resumes). `ebay_auth.json` mode mints fresh tokens automatically — use it for
    long sweeps.
