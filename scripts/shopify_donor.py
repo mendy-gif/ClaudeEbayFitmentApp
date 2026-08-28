@@ -100,6 +100,13 @@ def store_token():
             continue
         for line in open(p, encoding="utf-8"):
             line = line.strip()
+            # Skip blanks and comments. Without this the bare-token branch below swallows
+            # any comment line -- it has no "=" in it -- and silently uses "# Shopify
+            # credentials for..." as the access token. The symptom is a clean-looking
+            # "token minted OK" followed by HTTP 401, which sends you hunting for a
+            # credentials problem that does not exist.
+            if not line or line.startswith("#"):
+                continue
             if line.startswith("SHOPIFY_STORE="):
                 store = store or line.split("=", 1)[1].strip()
             elif line.startswith("SHOPIFY_TOKEN="):

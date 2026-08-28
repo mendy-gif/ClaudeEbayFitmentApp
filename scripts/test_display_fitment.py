@@ -1369,9 +1369,49 @@ def t_non_engine_part_types():
         EB._nonengine = saved
 
 
+def t_shopify_env_parsing():
+    """shopify.env is edited by hand by a non-developer, so it WILL contain comments.
+    The bare-token branch matched any line without an "=", so a comment became the access
+    token -- "token minted OK" followed by HTTP 401, which looks like bad credentials
+    rather than a parser bug. Cost a real debugging detour on 2026-08-28."""
+    print("shopify.env parsing:")
+    import shopify_donor as SD
+    saved_root, SD.ROOT = SD.ROOT, _TMPDIR
+    saved_env = {k: os.environ.pop(k, None)
+                 for k in ("SHOPIFY_STORE","SHOPIFY_TOKEN","SHOPIFY_CLIENT_ID","SHOPIFY_CLIENT_SECRET")}
+    try:
+        def write(body):
+            with open(os.path.join(_TMPDIR, "shopify.env"), "w") as f:
+                f.write(body)
+
+        write("# Shopify credentials for the nightly refresh\n"
+              "# WHERE TO GET THEM: Settings -> Apps -> Develop apps\n"
+              "\n"
+              "SHOPIFY_STORE=example.myshopify.com\n"
+              "SHOPIFY_TOKEN=shpat_realtoken\n")
+        eq(SD.store_token(), ("example.myshopify.com", "shpat_realtoken"),
+           "comments and blank lines are ignored, not read as the token")
+
+        # the bare-token form must still work -- that is what shopify_token.txt is
+        write("shpat_baretoken\nSHOPIFY_STORE=example.myshopify.com\n")
+        eq(SD.store_token()[1], "shpat_baretoken", "a bare token on its own line still works")
+
+        # a comment must never win over a real bare token, whichever order they appear
+        write("# a leading comment\nshpat_baretoken\nSHOPIFY_STORE=e.myshopify.com\n")
+        eq(SD.store_token()[1], "shpat_baretoken", "a comment before a bare token is skipped")
+
+        # '#' inside a VALUE is legitimate and must survive
+        write("SHOPIFY_STORE=e.myshopify.com\nSHOPIFY_TOKEN=shpat_ab#cd\n")
+        eq(SD.store_token()[1], "shpat_ab#cd", "a '#' inside a value is not treated as a comment")
+    finally:
+        SD.ROOT = saved_root
+        for k, v in saved_env.items():
+            if v is not None: os.environ[k] = v
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_etk_source, t_error_summary, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_shopify_env_parsing, t_etk_source, t_error_summary, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()
