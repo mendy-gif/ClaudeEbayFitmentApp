@@ -34,6 +34,19 @@ git fetch -q origin "$BRANCH" && git rebase -q "origin/$BRANCH" 2>&1 | tee -a "$
 $CAF python3 scripts/selftest.py >>"$LOG" 2>&1 || { say "SELFTEST FAILED -- aborting, no writes made"; exit 1; }
 say "selftest passed"
 
+# eBay AUTH PRE-FLIGHT. The selftest is offline, so it cannot catch a dead credential.
+# The eBay refresh token is shared with the sibling reporting project and was re-minted
+# once on 2026-08-28; a future re-consent could revoke the copy we hold. Without this the
+# failure lands mid-sweep, unattended, having already pushed to some listings -- so fail
+# FAST and LOUD instead, before anything is written.
+if ! $CAF python3 scripts/ebay_auth.py --check >>"$LOG" 2>&1; then
+  say "EBAY AUTH FAILED -- refresh token rejected. Aborting before any write."
+  say "  Someone may have re-consented and revoked this grant. Check ebay_auth.json"
+  say "  against the sibling project ~/Documents/GitHub/ebay-listing-reports/."
+  exit 1
+fi
+say "eBay auth OK"
+
 # Donor refresh is BEST-EFFORT but must be VISIBLE: it broke on 2026-08-21 and ran stale
 # for three nights because the job stayed green. The script leaves the existing dump
 # untouched on failure, so continuing is safe -- but we record it and say so at the end.
