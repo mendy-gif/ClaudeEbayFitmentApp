@@ -13,18 +13,19 @@ name: Fitment sweep
 # mid-run if it nears expiry — so a multi-hour sweep never dies at the 2-hour wall.
 
 on:
-  schedule:
-    # 08:17 UTC. Two constraints:
-    #   * AFTER eBay's daily API quota reset at 07:00 UTC -- firing at 07:00 exactly would
-    #     race the reset and could spend the run against yesterday's exhausted allowance.
-    #   * NOT on :00 or :30. GitHub queues scheduled workflows behind every other cron on
-    #     the platform, and the round minutes are by far the most contended. Ours ran late
-    #     EVERY day it fired -- 33 min on 2026-08-22, 2h37 on 2026-08-24 -- and on
-    #     2026-08-27 it was dropped entirely (no run, ~$0 of Actions minutes billed that
-    #     day, so the job never started). An odd minute is the documented mitigation.
-    # A dropped schedule is a GitHub-side fact of life, not a repo problem: when it
-    # happens, Actions -> Fitment sweep -> "Run workflow" starts the identical job.
-    - cron: "17 8 * * *"
+  # NO SCHEDULE HERE ANY MORE -- the nightly moved to mendy's Mac on 2026-08-28.
+  # GitHub silently dropped the scheduled trigger on 2026-08-27 and again on 2026-08-28.
+  # Both misses were confirmed the same way: eBay's GetItem counter still read ~0 hours
+  # after the cron should have fired, so the job had not merely failed, it had never
+  # started. Moving the minute off :30 (the most contended) did not help. Runs that
+  # happen most nights are not automation.
+  #
+  # It now runs from launchd: ~/Library/LaunchAgents/com.mendy.fitment-sweep.plist
+  # -> scripts/nightly_local.sh, 05:30 local, which is after eBay's 07:00 UTC quota
+  # reset and clear of the Dismantly nightly on the same machine.
+  #
+  # This workflow is KEPT for manual runs. Its schedule is deliberately absent so the
+  # two can never double-spend the 5,000/day GetItem quota or race the ledger commit.
   workflow_dispatch:             # allow manual runs from the Actions tab
     inputs:
       limit:

@@ -192,7 +192,15 @@ Key flags: `--from-shopify` (donor source), `--from-inventory` (enumerate live e
 - `scripts/ebay_writer.py` — single-SKU compatibility writer (used by the batch runner).
 - `scripts/ebay_fetch_categories.py` / `ebay_fetch_bmw_catalog.py` — one-time reference builders.
 - `spreadsheet-fitment/` — Approach 2: part-number → historical vehicles (the union's second source).
-- `.github/workflows/fitment-sweep.yml` — daily automated sweep (needs the repo secrets set).
+- `scripts/nightly_local.sh` — **the nightly sweep**, run on the Mac by launchd
+  (`~/Library/LaunchAgents/com.mendy.fitment-sweep.plist`, 05:30 local). Moved here on
+  2026-08-28 because GitHub silently dropped the scheduled trigger two nights in three —
+  proved both times by eBay's GetItem counter reading ~0 hours after the cron should have
+  fired. Log: `data/nightly_local.log`. **It cannot refresh the donor dump unless
+  `shopify_token.txt` or `shopify.env` exists on the Mac** — it warns loudly and sweeps the
+  committed dump instead.
+- `.github/workflows/fitment-sweep.yml` — same job on GitHub, kept for **manual** runs only
+  (its schedule was removed so the two can't double-spend the GetItem quota).
 - `scripts/selftest.py` — offline sanity check (no eBay); run after cloning to a new machine.
 
 ## Conventions
