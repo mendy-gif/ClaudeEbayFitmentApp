@@ -451,7 +451,8 @@ def process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, s
                 "reason": f"guard read failed ({terr}) - skipped to protect existing fitment"}
 
     sd = (shopify or {}).get(str(sku)) or (shopify or {}).get(sku)
-    rule, why = classify_rule(category, tree, inc, exc, default)
+    rule, why = classify_rule(category, tree, inc, exc, default,
+                              part_type=(sd or {}).get("part_type"))
     # Part-number vehicles get the SAME chassis-family expansion as the donor (Rule A/B),
     # falling back to the literal vehicle when unresolvable. See expand_partnumber_rows.
     pn_rows = expand_partnumber_rows((pnf or {}).get(sku, ()), rule, ref, emap, ebay, pn_cache) if pnf else []
@@ -669,10 +670,41 @@ def _err_summary(resp, limit=240):
         pass
     return json.dumps(resp)[:limit]
 
-def classify_rule(category, tree, inc, exc, default):
+NONENGINE = os.path.join(ROOT, "data", "non_engine_part_types.json")
+_nonengine = None
+
+
+def load_non_engine_types():
+    """Dismantly part types that eBay's CATEGORY calls engine parts but which are not.
+
+    eBay's category tree is coarser than the part types mendy's team actually works in:
+    category 33596 "ECUs & Computer Modules" holds Bluetooth, seat and body-control modules
+    right alongside the engine DME. Deriving Rule A/B from the category therefore
+    engine-restricted 511 listings that fit the whole chassis family -- they displayed
+    FEWER cars than they fit, silently, for months.
+
+    This list only ever WIDENS (B -> A). It cannot narrow a listing, so a wrong entry
+    costs an over-broad listing (eBay drops vehicles it does not recognise -- DESIGN.md 5.3)
+    rather than silently hiding fitment, which is the failure mode we are fixing.
+    """
+    global _nonengine
+    if _nonengine is None:
+        try:
+            _nonengine = set(json.load(open(NONENGINE, encoding="utf-8"))["part_types"])
+        except (ValueError, OSError, KeyError):
+            _nonengine = set()
+    return _nonengine
+
+
+def classify_rule(category, tree, inc, exc, default, part_type=None):
     if not category or tree is None:
         return default, "no category/tree -> default"
-    return CP.classify(category, tree, inc, exc, default)
+    rule, why = CP.classify(category, tree, inc, exc, default)
+    # A part type mendy has confirmed is not engine-dependent overrides an engine CATEGORY.
+    # One direction only -- never B -> A's opposite. See load_non_engine_types.
+    if rule == "B" and part_type and part_type in load_non_engine_types():
+        return "A", f"part type '{part_type}' is not engine-dependent (category said B)"
+    return rule, why
 
 
 def main():

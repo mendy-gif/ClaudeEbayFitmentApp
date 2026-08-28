@@ -1317,9 +1317,61 @@ def t_nondisplay_learn():
         EB.NONDISPLAY, EB._nondisplay = saved, None
 
 
+def t_non_engine_part_types():
+    """eBay's category tree is coarser than the part types the business works in: cat 33596
+    "ECUs & Computer Modules" holds Bluetooth/seat/BCM modules alongside the engine DME.
+    Deriving Rule B from the category engine-restricted 511 listings that fit the whole
+    chassis -- they displayed FEWER cars than they fit, with no symptom. This override
+    fixes it, and must only ever WIDEN."""
+    print("non-engine part type override:")
+    import ebay_batch as EB
+    inc, exc = {"33596"}, set()
+    saved, EB._nonengine = EB._nonengine, {"Bluetooth Module", "BCM Body Control Module"}
+    try:
+        tree = {"33596": {"categoryId": "33596", "ancestors": [], "path": "ECUs"},
+                "20001": {"categoryId": "20001", "ancestors": [], "path": "Door Panels"}}
+        r, why = EB.classify_rule("33596", tree, inc, exc, "A", part_type="Bluetooth Module")
+        eq(r, "A", "an engine CATEGORY is overridden by a non-engine part type")
+        eq("not engine-dependent" in why, True, "and the reason says why")
+
+        eq(EB.classify_rule("33596", tree, inc, exc, "A",
+                            part_type="Engine Motor ECU DME Computer Module")[0], "B",
+           "a real engine part in the SAME category stays Rule B")
+        eq(EB.classify_rule("33596", tree, inc, exc, "A", part_type=None)[0], "B",
+           "no part type -> category decides, unchanged from before")
+        eq(EB.classify_rule("33596", tree, inc, exc, "A", part_type="Unknown Type")[0], "B",
+           "a part type not on the list -> category decides")
+
+        # ONE DIRECTION ONLY. The list must never turn a Rule A part into Rule B: that
+        # would NARROW a live listing and silently delete fitment, the exact failure we
+        # are fixing. A non-engine part type on a non-engine category is still A.
+        eq(EB.classify_rule("20001", tree, inc, exc, "A", part_type="Bluetooth Module")[0], "A",
+           "the override can only widen B->A, never narrow A->B")
+
+        # a missing/corrupt list must not crash the sweep, and must not silently widen
+        EB._nonengine = None
+        saved_path, EB.NONENGINE = EB.NONENGINE, os.path.join(_TMPDIR, "nope.json")
+        try:
+            eq(EB.load_non_engine_types(), set(), "a missing list loads as empty")
+            eq(EB.classify_rule("33596", tree, inc, exc, "A", part_type="Bluetooth Module")[0],
+               "B", "with no list, behaviour is exactly as before the fix")
+        finally:
+            EB.NONENGINE = saved_path
+
+        # the REAL shipped list must be well-formed and must not contain engine mounts,
+        # which mendy confirmed on 2026-08-28 ARE engine-specific (4cyl vs 6cyl).
+        EB._nonengine = None
+        real = EB.load_non_engine_types()
+        eq(len(real) > 20, True, f"the shipped list is populated ({len(real)} types)")
+        eq([t for t in real if "Engine Bracket Support Mount" in t], [],
+           "engine mounts are deliberately NOT on the list")
+    finally:
+        EB._nonengine = saved
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_etk_source, t_error_summary, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_etk_source, t_error_summary, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()
