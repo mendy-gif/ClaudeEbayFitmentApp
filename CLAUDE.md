@@ -92,7 +92,15 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
    **our** fitment can be overwritten by them; `scripts/ebay_display_audit.py` is how you
    detect it (listings displaying vehicles we did not send).
 11. **Throughput is capped by eBay's Trading `GetItem` quota: 5,000 calls/day**, resetting
-   07:00 UTC. Every SKU costs one for the guard; each audit costs up to 300 more. Hence
+   07:00 UTC — and it is ONE SHARED POOL across every Trading call name, not per-call.
+   **`GetSellerList` is the way out of this** (verified 2026-08-28): 200 listings/call at
+   `GranularityLevel=Fine`, returning `ItemCompatibilityCount` per item — which is exactly
+   what the guard asks. An ABSENT `ItemCompatibilityCount` element means ZERO rows, not
+   missing data (checked against `GetItem` on live items). So the guard could cover all
+   ~23k listings in ~130 calls instead of 2,000/night covering 2,000. `ItemCompatibilityList`
+   itself is NEVER returned by `GetSellerList` at any setting, so diagnosing a disagreement
+   still costs one `GetItem` — but only on the exceptions. Probe script and a fleet capture
+   live in the sibling project `~/Documents/GitHub/ebay-listing-reports/`. Every SKU costs one for the guard; each audit costs up to 300 more. Hence
    `NIGHTLY_LIMIT: 700`. Read the live counter any time (app token, plain `api_scope`):
    `GET https://api.ebay.com/developer/analytics/v1_beta/rate_limit/`. The Inventory API's
    cap is 2,000,000/day by comparison — moving the guard there is the obvious speedup, but
@@ -117,6 +125,16 @@ Then pushes the result to eBay by SKU. **BMW-only** — non-BMW donors are skipp
    expanded against a phantom engine (F30 `N20` → 14 rows, `raw_N20B` → 7) on 2,071 donors.
    **Nothing errors when this happens** — the listing just never gets fitment. `parse_product`
    now reads every spelling; `t_donor_fields` in `test_display_fitment.py` locks each one down.
+13b. **A SKU is the PART; an ItemID is one LISTING INCARNATION of it.** A listing ends and
+   gets relisted, so one SKU accumulates several ItemIDs over time — and older ones keep
+   returning from `GetSellerList` with their own (often tiny) `ItemCompatibilityCount`.
+   **Join on ItemID, never on SKU**, or every relisted part looks like it lost its fitment.
+   This cost a false "our fitment was overwritten" conclusion on 2026-08-28: SKUs 2794 and
+   3650 appeared to have dropped to 1 vehicle, when in fact the live listings display 55 and
+   81. Related and equally counter-intuitive: **displayed count routinely EXCEEDS what we
+   pushed**, because a trimless row wildcard-expands (#8) — 7 pushed X3 rows became 55
+   displayed. So drift is NOT "count != n"; it is a count far BELOW n, or a count of exactly
+   1 (one row = probably just Dismantly's donor vehicle, i.e. ours is gone).
 14. **The ledger prevents double-work** but only records *pushes*; skips are re-evaluated each run (that's
    why the same "already N vehicles / no donor" lines recur — harmless). Entries carry a `cv` stamp
    (`CATALOG_ERA`); entries older than the current era are re-processed automatically so fitment that
