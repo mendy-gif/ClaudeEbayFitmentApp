@@ -83231,13 +83231,12 @@
   "39856": {
     "listingId": "407087328638",
     "rule": "A",
-    "n": 42,
+    "n": 41,
     "models": [
       "330e",
       "330e xDrive",
       "330i",
       "330i xDrive",
-      "M240i xDrive",
       "M340i",
       "M340i xDrive"
     ],
@@ -84618,6 +84617,4869 @@
     ],
     "src": [
       "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "43735": {
+    "listingId": "407179516320",
+    "rule": "A",
+    "n": 41,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "44237": {
+    "listingId": "407179516374",
+    "rule": "A",
+    "n": 10,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "43903": {
+    "listingId": "407179514210",
+    "rule": "A",
+    "n": 14,
+    "models": [
+      "X1",
+      "X2"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "44490": {
+    "listingId": "407179514155",
+    "rule": "A",
+    "n": 95,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "ActiveHybrid 3",
+      "M2",
+      "M3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "42997": {
+    "listingId": "407179513714",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "X1"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "42506": {
+    "listingId": "407179513506",
+    "rule": "A",
+    "n": 31,
+    "models": [
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "M4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "42744": {
+    "listingId": "407179513128",
+    "rule": "A",
+    "n": 30,
+    "models": [
+      "320i",
+      "328d",
+      "328i",
+      "330i",
+      "335i",
+      "340i",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "45736": {
+    "listingId": "407179512067",
+    "rule": "A",
+    "n": 16,
+    "models": [
+      "228i",
+      "230i",
+      "M235i",
+      "M240i"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "44186": {
+    "listingId": "407179511848",
+    "rule": "A",
+    "n": 46,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive",
+      "Z4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "45634": {
+    "listingId": "407179511647",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "42676": {
+    "listingId": "407179510412",
+    "rule": "A",
+    "n": 63,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "43294": {
+    "listingId": "407179509844",
+    "rule": "A",
+    "n": 95,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "ActiveHybrid 3",
+      "M2",
+      "M3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "44876": {
+    "listingId": "407179508583",
+    "rule": "A",
+    "n": 18,
+    "models": [
+      "128i",
+      "135i",
+      "135is",
+      "M3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "44326": {
+    "listingId": "407179505193",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "44491": {
+    "listingId": "407179505113",
+    "rule": "A",
+    "n": 95,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "ActiveHybrid 3",
+      "M2",
+      "M3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "43283": {
+    "listingId": "407179504959",
+    "rule": "A",
+    "n": 30,
+    "models": [
+      "320i",
+      "328d",
+      "328i",
+      "330i",
+      "335i",
+      "340i",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "44161": {
+    "listingId": "407179504625",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "43611": {
+    "listingId": "407179502968",
+    "rule": "A",
+    "n": 31,
+    "models": [
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "M4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "43844": {
+    "listingId": "407179499540",
+    "rule": "A",
+    "n": 63,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "45810": {
+    "listingId": "407179498169",
+    "rule": "A",
+    "n": 28,
+    "models": [
+      "228i",
+      "228i xDrive",
+      "230i",
+      "230i xDrive",
+      "M2",
+      "M235i",
+      "M235i xDrive",
+      "M240i",
+      "M240i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "43430": {
+    "listingId": "407179497815",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "46527": {
+    "listingId": "407179495619",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "47423": {
+    "listingId": "407179495632",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "46284": {
+    "listingId": "407179495598",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X6"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "49063": {
+    "listingId": "407179494432",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "128i",
+      "135i",
+      "135is"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "47020": {
+    "listingId": "407179494218",
+    "rule": "A",
+    "n": 31,
+    "models": [
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "M4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "47432": {
+    "listingId": "407179492477",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "48915": {
+    "listingId": "407179490837",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "47446": {
+    "listingId": "407179489552",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "46298": {
+    "listingId": "407179488173",
+    "rule": "A",
+    "n": 48,
+    "models": [
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "47447": {
+    "listingId": "407179487921",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49075": {
+    "listingId": "407179485263",
+    "rule": "A",
+    "n": 28,
+    "models": [
+      "128i",
+      "135i",
+      "135is",
+      "335i",
+      "335is",
+      "335xi",
+      "X1"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "47385": {
+    "listingId": "407179481425",
+    "rule": "A",
+    "n": 43,
+    "models": [
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49008": {
+    "listingId": "407179481140",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "46914": {
+    "listingId": "407179476202",
+    "rule": "A",
+    "n": 8,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "48914": {
+    "listingId": "407179475399",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "48724": {
+    "listingId": "407179474726",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "48904": {
+    "listingId": "407179474020",
+    "rule": "A",
+    "n": 10,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "48723": {
+    "listingId": "407179473313",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "46246": {
+    "listingId": "407179472789",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X6"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "47019": {
+    "listingId": "407179471741",
+    "rule": "A",
+    "n": 31,
+    "models": [
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "M4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49073": {
+    "listingId": "407179471166",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "128i",
+      "135i",
+      "135is"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "48750": {
+    "listingId": "407179471295",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "46794": {
+    "listingId": "407179470807",
+    "rule": "A",
+    "n": 14,
+    "models": [
+      "428i",
+      "430i",
+      "435i",
+      "440i"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "49009": {
+    "listingId": "407179470584",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "48210": {
+    "listingId": "407179470246",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "128i",
+      "135i",
+      "135is"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "49493": {
+    "listingId": "407179467583",
+    "rule": "A",
+    "n": 6,
+    "models": [
+      "Z4"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "49222": {
+    "listingId": "407179466898",
+    "rule": "A",
+    "n": 6,
+    "models": [
+      "Z4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51801": {
+    "listingId": "407179465026",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "48010": {
+    "listingId": "407179464876",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "750Li",
+      "Alpina B7",
+      "M760i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52294": {
+    "listingId": "407179464321",
+    "rule": "A",
+    "n": 22,
+    "models": [
+      "X5",
+      "X7"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51815": {
+    "listingId": "407179462711",
+    "rule": "A",
+    "n": 118,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "640i xDrive",
+      "740e xDrive",
+      "740i",
+      "740i xDrive",
+      "750i",
+      "750i xDrive",
+      "Alpina B7",
+      "M340i",
+      "M340i xDrive",
+      "M550i xDrive",
+      "M760i xDrive",
+      "M850i xDrive",
+      "X3",
+      "X4",
+      "X5",
+      "X7"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49123": {
+    "listingId": "407179462514",
+    "rule": "A",
+    "n": 6,
+    "models": [
+      "Z4"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "49794": {
+    "listingId": "407179461333",
+    "rule": "A",
+    "n": 14,
+    "models": [
+      "428i",
+      "430i",
+      "435i",
+      "440i"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "48561": {
+    "listingId": "407179459592",
+    "rule": "A",
+    "n": 69,
+    "models": [
+      "228i",
+      "228i xDrive",
+      "328i",
+      "328i xDrive",
+      "335i",
+      "335i xDrive",
+      "428i",
+      "428i xDrive",
+      "435i",
+      "435i xDrive",
+      "ActiveHybrid 3",
+      "M235i",
+      "M235i xDrive",
+      "X5",
+      "X6",
+      "i8"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51624": {
+    "listingId": "407179460037",
+    "rule": "A",
+    "n": 95,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "ActiveHybrid 3",
+      "M2",
+      "M3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51031": {
+    "listingId": "407179456378",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "X1"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52159": {
+    "listingId": "407179456050",
+    "rule": "A",
+    "n": 97,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "ActiveHybrid 3",
+      "M3",
+      "M4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51213": {
+    "listingId": "407179453599",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52035": {
+    "listingId": "407179453384",
+    "rule": "A",
+    "n": 16,
+    "models": [
+      "330i",
+      "330i xDrive",
+      "750Li",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "50291": {
+    "listingId": "407179452363",
+    "rule": "A",
+    "n": 30,
+    "models": [
+      "320i",
+      "328d",
+      "328i",
+      "330i",
+      "335i",
+      "340i",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "50446": {
+    "listingId": "407179453067",
+    "rule": "A",
+    "n": 36,
+    "models": [
+      "320i",
+      "328d",
+      "328i",
+      "330i",
+      "335i",
+      "340i",
+      "ActiveHybrid 3",
+      "M3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49728": {
+    "listingId": "407179452061",
+    "rule": "A",
+    "n": 31,
+    "models": [
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "M4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51040": {
+    "listingId": "407179451794",
+    "rule": "A",
+    "n": 243,
+    "models": [
+      "328d xDrive",
+      "328i xDrive",
+      "330i xDrive",
+      "528i",
+      "528i xDrive",
+      "530e",
+      "530e xDrive",
+      "530i",
+      "530i xDrive",
+      "535d",
+      "535d xDrive",
+      "535i",
+      "535i xDrive",
+      "540d xDrive",
+      "550i",
+      "550i xDrive",
+      "640i",
+      "640i xDrive",
+      "650i",
+      "650i xDrive",
+      "740e xDrive",
+      "740i",
+      "740i xDrive",
+      "750i",
+      "750i xDrive",
+      "ActiveHybrid 5",
+      "Alpina B7",
+      "M5",
+      "M550i xDrive",
+      "M6",
+      "M760i xDrive",
+      "X1",
+      "X3",
+      "X4",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49752": {
+    "listingId": "407179451746",
+    "rule": "A",
+    "n": 14,
+    "models": [
+      "428i",
+      "430i",
+      "435i",
+      "440i"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "49454": {
+    "listingId": "407179450451",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "49560": {
+    "listingId": "407179449415",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "50326": {
+    "listingId": "407179449282",
+    "rule": "A",
+    "n": 8,
+    "models": [
+      "328i xDrive",
+      "335i xDrive",
+      "340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "51907": {
+    "listingId": "407179449209",
+    "rule": "A",
+    "n": 14,
+    "models": [
+      "740i xDrive",
+      "750Li",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49832": {
+    "listingId": "407179448559",
+    "rule": "A",
+    "n": 14,
+    "models": [
+      "428i",
+      "430i",
+      "435i",
+      "440i"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "51594": {
+    "listingId": "407179447421",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49494": {
+    "listingId": "407179447072",
+    "rule": "A",
+    "n": 6,
+    "models": [
+      "Z4"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "49164": {
+    "listingId": "407179446148",
+    "rule": "A",
+    "n": 6,
+    "models": [
+      "Z4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "50274": {
+    "listingId": "407179446033",
+    "rule": "A",
+    "n": 68,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "ActiveHybrid 3",
+      "M3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51230": {
+    "listingId": "407179445833",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "48125": {
+    "listingId": "407179445077",
+    "rule": "A",
+    "n": 258,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "335i",
+      "335i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "528i",
+      "528i xDrive",
+      "535d",
+      "535d xDrive",
+      "535i",
+      "535i xDrive",
+      "550i",
+      "550i xDrive",
+      "740Ld xDrive",
+      "740Li",
+      "740Li xDrive",
+      "740i",
+      "750Li",
+      "750Li xDrive",
+      "750i",
+      "750i xDrive",
+      "760Li",
+      "ActiveHybrid 3",
+      "ActiveHybrid 5",
+      "ActiveHybrid 7",
+      "Alpina B7",
+      "Alpina B7 xDrive",
+      "Alpina B7L",
+      "Alpina B7L xDrive",
+      "M3",
+      "M4",
+      "X3",
+      "X4",
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "48017": {
+    "listingId": "407179445047",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "128i",
+      "135i",
+      "135is"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "50646": {
+    "listingId": "407179440636",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "228i xDrive Gran Coupe",
+      "M235i xDrive Gran Coupe"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "49975": {
+    "listingId": "407179437544",
+    "rule": "A",
+    "n": 25,
+    "models": [
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51597": {
+    "listingId": "407179438568",
+    "rule": "B",
+    "n": 14,
+    "models": [
+      "330i",
+      "330i xDrive",
+      "Z4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "50841": {
+    "listingId": "407179437118",
+    "rule": "A",
+    "n": 8,
+    "models": [
+      "328i xDrive",
+      "335i xDrive",
+      "340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "49888": {
+    "listingId": "407179436551",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "52193": {
+    "listingId": "407179436141",
+    "rule": "A",
+    "n": 14,
+    "models": [
+      "428i",
+      "430i",
+      "435i",
+      "440i"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "50808": {
+    "listingId": "407179435758",
+    "rule": "A",
+    "n": 80,
+    "models": [
+      "330i",
+      "330i xDrive",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "640i xDrive",
+      "740e xDrive",
+      "740i",
+      "740i xDrive",
+      "750i",
+      "750i xDrive",
+      "Alpina B7",
+      "M550i xDrive",
+      "M760i xDrive",
+      "M850i xDrive",
+      "X3",
+      "X4",
+      "X5",
+      "X7"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "50086": {
+    "listingId": "407179434955",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "750Li",
+      "Alpina B7",
+      "M760i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49859": {
+    "listingId": "407179434324",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49687": {
+    "listingId": "407179434100",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51767": {
+    "listingId": "407179433343",
+    "rule": "A",
+    "n": 31,
+    "models": [
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "M4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "50073": {
+    "listingId": "407179431089",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "750Li",
+      "Alpina B7",
+      "M760i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51570": {
+    "listingId": "407179430807",
+    "rule": "B",
+    "n": 24,
+    "models": [
+      "330i",
+      "330i xDrive",
+      "530i",
+      "530i xDrive",
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52161": {
+    "listingId": "407179430095",
+    "rule": "A",
+    "n": 243,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "528i",
+      "528i xDrive",
+      "535d",
+      "535d xDrive",
+      "535i",
+      "535i xDrive",
+      "550i",
+      "550i xDrive",
+      "640i",
+      "640i xDrive",
+      "650i",
+      "650i xDrive",
+      "ActiveHybrid 3",
+      "ActiveHybrid 5",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51751": {
+    "listingId": "407179429533",
+    "rule": "A",
+    "n": 42,
+    "models": [
+      "228i",
+      "228i xDrive",
+      "230i",
+      "230i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "M4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51306": {
+    "listingId": "407179424856",
+    "rule": "A",
+    "n": 64,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "740e xDrive",
+      "740i xDrive",
+      "750i xDrive",
+      "Alpina B7",
+      "M340i",
+      "M340i xDrive",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "48041": {
+    "listingId": "407179424539",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "128i",
+      "135i",
+      "135is"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "50070": {
+    "listingId": "407179424342",
+    "rule": "A",
+    "n": 34,
+    "models": [
+      "740e xDrive",
+      "740i",
+      "740i xDrive",
+      "750Li",
+      "750i",
+      "750i xDrive",
+      "Alpina B7",
+      "M760i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51030": {
+    "listingId": "407179423690",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "X1"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49668": {
+    "listingId": "407179423577",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49559": {
+    "listingId": "407179423441",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "52285": {
+    "listingId": "407179423436",
+    "rule": "A",
+    "n": 22,
+    "models": [
+      "X5",
+      "X7"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "47709": {
+    "listingId": "407179423123",
+    "rule": "A",
+    "n": 14,
+    "models": [
+      "428i",
+      "430i",
+      "435i",
+      "440i"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "50261": {
+    "listingId": "407179422436",
+    "rule": "A",
+    "n": 95,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "ActiveHybrid 3",
+      "M2",
+      "M3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "49280": {
+    "listingId": "407179420124",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "48691": {
+    "listingId": "407179420553",
+    "rule": "A",
+    "n": 74,
+    "models": [
+      "228i xDrive",
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "428i xDrive",
+      "435i xDrive",
+      "528i xDrive",
+      "ActiveHybrid 3",
+      "M235i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "50345": {
+    "listingId": "407179417451",
+    "rule": "A",
+    "n": 26,
+    "models": [
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "48268": {
+    "listingId": "407179417437",
+    "rule": "A",
+    "n": 8,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51348": {
+    "listingId": "407179416466",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51214": {
+    "listingId": "407179415726",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51625": {
+    "listingId": "407179415425",
+    "rule": "A",
+    "n": 95,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "ActiveHybrid 3",
+      "M2",
+      "M3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52275": {
+    "listingId": "407179414427",
+    "rule": "A",
+    "n": 31,
+    "models": [
+      "320i",
+      "328d",
+      "328i",
+      "330i",
+      "335i",
+      "340i",
+      "340i xDrive",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53630": {
+    "listingId": "407179412131",
+    "rule": "A",
+    "n": 79,
+    "models": [
+      "530e",
+      "530e xDrive",
+      "530i",
+      "530i xDrive",
+      "540d xDrive",
+      "540i",
+      "540i xDrive",
+      "640i xDrive",
+      "740e xDrive",
+      "740i",
+      "740i xDrive",
+      "750i",
+      "750i xDrive",
+      "Alpina B7",
+      "M5",
+      "M550i xDrive",
+      "M760i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53903": {
+    "listingId": "407179410248",
+    "rule": "A",
+    "n": 63,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53904": {
+    "listingId": "407179409400",
+    "rule": "A",
+    "n": 63,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52483": {
+    "listingId": "407179407443",
+    "rule": "A",
+    "n": 8,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "52621": {
+    "listingId": "407179406735",
+    "rule": "B",
+    "n": 144,
+    "models": [
+      "230i",
+      "230i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "340i",
+      "340i xDrive",
+      "430i",
+      "430i xDrive",
+      "440i",
+      "440i xDrive",
+      "530e",
+      "530e xDrive",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "640i xDrive",
+      "740e xDrive",
+      "740i",
+      "740i xDrive",
+      "M240i",
+      "M240i xDrive",
+      "X1",
+      "X2",
+      "X3",
+      "X4",
+      "X5",
+      "X7",
+      "Z4",
+      "i8"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "51185": {
+    "listingId": "407179405089",
+    "rule": "A",
+    "n": 10,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53024": {
+    "listingId": "407179404152",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52494": {
+    "listingId": "407179404296",
+    "rule": "B",
+    "n": 43,
+    "models": [
+      "X5",
+      "X7"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53025": {
+    "listingId": "407179403426",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52599": {
+    "listingId": "407179403098",
+    "rule": "A",
+    "n": 43,
+    "models": [
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53009": {
+    "listingId": "407179400714",
+    "rule": "B",
+    "n": 55,
+    "models": [
+      "335i",
+      "335i xDrive",
+      "435i",
+      "435i xDrive",
+      "ActiveHybrid 3",
+      "M2",
+      "M235i",
+      "M235i xDrive",
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53831": {
+    "listingId": "407179400425",
+    "rule": "A",
+    "n": 93,
+    "models": [
+      "228i",
+      "230i",
+      "320i",
+      "328d",
+      "328i",
+      "328i xDrive",
+      "328xi",
+      "330i",
+      "335i",
+      "335i xDrive",
+      "335is",
+      "335xi",
+      "340i",
+      "428i",
+      "428i xDrive",
+      "435i",
+      "440i",
+      "ActiveHybrid 3",
+      "M2",
+      "M235i",
+      "M240i",
+      "M3",
+      "M4"
+    ],
+    "src": [
+      "chassis",
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53396": {
+    "listingId": "407179398385",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53379": {
+    "listingId": "407179398066",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "52506": {
+    "listingId": "407179349011",
+    "rule": "A",
+    "n": 22,
+    "models": [
+      "X5",
+      "X7"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53195": {
+    "listingId": "407179348390",
+    "rule": "A",
+    "n": 44,
+    "models": [
+      "530e",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "M5",
+      "M550i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52674": {
+    "listingId": "407179347077",
+    "rule": "A",
+    "n": 16,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52845": {
+    "listingId": "407179346383",
+    "rule": "A",
+    "n": 10,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53130": {
+    "listingId": "407179344696",
+    "rule": "A",
+    "n": 73,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "320i",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "525i",
+      "530i",
+      "535i",
+      "540i",
+      "M3",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52692": {
+    "listingId": "407179344293",
+    "rule": "A",
+    "n": 6,
+    "models": [
+      "Z4"
+    ],
+    "src": [
+      "chassis",
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53601": {
+    "listingId": "407179344309",
+    "rule": "A",
+    "n": 41,
+    "models": [
+      "530e",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "750i xDrive",
+      "M550i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53909": {
+    "listingId": "407179342925",
+    "rule": "-",
+    "n": 5,
+    "models": [
+      "228i",
+      "328i",
+      "335i",
+      "M240i"
+    ],
+    "src": [
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53203": {
+    "listingId": "407179342272",
+    "rule": "A",
+    "n": 87,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323Ci",
+      "323i",
+      "323is",
+      "325Ci",
+      "325i",
+      "325is",
+      "325xi",
+      "328Ci",
+      "328i",
+      "328is",
+      "330Ci",
+      "330i",
+      "330xi",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53419": {
+    "listingId": "407179342045",
+    "rule": "A",
+    "n": 22,
+    "models": [
+      "740i",
+      "750i",
+      "750i xDrive",
+      "ActiveHybrid 7",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis",
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53945": {
+    "listingId": "407179338468",
+    "rule": "-",
+    "n": 74,
+    "models": [
+      "530e",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "740i",
+      "745e",
+      "750i",
+      "M235i",
+      "M550i xDrive",
+      "X2",
+      "X3",
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53420": {
+    "listingId": "407179338237",
+    "rule": "A",
+    "n": 81,
+    "models": [
+      "528i xDrive",
+      "535d xDrive",
+      "535i xDrive",
+      "550i xDrive",
+      "640i xDrive",
+      "650i xDrive",
+      "740Li xDrive",
+      "740i",
+      "750Li xDrive",
+      "750i",
+      "750i xDrive",
+      "ActiveHybrid 7",
+      "Alpina B7",
+      "Alpina B7 xDrive",
+      "Alpina B7L xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53852": {
+    "listingId": "407179337692",
+    "rule": "A",
+    "n": 31,
+    "models": [
+      "320i",
+      "328d",
+      "328i",
+      "330i",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "52956": {
+    "listingId": "407179337270",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53304": {
+    "listingId": "407179336577",
+    "rule": "A",
+    "n": 6,
+    "models": [
+      "M850i xDrive",
+      "X3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52991": {
+    "listingId": "407179336224",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53206": {
+    "listingId": "407179336507",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53300": {
+    "listingId": "407179336269",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53353": {
+    "listingId": "407179336015",
+    "rule": "A",
+    "n": 74,
+    "models": [
+      "530e",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "740i",
+      "745e",
+      "750i",
+      "M235i",
+      "M550i xDrive",
+      "X2",
+      "X3",
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53358": {
+    "listingId": "407179335319",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53354": {
+    "listingId": "407179335055",
+    "rule": "A",
+    "n": 74,
+    "models": [
+      "530e",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "740i",
+      "745e",
+      "750i",
+      "M235i",
+      "M550i xDrive",
+      "X2",
+      "X3",
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53357": {
+    "listingId": "407179335070",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53960": {
+    "listingId": "407179334804",
+    "rule": "-",
+    "n": 74,
+    "models": [
+      "530e",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "740i",
+      "745e",
+      "750i",
+      "M235i",
+      "M550i xDrive",
+      "X2",
+      "X3",
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53098": {
+    "listingId": "407179333737",
+    "rule": "B",
+    "n": 5,
+    "models": [
+      "Z3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53316": {
+    "listingId": "407179332837",
+    "rule": "A",
+    "n": 33,
+    "models": [
+      "M3",
+      "M4",
+      "M5",
+      "X3",
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53134": {
+    "listingId": "407179332376",
+    "rule": "A",
+    "n": 51,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "54044": {
+    "listingId": "407179332346",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "52990": {
+    "listingId": "407179331433",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53905": {
+    "listingId": "407179331429",
+    "rule": "A",
+    "n": 31,
+    "models": [
+      "320i",
+      "328d",
+      "328i",
+      "330i",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "51965": {
+    "listingId": "407179330643",
+    "rule": "-",
+    "n": 14,
+    "models": [
+      "740i",
+      "745e",
+      "750i"
+    ],
+    "src": [
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "52527": {
+    "listingId": "407179330519",
+    "rule": "-",
+    "n": 6,
+    "models": [
+      "Z4"
+    ],
+    "src": [
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "52694": {
+    "listingId": "407179330378",
+    "rule": "-",
+    "n": 2,
+    "models": [
+      "Z4"
+    ],
+    "src": [
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "54109": {
+    "listingId": "407179330036",
+    "rule": "B",
+    "n": 28,
+    "models": [
+      "750Li",
+      "750i",
+      "750i xDrive",
+      "Alpina B7",
+      "M550i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53356": {
+    "listingId": "407179329987",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53205": {
+    "listingId": "407179329949",
+    "rule": "A",
+    "n": 46,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53830": {
+    "listingId": "407179329874",
+    "rule": "A",
+    "n": 123,
+    "models": [
+      "228i",
+      "228i xDrive",
+      "230i",
+      "230i xDrive",
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "ActiveHybrid 3",
+      "M2",
+      "M235i",
+      "M235i xDrive",
+      "M240i",
+      "M240i xDrive",
+      "M3",
+      "M4"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53212": {
+    "listingId": "407179329704",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53325": {
+    "listingId": "407179329496",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "52686": {
+    "listingId": "407179329161",
+    "rule": "-",
+    "n": 6,
+    "models": [
+      "Z4"
+    ],
+    "src": [
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "52953": {
+    "listingId": "407179328664",
+    "rule": "A",
+    "n": 108,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "530e",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "740i",
+      "745e",
+      "750i",
+      "M340i",
+      "M340i xDrive",
+      "M4",
+      "M550i xDrive",
+      "X3"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53324": {
+    "listingId": "407179328522",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53215": {
+    "listingId": "407179328598",
+    "rule": "A",
+    "n": 51,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53137": {
+    "listingId": "407179328486",
+    "rule": "A",
+    "n": 58,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "320i",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "M3",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "54101": {
+    "listingId": "407179328264",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "52469": {
+    "listingId": "407179327842",
+    "rule": "A",
+    "n": 85,
+    "models": [
+      "530e",
+      "530e xDrive",
+      "530i",
+      "530i xDrive",
+      "540d xDrive",
+      "540i",
+      "540i xDrive",
+      "640i xDrive",
+      "740e xDrive",
+      "740i",
+      "740i xDrive",
+      "750i",
+      "750i xDrive",
+      "Alpina B7",
+      "M5",
+      "M550i xDrive",
+      "M760i xDrive",
+      "X3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "52993": {
+    "listingId": "407179327636",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis",
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53148": {
+    "listingId": "407179326663",
+    "rule": "A",
+    "n": 46,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53150": {
+    "listingId": "407179326480",
+    "rule": "B",
+    "n": 122,
+    "models": [
+      "320i",
+      "323Ci",
+      "323i",
+      "325Ci",
+      "325i",
+      "325xi",
+      "328Ci",
+      "328i",
+      "330Ci",
+      "330i",
+      "330xi",
+      "525i",
+      "528i",
+      "530i",
+      "540i",
+      "740i",
+      "740iL",
+      "750iL",
+      "840Ci",
+      "M5",
+      "X5",
+      "Z3",
+      "Z8"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53311": {
+    "listingId": "407179326336",
+    "rule": "A",
+    "n": 9,
+    "models": [
+      "M5",
+      "X3"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53200": {
+    "listingId": "407179326102",
+    "rule": "A",
+    "n": 55,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "320i",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "M3",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53726": {
+    "listingId": "407179325980",
+    "rule": "A",
+    "n": 26,
+    "models": [
+      "528i",
+      "535d",
+      "535i",
+      "550i",
+      "ActiveHybrid 5"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "52966": {
+    "listingId": "407179325694",
+    "rule": "B",
+    "n": 10,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53438": {
+    "listingId": "407179324549",
+    "rule": "A",
+    "n": 40,
+    "models": [
+      "530e",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "M550i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "52978": {
+    "listingId": "407179325387",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53135": {
+    "listingId": "407179325307",
+    "rule": "B",
+    "n": 133,
+    "models": [
+      "320i",
+      "323Ci",
+      "323i",
+      "325Ci",
+      "325i",
+      "325xi",
+      "328Ci",
+      "328i",
+      "330Ci",
+      "330i",
+      "330xi",
+      "525i",
+      "528i",
+      "530i",
+      "540i",
+      "740i",
+      "740iL",
+      "750iL",
+      "850Ci",
+      "M5",
+      "X3",
+      "X5",
+      "Z3",
+      "Z8"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53355": {
+    "listingId": "407179324368",
+    "rule": "A",
+    "n": 74,
+    "models": [
+      "530e",
+      "530i",
+      "530i xDrive",
+      "540i",
+      "540i xDrive",
+      "740i",
+      "745e",
+      "750i",
+      "M235i",
+      "M550i xDrive",
+      "X2",
+      "X3",
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "54103": {
+    "listingId": "407179323618",
+    "rule": "A",
+    "n": 34,
+    "models": [
+      "740i",
+      "745e",
+      "750Li",
+      "750i",
+      "750i xDrive",
+      "Alpina B7",
+      "M760i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53953": {
+    "listingId": "407179322674",
+    "rule": "-",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53202": {
+    "listingId": "407179322976",
+    "rule": "A",
+    "n": 46,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53125": {
+    "listingId": "407179322333",
+    "rule": "A",
+    "n": 169,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "320i",
+      "323Ci",
+      "323i",
+      "323is",
+      "325Ci",
+      "325i",
+      "325is",
+      "325xi",
+      "328Ci",
+      "328i",
+      "328is",
+      "328xi",
+      "330Ci",
+      "330i",
+      "330xi",
+      "335i",
+      "335xi",
+      "525i",
+      "530i",
+      "540i",
+      "M3",
+      "X5",
+      "Z3",
+      "Z4"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53428": {
+    "listingId": "407179321974",
+    "rule": "A",
+    "n": 56,
+    "models": [
+      "530e xDrive",
+      "530i xDrive",
+      "540d xDrive",
+      "540i xDrive",
+      "640i xDrive",
+      "740e xDrive",
+      "740i xDrive",
+      "750Li",
+      "750i xDrive",
+      "Alpina B7",
+      "M5",
+      "M550i xDrive",
+      "X3",
+      "X4",
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53208": {
+    "listingId": "407179321491",
+    "rule": "A",
+    "n": 59,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "320i",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "M3",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53099": {
+    "listingId": "407179321089",
+    "rule": "B",
+    "n": 5,
+    "models": [
+      "Z3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53317": {
+    "listingId": "407179320803",
+    "rule": "A",
+    "n": 33,
+    "models": [
+      "M3",
+      "M4",
+      "M5",
+      "X3",
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53127": {
+    "listingId": "407179320882",
+    "rule": "A",
+    "n": 51,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53313": {
+    "listingId": "407179320104",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "52679": {
+    "listingId": "407179320091",
+    "rule": "-",
+    "n": 6,
+    "models": [
+      "Z4"
+    ],
+    "src": [
+      "pn"
+    ],
+    "cv": "cat1"
+  },
+  "53227": {
+    "listingId": "407179319315",
+    "rule": "A",
+    "n": 97,
+    "models": [
+      "530e",
+      "530e xDrive",
+      "530i",
+      "530i xDrive",
+      "540d xDrive",
+      "540i",
+      "540i xDrive",
+      "640i xDrive",
+      "740e xDrive",
+      "740i",
+      "740i xDrive",
+      "745e",
+      "750i",
+      "750i xDrive",
+      "Alpina B7",
+      "M5",
+      "M550i xDrive",
+      "M760i xDrive",
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53201": {
+    "listingId": "407179319309",
+    "rule": "B",
+    "n": 5,
+    "models": [
+      "Z3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53978": {
+    "listingId": "407179319134",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53129": {
+    "listingId": "407179317330",
+    "rule": "A",
+    "n": 48,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53128": {
+    "listingId": "407179316685",
+    "rule": "A",
+    "n": 51,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "pn",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "53146": {
+    "listingId": "407179314470",
+    "rule": "A",
+    "n": 59,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "320i",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "M3",
+      "Z3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "36044": {
+    "listingId": "407178990316",
+    "rule": "A",
+    "n": 6,
+    "models": [
+      "M2"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "4085": {
+    "listingId": "407179109517",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "31607": {
+    "listingId": "407179055105",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "24281": {
+    "listingId": "407179055584",
+    "rule": "A",
+    "n": 63,
+    "models": [
+      "320i",
+      "320i xDrive",
+      "328d",
+      "328d xDrive",
+      "328i",
+      "328i xDrive",
+      "330e",
+      "330i",
+      "330i xDrive",
+      "335i",
+      "335i xDrive",
+      "340i",
+      "340i xDrive",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "24651": {
+    "listingId": "407179054977",
+    "rule": "A",
+    "n": 13,
+    "models": [
+      "128i",
+      "135i",
+      "135is"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "28276": {
+    "listingId": "407179054881",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "22169": {
+    "listingId": "407179054801",
+    "rule": "A",
+    "n": 8,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "25725": {
+    "listingId": "407179054477",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "22139": {
+    "listingId": "407179054240",
+    "rule": "A",
+    "n": 15,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "27887": {
+    "listingId": "407179053671",
+    "rule": "A",
+    "n": 31,
+    "models": [
+      "428i",
+      "428i xDrive",
+      "430i",
+      "430i xDrive",
+      "435i",
+      "435i xDrive",
+      "440i",
+      "440i xDrive",
+      "M4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "28480": {
+    "listingId": "407179053537",
+    "rule": "A",
+    "n": 15,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "21990": {
+    "listingId": "407179052195",
+    "rule": "A",
+    "n": 15,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "32253": {
+    "listingId": "407179052383",
+    "rule": "A",
+    "n": 63,
+    "models": [
+      "530e",
+      "530e xDrive",
+      "530i",
+      "530i xDrive",
+      "540d xDrive",
+      "540i",
+      "540i xDrive",
+      "640i xDrive",
+      "740e xDrive",
+      "740i",
+      "740i xDrive",
+      "750Li",
+      "750i",
+      "750i xDrive",
+      "Alpina B7",
+      "M5",
+      "M550i xDrive",
+      "M760i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "33904": {
+    "listingId": "407179048627",
+    "rule": "A",
+    "n": 17,
+    "models": [
+      "328i",
+      "335i",
+      "335is"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "5123": {
+    "listingId": "407179008056",
+    "rule": "B",
+    "n": 52,
+    "models": [
+      "340i",
+      "340i GT xDrive",
+      "340i xDrive",
+      "440i",
+      "440i xDrive",
+      "540i",
+      "540i xDrive",
+      "640i xDrive",
+      "740i",
+      "740i xDrive",
+      "M240i",
+      "M240i xDrive",
+      "X1",
+      "X2",
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "60726": {
+    "listingId": "407179005033",
+    "rule": "B",
+    "n": 17,
+    "models": [
+      "750i",
+      "750i xDrive",
+      "M550i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "47637": {
+    "listingId": "407178988531",
+    "rule": "A",
+    "n": 28,
+    "models": [
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "1113": {
+    "listingId": "407178960235",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "4922": {
+    "listingId": "407178959972",
+    "rule": "A",
+    "n": 27,
+    "models": [
+      "528i",
+      "535d",
+      "535i",
+      "535i xDrive",
+      "550i",
+      "ActiveHybrid 5"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "4923": {
+    "listingId": "407178959771",
+    "rule": "A",
+    "n": 27,
+    "models": [
+      "528i",
+      "535d",
+      "535i",
+      "535i xDrive",
+      "550i",
+      "ActiveHybrid 5"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "5750": {
+    "listingId": "407178763599",
+    "rule": "A",
+    "n": 41,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "2186": {
+    "listingId": "407178750148",
+    "rule": "A",
+    "n": 12,
+    "models": [
+      "330i",
+      "330i xDrive",
+      "430i"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "3967": {
+    "listingId": "407178721675",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "4619": {
+    "listingId": "407178721034",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "3764": {
+    "listingId": "407178751368",
+    "rule": "A",
+    "n": 41,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "5497": {
+    "listingId": "407178669786",
+    "rule": "A",
+    "n": 43,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "4143": {
+    "listingId": "407178669336",
+    "rule": "A",
+    "n": 43,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "2180": {
+    "listingId": "407178668492",
+    "rule": "A",
+    "n": 9,
+    "models": [
+      "330i xDrive",
+      "430i"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "4051": {
+    "listingId": "407178634532",
+    "rule": "A",
+    "n": 41,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "4224": {
+    "listingId": "407178633160",
+    "rule": "A",
+    "n": 41,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "4223": {
+    "listingId": "407178632950",
+    "rule": "A",
+    "n": 41,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "3138": {
+    "listingId": "407176830590",
+    "rule": "A",
+    "n": 8,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "3528": {
+    "listingId": "407176830580",
+    "rule": "A",
+    "n": 8,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "64143": {
+    "listingId": "407161556770",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "64169": {
+    "listingId": "407161599859",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "64197": {
+    "listingId": "407161636584",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "64198": {
+    "listingId": "407161636592",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "64196": {
+    "listingId": "407161622131",
+    "rule": "B",
+    "n": 51,
+    "models": [
+      "530e",
+      "530e xDrive",
+      "530i",
+      "530i xDrive",
+      "540d xDrive",
+      "540i",
+      "540i xDrive",
+      "640i xDrive",
+      "740e xDrive",
+      "740i",
+      "740i xDrive",
+      "750i",
+      "750i xDrive",
+      "Alpina B7",
+      "M550i xDrive",
+      "M760i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "64168": {
+    "listingId": "407161599762",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "64166": {
+    "listingId": "407161590505",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "64165": {
+    "listingId": "407161590516",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "64155": {
+    "listingId": "407161586740",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "64156": {
+    "listingId": "407161586739",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "64148": {
+    "listingId": "407161568481",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "750Li",
+      "750i xDrive",
+      "Alpina B7"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "63536": {
+    "listingId": "407161491258",
+    "rule": "B",
+    "n": 128,
+    "models": [
+      "228i",
+      "228i xDrive",
+      "320i",
+      "320i xDrive",
+      "328i",
+      "328i xDrive",
+      "428i",
+      "428i xDrive",
+      "528i",
+      "528i xDrive",
+      "M3",
+      "M4",
+      "M5",
+      "M6",
+      "X1",
+      "X3",
+      "X4",
+      "X5",
+      "X6"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "63518": {
+    "listingId": "407161447586",
+    "rule": "B",
+    "n": 461,
+    "models": [
+      "128i",
+      "135i",
+      "228i",
+      "228i xDrive",
+      "320i",
+      "320i xDrive",
+      "323i",
+      "325Ci",
+      "325i",
+      "325xi",
+      "328i",
+      "328i xDrive",
+      "328xi",
+      "330Ci",
+      "330i",
+      "330xi",
+      "335i",
+      "335i xDrive",
+      "335is",
+      "335xi",
+      "428i",
+      "428i xDrive",
+      "435i",
+      "435i xDrive",
+      "525i",
+      "525xi",
+      "528i",
+      "528i xDrive",
+      "528xi",
+      "530i",
+      "530xi",
+      "535i",
+      "535i xDrive",
+      "535xi",
+      "550i",
+      "550i xDrive",
+      "640i",
+      "640i xDrive",
+      "650i",
+      "650i xDrive",
+      "740Li",
+      "740Li xDrive",
+      "740i",
+      "750Li",
+      "750Li xDrive",
+      "750i",
+      "750i xDrive",
+      "760Li",
+      "760i",
+      "ActiveHybrid 3",
+      "ActiveHybrid 5",
+      "ActiveHybrid 7",
+      "Alpina B7",
+      "Alpina B7 xDrive",
+      "Alpina B7L",
+      "Alpina B7L xDrive",
+      "M2",
+      "M235i",
+      "M235i xDrive",
+      "M3",
+      "M4",
+      "M760i xDrive",
+      "X1",
+      "X3",
+      "X4",
+      "X5",
+      "X6",
+      "Z4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "44315": {
+    "listingId": "407087273311",
+    "rule": "-",
+    "n": 7,
+    "models": [
+      "330i xDrive",
+      "X3"
+    ],
+    "src": [
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "43482": {
+    "listingId": "407087265134",
+    "rule": "A",
+    "n": 25,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "45183": {
+    "listingId": "407087264507",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "43855": {
+    "listingId": "407087262857",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "44145": {
+    "listingId": "407087261947",
+    "rule": "A",
+    "n": 41,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "47216": {
+    "listingId": "407087216206",
+    "rule": "A",
+    "n": 25,
+    "models": [
+      "740Li",
+      "750Li",
+      "750Li xDrive",
+      "760Li",
+      "Alpina B7L"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "44322": {
+    "listingId": "407087260740",
+    "rule": "A",
+    "n": 41,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "44510": {
+    "listingId": "407087260356",
+    "rule": "B",
+    "n": 12,
+    "models": [
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "44153": {
+    "listingId": "407087259755",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "45601": {
+    "listingId": "407087256212",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X6"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "43008": {
+    "listingId": "407087255436",
+    "rule": "A",
+    "n": 41,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "44328": {
+    "listingId": "407087252285",
+    "rule": "A",
+    "n": 41,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "44736": {
+    "listingId": "407087249478",
+    "rule": "A",
+    "n": 30,
+    "models": [
+      "320i",
+      "328d",
+      "328i",
+      "330i",
+      "335i",
+      "340i",
+      "ActiveHybrid 3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "43378": {
+    "listingId": "407087248186",
+    "rule": "A",
+    "n": 42,
+    "models": [
+      "330e",
+      "330e xDrive",
+      "330i",
+      "330i xDrive",
+      "M240i xDrive",
+      "M340i",
+      "M340i xDrive"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "45249": {
+    "listingId": "407087247854",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "128i",
+      "135i",
+      "135is"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "43737": {
+    "listingId": "407087243311",
+    "rule": "-",
+    "n": 4,
+    "models": [
+      "330i"
+    ],
+    "src": [
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "44242": {
+    "listingId": "407087241974",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "45506": {
+    "listingId": "407087241374",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X6"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "45521": {
+    "listingId": "407087238088",
+    "rule": "A",
+    "n": 5,
+    "models": [
+      "X6"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "44996": {
+    "listingId": "407087237450",
+    "rule": "A",
+    "n": 7,
+    "models": [
+      "X3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "44319": {
+    "listingId": "407087236374",
+    "rule": "-",
+    "n": 22,
+    "models": [
+      "330i",
+      "330i xDrive",
+      "530i",
+      "530i xDrive",
+      "X1",
+      "X2",
+      "X3",
+      "X4"
+    ],
+    "src": [
+      "etk"
     ],
     "cv": "cat1"
   }

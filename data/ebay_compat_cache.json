@@ -447,8 +447,10 @@
 "t|1999|bmw|323is": [
 "Base Coupe 2-Door"
 ],
+"t|1999|bmw|325ci": [],
 "t|1999|bmw|325i": [],
 "t|1999|bmw|325is": [],
+"t|1999|bmw|325xi": [],
 "t|1999|bmw|328ci": [],
 "t|1999|bmw|328i": [
 "Base Convertible 2-Door",
@@ -558,6 +560,14 @@
 ],
 "t|2000|bmw|x5 3.0i": [],
 "t|2000|bmw|x5 4.4i": [],
+"t|2000|bmw|z3": [
+"2.0i Convertible 2-Door",
+"2.8i Convertible 2-Door",
+"Coupe Coupe 2-Door",
+"M Coupe Coupe 2-Door",
+"M Roadster Convertible 2-Door",
+"Roadster Convertible 2-Door"
+],
 "t|2000|bmw|z3 2.5": [],
 "t|2000|bmw|z3 2.5i": [],
 "t|2000|bmw|z3 2.8": [],
@@ -567,6 +577,10 @@
 "Base Convertible 2-Door"
 ],
 "t|2001|bmw|320i": [
+"Base Sedan 4-Door"
+],
+"t|2001|bmw|323ci": [],
+"t|2001|bmw|323i": [
 "Base Sedan 4-Door"
 ],
 "t|2001|bmw|325ci": [
@@ -581,6 +595,8 @@
 "Base Sedan 4-Door",
 "Base Wagon 4-Door"
 ],
+"t|2001|bmw|328ci": [],
+"t|2001|bmw|328i": [],
 "t|2001|bmw|330ci": [
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
@@ -649,6 +665,8 @@
 "t|2002|bmw|320i": [
 "Base Sedan 4-Door"
 ],
+"t|2002|bmw|323ci": [],
+"t|2002|bmw|323i": [],
 "t|2002|bmw|325ci": [
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
@@ -661,6 +679,8 @@
 "Base Sedan 4-Door",
 "Base Wagon 4-Door"
 ],
+"t|2002|bmw|328ci": [],
+"t|2002|bmw|328i": [],
 "t|2002|bmw|330ci": [
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
@@ -712,9 +732,18 @@
 "t|2002|bmw|x5 3.0i": [],
 "t|2002|bmw|x5 4.4i": [],
 "t|2002|bmw|x5 4.6is": [],
+"t|2002|bmw|z3": [
+"2.2i Convertible 2-Door",
+"3.0i Convertible 2-Door",
+"Coupe Coupe 2-Door",
+"M Coupe Coupe 2-Door",
+"M Roadster Convertible 2-Door",
+"Roadster Convertible 2-Door"
+],
 "t|2002|bmw|z3 2.5i": [],
 "t|2002|bmw|z3 3.0i": [],
 "t|2002|bmw|z3 m3.2": [],
+"t|2002|bmw|z4": [],
 "t|2002|bmw|z4 2.5i": [],
 "t|2002|bmw|z4 3.0i": [],
 "t|2002|bmw|z8": [
@@ -723,6 +752,8 @@
 "t|2003|bmw|320i": [
 "Base Sedan 4-Door"
 ],
+"t|2003|bmw|323ci": [],
+"t|2003|bmw|323i": [],
 "t|2003|bmw|325ci": [
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
@@ -735,6 +766,8 @@
 "Base Sedan 4-Door",
 "Base Wagon 4-Door"
 ],
+"t|2003|bmw|328ci": [],
+"t|2003|bmw|328i": [],
 "t|2003|bmw|330ci": [
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
@@ -779,6 +812,7 @@
 "Base Sedan 4-Door"
 ],
 "t|2003|bmw|phantom": [],
+"t|2003|bmw|x3": [],
 "t|2003|bmw|x3 2.5i": [],
 "t|2003|bmw|x3 3.0i": [],
 "t|2003|bmw|x5": [
@@ -806,6 +840,8 @@
 "t|2004|bmw|320i": [
 "Base Sedan 4-Door"
 ],
+"t|2004|bmw|323ci": [],
+"t|2004|bmw|323i": [],
 "t|2004|bmw|325ci": [
 "Base Convertible 2-Door",
 "Base Coupe 2-Door"
@@ -818,6 +854,7 @@
 "Base Sedan 4-Door",
 "Base Wagon 4-Door"
 ],
+"t|2004|bmw|328ci": [],
 "t|2004|bmw|328i": [],
 "t|2004|bmw|330ci": [
 "Base Convertible 2-Door",
@@ -896,6 +933,7 @@
 "t|2004|bmw|z4 3.0i": [],
 "t|2004|bmw|z4 3.0si": [],
 "t|2004|bmw|z4 m3.2": [],
+"t|2005|bmw|323ci": [],
 "t|2005|bmw|323i": [],
 "t|2005|bmw|325ci": [
 "Base Convertible 2-Door",
@@ -909,6 +947,7 @@
 "Base Sedan 4-Door",
 "Base Wagon 4-Door"
 ],
+"t|2005|bmw|328ci": [],
 "t|2005|bmw|328i": [],
 "t|2005|bmw|328xi": [],
 "t|2005|bmw|330ci": [
@@ -996,6 +1035,7 @@
 "t|2005|bmw|z4 m3.2": [],
 "t|2006|bmw|128i": [],
 "t|2006|bmw|135i": [],
+"t|2006|bmw|323ci": [],
 "t|2006|bmw|323i": [
 "Base Sedan 4-Door"
 ],
@@ -1010,6 +1050,7 @@
 "Base Sedan 4-Door",
 "Base Wagon 4-Door"
 ],
+"t|2006|bmw|328ci": [],
 "t|2006|bmw|328i": [],
 "t|2006|bmw|328i xdrive": [],
 "t|2006|bmw|328xi": [],
