@@ -8492,3 +8492,336 @@ Categories where NOTHING displays:
 Display rate 100.0% (3/3) is at or above the 60.0% threshold. (233 SKU(s) excluded: categories eBay never renders fitment in)
 
 Per-SKU detail -> data/drift_audit.csv
+[2026-09-01 09:49:07] state pushed (attempt 1)
+[2026-09-01 09:49:07] === done ===
+[2026-09-02 08:30:00] === nightly sweep starting (limit 2000) ===
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+Offline self-test (no network)
+
+Reference data:
+  PASS  chassis reference loaded (112 rows)
+  PASS  engine map loaded (396 rows)
+  PASS  eBay model vocabulary loaded (269 models)
+Rule engine:
+  PASS  Rule A/B expand works (335i 2014: A=49 rows > B=14 rows)
+  PASS  expand_from_chassis works (G87 -> 4 rows)
+  PASS  resolve_chassis disambiguates E90+M3 -> 'E90 M3'
+Classifier:
+  PASS  classifier config loaded (10 engine branches, default=B)
+  PASS  classify logic: engine branch -> B, other -> A
+  PASS  category tree present
+Shopify donors:
+  PASS  Shopify donor dump loaded (15568 SKUs, 15568 BMW)
+Part-number + union:
+  PASS  part-number fitment loaded (752 SKUs)
+  PASS  all part-number models are in the eBay catalog vocabulary
+  PASS  part-number chassis expansion is a superset of literal (sampled 100 SKUs)
+  PASS  union+dedupe correct (2 chassis + 2 pn, 1 overlap -> 3)
+Display path (trim/catalog validation):
+  PASS  display-path tests: (324/324 checks passed)
+
+Result: PASS  (0 fail, 0 warn)
+[2026-09-02 08:30:01] selftest passed
+OK - minted an access token valid ~7200s (120 min). Scopes: https://api.ebay.com/oauth/api_scope/sell.inventory
+[2026-09-02 08:30:01] eBay auth OK
+  page 20: 426 BMW donors (74 other makes skipped)
+  page 40: 926 BMW donors (74 other makes skipped)
+  page 60: 1425 BMW donors (75 other makes skipped)
+  page 80: 1924 BMW donors (76 other makes skipped)
+  page 100: 2424 BMW donors (76 other makes skipped)
+  page 120: 2921 BMW donors (79 other makes skipped)
+  page 140: 3421 BMW donors (79 other makes skipped)
+  page 160: 3917 BMW donors (83 other makes skipped)
+  page 180: 4415 BMW donors (85 other makes skipped)
+  page 200: 4914 BMW donors (86 other makes skipped)
+  page 220: 5346 BMW donors (154 other makes skipped)
+  page 240: 5786 BMW donors (214 other makes skipped)
+  page 260: 6251 BMW donors (249 other makes skipped)
+  page 280: 6744 BMW donors (256 other makes skipped)
+  page 300: 7201 BMW donors (299 other makes skipped)
+  page 320: 7539 BMW donors (461 other makes skipped)
+  page 340: 8039 BMW donors (461 other makes skipped)
+  page 360: 8523 BMW donors (477 other makes skipped)
+  page 380: 8997 BMW donors (503 other makes skipped)
+  page 400: 9441 BMW donors (559 other makes skipped)
+  page 420: 9936 BMW donors (564 other makes skipped)
+  page 440: 10436 BMW donors (564 other makes skipped)
+  page 460: 10866 BMW donors (634 other makes skipped)
+  page 480: 11143 BMW donors (857 other makes skipped)
+  page 500: 11520 BMW donors (980 other makes skipped)
+  page 520: 12017 BMW donors (983 other makes skipped)
+  page 540: 12513 BMW donors (987 other makes skipped)
+  page 560: 13009 BMW donors (991 other makes skipped)
+  page 580: 13496 BMW donors (998 other makes skipped)
+  page 600: 13899 BMW donors (1092 other makes skipped)
+  page 620: 14361 BMW donors (1104 other makes skipped)
+  page 640: 14685 BMW donors (1277 other makes skipped)
+  page 660: 15007 BMW donors (1454 other makes skipped)
+  page 680: 15353 BMW donors (1606 other makes skipped)
+Wrote 15534 donors (-34 vs previous 15568) -> data/shopify_donors.json
+  fields: year 9391/15534  |  chassis 15465/15534  |  engine 9073/15534
+[2026-09-02 08:38:18] donor dump refreshed from Shopify
+[2026-09-02 08:38:18] sweeping (live)...
+  ETK fitment: 7686 SKU(s), 560843 rows loaded
+  part-number fitment: 752 SKU(s), 3763 rows loaded (expanded to chassis families at push time)
+  skipped 40 out-of-stock SKU(s) (sold -- fitment would help nobody)
+  23458 SKU(s) on eBay  |  5459 ledgered  |  11103 cached skips  |  7155 to consider
+Mode: apply (LIVE)  |  donor=Shopify  |  2000 SKU(s)  |  ledger has 5459
+  [1/2000] 65316: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [2/2000] 65350: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [3/2000] 65322: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [4/2000] 61752: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [5/2000] 61731: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [6/2000] 61547: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [7/2000] 61544: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [8/2000] 61392: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [9/2000] 61518: skip - category 179671 never renders fitment on eBay
+  [10/2000] 61543: skip - category 179671 never renders fitment on eBay
+  [11/2000] 62658: skip - category 107062 never renders fitment on eBay
+  [12/2000] 2189: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [13/2000] 52093: skip - already 77 vehicles (multi-fit/expanded)
+  [14/2000] 51952: skip - already 77 vehicles (multi-fit/expanded)
+  [15/2000] 65371: skip - category 174119 never renders fitment on eBay
+  [16/2000] 65379: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [17/2000] 65374: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [18/2000] 53487: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [19/2000] 1752: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [20/2000] 64831: skip - no Shopify donor for SKU
+  [21/2000] 64836: skip - no Shopify donor for SKU
+  [22/2000] 64838: skip - no Shopify donor for SKU
+  [23/2000] 64830: skip - no Shopify donor for SKU
+  [24/2000] 64834: skip - no Shopify donor for SKU
+  [25/2000] 64837: skip - no Shopify donor for SKU
+  [26/2000] 64839: skip - no Shopify donor for SKU
+  [27/2000] 64840: skip - no Shopify donor for SKU
+  [28/2000] 64835: skip - category 169395 never renders fitment on eBay
+  [29/2000] 62562: skip - category 33643 never renders fitment on eBay
+  [30/2000] 65319: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [31/2000] 65328: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [32/2000] 65327: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [33/2000] 65304: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [34/2000] 65421: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [35/2000] 65325: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [36/2000] 65303: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [37/2000] 64827: skip - no Shopify donor for SKU
+  [38/2000] 64828: skip - no Shopify donor for SKU
+  [39/2000] 65310: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [40/2000] 65309: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [41/2000] 65330: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [42/2000] 65329: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [43/2000] 65315: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [44/2000] 65437: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [45/2000] 65377: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [46/2000] 65378: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [47/2000] 65449: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [48/2000] 65452: pushed - part type 'Suspension Module' is not engine-dependent (category said B) [catalog
+  [49/2000] 65443: pushed - part type 'Battery Power Distribution Box' is not engine-dependent (category sai
+  [50/2000] 65444: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [51/2000] 65440: skip - category 107062 never renders fitment on eBay
+  [52/2000] 65435: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [53/2000] 65436: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [54/2000] 65445: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [55/2000] 65446: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [56/2000] 65448: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [57/2000] 65447: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [58/2000] 65433: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [59/2000] 65429: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [60/2000] 65424: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [61/2000] 65432: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [62/2000] 65423: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [63/2000] 65430: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [64/2000] 65425: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [65/2000] 65427: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [66/2000] 65428: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [67/2000] 64664: skip - no Shopify donor for SKU
+  [68/2000] 64668: skip - no Shopify donor for SKU
+  [69/2000] 64621: skip - no Shopify donor for SKU
+  [70/2000] 64677: skip - no Shopify donor for SKU
+  [71/2000] 64686: skip - no Shopify donor for SKU
+  [72/2000] 64672: skip - no Shopify donor for SKU
+  [73/2000] 64671: skip - no Shopify donor for SKU
+  [74/2000] 64674: skip - no Shopify donor for SKU
+  [75/2000] 64673: skip - no Shopify donor for SKU
+  [76/2000] 64685: skip - no Shopify donor for SKU
+  [77/2000] 64665: skip - no Shopify donor for SKU
+  [78/2000] 64666: skip - no Shopify donor for SKU
+  [79/2000] 64678: skip - no Shopify donor for SKU
+  [80/2000] 64676: skip - no Shopify donor for SKU
+  [81/2000] 64688: skip - no Shopify donor for SKU
+  [82/2000] 64669: skip - no Shopify donor for SKU
+  [83/2000] 64670: skip - no Shopify donor for SKU
+  [84/2000] 64687: skip - category 107062 never renders fitment on eBay
+  [85/2000] 64622: skip - category 33643 never renders fitment on eBay
+  [86/2000] 65416: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [87/2000] 65404: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [88/2000] 65403: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [89/2000] 65361: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [90/2000] 65223: pushed - part type 'Left Driver Brake Air Duct' is not engine-dependent (category said B)
+  [91/2000] 65412: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [92/2000] 65402: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [93/2000] 65414: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [94/2000] 65405: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [95/2000] 355: skip - category 174119 never renders fitment on eBay
+  [96/2000] 33268: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [97/2000] 1054: pushed - not under an engine branch (Car & Truck Parts & Accessories > Wheels, Tires & Pa
+  [98/2000] 52094: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [99/2000] 52704: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [100/2000] 52080: skip - already 53 vehicles (multi-fit/expanded)
+  [101/2000] 51000: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [102/2000] 52081: skip - already 53 vehicles (multi-fit/expanded)
+  [103/2000] 65210: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [104/2000] 65211: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [105/2000] 65209: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [106/2000] 65235: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [107/2000] 65264: pushed - part type 'Rear Smart Opener Sensor Module W/ Harness & Strap SET' is not engine
+  [108/2000] 65216: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [109/2000] 65226: pushed - part type 'Rear Bumper PDC Parking Sensor Wiring Wire Harness' is not engine-dep
+  [110/2000] 65218: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [111/2000] 65282: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [112/2000] 65262: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [113/2000] 65265: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [114/2000] 1059: pushed - not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps >
+  [115/2000] 50578: skip - category 169395 never renders fitment on eBay
+  [116/2000] 22208: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [117/2000] 50620: skip - category 179679 never renders fitment on eBay
+  [118/2000] 50715: skip - no Shopify donor for SKU
+  [119/2000] 50716: skip - category 107062 never renders fitment on eBay
+  [120/2000] 50718: skip - no Shopify donor for SKU
+  [121/2000] 50719: skip - no Shopify donor for SKU
+  [122/2000] 50722: skip - no Shopify donor for SKU
+  [123/2000] 50723: skip - no Shopify donor for SKU
+  [124/2000] 50729: skip - no Shopify donor for SKU
+  [125/2000] 50730: skip - no Shopify donor for SKU
+  [126/2000] 50738: skip - no Shopify donor for SKU
+  [127/2000] 1911: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [128/2000] 50741: skip - no Shopify donor for SKU
+  [129/2000] 50744: skip - no Shopify donor for SKU
+  [130/2000] 50745: skip - no Shopify donor for SKU
+  [131/2000] 50746: skip - no Shopify donor for SKU
+  [132/2000] 50747: skip - no Shopify donor for SKU
+  [133/2000] 50749: skip - no Shopify donor for SKU
+  [134/2000] 50751: skip - no Shopify donor for SKU
+  [135/2000] 50756: skip - no Shopify donor for SKU
+  [136/2000] 50757: skip - no Shopify donor for SKU
+  [137/2000] 50759: skip - no Shopify donor for SKU
+  [138/2000] 50761: skip - no Shopify donor for SKU
+  [139/2000] 50799: skip - no Shopify donor for SKU
+  [140/2000] 50869: skip - no Shopify donor for SKU
+  [141/2000] 51905: skip - already 121 vehicles (multi-fit/expanded)
+  [142/2000] 4960: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [143/2000] 4961: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [144/2000] 52324: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [145/2000] 52323: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [146/2000] 50556: skip - no Shopify donor for SKU
+  [147/2000] 52322: skip - already 29 vehicles (multi-fit/expanded)
+  [148/2000] 49532: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [149/2000] 49533: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [150/2000] 50920: skip - category 174119 never renders fitment on eBay
+  [151/2000] 5260: skip - already 9 vehicles (multi-fit/expanded)
+  [152/2000] 51779: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [153/2000] 51071: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [154/2000] 53465: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [155/2000] 52325: skip - already 2 vehicles (multi-fit/expanded)
+  [156/2000] 65441: review - unresolved chassis: series 'None' not in BMW reference
+  [157/2000] 65420: review - unresolved chassis: series 'None' not in BMW reference
+  [158/2000] 65360: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [159/2000] 65363: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [160/2000] 65362: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [161/2000] 65207: pushed - not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Par
+  [162/2000] 65346: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [163/2000] 65343: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [164/2000] 52036: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [165/2000] 50282: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [166/2000] 51010: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [167/2000] 51812: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [168/2000] 52153: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [169/2000] 699: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [170/2000] 43378: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [171/2000] 63700: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [172/2000] 63615: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [173/2000] 61942: pushed - part type 'Module' is not engine-dependent (category said B)
+  [174/2000] 3192: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [175/2000] 39856: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [176/2000] 43380: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+Traceback (most recent call last):
+  File "/Users/mendydonin/Documents/GitHub/ClaudeEbayFitmentApp/scripts/ebay_batch.py", line 924, in <module>
+    main()
+  File "/Users/mendydonin/Documents/GitHub/ClaudeEbayFitmentApp/scripts/ebay_batch.py", line 835, in main
+    r = process_sku(sku, tok, ref, emap, ebay, tree, inc, exc, default, live, led, shopify, pnf, pn_cache, args.force, lci_inc, lci_exc, etk)
+  File "/Users/mendydonin/Documents/GitHub/ClaudeEbayFitmentApp/scripts/ebay_batch.py", line 399, in process_sku
+    s, off = api("GET", f"/sell/inventory/v1/offer?{urllib.parse.urlencode({'sku': sku})}", tok)
+  File "/Users/mendydonin/Documents/GitHub/ClaudeEbayFitmentApp/scripts/ebay_batch.py", line 108, in api
+    with urllib.request.urlopen(req) as r:
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 214, in urlopen
+    return opener.open(url, data, timeout)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 517, in open
+    response = self._open(req, data)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 534, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 494, in _call_chain
+    result = func(*args)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 1389, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/urllib/request.py", line 1350, in do_open
+    r = h.getresponse()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 1349, in getresponse
+    response.begin()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 316, in begin
+    version, status, reason = self._read_status()
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/http/client.py", line 277, in _read_status
+    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/socket.py", line 704, in readinto
+    return self._sock.recv_into(b)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/ssl.py", line 1241, in recv_into
+    return self.read(nbytes, buffer)
+  File "/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/ssl.py", line 1099, in read
+    return self._sslobj.read(len, buffer)
+socket.timeout: The read operation timed out
+[2026-09-02 08:50:20] sweep finished (exit 1)
+Auditing 300 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 296/297 display (99%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule -: 27/27 display (100%)
+   Rule A: 244/244 display (100%)
+   Rule B: 25/26 display (96%)
+
+Categories where NOTHING displays:
+   cat 180140: 0/1   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+
+Display rate 100.0% (1/1) is at or above the 70.0% threshold. (296 SKU(s) excluded: categories eBay never renders fitment in)
+
+Per-SKU detail -> data/display_audit.csv
+(rotating drift sample: 250 of 5548 ledgered SKUs, offset 222)
+Auditing 250 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 196/233 display (84%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule -: 1/1 display (100%)
+   Rule A: 142/151 display (94%)
+   Rule B: 53/81 display (65%)
+
+Categories where NOTHING displays:
+   cat 107062: 0/16   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 33643: 0/5   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 179671: 0/5   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 179679: 0/4   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 174119: 0/2   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 169395: 0/2   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 38771: 0/2   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 21647: 0/1   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+
+Display rate 100.0% (1/1) is at or above the 60.0% threshold. (232 SKU(s) excluded: categories eBay never renders fitment in)
+
+Per-SKU detail -> data/drift_audit.csv
