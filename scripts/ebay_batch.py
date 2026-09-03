@@ -117,7 +117,11 @@ def api(method, path, tok, body=None, retries=3):
                 return e.code, json.loads(raw)
             except ValueError:
                 return e.code, {"_raw": raw}
-        except urllib.error.URLError as e:         # timeout / transport blip
+        # OSError, NOT just URLError. A read timeout arrives as socket.timeout, which is an
+        # OSError but NOT a URLError -- so it escaped this handler entirely and killed the
+        # whole sweep. On 2026-09-02 that ended the nightly run after 176 of 2,000 SKUs.
+        # (URLError is itself a subclass of OSError, so this still covers the old case.)
+        except OSError as e:                       # timeout / transport blip
             if attempt < retries - 1:
                 time.sleep(2 ** attempt)
                 continue

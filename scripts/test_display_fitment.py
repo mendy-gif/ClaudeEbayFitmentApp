@@ -1409,9 +1409,47 @@ def t_shopify_env_parsing():
             if v is not None: os.environ[k] = v
 
 
+def t_api_retries_timeouts():
+    """A read timeout arrives as socket.timeout, which is an OSError but NOT a URLError.
+    api() caught only URLError, so one slow eBay response escaped the retry loop and killed
+    the whole sweep -- it ended the nightly on 2026-09-02 after 176 of 2,000 SKUs. The same
+    trap was already known and handled in ebay_display_audit.rest(); this is the sibling
+    that was missed."""
+    print("api() transport retries:")
+    import socket, urllib.error, urllib.request
+    import ebay_batch as EB
+
+    class R:
+        status = 200
+        def read(self): return b'{"ok":true}'
+        def __enter__(self): return self
+        def __exit__(self, *a): return False
+
+    def run(exc, fail_times):
+        calls = {"n": 0}
+        def fake(req, *a, **k):
+            calls["n"] += 1
+            if calls["n"] <= fail_times: raise exc
+            return R()
+        orig, urllib.request.urlopen = urllib.request.urlopen, fake
+        try:    return EB.api("GET", "/x", "tok"), calls["n"]
+        finally: urllib.request.urlopen = orig
+
+    (st, body), n = run(socket.timeout("read timed out"), 2)
+    eq((st, n), (200, 3), "a socket.timeout is RETRIED, not fatal")
+    (st, body), n = run(urllib.error.URLError("boom"), 2)
+    eq((st, n), (200, 3), "a URLError is still retried (unchanged behaviour)")
+    (st, body), n = run(OSError("connection reset"), 2)
+    eq((st, n), (200, 3), "a bare OSError is retried too")
+    # exhausting the retries must return a transport marker, never raise
+    (st, body), n = run(socket.timeout("always"), 99)
+    eq(st, None, "after all retries it returns None rather than raising")
+    eq("_transport_error" in body, True, "and says why, so the caller can record it")
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_shopify_env_parsing, t_etk_source, t_error_summary, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_shopify_env_parsing, t_api_retries_timeouts, t_etk_source, t_error_summary, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()
