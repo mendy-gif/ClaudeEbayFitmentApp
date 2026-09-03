@@ -8825,3 +8825,2131 @@ Categories where NOTHING displays:
 Display rate 100.0% (1/1) is at or above the 60.0% threshold. (232 SKU(s) excluded: categories eBay never renders fitment in)
 
 Per-SKU detail -> data/drift_audit.csv
+[2026-09-02 09:06:27] state pushed (attempt 1)
+[2026-09-02 09:06:27] === done ===
+[2026-09-03 08:30:00] === nightly sweep starting (limit 2000) ===
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+Offline self-test (no network)
+
+Reference data:
+  PASS  chassis reference loaded (112 rows)
+  PASS  engine map loaded (396 rows)
+  PASS  eBay model vocabulary loaded (269 models)
+Rule engine:
+  PASS  Rule A/B expand works (335i 2014: A=49 rows > B=14 rows)
+  PASS  expand_from_chassis works (G87 -> 4 rows)
+  PASS  resolve_chassis disambiguates E90+M3 -> 'E90 M3'
+Classifier:
+  PASS  classifier config loaded (10 engine branches, default=B)
+  PASS  classify logic: engine branch -> B, other -> A
+  PASS  category tree present
+Shopify donors:
+  PASS  Shopify donor dump loaded (15534 SKUs, 15534 BMW)
+Part-number + union:
+  PASS  part-number fitment loaded (752 SKUs)
+  PASS  all part-number models are in the eBay catalog vocabulary
+  PASS  part-number chassis expansion is a superset of literal (sampled 100 SKUs)
+  PASS  union+dedupe correct (2 chassis + 2 pn, 1 overlap -> 3)
+Display path (trim/catalog validation):
+  PASS  display-path tests: (324/324 checks passed)
+
+Result: PASS  (0 fail, 0 warn)
+[2026-09-03 08:30:02] selftest passed
+OK - minted an access token valid ~7200s (120 min). Scopes: https://api.ebay.com/oauth/api_scope/sell.inventory
+[2026-09-03 08:30:02] eBay auth OK
+  page 20: 426 BMW donors (74 other makes skipped)
+  page 40: 926 BMW donors (74 other makes skipped)
+  page 60: 1425 BMW donors (75 other makes skipped)
+  page 80: 1924 BMW donors (76 other makes skipped)
+  page 100: 2424 BMW donors (76 other makes skipped)
+  page 120: 2921 BMW donors (79 other makes skipped)
+  page 140: 3421 BMW donors (79 other makes skipped)
+  page 160: 3917 BMW donors (83 other makes skipped)
+  page 180: 4415 BMW donors (85 other makes skipped)
+  page 200: 4914 BMW donors (86 other makes skipped)
+  page 220: 5346 BMW donors (154 other makes skipped)
+  page 240: 5786 BMW donors (214 other makes skipped)
+  page 260: 6251 BMW donors (249 other makes skipped)
+  page 280: 6744 BMW donors (256 other makes skipped)
+  page 300: 7197 BMW donors (303 other makes skipped)
+  page 320: 7540 BMW donors (460 other makes skipped)
+  page 340: 8040 BMW donors (460 other makes skipped)
+  page 360: 8524 BMW donors (476 other makes skipped)
+  page 380: 8996 BMW donors (504 other makes skipped)
+  page 400: 9442 BMW donors (558 other makes skipped)
+  page 420: 9937 BMW donors (563 other makes skipped)
+  page 440: 10437 BMW donors (563 other makes skipped)
+  page 460: 10860 BMW donors (640 other makes skipped)
+  page 480: 11144 BMW donors (856 other makes skipped)
+  page 500: 11522 BMW donors (978 other makes skipped)
+  page 520: 12019 BMW donors (981 other makes skipped)
+  page 540: 12515 BMW donors (985 other makes skipped)
+  page 560: 13009 BMW donors (991 other makes skipped)
+  page 580: 13498 BMW donors (996 other makes skipped)
+  page 600: 13900 BMW donors (1091 other makes skipped)
+  page 620: 14364 BMW donors (1101 other makes skipped)
+  page 640: 14656 BMW donors (1306 other makes skipped)
+  page 660: 15010 BMW donors (1451 other makes skipped)
+  page 680: 15349 BMW donors (1610 other makes skipped)
+  page 700: 15600 BMW donors (1854 other makes skipped)
+Wrote 15624 donors (+90 vs previous 15534) -> data/shopify_donors.json
+  fields: year 9497/15624  |  chassis 15555/15624  |  engine 9169/15624
+[2026-09-03 08:38:23] donor dump refreshed from Shopify
+[2026-09-03 08:38:23] sweeping (live)...
+  ETK fitment: 7686 SKU(s), 560843 rows loaded
+  part-number fitment: 752 SKU(s), 3763 rows loaded (expanded to chassis families at push time)
+  skipped 40 out-of-stock SKU(s) (sold -- fitment would help nobody)
+  23587 SKU(s) on eBay  |  5548 ledgered  |  11103 cached skips  |  7195 to consider
+Mode: apply (LIVE)  |  donor=Shopify  |  2000 SKU(s)  |  ledger has 5548
+  [1/2000] 64758: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [2/2000] 64757: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [3/2000] 52050: skip - already 16 vehicles (multi-fit/expanded)
+  [4/2000] 65190: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [5/2000] 50452: skip - no Shopify donor for SKU
+  [6/2000] 50456: skip - no Shopify donor for SKU
+  [7/2000] 50457: skip - no Shopify donor for SKU
+  [8/2000] 50465: skip - category 107062 never renders fitment on eBay
+  [9/2000] 50470: skip - no Shopify donor for SKU
+  [10/2000] 50491: skip - no Shopify donor for SKU
+  [11/2000] 50481: skip - no Shopify donor for SKU
+  [12/2000] 50482: skip - no Shopify donor for SKU
+  [13/2000] 50485: skip - no Shopify donor for SKU
+  [14/2000] 65090: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [15/2000] 50490: skip - no Shopify donor for SKU
+  [16/2000] 65048: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [17/2000] 50492: skip - no Shopify donor for SKU
+  [18/2000] 65047: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [19/2000] 50493: skip - no Shopify donor for SKU
+  [20/2000] 65043: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [21/2000] 65045: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [22/2000] 50499: skip - no Shopify donor for SKU
+  [23/2000] 50504: skip - no Shopify donor for SKU
+  [24/2000] 50506: skip - no Shopify donor for SKU
+  [25/2000] 50508: skip - no Shopify donor for SKU
+  [26/2000] 50509: skip - no Shopify donor for SKU
+  [27/2000] 50511: skip - no Shopify donor for SKU
+  [28/2000] 50518: skip - no Shopify donor for SKU
+  [29/2000] 64933: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [30/2000] 64969: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [31/2000] 50525: skip - no Shopify donor for SKU
+  [32/2000] 50526: skip - no Shopify donor for SKU
+  [33/2000] 50527: skip - no Shopify donor for SKU
+  [34/2000] 50531: skip - no Shopify donor for SKU
+  [35/2000] 50533: skip - no Shopify donor for SKU
+  [36/2000] 50534: skip - no Shopify donor for SKU
+  [37/2000] 50536: skip - category 179671 never renders fitment on eBay
+  [38/2000] 50541: skip - category 179671 never renders fitment on eBay
+  [39/2000] 50542: skip - category 179671 never renders fitment on eBay
+  [40/2000] 50543: skip - no Shopify donor for SKU
+  [41/2000] 50545: skip - no Shopify donor for SKU
+  [42/2000] 50546: skip - no Shopify donor for SKU
+  [43/2000] 64919: pushed - under engine ancestor 33687 (Car & Truck Parts & Accessories > Ignition Systems 
+  [44/2000] 50556: skip - no Shopify donor for SKU
+  [45/2000] 64819: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [46/2000] 64818: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [47/2000] 64812: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [48/2000] 62745: skip - no Shopify donor for SKU
+  [49/2000] 62747: skip - no Shopify donor for SKU
+  [50/2000] 64809: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [51/2000] 64806: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [52/2000] 65046: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [53/2000] 65044: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [54/2000] 65042: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [55/2000] 65041: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [56/2000] 64801: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [57/2000] 64797: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [58/2000] 62620: skip - no Shopify donor for SKU
+  [59/2000] 62625: skip - no Shopify donor for SKU
+  [60/2000] 62621: skip - no Shopify donor for SKU
+  [61/2000] 62623: skip - no Shopify donor for SKU
+  [62/2000] 64921: skip - category 107062 never renders fitment on eBay
+  [63/2000] 64925: pushed - part type 'Front Left Driver Seat Module' is not engine-dependent (category said
+  [64/2000] 62606: skip - no Shopify donor for SKU
+  [65/2000] 62618: skip - no Shopify donor for SKU
+  [66/2000] 62609: skip - no Shopify donor for SKU
+  [67/2000] 62616: skip - no Shopify donor for SKU
+  [68/2000] 62614: skip - no Shopify donor for SKU
+  [69/2000] 62617: skip - no Shopify donor for SKU
+  [70/2000] 62608: skip - no Shopify donor for SKU
+  [71/2000] 62615: skip - no Shopify donor for SKU
+  [72/2000] 62607: skip - no Shopify donor for SKU
+  [73/2000] 37557: skip - category 179671 never renders fitment on eBay
+  [74/2000] 64920: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [75/2000] 64751: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [76/2000] 48289: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [77/2000] 52093: skip - already 77 vehicles (multi-fit/expanded)
+  [78/2000] 64814: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [79/2000] 64802: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [80/2000] 64800: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [81/2000] 64799: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [82/2000] 62624: skip - category 33643 never renders fitment on eBay
+  [83/2000] 64779: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [84/2000] 48653: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [85/2000] 64775: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [86/2000] 64776: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [87/2000] 64777: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [88/2000] 52322: skip - already 29 vehicles (multi-fit/expanded)
+  [89/2000] 65121: skip - no Shopify donor for SKU
+  [90/2000] 51905: skip - already 121 vehicles (multi-fit/expanded)
+  [91/2000] 33268: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [92/2000] 5260: skip - already 9 vehicles (multi-fit/expanded)
+  [93/2000] 64790: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [94/2000] 64783: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [95/2000] 64784: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [96/2000] 64786: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [97/2000] 64787: skip - category 174119 never renders fitment on eBay
+  [98/2000] 64780: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [99/2000] 52325: skip - already 2 vehicles (multi-fit/expanded)
+  [100/2000] 52966: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [101/2000] 65492: skip - category 107062 never renders fitment on eBay
+  [102/2000] 64750: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [103/2000] 64765: skip - category 107062 never renders fitment on eBay
+  [104/2000] 64749: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [105/2000] 65504: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [106/2000] 65493: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [107/2000] 65495: skip - category 33643 never renders fitment on eBay
+  [108/2000] 65491: pushed - not under an engine branch (Car & Truck Parts & Accessories > Wheels, Tires & Pa
+  [109/2000] 65461: pushed - part type 'Battery Positive Fuse Terminal Cable' is not engine-dependent (catego
+  [110/2000] 65490: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [111/2000] 65462: pushed - part type 'Battery Negative IBS Wire Cable' is not engine-dependent (category sa
+  [112/2000] 65460: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [113/2000] 65459: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [114/2000] 64697: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [115/2000] 64733: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [116/2000] 64635: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [117/2000] 64639: skip - category 107062 never renders fitment on eBay
+  [118/2000] 64739: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [119/2000] 64743: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [120/2000] 64742: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [121/2000] 64744: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exhaust & Emission
+  [122/2000] 64741: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [123/2000] 64724: pushed - part type 'Rear Bumper PDC Parking Sensor Wiring Wire Harness' is not engine-dep
+  [124/2000] 64732: skip - category 38771 never renders fitment on eBay
+  [125/2000] 64667: skip - no Shopify donor for SKU
+  [126/2000] 65092: skip - no Shopify donor for SKU
+  [127/2000] 64722: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [128/2000] 64723: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [129/2000] 64875: skip - no Shopify donor for SKU
+  [130/2000] 64876: skip - no Shopify donor for SKU
+  [131/2000] 64845: skip - no Shopify donor for SKU
+  [132/2000] 64858: skip - no Shopify donor for SKU
+  [133/2000] 64843: skip - no Shopify donor for SKU
+  [134/2000] 64849: skip - no Shopify donor for SKU
+  [135/2000] 65122: skip - no Shopify donor for SKU
+  [136/2000] 65091: skip - no Shopify donor for SKU
+  [137/2000] 64855: skip - no Shopify donor for SKU
+  [138/2000] 64846: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [139/2000] 64853: skip - no Shopify donor for SKU
+  [140/2000] 64851: skip - no Shopify donor for SKU
+  [141/2000] 64859: skip - no Shopify donor for SKU
+  [142/2000] 64841: skip - no Shopify donor for SKU
+  [143/2000] 64856: skip - no Shopify donor for SKU
+  [144/2000] 64844: skip - no Shopify donor for SKU
+  [145/2000] 64854: skip - no Shopify donor for SKU
+  [146/2000] 65237: skip - category 21647 never renders fitment on eBay
+  [147/2000] 64852: skip - no Shopify donor for SKU
+  [148/2000] 64860: skip - no Shopify donor for SKU
+  [149/2000] 64842: skip - no Shopify donor for SKU
+  [150/2000] 64848: skip - no Shopify donor for SKU
+  [151/2000] 65093: skip - no Shopify donor for SKU
+  [152/2000] 64847: skip - category 169395 never renders fitment on eBay
+  [153/2000] 60731: skip - category 179671 never renders fitment on eBay
+  [154/2000] 64710: pushed - not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps >
+  [155/2000] 64707: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [156/2000] 64706: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [157/2000] 64709: skip - category 21647 never renders fitment on eBay
+  [158/2000] 5420: skip - category 179671 never renders fitment on eBay
+  [159/2000] 32912: review - unresolved chassis: series 'None' not in BMW reference
+  [160/2000] 64702: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [161/2000] 64704: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [162/2000] 64696: pushed - not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps >
+  [163/2000] 64698: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [164/2000] 64663: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [165/2000] 64637: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [166/2000] 64638: error - inventory write HTTP 400: [25023] Invalid compatibility information. The item compatibilities cannot be changed or removed if an auction-style listing has a bid or ends within 12 hours, or a fixed price listing has a pending Best Offer. (0=COMPATIBILITY)
+  [167/2000] 64641: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [168/2000] 64642: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [169/2000] 64643: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [170/2000] 64644: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [171/2000] 64629: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [172/2000] 64630: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [173/2000] 64626: pushed - part type 'Suspension Module' is not engine-dependent (category said B) [catalog
+  [174/2000] 64627: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [175/2000] 64628: skip - category 107062 never renders fitment on eBay
+  [176/2000] 43380: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [177/2000] 39856: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [178/2000] 3192: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [179/2000] 61942: pushed - part type 'Module' is not engine-dependent (category said B)
+  [180/2000] 63615: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [181/2000] 63700: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [182/2000] 43378: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [183/2000] 699: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [184/2000] 52153: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [185/2000] 51812: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [186/2000] 51010: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [187/2000] 52036: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [188/2000] 61518: skip - category 179671 never renders fitment on eBay
+  [189/2000] 61543: skip - category 179671 never renders fitment on eBay
+  [190/2000] 62658: skip - category 107062 never renders fitment on eBay
+  [191/2000] 51952: skip - already 77 vehicles (multi-fit/expanded)
+  [192/2000] 65371: skip - category 174119 never renders fitment on eBay
+  [193/2000] 64831: skip - no Shopify donor for SKU
+  [194/2000] 64836: skip - no Shopify donor for SKU
+  [195/2000] 64838: skip - no Shopify donor for SKU
+  [196/2000] 64830: skip - no Shopify donor for SKU
+  [197/2000] 64834: skip - no Shopify donor for SKU
+  [198/2000] 64837: skip - no Shopify donor for SKU
+  [199/2000] 64839: skip - no Shopify donor for SKU
+  [200/2000] 64840: skip - no Shopify donor for SKU
+  [201/2000] 64835: skip - category 169395 never renders fitment on eBay
+  [202/2000] 62562: skip - category 33643 never renders fitment on eBay
+  [203/2000] 64827: skip - no Shopify donor for SKU
+  [204/2000] 64828: skip - no Shopify donor for SKU
+  [205/2000] 65440: skip - category 107062 never renders fitment on eBay
+  [206/2000] 64664: skip - no Shopify donor for SKU
+  [207/2000] 64668: skip - no Shopify donor for SKU
+  [208/2000] 64621: skip - no Shopify donor for SKU
+  [209/2000] 64677: skip - no Shopify donor for SKU
+  [210/2000] 64686: skip - no Shopify donor for SKU
+  [211/2000] 64672: skip - no Shopify donor for SKU
+  [212/2000] 64671: skip - no Shopify donor for SKU
+  [213/2000] 64674: skip - no Shopify donor for SKU
+  [214/2000] 64673: skip - no Shopify donor for SKU
+  [215/2000] 64685: skip - no Shopify donor for SKU
+  [216/2000] 64665: skip - no Shopify donor for SKU
+  [217/2000] 64666: skip - no Shopify donor for SKU
+  [218/2000] 64678: skip - no Shopify donor for SKU
+  [219/2000] 64676: skip - no Shopify donor for SKU
+  [220/2000] 64688: skip - no Shopify donor for SKU
+  [221/2000] 64669: skip - no Shopify donor for SKU
+  [222/2000] 64670: skip - no Shopify donor for SKU
+  [223/2000] 64687: skip - category 107062 never renders fitment on eBay
+  [224/2000] 64622: skip - category 33643 never renders fitment on eBay
+  [225/2000] 355: skip - category 174119 never renders fitment on eBay
+  [226/2000] 52080: skip - already 53 vehicles (multi-fit/expanded)
+  [227/2000] 52081: skip - already 53 vehicles (multi-fit/expanded)
+  [228/2000] 65262: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [229/2000] 50578: skip - category 169395 never renders fitment on eBay
+  [230/2000] 50620: skip - category 179679 never renders fitment on eBay
+  [231/2000] 50715: skip - no Shopify donor for SKU
+  [232/2000] 50716: skip - category 107062 never renders fitment on eBay
+  [233/2000] 50718: skip - no Shopify donor for SKU
+  [234/2000] 50719: skip - no Shopify donor for SKU
+  [235/2000] 50722: skip - no Shopify donor for SKU
+  [236/2000] 50723: skip - no Shopify donor for SKU
+  [237/2000] 50729: skip - no Shopify donor for SKU
+  [238/2000] 50730: skip - no Shopify donor for SKU
+  [239/2000] 50738: skip - no Shopify donor for SKU
+  [240/2000] 50741: skip - no Shopify donor for SKU
+  [241/2000] 50744: skip - no Shopify donor for SKU
+  [242/2000] 50745: skip - no Shopify donor for SKU
+  [243/2000] 50746: skip - no Shopify donor for SKU
+  [244/2000] 50747: skip - no Shopify donor for SKU
+  [245/2000] 50749: skip - no Shopify donor for SKU
+  [246/2000] 50751: skip - no Shopify donor for SKU
+  [247/2000] 50756: skip - no Shopify donor for SKU
+  [248/2000] 50757: skip - no Shopify donor for SKU
+  [249/2000] 50759: skip - no Shopify donor for SKU
+  [250/2000] 50761: skip - no Shopify donor for SKU
+  [251/2000] 50799: skip - no Shopify donor for SKU
+  [252/2000] 50869: skip - no Shopify donor for SKU
+  [253/2000] 50920: skip - category 174119 never renders fitment on eBay
+  [254/2000] 65441: review - unresolved chassis: series 'None' not in BMW reference
+  [255/2000] 65420: review - unresolved chassis: series 'None' not in BMW reference
+  [256/2000] 53099: pushed - under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine 
+  [257/2000] 52993: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [258/2000] 53212: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [259/2000] 53379: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [260/2000] 53396: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [261/2000] 49559: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [262/2000] 50646: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [263/2000] 49560: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [264/2000] 49009: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [265/2000] 49008: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [266/2000] 49063: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [267/2000] 61302: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [268/2000] 65001: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [269/2000] 65007: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [270/2000] 65057: skip - category 21647 never renders fitment on eBay
+  [271/2000] 65039: skip - category 33643 never renders fitment on eBay
+  [272/2000] 65002: skip - category 107062 never renders fitment on eBay
+  [273/2000] 65018: skip - category 107062 never renders fitment on eBay
+  [274/2000] 65016: skip - category 169395 never renders fitment on eBay
+  [275/2000] 61095: skip - category 179679 never renders fitment on eBay
+  [276/2000] 64615: skip - category 107062 never renders fitment on eBay
+  [277/2000] 41371: skip - category 179671 never renders fitment on eBay
+  [278/2000] 41372: skip - category 179671 never renders fitment on eBay
+  [279/2000] 40852: skip - category 179671 never renders fitment on eBay
+  [280/2000] 40853: skip - category 179671 never renders fitment on eBay
+  [281/2000] 46831: skip - category 179671 never renders fitment on eBay
+  [282/2000] 46834: skip - category 179671 never renders fitment on eBay
+  [283/2000] 46832: skip - category 179671 never renders fitment on eBay
+  [284/2000] 60573: skip - category 107062 never renders fitment on eBay
+  [285/2000] 41964: skip - category 107062 never renders fitment on eBay
+  [286/2000] 44405: skip - category 107062 never renders fitment on eBay
+  [287/2000] 51682: skip - category 107062 never renders fitment on eBay
+  [288/2000] 35054: skip - category 107062 never renders fitment on eBay
+  [289/2000] 61093: skip - category 179679 never renders fitment on eBay
+  [290/2000] 61094: skip - category 179679 never renders fitment on eBay
+  [291/2000] 61608: skip - category 107062 never renders fitment on eBay
+  [292/2000] 61738: skip - category 107062 never renders fitment on eBay
+  [293/2000] 61652: skip - category 33643 never renders fitment on eBay
+  [294/2000] 61215: skip - category 179671 never renders fitment on eBay
+  [295/2000] 60690: skip - category 179671 never renders fitment on eBay
+  [296/2000] 62261: skip - category 33643 never renders fitment on eBay
+  [297/2000] 50947: skip - category 21647 never renders fitment on eBay
+  [298/2000] 50954: skip - category 38771 never renders fitment on eBay
+  [299/2000] 50956: skip - category 179671 never renders fitment on eBay
+  [300/2000] 50958: skip - category 107062 never renders fitment on eBay
+  [301/2000] 50964: skip - category 21647 never renders fitment on eBay
+  [302/2000] 50969: skip - category 107062 never renders fitment on eBay
+  [303/2000] 51108: skip - category 174119 never renders fitment on eBay
+  [304/2000] 4269: skip - category 179679 never renders fitment on eBay
+  [305/2000] 283: skip - category 179671 never renders fitment on eBay
+  [306/2000] 233: skip - category 107062 never renders fitment on eBay
+  [307/2000] 251: skip - category 169395 never renders fitment on eBay
+  [308/2000] 384: skip - category 107062 never renders fitment on eBay
+  [309/2000] 755: skip - category 107062 never renders fitment on eBay
+  [310/2000] 1046: skip - category 179671 never renders fitment on eBay
+  [311/2000] 1057: skip - category 179671 never renders fitment on eBay
+  [312/2000] 1065: skip - category 179671 never renders fitment on eBay
+  [313/2000] 1562: skip - category 21647 never renders fitment on eBay
+  [314/2000] 3279: skip - category 179671 never renders fitment on eBay
+  [315/2000] 3287: skip - category 179671 never renders fitment on eBay
+  [316/2000] 3654: skip - category 179679 never renders fitment on eBay
+  [317/2000] 3280: skip - category 179671 never renders fitment on eBay
+  [318/2000] 4376: skip - no Shopify donor for SKU
+  [319/2000] 4294: skip - category 107062 never renders fitment on eBay
+  [320/2000] 4487: skip - no Shopify donor for SKU
+  [321/2000] 4489: skip - no Shopify donor for SKU
+  [322/2000] 4512: skip - no Shopify donor for SKU
+  [323/2000] 4490: skip - category 107062 never renders fitment on eBay
+  [324/2000] 4496: skip - no Shopify donor for SKU
+  [325/2000] 4423: skip - no Shopify donor for SKU
+  [326/2000] 4494: skip - no Shopify donor for SKU
+  [327/2000] 4429: skip - no Shopify donor for SKU
+  [328/2000] 4361: skip - no Shopify donor for SKU
+  [329/2000] 4426: skip - no Shopify donor for SKU
+  [330/2000] 4552: skip - no Shopify donor for SKU
+  [331/2000] 4530: skip - no Shopify donor for SKU
+  [332/2000] 4492: skip - no Shopify donor for SKU
+  [333/2000] 4519: skip - no Shopify donor for SKU
+  [334/2000] 4524: skip - no Shopify donor for SKU
+  [335/2000] 4559: skip - no Shopify donor for SKU
+  [336/2000] 4375: skip - no Shopify donor for SKU
+  [337/2000] 4522: skip - no Shopify donor for SKU
+  [338/2000] 4488: skip - no Shopify donor for SKU
+  [339/2000] 4497: skip - no Shopify donor for SKU
+  [340/2000] 4427: skip - no Shopify donor for SKU
+  [341/2000] 4428: skip - no Shopify donor for SKU
+  [342/2000] 4507: skip - no Shopify donor for SKU
+  [343/2000] 4571: skip - no Shopify donor for SKU
+  [344/2000] 4637: skip - category 21647 never renders fitment on eBay
+  [345/2000] 4525: skip - no Shopify donor for SKU
+  [346/2000] 4495: skip - no Shopify donor for SKU
+  [347/2000] 4505: skip - category 174119 never renders fitment on eBay
+  [348/2000] 4432: skip - no Shopify donor for SKU
+  [349/2000] 4527: skip - no Shopify donor for SKU
+  [350/2000] 4773: skip - no Shopify donor for SKU
+  [351/2000] 4776: skip - no Shopify donor for SKU
+  [352/2000] 4526: skip - no Shopify donor for SKU
+  [353/2000] 4560: skip - no Shopify donor for SKU
+  [354/2000] 4651: skip - category 174119 never renders fitment on eBay
+  [355/2000] 4566: skip - no Shopify donor for SKU
+  [356/2000] 4569: skip - category 107062 never renders fitment on eBay
+  [357/2000] 4772: skip - no Shopify donor for SKU
+  [358/2000] 4509: skip - no Shopify donor for SKU
+  [359/2000] 4778: skip - no Shopify donor for SKU
+  [360/2000] 4780: skip - no Shopify donor for SKU
+  [361/2000] 4520: skip - no Shopify donor for SKU
+  [362/2000] 4866: skip - category 107062 never renders fitment on eBay
+  [363/2000] 5515: skip - category 107062 never renders fitment on eBay
+  [364/2000] 4854: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [365/2000] 5026: skip - category 38771 never renders fitment on eBay
+  [366/2000] 5521: skip - category 21647 never renders fitment on eBay
+  [367/2000] 5727: skip - no Shopify donor for SKU
+  [368/2000] 5822: skip - category 169395 never renders fitment on eBay
+  [369/2000] 5816: skip - no Shopify donor for SKU
+  [370/2000] 5734: skip - category 107062 never renders fitment on eBay
+  [371/2000] 33637: skip - category 21647 never renders fitment on eBay
+  [372/2000] 37573: skip - category 107062 never renders fitment on eBay
+  [373/2000] 39941: skip - category 38771 never renders fitment on eBay
+  [374/2000] 41536: skip - category 21647 never renders fitment on eBay
+  [375/2000] 45739: skip - category 107062 never renders fitment on eBay
+  [376/2000] 42517: skip - category 107062 never renders fitment on eBay
+  [377/2000] 45526: skip - category 169395 never renders fitment on eBay
+  [378/2000] 44088: skip - category 21647 never renders fitment on eBay
+  [379/2000] 48742: skip - category 107062 never renders fitment on eBay
+  [380/2000] 49844: skip - category 107062 never renders fitment on eBay
+  [381/2000] 49617: skip - category 107062 never renders fitment on eBay
+  [382/2000] 50380: skip - category 107062 never renders fitment on eBay
+  [383/2000] 53159: skip - category 107062 never renders fitment on eBay
+  [384/2000] 53199: skip - category 107062 never renders fitment on eBay
+  [385/2000] 51158: skip - category 107062 never renders fitment on eBay
+  [386/2000] 53332: skip - category 107062 never renders fitment on eBay
+  [387/2000] 51988: skip - category 179679 never renders fitment on eBay
+  [388/2000] 50870: skip - category 107062 never renders fitment on eBay
+  [389/2000] 51466: skip - category 21647 never renders fitment on eBay
+  [390/2000] 51451: skip - category 174119 never renders fitment on eBay
+  [391/2000] 50866: skip - category 107062 never renders fitment on eBay
+  [392/2000] 53335: skip - category 21647 never renders fitment on eBay
+  [393/2000] 53958: skip - category 21647 never renders fitment on eBay
+  [394/2000] 48198: skip - category 107062 never renders fitment on eBay
+  [395/2000] 50892: skip - category 38771 never renders fitment on eBay
+  [396/2000] 53345: skip - category 33643 never renders fitment on eBay
+  [397/2000] 51463: skip - category 107062 never renders fitment on eBay
+  [398/2000] 53826: skip - category 107062 never renders fitment on eBay
+  [399/2000] 51481: skip - category 107062 never renders fitment on eBay
+  [400/2000] 51452: skip - category 107062 never renders fitment on eBay
+  [401/2000] 4400: skip - no Shopify donor for SKU
+  [402/2000] 4402: skip - no Shopify donor for SKU
+  [403/2000] 4399: skip - no Shopify donor for SKU
+  [404/2000] 4401: skip - no Shopify donor for SKU
+  [405/2000] 4312: skip - category 174119 never renders fitment on eBay
+  [406/2000] 64961: skip - category 21647 never renders fitment on eBay
+  [407/2000] 64958: skip - category 107062 never renders fitment on eBay
+  [408/2000] 64899: skip - category 107062 never renders fitment on eBay
+  [409/2000] 64898: skip - category 107062 never renders fitment on eBay
+  [410/2000] 64878: skip - category 169395 never renders fitment on eBay
+  [411/2000] 4308: skip - category 174119 never renders fitment on eBay
+  [412/2000] 65168: skip - category 107062 never renders fitment on eBay
+  [413/2000] 3223: skip - category 174119 never renders fitment on eBay
+  [414/2000] 3236: skip - category 107062 never renders fitment on eBay
+  [415/2000] 3498: skip - category 38771 never renders fitment on eBay
+  [416/2000] 3420: skip - category 107062 never renders fitment on eBay
+  [417/2000] 3252: skip - category 107062 never renders fitment on eBay
+  [418/2000] 3240: skip - category 21647 never renders fitment on eBay
+  [419/2000] 3241: skip - category 21647 never renders fitment on eBay
+  [420/2000] 3632: skip - category 107062 never renders fitment on eBay
+  [421/2000] 65101: skip - category 107062 never renders fitment on eBay
+  [422/2000] 51453: skip - category 174119 never renders fitment on eBay
+  [423/2000] 64334: skip - category 33643 never renders fitment on eBay
+  [424/2000] 64335: skip - category 33643 never renders fitment on eBay
+  [425/2000] 64322: skip - category 21647 never renders fitment on eBay
+  [426/2000] 64325: skip - category 107062 never renders fitment on eBay
+  [427/2000] 64320: skip - category 21647 never renders fitment on eBay
+  [428/2000] 61239: skip - category 169395 never renders fitment on eBay
+  [429/2000] 60338: skip - category 179671 never renders fitment on eBay
+  [430/2000] 60273: skip - category 179671 never renders fitment on eBay
+  [431/2000] 64130: skip - category 169395 never renders fitment on eBay
+  [432/2000] 64129: skip - category 174119 never renders fitment on eBay
+  [433/2000] 64114: skip - category 107062 never renders fitment on eBay
+  [434/2000] 64110: skip - category 107062 never renders fitment on eBay
+  [435/2000] 61856: skip - category 33643 never renders fitment on eBay
+  [436/2000] 61685: skip - category 107062 never renders fitment on eBay
+  [437/2000] 61684: skip - category 21647 never renders fitment on eBay
+  [438/2000] 64949: skip - category 33643 never renders fitment on eBay
+  [439/2000] 64948: skip - category 33643 never renders fitment on eBay
+  [440/2000] 64959: skip - category 107062 never renders fitment on eBay
+  [441/2000] 6425: skip - category 179679 never renders fitment on eBay
+  [442/2000] 64908: skip - category 174119 never renders fitment on eBay
+  [443/2000] 6426-1: skip - category 179679 never renders fitment on eBay
+  [444/2000] 64376: skip - category 179671 never renders fitment on eBay
+  [445/2000] 6640: skip - category 107062 never renders fitment on eBay
+  [446/2000] 61673: skip - category 38771 never renders fitment on eBay
+  [447/2000] 61605: skip - category 107062 never renders fitment on eBay
+  [448/2000] 61616: skip - category 169395 never renders fitment on eBay
+  [449/2000] 61631: skip - category 174119 never renders fitment on eBay
+  [450/2000] 61626: skip - category 107062 never renders fitment on eBay
+  [451/2000] 64235: skip - category 174119 never renders fitment on eBay
+  [452/2000] 64214: skip - category 107062 never renders fitment on eBay
+  [453/2000] 61580: skip - category 174119 never renders fitment on eBay
+  [454/2000] 61454: skip - category 107062 never renders fitment on eBay
+  [455/2000] 64182: skip - category 107062 never renders fitment on eBay
+  [456/2000] 64178: skip - category 33643 never renders fitment on eBay
+  [457/2000] 64174: skip - category 38771 never renders fitment on eBay
+  [458/2000] 64173: skip - category 38771 never renders fitment on eBay
+  [459/2000] 761: skip - category 107062 never renders fitment on eBay
+  [460/2000] 696: skip - category 107062 never renders fitment on eBay
+  [461/2000] 5556: skip - category 174119 never renders fitment on eBay
+  [462/2000] 60693: skip - category 33643 never renders fitment on eBay
+  [463/2000] 61558: skip - no Shopify donor for SKU
+  [464/2000] 61552: skip - no Shopify donor for SKU
+  [465/2000] 61906: skip - no Shopify donor for SKU
+  [466/2000] 61524: skip - no Shopify donor for SKU
+  [467/2000] 61505: skip - no Shopify donor for SKU
+  [468/2000] 61602: skip - no Shopify donor for SKU
+  [469/2000] 4548: skip - no Shopify donor for SKU
+  [470/2000] 61523: skip - no Shopify donor for SKU
+  [471/2000] 61562: skip - no Shopify donor for SKU
+  [472/2000] 61561: skip - no Shopify donor for SKU
+  [473/2000] 61554: skip - no Shopify donor for SKU
+  [474/2000] 61557: skip - no Shopify donor for SKU
+  [475/2000] 61563: skip - no Shopify donor for SKU
+  [476/2000] 61525: skip - no Shopify donor for SKU
+  [477/2000] 61556: skip - no Shopify donor for SKU
+  [478/2000] 61555: skip - no Shopify donor for SKU
+  [479/2000] 61567: skip - no Shopify donor for SKU
+  [480/2000] 61559: skip - no Shopify donor for SKU
+  [481/2000] 4767: skip - no Shopify donor for SKU
+  [482/2000] 4537: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [483/2000] 4372: skip - no Shopify donor for SKU
+  [484/2000] 51670: skip - no Shopify donor for SKU
+  [485/2000] 60387: skip - category 169395 never renders fitment on eBay
+  [486/2000] 60366: skip - category 107062 never renders fitment on eBay
+  [487/2000] 60365: skip - category 107062 never renders fitment on eBay
+  [488/2000] 60776: skip - category 38771 never renders fitment on eBay
+  [489/2000] 31635: skip - category 179671 never renders fitment on eBay
+  [490/2000] 28445: skip - category 107062 never renders fitment on eBay
+  [491/2000] 33091: skip - category 179679 never renders fitment on eBay
+  [492/2000] 27708: skip - category 107062 never renders fitment on eBay
+  [493/2000] 31633: skip - category 179671 never renders fitment on eBay
+  [494/2000] 28980: skip - category 107062 never renders fitment on eBay
+  [495/2000] 2030: skip - category 107062 never renders fitment on eBay
+  [496/2000] 2338: skip - category 107062 never renders fitment on eBay
+  [497/2000] 63698: skip - category 107062 never renders fitment on eBay
+  [498/2000] 63814: skip - category 107062 never renders fitment on eBay
+  [499/2000] 63753: skip - category 107062 never renders fitment on eBay
+  [500/2000] 63763: skip - category 107062 never renders fitment on eBay
+  [501/2000] 2040: skip - category 107062 never renders fitment on eBay
+  [502/2000] 2035: skip - category 107062 never renders fitment on eBay
+  [503/2000] 2339: skip - category 107062 never renders fitment on eBay
+  [504/2000] 63561: skip - category 107062 never renders fitment on eBay
+  [505/2000] 63695: skip - category 21647 never renders fitment on eBay
+  [506/2000] 63766: skip - category 107062 never renders fitment on eBay
+  [507/2000] 27653: skip - category 107062 never renders fitment on eBay
+  [508/2000] 6478: skip - category 107062 never renders fitment on eBay
+  [509/2000] 1136: skip - category 107062 never renders fitment on eBay
+  [510/2000] 1097: skip - category 179671 never renders fitment on eBay
+  [511/2000] 1098: skip - category 179671 never renders fitment on eBay
+  [512/2000] 1099: skip - category 179671 never renders fitment on eBay
+  [513/2000] 255: skip - category 33643 never renders fitment on eBay
+  [514/2000] 53171: skip - category 107062 never renders fitment on eBay
+  [515/2000] 4082: skip - category 107062 never renders fitment on eBay
+  [516/2000] 1910: skip - category 179671 never renders fitment on eBay
+  [517/2000] 1912: skip - category 179671 never renders fitment on eBay
+  [518/2000] 62877: skip - category 33643 never renders fitment on eBay
+  [519/2000] 3978: skip - category 33643 never renders fitment on eBay
+  [520/2000] 4267: skip - category 179679 never renders fitment on eBay
+  [521/2000] 4268: skip - category 179679 never renders fitment on eBay
+  [522/2000] 4266: skip - category 179679 never renders fitment on eBay
+  [523/2000] 2185: skip - category 33643 never renders fitment on eBay
+  [524/2000] 60567: skip - category 107062 never renders fitment on eBay
+  [525/2000] 4765: skip - category 107062 never renders fitment on eBay
+  [526/2000] 2640: skip - category 107062 never renders fitment on eBay
+  [527/2000] 53961: skip - category 107062 never renders fitment on eBay
+  [528/2000] 1619: skip - category 107062 never renders fitment on eBay
+  [529/2000] 53602: skip - category 107062 never renders fitment on eBay
+  [530/2000] 53482: skip - category 107062 never renders fitment on eBay
+  [531/2000] 229: skip - category 107062 never renders fitment on eBay
+  [532/2000] 4599: skip - category 169395 never renders fitment on eBay
+  [533/2000] 61956: skip - category 107062 never renders fitment on eBay
+  [534/2000] 63214: skip - category 33643 never renders fitment on eBay
+  [535/2000] 63066: skip - category 107062 never renders fitment on eBay
+  [536/2000] 63010: skip - category 107062 never renders fitment on eBay
+  [537/2000] 60799: skip - category 107062 never renders fitment on eBay
+  [538/2000] 60798: skip - category 107062 never renders fitment on eBay
+  [539/2000] 6558: skip - category 107062 never renders fitment on eBay
+  [540/2000] 4916: skip - category 107062 never renders fitment on eBay
+  [541/2000] 63367: skip - category 33643 never renders fitment on eBay
+  [542/2000] 5665: skip - category 169395 never renders fitment on eBay
+  [543/2000] 3281: skip - category 179671 never renders fitment on eBay
+  [544/2000] 5282: skip - category 179679 never renders fitment on eBay
+  [545/2000] 4641: skip - category 107062 never renders fitment on eBay
+  [546/2000] 6565: skip - category 174119 never renders fitment on eBay
+  [547/2000] 3839: skip - category 107062 never renders fitment on eBay
+  [548/2000] 3863: skip - category 33643 never renders fitment on eBay
+  [549/2000] 4825: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [550/2000] 63624: skip - category 33643 never renders fitment on eBay
+  [551/2000] 6206: skip - category 21647 never renders fitment on eBay
+  [552/2000] 6204: skip - category 107062 never renders fitment on eBay
+  [553/2000] 6212: skip - category 107062 never renders fitment on eBay
+  [554/2000] 6210: skip - category 107062 never renders fitment on eBay
+  [555/2000] 5214: skip - category 107062 never renders fitment on eBay
+  [556/2000] 60306: skip - category 107062 never renders fitment on eBay
+  [557/2000] 816: skip - category 179679 never renders fitment on eBay
+  [558/2000] 815: skip - category 179679 never renders fitment on eBay
+  [559/2000] 813: skip - category 179679 never renders fitment on eBay
+  [560/2000] 814: skip - category 179679 never renders fitment on eBay
+  [561/2000] 63953: skip - category 33643 never renders fitment on eBay
+  [562/2000] 60603: skip - category 107062 never renders fitment on eBay
+  [563/2000] 4644: skip - category 107062 never renders fitment on eBay
+  [564/2000] 4642: skip - category 107062 never renders fitment on eBay
+  [565/2000] 4639: skip - category 107062 never renders fitment on eBay
+  [566/2000] 999: skip - category 174119 never renders fitment on eBay
+  [567/2000] 2578: skip - category 179679 never renders fitment on eBay
+  [568/2000] 2580: skip - category 179679 never renders fitment on eBay
+  [569/2000] 63964: skip - category 107062 never renders fitment on eBay
+  [570/2000] 63962: skip - category 107062 never renders fitment on eBay
+  [571/2000] 63961: skip - category 107062 never renders fitment on eBay
+  [572/2000] 63983: skip - category 107062 never renders fitment on eBay
+  [573/2000] 2325: skip - category 107062 never renders fitment on eBay
+  [574/2000] 2320: skip - category 107062 never renders fitment on eBay
+  [575/2000] 2335: skip - category 107062 never renders fitment on eBay
+  [576/2000] 2336: skip - category 107062 never renders fitment on eBay
+  [577/2000] 6499: skip - category 179671 never renders fitment on eBay
+  [578/2000] 6310: skip - category 33643 never renders fitment on eBay
+  [579/2000] 2039: skip - category 21647 never renders fitment on eBay
+  [580/2000] 63159: skip - category 179679 never renders fitment on eBay
+  [581/2000] 60260: skip - category 179679 never renders fitment on eBay
+  [582/2000] 61597: skip - category 179679 never renders fitment on eBay
+  [583/2000] 63900: skip - category 107062 never renders fitment on eBay
+  [584/2000] 64027: skip - category 33643 never renders fitment on eBay
+  [585/2000] 64713: skip - category 107062 never renders fitment on eBay
+  [586/2000] 64633: skip - category 33643 never renders fitment on eBay
+  [587/2000] 3338: skip - category 179671 never renders fitment on eBay
+  [588/2000] 415: skip - category 179679 never renders fitment on eBay
+  [589/2000] 3337: skip - category 179671 never renders fitment on eBay
+  [590/2000] 53222: skip - category 107062 never renders fitment on eBay
+  [591/2000] 5542: skip - category 33643 never renders fitment on eBay
+  [592/2000] 2802: skip - category 179679 never renders fitment on eBay
+  [593/2000] 53764: skip - category 33643 never renders fitment on eBay
+  [594/2000] 5074: skip - category 179671 never renders fitment on eBay
+  [595/2000] 60362: skip - category 21647 never renders fitment on eBay
+  [596/2000] 53340: skip - category 179671 never renders fitment on eBay
+  [597/2000] 52445: skip - category 179679 never renders fitment on eBay
+  [598/2000] 4595: skip - category 107062 never renders fitment on eBay
+  [599/2000] 4093: skip - category 107062 never renders fitment on eBay
+  [600/2000] 5372: skip - category 107062 never renders fitment on eBay
+  [601/2000] 3016: skip - category 107062 never renders fitment on eBay
+  [602/2000] 3015: skip - category 107062 never renders fitment on eBay
+  [603/2000] 3011: skip - category 107062 never renders fitment on eBay
+  [604/2000] 2952: skip - category 107062 never renders fitment on eBay
+  [605/2000] 4317: skip - category 107062 never renders fitment on eBay
+  [606/2000] 4498: skip - category 107062 never renders fitment on eBay
+  [607/2000] 2821: skip - category 107062 never renders fitment on eBay
+  [608/2000] 62647: skip - category 33643 never renders fitment on eBay
+  [609/2000] 52203: skip - category 179679 never renders fitment on eBay
+  [610/2000] 2685: skip - category 179671 never renders fitment on eBay
+  [611/2000] 53656: skip - category 179679 never renders fitment on eBay
+  [612/2000] 53185: skip - category 21647 never renders fitment on eBay
+  [613/2000] 60177: skip - category 179671 never renders fitment on eBay
+  [614/2000] 310: skip - category 179671 never renders fitment on eBay
+  [615/2000] 52202: skip - category 179679 never renders fitment on eBay
+  [616/2000] 296: skip - category 107062 never renders fitment on eBay
+  [617/2000] 52204: skip - category 179679 never renders fitment on eBay
+  [618/2000] 31634: skip - category 179671 never renders fitment on eBay
+  [619/2000] 31636: skip - category 179671 never renders fitment on eBay
+  [620/2000] 26388: review - Rule B on F97 needs an engine or donor model.
+  [621/2000] 29774: review - Rule B on G30 needs an engine or donor model.
+  [622/2000] 32116: review - Rule B on F39 needs an engine or donor model.
+  [623/2000] 26780: review - Rule B on G01 needs an engine or donor model.
+  [624/2000] 31626: review - Rule B on G05 needs an engine or donor model.
+  [625/2000] 26886: review - Rule B on G29 needs an engine or donor model.
+  [626/2000] 23539: review - Rule B on G12 needs an engine or donor model.
+  [627/2000] 31594: review - Rule B on F48 needs an engine or donor model.
+  [628/2000] 32620: review - Rule B on F02 needs an engine or donor model.
+  [629/2000] 26884: review - Rule B on G29 needs an engine or donor model.
+  [630/2000] 27333: review - Rule B on G30 needs an engine or donor model.
+  [631/2000] 26944: review - Rule B on G29 needs an engine or donor model.
+  [632/2000] 32134: review - Rule B on F39 needs an engine or donor model.
+  [633/2000] 29964: review - Rule B on G12 needs an engine or donor model.
+  [634/2000] 27914: review - Rule B on F16 needs an engine or donor model.
+  [635/2000] 26467: review - Rule B on G20 needs an engine or donor model.
+  [636/2000] 29965: review - Rule B on G12 needs an engine or donor model.
+  [637/2000] 29404: review - Rule B on G30 needs an engine or donor model.
+  [638/2000] 32133: review - Rule B on F39 needs an engine or donor model.
+  [639/2000] 27008: review - Rule B on G20 needs an engine or donor model.
+  [640/2000] 31688: review - Rule B on F15 needs an engine or donor model.
+  [641/2000] 50017: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [642/2000] 50893: skip - category 179671 never renders fitment on eBay
+  [643/2000] 51450: skip - category 179671 never renders fitment on eBay
+  [644/2000] 1515: skip - category 107062 never renders fitment on eBay
+  [645/2000] 53251: skip - category 33643 never renders fitment on eBay
+  [646/2000] 5280: skip - category 179679 never renders fitment on eBay
+  [647/2000] 5278: skip - category 179679 never renders fitment on eBay
+  [648/2000] 51476: skip - category 107062 never renders fitment on eBay
+  [649/2000] 45085: skip - category 179679 never renders fitment on eBay
+  [650/2000] 2140: skip - category 179671 never renders fitment on eBay
+  [651/2000] 2915: skip - category 179671 never renders fitment on eBay
+  [652/2000] 6095: skip - category 179671 never renders fitment on eBay
+  [653/2000] 48354: skip - category 179679 never renders fitment on eBay
+  [654/2000] 61694: skip - category 179671 never renders fitment on eBay
+  [655/2000] 50894: skip - category 179671 never renders fitment on eBay
+  [656/2000] 6446: skip - category 33643 never renders fitment on eBay
+  [657/2000] 48355: skip - category 179679 never renders fitment on eBay
+  [658/2000] 62509: skip - category 33643 never renders fitment on eBay
+  [659/2000] 45086: skip - category 179679 never renders fitment on eBay
+  [660/2000] 5279: skip - category 179679 never renders fitment on eBay
+  [661/2000] 62498: skip - category 174119 never renders fitment on eBay
+  [662/2000] 48491: skip - category 169395 never renders fitment on eBay
+  [663/2000] 6243: skip - category 107062 never renders fitment on eBay
+  [664/2000] 45087: skip - category 179679 never renders fitment on eBay
+  [665/2000] 45084: skip - category 179679 never renders fitment on eBay
+  [666/2000] 4311: skip - category 179671 never renders fitment on eBay
+  [667/2000] 4274: skip - category 179679 never renders fitment on eBay
+  [668/2000] 1100: skip - category 179671 never renders fitment on eBay
+  [669/2000] 1035: skip - category 179679 never renders fitment on eBay
+  [670/2000] 1034: skip - category 179679 never renders fitment on eBay
+  [671/2000] 1036: skip - category 179679 never renders fitment on eBay
+  [672/2000] 64164: skip - category 107062 never renders fitment on eBay
+  [673/2000] 64163: skip - category 21647 never renders fitment on eBay
+  [674/2000] 60042: skip - category 107062 never renders fitment on eBay
+  [675/2000] 2750: skip - category 107062 never renders fitment on eBay
+  [676/2000] 2751: skip - category 107062 never renders fitment on eBay
+  [677/2000] 63378: skip - category 33643 never renders fitment on eBay
+  [678/2000] 2744: skip - category 21647 never renders fitment on eBay
+  [679/2000] 2632: skip - category 33643 never renders fitment on eBay
+  [680/2000] 3721: skip - category 107062 never renders fitment on eBay
+  [681/2000] 2970: skip - category 107062 never renders fitment on eBay
+  [682/2000] 2836: skip - category 169395 never renders fitment on eBay
+  [683/2000] 2865: skip - category 107062 never renders fitment on eBay
+  [684/2000] 3032: skip - category 107062 never renders fitment on eBay
+  [685/2000] 2647: skip - category 107062 never renders fitment on eBay
+  [686/2000] 2639: skip - category 107062 never renders fitment on eBay
+  [687/2000] 2300: skip - category 107062 never renders fitment on eBay
+  [688/2000] 2298: skip - category 107062 never renders fitment on eBay
+  [689/2000] 2299: skip - category 107062 never renders fitment on eBay
+  [690/2000] 2273: skip - category 107062 never renders fitment on eBay
+  [691/2000] 3305: skip - category 107062 never renders fitment on eBay
+  [692/2000] 61110: skip - category 107062 never renders fitment on eBay
+  [693/2000] 6571: skip - category 107062 never renders fitment on eBay
+  [694/2000] 53655: skip - category 179671 never renders fitment on eBay
+  [695/2000] 64323: skip - category 107062 never renders fitment on eBay
+  [696/2000] 64312: skip - category 107062 never renders fitment on eBay
+  [697/2000] 5579: skip - category 179679 never renders fitment on eBay
+  [698/2000] 52413: skip - category 179671 never renders fitment on eBay
+  [699/2000] 52409: skip - category 179671 never renders fitment on eBay
+  [700/2000] 52408: skip - category 179671 never renders fitment on eBay
+  [701/2000] 64212: skip - category 169395 never renders fitment on eBay
+  [702/2000] 64111: skip - category 107062 never renders fitment on eBay
+  [703/2000] 61151: skip - category 107062 never renders fitment on eBay
+  [704/2000] 61149: skip - category 107062 never renders fitment on eBay
+  [705/2000] 64160: skip - category 107062 never renders fitment on eBay
+  [706/2000] 6635: skip - category 107062 never renders fitment on eBay
+  [707/2000] 6589: skip - category 174119 never renders fitment on eBay
+  [708/2000] 6639: skip - category 107062 never renders fitment on eBay
+  [709/2000] 6633: skip - category 107062 never renders fitment on eBay
+  [710/2000] 6634: skip - category 107062 never renders fitment on eBay
+  [711/2000] 60277: skip - category 107062 never renders fitment on eBay
+  [712/2000] 60193: skip - category 21647 never renders fitment on eBay
+  [713/2000] 53606: skip - category 107062 never renders fitment on eBay
+  [714/2000] 53207: skip - category 21647 never renders fitment on eBay
+  [715/2000] 61150: skip - category 107062 never renders fitment on eBay
+  [716/2000] 61867: skip - category 33643 never renders fitment on eBay
+  [717/2000] 5879: skip - category 179671 never renders fitment on eBay
+  [718/2000] 5794: skip - category 107062 never renders fitment on eBay
+  [719/2000] 5904: skip - category 179671 never renders fitment on eBay
+  [720/2000] 5779: skip - category 107062 never renders fitment on eBay
+  [721/2000] 5995: skip - category 107062 never renders fitment on eBay
+  [722/2000] 61096: skip - category 179679 never renders fitment on eBay
+  [723/2000] 52606: skip - category 107062 never renders fitment on eBay
+  [724/2000] 53437: skip - category 107062 never renders fitment on eBay
+  [725/2000] 53477: skip - category 107062 never renders fitment on eBay
+  [726/2000] 52613: skip - category 107062 never renders fitment on eBay
+  [727/2000] 6338: skip - category 107062 never renders fitment on eBay
+  [728/2000] 6347: skip - category 107062 never renders fitment on eBay
+  [729/2000] 6379: skip - category 107062 never renders fitment on eBay
+  [730/2000] 2430: skip - category 107062 never renders fitment on eBay
+  [731/2000] 3634: skip - category 107062 never renders fitment on eBay
+  [732/2000] 2239: skip - category 33643 never renders fitment on eBay
+  [733/2000] 246: skip - category 169395 never renders fitment on eBay
+  [734/2000] 1561: skip - category 107062 never renders fitment on eBay
+  [735/2000] 61111: skip - category 107062 never renders fitment on eBay
+  [736/2000] 60608: skip - category 107062 never renders fitment on eBay
+  [737/2000] 60607: skip - category 107062 never renders fitment on eBay
+  [738/2000] 60602: skip - category 107062 never renders fitment on eBay
+  [739/2000] 64623: skip - category 169395 never renders fitment on eBay
+  [740/2000] 4134: skip - category 107062 never renders fitment on eBay
+  [741/2000] 60810: skip - category 107062 never renders fitment on eBay
+  [742/2000] 63668: skip - category 33643 never renders fitment on eBay
+  [743/2000] 4187: skip - category 107062 never renders fitment on eBay
+  [744/2000] 63946: skip - category 33643 never renders fitment on eBay
+  [745/2000] 6503: skip - category 179671 never renders fitment on eBay
+  [746/2000] 6436: skip - category 107062 never renders fitment on eBay
+  [747/2000] 6437: skip - category 107062 never renders fitment on eBay
+  [748/2000] 61244: skip - category 107062 never renders fitment on eBay
+  [749/2000] 61237: skip - category 174119 never renders fitment on eBay
+  [750/2000] 6359: skip - category 107062 never renders fitment on eBay
+  [751/2000] 61182: skip - category 21647 never renders fitment on eBay
+  [752/2000] 61189: skip - category 33643 never renders fitment on eBay
+  [753/2000] 61185: skip - category 107062 never renders fitment on eBay
+  [754/2000] 60949: skip - category 107062 never renders fitment on eBay
+  [755/2000] 62184: skip - category 33643 never renders fitment on eBay
+  [756/2000] 62046: skip - category 107062 never renders fitment on eBay
+  [757/2000] 62051: skip - category 107062 never renders fitment on eBay
+  [758/2000] 53613: skip - category 33643 never renders fitment on eBay
+  [759/2000] 61259: skip - category 107062 never renders fitment on eBay
+  [760/2000] 61274: skip - category 107062 never renders fitment on eBay
+  [761/2000] 62010: skip - category 21647 never renders fitment on eBay
+  [762/2000] 62002: skip - category 169395 never renders fitment on eBay
+  [763/2000] 61994: skip - category 174119 never renders fitment on eBay
+  [764/2000] 61980: skip - category 107062 never renders fitment on eBay
+  [765/2000] 52407: skip - category 179671 never renders fitment on eBay
+  [766/2000] 52406: skip - category 179671 never renders fitment on eBay
+  [767/2000] 62070: skip - category 107062 never renders fitment on eBay
+  [768/2000] 62088: skip - category 107062 never renders fitment on eBay
+  [769/2000] 62064: skip - category 107062 never renders fitment on eBay
+  [770/2000] 62089: skip - category 107062 never renders fitment on eBay
+  [771/2000] 64429: skip - category 107062 never renders fitment on eBay
+  [772/2000] 3812: skip - category 33643 never renders fitment on eBay
+  [773/2000] 1620: skip - category 107062 never renders fitment on eBay
+  [774/2000] 2972: skip - category 107062 never renders fitment on eBay
+  [775/2000] 3242: skip - category 107062 never renders fitment on eBay
+  [776/2000] 4766: skip - category 107062 never renders fitment on eBay
+  [777/2000] 45501: skip - category 179671 never renders fitment on eBay
+  [778/2000] 63139: skip - category 174119 never renders fitment on eBay
+  [779/2000] 63140: skip - category 169395 never renders fitment on eBay
+  [780/2000] 63127: skip - category 33643 never renders fitment on eBay
+  [781/2000] 63133: skip - category 107062 never renders fitment on eBay
+  [782/2000] 62406: skip - category 33643 never renders fitment on eBay
+  [783/2000] 45380: skip - category 107062 never renders fitment on eBay
+  [784/2000] 11529: skip - category 107062 never renders fitment on eBay
+  [785/2000] 17820: skip - category 107062 never renders fitment on eBay
+  [786/2000] 17805: skip - category 174119 never renders fitment on eBay
+  [787/2000] 17387: skip - category 107062 never renders fitment on eBay
+  [788/2000] 17388: skip - category 107062 never renders fitment on eBay
+  [789/2000] 17385: skip - category 107062 never renders fitment on eBay
+  [790/2000] 17384: skip - category 107062 never renders fitment on eBay
+  [791/2000] 15508: skip - category 174119 never renders fitment on eBay
+  [792/2000] 62316: skip - category 107062 never renders fitment on eBay
+  [793/2000] 62315: skip - category 107062 never renders fitment on eBay
+  [794/2000] 45224: skip - category 21647 never renders fitment on eBay
+  [795/2000] 50696: skip - category 179671 never renders fitment on eBay
+  [796/2000] 50896: skip - category 179671 never renders fitment on eBay
+  [797/2000] 50895: skip - category 179671 never renders fitment on eBay
+  [798/2000] 64041: skip - category 179679 never renders fitment on eBay
+  [799/2000] 61187: skip - category 107062 never renders fitment on eBay
+  [800/2000] 62549: skip - category 107062 never renders fitment on eBay
+  [801/2000] 24027: skip - category 38771 never renders fitment on eBay
+  [802/2000] 51442: skip - category 179671 never renders fitment on eBay
+  [803/2000] 50697: skip - category 179671 never renders fitment on eBay
+  [804/2000] 50693: skip - category 179671 never renders fitment on eBay
+  [805/2000] 50695: skip - category 179671 never renders fitment on eBay
+  [806/2000] 62479: skip - category 169395 never renders fitment on eBay
+  [807/2000] 62472: skip - category 107062 never renders fitment on eBay
+  [808/2000] 4370: skip - category 179671 never renders fitment on eBay
+  [809/2000] 32135: review - Rule B on F39 needs an engine or donor model.
+  [810/2000] 32532: review - Rule B on F02 needs an engine or donor model.
+  [811/2000] 31761: review - Rule B on F48 needs an engine or donor model.
+  [812/2000] 31717: review - Rule B on F39 needs an engine or donor model.
+  [813/2000] 31729: review - Rule B on F48 needs an engine or donor model.
+  [814/2000] 26242: skip - category 180140 never renders fitment on eBay
+  [815/2000] 33187: review - Rule B on G30 needs an engine or donor model.
+  [816/2000] 27190: review - Rule B on G30 needs an engine or donor model.
+  [817/2000] 23169: review - Rule B on G12 needs an engine or donor model.
+  [818/2000] 27815: review - Rule B on F16 needs an engine or donor model.
+  [819/2000] 30702: review - Rule B on G20 needs an engine or donor model.
+  [820/2000] 32132: review - Rule B on F39 needs an engine or donor model.
+  [821/2000] 24002: review - Rule B on F25 needs an engine or donor model.
+  [822/2000] 24884: review - Rule B on G20 needs an engine or donor model.
+  [823/2000] 4502: skip - category 107062 never renders fitment on eBay
+  [824/2000] 4506: skip - category 174119 never renders fitment on eBay
+  [825/2000] 26618: review - Rule B on G20 needs an engine or donor model.
+  [826/2000] 28367: review - Rule B on G20 needs an engine or donor model.
+  [827/2000] 30721: review - Rule B on G20 needs an engine or donor model.
+  [828/2000] 30933: review - Rule B on F97 needs an engine or donor model.
+  [829/2000] 33360: review - Rule B on G01 needs an engine or donor model.
+  [830/2000] 32484: review - Rule B on G01 needs an engine or donor model.
+  [831/2000] 4431: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [832/2000] 4533: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [833/2000] 4536: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [834/2000] 4550: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [835/2000] 4643: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [836/2000] 5472: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [837/2000] 5557: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [838/2000] 61538: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [839/2000] 60180: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [840/2000] 3536: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [841/2000] 4123: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [842/2000] 61229: skip - no Shopify donor for SKU
+  [843/2000] 60201: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [844/2000] 5491: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [845/2000] 4208: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [846/2000] 6001: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [847/2000] 5338: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [848/2000] 4209: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [849/2000] 2246: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [850/2000] 61537: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [851/2000] 6430: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [852/2000] 5466: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [853/2000] 2010: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [854/2000] 4763: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [855/2000] 3185: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [856/2000] 27445: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [857/2000] 33492: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [858/2000] 32681: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [859/2000] 32690: skip - category 179671 never renders fitment on eBay
+  [860/2000] 32703: skip - category 179671 never renders fitment on eBay
+  [861/2000] 32675: skip - category 21647 never renders fitment on eBay
+  [862/2000] 32691: skip - category 179671 never renders fitment on eBay
+  [863/2000] 32652: skip - category 38771 never renders fitment on eBay
+  [864/2000] 32689: skip - category 179671 never renders fitment on eBay
+  [865/2000] 33652: skip - category 107062 never renders fitment on eBay
+  [866/2000] 32803: review - Rule B on G01 needs an engine or donor model.
+  [867/2000] 32651: skip - category 38771 never renders fitment on eBay
+  [868/2000] 33479: skip - category 179671 never renders fitment on eBay
+  [869/2000] 36885: skip - category 107062 never renders fitment on eBay
+  [870/2000] 37125: review - Rule B on G01 needs an engine or donor model.
+  [871/2000] 36092: skip - category 107062 never renders fitment on eBay
+  [872/2000] 35733: review - Rule B on G01 needs an engine or donor model.
+  [873/2000] 35375: skip - category 21647 never renders fitment on eBay
+  [874/2000] 34272: skip - category 179671 never renders fitment on eBay
+  [875/2000] 36670: skip - category 107062 never renders fitment on eBay
+  [876/2000] 36672: skip - category 174119 never renders fitment on eBay
+  [877/2000] 35553: skip - category 107062 never renders fitment on eBay
+  [878/2000] 36716: skip - category 107062 never renders fitment on eBay
+  [879/2000] 34914: skip - category 107062 never renders fitment on eBay
+  [880/2000] 35274: skip - category 107062 never renders fitment on eBay
+  [881/2000] 36608: skip - category 169395 never renders fitment on eBay
+  [882/2000] 36414: skip - category 174119 never renders fitment on eBay
+  [883/2000] 37166: skip - category 107062 never renders fitment on eBay
+  [884/2000] 36827: skip - category 107062 never renders fitment on eBay
+  [885/2000] 34633: skip - category 107062 never renders fitment on eBay
+  [886/2000] 34861: skip - category 107062 never renders fitment on eBay
+  [887/2000] 35764: review - Rule B on G20 needs an engine or donor model.
+  [888/2000] 34301: skip - category 107062 never renders fitment on eBay
+  [889/2000] 34426: skip - category 179671 never renders fitment on eBay
+  [890/2000] 35961: skip - category 107062 never renders fitment on eBay
+  [891/2000] 35874: skip - category 33643 never renders fitment on eBay
+  [892/2000] 34216: skip - category 107062 never renders fitment on eBay
+  [893/2000] 34273: skip - category 179671 never renders fitment on eBay
+  [894/2000] 36980: skip - category 107062 never renders fitment on eBay
+  [895/2000] 36270: skip - category 107062 never renders fitment on eBay
+  [896/2000] 35822: skip - category 107062 never renders fitment on eBay
+  [897/2000] 35959: skip - category 107062 never renders fitment on eBay
+  [898/2000] 34068: review - Rule B on G20 needs an engine or donor model.
+  [899/2000] 36269: skip - category 107062 never renders fitment on eBay
+  [900/2000] 37432: skip - category 38771 never renders fitment on eBay
+  [901/2000] 37259: skip - category 174119 never renders fitment on eBay
+  [902/2000] 35845: skip - category 107062 never renders fitment on eBay
+  [903/2000] 34336: skip - category 107062 never renders fitment on eBay
+  [904/2000] 34674: skip - category 107062 never renders fitment on eBay
+  [905/2000] 34052: review - Rule B on G20 needs an engine or donor model.
+  [906/2000] 36105: skip - category 107062 never renders fitment on eBay
+  [907/2000] 37433: skip - category 38771 never renders fitment on eBay
+  [908/2000] 34763: review - Rule B on G42 needs an engine or donor model.
+  [909/2000] 36548: skip - category 107062 never renders fitment on eBay
+  [910/2000] 50185: review - Rule B on G12 needs an engine or donor model.
+  [911/2000] 34702: skip - category 107062 never renders fitment on eBay
+  [912/2000] 36084: skip - category 107062 never renders fitment on eBay
+  [913/2000] 36510: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [914/2000] 37189: review - Rule B on F01 needs an engine or donor model.
+  [915/2000] 34340: skip - category 21647 never renders fitment on eBay
+  [916/2000] 36008: skip - category 107062 never renders fitment on eBay
+  [917/2000] 36611: skip - category 107062 never renders fitment on eBay
+  [918/2000] 37479: review - Rule B on F44 needs an engine or donor model.
+  [919/2000] 36268: skip - category 107062 never renders fitment on eBay
+  [920/2000] 36511: skip - category 179671 never renders fitment on eBay
+  [921/2000] 34842: review - Rule B on G12 needs an engine or donor model.
+  [922/2000] 36896: skip - category 21647 never renders fitment on eBay
+  [923/2000] 37087: skip - category 33643 never renders fitment on eBay
+  [924/2000] 37124: skip - category 107062 never renders fitment on eBay
+  [925/2000] 36508: skip - category 179671 never renders fitment on eBay
+  [926/2000] 34410: review - Rule B on G20 needs an engine or donor model.
+  [927/2000] 34843: review - Rule B on G12 needs an engine or donor model.
+  [928/2000] 34884: skip - category 21647 never renders fitment on eBay
+  [929/2000] 34304: skip - category 21647 never renders fitment on eBay
+  [930/2000] 34708: skip - category 21647 never renders fitment on eBay
+  [931/2000] 37257: skip - category 174119 never renders fitment on eBay
+  [932/2000] 36587: skip - category 107062 never renders fitment on eBay
+  [933/2000] 34835: skip - category 107062 never renders fitment on eBay
+  [934/2000] 34670: skip - category 107062 never renders fitment on eBay
+  [935/2000] 35913: skip - category 107062 never renders fitment on eBay
+  [936/2000] 35835: skip - category 107062 never renders fitment on eBay
+  [937/2000] 36614: skip - category 107062 never renders fitment on eBay
+  [938/2000] 35846: skip - category 107062 never renders fitment on eBay
+  [939/2000] 36197: skip - category 107062 never renders fitment on eBay
+  [940/2000] 37275: skip - category 179671 never renders fitment on eBay
+  [941/2000] 34848: skip - category 38771 never renders fitment on eBay
+  [942/2000] 34714: review - Rule B on G20 needs an engine or donor model.
+  [943/2000] 35374: skip - category 107062 never renders fitment on eBay
+  [944/2000] 36829: skip - category 107062 never renders fitment on eBay
+  [945/2000] 34221: review - Rule B on G20 needs an engine or donor model.
+  [946/2000] 35276: skip - category 21647 never renders fitment on eBay
+  [947/2000] 35706: skip - category 38771 never renders fitment on eBay
+  [948/2000] 36010: skip - category 107062 never renders fitment on eBay
+  [949/2000] 37167: skip - category 21647 never renders fitment on eBay
+  [950/2000] 34002: skip - category 107062 never renders fitment on eBay
+  [951/2000] 37179: skip - category 179671 never renders fitment on eBay
+  [952/2000] 36842: skip - category 33643 never renders fitment on eBay
+  [953/2000] 37150: skip - category 107062 never renders fitment on eBay
+  [954/2000] 35554: skip - category 107062 never renders fitment on eBay
+  [955/2000] 37425: skip - category 179671 never renders fitment on eBay
+  [956/2000] 36798: skip - category 107062 never renders fitment on eBay
+  [957/2000] 35974: skip - category 107062 never renders fitment on eBay
+  [958/2000] 35373: skip - category 107062 never renders fitment on eBay
+  [959/2000] 34271: skip - category 179671 never renders fitment on eBay
+  [960/2000] 35914: skip - category 107062 never renders fitment on eBay
+  [961/2000] 35376: skip - category 21647 never renders fitment on eBay
+  [962/2000] 37929: review - Rule B on G23 needs an engine or donor model.
+  [963/2000] 37703: review - Rule B on F01 needs an engine or donor model.
+  [964/2000] 37604: review - Rule B on G42 needs an engine or donor model.
+  [965/2000] 37637: review - Rule B on F44 needs an engine or donor model.
+  [966/2000] 37579: skip - category 179671 never renders fitment on eBay
+  [967/2000] 37996: skip - category 179671 never renders fitment on eBay
+  [968/2000] 37924: skip - category 21647 never renders fitment on eBay
+  [969/2000] 37576: skip - category 179671 never renders fitment on eBay
+  [970/2000] 37925: skip - category 21647 never renders fitment on eBay
+  [971/2000] 37926: skip - category 174119 never renders fitment on eBay
+  [972/2000] 37708: skip - category 33643 never renders fitment on eBay
+  [973/2000] 38022: skip - category 38771 never renders fitment on eBay
+  [974/2000] 38252: review - Rule B on G12 needs an engine or donor model.
+  [975/2000] 37939: skip - category 21647 never renders fitment on eBay
+  [976/2000] 38554: skip - category 38771 never renders fitment on eBay
+  [977/2000] 39126: review - Rule B on G05 needs an engine or donor model.
+  [978/2000] 39235: skip - category 21647 never renders fitment on eBay
+  [979/2000] 39607: review - Rule B on G05 needs an engine or donor model.
+  [980/2000] 39606: review - Rule B on G05 needs an engine or donor model.
+  [981/2000] 38192: skip - category 107062 never renders fitment on eBay
+  [982/2000] 38274: skip - category 107062 never renders fitment on eBay
+  [983/2000] 39410: skip - category 179671 never renders fitment on eBay
+  [984/2000] 39623: skip - category 107062 never renders fitment on eBay
+  [985/2000] 38333: skip - category 179671 never renders fitment on eBay
+  [986/2000] 39125: skip - category 107062 never renders fitment on eBay
+  [987/2000] 39273: review - Rule B on G05 needs an engine or donor model.
+  [988/2000] 38330: skip - category 179671 never renders fitment on eBay
+  [989/2000] 38270: skip - category 107062 never renders fitment on eBay
+  [990/2000] 38495: skip - category 38771 never renders fitment on eBay
+  [991/2000] 38045: skip - category 21647 never renders fitment on eBay
+  [992/2000] 39120: skip - category 179671 never renders fitment on eBay
+  [993/2000] 37940: skip - category 107062 never renders fitment on eBay
+  [994/2000] 38281: skip - category 179671 never renders fitment on eBay
+  [995/2000] 38251: review - Rule B on G12 needs an engine or donor model.
+  [996/2000] 38489: skip - category 179671 never renders fitment on eBay
+  [997/2000] 38048: review - Rule B on G20 needs an engine or donor model.
+  [998/2000] 39054: skip - category 107062 never renders fitment on eBay
+  [999/2000] 38536: skip - category 107062 never renders fitment on eBay
+  [1000/2000] 38166: skip - category 179671 never renders fitment on eBay
+  [1001/2000] 38331: skip - category 179671 never renders fitment on eBay
+  [1002/2000] 38439: skip - category 107062 never renders fitment on eBay
+  [1003/2000] 38488: skip - category 179671 never renders fitment on eBay
+  [1004/2000] 38145: review - Rule B on G82 needs an engine or donor model.
+  [1005/2000] 38921: skip - category 107062 never renders fitment on eBay
+  [1006/2000] 38069: skip - category 38771 never renders fitment on eBay
+  [1007/2000] 38084: review - Rule B on F44 needs an engine or donor model.
+  [1008/2000] 38170: skip - category 169395 never renders fitment on eBay
+  [1009/2000] 38609: skip - category 174119 never renders fitment on eBay
+  [1010/2000] 38388: review - Rule B on F15 needs an engine or donor model.
+  [1011/2000] 38100: skip - category 107062 never renders fitment on eBay
+  [1012/2000] 39411: skip - category 179671 never renders fitment on eBay
+  [1013/2000] 37966: skip - category 107062 never renders fitment on eBay
+  [1014/2000] 39001: skip - category 107062 never renders fitment on eBay
+  [1015/2000] 38096: skip - category 107062 never renders fitment on eBay
+  [1016/2000] 38104: skip - category 107062 never renders fitment on eBay
+  [1017/2000] 37993: skip - category 107062 never renders fitment on eBay
+  [1018/2000] 39259: review - Rule B on G05 needs an engine or donor model.
+  [1019/2000] 39612: review - Rule B on G20 needs an engine or donor model.
+  [1020/2000] 37965: skip - category 107062 never renders fitment on eBay
+  [1021/2000] 39405: review - Rule B on G05 needs an engine or donor model.
+  [1022/2000] 38072: skip - category 179671 never renders fitment on eBay
+  [1023/2000] 38492: review - Rule B on G29 needs an engine or donor model.
+  [1024/2000] 38111: skip - category 21647 never renders fitment on eBay
+  [1025/2000] 38216: skip - category 174119 never renders fitment on eBay
+  [1026/2000] 38627: review - Rule B on F15 needs an engine or donor model.
+  [1027/2000] 37665: review - Rule B on F44 needs an engine or donor model.
+  [1028/2000] 38726: skip - category 179671 never renders fitment on eBay
+  [1029/2000] 39610: skip - category 107062 never renders fitment on eBay
+  [1030/2000] 39422: review - Rule B on G20 needs an engine or donor model.
+  [1031/2000] 38400: skip - category 21647 never renders fitment on eBay
+  [1032/2000] 39228: review - Rule B on G05 needs an engine or donor model.
+  [1033/2000] 38277: skip - category 107062 never renders fitment on eBay
+  [1034/2000] 38381: skip - category 107062 never renders fitment on eBay
+  [1035/2000] 38268: skip - category 107062 never renders fitment on eBay
+  [1036/2000] 38176: skip - category 179671 never renders fitment on eBay
+  [1037/2000] 38950: review - Rule B on G05 needs an engine or donor model.
+  [1038/2000] 38034: skip - category 33643 never renders fitment on eBay
+  [1039/2000] 38068: skip - category 38771 never renders fitment on eBay
+  [1040/2000] 39485: skip - category 107062 never renders fitment on eBay
+  [1041/2000] 38269: skip - category 107062 never renders fitment on eBay
+  [1042/2000] 39279: review - Rule B on G20 needs an engine or donor model.
+  [1043/2000] 38046: skip - category 21647 never renders fitment on eBay
+  [1044/2000] 38201: review - Rule B on F15 needs an engine or donor model.
+  [1045/2000] 38147: skip - category 107062 never renders fitment on eBay
+  [1046/2000] 38329: skip - category 179671 never renders fitment on eBay
+  [1047/2000] 39074: skip - category 33643 never renders fitment on eBay
+  [1048/2000] 38334: skip - category 179671 never renders fitment on eBay
+  [1049/2000] 38501: skip - category 38771 never renders fitment on eBay
+  [1050/2000] 39487: skip - category 21647 never renders fitment on eBay
+  [1051/2000] 40862: skip - category 180140 never renders fitment on eBay
+  [1052/2000] 42775: skip - category 107062 never renders fitment on eBay
+  [1053/2000] 39688: skip - category 179671 never renders fitment on eBay
+  [1054/2000] 40189: skip - category 174119 never renders fitment on eBay
+  [1055/2000] 40099: skip - category 174119 never renders fitment on eBay
+  [1056/2000] 41566: skip - category 107062 never renders fitment on eBay
+  [1057/2000] 42044: skip - category 107062 never renders fitment on eBay
+  [1058/2000] 42658: skip - category 107062 never renders fitment on eBay
+  [1059/2000] 41146: skip - category 179671 never renders fitment on eBay
+  [1060/2000] 39686: skip - category 179671 never renders fitment on eBay
+  [1061/2000] 40689: review - Rule B on F16 needs an engine or donor model.
+  [1062/2000] 40304: skip - category 107062 never renders fitment on eBay
+  [1063/2000] 42020: skip - category 107062 never renders fitment on eBay
+  [1064/2000] 40804: skip - category 21647 never renders fitment on eBay
+  [1065/2000] 41670: skip - category 179671 never renders fitment on eBay
+  [1066/2000] 39684: skip - category 179671 never renders fitment on eBay
+  [1067/2000] 40736: skip - category 107062 never renders fitment on eBay
+  [1068/2000] 41920: skip - category 107062 never renders fitment on eBay
+  [1069/2000] 41728: review - Rule B on G12 needs an engine or donor model.
+  [1070/2000] 40237: skip - category 107062 never renders fitment on eBay
+  [1071/2000] 39988: skip - category 107062 never renders fitment on eBay
+  [1072/2000] 41294: skip - category 107062 never renders fitment on eBay
+  [1073/2000] 40730: skip - category 107062 never renders fitment on eBay
+  [1074/2000] 40997: skip - category 107062 never renders fitment on eBay
+  [1075/2000] 41729: review - Rule B on G12 needs an engine or donor model.
+  [1076/2000] 41929: skip - category 107062 never renders fitment on eBay
+  [1077/2000] 35318: review - Rule B on G05 needs an engine or donor model.
+  [1078/2000] 40454: skip - category 38771 never renders fitment on eBay
+  [1079/2000] 42803: skip - category 33643 never renders fitment on eBay
+  [1080/2000] 39564: skip - category 179671 never renders fitment on eBay
+  [1081/2000] 42425: skip - category 107062 never renders fitment on eBay
+  [1082/2000] 41298: skip - category 107062 never renders fitment on eBay
+  [1083/2000] 41625: skip - category 38771 never renders fitment on eBay
+  [1084/2000] 40963: skip - category 107062 never renders fitment on eBay
+  [1085/2000] 40101: skip - category 107062 never renders fitment on eBay
+  [1086/2000] 41090: skip - category 107062 never renders fitment on eBay
+  [1087/2000] 41034: skip - category 107062 never renders fitment on eBay
+  [1088/2000] 42936: skip - category 174119 never renders fitment on eBay
+  [1089/2000] 41669: skip - category 179671 never renders fitment on eBay
+  [1090/2000] 42432: skip - category 174119 never renders fitment on eBay
+  [1091/2000] 39942: skip - category 258038 never renders fitment on eBay
+  [1092/2000] 34924: skip - category 107062 never renders fitment on eBay
+  [1093/2000] 34984: skip - category 179671 never renders fitment on eBay
+  [1094/2000] 41991: skip - category 33643 never renders fitment on eBay
+  [1095/2000] 41470: skip - category 107062 never renders fitment on eBay
+  [1096/2000] 41905: skip - category 107062 never renders fitment on eBay
+  [1097/2000] 41451: skip - category 107062 never renders fitment on eBay
+  [1098/2000] 40719: skip - category 107062 never renders fitment on eBay
+  [1099/2000] 40819: skip - category 38771 never renders fitment on eBay
+  [1100/2000] 42021: skip - category 107062 never renders fitment on eBay
+  [1101/2000] 40367: skip - category 38771 never renders fitment on eBay
+  [1102/2000] 40874: skip - category 174119 never renders fitment on eBay
+  [1103/2000] 41668: skip - category 179671 never renders fitment on eBay
+  [1104/2000] 42414: skip - category 107062 never renders fitment on eBay
+  [1105/2000] 41576: skip - category 107062 never renders fitment on eBay
+  [1106/2000] 39900: review - Rule B on F86 needs an engine or donor model.
+  [1107/2000] 40243: skip - category 21647 never renders fitment on eBay
+  [1108/2000] 42431: skip - category 174119 never renders fitment on eBay
+  [1109/2000] 40729: skip - category 107062 never renders fitment on eBay
+  [1110/2000] 39567: skip - category 180140 never renders fitment on eBay
+  [1111/2000] 42108: skip - category 107062 never renders fitment on eBay
+  [1112/2000] 34982: skip - category 179671 never renders fitment on eBay
+  [1113/2000] 34987: skip - category 179671 never renders fitment on eBay
+  [1114/2000] 34971: skip - category 21647 never renders fitment on eBay
+  [1115/2000] 40428: skip - category 179671 never renders fitment on eBay
+  [1116/2000] 40964: skip - category 21647 never renders fitment on eBay
+  [1117/2000] 40738: skip - category 258038 never renders fitment on eBay
+  [1118/2000] 40854: skip - category 179671 never renders fitment on eBay
+  [1119/2000] 40244: skip - category 107062 never renders fitment on eBay
+  [1120/2000] 42357: skip - category 21647 never renders fitment on eBay
+  [1121/2000] 41568: review - Rule B on G42 needs an engine or donor model.
+  [1122/2000] 42395: skip - category 38771 never renders fitment on eBay
+  [1123/2000] 41022: skip - category 107062 never renders fitment on eBay
+  [1124/2000] 40357: skip - category 179671 never renders fitment on eBay
+  [1125/2000] 42413: skip - category 107062 never renders fitment on eBay
+  [1126/2000] 39685: skip - category 179671 never renders fitment on eBay
+  [1127/2000] 42720: skip - category 107062 never renders fitment on eBay
+  [1128/2000] 39535: skip - category 169395 never renders fitment on eBay
+  [1129/2000] 34986: skip - category 179671 never renders fitment on eBay
+  [1130/2000] 41297: skip - category 107062 never renders fitment on eBay
+  [1131/2000] 41082: skip - category 258038 never renders fitment on eBay
+  [1132/2000] 42415: skip - category 107062 never renders fitment on eBay
+  [1133/2000] 39687: skip - category 179671 never renders fitment on eBay
+  [1134/2000] 42355: skip - category 107062 never renders fitment on eBay
+  [1135/2000] 35059: skip - category 179671 never renders fitment on eBay
+  [1136/2000] 42100: skip - category 107062 never renders fitment on eBay
+  [1137/2000] 35049: skip - category 107062 never renders fitment on eBay
+  [1138/2000] 40409: skip - category 107062 never renders fitment on eBay
+  [1139/2000] 40851: skip - category 179671 never renders fitment on eBay
+  [1140/2000] 41672: skip - category 179671 never renders fitment on eBay
+  [1141/2000] 42396: skip - category 38771 never renders fitment on eBay
+  [1142/2000] 41213: skip - category 258038 never renders fitment on eBay
+  [1143/2000] 41675: skip - category 107062 never renders fitment on eBay
+  [1144/2000] 40250: skip - category 179671 never renders fitment on eBay
+  [1145/2000] 42871: skip - category 179671 never renders fitment on eBay
+  [1146/2000] 40551: review - Rule B on F02 needs an engine or donor model.
+  [1147/2000] 40943: skip - category 107062 never renders fitment on eBay
+  [1148/2000] 40356: skip - category 179671 never renders fitment on eBay
+  [1149/2000] 39689: skip - category 179671 never renders fitment on eBay
+  [1150/2000] 41671: skip - category 179671 never renders fitment on eBay
+  [1151/2000] 41673: skip - category 179671 never renders fitment on eBay
+  [1152/2000] 39577: skip - category 107062 never renders fitment on eBay
+  [1153/2000] 42420: skip - category 107062 never renders fitment on eBay
+  [1154/2000] 42426: skip - category 107062 never renders fitment on eBay
+  [1155/2000] 34936: skip - category 107062 never renders fitment on eBay
+  [1156/2000] 43398: review - Rule B on G20 needs an engine or donor model.
+  [1157/2000] 45047: skip - category 169395 never renders fitment on eBay
+  [1158/2000] 45897: skip - category 107062 never renders fitment on eBay
+  [1159/2000] 43975: skip - category 107062 never renders fitment on eBay
+  [1160/2000] 44838: skip - category 169395 never renders fitment on eBay
+  [1161/2000] 45725: skip - category 107062 never renders fitment on eBay
+  [1162/2000] 43644: skip - category 21647 never renders fitment on eBay
+  [1163/2000] 45137: skip - category 107062 never renders fitment on eBay
+  [1164/2000] 45900: skip - category 107062 never renders fitment on eBay
+  [1165/2000] 43778: review - Rule B on G23 needs an engine or donor model.
+  [1166/2000] 45199: skip - category 21647 never renders fitment on eBay
+  [1167/2000] 46357: skip - category 107062 never renders fitment on eBay
+  [1168/2000] 45175: review - Rule B on G30 needs an engine or donor model.
+  [1169/2000] 44958: skip - category 107062 never renders fitment on eBay
+  [1170/2000] 45156: skip - category 107062 never renders fitment on eBay
+  [1171/2000] 45115: skip - category 179671 never renders fitment on eBay
+  [1172/2000] 43417: review - Rule B on F25 needs an engine or donor model.
+  [1173/2000] 43590: skip - category 107062 never renders fitment on eBay
+  [1174/2000] 43969: skip - category 107062 never renders fitment on eBay
+  [1175/2000] 44182: skip - category 107062 never renders fitment on eBay
+  [1176/2000] 46360: skip - category 107062 never renders fitment on eBay
+  [1177/2000] 44559: review - Rule B on G20 needs an engine or donor model.
+  [1178/2000] 44625: skip - category 107062 never renders fitment on eBay
+  [1179/2000] 44846: skip - category 258038 never renders fitment on eBay
+  [1180/2000] 45649: skip - category 21647 never renders fitment on eBay
+  [1181/2000] 44505: review - Rule B on G20 needs an engine or donor model.
+  [1182/2000] 45286: skip - category 107062 never renders fitment on eBay
+  [1183/2000] 43576: skip - category 107062 never renders fitment on eBay
+  [1184/2000] 43577: skip - category 107062 never renders fitment on eBay
+  [1185/2000] 45645: skip - category 174119 never renders fitment on eBay
+  [1186/2000] 44275: skip - category 107062 never renders fitment on eBay
+  [1187/2000] 45896: skip - category 107062 never renders fitment on eBay
+  [1188/2000] 43148: skip - category 174119 never renders fitment on eBay
+  [1189/2000] 44183: review - Rule B on G20 needs an engine or donor model.
+  [1190/2000] 45899: skip - category 107062 never renders fitment on eBay
+  [1191/2000] 45091: skip - category 174119 never renders fitment on eBay
+  [1192/2000] 43520: skip - category 174119 never renders fitment on eBay
+  [1193/2000] 43829: skip - category 174119 never renders fitment on eBay
+  [1194/2000] 42590: skip - category 258038 never renders fitment on eBay
+  [1195/2000] 45198: skip - category 107062 never renders fitment on eBay
+  [1196/2000] 44538: skip - category 33643 never renders fitment on eBay
+  [1197/2000] 44692: skip - category 107062 never renders fitment on eBay
+  [1198/2000] 42836: skip - category 107062 never renders fitment on eBay
+  [1199/2000] 45034: skip - category 174119 never renders fitment on eBay
+  [1200/2000] 44533: skip - category 21647 never renders fitment on eBay
+  [1201/2000] 42510: skip - category 107062 never renders fitment on eBay
+  [1202/2000] 43868: skip - category 107062 never renders fitment on eBay
+  [1203/2000] 43399: review - Rule B on G20 needs an engine or donor model.
+  [1204/2000] 44570: skip - category 107062 never renders fitment on eBay
+  [1205/2000] 43265: skip - category 107062 never renders fitment on eBay
+  [1206/2000] 42890: skip - category 21647 never renders fitment on eBay
+  [1207/2000] 43768: skip - category 107062 never renders fitment on eBay
+  [1208/2000] 43933: skip - category 107062 never renders fitment on eBay
+  [1209/2000] 46515: skip - category 179671 never renders fitment on eBay
+  [1210/2000] 47091: skip - category 179671 never renders fitment on eBay
+  [1211/2000] 42472: skip - category 174119 never renders fitment on eBay
+  [1212/2000] 43513: skip - category 107062 never renders fitment on eBay
+  [1213/2000] 43606: skip - category 107062 never renders fitment on eBay
+  [1214/2000] 44188: skip - category 107062 never renders fitment on eBay
+  [1215/2000] 44581: skip - category 180140 never renders fitment on eBay
+  [1216/2000] 43811: review - Rule B on G20 needs an engine or donor model.
+  [1217/2000] 43831: skip - category 107062 never renders fitment on eBay
+  [1218/2000] 43808: skip - category 107062 never renders fitment on eBay
+  [1219/2000] 43363: review - Rule B on G20 needs an engine or donor model.
+  [1220/2000] 44376: skip - category 258038 never renders fitment on eBay
+  [1221/2000] 42885: skip - category 21647 never renders fitment on eBay
+  [1222/2000] 43518: skip - category 107062 never renders fitment on eBay
+  [1223/2000] 42853: skip - category 107062 never renders fitment on eBay
+  [1224/2000] 44770: skip - category 107062 never renders fitment on eBay
+  [1225/2000] 45203: skip - category 180140 never renders fitment on eBay
+  [1226/2000] 45517: skip - category 174119 never renders fitment on eBay
+  [1227/2000] 42970: skip - category 179671 never renders fitment on eBay
+  [1228/2000] 45942: skip - category 258038 never renders fitment on eBay
+  [1229/2000] 42971: skip - category 179671 never renders fitment on eBay
+  [1230/2000] 46069: skip - category 33643 never renders fitment on eBay
+  [1231/2000] 43645: skip - category 107062 never renders fitment on eBay
+  [1232/2000] 44243: skip - category 21647 never renders fitment on eBay
+  [1233/2000] 44762: review - Rule B on G20 needs an engine or donor model.
+  [1234/2000] 42888: skip - category 107062 never renders fitment on eBay
+  [1235/2000] 49429: skip - category 174119 never renders fitment on eBay
+  [1236/2000] 44205: review - Rule B on G20 needs an engine or donor model.
+  [1237/2000] 44177: review - Rule B on G20 needs an engine or donor model.
+  [1238/2000] 44688: skip - category 107062 never renders fitment on eBay
+  [1239/2000] 44840: skip - category 107062 never renders fitment on eBay
+  [1240/2000] 45586: skip - category 179671 never renders fitment on eBay
+  [1241/2000] 44501: review - Rule B on G01 needs an engine or donor model.
+  [1242/2000] 44752: skip - category 38771 never renders fitment on eBay
+  [1243/2000] 44957: skip - category 33643 never renders fitment on eBay
+  [1244/2000] 43373: skip - category 107062 never renders fitment on eBay
+  [1245/2000] 44478: skip - category 107062 never renders fitment on eBay
+  [1246/2000] 43924: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1247/2000] 44035: skip - category 107062 never renders fitment on eBay
+  [1248/2000] 44696: skip - category 107062 never renders fitment on eBay
+  [1249/2000] 43355: skip - category 33643 never renders fitment on eBay
+  [1250/2000] 46359: skip - category 107062 never renders fitment on eBay
+  [1251/2000] 42587: skip - category 107062 never renders fitment on eBay
+  [1252/2000] 45833: skip - category 258038 never renders fitment on eBay
+  [1253/2000] 44786: skip - category 179671 never renders fitment on eBay
+  [1254/2000] 42779: skip - category 107062 never renders fitment on eBay
+  [1255/2000] 43987: skip - category 107062 never renders fitment on eBay
+  [1256/2000] 43674: review - Rule B on F48 needs an engine or donor model.
+  [1257/2000] 44689: skip - category 258038 never renders fitment on eBay
+  [1258/2000] 47186: skip - category 21647 never renders fitment on eBay
+  [1259/2000] 46286: skip - category 179671 never renders fitment on eBay
+  [1260/2000] 47133: review - Rule B on F32 needs an engine or donor model.
+  [1261/2000] 46287: skip - category 179671 never renders fitment on eBay
+  [1262/2000] 46833: skip - category 179671 never renders fitment on eBay
+  [1263/2000] 46519: skip - category 179671 never renders fitment on eBay
+  [1264/2000] 47010: skip - category 38771 never renders fitment on eBay
+  [1265/2000] 46900: skip - category 107062 never renders fitment on eBay
+  [1266/2000] 45678: skip - category 107062 never renders fitment on eBay
+  [1267/2000] 47153: skip - category 107062 never renders fitment on eBay
+  [1268/2000] 45587: skip - category 179671 never renders fitment on eBay
+  [1269/2000] 46909: skip - category 107062 never renders fitment on eBay
+  [1270/2000] 48024: skip - category 107062 never renders fitment on eBay
+  [1271/2000] 47378: skip - category 107062 never renders fitment on eBay
+  [1272/2000] 46197: skip - category 169395 never renders fitment on eBay
+  [1273/2000] 49042: review - Rule B on E88 needs an engine or donor model.
+  [1274/2000] 48760: skip - category 258038 never renders fitment on eBay
+  [1275/2000] 46880: skip - category 169395 never renders fitment on eBay
+  [1276/2000] 46211: skip - category 180140 never renders fitment on eBay
+  [1277/2000] 47243: skip - category 174119 never renders fitment on eBay
+  [1278/2000] 47306: skip - category 107062 never renders fitment on eBay
+  [1279/2000] 47375: skip - category 179671 never renders fitment on eBay
+  [1280/2000] 46479: skip - category 107062 never renders fitment on eBay
+  [1281/2000] 46823: review - Rule B on G20 needs an engine or donor model.
+  [1282/2000] 46857: skip - category 107062 never renders fitment on eBay
+  [1283/2000] 46979: skip - category 179671 never renders fitment on eBay
+  [1284/2000] 46513: skip - category 179671 never renders fitment on eBay
+  [1285/2000] 46190: skip - category 174119 never renders fitment on eBay
+  [1286/2000] 46827: skip - category 38771 never renders fitment on eBay
+  [1287/2000] 47246: skip - category 169395 never renders fitment on eBay
+  [1288/2000] 46953: skip - category 258038 never renders fitment on eBay
+  [1289/2000] 47376: skip - category 179671 never renders fitment on eBay
+  [1290/2000] 45679: skip - category 107062 never renders fitment on eBay
+  [1291/2000] 49019: skip - category 107062 never renders fitment on eBay
+  [1292/2000] 46518: skip - category 179671 never renders fitment on eBay
+  [1293/2000] 48868: review - Rule B on G01 needs an engine or donor model.
+  [1294/2000] 46774: review - Rule B on F25 needs an engine or donor model.
+  [1295/2000] 46836: skip - category 179671 never renders fitment on eBay
+  [1296/2000] 46980: skip - category 38771 never renders fitment on eBay
+  [1297/2000] 46837: skip - category 179671 never renders fitment on eBay
+  [1298/2000] 46514: skip - category 179671 never renders fitment on eBay
+  [1299/2000] 46512: skip - category 179671 never renders fitment on eBay
+  [1300/2000] 48908: skip - category 169395 never renders fitment on eBay
+  [1301/2000] 47303: skip - category 107062 never renders fitment on eBay
+  [1302/2000] 48758: skip - category 107062 never renders fitment on eBay
+  [1303/2000] 47223: skip - category 107062 never renders fitment on eBay
+  [1304/2000] 45588: skip - category 179671 never renders fitment on eBay
+  [1305/2000] 48880: skip - category 21647 never renders fitment on eBay
+  [1306/2000] 46856: skip - category 258038 never renders fitment on eBay
+  [1307/2000] 46331: skip - category 107062 never renders fitment on eBay
+  [1308/2000] 46517: skip - category 179671 never renders fitment on eBay
+  [1309/2000] 47274: skip - category 258038 never renders fitment on eBay
+  [1310/2000] 48769: skip - category 33643 never renders fitment on eBay
+  [1311/2000] 47224: skip - category 107062 never renders fitment on eBay
+  [1312/2000] 46870: review - Rule B on F25 needs an engine or donor model.
+  [1313/2000] 46591: skip - category 258038 never renders fitment on eBay
+  [1314/2000] 48870: skip - category 107062 never renders fitment on eBay
+  [1315/2000] 45681: skip - category 107062 never renders fitment on eBay
+  [1316/2000] 47235: skip - category 174119 never renders fitment on eBay
+  [1317/2000] 47159: skip - category 169395 never renders fitment on eBay
+  [1318/2000] 51836: review - Rule B on G20 needs an engine or donor model.
+  [1319/2000] 52187: skip - category 107062 never renders fitment on eBay
+  [1320/2000] 50271: skip - category 107062 never renders fitment on eBay
+  [1321/2000] 51791: skip - category 107062 never renders fitment on eBay
+  [1322/2000] 50315: skip - category 258038 never renders fitment on eBay
+  [1323/2000] 51807: review - Rule B on G20 needs an engine or donor model.
+  [1324/2000] 52075: review - Rule B on G12 needs an engine or donor model.
+  [1325/2000] 50644: skip - category 107062 never renders fitment on eBay
+  [1326/2000] 49970: skip - category 107062 never renders fitment on eBay
+  [1327/2000] 50290: skip - category 174119 never renders fitment on eBay
+  [1328/2000] 51219: skip - category 38771 never renders fitment on eBay
+  [1329/2000] 51819: skip - category 107062 never renders fitment on eBay
+  [1330/2000] 51620: skip - category 38771 never renders fitment on eBay
+  [1331/2000] 49932: review - Rule B on F15 needs an engine or donor model.
+  [1332/2000] 49430: skip - category 174119 never renders fitment on eBay
+  [1333/2000] 48119: skip - category 107062 never renders fitment on eBay
+  [1334/2000] 50852: review - Rule B on F34 needs an engine or donor model.
+  [1335/2000] 50640: skip - category 107062 never renders fitment on eBay
+  [1336/2000] 49422: skip - category 38771 never renders fitment on eBay
+  [1337/2000] 49813: review - Rule B on F32 needs an engine or donor model.
+  [1338/2000] 51052: review - Rule B on F48 needs an engine or donor model.
+  [1339/2000] 48631: skip - category 169395 never renders fitment on eBay
+  [1340/2000] 47833: skip - category 107062 never renders fitment on eBay
+  [1341/2000] 51849: review - Rule B on G20 needs an engine or donor model.
+  [1342/2000] 49468: skip - category 107062 never renders fitment on eBay
+  [1343/2000] 48242: skip - category 169395 never renders fitment on eBay
+  [1344/2000] 50826: skip - category 107062 never renders fitment on eBay
+  [1345/2000] 49441: skip - category 179671 never renders fitment on eBay
+  [1346/2000] 52028: skip - category 107062 never renders fitment on eBay
+  [1347/2000] 47844: skip - category 21647 never renders fitment on eBay
+  [1348/2000] 52182: skip - category 107062 never renders fitment on eBay
+  [1349/2000] 51278: review - Rule B on F34 needs an engine or donor model.
+  [1350/2000] 51220: skip - category 38771 never renders fitment on eBay
+  [1351/2000] 48256: skip - category 38771 never renders fitment on eBay
+  [1352/2000] 50126: skip - category 107062 never renders fitment on eBay
+  [1353/2000] 49803: skip - category 174119 never renders fitment on eBay
+  [1354/2000] 49394: skip - category 107062 never renders fitment on eBay
+  [1355/2000] 49177: skip - category 107062 never renders fitment on eBay
+  [1356/2000] 48022: skip - category 107062 never renders fitment on eBay
+  [1357/2000] 47808: skip - category 169395 never renders fitment on eBay
+  [1358/2000] 52339: skip - category 107062 never renders fitment on eBay
+  [1359/2000] 50645: skip - category 107062 never renders fitment on eBay
+  [1360/2000] 47536: skip - category 107062 never renders fitment on eBay
+  [1361/2000] 51792: skip - category 107062 never renders fitment on eBay
+  [1362/2000] 49949: skip - category 180140 never renders fitment on eBay
+  [1363/2000] 49176: skip - category 107062 never renders fitment on eBay
+  [1364/2000] 52177: skip - category 33643 never renders fitment on eBay
+  [1365/2000] 52020: review - Rule B on G12 needs an engine or donor model.
+  [1366/2000] 50413: skip - category 107062 never renders fitment on eBay
+  [1367/2000] 49461: skip - already 409 vehicles (multi-fit/expanded)
+  [1368/2000] 52141: skip - already 31 vehicles (multi-fit/expanded)
+  [1369/2000] 52330: skip - already 82 vehicles (multi-fit/expanded)
+  [1370/2000] 47851: skip - already 9 vehicles (multi-fit/expanded)
+  [1371/2000] 50515: skip - no Shopify donor for SKU
+  [1372/2000] 50423: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1373/2000] 50660: skip - already 3 vehicles (multi-fit/expanded)
+  [1374/2000] 51058: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1375/2000] 48573: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1376/2000] 51817: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1377/2000] 47718: skip - already 514 vehicles (multi-fit/expanded)
+  [1378/2000] 51067: skip - already 13 vehicles (multi-fit/expanded)
+  [1379/2000] 50521: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1380/2000] 47597: skip - already 113 vehicles (multi-fit/expanded)
+  [1381/2000] 50386: skip - category 21647 never renders fitment on eBay
+  [1382/2000] 49648: skip - already 7 vehicles (multi-fit/expanded)
+  [1383/2000] 51232: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1384/2000] 48605: skip - no Shopify donor for SKU
+  [1385/2000] 50400: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1386/2000] 51225: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1387/2000] 50863: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1388/2000] 52180: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1389/2000] 49686: skip - already 29 vehicles (multi-fit/expanded)
+  [1390/2000] 48523: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1391/2000] 49307: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1392/2000] 50664: skip - already 3 vehicles (multi-fit/expanded)
+  [1393/2000] 51581: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1394/2000] 48195: skip - category 107062 never renders fitment on eBay
+  [1395/2000] 49750: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1396/2000] 51970: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1397/2000] 52280: skip - already 82 vehicles (multi-fit/expanded)
+  [1398/2000] 47849: skip - already 9 vehicles (multi-fit/expanded)
+  [1399/2000] 49738: skip - already 36 vehicles (multi-fit/expanded)
+  [1400/2000] 49511: skip - already 102 vehicles (multi-fit/expanded)
+  [1401/2000] 48310: skip - already 60 vehicles (multi-fit/expanded)
+  [1402/2000] 50332: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1403/2000] 52047: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1404/2000] 48177: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1405/2000] 51601: skip - already 61 vehicles (multi-fit/expanded)
+  [1406/2000] 47865: skip - already 1128 vehicles (multi-fit/expanded)
+  [1407/2000] 47839: review - Rule B on G12 needs an engine or donor model.
+  [1408/2000] 48054: skip - already 39 vehicles (multi-fit/expanded)
+  [1409/2000] 49793: skip - no Shopify donor for SKU
+  [1410/2000] 51022: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1411/2000] 51062: skip - already 78 vehicles (multi-fit/expanded)
+  [1412/2000] 51616: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1413/2000] 47667: pushed - category not in tree -> default (+5 ETK rows) [catalog: 5 retrimmed, 2 dropped_t
+  [1414/2000] 49444: skip - already 1152 vehicles (multi-fit/expanded)
+  [1415/2000] 52068: skip - category 179671 never renders fitment on eBay
+  [1416/2000] 48548: skip - no Shopify donor for SKU
+  [1417/2000] 48557: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1418/2000] 51783: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1419/2000] 50853: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1420/2000] 50810: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1421/2000] 48444: skip - no Shopify donor for SKU
+  [1422/2000] 49689: skip - already 4 vehicles (multi-fit/expanded)
+  [1423/2000] 48339: skip - already 67 vehicles (multi-fit/expanded)
+  [1424/2000] 48305: review - Rule B on F32 needs an engine or donor model.
+  [1425/2000] 49509: skip - already 27 vehicles (multi-fit/expanded)
+  [1426/2000] 49654: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1427/2000] 48450: skip - no Shopify donor for SKU
+  [1428/2000] 50681: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1429/2000] 51901: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1430/2000] 49762: skip - already 186 vehicles (multi-fit/expanded)
+  [1431/2000] 49380: skip - already 87 vehicles (multi-fit/expanded)
+  [1432/2000] 48466: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1433/2000] 50683: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1434/2000] 49659: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1435/2000] 49739: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1436/2000] 52308: skip - already 48 vehicles (multi-fit/expanded)
+  [1437/2000] 48217: review - Rule B on E88 needs an engine or donor model.
+  [1438/2000] 51331: skip - already 176 vehicles (multi-fit/expanded)
+  [1439/2000] 48393: skip - no Shopify donor for SKU
+  [1440/2000] 49799: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1441/2000] 47627: skip - already 52 vehicles (multi-fit/expanded)
+  [1442/2000] 51359: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1443/2000] 51321: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1444/2000] 50633: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [1445/2000] 48565: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1446/2000] 52186: skip - already 157 vehicles (multi-fit/expanded)
+  [1447/2000] 51868: skip - already 38 vehicles (multi-fit/expanded)
+  [1448/2000] 52289: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [1449/2000] 49530: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1450/2000] 50989: skip - already 17 vehicles (multi-fit/expanded)
+  [1451/2000] 48418: skip - no Shopify donor for SKU
+  [1452/2000] 51829: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1453/2000] 49615: skip - already 14 vehicles (multi-fit/expanded)
+  [1454/2000] 51913: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1455/2000] 47701: skip - category 107062 never renders fitment on eBay
+  [1456/2000] 48227: skip - already 33 vehicles (multi-fit/expanded)
+  [1457/2000] 49477: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [1458/2000] 49485: skip - already 267 vehicles (multi-fit/expanded)
+  [1459/2000] 47567: skip - already 93 vehicles (multi-fit/expanded)
+  [1460/2000] 50669: skip - already 15 vehicles (multi-fit/expanded)
+  [1461/2000] 49544: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1462/2000] 51054: skip - already 10 vehicles (multi-fit/expanded)
+  [1463/2000] 49748: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1464/2000] 50851: review - Rule B on F32 needs an engine or donor model.
+  [1465/2000] 52074: pushed - part-number/ETK only (+9 ETK rows)
+  [1466/2000] 48183: skip - category 258038 never renders fitment on eBay
+  [1467/2000] 47924: skip - already 268 vehicles (multi-fit/expanded)
+  [1468/2000] 50840: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1469/2000] 49241: skip - already 1170 vehicles (multi-fit/expanded)
+  [1470/2000] 50984: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1471/2000] 48351: skip - already 284 vehicles (multi-fit/expanded)
+  [1472/2000] 48532: skip - no Shopify donor for SKU
+  [1473/2000] 48639: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1474/2000] 51969: skip - already 37 vehicles (multi-fit/expanded)
+  [1475/2000] 50364: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1476/2000] 50687: skip - already 37 vehicles (multi-fit/expanded)
+  [1477/2000] 47966: skip - already 36 vehicles (multi-fit/expanded)
+  [1478/2000] 50839: skip - already 12 vehicles (multi-fit/expanded)
+  [1479/2000] 48427: skip - no Shopify donor for SKU
+  [1480/2000] 52379: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1481/2000] 48333: review - Rule B on F32 needs an engine or donor model.
+  [1482/2000] 47835: skip - already 858 vehicles (multi-fit/expanded)
+  [1483/2000] 50685: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1484/2000] 49426: skip - already 18 vehicles (multi-fit/expanded)
+  [1485/2000] 48172: skip - already 253 vehicles (multi-fit/expanded)
+  [1486/2000] 51324: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1487/2000] 52030: pushed - part-number/ETK only (+96 ETK rows)
+  [1488/2000] 48378: skip - already 270 vehicles (multi-fit/expanded)
+  [1489/2000] 51839: review - Rule B on G20 needs an engine or donor model.
+  [1490/2000] 48176: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1491/2000] 49250: skip - already 3 vehicles (multi-fit/expanded)
+  [1492/2000] 51621: skip - already 38 vehicles (multi-fit/expanded)
+  [1493/2000] 51049: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1494/2000] 47921: skip - already 16 vehicles (multi-fit/expanded)
+  [1495/2000] 48401: skip - no Shopify donor for SKU
+  [1496/2000] 50313: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1497/2000] 49404: review - unresolved chassis: ambiguous series 'E70' / model '?': ['E70', 'E70 X5 M'] - ne
+  [1498/2000] 50656: skip - category 107062 never renders fitment on eBay
+  [1499/2000] 51610: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1500/2000] 50297: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1501/2000] 50982: skip - already 17 vehicles (multi-fit/expanded)
+  [1502/2000] 48323: skip - already 104 vehicles (multi-fit/expanded)
+  [1503/2000] 49434: skip - already 39 vehicles (multi-fit/expanded)
+  [1504/2000] 49191: skip - category 107062 never renders fitment on eBay
+  [1505/2000] 49764: skip - already 414 vehicles (multi-fit/expanded)
+  [1506/2000] 48616: skip - already 37 vehicles (multi-fit/expanded)
+  [1507/2000] 51816: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1508/2000] 48542: skip - no Shopify donor for SKU
+  [1509/2000] 51244: skip - already 16 vehicles (multi-fit/expanded)
+  [1510/2000] 48462: skip - no Shopify donor for SKU
+  [1511/2000] 51571: skip - already 114 vehicles (multi-fit/expanded)
+  [1512/2000] 51590: skip - already 68 vehicles (multi-fit/expanded)
+  [1513/2000] 52056: skip - already 97 vehicles (multi-fit/expanded)
+  [1514/2000] 51630: skip - already 497 vehicles (multi-fit/expanded)
+  [1515/2000] 48070: skip - category 180140 never renders fitment on eBay
+  [1516/2000] 50259: skip - already 17 vehicles (multi-fit/expanded)
+  [1517/2000] 50323: skip - already 95 vehicles (multi-fit/expanded)
+  [1518/2000] 47984: skip - already 29 vehicles (multi-fit/expanded)
+  [1519/2000] 51221: skip - already 125 vehicles (multi-fit/expanded)
+  [1520/2000] 47806: skip - already 348 vehicles (multi-fit/expanded)
+  [1521/2000] 48237: skip - category 33643 never renders fitment on eBay
+  [1522/2000] 48537: skip - no Shopify donor for SKU
+  [1523/2000] 48552: skip - no Shopify donor for SKU
+  [1524/2000] 50993: skip - already 3 vehicles (multi-fit/expanded)
+  [1525/2000] 48646: skip - already 39 vehicles (multi-fit/expanded)
+  [1526/2000] 48665: skip - already 169 vehicles (multi-fit/expanded)
+  [1527/2000] 52059: skip - already 37 vehicles (multi-fit/expanded)
+  [1528/2000] 49860: skip - already 27 vehicles (multi-fit/expanded)
+  [1529/2000] 48489: skip - no Shopify donor for SKU
+  [1530/2000] 50414: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1531/2000] 52062: skip - category 179671 never renders fitment on eBay
+  [1532/2000] 50817: skip - already 186 vehicles (multi-fit/expanded)
+  [1533/2000] 51351: skip - already 43 vehicles (multi-fit/expanded)
+  [1534/2000] 52195: skip - already 51 vehicles (multi-fit/expanded)
+  [1535/2000] 48400: skip - no Shopify donor for SKU
+  [1536/2000] 49566: skip - already 10 vehicles (multi-fit/expanded)
+  [1537/2000] 49718: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1538/2000] 47784: skip - already 68 vehicles (multi-fit/expanded)
+  [1539/2000] 51007: skip - category 107062 never renders fitment on eBay
+  [1540/2000] 52032: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1541/2000] 51756: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1542/2000] 50513: skip - no Shopify donor for SKU
+  [1543/2000] 51973: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1544/2000] 48396: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1545/2000] 47800: skip - already 107 vehicles (multi-fit/expanded)
+  [1546/2000] 49188: skip - already 5 vehicles (multi-fit/expanded)
+  [1547/2000] 49664: skip - already 32 vehicles (multi-fit/expanded)
+  [1548/2000] 48556: skip - already 81 vehicles (multi-fit/expanded)
+  [1549/2000] 50454: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1550/2000] 52306: review - Rule B on G01 needs an engine or donor model.
+  [1551/2000] 51885: skip - already 16 vehicles (multi-fit/expanded)
+  [1552/2000] 51392: skip - already 29 vehicles (multi-fit/expanded)
+  [1553/2000] 48661: skip - already 50 vehicles (multi-fit/expanded)
+  [1554/2000] 50650: skip - already 3 vehicles (multi-fit/expanded)
+  [1555/2000] 52140: skip - already 187 vehicles (multi-fit/expanded)
+  [1556/2000] 51255: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1557/2000] 47958: skip - already 24 vehicles (multi-fit/expanded)
+  [1558/2000] 47920: skip - already 16 vehicles (multi-fit/expanded)
+  [1559/2000] 48068: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1560/2000] 47724: skip - category 258038 never renders fitment on eBay
+  [1561/2000] 50686: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1562/2000] 49459: skip - already 409 vehicles (multi-fit/expanded)
+  [1563/2000] 51821: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1564/2000] 49942: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1565/2000] 52253: skip - already 229 vehicles (multi-fit/expanded)
+  [1566/2000] 52267: skip - already 174 vehicles (multi-fit/expanded)
+  [1567/2000] 47598: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1568/2000] 48533: skip - no Shopify donor for SKU
+  [1569/2000] 49708: skip - already 160 vehicles (multi-fit/expanded)
+  [1570/2000] 49822: skip - already 771 vehicles (multi-fit/expanded)
+  [1571/2000] 51239: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1572/2000] 47828: skip - already 100 vehicles (multi-fit/expanded)
+  [1573/2000] 48659: skip - already 27 vehicles (multi-fit/expanded)
+  [1574/2000] 49756: skip - already 84 vehicles (multi-fit/expanded)
+  [1575/2000] 49261: skip - already 20 vehicles (multi-fit/expanded)
+  [1576/2000] 49390: review - unresolved chassis: ambiguous series 'E70' / model '?': ['E70', 'E70 X5 M'] - ne
+  [1577/2000] 49600: pushed - not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps >
+  [1578/2000] 49829: skip - already 67 vehicles (multi-fit/expanded)
+  [1579/2000] 50627: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1580/2000] 48585: skip - already 186 vehicles (multi-fit/expanded)
+  [1581/2000] 51264: skip - already 2 vehicles (multi-fit/expanded)
+  [1582/2000] 47690: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1583/2000] 48592: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1584/2000] 50643: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1585/2000] 49630: skip - already 4 vehicles (multi-fit/expanded)
+  [1586/2000] 51805: pushed - part-number/ETK only (+96 ETK rows)
+  [1587/2000] 47852: skip - already 425 vehicles (multi-fit/expanded)
+  [1588/2000] 51834: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1589/2000] 49239: skip - category 107062 never renders fitment on eBay
+  [1590/2000] 50317: skip - already 17 vehicles (multi-fit/expanded)
+  [1591/2000] 49667: skip - category 21647 never renders fitment on eBay
+  [1592/2000] 49833: skip - category 107062 never renders fitment on eBay
+  [1593/2000] 48417: skip - no Shopify donor for SKU
+  [1594/2000] 50396: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1595/2000] 48613: skip - already 27 vehicles (multi-fit/expanded)
+  [1596/2000] 52309: skip - already 72 vehicles (multi-fit/expanded)
+  [1597/2000] 47869: skip - already 319 vehicles (multi-fit/expanded)
+  [1598/2000] 48608: skip - already 27 vehicles (multi-fit/expanded)
+  [1599/2000] 51793: skip - category 107062 never renders fitment on eBay
+  [1600/2000] 47764: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1601/2000] 48477: skip - no Shopify donor for SKU
+  [1602/2000] 51249: skip - already 46 vehicles (multi-fit/expanded)
+  [1603/2000] 49464: review - unresolved chassis: ambiguous series 'E70' / model '?': ['E70', 'E70 X5 M'] - ne
+  [1604/2000] 52189: skip - already 38 vehicles (multi-fit/expanded)
+  [1605/2000] 49346: skip - already 10 vehicles (multi-fit/expanded)
+  [1606/2000] 49704: skip - already 11 vehicles (multi-fit/expanded)
+  [1607/2000] 49497: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1608/2000] 49681: skip - already 42 vehicles (multi-fit/expanded)
+  [1609/2000] 47885: pushed - part-number/ETK only (+43 ETK rows)
+  [1610/2000] 48473: skip - no Shopify donor for SKU
+  [1611/2000] 49702: skip - already 268 vehicles (multi-fit/expanded)
+  [1612/2000] 50084: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1613/2000] 48581: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1614/2000] 47774: skip - already 106 vehicles (multi-fit/expanded)
+  [1615/2000] 50668: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1616/2000] 49955: skip - already 258 vehicles (multi-fit/expanded)
+  [1617/2000] 50674: skip - already 3 vehicles (multi-fit/expanded)
+  [1618/2000] 49725: skip - already 31 vehicles (multi-fit/expanded)
+  [1619/2000] 51865: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1620/2000] 49723: skip - already 85 vehicles (multi-fit/expanded)
+  [1621/2000] 47710: skip - already 426 vehicles (multi-fit/expanded)
+  [1622/2000] 49699: skip - already 15 vehicles (multi-fit/expanded)
+  [1623/2000] 51997: skip - already 27 vehicles (multi-fit/expanded)
+  [1624/2000] 49278: pushed - part-number/ETK only (+9 ETK rows)
+  [1625/2000] 49168: skip - already 33 vehicles (multi-fit/expanded)
+  [1626/2000] 48236: skip - category 33643 never renders fitment on eBay
+  [1627/2000] 49815: skip - already 228 vehicles (multi-fit/expanded)
+  [1628/2000] 49641: skip - already 28 vehicles (multi-fit/expanded)
+  [1629/2000] 50665: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1630/2000] 51608: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1631/2000] 51016: skip - category 107062 never renders fitment on eBay
+  [1632/2000] 49523: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1633/2000] 48413: skip - no Shopify donor for SKU
+  [1634/2000] 52016: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [1635/2000] 49387: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1636/2000] 48571: skip - already 47 vehicles (multi-fit/expanded)
+  [1637/2000] 52415: skip - category 38771 never renders fitment on eBay
+  [1638/2000] 48478: skip - category 38771 never renders fitment on eBay
+  [1639/2000] 52185: pushed - part-number/ETK only (+30 ETK rows)
+  [1640/2000] 50727: skip - no Shopify donor for SKU
+  [1641/2000] 51986: skip - already 4 vehicles (multi-fit/expanded)
+  [1642/2000] 49227: skip - category 107062 never renders fitment on eBay
+  [1643/2000] 49299: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1644/2000] 51260: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1645/2000] 51684: skip - already 11 vehicles (multi-fit/expanded)
+  [1646/2000] 49776: skip - already 14 vehicles (multi-fit/expanded)
+  [1647/2000] 48404: skip - no Shopify donor for SKU
+  [1648/2000] 48105: skip - already 322 vehicles (multi-fit/expanded)
+  [1649/2000] 51617: pushed - part-number/ETK only (+95 ETK rows)
+  [1650/2000] 48421: skip - no Shopify donor for SKU
+  [1651/2000] 50286: review - Rule B on F30 needs an engine or donor model.
+  [1652/2000] 47782: review - Rule B on F32 needs an engine or donor model.
+  [1653/2000] 48269: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1654/2000] 47734: skip - already 1131 vehicles (multi-fit/expanded)
+  [1655/2000] 47853: skip - already 425 vehicles (multi-fit/expanded)
+  [1656/2000] 48469: skip - no Shopify donor for SKU
+  [1657/2000] 48484: skip - no Shopify donor for SKU
+  [1658/2000] 48598: review - Rule B on F15 needs an engine or donor model.
+  [1659/2000] 49153: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1660/2000] 51870: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1661/2000] 47874: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1662/2000] 48214: skip - already 31 vehicles (multi-fit/expanded)
+  [1663/2000] 49513: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [1664/2000] 50671: skip - already 51 vehicles (multi-fit/expanded)
+  [1665/2000] 51584: pushed - part-number/ETK only (+38 ETK rows)
+  [1666/2000] 50706: pushed - part-number/ETK only (+37 ETK rows)
+  [1667/2000] 47862: skip - already 120 vehicles (multi-fit/expanded)
+  [1668/2000] 51227: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1669/2000] 51374: skip - already 29 vehicles (multi-fit/expanded)
+  [1670/2000] 52295: skip - category 179671 never renders fitment on eBay
+  [1671/2000] 48579: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1672/2000] 50430: skip - category 107062 never renders fitment on eBay
+  [1673/2000] 48412: skip - category 174119 never renders fitment on eBay
+  [1674/2000] 48578: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1675/2000] 49260: skip - already 14 vehicles (multi-fit/expanded)
+  [1676/2000] 51017: skip - already 13 vehicles (multi-fit/expanded)
+  [1677/2000] 49225: skip - category 107062 never renders fitment on eBay
+  [1678/2000] 47537: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1679/2000] 47861: skip - already 120 vehicles (multi-fit/expanded)
+  [1680/2000] 49501: skip - already 3 vehicles (multi-fit/expanded)
+  [1681/2000] 50641: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1682/2000] 51223: skip - already 371 vehicles (multi-fit/expanded)
+  [1683/2000] 49451: skip - already 39 vehicles (multi-fit/expanded)
+  [1684/2000] 49642: review - Rule B on G01 needs an engine or donor model.
+  [1685/2000] 49759: skip - already 303 vehicles (multi-fit/expanded)
+  [1686/2000] 51300: skip - already 20 vehicles (multi-fit/expanded)
+  [1687/2000] 50387: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1688/2000] 48544: skip - no Shopify donor for SKU
+  [1689/2000] 49247: skip - already 7 vehicles (multi-fit/expanded)
+  [1690/2000] 49646: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1691/2000] 47926: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1692/2000] 49312: skip - already 6 vehicles (multi-fit/expanded)
+  [1693/2000] 48033: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1694/2000] 49721: skip - already 343 vehicles (multi-fit/expanded)
+  [1695/2000] 50312: skip - already 11 vehicles (multi-fit/expanded)
+  [1696/2000] 49456: skip - already 87 vehicles (multi-fit/expanded)
+  [1697/2000] 52051: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1698/2000] 47588: skip - category 33643 never renders fitment on eBay
+  [1699/2000] 49410: skip - already 18 vehicles (multi-fit/expanded)
+  [1700/2000] 50393: skip - already 11 vehicles (multi-fit/expanded)
+  [1701/2000] 51900: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1702/2000] 51765: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1703/2000] 51971: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1704/2000] 50432: skip - already 69 vehicles (multi-fit/expanded)
+  [1705/2000] 50829: skip - already 356 vehicles (multi-fit/expanded)
+  [1706/2000] 51609: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1707/2000] 51844: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1708/2000] 49445: skip - already 1152 vehicles (multi-fit/expanded)
+  [1709/2000] 49644: pushed - part-number/ETK only (+49 ETK rows)
+  [1710/2000] 51330: skip - already 11 vehicles (multi-fit/expanded)
+  [1711/2000] 49602: skip - already 20 vehicles (multi-fit/expanded)
+  [1712/2000] 51099: skip - already 20 vehicles (multi-fit/expanded)
+  [1713/2000] 51802: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1714/2000] 49347: skip - already 94 vehicles (multi-fit/expanded)
+  [1715/2000] 49427: skip - already 95 vehicles (multi-fit/expanded)
+  [1716/2000] 47692: skip - already 1097 vehicles (multi-fit/expanded)
+  [1717/2000] 51382: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1718/2000] 49209: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1719/2000] 50036: skip - no Shopify donor for SKU
+  [1720/2000] 48486: skip - no Shopify donor for SKU
+  [1721/2000] 48612: skip - already 27 vehicles (multi-fit/expanded)
+  [1722/2000] 51871: skip - already 10 vehicles (multi-fit/expanded)
+  [1723/2000] 48650: skip - already 27 vehicles (multi-fit/expanded)
+  [1724/2000] 49492: skip - already 106 vehicles (multi-fit/expanded)
+  [1725/2000] 49233: skip - category 107062 never renders fitment on eBay
+  [1726/2000] 50658: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1727/2000] 48182: skip - already 501 vehicles (multi-fit/expanded)
+  [1728/2000] 48219: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1729/2000] 50678: skip - already 638 vehicles (multi-fit/expanded)
+  [1730/2000] 48645: skip - already 20 vehicles (multi-fit/expanded)
+  [1731/2000] 47868: skip - already 79 vehicles (multi-fit/expanded)
+  [1732/2000] 51004: skip - already 3 vehicles (multi-fit/expanded)
+  [1733/2000] 47928: skip - already 58 vehicles (multi-fit/expanded)
+  [1734/2000] 47867: skip - already 79 vehicles (multi-fit/expanded)
+  [1735/2000] 50011: skip - already 47 vehicles (multi-fit/expanded)
+  [1736/2000] 49386: skip - category 107062 never renders fitment on eBay
+  [1737/2000] 49433: skip - already 39 vehicles (multi-fit/expanded)
+  [1738/2000] 51619: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1739/2000] 51097: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1740/2000] 51798: skip - already 4 vehicles (multi-fit/expanded)
+  [1741/2000] 47977: skip - already 16 vehicles (multi-fit/expanded)
+  [1742/2000] 49693: skip - already 93 vehicles (multi-fit/expanded)
+  [1743/2000] 48331: skip - already 213 vehicles (multi-fit/expanded)
+  [1744/2000] 52163: skip - already 221 vehicles (multi-fit/expanded)
+  [1745/2000] 49270: skip - already 18 vehicles (multi-fit/expanded)
+  [1746/2000] 51332: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1747/2000] 47873: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1748/2000] 50421: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1749/2000] 48165: skip - already 161 vehicles (multi-fit/expanded)
+  [1750/2000] 50550: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1751/2000] 47992: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1752/2000] 49703: skip - already 2 vehicles (multi-fit/expanded)
+  [1753/2000] 51599: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1754/2000] 52019: review - Rule B on G12 needs an engine or donor model.
+  [1755/2000] 48655: skip - already 58 vehicles (multi-fit/expanded)
+  [1756/2000] 51009: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1757/2000] 49342: skip - category 180140 never renders fitment on eBay
+  [1758/2000] 51250: review - Rule B on G01 needs an engine or donor model.
+  [1759/2000] 48035: skip - already 268 vehicles (multi-fit/expanded)
+  [1760/2000] 51212: skip - already 12 vehicles (multi-fit/expanded)
+  [1761/2000] 47815: pushed - part-number/ETK only (+5 ETK rows)
+  [1762/2000] 51352: skip - already 29 vehicles (multi-fit/expanded)
+  [1763/2000] 49674: skip - already 58 vehicles (multi-fit/expanded)
+  [1764/2000] 47783: skip - already 137 vehicles (multi-fit/expanded)
+  [1765/2000] 51388: skip - already 11 vehicles (multi-fit/expanded)
+  [1766/2000] 49673: skip - already 93 vehicles (multi-fit/expanded)
+  [1767/2000] 47577: skip - already 53 vehicles (multi-fit/expanded)
+  [1768/2000] 51248: skip - already 10 vehicles (multi-fit/expanded)
+  [1769/2000] 48452: skip - no Shopify donor for SKU
+  [1770/2000] 50429: skip - already 396 vehicles (multi-fit/expanded)
+  [1771/2000] 51084: skip - already 5 vehicles (multi-fit/expanded)
+  [1772/2000] 48658: skip - already 59 vehicles (multi-fit/expanded)
+  [1773/2000] 51773: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1774/2000] 52192: skip - already 89 vehicles (multi-fit/expanded)
+  [1775/2000] 51853: skip - already 2 vehicles (multi-fit/expanded)
+  [1776/2000] 51776: skip - already 9 vehicles (multi-fit/expanded)
+  [1777/2000] 49491: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1778/2000] 52276: skip - already 59 vehicles (multi-fit/expanded)
+  [1779/2000] 50341: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1780/2000] 52171: skip - already 221 vehicles (multi-fit/expanded)
+  [1781/2000] 49700: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1782/2000] 47804: skip - already 5 vehicles (multi-fit/expanded)
+  [1783/2000] 50680: skip - already 638 vehicles (multi-fit/expanded)
+  [1784/2000] 51786: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1785/2000] 51757: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1786/2000] 51338: skip - already 72 vehicles (multi-fit/expanded)
+  [1787/2000] 50661: skip - already 410 vehicles (multi-fit/expanded)
+  [1788/2000] 51631: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [1789/2000] 47910: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1790/2000] 48014: skip - already 502 vehicles (multi-fit/expanded)
+  [1791/2000] 49421: skip - category 169395 never renders fitment on eBay
+  [1792/2000] 51899: skip - category 169395 never renders fitment on eBay
+  [1793/2000] 50425: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1794/2000] 49819: skip - already 69 vehicles (multi-fit/expanded)
+  [1795/2000] 49350: skip - already 87 vehicles (multi-fit/expanded)
+  [1796/2000] 49435: skip - category 180140 never renders fitment on eBay
+  [1797/2000] 50325: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1798/2000] 49304: skip - already 16 vehicles (multi-fit/expanded)
+  [1799/2000] 48382: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1800/2000] 47909: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1801/2000] 51251: pushed - part-number/ETK only (+12 ETK rows)
+  [1802/2000] 52268: skip - already 174 vehicles (multi-fit/expanded)
+  [1803/2000] 48397: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1804/2000] 52018: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1805/2000] 47998: review - Rule B on G12 needs an engine or donor model.
+  [1806/2000] 48329: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1807/2000] 52315: skip - already 90 vehicles (multi-fit/expanded)
+  [1808/2000] 49802: skip - already 402 vehicles (multi-fit/expanded)
+  [1809/2000] 50522: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1810/2000] 47945: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1811/2000] 48453: skip - no Shopify donor for SKU
+  [1812/2000] 52017: skip - category 107062 never renders fitment on eBay
+  [1813/2000] 50820: skip - already 186 vehicles (multi-fit/expanded)
+  [1814/2000] 51263: skip - category 179671 never renders fitment on eBay
+  [1815/2000] 51898: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1816/2000] 47780: skip - category 33643 never renders fitment on eBay
+  [1817/2000] 49661: skip - already 42 vehicles (multi-fit/expanded)
+  [1818/2000] 50632: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [1819/2000] 47927: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1820/2000] 51851: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1821/2000] 51982: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1822/2000] 52012: skip - already 16 vehicles (multi-fit/expanded)
+  [1823/2000] 48158: skip - category 21647 never renders fitment on eBay
+  [1824/2000] 49466: skip - category 107062 never renders fitment on eBay
+  [1825/2000] 50422: skip - already 161 vehicles (multi-fit/expanded)
+  [1826/2000] 48574: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1827/2000] 52300: skip - already 13 vehicles (multi-fit/expanded)
+  [1828/2000] 48121: skip - category 107062 never renders fitment on eBay
+  [1829/2000] 50806: skip - category 107062 never renders fitment on eBay
+  [1830/2000] 51627: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1831/2000] 51015: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1832/2000] 47848: skip - already 9 vehicles (multi-fit/expanded)
+  [1833/2000] 50675: skip - already 3 vehicles (multi-fit/expanded)
+  [1834/2000] 48230: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1835/2000] 49678: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1836/2000] 49547: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1837/2000] 49589: skip - already 12 vehicles (multi-fit/expanded)
+  [1838/2000] 50289: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1839/2000] 50575: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1840/2000] 50295: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1841/2000] 47978: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1842/2000] 50848: skip - already 52 vehicles (multi-fit/expanded)
+  [1843/2000] 51749: skip - already 43 vehicles (multi-fit/expanded)
+  [1844/2000] 48420: skip - no Shopify donor for SKU
+  [1845/2000] 48173: skip - category 107062 never renders fitment on eBay
+  [1846/2000] 48455: skip - no Shopify donor for SKU
+  [1847/2000] 48607: skip - already 27 vehicles (multi-fit/expanded)
+  [1848/2000] 51799: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1849/2000] 52435: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1850/2000] 49486: skip - category 107062 never renders fitment on eBay
+  [1851/2000] 48000: skip - already 6 vehicles (multi-fit/expanded)
+  [1852/2000] 47850: skip - already 9 vehicles (multi-fit/expanded)
+  [1853/2000] 50864: skip - already 2 vehicles (multi-fit/expanded)
+  [1854/2000] 49914: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1855/2000] 51363: pushed - part-number/ETK only (+10 ETK rows)
+  [1856/2000] 48583: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1857/2000] 48414: skip - no Shopify donor for SKU
+  [1858/2000] 51370: skip - category 107062 never renders fitment on eBay
+  [1859/2000] 51876: skip - already 80 vehicles (multi-fit/expanded)
+  [1860/2000] 50821: skip - already 186 vehicles (multi-fit/expanded)
+  [1861/2000] 52031: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1862/2000] 51285: skip - already 245 vehicles (multi-fit/expanded)
+  [1863/2000] 51014: skip - already 325 vehicles (multi-fit/expanded)
+  [1864/2000] 51229: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1865/2000] 48395: skip - no Shopify donor for SKU
+  [1866/2000] 50404: skip - already 39 vehicles (multi-fit/expanded)
+  [1867/2000] 52255: skip - already 162 vehicles (multi-fit/expanded)
+  [1868/2000] 48299: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1869/2000] 52236: pushed - not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps >
+  [1870/2000] 49758: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1871/2000] 50424: skip - category 33643 never renders fitment on eBay
+  [1872/2000] 51395: pushed - not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Par
+  [1873/2000] 49696: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1874/2000] 51596: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exhaust & Emission
+  [1875/2000] 52008: skip - already 31 vehicles (multi-fit/expanded)
+  [1876/2000] 51864: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1877/2000] 48437: skip - no Shopify donor for SKU
+  [1878/2000] 48015: skip - already 13 vehicles (multi-fit/expanded)
+  [1879/2000] 50267: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1880/2000] 52405: skip - already 21 vehicles (multi-fit/expanded)
+  [1881/2000] 49443: skip - category 258038 never renders fitment on eBay
+  [1882/2000] 51224: skip - already 325 vehicles (multi-fit/expanded)
+  [1883/2000] 49202: skip - already 27 vehicles (multi-fit/expanded)
+  [1884/2000] 49754: skip - already 213 vehicles (multi-fit/expanded)
+  [1885/2000] 49510: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1886/2000] 51912: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1887/2000] 51236: skip - category 33643 never renders fitment on eBay
+  [1888/2000] 48021: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1889/2000] 48415: skip - no Shopify donor for SKU
+  [1890/2000] 48194: skip - category 107062 never renders fitment on eBay
+  [1891/2000] 49186: skip - already 623 vehicles (multi-fit/expanded)
+  [1892/2000] 49251: skip - already 3 vehicles (multi-fit/expanded)
+  [1893/2000] 47607: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [1894/2000] 49958: skip - already 898 vehicles (multi-fit/expanded)
+  [1895/2000] 49411: skip - already 32 vehicles (multi-fit/expanded)
+  [1896/2000] 49830: pushed - part-number/ETK only (+93 ETK rows)
+  [1897/2000] 51042: skip - category 107062 never renders fitment on eBay
+  [1898/2000] 52037: skip - already 53 vehicles (multi-fit/expanded)
+  [1899/2000] 50651: skip - already 3 vehicles (multi-fit/expanded)
+  [1900/2000] 52029: skip - category 107062 never renders fitment on eBay
+  [1901/2000] 49665: skip - already 32 vehicles (multi-fit/expanded)
+  [1902/2000] 49409: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1903/2000] 49515: pushed - not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Par
+  [1904/2000] 50850: review - Rule B on F32 needs an engine or donor model.
+  [1905/2000] 51831: skip - category 21647 never renders fitment on eBay
+  [1906/2000] 48564: skip - already 47 vehicles (multi-fit/expanded)
+  [1907/2000] 47888: error - inventory write HTTP 400: [25604] Input error. Seller Inventory Service can not publish the data. Availability not found. Please try again or contact customer support..
+  [1908/2000] 50428: skip - already 396 vehicles (multi-fit/expanded)
+  [1909/2000] 47965: skip - already 24 vehicles (multi-fit/expanded)
+  [1910/2000] 50805: error - inventory write HTTP 400: [25604] Input error. Seller Inventory Service can not publish the data. Availability not found. Please try again or contact customer support..
+  [1911/2000] 47975: skip - already 58 vehicles (multi-fit/expanded)
+  [1912/2000] 51362: skip - category 107062 never renders fitment on eBay
+  [1913/2000] 52061: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1914/2000] 50801: skip - already 42 vehicles (multi-fit/expanded)
+  [1915/2000] 51254: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1916/2000] 51384: skip - already 56 vehicles (multi-fit/expanded)
+  [1917/2000] 49398: skip - category 107062 never renders fitment on eBay
+  [1918/2000] 52142: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1919/2000] 48416: skip - no Shopify donor for SKU
+  [1920/2000] 49327: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1921/2000] 48471: skip - no Shopify donor for SKU
+  [1922/2000] 50371: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1923/2000] 48555: skip - no Shopify donor for SKU
+  [1924/2000] 52313: skip - category 33643 never renders fitment on eBay
+  [1925/2000] 48551: skip - no Shopify donor for SKU
+  [1926/2000] 51769: skip - already 25 vehicles (multi-fit/expanded)
+  [1927/2000] 47838: review - Rule B on G12 needs an engine or donor model.
+  [1928/2000] 50649: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1929/2000] 49446: skip - already 21 vehicles (multi-fit/expanded)
+  [1930/2000] 51279: skip - already 93 vehicles (multi-fit/expanded)
+  [1931/2000] 51256: pushed - part-number/ETK only (+96 ETK rows)
+  [1932/2000] 50995: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1933/2000] 51298: pushed - not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Par
+  [1934/2000] 49840: skip - already 55 vehicles (multi-fit/expanded)
+  [1935/2000] 47889: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1936/2000] 48558: pushed - part-number/ETK only (+74 ETK rows)
+  [1937/2000] 51818: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1938/2000] 49520: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [1939/2000] 49610: skip - already 26 vehicles (multi-fit/expanded)
+  [1940/2000] 49531: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1941/2000] 51011: skip - already 9 vehicles (multi-fit/expanded)
+  [1942/2000] 49639: skip - already 9 vehicles (multi-fit/expanded)
+  [1943/2000] 51830: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1944/2000] 51789: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1945/2000] 52305: pushed - part-number/ETK only (+12 ETK rows)
+  [1946/2000] 51827: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1947/2000] 51217: skip - already 32 vehicles (multi-fit/expanded)
+  [1948/2000] 50311: skip - already 157 vehicles (multi-fit/expanded)
+  [1949/2000] 51366: review - Rule B on F48 needs an engine or donor model.
+  [1950/2000] 47859: skip - already 425 vehicles (multi-fit/expanded)
+  [1951/2000] 50667: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1952/2000] 51276: skip - already 80 vehicles (multi-fit/expanded)
+  [1953/2000] 49334: skip - already 39 vehicles (multi-fit/expanded)
+  [1954/2000] 48389: skip - no Shopify donor for SKU
+  [1955/2000] 48346: skip - category 107062 never renders fitment on eBay
+  [1956/2000] 51615: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1957/2000] 52864: skip - already 793 vehicles (multi-fit/expanded)
+  [1958/2000] 52160: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1959/2000] 47911: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1960/2000] 52740: skip - already 25 vehicles (multi-fit/expanded)
+  [1961/2000] 51177: skip - already 197 vehicles (multi-fit/expanded)
+  [1962/2000] 52884: skip - already 25 vehicles (multi-fit/expanded)
+  [1963/2000] 53412: skip - already 14 vehicles (multi-fit/expanded)
+  [1964/2000] 54037: skip - already 22 vehicles (multi-fit/expanded)
+  [1965/2000] 54128: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1966/2000] 51192: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1967/2000] 53777: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1968/2000] 52321: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1969/2000] 53897: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1970/2000] 53328: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [1971/2000] 51683: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1972/2000] 53676: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [1973/2000] 53828: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1974/2000] 52238: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [1975/2000] 53568: skip - already 59 vehicles (multi-fit/expanded)
+  [1976/2000] 53532: pushed - part-number/ETK only (+96 ETK rows) [catalog: 14 dropped_vehicle]
+  [1977/2000] 53375: review - unresolved chassis: ambiguous series 'E36' / model '?': ['E36', 'E36 M3', 'E36/7
+  [1978/2000] 53790: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1979/2000] 53817: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1980/2000] 53349: skip - already 40 vehicles (multi-fit/expanded)
+  [1981/2000] 53719: skip - already 11 vehicles (multi-fit/expanded)
+  [1982/2000] 53500: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1983/2000] 51950: skip - already 84 vehicles (multi-fit/expanded)
+  [1984/2000] 52552: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [1985/2000] 53722: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1986/2000] 53006: skip - already 27 vehicles (multi-fit/expanded)
+  [1987/2000] 53017: skip - already 41 vehicles (multi-fit/expanded)
+  [1988/2000] 53302: skip - already 43 vehicles (multi-fit/expanded)
+  [1989/2000] 53011: review - Rule B on F15 needs an engine or donor model.
+  [1990/2000] 52488: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1991/2000] 52811: skip - already 197 vehicles (multi-fit/expanded)
+  [1992/2000] 52994: skip - already 8 vehicles (multi-fit/expanded)
+  [1993/2000] 53307: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1994/2000] 53020: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [1995/2000] 53376: skip - already 18 vehicles (multi-fit/expanded)
+  [1996/2000] 54125: skip - already 50 vehicles (multi-fit/expanded)
+  [1997/2000] 53031: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [1998/2000] 53779: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [1999/2000] 52509: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [2000/2000] 52477: skip - already 34 vehicles (multi-fit/expanded)
+Skip cache: +622 recorded, 11730 held (these are not re-checked until their TTL lapses)
+
+Summary: {'pushed': 272, 'skip': 1582, 'review': 143, 'error': 3}
+Plan written -> data/batch_plan.csv  |  ledger updated
+[2026-09-03 09:38:29] sweep finished (exit 0)
+Auditing 300 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 294/300 display (98%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule -: 17/18 display (94%)
+   Rule A: 251/255 display (98%)
+   Rule B: 26/27 display (96%)
+
+Categories where NOTHING displays:
+   cat 35563: 0/1   [B] all engine-restricted -> re-check after a re-sweep, else category-level
+
+FAIL: 66.7% of scorable SKUs display (2/3), below the 70.0% threshold. (297 SKU(s) excluded: categories eBay never renders fitment in)
+Fitment is being pushed but not shown -- stop sweeping until this is understood.
+[2026-09-03 09:47:10] display audit below threshold
+(rotating drift sample: 250 of 5793 ledgered SKUs, offset 3570)
+Auditing 250 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 95/127 display (74%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule -: 1/1 display (100%)
+   Rule A: 76/108 display (70%)
+   Rule B: 18/18 display (100%)
+
+Categories where NOTHING displays:
+   cat 107062: 0/9   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 38771: 0/8   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 179671: 0/7   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 174119: 0/2   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 21647: 0/2   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 9886: 0/1   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 169395: 0/1   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 33697: 0/1   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+
+Display rate 100.0% (1/1) is at or above the 60.0% threshold. (126 SKU(s) excluded: categories eBay never renders fitment in)
+
+Per-SKU detail -> data/drift_audit.csv
