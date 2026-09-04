@@ -199,6 +199,18 @@ SKIP_TTL_DAYS = {
     "unresolved chassis": 30,         # a data gap, fixed by editing the reference not by retrying
     "no published offer": 7,          # ended/sold -- but could be relisted
     "no Shopify donor": 7,            # a donor tag could be added
+    # A category eBay does not render fitment in is the most stable fact here -- the
+    # listing's category rarely changes and the category's behaviour is eBay's, not ours.
+    # This was MISSING, so skip_ttl() returned None ("always re-check") and these were
+    # re-evaluated every single night: 999 of the 2,000-SKU nightly budget on 2026-09-04,
+    # HALF the run, spent rediscovering the same dead categories while only 199 SKUs got
+    # pushed. Caching them is the single biggest throughput win available.
+    #
+    # 30 days, not longer, because the category CAN be revived: ebay_display_audit --learn
+    # takes a category back off the skip list the moment one SKU in it displays. A revived
+    # category's cached SKUs then heal as their entries expire, so the ceiling on being
+    # wrong is one month rather than forever.
+    "never renders": 30,
 }
 
 

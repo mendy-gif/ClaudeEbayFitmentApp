@@ -1447,9 +1447,44 @@ def t_api_retries_timeouts():
     eq("_transport_error" in body, True, "and says why, so the caller can record it")
 
 
+def t_skip_ttl_coverage():
+    """Every skip reason the sweep can EMIT must have a TTL, or skip_ttl returns None and
+    that skip is re-evaluated every single night forever. "never renders" was missing: on
+    2026-09-04 that burned 999 of the 2,000-SKU nightly budget -- half the run -- while only
+    199 SKUs were actually pushed."""
+    print("skip-cache TTL coverage:")
+    import ebay_batch as EB
+
+    # the reasons process_sku actually produces, verbatim in shape
+    STABLE = [
+        ("category 107062 never renders fitment on eBay", "never renders"),
+        ("already 42 vehicles (multi-fit/expanded)",      "already"),
+        ("no published offer (offer exists but not PUBLISHED (ended/sold?))", "no published offer"),
+        ("no Shopify donor for SKU",                      "no Shopify donor"),
+        ("offer read HTTP 404",                           "offer read HTTP 404"),
+        ("unresolved chassis: series 'None' not in BMW ref", "unresolved chassis"),
+        ("non-BMW donor",                                 "non-BMW"),
+    ]
+    for reason, label in STABLE:
+        ttl = EB.skip_ttl(reason)
+        eq(isinstance(ttl, int) and ttl > 0, True,
+           f"'{label}' is cached, not re-checked nightly (got {ttl})")
+
+    # TRANSIENT failures must NEVER be cached -- caching a failure to LOOK would hide a
+    # listing that is actually fine.
+    for reason in ("guard read failed (timeout) - skipped to protect existing fitment",
+                   "offer read HTTP 503", "rate limited"):
+        eq(EB.skip_ttl(reason), None, f"transient not cached: {reason[:34]}")
+
+    # the dead-category TTL must be BOUNDED, because --learn can revive a category and its
+    # cached SKUs only heal when their entries expire.
+    ttl = EB.skip_ttl("category 33643 never renders fitment on eBay")
+    eq(0 < ttl <= 90, True, f"dead-category TTL is bounded so a revived category heals ({ttl}d)")
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_shopify_env_parsing, t_api_retries_timeouts, t_etk_source, t_error_summary, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_shopify_env_parsing, t_api_retries_timeouts, t_skip_ttl_coverage, t_etk_source, t_error_summary, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()
