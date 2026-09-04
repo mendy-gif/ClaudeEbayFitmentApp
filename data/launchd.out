@@ -57,3 +57,13 @@ error: Please commit or stash them.
 [2026-09-03 08:38:23] sweeping (live)...
 [2026-09-03 09:38:29] sweep finished (exit 0)
 [2026-09-03 09:47:10] display audit below threshold
+[2026-09-03 09:54:26] state pushed (attempt 1)
+[2026-09-03 09:54:26] === done ===
+[2026-09-04 08:30:03] === nightly sweep starting (limit 2000) ===
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+[2026-09-04 08:30:17] selftest passed
+[2026-09-04 08:30:17] eBay auth OK
+[2026-09-04 08:38:39] donor dump refreshed from Shopify
+[2026-09-04 08:38:39] sweeping (live)...
+[2026-09-04 09:36:17] sweep finished (exit 0)
