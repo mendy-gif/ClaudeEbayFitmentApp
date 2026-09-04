@@ -62,11 +62,19 @@ else
   say "         Cars parted out since the last refresh are invisible to this run."
 fi
 
-say "sweeping (live)..."
+# SIZE THE RUN TO THE ACTUAL ALLOWANCE, rather than a fixed guess. The old hard limit of
+# 2,000 consumed only 1,070 of the 5,000/day GetItem quota (21%) -- most SKUs are decided on
+# cheap Inventory reads and never reach the Trading guard. ebay_quota.py asks eBay what is
+# left, reserves enough for the two audits, and sizes from there. It falls back to 2,000 if
+# the quota endpoint is unreachable, so a failed read can never push the run HIGHER.
+LIMIT=$($CAF python3 scripts/ebay_quota.py --limit 2>/dev/null || echo "$NIGHTLY_LIMIT")
+case "$LIMIT" in ''|*[!0-9]*) LIMIT="$NIGHTLY_LIMIT" ;; esac
+say "quota check: $($CAF python3 scripts/ebay_quota.py 2>/dev/null | tr '\n' ' ')"
+say "sweeping (live), limit $LIMIT..."
 $CAF python3 scripts/ebay_batch.py apply --from-shopify --from-inventory --live \
   --partnumber-fitment spreadsheet-fitment/data/built/ebay_ready_fitment.csv \
   --etk-fitment data/etk_fitment.csv.gz \
-  --limit "$NIGHTLY_LIMIT" >>"$LOG" 2>&1
+  --limit "$LIMIT" >>"$LOG" 2>&1
 say "sweep finished (exit $?)"
 
 # Did what we pushed actually DISPLAY? The ledger only proves we pushed.

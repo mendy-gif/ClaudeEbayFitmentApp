@@ -1482,9 +1482,51 @@ def t_skip_ttl_coverage():
     eq(0 < ttl <= 90, True, f"dead-category TTL is bounded so a revived category heals ({ttl}d)")
 
 
+def t_quota_sizing():
+    """The nightly ran with a fixed --limit 2000 that consumed only 21% of the GetItem
+    allowance. Sizing to the live quota is right, but the failure modes matter more than the
+    happy path: a bad quota read must never make the run BIGGER."""
+    print("adaptive quota sizing:")
+    import ebay_quota as Q
+    saved = Q.getitem_quota
+    try:
+        def q(used, cap): return lambda: (used, cap, cap - used)
+
+        Q.getitem_quota = q(1070, 5000)
+        n, _ = Q.safe_limit()
+        eq(Q.MIN_LIMIT <= n <= Q.MAX_LIMIT, True, f"a normal day sizes within bounds ({n})")
+        eq(n > 2000, True, f"and bigger than the old fixed 2000 ({n})")
+
+        # the whole point of the reserve: never eat the audits' budget
+        Q.getitem_quota = q(4500, 5000)          # 500 left, under the 700 reserve
+        n, why = Q.safe_limit()
+        eq(n, Q.MIN_LIMIT, "with less than the audit reserve left, drop to the floor")
+        eq("reserve" in why or "left" in why, True, "and say why")
+
+        Q.getitem_quota = q(5000, 5000)          # exhausted
+        eq(Q.safe_limit()[0], Q.MIN_LIMIT, "an exhausted quota does not produce a huge limit")
+
+        # a HUGE allowance must still be bounded, or a run could last all day
+        Q.getitem_quota = q(0, 5_000_000)
+        eq(Q.safe_limit()[0], Q.MAX_LIMIT, "a vast quota is capped by MAX_LIMIT (runtime)")
+
+        # THE IMPORTANT ONE: an unreadable quota must fall back CONSERVATIVELY, never high
+        Q.getitem_quota = lambda: None
+        n, why = Q.safe_limit()
+        eq(n, 2000, "an unreadable quota falls back to the old fixed limit, not higher")
+        eq("unreadable" in why, True, "and says so, so the log shows it degraded")
+
+        # the reserve must actually be subtracted, not just described
+        Q.getitem_quota = q(0, 5000)
+        eq(Q.safe_limit()[0] <= int((5000 - Q.AUDIT_RESERVE) / Q.GUARD_RATE), True,
+           "the audit reserve is genuinely deducted from the budget")
+    finally:
+        Q.getitem_quota = saved
+
+
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_shopify_env_parsing, t_api_retries_timeouts, t_skip_ttl_coverage, t_etk_source, t_error_summary, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_shopify_env_parsing, t_api_retries_timeouts, t_skip_ttl_coverage, t_quota_sizing, t_etk_source, t_error_summary, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()

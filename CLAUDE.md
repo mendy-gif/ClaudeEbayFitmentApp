@@ -223,6 +223,11 @@ Key flags: `--from-shopify` (donor source), `--from-inventory` (enumerate live e
 - `scripts/ebay_writer.py` — single-SKU compatibility writer (used by the batch runner).
 - `scripts/ebay_fetch_categories.py` / `ebay_fetch_bmw_catalog.py` — one-time reference builders.
 - `spreadsheet-fitment/` — Approach 2: part-number → historical vehicles (the union's second source).
+- `scripts/ebay_quota.py` — reads eBay's live GetItem allowance and sizes the nightly to
+  fit. The old fixed `--limit 2000` used only 21% of the 5,000/day quota, because most
+  SKUs are decided on cheap Inventory reads and never reach the Trading guard. Reserves
+  700 calls for the audits; falls back to 2,000 if the quota endpoint is unreachable
+  (never guesses HIGH on a failed read). `--limit` prints just the number.
 - `scripts/nightly_local.sh` — **the nightly sweep**, run on the Mac by launchd
   (`~/Library/LaunchAgents/com.mendy.fitment-sweep.plist`, 05:30 local). Moved here on
   2026-08-28 because GitHub silently dropped the scheduled trigger two nights in three —
