@@ -19690,3 +19690,563 @@ Categories where NOTHING displays:
 Display rate 100.0% (1/1) is at or above the 60.0% threshold. (89 SKU(s) excluded: categories eBay never renders fitment in)
 
 Per-SKU detail -> data/drift_audit.csv
+[2026-09-05 10:39:20] state pushed (attempt 1)
+[2026-09-05 10:39:20] === done ===
+[2026-09-06 08:30:04] === nightly sweep starting (limit 2000) ===
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+Offline self-test (no network)
+
+Reference data:
+  PASS  chassis reference loaded (112 rows)
+  PASS  engine map loaded (396 rows)
+  PASS  eBay model vocabulary loaded (269 models)
+Rule engine:
+  PASS  Rule A/B expand works (335i 2014: A=49 rows > B=14 rows)
+  PASS  expand_from_chassis works (G87 -> 4 rows)
+  PASS  resolve_chassis disambiguates E90+M3 -> 'E90 M3'
+Classifier:
+  PASS  classifier config loaded (10 engine branches, default=B)
+  PASS  classify logic: engine branch -> B, other -> A
+  PASS  category tree present
+Shopify donors:
+  PASS  Shopify donor dump loaded (15512 SKUs, 15512 BMW)
+Part-number + union:
+  PASS  part-number fitment loaded (752 SKUs)
+  PASS  all part-number models are in the eBay catalog vocabulary
+  PASS  part-number chassis expansion is a superset of literal (sampled 100 SKUs)
+  PASS  union+dedupe correct (2 chassis + 2 pn, 1 overlap -> 3)
+Display path (trim/catalog validation):
+  PASS  display-path tests: (349/349 checks passed)
+
+Result: PASS  (0 fail, 0 warn)
+[2026-09-06 08:30:18] selftest passed
+OK - minted an access token valid ~7200s (120 min). Scopes: https://api.ebay.com/oauth/api_scope/sell.inventory
+[2026-09-06 08:30:19] eBay auth OK
+  page 20: 426 BMW donors (74 other makes skipped)
+  page 40: 926 BMW donors (74 other makes skipped)
+  page 60: 1425 BMW donors (75 other makes skipped)
+  page 80: 1924 BMW donors (76 other makes skipped)
+  page 100: 2424 BMW donors (76 other makes skipped)
+  page 120: 2921 BMW donors (79 other makes skipped)
+  page 140: 3421 BMW donors (79 other makes skipped)
+  page 160: 3917 BMW donors (83 other makes skipped)
+  page 180: 4415 BMW donors (85 other makes skipped)
+  page 200: 4914 BMW donors (86 other makes skipped)
+  page 220: 5334 BMW donors (166 other makes skipped)
+  page 240: 5787 BMW donors (213 other makes skipped)
+  page 260: 6252 BMW donors (248 other makes skipped)
+  page 280: 6744 BMW donors (256 other makes skipped)
+  page 300: 7154 BMW donors (346 other makes skipped)
+  page 320: 7541 BMW donors (459 other makes skipped)
+  page 340: 8041 BMW donors (459 other makes skipped)
+  page 360: 8526 BMW donors (474 other makes skipped)
+  page 380: 8991 BMW donors (509 other makes skipped)
+  page 400: 9444 BMW donors (556 other makes skipped)
+  page 420: 9939 BMW donors (561 other makes skipped)
+  page 440: 10438 BMW donors (562 other makes skipped)
+  page 460: 10846 BMW donors (654 other makes skipped)
+  page 480: 11122 BMW donors (878 other makes skipped)
+  page 500: 11525 BMW donors (975 other makes skipped)
+  page 520: 12022 BMW donors (978 other makes skipped)
+  page 540: 12518 BMW donors (982 other makes skipped)
+  page 560: 13011 BMW donors (989 other makes skipped)
+  page 580: 13499 BMW donors (1001 other makes skipped)
+  page 600: 13908 BMW donors (1092 other makes skipped)
+  page 620: 14310 BMW donors (1189 other makes skipped)
+  page 640: 14614 BMW donors (1384 other makes skipped)
+  page 660: 14998 BMW donors (1500 other makes skipped)
+  page 680: 15275 BMW donors (1723 other makes skipped)
+Wrote 15491 donors (-21 vs previous 15512) -> data/shopify_donors.json
+  fields: year 9436/15491  |  chassis 15422/15491  |  engine 9080/15491
+[2026-09-06 08:38:38] donor dump refreshed from Shopify
+[2026-09-06 08:38:40] quota check: GetItem: 1/5,000 used, 4,999 left (0%) sweep limit tonight: 7,165 SKUs   (4999 of 5000 left, reserving 700 for audits) 
+[2026-09-06 08:38:40] sweeping (live), limit 7165...
+  ETK fitment: 7686 SKU(s), 560843 rows loaded
+  part-number fitment: 752 SKU(s), 3763 rows loaded (expanded to chassis families at push time)
+  skipped 40 out-of-stock SKU(s) (sold -- fitment would help nobody)
+  23721 SKU(s) on eBay  |  5998 ledgered  |  17547 cached skips  |  439 to consider
+Mode: apply (LIVE)  |  donor=Shopify  |  439 SKU(s)  |  ledger has 5998
+  [1/439] 44889: skip - no Shopify donor for SKU
+  [2/439] 44892: skip - no Shopify donor for SKU
+  [3/439] 45018: skip - no Shopify donor for SKU
+  [4/439] 45044: skip - no Shopify donor for SKU
+  [5/439] 45053: skip - no Shopify donor for SKU
+  [6/439] 45056: skip - no Shopify donor for SKU
+  [7/439] 45079: skip - no Shopify donor for SKU
+  [8/439] 45262: skip - no Shopify donor for SKU
+  [9/439] 45263: skip - no Shopify donor for SKU
+  [10/439] 45271: skip - no Shopify donor for SKU
+  [11/439] 45272: skip - no Shopify donor for SKU
+  [12/439] 45284: skip - no Shopify donor for SKU
+  [13/439] 45322: skip - no Shopify donor for SKU
+  [14/439] 45333: skip - no Shopify donor for SKU
+  [15/439] 45334: skip - no Shopify donor for SKU
+  [16/439] 45359: skip - no Shopify donor for SKU
+  [17/439] 45363: skip - no Shopify donor for SKU
+  [18/439] 45367: skip - no Shopify donor for SKU
+  [19/439] 45384: skip - no Shopify donor for SKU
+  [20/439] 45408: skip - no Shopify donor for SKU
+  [21/439] 45417: skip - no Shopify donor for SKU
+  [22/439] 45494: skip - no Shopify donor for SKU
+  [23/439] 46254: skip - no Shopify donor for SKU
+  [24/439] 46266: skip - no Shopify donor for SKU
+  [25/439] 46268: skip - no Shopify donor for SKU
+  [26/439] 23280: error - inventory write HTTP 400: [25002] A user error has occurred. Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on details. (0=Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on
+  [27/439] 50686: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [28/439] 50681: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [29/439] 65007: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [30/439] 65001: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [31/439] 61302: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [32/439] 49063: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [33/439] 49008: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [34/439] 49009: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [35/439] 49560: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [36/439] 50646: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [37/439] 49559: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [38/439] 53396: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [39/439] 53379: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [40/439] 53212: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [41/439] 52993: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [42/439] 53099: pushed - under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine 
+  [43/439] 52036: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [44/439] 51010: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [45/439] 51812: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [46/439] 52153: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [47/439] 699: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [48/439] 43378: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [49/439] 63700: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [50/439] 63615: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [51/439] 61942: pushed - part type 'Module' is not engine-dependent (category said B)
+  [52/439] 3192: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [53/439] 39856: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [54/439] 43380: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [55/439] 52966: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [56/439] 51703: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [57/439] 52981: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [58/439] 6125: error - inventory write HTTP 400: [25023] Invalid compatibility information. The item compatibilities cannot be changed or removed if an auction-style listing has a bid or ends within 12 hours, or a fixed price listing has a pending Best Offer. (0=COMPATIBILITY)
+  [59/439] 32620: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [60/439] 32532: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [61/439] 48369: skip - no Shopify donor for SKU
+  [62/439] 48409: skip - no Shopify donor for SKU
+  [63/439] 48433: skip - no Shopify donor for SKU
+  [64/439] 48522: skip - no Shopify donor for SKU
+  [65/439] 48643: skip - no Shopify donor for SKU
+  [66/439] 49790: skip - no Shopify donor for SKU
+  [67/439] 50019: skip - no Shopify donor for SKU
+  [68/439] 50020: skip - no Shopify donor for SKU
+  [69/439] 50021: skip - no Shopify donor for SKU
+  [70/439] 50023: skip - no Shopify donor for SKU
+  [71/439] 50025: skip - no Shopify donor for SKU
+  [72/439] 50029: skip - no Shopify donor for SKU
+  [73/439] 50062: skip - no Shopify donor for SKU
+  [74/439] 50093: skip - no Shopify donor for SKU
+  [75/439] 51208: skip - no Shopify donor for SKU
+  [76/439] 50925: skip - no Shopify donor for SKU
+  [77/439] 1267: skip - no Shopify donor for SKU
+  [78/439] 1266: skip - no Shopify donor for SKU
+  [79/439] 43682: skip - no Shopify donor for SKU
+  [80/439] 64488: skip - no Shopify donor for SKU
+  [81/439] 50561: skip - no Shopify donor for SKU
+  [82/439] 50562: skip - no Shopify donor for SKU
+  [83/439] 50574: skip - no Shopify donor for SKU
+  [84/439] 50581: skip - no Shopify donor for SKU
+  [85/439] 50599: skip - no Shopify donor for SKU
+  [86/439] 50690: skip - no Shopify donor for SKU
+  [87/439] 50768: skip - no Shopify donor for SKU
+  [88/439] 50794: skip - no Shopify donor for SKU
+  [89/439] 50882: skip - no Shopify donor for SKU
+  [90/439] 50970: skip - no Shopify donor for SKU
+  [91/439] 50974: skip - no Shopify donor for SKU
+  [92/439] 50976: skip - no Shopify donor for SKU
+  [93/439] 51115: skip - no Shopify donor for SKU
+  [94/439] 50058: skip - no Shopify donor for SKU
+  [95/439] 45166: skip - no Shopify donor for SKU
+  [96/439] 42878: skip - no Shopify donor for SKU
+  [97/439] 45364: skip - no Shopify donor for SKU
+  [98/439] 45032: skip - no Shopify donor for SKU
+  [99/439] 45221: skip - no Shopify donor for SKU
+  [100/439] 44090: skip - no Shopify donor for SKU
+  [101/439] 43966: skip - no Shopify donor for SKU
+  [102/439] 61770: skip - no Shopify donor for SKU
+  [103/439] 60364: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [104/439] 62522: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [105/439] 62523: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [106/439] 51142: skip - no Shopify donor for SKU
+  [107/439] 51205: skip - no Shopify donor for SKU
+  [108/439] 51206: skip - no Shopify donor for SKU
+  [109/439] 4310: skip - no Shopify donor for SKU
+  [110/439] 4307: skip - no Shopify donor for SKU
+  [111/439] 1221: skip - no Shopify donor for SKU
+  [112/439] 62515: skip - no Shopify donor for SKU
+  [113/439] 48338: skip - no Shopify donor for SKU
+  [114/439] 48591: skip - no Shopify donor for SKU
+  [115/439] 50228: skip - no Shopify donor for SKU
+  [116/439] 50652: skip - no Shopify donor for SKU
+  [117/439] 1281: skip - no Shopify donor for SKU
+  [118/439] 1284: skip - no Shopify donor for SKU
+  [119/439] 1283: skip - no Shopify donor for SKU
+  [120/439] 1289: skip - no Shopify donor for SKU
+  [121/439] 53727: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [122/439] 4003: skip - no Shopify donor for SKU
+  [123/439] 64314: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [124/439] 26388: review - Rule B on F97 needs an engine or donor model.
+  [125/439] 29774: review - Rule B on G30 needs an engine or donor model.
+  [126/439] 32116: review - Rule B on F39 needs an engine or donor model.
+  [127/439] 26780: review - Rule B on G01 needs an engine or donor model.
+  [128/439] 25724: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [129/439] 31626: review - Rule B on G05 needs an engine or donor model.
+  [130/439] 26886: review - Rule B on G29 needs an engine or donor model.
+  [131/439] 30473: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [132/439] 26812: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [133/439] 27273: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [134/439] 23025: skip - no Shopify donor for SKU
+  [135/439] 23539: review - Rule B on G12 needs an engine or donor model.
+  [136/439] 31594: review - Rule B on F48 needs an engine or donor model.
+  [137/439] 32156: skip - no Shopify donor for SKU
+  [138/439] 30801: skip - no Shopify donor for SKU
+  [139/439] 26884: review - Rule B on G29 needs an engine or donor model.
+  [140/439] 27333: review - Rule B on G30 needs an engine or donor model.
+  [141/439] 26944: review - Rule B on G29 needs an engine or donor model.
+  [142/439] 12313: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [143/439] 32134: review - Rule B on F39 needs an engine or donor model.
+  [144/439] 13763: skip - no Shopify donor for SKU
+  [145/439] 29964: review - Rule B on G12 needs an engine or donor model.
+  [146/439] 27914: review - Rule B on F16 needs an engine or donor model.
+  [147/439] 21724: skip - no Shopify donor for SKU
+  [148/439] 26467: review - Rule B on G20 needs an engine or donor model.
+  [149/439] 12307: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [150/439] 29965: review - Rule B on G12 needs an engine or donor model.
+  [151/439] 12242: skip - no Shopify donor for SKU
+  [152/439] 29404: review - Rule B on G30 needs an engine or donor model.
+  [153/439] 27200: skip - no Shopify donor for SKU
+  [154/439] 30922: skip - no Shopify donor for SKU
+  [155/439] 26295: skip - no Shopify donor for SKU
+  [156/439] 32133: review - Rule B on F39 needs an engine or donor model.
+  [157/439] 27008: review - Rule B on G20 needs an engine or donor model.
+  [158/439] 43209: skip - no Shopify donor for SKU
+  [159/439] 2825: skip - no Shopify donor for SKU
+  [160/439] 4276: skip - no Shopify donor for SKU
+  [161/439] 50060: skip - no Shopify donor for SKU
+  [162/439] 2732: skip - no Shopify donor for SKU
+  [163/439] 51503: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [164/439] 5608: skip - no Shopify donor for SKU
+  [165/439] 50798: skip - no Shopify donor for SKU
+  [166/439] 2944: skip - no Shopify donor for SKU
+  [167/439] 51549: skip - no Shopify donor for SKU
+  [168/439] 62556: skip - no Shopify donor for SKU
+  [169/439] 33552: skip - no Shopify donor for SKU
+  [170/439] 2943: skip - no Shopify donor for SKU
+  [171/439] 2501: skip - no Shopify donor for SKU
+  [172/439] 51436: skip - no Shopify donor for SKU
+  [173/439] 4564: skip - no Shopify donor for SKU
+  [174/439] 48699: skip - no Shopify donor for SKU
+  [175/439] 50605: skip - no Shopify donor for SKU
+  [176/439] 4335: skip - no Shopify donor for SKU
+  [177/439] 51127: skip - no Shopify donor for SKU
+  [178/439] 51550: skip - no Shopify donor for SKU
+  [179/439] 803: skip - no Shopify donor for SKU
+  [180/439] 64204: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [181/439] 62603: skip - no Shopify donor for SKU
+  [182/439] 3778: skip - no Shopify donor for SKU
+  [183/439] 62474: skip - no Shopify donor for SKU
+  [184/439] 4368: skip - no Shopify donor for SKU
+  [185/439] 4903: skip - no Shopify donor for SKU
+  [186/439] 4343: skip - no Shopify donor for SKU
+  [187/439] 45036: skip - no Shopify donor for SKU
+  [188/439] 4365: skip - no Shopify donor for SKU
+  [189/439] 4373: skip - no Shopify donor for SKU
+  [190/439] 62590: skip - no Shopify donor for SKU
+  [191/439] 50602: skip - no Shopify donor for SKU
+  [192/439] 4176: skip - no Shopify donor for SKU
+  [193/439] 48497: skip - no Shopify donor for SKU
+  [194/439] 62476: skip - no Shopify donor for SKU
+  [195/439] 4412: skip - no Shopify donor for SKU
+  [196/439] 2830: skip - no Shopify donor for SKU
+  [197/439] 61250: skip - no Shopify donor for SKU
+  [198/439] 4570: skip - no Shopify donor for SKU
+  [199/439] 19231: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [200/439] 50597: skip - no Shopify donor for SKU
+  [201/439] 50876: skip - no Shopify donor for SKU
+  [202/439] 51134: skip - no Shopify donor for SKU
+  [203/439] 5813: skip - no Shopify donor for SKU
+  [204/439] 3959: skip - no Shopify donor for SKU
+  [205/439] 53847: skip - no Shopify donor for SKU
+  [206/439] 62588: skip - no Shopify donor for SKU
+  [207/439] 39591: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [208/439] 50767: skip - no Shopify donor for SKU
+  [209/439] 51657: skip - no Shopify donor for SKU
+  [210/439] 48680: skip - no Shopify donor for SKU
+  [211/439] 51106: skip - no Shopify donor for SKU
+  [212/439] 51128: skip - no Shopify donor for SKU
+  [213/439] 62496: skip - no Shopify donor for SKU
+  [214/439] 238: skip - no Shopify donor for SKU
+  [215/439] 4551: skip - no Shopify donor for SKU
+  [216/439] 3956: skip - no Shopify donor for SKU
+  [217/439] 50698: skip - no Shopify donor for SKU
+  [218/439] 1273: skip - no Shopify donor for SKU
+  [219/439] 2826: skip - no Shopify donor for SKU
+  [220/439] 5735: skip - no Shopify donor for SKU
+  [221/439] 4392: skip - no Shopify donor for SKU
+  [222/439] 4896: skip - no Shopify donor for SKU
+  [223/439] 50783: skip - no Shopify donor for SKU
+  [224/439] 4279: skip - no Shopify donor for SKU
+  [225/439] 3121: skip - no Shopify donor for SKU
+  [226/439] 2978: skip - no Shopify donor for SKU
+  [227/439] 4413: skip - no Shopify donor for SKU
+  [228/439] 2833: skip - no Shopify donor for SKU
+  [229/439] 51484: skip - no Shopify donor for SKU
+  [230/439] 2503: skip - no Shopify donor for SKU
+  [231/439] 4781: skip - no Shopify donor for SKU
+  [232/439] 5599: skip - no Shopify donor for SKU
+  [233/439] 51133: skip - no Shopify donor for SKU
+  [234/439] 50596: skip - no Shopify donor for SKU
+  [235/439] 50889: skip - no Shopify donor for SKU
+  [236/439] 2730: skip - no Shopify donor for SKU
+  [237/439] 3952: skip - no Shopify donor for SKU
+  [238/439] 1270: skip - no Shopify donor for SKU
+  [239/439] 3769: skip - no Shopify donor for SKU
+  [240/439] 4386: skip - no Shopify donor for SKU
+  [241/439] 48676: skip - no Shopify donor for SKU
+  [242/439] 1285: skip - no Shopify donor for SKU
+  [243/439] 4391: skip - no Shopify donor for SKU
+  [244/439] 61291: skip - no Shopify donor for SKU
+  [245/439] 62475: skip - no Shopify donor for SKU
+  [246/439] 50028: skip - no Shopify donor for SKU
+  [247/439] 61287: skip - no Shopify donor for SKU
+  [248/439] 62477: skip - no Shopify donor for SKU
+  [249/439] 4726: skip - no Shopify donor for SKU
+  [250/439] 4545: skip - no Shopify donor for SKU
+  [251/439] 46758: skip - no Shopify donor for SKU
+  [252/439] 51651: skip - no Shopify donor for SKU
+  [253/439] 459: skip - no Shopify donor for SKU
+  [254/439] 61249: skip - no Shopify donor for SKU
+  [255/439] 48513: skip - no Shopify donor for SKU
+  [256/439] 61510: skip - no Shopify donor for SKU
+  [257/439] 32135: review - Rule B on F39 needs an engine or donor model.
+  [258/439] 31761: review - Rule B on F48 needs an engine or donor model.
+  [259/439] 31717: review - Rule B on F39 needs an engine or donor model.
+  [260/439] 31729: review - Rule B on F48 needs an engine or donor model.
+  [261/439] 33187: review - Rule B on G30 needs an engine or donor model.
+  [262/439] 27190: review - Rule B on G30 needs an engine or donor model.
+  [263/439] 23169: review - Rule B on G12 needs an engine or donor model.
+  [264/439] 27815: review - Rule B on F16 needs an engine or donor model.
+  [265/439] 30702: review - Rule B on G20 needs an engine or donor model.
+  [266/439] 32132: review - Rule B on F39 needs an engine or donor model.
+  [267/439] 24002: review - Rule B on F25 needs an engine or donor model.
+  [268/439] 24884: review - Rule B on G20 needs an engine or donor model.
+  [269/439] 26618: review - Rule B on G20 needs an engine or donor model.
+  [270/439] 28367: review - Rule B on G20 needs an engine or donor model.
+  [271/439] 30721: review - Rule B on G20 needs an engine or donor model.
+  [272/439] 30933: review - Rule B on F97 needs an engine or donor model.
+  [273/439] 33360: review - Rule B on G01 needs an engine or donor model.
+  [274/439] 32484: review - Rule B on G01 needs an engine or donor model.
+  [275/439] 32803: review - Rule B on G01 needs an engine or donor model.
+  [276/439] 37125: review - Rule B on G01 needs an engine or donor model.
+  [277/439] 35733: review - Rule B on G01 needs an engine or donor model.
+  [278/439] 35764: review - Rule B on G20 needs an engine or donor model.
+  [279/439] 34068: review - Rule B on G20 needs an engine or donor model.
+  [280/439] 34052: review - Rule B on G20 needs an engine or donor model.
+  [281/439] 34763: review - Rule B on G42 needs an engine or donor model.
+  [282/439] 50185: review - Rule B on G12 needs an engine or donor model.
+  [283/439] 37189: review - Rule B on F01 needs an engine or donor model.
+  [284/439] 37479: review - Rule B on F44 needs an engine or donor model.
+  [285/439] 34842: review - Rule B on G12 needs an engine or donor model.
+  [286/439] 34843: review - Rule B on G12 needs an engine or donor model.
+  [287/439] 34714: review - Rule B on G20 needs an engine or donor model.
+  [288/439] 34221: review - Rule B on G20 needs an engine or donor model.
+  [289/439] 37929: review - Rule B on G23 needs an engine or donor model.
+  [290/439] 37703: review - Rule B on F01 needs an engine or donor model.
+  [291/439] 37604: review - Rule B on G42 needs an engine or donor model.
+  [292/439] 37637: review - Rule B on F44 needs an engine or donor model.
+  [293/439] 38252: review - Rule B on G12 needs an engine or donor model.
+  [294/439] 39126: review - Rule B on G05 needs an engine or donor model.
+  [295/439] 39607: review - Rule B on G05 needs an engine or donor model.
+  [296/439] 39606: review - Rule B on G05 needs an engine or donor model.
+  [297/439] 39273: review - Rule B on G05 needs an engine or donor model.
+  [298/439] 38251: review - Rule B on G12 needs an engine or donor model.
+  [299/439] 38048: review - Rule B on G20 needs an engine or donor model.
+  [300/439] 38145: review - Rule B on G82 needs an engine or donor model.
+  [301/439] 38084: review - Rule B on F44 needs an engine or donor model.
+  [302/439] 38388: review - Rule B on F15 needs an engine or donor model.
+  [303/439] 39259: review - Rule B on G05 needs an engine or donor model.
+  [304/439] 39612: review - Rule B on G20 needs an engine or donor model.
+  [305/439] 39405: review - Rule B on G05 needs an engine or donor model.
+  [306/439] 38492: review - Rule B on G29 needs an engine or donor model.
+  [307/439] 38627: review - Rule B on F15 needs an engine or donor model.
+  [308/439] 37665: review - Rule B on F44 needs an engine or donor model.
+  [309/439] 39422: review - Rule B on G20 needs an engine or donor model.
+  [310/439] 39228: review - Rule B on G05 needs an engine or donor model.
+  [311/439] 38950: review - Rule B on G05 needs an engine or donor model.
+  [312/439] 39279: review - Rule B on G20 needs an engine or donor model.
+  [313/439] 38201: review - Rule B on F15 needs an engine or donor model.
+  [314/439] 40689: review - Rule B on F16 needs an engine or donor model.
+  [315/439] 41728: review - Rule B on G12 needs an engine or donor model.
+  [316/439] 41729: review - Rule B on G12 needs an engine or donor model.
+  [317/439] 35318: review - Rule B on G05 needs an engine or donor model.
+  [318/439] 39900: review - Rule B on F86 needs an engine or donor model.
+  [319/439] 42721: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [320/439] 40683: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [321/439] 40695: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [322/439] 40321: skip - no Shopify donor for SKU
+  [323/439] 39529: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [324/439] 41568: review - Rule B on G42 needs an engine or donor model.
+  [325/439] 41469: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [326/439] 39554: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [327/439] 40025: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [328/439] 42636: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [329/439] 39789: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [330/439] 42442: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [331/439] 35319: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [332/439] 40551: review - Rule B on F02 needs an engine or donor model.
+  [333/439] 41958: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [334/439] 41462: skip - no Shopify donor for SKU
+  [335/439] 40653: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [336/439] 45164: skip - no Shopify donor for SKU
+  [337/439] 43398: review - Rule B on G20 needs an engine or donor model.
+  [338/439] 45431: skip - no Shopify donor for SKU
+  [339/439] 44561: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [340/439] 45358: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [341/439] 44764: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [342/439] 45299: skip - no Shopify donor for SKU
+  [343/439] 45465: skip - no Shopify donor for SKU
+  [344/439] 43660: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [345/439] 43778: review - Rule B on G23 needs an engine or donor model.
+  [346/439] 44488: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [347/439] 45297: skip - no Shopify donor for SKU
+  [348/439] 45133: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [349/439] 45389: skip - no Shopify donor for SKU
+  [350/439] 45416: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [351/439] 45175: review - Rule B on G30 needs an engine or donor model.
+  [352/439] 45824: skip - no Shopify donor for SKU
+  [353/439] 43417: review - Rule B on F25 needs an engine or donor model.
+  [354/439] 45386: skip - no Shopify donor for SKU
+  [355/439] 45883: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [356/439] 45159: skip - no Shopify donor for SKU
+  [357/439] 44559: review - Rule B on G20 needs an engine or donor model.
+  [358/439] 45125: skip - no Shopify donor for SKU
+  [359/439] 45132: skip - no Shopify donor for SKU
+  [360/439] 45406: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [361/439] 44505: review - Rule B on G20 needs an engine or donor model.
+  [362/439] 45571: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [363/439] 46345: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [364/439] 46633: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [365/439] 45387: skip - no Shopify donor for SKU
+  [366/439] 45818: skip - no Shopify donor for SKU
+  [367/439] 44649: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [368/439] 42518: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [369/439] 43501: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [370/439] 45409: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [371/439] 43026: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [372/439] 44183: review - Rule B on G20 needs an engine or donor model.
+  [373/439] 45154: skip - no Shopify donor for SKU
+  [374/439] 45126: skip - no Shopify donor for SKU
+  [375/439] 45163: skip - no Shopify donor for SKU
+  [376/439] 45390: skip - no Shopify donor for SKU
+  [377/439] 45817: skip - no Shopify donor for SKU
+  [378/439] 45049: skip - no Shopify donor for SKU
+  [379/439] 45160: skip - no Shopify donor for SKU
+  [380/439] 44248: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [381/439] 45151: skip - no Shopify donor for SKU
+  [382/439] 45829: skip - no Shopify donor for SKU
+  [383/439] 43443: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [384/439] 46085: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [385/439] 43399: review - Rule B on G20 needs an engine or donor model.
+  [386/439] 45821: skip - no Shopify donor for SKU
+  [387/439] 44506: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [388/439] 45407: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [389/439] 45155: skip - no Shopify donor for SKU
+  [390/439] 45393: skip - no Shopify donor for SKU
+  [391/439] 45128: skip - no Shopify donor for SKU
+  [392/439] 44305: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [393/439] 43811: review - Rule B on G20 needs an engine or donor model.
+  [394/439] 45825: skip - no Shopify donor for SKU
+  [395/439] 44713: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [396/439] 43363: review - Rule B on G20 needs an engine or donor model.
+  [397/439] 44762: review - Rule B on G20 needs an engine or donor model.
+  [398/439] 44177: review - Rule B on G20 needs an engine or donor model.
+  [399/439] 44501: review - Rule B on G01 needs an engine or donor model.
+  [400/439] 43674: review - Rule B on F48 needs an engine or donor model.
+  [401/439] 47133: review - Rule B on F32 needs an engine or donor model.
+  [402/439] 49042: review - Rule B on E88 needs an engine or donor model.
+  [403/439] 46823: review - Rule B on G20 needs an engine or donor model.
+  [404/439] 48868: review - Rule B on G01 needs an engine or donor model.
+  [405/439] 46774: review - Rule B on F25 needs an engine or donor model.
+  [406/439] 46870: review - Rule B on F25 needs an engine or donor model.
+  [407/439] 51836: review - Rule B on G20 needs an engine or donor model.
+  [408/439] 51807: review - Rule B on G20 needs an engine or donor model.
+  [409/439] 52075: review - Rule B on G12 needs an engine or donor model.
+  [410/439] 49932: review - Rule B on F15 needs an engine or donor model.
+  [411/439] 50852: review - Rule B on F34 needs an engine or donor model.
+  [412/439] 49813: review - Rule B on F32 needs an engine or donor model.
+  [413/439] 51052: review - Rule B on F48 needs an engine or donor model.
+  [414/439] 51849: review - Rule B on G20 needs an engine or donor model.
+  [415/439] 51278: review - Rule B on F34 needs an engine or donor model.
+  [416/439] 52020: review - Rule B on G12 needs an engine or donor model.
+  [417/439] 47839: review - Rule B on G12 needs an engine or donor model.
+  [418/439] 48305: review - Rule B on F32 needs an engine or donor model.
+  [419/439] 48217: review - Rule B on E88 needs an engine or donor model.
+  [420/439] 50851: review - Rule B on F32 needs an engine or donor model.
+  [421/439] 48333: review - Rule B on F32 needs an engine or donor model.
+  [422/439] 51839: review - Rule B on G20 needs an engine or donor model.
+  [423/439] 52306: review - Rule B on G01 needs an engine or donor model.
+  [424/439] 50286: review - Rule B on F30 needs an engine or donor model.
+  [425/439] 47782: review - Rule B on F32 needs an engine or donor model.
+  [426/439] 48598: review - Rule B on F15 needs an engine or donor model.
+  [427/439] 49642: review - Rule B on G01 needs an engine or donor model.
+  [428/439] 52019: review - Rule B on G12 needs an engine or donor model.
+  [429/439] 51250: review - Rule B on G01 needs an engine or donor model.
+  [430/439] 47998: review - Rule B on G12 needs an engine or donor model.
+  [431/439] 50850: review - Rule B on F32 needs an engine or donor model.
+  [432/439] 47838: review - Rule B on G12 needs an engine or donor model.
+  [433/439] 51366: review - Rule B on F48 needs an engine or donor model.
+  [434/439] 53011: review - Rule B on F15 needs an engine or donor model.
+  [435/439] 53092: review - Rule B on F15 needs an engine or donor model.
+  [436/439] 52858: review - Rule B on G01 needs an engine or donor model.
+  [437/439] 52604: review - Rule B on G05 needs an engine or donor model.
+  [438/439] 52557: review - Rule B on F15 needs an engine or donor model.
+  [439/439] 52054: review - Rule B on G12 needs an engine or donor model.
+Skip cache: +268 recorded, 17811 held (these are not re-checked until their TTL lapses)
+
+Summary: {'skip': 270, 'error': 2, 'pushed': 31, 'review': 136}
+Plan written -> data/batch_plan.csv  |  ledger updated
+[2026-09-06 08:50:27] sweep finished (exit 0)
+Auditing 300 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 289/292 display (98%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule -: 30/31 display (96%)
+   Rule A: 228/230 display (99%)
+   Rule B: 31/31 display (100%)
+
+Nothing to score (292 SKU(s) all in known non-displaying categories) -- threshold not applied.
+
+Per-SKU detail -> data/display_audit.csv
+(rotating drift sample: 250 of 5998 ledgered SKUs, offset 2270)
+Auditing 250 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 218/233 display (93%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule A: 173/175 display (98%)
+   Rule B: 45/58 display (77%)
+
+Categories where NOTHING displays:
+   cat 107062: 0/8   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 21647: 0/3   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 33643: 0/2   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 174119: 0/1   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 179671: 0/1   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+
+Nothing to score (233 SKU(s) all in known non-displaying categories) -- threshold not applied.
+
+Per-SKU detail -> data/drift_audit.csv
