@@ -1369,6 +1369,70 @@ def t_non_engine_part_types():
         EB._nonengine = saved
 
 
+def t_prelisting_classify():
+    """Fitment for a part that is NOT on eBay yet (scripts/fitment_for_part.py).
+
+    Dismantly writes fitment BEFORE the part is priced, because pricing auto-publishes
+    it and create-time fitment survives where an edit destroys it (35 of 41 measured
+    edits wiped the listing to zero). No listing means no categoryId, so the Rule A/B
+    decision has to come from the part_type instead -- and the thing that must never
+    happen is a confident guess. Wrong fitment is worse than none."""
+    print("pre-listing classifier:")
+    import fitment_for_part as FFP
+
+    ptr = {"rules": {"Front Left Driver Fender Panel": "A",
+                     "Engine Motor Throttle Body": "B"},
+           "ambiguous": {"Speakers SET": {"A": 5, "B": 30}}}
+
+    eq(FFP.classify({"part_type": "Front Left Driver Fender Panel"}, ptr)[0], "A",
+       "a known body part type -> Rule A")
+    eq(FFP.classify({"part_type": "Engine Motor Throttle Body"}, ptr)[0], "B",
+       "a known engine part type -> Rule B")
+
+    # The three ways we must REFUSE rather than guess.
+    rule, _, why = FFP.classify({"part_type": "Speakers SET"}, ptr)
+    eq(rule, None, "a part type eBay files under BOTH rules is not guessed")
+    eq("BOTH rules" in why, True, "and the reason names the coarse-category problem")
+    eq(FFP.classify({"part_type": "Nothing We Have Seen"}, ptr)[0], None,
+       "an unseen part type is not guessed")
+    eq(FFP.classify({}, ptr)[0], None, "no part_type and no category -> no guess")
+
+    # A real categoryId must WIN over the part_type: it is the path the nightly sweep
+    # uses and the one every other guard is built around.
+    tree = ({"33596": {"categoryId": "33596", "ancestors": [], "path": "ECUs"}},
+            {"33596"}, set(), "A")
+    rule, _, why = FFP.classify({"category_id": "33596",
+                                 "part_type": "Front Left Driver Fender Panel"}, ptr, tree)
+    eq(rule, "B", "categoryId wins over part_type when we have one")
+    eq("category" in why, True, "and the reason says the category decided it")
+
+    # Lights are narrowed to the donor's side of the facelift; their wiring is not.
+    eq(FFP._lci_by_part_type("Front Left Driver Headlight"), True, "a headlight is LCI-sensitive")
+    eq(FFP._lci_by_part_type("Rear Right Passenger Tail Light"), True, "a taillight too")
+    eq(FFP._lci_by_part_type("Front Right Passenger Headlight Ballast Modules SET"), False,
+       "a headlight BALLAST is not body-styled, so it is not narrowed")
+    eq(FFP._lci_by_part_type("Left Front Bumper Under Headlamp Bracket"), False,
+       "nor is a bracket")
+    eq(FFP._lci_by_part_type("Front Left Driver Fender Panel"), False, "nor a fender")
+
+    # The shipped map must actually be usable, or the nightly writes nothing.
+    real = FFP.load_part_type_rules()
+    eq(len(real["rules"]) > 400, True,
+       f"the shipped map resolves {len(real['rules'])} part types")
+    eq(real["rules"].get("Engine Motor ECU DME Computer Module"), "B",
+       "the DME is Rule B in the shipped map")
+    eq(real["rules"].get("Front Left Driver Fender Panel"), "A",
+       "a fender panel is Rule A in the shipped map")
+    # Every reviewed non-engine type must come out as A, never B -- same one-directional
+    # invariant the live sweep enforces.
+    override = set(json.load(open(os.path.join(ROOT, "data",
+                                               "non_engine_part_types.json")))["part_types"])
+    bad = [t for t in override if real["rules"].get(t) == "B"]
+    eq(bad, [], "no reviewed non-engine part type is classified as Rule B")
+    eq(set(real["rules"]) & set(real["ambiguous"]), set(),
+       "a part type is never both resolved and ambiguous")
+
+
 def t_shopify_env_parsing():
     """shopify.env is edited by hand by a non-developer, so it WILL contain comments.
     The bare-token branch matched any line without an "=", so a comment became the access
@@ -1526,7 +1590,7 @@ def t_quota_sizing():
 
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_shopify_env_parsing, t_api_retries_timeouts, t_skip_ttl_coverage, t_quota_sizing, t_etk_source, t_error_summary, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_prelisting_classify, t_shopify_env_parsing, t_api_retries_timeouts, t_skip_ttl_coverage, t_quota_sizing, t_etk_source, t_error_summary, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()
