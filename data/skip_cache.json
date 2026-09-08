@@ -7,9 +7,17 @@
 "reason": "offer read HTTP 404",
 "until": 1790072472.5917764
 },
+"09522037-70c1-4716-b6d6-698e41817fba": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476379.2775629
+},
 "1000": {
 "reason": "no Shopify donor for SKU",
 "until": 1788872607.666799
+},
+"1001": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476308.330425
 },
 "1002": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -27,6 +35,10 @@
 "reason": "already 64 vehicles (multi-fit/expanded)",
 "until": 1790162485.1088657
 },
+"1007": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476307.444027
+},
 "1008": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220439.313638
@@ -34,6 +46,10 @@
 "1009": {
 "reason": "no Shopify donor for SKU",
 "until": 1788872608.4578712
+},
+"1010": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476309.0568142
 },
 "1011": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -51,29 +67,13 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219649.7499032
 },
-"1015": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871905.459337
-},
 "1016": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220434.202602
 },
-"1017": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871903.7403011
-},
 "1018": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220354.552525
-},
-"1019": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871906.256665
-},
-"1021": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871904.7014139
 },
 "1023": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -82,6 +82,10 @@
 "1024": {
 "reason": "no Shopify donor for SKU",
 "until": 1789390261.756564
+},
+"1028": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476472.28756
 },
 "1029": {
 "reason": "already 48 vehicles (multi-fit/expanded)",
@@ -187,13 +191,13 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789390384.42923
 },
+"1074": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476476.9383092
+},
 "1076": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220874.880841
-},
-"1077": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871900.0790882
 },
 "1078": {
 "reason": "no Shopify donor for SKU",
@@ -231,25 +235,9 @@
 "reason": "no Shopify donor for SKU",
 "until": 1788872609.328741
 },
-"1087": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871742.732019
-},
-"1088": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871899.038719
-},
-"1089": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871902.313039
-},
 "1090": {
 "reason": "no Shopify donor for SKU",
 "until": 1789390225.41488
-},
-"1091": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871897.84087
 },
 "1093": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -323,14 +311,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789217748.431266
 },
-"1116": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871866.627491
-},
-"1117": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871867.520521
-},
 "1118": {
 "reason": "no Shopify donor for SKU",
 "until": 1789390258.799077
@@ -355,33 +335,13 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789217746.059942
 },
-"1129": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871895.206121
-},
 "1130": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220431.068104
 },
-"1131": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871894.277864
-},
 "1132": {
 "reason": "no Shopify donor for SKU",
 "until": 1788872308.305234
-},
-"1133": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871890.941482
-},
-"1134": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871893.349907
-},
-"1135": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871892.2337248
 },
 "1136": {
 "reason": "category 107062 never renders fitment on eBay",
@@ -455,6 +415,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220178.8828511
 },
+"1160": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476447.313086
+},
 "1161": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217746.895375
@@ -499,10 +463,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789133664.64466
 },
-"1170": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871653.424885
-},
 "1171": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219977.067871
@@ -514,6 +474,10 @@
 "1174": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221104.887313
+},
+"1175": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476406.840297
 },
 "1179": {
 "reason": "already 38 vehicles (multi-fit/expanded)",
@@ -575,6 +539,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789217699.5027242
 },
+"1189": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476528.831468
+},
 "1191": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221142.9687512
@@ -582,6 +550,14 @@
 "1193": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220762.308664
+},
+"1195": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476497.819263
+},
+"1197": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476541.1124501
 },
 "1198": {
 "reason": "already 42 vehicles (multi-fit/expanded)",
@@ -631,10 +607,6 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789390233.968648
 },
-"1206": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871822.8576581
-},
 "1207": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219953.506756
@@ -642,10 +614,6 @@
 "1208": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789133662.331681
-},
-"1209": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871821.9902232
 },
 "1210": {
 "reason": "no Shopify donor for SKU",
@@ -742,6 +710,10 @@
 "12354": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872503.6705658
+},
+"1236": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476666.6576278
 },
 "1238": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -1355,6 +1327,10 @@
 "reason": "already 56 vehicles (multi-fit/expanded)",
 "until": 1789897201.2022676
 },
+"1460": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476570.707434
+},
 "1461": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221293.475899
@@ -1518,6 +1494,10 @@
 "15293": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221963.3893912
+},
+"1530": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476515.869206
 },
 "1531": {
 "reason": "already 55 vehicles (multi-fit/expanded)",
@@ -1707,6 +1687,10 @@
 "reason": "already 35 vehicles (multi-fit/expanded)",
 "until": 1790162516.7491884
 },
+"1576": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476483.5021381
+},
 "1577": {
 "reason": "already 7 vehicles (multi-fit/expanded)",
 "until": 1790162278.385192
@@ -1758,6 +1742,10 @@
 "1596": {
 "reason": "already 56 vehicles (multi-fit/expanded)",
 "until": 1789897107.89283
+},
+"1597": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476409.988113
 },
 "1598": {
 "reason": "already 79 vehicles (multi-fit/expanded)",
@@ -1815,6 +1803,10 @@
 "reason": "offer read HTTP 404",
 "until": 1789837460.5487363
 },
+"1618": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476522.587871
+},
 "1619": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791204537.055268
@@ -1826,6 +1818,10 @@
 "1623": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220856.697084
+},
+"1625": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476410.751464
 },
 "1626": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -2379,9 +2375,25 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220895.248789
 },
+"1771": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476243.485
+},
+"1773": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476241.72248
+},
 "17746": {
 "reason": "already 207 vehicles (multi-fit/expanded)",
 "until": 1790245732.0356321
+},
+"1775": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476242.612799
+},
+"1777": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476239.101672
 },
 "17771": {
 "reason": "already 198 vehicles (multi-fit/expanded)",
@@ -2463,6 +2475,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221935.165424
 },
+"1786": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476609.4764879
+},
 "17870": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217959.412481
@@ -2519,6 +2535,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221918.203315
 },
+"1791": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476240.856243
+},
 "17910": {
 "reason": "no Shopify donor for SKU",
 "until": 1788872539.469248
@@ -2558,6 +2578,10 @@
 "17919": {
 "reason": "no Shopify donor for SKU",
 "until": 1788872538.686789
+},
+"1792": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476600.181398
 },
 "17920": {
 "reason": "no Shopify donor for SKU",
@@ -2619,6 +2643,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789217956.707484
 },
+"1794": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476605.996694
+},
 "17942": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217714.306049
@@ -2650,6 +2678,10 @@
 "17971": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217954.9329689
+},
+"17989": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476407.704992
 },
 "1799": {
 "reason": "already 89 vehicles (multi-fit/expanded)",
@@ -2794,6 +2826,10 @@
 "18274": {
 "reason": "offer read HTTP 404",
 "until": 1789837448.4072878
+},
+"1828": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476612.665238
 },
 "18293": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -2943,6 +2979,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221955.531248
 },
+"1856": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476352.148321
+},
 "18561": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221930.456267
@@ -3003,6 +3043,10 @@
 "reason": "already 13 vehicles (multi-fit/expanded)",
 "until": 1790245752.0050306
 },
+"1867": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476625.9473338
+},
 "18670": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221938.214133
@@ -3014,6 +3058,10 @@
 "18673": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221898.1755111
+},
+"1868": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476617.078777
 },
 "18682": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -3086,6 +3134,10 @@
 "18863": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789217766.3519082
+},
+"1887": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476599.4351711
 },
 "18873": {
 "reason": "offer read HTTP 404",
@@ -3227,6 +3279,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221972.7193348
 },
+"1915": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476604.901539
+},
 "1916": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220919.267637
@@ -3327,6 +3383,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221514.1030269
 },
+"1933": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476668.293979
+},
 "1935": {
 "reason": "already 11 vehicles (multi-fit/expanded)",
 "until": 1789837335.1330779
@@ -3403,6 +3463,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219205.487649
 },
+"1952": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476606.907629
+},
 "19558": {
 "reason": "already 2 vehicles (multi-fit/expanded)",
 "until": 1789899225.2062707
@@ -3410,6 +3474,10 @@
 "19559": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221973.5148969
+},
+"1956": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476604.043245
 },
 "19560": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -3731,10 +3799,6 @@
 "reason": "already 191 vehicles (multi-fit/expanded)",
 "until": 1789979365.7649548
 },
-"2032": {
-"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788805026.972061
-},
 "20330": {
 "reason": "already 5 vehicles (multi-fit/expanded)",
 "until": 1789979707.6934693
@@ -3750,6 +3814,10 @@
 "2036": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221033.764698
+},
+"2037": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476663.085932
 },
 "20379": {
 "reason": "already 176 vehicles (multi-fit/expanded)",
@@ -4099,6 +4167,10 @@
 "reason": "already 9 vehicles (multi-fit/expanded)",
 "until": 1789838015.4641528
 },
+"21351": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476408.503496
+},
 "2137": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220199.80083
@@ -4310,6 +4382,10 @@
 "21809": {
 "reason": "already 21 vehicles (multi-fit/expanded)",
 "until": 1790243893.7152724
+},
+"2182": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476626.844474
 },
 "21836": {
 "reason": "already 38 vehicles (multi-fit/expanded)",
@@ -4566,10 +4642,6 @@
 "22287": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220655.1776419
-},
-"223": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871732.5142632
 },
 "22322": {
 "reason": "unresolved chassis: series 'None' not in BMW reference",
@@ -5787,6 +5859,10 @@
 "reason": "already 82 vehicles (multi-fit/expanded)",
 "until": 1790246031.5546644
 },
+"241": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476663.843096
+},
 "24101": {
 "reason": "already 367 vehicles (multi-fit/expanded)",
 "until": 1789978079.989717
@@ -6351,10 +6427,6 @@
 "reason": "already 4 vehicles (multi-fit/expanded)",
 "until": 1789979056.8805585
 },
-"250": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871733.346147
-},
 "2500": {
 "reason": "no Shopify donor for SKU",
 "until": 1789390169.8293571
@@ -6415,6 +6487,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222588.8541389
 },
+"2514": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476405.887841
+},
 "25140": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789223096.053764
@@ -6430,6 +6506,10 @@
 "25167": {
 "reason": "unresolved chassis: ambiguous series 'F10' / model '?': ['F10', 'F10 M5'] - needs a Model to disambiguate",
 "until": 1789979692.7916124
+},
+"2517": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476347.876081
 },
 "2518": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -6991,6 +7071,10 @@
 "reason": "unresolved chassis: series 'None' not in BMW reference",
 "until": 1789899212.625143
 },
+"260": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476542.7673228
+},
 "26000": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789223018.4733381
@@ -7379,6 +7463,10 @@
 "reason": "already 18 vehicles (multi-fit/expanded)",
 "until": 1790246115.1730816
 },
+"265": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476252.2460449
+},
 "2651": {
 "reason": "already 36 vehicles (multi-fit/expanded)",
 "until": 1790158265.6138065
@@ -7462,10 +7550,6 @@
 "26598": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222001.5215738
-},
-"266": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871729.991714
 },
 "2660": {
 "reason": "no Shopify donor for SKU",
@@ -8495,6 +8579,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220188.748448
 },
+"278": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476484.337066
+},
 "2780": {
 "reason": "already 56 vehicles (multi-fit/expanded)",
 "until": 1789838109.5581553
@@ -9215,6 +9303,10 @@
 "reason": "unresolved chassis: series 'None' not in BMW reference",
 "until": 1790160449.8494058
 },
+"285": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476251.344525
+},
 "28501": {
 "reason": "already 61 vehicles (multi-fit/expanded)",
 "until": 1790246253.1244144
@@ -9226,6 +9318,10 @@
 "28508": {
 "reason": "already 26 vehicles (multi-fit/expanded)",
 "until": 1790243178.1914773
+},
+"28509": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476409.2630641
 },
 "2851": {
 "reason": "already 56 vehicles (multi-fit/expanded)",
@@ -10899,6 +10995,10 @@
 "reason": "already 107 vehicles (multi-fit/expanded)",
 "until": 1789899390.7487652
 },
+"3018": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476311.599054
+},
 "30181": {
 "reason": "unresolved chassis: series 'None' not in BMW reference",
 "until": 1789980153.4692936
@@ -11163,6 +11263,10 @@
 "reason": "unresolved chassis: ambiguous series 'E70' / model '?': ['E70', 'E70 X5 M'] - needs a Model to disambiguate",
 "until": 1790243259.163699
 },
+"3045": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476315.04377
+},
 "30451": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219609.0085518
@@ -11187,6 +11291,10 @@
 "reason": "already 95 vehicles (multi-fit/expanded)",
 "until": 1790243559.5120535
 },
+"3047": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476313.23503
+},
 "30470": {
 "reason": "already 83 vehicles (multi-fit/expanded)",
 "until": 1789979315.190994
@@ -11198,6 +11306,10 @@
 "3048": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220448.385374
+},
+"3049": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476314.122449
 },
 "30490": {
 "reason": "already 65 vehicles (multi-fit/expanded)",
@@ -11222,6 +11334,10 @@
 "30511": {
 "reason": "unresolved chassis: ambiguous series 'E92' / model '?': ['E92', 'E92 M3'] - needs a Model to disambiguate",
 "until": 1789979757.2588513
+},
+"3052": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476312.31343
 },
 "30523": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -11975,6 +12091,10 @@
 "reason": "already 77 vehicles (multi-fit/expanded)",
 "until": 1789980461.0011349
 },
+"313": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476250.570802
+},
 "3130": {
 "reason": "already 40 vehicles (multi-fit/expanded)",
 "until": 1790599821.687615
@@ -12678,6 +12798,10 @@
 "31989": {
 "reason": "already 25 vehicles (multi-fit/expanded)",
 "until": 1789980868.0042958
+},
+"3199": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476669.79196
 },
 "31997": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -13695,6 +13819,10 @@
 "reason": "already 49 vehicles (multi-fit/expanded)",
 "until": 1789899503.3869808
 },
+"3276": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476440.1750011
+},
 "32761": {
 "reason": "already 11 vehicles (multi-fit/expanded)",
 "until": 1790243126.093443
@@ -13843,6 +13971,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222740.5754151
 },
+"3289": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476673.008009
+},
 "32890": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872370.0785978
@@ -13850,6 +13982,10 @@
 "32891": {
 "reason": "already 64 vehicles (multi-fit/expanded)",
 "until": 1790244267.3156333
+},
+"329": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476486.2124832
 },
 "3290": {
 "reason": "already 82 vehicles (multi-fit/expanded)",
@@ -14455,6 +14591,10 @@
 "reason": "already 3 vehicles (multi-fit/expanded)",
 "until": 1790246717.8617156
 },
+"3340": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476524.451553
+},
 "33402": {
 "reason": "already 107 vehicles (multi-fit/expanded)",
 "until": 1790442521.1422148
@@ -14714,6 +14854,10 @@
 "33624": {
 "reason": "already 103 vehicles (multi-fit/expanded)",
 "until": 1790337001.0057487
+},
+"3363": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476671.398936
 },
 "33630": {
 "reason": "already 110 vehicles (multi-fit/expanded)",
@@ -14978,6 +15122,10 @@
 "33855": {
 "reason": "already 120 vehicles (multi-fit/expanded)",
 "until": 1790442582.4140906
+},
+"33856": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476444.732476
 },
 "33858": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -15267,10 +15415,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222357.63539
 },
-"342": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871731.6050382
-},
 "3420": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791204403.719983
@@ -15514,10 +15658,6 @@
 "3436": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220142.5940511
-},
-"34360": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871772.957484
 },
 "34362": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -15767,6 +15907,10 @@
 "reason": "already 598 vehicles (multi-fit/expanded)",
 "until": 1790443209.8997114
 },
+"34582": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476549.324899
+},
 "3459": {
 "reason": "already 82 vehicles (multi-fit/expanded)",
 "until": 1789896808.1532867
@@ -15778,6 +15922,10 @@
 "346": {
 "reason": "already 29 vehicles (multi-fit/expanded)",
 "until": 1790162332.8526607
+},
+"3460": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476625.093173
 },
 "34609": {
 "reason": "already 58 vehicles (multi-fit/expanded)",
@@ -17307,6 +17455,10 @@
 "reason": "already 107 vehicles (multi-fit/expanded)",
 "until": 1789980179.2238905
 },
+"3563": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476580.658286
+},
 "35631": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221548.7692401
@@ -17390,6 +17542,10 @@
 "3568": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789133612.988179
+},
+"35684": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476421.8148868
 },
 "35685": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -17514,6 +17670,10 @@
 "35769": {
 "reason": "already 110 vehicles (multi-fit/expanded)",
 "until": 1790444252.1170602
+},
+"3577": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476525.354655
 },
 "35771": {
 "reason": "already 46 vehicles (multi-fit/expanded)",
@@ -18123,6 +18283,10 @@
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791205393.478112
 },
+"362": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476488.836886
+},
 "3620": {
 "reason": "already 38 vehicles (multi-fit/expanded)",
 "until": 1790162451.2459068
@@ -18623,10 +18787,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220214.347539
 },
-"3653": {
-"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788871746.026664
-},
 "36531": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220020.784914
@@ -18646,6 +18806,10 @@
 "36548": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791205364.898436
+},
+"3655": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476431.844173
 },
 "36552": {
 "reason": "already 32 vehicles (multi-fit/expanded)",
@@ -18690,6 +18854,10 @@
 "36599": {
 "reason": "already 154 vehicles (multi-fit/expanded)",
 "until": 1790442967.828692
+},
+"366": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476490.22575
 },
 "36600": {
 "reason": "already 51 vehicles (multi-fit/expanded)",
@@ -18750,6 +18918,10 @@
 "36628": {
 "reason": "already 27 vehicles (multi-fit/expanded)",
 "until": 1790444099.3295915
+},
+"3663": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476629.958542
 },
 "36631": {
 "reason": "already 31 vehicles (multi-fit/expanded)",
@@ -19218,6 +19390,10 @@
 "36899": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219530.874497
+},
+"369": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476519.16331
 },
 "36910": {
 "reason": "already 132 vehicles (multi-fit/expanded)",
@@ -20351,6 +20527,10 @@
 "reason": "already 13 vehicles (multi-fit/expanded)",
 "until": 1790444511.6430492
 },
+"3762": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476432.7669492
+},
 "37622": {
 "reason": "already 14 vehicles (multi-fit/expanded)",
 "until": 1790444439.8127081
@@ -21131,6 +21311,10 @@
 "reason": "already 8 vehicles (multi-fit/expanded)",
 "until": 1790445086.8440168
 },
+"382": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476485.4105458
+},
 "3820": {
 "reason": "already 30 vehicles (multi-fit/expanded)",
 "until": 1789899972.7553964
@@ -21402,6 +21586,10 @@
 "384": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791204351.282806
+},
+"3840": {
+"reason": "category 174119 never renders fitment on eBay",
+"until": 1791463494.713216
 },
 "38400": {
 "reason": "category 21647 never renders fitment on eBay",
@@ -21819,10 +22007,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872406.5141928
 },
-"388": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871738.335571
-},
 "3880": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221013.620449
@@ -21962,10 +22146,6 @@
 "38996": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789223187.175926
-},
-"390": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871735.926232
 },
 "3900": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -22275,6 +22455,14 @@
 "reason": "unresolved chassis: series 'None' not in BMW reference",
 "until": 1790068822.9330122
 },
+"393": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476482.674091
+},
+"3931": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476627.5980532
+},
 "3932": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220086.697425
@@ -22386,6 +22574,10 @@
 "39394": {
 "reason": "already 183 vehicles (multi-fit/expanded)",
 "until": 1790528102.013842
+},
+"394": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476481.86755
 },
 "39403": {
 "reason": "already 49 vehicles (multi-fit/expanded)",
@@ -22587,10 +22779,6 @@
 "reason": "already 324 vehicles (multi-fit/expanded)",
 "until": 1790601692.081614
 },
-"3955": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871750.483275
-},
 "39551": {
 "reason": "already 5 vehicles (multi-fit/expanded)",
 "until": 1790601560.499011
@@ -22642,6 +22830,10 @@
 "39579": {
 "reason": "already 5 vehicles (multi-fit/expanded)",
 "until": 1789981613.6861763
+},
+"3958": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476585.556597
 },
 "39580": {
 "reason": "already 40 vehicles (multi-fit/expanded)",
@@ -23863,6 +24055,10 @@
 "reason": "category 179671 never renders fitment on eBay",
 "until": 1791205617.6716218
 },
+"4036": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476630.8288682
+},
 "40362": {
 "reason": "already 15 vehicles (multi-fit/expanded)",
 "until": 1790528159.8897526
@@ -25083,6 +25279,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221211.158172
 },
+"41065": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476552.7314718
+},
 "41066": {
 "reason": "already 55 vehicles (multi-fit/expanded)",
 "until": 1790601686.784267
@@ -25402,6 +25602,10 @@
 "41232": {
 "reason": "already 367 vehicles (multi-fit/expanded)",
 "until": 1790601475.94006
+},
+"41236": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476521.7326841
 },
 "41238": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -25782,6 +25986,10 @@
 "41472": {
 "reason": "already 39 vehicles (multi-fit/expanded)",
 "until": 1790528987.6339724
+},
+"4148": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476617.957713
 },
 "41481": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -26963,6 +27171,10 @@
 "reason": "already 37 vehicles (multi-fit/expanded)",
 "until": 1790528142.1392674
 },
+"4217": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476434.332203
+},
 "42170": {
 "reason": "already 19 vehicles (multi-fit/expanded)",
 "until": 1790527921.5317357
@@ -27127,6 +27339,10 @@
 "reason": "already 12 vehicles (multi-fit/expanded)",
 "until": 1790244293.0419893
 },
+"4226": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476632.296972
+},
 "42265": {
 "reason": "already 19 vehicles (multi-fit/expanded)",
 "until": 1790072163.217658
@@ -27222,6 +27438,10 @@
 "42308": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222021.76367
+},
+"4231": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476433.540569
 },
 "42312": {
 "reason": "already 122 vehicles (multi-fit/expanded)",
@@ -27459,6 +27679,10 @@
 "reason": "already 6 vehicles (multi-fit/expanded)",
 "until": 1790244285.7286336
 },
+"4244": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476595.529025
+},
 "42440": {
 "reason": "already 44 vehicles (multi-fit/expanded)",
 "until": 1790528991.4997365
@@ -27615,10 +27839,6 @@
 "reason": "already 128 vehicles (multi-fit/expanded)",
 "until": 1790602992.8011782
 },
-"4253": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871752.0911639
-},
 "42530": {
 "reason": "already 239 vehicles (multi-fit/expanded)",
 "until": 1790602350.324348
@@ -27683,10 +27903,6 @@
 "reason": "unresolved chassis: series 'None' not in BMW reference",
 "until": 1790070452.0333004
 },
-"4257": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871439.5943758
-},
 "42573": {
 "reason": "already 118 vehicles (multi-fit/expanded)",
 "until": 1790602753.537791
@@ -27706,10 +27922,6 @@
 "42579": {
 "reason": "already 172 vehicles (multi-fit/expanded)",
 "until": 1790602886.448748
-},
-"4258": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871440.418525
 },
 "42583": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -27731,10 +27943,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789390603.574583
 },
-"4259": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871438.768895
-},
 "42590": {
 "reason": "category 258038 never renders fitment on eBay",
 "until": 1791205685.110453
@@ -27742,6 +27950,10 @@
 "42592": {
 "reason": "already 214 vehicles (multi-fit/expanded)",
 "until": 1790602539.4096892
+},
+"42593": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476468.516186
 },
 "42595": {
 "reason": "already 200 vehicles (multi-fit/expanded)",
@@ -27758,10 +27970,6 @@
 "426": {
 "reason": "already 3 vehicles (multi-fit/expanded)",
 "until": 1790246742.0332208
-},
-"4260": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871441.3052852
 },
 "42600": {
 "reason": "already 31 vehicles (multi-fit/expanded)",
@@ -27858,6 +28066,10 @@
 "42639": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222945.713804
+},
+"4264": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476579.784381
 },
 "42640": {
 "reason": "already 2 vehicles (multi-fit/expanded)",
@@ -28091,6 +28303,10 @@
 "reason": "already 213 vehicles (multi-fit/expanded)",
 "until": 1790602814.720479
 },
+"4275": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476448.187975
+},
 "42750": {
 "reason": "already 408 vehicles (multi-fit/expanded)",
 "until": 1789899722.5189066
@@ -28146,10 +28362,6 @@
 "42779": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791205741.005777
-},
-"4278": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871757.206246
 },
 "42784": {
 "reason": "already 16 vehicles (multi-fit/expanded)",
@@ -28227,10 +28439,6 @@
 "reason": "already 487 vehicles (multi-fit/expanded)",
 "until": 1789899448.479856
 },
-"4281": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871762.282557
-},
 "42813": {
 "reason": "already 516 vehicles (multi-fit/expanded)",
 "until": 1789899429.857025
@@ -28290,10 +28498,6 @@
 "4284": {
 "reason": "no Shopify donor for SKU",
 "until": 1788872326.407896
-},
-"4285": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871758.8504078
 },
 "42852": {
 "reason": "unresolved chassis: series 'None' not in BMW reference",
@@ -28403,10 +28607,6 @@
 "reason": "already 54 vehicles (multi-fit/expanded)",
 "until": 1790602390.862943
 },
-"4289": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871759.5996978
-},
 "42890": {
 "reason": "category 21647 never renders fitment on eBay",
 "until": 1791205696.1867268
@@ -28479,10 +28679,6 @@
 "reason": "already 3 vehicles (multi-fit/expanded)",
 "until": 1790244185.27848
 },
-"4292": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871755.3981361
-},
 "42923": {
 "reason": "already 59 vehicles (multi-fit/expanded)",
 "until": 1790602357.025028
@@ -28494,10 +28690,6 @@
 "42929": {
 "reason": "already 324 vehicles (multi-fit/expanded)",
 "until": 1790601992.911616
-},
-"4293": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871754.538729
 },
 "42930": {
 "reason": "already 503 vehicles (multi-fit/expanded)",
@@ -28559,10 +28751,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221830.635732
 },
-"4296": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871751.3548229
-},
 "42960": {
 "reason": "already 465 vehicles (multi-fit/expanded)",
 "until": 1790601271.141767
@@ -28578,10 +28766,6 @@
 "42969": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221887.509959
-},
-"4297": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871752.935124
 },
 "42970": {
 "reason": "category 179671 never renders fitment on eBay",
@@ -28654,10 +28838,6 @@
 "430": {
 "reason": "already 3 vehicles (multi-fit/expanded)",
 "until": 1790246749.7710612
-},
-"4300": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871760.4244401
 },
 "43000": {
 "reason": "already 27 vehicles (multi-fit/expanded)",
@@ -29022,10 +29202,6 @@
 "43269": {
 "reason": "unresolved chassis: series 'None' not in BMW reference",
 "until": 1789899443.6528108
-},
-"4327": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871756.277306
 },
 "43272": {
 "reason": "already 367 vehicles (multi-fit/expanded)",
@@ -29719,6 +29895,10 @@
 "reason": "already 411 vehicles (multi-fit/expanded)",
 "until": 1790603080.5433369
 },
+"4363": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476587.841095
+},
 "43631": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221127.372305
@@ -29847,6 +30027,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220161.242391
 },
+"4369": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476248.825523
+},
 "43690": {
 "reason": "already 107 vehicles (multi-fit/expanded)",
 "until": 1790602762.208915
@@ -29958,10 +30142,6 @@
 "43739": {
 "reason": "already 3 vehicles (multi-fit/expanded)",
 "until": 1790688782.63776
-},
-"4374": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871820.30833
 },
 "43741": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -31335,6 +31515,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219110.289767
 },
+"444": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476526.252558
+},
 "44402": {
 "reason": "already 80 vehicles (multi-fit/expanded)",
 "until": 1790602784.5943959
@@ -31899,6 +32083,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220724.526071
 },
+"447": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476498.768725
+},
 "44700": {
 "reason": "already 414 vehicles (multi-fit/expanded)",
 "until": 1790689110.660903
@@ -32279,6 +32467,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789217645.146592
 },
+"449": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476527.013524
+},
 "4490": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791204360.381651
@@ -32438,6 +32630,10 @@
 "44997": {
 "reason": "already 7 vehicles (multi-fit/expanded)",
 "until": 1790244189.904468
+},
+"450": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476527.947597
 },
 "4500": {
 "reason": "no Shopify donor for SKU",
@@ -32813,7 +33009,7 @@
 },
 "45142": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786308.338498
+"until": 1789476884.085862
 },
 "45144": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -33247,10 +33443,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221116.945832
 },
-"4531": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871855.658591
-},
 "45311": {
 "reason": "already 44 vehicles (multi-fit/expanded)",
 "until": 1789981675.3670502
@@ -33441,7 +33633,7 @@
 },
 "45394": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786285.8836951
+"until": 1789476881.9906602
 },
 "45398": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -33599,10 +33791,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222064.197196
 },
-"4547": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871724.6598122
-},
 "45470": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872386.2656991
@@ -33662,6 +33850,10 @@
 "45498": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217809.617388
+},
+"455": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476350.064069
 },
 "4550": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -33738,10 +33930,6 @@
 "45528": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221785.509938
-},
-"4553": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871725.59042
 },
 "45530": {
 "reason": "already 52 vehicles (multi-fit/expanded)",
@@ -33989,7 +34177,7 @@
 },
 "45669": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787229.0291169
+"until": 1789476920.708514
 },
 "4567": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -34099,10 +34287,6 @@
 "reason": "already 269 vehicles (multi-fit/expanded)",
 "until": 1789899742.538429
 },
-"4572": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871764.020086
-},
 "45721": {
 "reason": "already 61 vehicles (multi-fit/expanded)",
 "until": 1789837372.4607997
@@ -34139,10 +34323,6 @@
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791204374.919408
 },
-"4574": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871723.733898
-},
 "45741": {
 "reason": "already 17 vehicles (multi-fit/expanded)",
 "until": 1789899474.5600984
@@ -34154,10 +34334,6 @@
 "45747": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219779.7740579
-},
-"4575": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871722.838529
 },
 "45755": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -34178,10 +34354,6 @@
 "45769": {
 "reason": "already 57 vehicles (multi-fit/expanded)",
 "until": 1790602960.712445
-},
-"4577": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871634.523956
 },
 "45771": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -35073,7 +35245,7 @@
 },
 "46126": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786576.357662
+"until": 1789476899.624268
 },
 "46128": {
 "reason": "already 87 vehicles (multi-fit/expanded)",
@@ -35145,7 +35317,7 @@
 },
 "46162": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786903.621433
+"until": 1789476910.918756
 },
 "46165": {
 "reason": "already 693 vehicles (multi-fit/expanded)",
@@ -35161,7 +35333,7 @@
 },
 "46169": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786676.574944
+"until": 1789476902.160897
 },
 "46170": {
 "reason": "already 15 vehicles (multi-fit/expanded)",
@@ -35197,7 +35369,7 @@
 },
 "46182": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787548.999455
+"until": 1789476943.057665
 },
 "46185": {
 "reason": "already 103 vehicles (multi-fit/expanded)",
@@ -35385,7 +35557,7 @@
 },
 "46252": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786459.756881
+"until": 1789476891.535892
 },
 "46254": {
 "reason": "no Shopify donor for SKU",
@@ -35417,7 +35589,7 @@
 },
 "46270": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786501.712511
+"until": 1789476238.315098
 },
 "46272": {
 "reason": "already 10 vehicles (multi-fit/expanded)",
@@ -35485,7 +35657,7 @@
 },
 "46294": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786751.607388
+"until": 1789476903.018838
 },
 "46295": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -35565,7 +35737,7 @@
 },
 "46332": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786955.605265
+"until": 1789476913.037997
 },
 "46333": {
 "reason": "already 17 vehicles (multi-fit/expanded)",
@@ -35915,6 +36087,10 @@
 "reason": "already 56 vehicles (multi-fit/expanded)",
 "until": 1789980678.010355
 },
+"4649": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476486.977375
+},
 "46491": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220277.8249652
@@ -36061,7 +36237,7 @@
 },
 "46550": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787280.552027
+"until": 1789476924.6726441
 },
 "46551": {
 "reason": "already 145 vehicles (multi-fit/expanded)",
@@ -36155,10 +36331,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789217695.072292
 },
-"4658": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871726.3890948
-},
 "46581": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221212.022816
@@ -36178,10 +36350,6 @@
 "46587": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789223143.43422
-},
-"4659": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871727.344813
 },
 "46591": {
 "reason": "category 258038 never renders fitment on eBay",
@@ -36203,9 +36371,9 @@
 "reason": "already 72 vehicles (multi-fit/expanded)",
 "until": 1790774054.7380722
 },
-"4660": {
+"466": {
 "reason": "no Shopify donor for SKU",
-"until": 1788871249.23053
+"until": 1789476492.408858
 },
 "46603": {
 "reason": "already 58 vehicles (multi-fit/expanded)",
@@ -36246,6 +36414,10 @@
 "46619": {
 "reason": "already 164 vehicles (multi-fit/expanded)",
 "until": 1790072206.105061
+},
+"4662": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476589.466621
 },
 "46620": {
 "reason": "unresolved chassis: series 'None' not in BMW reference",
@@ -36317,7 +36489,7 @@
 },
 "46642": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787037.288378
+"until": 1789476913.800353
 },
 "46643": {
 "reason": "already 425 vehicles (multi-fit/expanded)",
@@ -36325,7 +36497,7 @@
 },
 "46644": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787572.9923892
+"until": 1789476945.652412
 },
 "46645": {
 "reason": "already 425 vehicles (multi-fit/expanded)",
@@ -36466,6 +36638,10 @@
 "46698": {
 "reason": "already 42 vehicles (multi-fit/expanded)",
 "until": 1790774620.254106
+},
+"467": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476494.364723
 },
 "4670": {
 "reason": "already 42 vehicles (multi-fit/expanded)",
@@ -36685,15 +36861,19 @@
 },
 "46795": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787590.022367
+"until": 1789476946.640522
 },
 "46797": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221213.7191732
 },
+"46797b78-f01c-4b9d-b9bf-3b063a07f3a0": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476378.4877388
+},
 "46798": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787379.1574001
+"until": 1789476930.267089
 },
 "46799": {
 "reason": "already 163 vehicles (multi-fit/expanded)",
@@ -36801,7 +36981,7 @@
 },
 "46830": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786868.295496
+"until": 1789476906.328139
 },
 "46831": {
 "reason": "category 179671 never renders fitment on eBay",
@@ -36849,7 +37029,7 @@
 },
 "46845": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787465.310426
+"until": 1789476940.2247329
 },
 "4685": {
 "reason": "already 41 vehicles (multi-fit/expanded)",
@@ -36921,27 +37101,27 @@
 },
 "46883": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787329.75823
+"until": 1789476926.892561
 },
 "46884": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786873.286687
+"until": 1789476907.17835
 },
 "46885": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787213.2237408
+"until": 1789476919.2846332
 },
 "46886": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787292.0909681
+"until": 1789476925.607639
 },
 "46887": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787105.993655
+"until": 1789476916.994009
 },
 "46889": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787383.778413
+"until": 1789476931.1019719
 },
 "4689": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -37001,7 +37181,7 @@
 },
 "46924": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786887.855374
+"until": 1789476909.7191381
 },
 "46926": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -37093,7 +37273,7 @@
 },
 "46964": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787562.038165
+"until": 1789476944.875123
 },
 "46968": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -37237,11 +37417,11 @@
 },
 "47052": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786948.249331
+"until": 1789476240.026121
 },
 "47056": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787575.837161
+"until": 1789476244.370363
 },
 "47057": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -37265,19 +37445,19 @@
 },
 "47068": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786449.928975
+"until": 1789476245.137569
 },
 "47069": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786515.3632991
+"until": 1789476246.0539598
 },
 "4707": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789218997.482496
 },
 "47073": {
-"reason": "no Shopify donor for SKU",
-"until": 1788786605.0631309
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476901.269491
 },
 "47075": {
 "reason": "no Shopify donor for SKU",
@@ -37289,7 +37469,7 @@
 },
 "47079": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786949.22142
+"until": 1789476246.980552
 },
 "47083": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -37297,7 +37477,7 @@
 },
 "47086": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787272.056136
+"until": 1789476247.9131079
 },
 "47090": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -37309,7 +37489,7 @@
 },
 "47095": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786818.1835399
+"until": 1789476903.792528
 },
 "47096": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -37377,7 +37557,7 @@
 },
 "47132": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787429.652184
+"until": 1789476936.774264
 },
 "47135": {
 "reason": "already 21 vehicles (multi-fit/expanded)",
@@ -37389,7 +37569,7 @@
 },
 "47137": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787438.797919
+"until": 1789476937.5384471
 },
 "47139": {
 "reason": "already 217 vehicles (multi-fit/expanded)",
@@ -37409,7 +37589,7 @@
 },
 "47145": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786883.831273
+"until": 1789476908.9902961
 },
 "47146": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -37429,7 +37609,7 @@
 },
 "47154": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787576.6115892
+"until": 1789476256.378817
 },
 "47156": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -37437,7 +37617,7 @@
 },
 "47157": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786828.077307
+"until": 1789476257.1499782
 },
 "47159": {
 "reason": "category 169395 never renders fitment on eBay",
@@ -37461,35 +37641,39 @@
 },
 "47168": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787361.609925
+"until": 1789476929.496489
 },
 "47170": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786944.487145
+"until": 1789476912.127737
 },
 "47176": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787552.741227
+"until": 1789476943.873321
 },
 "47179": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786618.675321
+"until": 1789476257.942281
+},
+"4718": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476491.108055
 },
 "47181": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787207.0790029
+"until": 1789476258.831357
 },
 "47182": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787441.4812422
+"until": 1789476259.6179452
 },
 "47183": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786960.671762
+"until": 1789476260.521494
 },
 "47185": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787421.907485
+"until": 1789476932.75187
 },
 "47186": {
 "reason": "category 21647 never renders fitment on eBay",
@@ -37501,7 +37685,7 @@
 },
 "47195": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787208.062721
+"until": 1789476261.31845
 },
 "47196": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -37597,7 +37781,7 @@
 },
 "47229": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786512.88641
+"until": 1789476894.9527612
 },
 "4723": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -37641,7 +37825,7 @@
 },
 "47242": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786457.419919
+"until": 1789476890.664583
 },
 "47243": {
 "reason": "category 174119 never renders fitment on eBay",
@@ -37983,13 +38167,9 @@
 "reason": "already 504 vehicles (multi-fit/expanded)",
 "until": 1789899796.135588
 },
-"474": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871735.063238
-},
 "47402": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786569.019644
+"until": 1789476898.236156
 },
 "47403": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -38017,7 +38197,7 @@
 },
 "47410": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786529.319602
+"until": 1789476895.733851
 },
 "47412": {
 "reason": "already 151 vehicles (multi-fit/expanded)",
@@ -38429,7 +38609,7 @@
 },
 "47603": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787811.129708
+"until": 1789476956.545325
 },
 "47605": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -38635,10 +38815,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220963.376655
 },
-"4770": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871728.2391229
-},
 "47701": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791205857.895147
@@ -38706,10 +38882,6 @@
 "47737": {
 "reason": "already 656 vehicles (multi-fit/expanded)",
 "until": 1790775104.591674
-},
-"4774": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871722.181366
 },
 "47740": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -38794,10 +38966,6 @@
 "47765": {
 "reason": "unresolved chassis: ambiguous series 'E70' / model '?': ['E70', 'E70 X5 M'] - needs a Model to disambiguate",
 "until": 1790775088.7553222
-},
-"4777": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871720.519068
 },
 "47770": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -39106,10 +39274,6 @@
 "47903": {
 "reason": "already 10 vehicles (multi-fit/expanded)",
 "until": 1789980180.5539432
-},
-"4791": {
-"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788871908.840322
 },
 "47912": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -39441,7 +39605,7 @@
 },
 "48030": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787698.526779
+"until": 1789476951.3380852
 },
 "48031": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -39885,7 +40049,7 @@
 },
 "48235": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787807.636385
+"until": 1789476955.728451
 },
 "48236": {
 "reason": "category 33643 never renders fitment on eBay",
@@ -39967,6 +40131,10 @@
 "reason": "already 11 vehicles (multi-fit/expanded)",
 "until": 1789899324.4970953
 },
+"4826": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476427.624115
+},
 "48261": {
 "reason": "already 136 vehicles (multi-fit/expanded)",
 "until": 1789899327.2743225
@@ -39982,6 +40150,10 @@
 "48267": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222531.916018
+},
+"4827": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476428.4900851
 },
 "48270": {
 "reason": "already 318 vehicles (multi-fit/expanded)",
@@ -40225,7 +40397,7 @@
 },
 "48388": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786500.665857
+"until": 1789476894.111985
 },
 "48389": {
 "reason": "no Shopify donor for SKU",
@@ -40241,7 +40413,7 @@
 },
 "48392": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787834.6141472
+"until": 1789476262.173558
 },
 "48393": {
 "reason": "no Shopify donor for SKU",
@@ -40393,15 +40565,15 @@
 },
 "48440": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787643.217967
+"until": 1789476276.723497
 },
 "48441": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787776.007045
+"until": 1789476277.68591
 },
 "48442": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787611.343075
+"until": 1789476275.922734
 },
 "48443": {
 "reason": "no Shopify donor for SKU",
@@ -40465,7 +40637,7 @@
 },
 "48460": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787916.3745081
+"until": 1789476961.2678201
 },
 "48461": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -40489,7 +40661,7 @@
 },
 "48467": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787989.787565
+"until": 1789476278.5158541
 },
 "48469": {
 "reason": "no Shopify donor for SKU",
@@ -40509,7 +40681,7 @@
 },
 "48474": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787624.329619
+"until": 1789476279.556363
 },
 "48477": {
 "reason": "no Shopify donor for SKU",
@@ -40987,6 +41159,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872424.24277
 },
+"4867": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476533.7568471
+},
 "48670": {
 "reason": "no Shopify donor for SKU",
 "until": 1789390158.8818638
@@ -41022,6 +41198,10 @@
 "48680": {
 "reason": "no Shopify donor for SKU",
 "until": 1789303517.377342
+},
+"48681": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476460.111682
 },
 "48683": {
 "reason": "no Shopify donor for SKU",
@@ -41289,7 +41469,7 @@
 },
 "48809": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787420.974283
+"until": 1789476931.876396
 },
 "4881": {
 "reason": "already 6 vehicles (multi-fit/expanded)",
@@ -41301,7 +41481,7 @@
 },
 "48816": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786453.378668
+"until": 1789476889.823231
 },
 "4882": {
 "reason": "already 12 vehicles (multi-fit/expanded)",
@@ -41389,7 +41569,7 @@
 },
 "48867": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787259.009415
+"until": 1789476921.680445
 },
 "48869": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -41461,7 +41641,7 @@
 },
 "48895": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787360.871812
+"until": 1789476928.712275
 },
 "48898": {
 "reason": "already 65 vehicles (multi-fit/expanded)",
@@ -41493,7 +41673,7 @@
 },
 "48903": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787427.781858
+"until": 1789476933.557324
 },
 "48906": {
 "reason": "already 160 vehicles (multi-fit/expanded)",
@@ -41693,11 +41873,11 @@
 },
 "48982": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786480.761981
+"until": 1789476285.186174
 },
 "48983": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787428.7435699
+"until": 1789476286.1194408
 },
 "48986": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -41721,11 +41901,11 @@
 },
 "48996": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786657.568783
+"until": 1789476292.9299572
 },
 "48998": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787539.33709
+"until": 1789476942.254115
 },
 "490": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -41762,10 +41942,6 @@
 "49019": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791205776.350545
-},
-"4902": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871721.256338
 },
 "49022": {
 "reason": "already 195 vehicles (multi-fit/expanded)",
@@ -41849,7 +42025,7 @@
 },
 "49052": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787473.4667451
+"until": 1789476941.4417589
 },
 "49055": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -41862,6 +42038,10 @@
 "49058": {
 "reason": "already 107 vehicles (multi-fit/expanded)",
 "until": 1790773903.568597
+},
+"4906": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476682.756874
 },
 "49060": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -41889,7 +42069,7 @@
 },
 "49068": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787351.355839
+"until": 1789476927.847323
 },
 "49070": {
 "reason": "already 2 vehicles (multi-fit/expanded)",
@@ -41947,6 +42127,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222282.51208
 },
+"491": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476373.894569
+},
 "4910": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219855.119648
@@ -41961,7 +42145,7 @@
 },
 "49102": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787277.20209
+"until": 1789476922.715296
 },
 "49106": {
 "reason": "already 12 vehicles (multi-fit/expanded)",
@@ -41981,7 +42165,7 @@
 },
 "49113": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786875.708074
+"until": 1789476908.090594
 },
 "49114": {
 "reason": "already 6 vehicles (multi-fit/expanded)",
@@ -42765,7 +42949,7 @@
 },
 "49455": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787835.341124
+"until": 1789476958.840817
 },
 "49456": {
 "reason": "already 87 vehicles (multi-fit/expanded)",
@@ -44365,7 +44549,7 @@
 },
 "50108": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788786603.1873338
+"until": 1789476900.50274
 },
 "50110": {
 "reason": "unresolved chassis: series 'None' not in BMW reference",
@@ -44730,6 +44914,10 @@
 "50241": {
 "reason": "unresolved chassis: series 'None' not in BMW reference",
 "until": 1789981503.659836
+},
+"50242": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476453.8742762
 },
 "50243": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -45229,7 +45417,7 @@
 },
 "50451": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787990.628314
+"until": 1789476966.248859
 },
 "50452": {
 "reason": "no Shopify donor for SKU",
@@ -45265,7 +45453,7 @@
 },
 "50461": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787610.467503
+"until": 1789476950.403126
 },
 "50462": {
 "reason": "no Shopify donor for SKU",
@@ -45317,7 +45505,7 @@
 },
 "50477": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787789.583102
+"until": 1789476280.362821
 },
 "50480": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -45481,11 +45669,11 @@
 },
 "50523": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787972.145076
+"until": 1789476281.141379
 },
 "50524": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787668.0410821
+"until": 1789476282.092294
 },
 "50525": {
 "reason": "no Shopify donor for SKU",
@@ -45505,7 +45693,7 @@
 },
 "50529": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787726.82918
+"until": 1789476282.968492
 },
 "5053": {
 "reason": "already 12 vehicles (multi-fit/expanded)",
@@ -45605,7 +45793,7 @@
 },
 "50555": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787790.237548
+"until": 1789476283.67488
 },
 "50556": {
 "reason": "no Shopify donor for SKU",
@@ -45621,7 +45809,7 @@
 },
 "50559": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787806.7611039
+"until": 1789476300.313107
 },
 "5056": {
 "reason": "already 238 vehicles (multi-fit/expanded)",
@@ -45657,7 +45845,7 @@
 },
 "50567": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787791.168169
+"until": 1789476301.286744
 },
 "50568": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -45791,6 +45979,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221485.657475
 },
+"50600": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476302.0689201
+},
 "50601": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789389937.856652
@@ -45811,17 +46003,13 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789303487.5435462
 },
-"50606": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871805.0604422
-},
-"50607": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871797.7670028
-},
 "50608": {
 "reason": "no Shopify donor for SKU",
 "until": 1789389816.361312
+},
+"50609": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476457.686482
 },
 "50610": {
 "reason": "no Shopify donor for SKU",
@@ -45842,6 +46030,10 @@
 "50614": {
 "reason": "already 13 vehicles (multi-fit/expanded)",
 "until": 1789981971.1192892
+},
+"50615": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476448.958647
 },
 "50618": {
 "reason": "unresolved chassis: series 'None' not in BMW reference",
@@ -45870,6 +46062,10 @@
 "50624": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220483.769377
+},
+"50625": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476453.11385
 },
 "50626": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -46097,7 +46293,7 @@
 },
 "50712": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787887.03867
+"until": 1789476303.007932
 },
 "50713": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -46233,7 +46429,7 @@
 },
 "50750": {
 "reason": "no Shopify donor for SKU",
-"until": 1788786394.319772
+"until": 1789476303.937907
 },
 "50751": {
 "reason": "no Shopify donor for SKU",
@@ -46245,7 +46441,7 @@
 },
 "50753": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787933.4377909
+"until": 1789476304.8086941
 },
 "50754": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -46879,10 +47075,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789133557.2927098
 },
-"50931": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871654.3561301
-},
 "50932": {
 "reason": "no Shopify donor for SKU",
 "until": 1789389787.135838
@@ -47018,10 +47210,6 @@
 "50962": {
 "reason": "no Shopify donor for SKU",
 "until": 1789389857.051017
-},
-"50963": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871658.3724532
 },
 "50964": {
 "reason": "category 21647 never renders fitment on eBay",
@@ -47249,7 +47437,7 @@
 },
 "51045": {
 "reason": "no Shopify donor for SKU",
-"until": 1788787912.628818
+"until": 1789476959.796851
 },
 "51047": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -47455,18 +47643,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220201.20656
 },
-"51117": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871661.720024
-},
-"51118": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871662.5262332
-},
-"51119": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871663.4537568
-},
 "51120": {
 "reason": "no Shopify donor for SKU",
 "until": 1789390113.6805272
@@ -47474,18 +47650,6 @@
 "51123": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222846.84177
-},
-"51124": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871664.368124
-},
-"51125": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871665.1035671
-},
-"51126": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871665.945842
 },
 "51127": {
 "reason": "no Shopify donor for SKU",
@@ -47635,6 +47799,10 @@
 "reason": "already 90 vehicles (multi-fit/expanded)",
 "until": 1791120044.4172218
 },
+"5117": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476667.522454
+},
 "51175": {
 "reason": "already 40 vehicles (multi-fit/expanded)",
 "until": 1791120212.024768
@@ -47723,6 +47891,10 @@
 "reason": "already 4 vehicles (multi-fit/expanded)",
 "until": 1789980854.9923108
 },
+"5120": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476436.890126
+},
 "51200": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219923.5523279
@@ -47762,6 +47934,10 @@
 "51209": {
 "reason": "no Shopify donor for SKU",
 "until": 1789389803.963812
+},
+"51211": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476450.588664
 },
 "51212": {
 "reason": "already 12 vehicles (multi-fit/expanded)",
@@ -47893,7 +48069,7 @@
 },
 "51270": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787590.906173
+"until": 1789476947.494637
 },
 "51271": {
 "reason": "already 43 vehicles (multi-fit/expanded)",
@@ -47990,6 +48166,10 @@
 "51311": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789390434.758587
+},
+"51312": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476473.287518
 },
 "51318": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -48261,7 +48441,7 @@
 },
 "51415": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787953.347776
+"until": 1789476964.2803268
 },
 "51417": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -48647,10 +48827,6 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872384.363592
 },
-"51507": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871790.7149172
-},
 "51508": {
 "reason": "no Shopify donor for SKU",
 "until": 1789389916.0296261
@@ -48671,6 +48847,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220223.9122088
 },
+"51513": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476293.741854
+},
 "51514": {
 "reason": "no Shopify donor for SKU",
 "until": 1789389807.1973262
@@ -48678,6 +48858,10 @@
 "51515": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220815.1233711
+},
+"51516": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476284.403156
 },
 "51517": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -49055,6 +49239,10 @@
 "reason": "already 12 vehicles (multi-fit/expanded)",
 "until": 1790161274.1553295
 },
+"51650": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476461.592011
+},
 "51651": {
 "reason": "no Shopify donor for SKU",
 "until": 1789303554.1767821
@@ -49062,6 +49250,10 @@
 "51652": {
 "reason": "no Shopify donor for SKU",
 "until": 1789389962.717686
+},
+"51653": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476452.184043
 },
 "51654": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -49103,9 +49295,17 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789389879.888278
 },
+"51665": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476449.821511
+},
 "51666": {
 "reason": "no Shopify donor for SKU",
 "until": 1789389945.530432
+},
+"51667": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476121.32384
 },
 "51668": {
 "reason": "no Shopify donor for SKU",
@@ -49517,7 +49717,7 @@
 },
 "51810": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788787825.155905
+"until": 1789476957.760503
 },
 "51811": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -50699,6 +50899,10 @@
 "reason": "already 7 vehicles (multi-fit/expanded)",
 "until": 1789980123.7223656
 },
+"52219": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476463.208579
+},
 "52221": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221554.501323
@@ -51399,6 +51603,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222710.733354
 },
+"52459": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476465.93288
+},
 "52460": {
 "reason": "already 73 vehicles (multi-fit/expanded)",
 "until": 1790162178.3168857
@@ -51615,6 +51823,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789389981.912558
 },
+"52529": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476382.678178
+},
 "52530": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220884.182793
@@ -51630,14 +51842,6 @@
 "52539": {
 "reason": "already 7 vehicles (multi-fit/expanded)",
 "until": 1789980724.843475
-},
-"52541": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871802.55339
-},
-"52542": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871801.714137
 },
 "52543": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -52130,6 +52334,10 @@
 "52698": {
 "reason": "no Shopify donor for SKU",
 "until": 1789389924.732497
+},
+"527": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476581.509892
 },
 "5270": {
 "reason": "already 62 vehicles (multi-fit/expanded)",
@@ -52683,6 +52891,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789223026.1977642
 },
+"52875": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476478.6110458
+},
 "52876": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222709.329104
@@ -53023,6 +53235,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221391.3153899
 },
+"52999": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476464.0664692
+},
 "530": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221524.2630908
@@ -53130,6 +53346,10 @@
 "53033": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789222678.8324711
+},
+"53034": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476462.3832462
 },
 "53035": {
 "reason": "already 91 vehicles (multi-fit/expanded)",
@@ -53567,6 +53787,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789133515.562172
 },
+"53213": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476451.4526432
+},
 "5322": {
 "reason": "already 39 vehicles (multi-fit/expanded)",
 "until": 1790162727.885599
@@ -53718,6 +53942,10 @@
 "53279": {
 "reason": "already 32 vehicles (multi-fit/expanded)",
 "until": 1789980704.2702963
+},
+"5328": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476578.99849
 },
 "53283": {
 "reason": "already 96 vehicles (multi-fit/expanded)",
@@ -54119,6 +54347,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220373.659256
 },
+"53425": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476458.4471989
+},
 "53426": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789218869.421599
@@ -54126,6 +54358,10 @@
 "53429": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220388.8613398
+},
+"53430": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476469.480436
 },
 "53431": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -54811,6 +55047,10 @@
 "reason": "already 226 vehicles (multi-fit/expanded)",
 "until": 1789982001.7262886
 },
+"53666": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476455.8666801
+},
 "53667": {
 "reason": "already 51 vehicles (multi-fit/expanded)",
 "until": 1789837239.871762
@@ -55082,6 +55322,10 @@
 "53752": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219641.237568
+},
+"53753": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476456.814348
 },
 "53754": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -55443,6 +55687,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789389902.326344
 },
+"53862": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476464.9589179
+},
 "53868": {
 "reason": "already 90 vehicles (multi-fit/expanded)",
 "until": 1790071138.1230083
@@ -55454,6 +55702,10 @@
 "53872": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221320.98419
+},
+"53873": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476459.247709
 },
 "53874": {
 "reason": "already 28 vehicles (multi-fit/expanded)",
@@ -55510,6 +55762,14 @@
 "53891": {
 "reason": "already 41 vehicles (multi-fit/expanded)",
 "until": 1789980200.5637436
+},
+"53892": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476460.950444
+},
+"53893": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476454.88186
 },
 "53894": {
 "reason": "already 20 vehicles (multi-fit/expanded)",
@@ -55590,6 +55850,10 @@
 "53917": {
 "reason": "already 5 vehicles (multi-fit/expanded)",
 "until": 1791119658.222164
+},
+"53918": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476669.0708039
 },
 "53919": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -55979,6 +56243,10 @@
 "reason": "already 396 vehicles (multi-fit/expanded)",
 "until": 1790163678.4048905
 },
+"5406": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476601.0865788
+},
 "541": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221417.330765
@@ -56147,6 +56415,10 @@
 "reason": "already 57 vehicles (multi-fit/expanded)",
 "until": 1790068605.039229
 },
+"5422": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476590.19508
+},
 "5423": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789218957.25261
@@ -56199,6 +56471,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872241.621207
 },
+"5445": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476435.087032
+},
 "5447": {
 "reason": "already 33 vehicles (multi-fit/expanded)",
 "until": 1789896376.3435042
@@ -56239,6 +56515,10 @@
 "reason": "already 69 vehicles (multi-fit/expanded)",
 "until": 1790163668.6228378
 },
+"5469": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476588.589087
+},
 "547": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220896.029897
@@ -56258,6 +56538,10 @@
 "5475": {
 "reason": "already 231 vehicles (multi-fit/expanded)",
 "until": 1790161747.6589065
+},
+"5476": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476587.062923
 },
 "5477": {
 "reason": "already 235 vehicles (multi-fit/expanded)",
@@ -56415,6 +56699,10 @@
 "reason": "category 21647 never renders fitment on eBay",
 "until": 1791204367.405025
 },
+"5523": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476684.315125
+},
 "5529": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219420.939744
@@ -56567,6 +56855,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220819.961329
 },
+"5580": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476474.062826
+},
 "5581": {
 "reason": "unresolved chassis: series 'None' not in BMW reference",
 "until": 1790162194.9186869
@@ -56626,10 +56918,6 @@
 "5600": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219225.510318
-},
-"5603": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871729.110007
 },
 "5604": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -56711,6 +56999,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872249.1775239
 },
+"5639": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476582.35088
+},
 "564": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221404.4199538
@@ -56782,6 +57074,10 @@
 "5661": {
 "reason": "already 80 vehicles (multi-fit/expanded)",
 "until": 1790162805.76435
+},
+"5662": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476529.619532
 },
 "5663": {
 "reason": "already 73 vehicles (multi-fit/expanded)",
@@ -56915,6 +57211,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789044798.243704
 },
+"5728": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476675.4375691
+},
 "573": {
 "reason": "already 4 vehicles (multi-fit/expanded)",
 "until": 1790068580.4345155
@@ -56930,6 +57230,10 @@
 "5735": {
 "reason": "no Shopify donor for SKU",
 "until": 1789303526.404872
+},
+"5736": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476672.2693539
 },
 "5738": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -57075,6 +57379,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220173.857857
 },
+"5790": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476477.660277
+},
 "5792": {
 "reason": "already 10 vehicles (multi-fit/expanded)",
 "until": 1789897780.2811117
@@ -57187,6 +57495,18 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789217656.4833379
 },
+"5826": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476495.274577
+},
+"5827": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476249.6057322
+},
+"5828": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476496.1467588
+},
 "5829": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217658.149902
@@ -57194,6 +57514,10 @@
 "583": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221414.730718
+},
+"5830": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476496.895238
 },
 "5831": {
 "reason": "already 364 vehicles (multi-fit/expanded)",
@@ -57230,6 +57554,10 @@
 "5839": {
 "reason": "already 36 vehicles (multi-fit/expanded)",
 "until": 1789899935.7081585
+},
+"5841": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476546.487751
 },
 "5843": {
 "reason": "already 51 vehicles (multi-fit/expanded)",
@@ -57499,6 +57827,10 @@
 "reason": "unresolved chassis: series 'None' not in BMW reference",
 "until": 1790162089.3217294
 },
+"5914": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476381.8468952
+},
 "5915": {
 "reason": "already 3 vehicles (multi-fit/expanded)",
 "until": 1790068802.7502794
@@ -57538,6 +57870,10 @@
 "5928": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219132.247645
+},
+"5929": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476470.430469
 },
 "593": {
 "reason": "already 9 vehicles (multi-fit/expanded)",
@@ -57875,6 +58211,10 @@
 "reason": "already 36 vehicles (multi-fit/expanded)",
 "until": 1789899919.1762462
 },
+"60041": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476638.498552
+},
 "60042": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791204738.6539001
@@ -58051,9 +58391,17 @@
 "reason": "already 66 vehicles (multi-fit/expanded)",
 "until": 1789898452.8302307
 },
+"60105": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476356.1579561
+},
 "60108": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219347.534689
+},
+"60109": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476352.9031591
 },
 "6011": {
 "reason": "already 10 vehicles (multi-fit/expanded)",
@@ -58106,6 +58454,10 @@
 "60122": {
 "reason": "already 18 vehicles (multi-fit/expanded)",
 "until": 1789898178.0217187
+},
+"60124": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476372.394689
 },
 "60125": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -58183,6 +58535,10 @@
 "reason": "already 66 vehicles (multi-fit/expanded)",
 "until": 1789898450.4547253
 },
+"60159": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476354.4817579
+},
 "6016": {
 "reason": "already 10 vehicles (multi-fit/expanded)",
 "until": 1789897904.3735757
@@ -58226,6 +58582,10 @@
 "60172": {
 "reason": "already 173 vehicles (multi-fit/expanded)",
 "until": 1790158981.599587
+},
+"60175": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476362.229205
 },
 "60176": {
 "reason": "already 164 vehicles (multi-fit/expanded)",
@@ -58310,6 +58670,10 @@
 "60203": {
 "reason": "already 140 vehicles (multi-fit/expanded)",
 "until": 1790159427.5391357
+},
+"60204": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476370.544223
 },
 "60205": {
 "reason": "already 123 vehicles (multi-fit/expanded)",
@@ -58531,6 +58895,10 @@
 "reason": "offer read HTTP 404",
 "until": 1790159563.8390784
 },
+"60294": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476358.639925
+},
 "603": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217472.610743
@@ -58542,6 +58910,10 @@
 "60306": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791204563.04673
+},
+"60309": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476359.500374
 },
 "60310": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -58559,13 +58931,29 @@
 "reason": "already 59 vehicles (multi-fit/expanded)",
 "until": 1790159510.9794707
 },
+"60319": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476360.2528791
+},
 "6032": {
 "reason": "already 2 vehicles (multi-fit/expanded)",
 "until": 1789837107.0242243
 },
+"60322": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476365.253171
+},
+"60332": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476362.9809349
+},
 "60334": {
 "reason": "already 24 vehicles (multi-fit/expanded)",
 "until": 1790159226.6924577
+},
+"60336": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476373.178926
 },
 "60337": {
 "reason": "already 33 vehicles (multi-fit/expanded)",
@@ -58767,6 +59155,10 @@
 "reason": "already 25 vehicles (multi-fit/expanded)",
 "until": 1790159314.0656102
 },
+"60431": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476368.149606
+},
 "60437": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789133683.052274
@@ -58907,10 +59299,6 @@
 "reason": "already 33 vehicles (multi-fit/expanded)",
 "until": 1789899624.8721771
 },
-"60527": {
-"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788871460.9895968
-},
 "60528": {
 "reason": "already 7 vehicles (multi-fit/expanded)",
 "until": 1789899626.0328512
@@ -58930,6 +59318,10 @@
 "60534": {
 "reason": "already 2 vehicles (multi-fit/expanded)",
 "until": 1790329354.0285645
+},
+"60535": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476553.490968
 },
 "60536": {
 "reason": "already 48 vehicles (multi-fit/expanded)",
@@ -58971,6 +59363,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789133614.48546
 },
+"60553": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476366.0476549
+},
 "60555": {
 "reason": "already 59 vehicles (multi-fit/expanded)",
 "until": 1790159378.0219042
@@ -58990,6 +59386,10 @@
 "60559": {
 "reason": "already 30 vehicles (multi-fit/expanded)",
 "until": 1789899951.3266156
+},
+"6056": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476479.333785
 },
 "60561": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -59098,6 +59498,10 @@
 "60603": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791204568.712712
+},
+"60604": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476480.198947
 },
 "60605": {
 "reason": "already 234 vehicles (multi-fit/expanded)",
@@ -59367,9 +59771,9 @@
 "reason": "already 112 vehicles (multi-fit/expanded)",
 "until": 1790161574.736076
 },
-"60711": {
+"60710": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788871995.96228
+"until": 1789476438.675235
 },
 "60712": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -60031,6 +60435,10 @@
 "reason": "already 60 vehicles (multi-fit/expanded)",
 "until": 1789836085.4521334
 },
+"6099": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476487.9449291
+},
 "60990": {
 "reason": "already 30 vehicles (multi-fit/expanded)",
 "until": 1789836570.221367
@@ -60190,6 +60598,10 @@
 "61067": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219162.71951
+},
+"6107": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476569.826686
 },
 "61071": {
 "reason": "already 114 vehicles (multi-fit/expanded)",
@@ -60470,6 +60882,10 @@
 "61167": {
 "reason": "already 365 vehicles (multi-fit/expanded)",
 "until": 1789898918.1147969
+},
+"61168": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476530.507796
 },
 "61169": {
 "reason": "already 19 vehicles (multi-fit/expanded)",
@@ -61599,17 +62015,13 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789216860.033481
 },
-"61570": {
-"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788872157.5483341
-},
-"61571": {
-"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788872156.808031
-},
 "61572": {
 "reason": "no Shopify donor for SKU",
 "until": 1789130886.68801
+},
+"61573": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476133.763228
 },
 "61575": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -61714,6 +62126,10 @@
 "61600": {
 "reason": "no Shopify donor for SKU",
 "until": 1789216854.981911
+},
+"61601": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476132.9832919
 },
 "61602": {
 "reason": "no Shopify donor for SKU",
@@ -61835,6 +62251,10 @@
 "reason": "already 103 vehicles (multi-fit/expanded)",
 "until": 1789980296.4426386
 },
+"6164": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476520.0198882
+},
 "61640": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872476.241062
@@ -61887,9 +62307,17 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872471.700323
 },
+"61660": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476578.090351
+},
 "61663": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789130882.623722
+},
+"61664": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476132.20929
 },
 "61665": {
 "reason": "no Shopify donor for SKU",
@@ -61899,6 +62327,18 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789130856.2325618
 },
+"61667": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476131.427839
+},
+"61668": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476130.677752
+},
+"61669": {
+"reason": "category 179671 never renders fitment on eBay",
+"until": 1791463316.681588
+},
 "61670": {
 "reason": "no Shopify donor for SKU",
 "until": 1789130855.230101
@@ -61906,6 +62346,10 @@
 "61673": {
 "reason": "category 38771 never renders fitment on eBay",
 "until": 1791204483.8907678
+},
+"61674": {
+"reason": "category 38771 never renders fitment on eBay",
+"until": 1791463329.780799
 },
 "61675": {
 "reason": "no Shopify donor for SKU",
@@ -62175,6 +62619,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789217273.94733
 },
+"61769": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476128.980772
+},
 "6177": {
 "reason": "already 87 vehicles (multi-fit/expanded)",
 "until": 1790158418.961546
@@ -62210,6 +62658,10 @@
 "61783": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789217887.173096
+},
+"61786": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476664.602892
 },
 "61788": {
 "reason": "already 89 vehicles (multi-fit/expanded)",
@@ -62259,9 +62711,21 @@
 "reason": "already 197 vehicles (multi-fit/expanded)",
 "until": 1789980272.7195978
 },
+"61802": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476115.753875
+},
+"61803": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476128.0419881
+},
 "61804": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217255.421279
+},
+"61805": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476127.189753
 },
 "61806": {
 "reason": "no Shopify donor for SKU",
@@ -62275,9 +62739,17 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789217258.1440341
 },
+"61821": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476114.941893
+},
 "61822": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217249.8967721
+},
+"61823": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476113.992408
 },
 "61824": {
 "reason": "no Shopify donor for SKU",
@@ -62331,6 +62803,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872453.3451881
 },
+"61855": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476520.9449248
+},
 "61856": {
 "reason": "category 33643 never renders fitment on eBay",
 "until": 1791204458.933824
@@ -62351,6 +62827,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789217234.278133
 },
+"61861": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476123.16499
+},
 "61862": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217237.984708
@@ -62359,6 +62839,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789217235.03009
 },
+"61864": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476560.047539
+},
 "61867": {
 "reason": "category 33643 never renders fitment on eBay",
 "until": 1791204775.715459
@@ -62366,6 +62850,10 @@
 "61868": {
 "reason": "already 21 vehicles (multi-fit/expanded)",
 "until": 1790163290.1963465
+},
+"61869": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476565.3925838
 },
 "6187": {
 "reason": "already 33 vehicles (multi-fit/expanded)",
@@ -62415,6 +62903,14 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789217237.2693691
 },
+"61887": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476120.462346
+},
+"61888": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476113.075042
+},
 "61889": {
 "reason": "already 49 vehicles (multi-fit/expanded)",
 "until": 1790068395.271728
@@ -62451,6 +62947,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789044880.7650182
 },
+"61907": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476568.3479779
+},
 "61908": {
 "reason": "already 108 vehicles (multi-fit/expanded)",
 "until": 1789899886.0496297
@@ -62458,6 +62958,18 @@
 "6191": {
 "reason": "already 73 vehicles (multi-fit/expanded)",
 "until": 1789837321.4669015
+},
+"61911": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476569.072587
+},
+"61912": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476700.337829
+},
+"61915": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476556.78584
 },
 "61917": {
 "reason": "already 44 vehicles (multi-fit/expanded)",
@@ -62487,6 +62999,10 @@
 "reason": "already 53 vehicles (multi-fit/expanded)",
 "until": 1789897952.958601
 },
+"61926": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476562.596353
+},
 "61929": {
 "reason": "already 21 vehicles (multi-fit/expanded)",
 "until": 1790163348.9173667
@@ -62502,6 +63018,10 @@
 "61931": {
 "reason": "already 30 vehicles (multi-fit/expanded)",
 "until": 1790163365.3567607
+},
+"61934": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476683.5439339
 },
 "61936": {
 "reason": "already 234 vehicles (multi-fit/expanded)",
@@ -62519,9 +63039,21 @@
 "reason": "already 50 vehicles (multi-fit/expanded)",
 "until": 1789837287.2380676
 },
+"61940": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476560.9803169
+},
 "61943": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872431.228427
+},
+"61950": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476673.902823
+},
+"61953": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476564.624361
 },
 "61955": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -62562,6 +63094,10 @@
 "61971": {
 "reason": "already 30 vehicles (multi-fit/expanded)",
 "until": 1789899876.6632798
+},
+"61972": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476561.8904681
 },
 "61973": {
 "reason": "offer read HTTP 404",
@@ -62786,6 +63322,10 @@
 "62029": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217464.0845819
+},
+"62032": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476119.505866
 },
 "62034": {
 "reason": "already 53 vehicles (multi-fit/expanded)",
@@ -63071,6 +63611,10 @@
 "reason": "already 16 vehicles (multi-fit/expanded)",
 "until": 1789837554.5650086
 },
+"6215": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476439.4507039
+},
 "62150": {
 "reason": "already 16 vehicles (multi-fit/expanded)",
 "until": 1789837565.1801343
@@ -63234,6 +63778,10 @@
 "62208": {
 "reason": "no Shopify donor for SKU",
 "until": 1789218019.647149
+},
+"62209": {
+"reason": "category 179679 never renders fitment on eBay",
+"until": 1791463312.298261
 },
 "6221": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -63587,6 +64135,14 @@
 "reason": "already 239 vehicles (multi-fit/expanded)",
 "until": 1790245502.2682228
 },
+"62358": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476118.572652
+},
+"62359": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476117.6380842
+},
 "62360": {
 "reason": "no Shopify donor for SKU",
 "until": 1789217239.85495
@@ -63751,6 +64307,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872362.2922082
 },
+"62425": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476635.469046
+},
 "6243": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791204720.544804
@@ -63758,6 +64318,10 @@
 "62430": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872363.1887481
+},
+"62432": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476636.512937
 },
 "62436": {
 "reason": "no Shopify donor for SKU",
@@ -63783,13 +64347,29 @@
 "reason": "already 24 vehicles (multi-fit/expanded)",
 "until": 1789899708.2965984
 },
+"62469": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476507.5250828
+},
 "6247": {
 "reason": "already 197 vehicles (multi-fit/expanded)",
 "until": 1789837024.775114
 },
+"62470": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476512.23027
+},
+"62471": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476508.491071
+},
 "62472": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791205282.175168
+},
+"62473": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476510.17578
 },
 "62474": {
 "reason": "no Shopify donor for SKU",
@@ -63807,6 +64387,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789303550.668845
 },
+"62478": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476506.596062
+},
 "62479": {
 "reason": "category 169395 never renders fitment on eBay",
 "until": 1791205281.2768419
@@ -63815,13 +64399,93 @@
 "reason": "already 197 vehicles (multi-fit/expanded)",
 "until": 1789837012.881271
 },
+"62480": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476509.396747
+},
+"62481": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476511.083023
+},
+"62482": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476503.898698
+},
+"62483": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476467.474886
+},
+"62484": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476504.885824
+},
+"62485": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476502.3245509
+},
+"62486": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476501.404292
+},
+"62487": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476505.8346949
+},
+"62488": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476503.083308
+},
+"62489": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476412.5808158
+},
+"62490": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476417.652386
+},
+"62491": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476413.457994
+},
+"62492": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476414.347779
+},
+"62493": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476415.1118531
+},
+"62494": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476418.4469209
+},
+"62495": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476411.678383
+},
 "62496": {
 "reason": "no Shopify donor for SKU",
 "until": 1789303519.998723
 },
+"62497": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476415.9870348
+},
 "62498": {
 "reason": "category 174119 never renders fitment on eBay",
 "until": 1791204717.707602
+},
+"62503": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476419.238723
+},
+"62507": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476416.8873558
+},
+"62508": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476420.9805791
 },
 "62509": {
 "reason": "category 33643 never renders fitment on eBay",
@@ -63831,13 +64495,41 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219603.3055239
 },
+"62511": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476420.173218
+},
+"62514": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476399.443201
+},
 "62515": {
 "reason": "no Shopify donor for SKU",
 "until": 1789303416.941335
 },
+"62516": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476400.184644
+},
+"62518": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476401.0351949
+},
+"62519": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476271.666653
+},
 "6252": {
 "reason": "already 43 vehicles (multi-fit/expanded)",
 "until": 1789837028.7970967
+},
+"62520": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476401.9185228
+},
+"62521": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476402.679619
 },
 "62522": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -63851,6 +64543,42 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789390410.3849611
 },
+"62536": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476403.479435
+},
+"62538": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476404.2042592
+},
+"62539": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476404.979317
+},
+"62540": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476305.7537751
+},
+"62542": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476396.733174
+},
+"62543": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476273.348875
+},
+"62544": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476397.516324
+},
+"62547": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476274.2839942
+},
+"62548": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476398.497157
+},
 "62549": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791205276.0807
@@ -63863,9 +64591,21 @@
 "reason": "already 120 vehicles (multi-fit/expanded)",
 "until": 1789897969.4492412
 },
+"62554": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476274.978126
+},
+"62555": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476395.802654
+},
 "62556": {
 "reason": "no Shopify donor for SKU",
 "until": 1789303481.595941
+},
+"62557": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476272.5664241
 },
 "62558": {
 "reason": "already 239 vehicles (multi-fit/expanded)",
@@ -63874,6 +64614,10 @@
 "62559": {
 "reason": "offer read HTTP 404",
 "until": 1790244943.4118485
+},
+"62561": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476592.059694
 },
 "62562": {
 "reason": "category 33643 never renders fitment on eBay",
@@ -63898,6 +64642,10 @@
 "62570": {
 "reason": "already 269 vehicles (multi-fit/expanded)",
 "until": 1790244920.9111047
+},
+"62573": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476592.792524
 },
 "62574": {
 "reason": "already 152 vehicles (multi-fit/expanded)",
@@ -63947,9 +64695,53 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789303500.2299352
 },
+"62591": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476387.505846
+},
+"62592": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476388.422755
+},
+"62593": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476390.163599
+},
+"62594": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476391.7497861
+},
+"62595": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476392.459475
+},
+"62596": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476386.687315
+},
+"62597": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476389.272322
+},
+"62598": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476385.756503
+},
+"62599": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476394.153742
+},
 "626": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221014.461954
+},
+"62600": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476306.631513
+},
+"62601": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476390.912521
 },
 "62602": {
 "reason": "no Shopify donor for SKU",
@@ -64035,6 +64827,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1788872360.567364
 },
+"62637": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476591.1727629
+},
 "62639": {
 "reason": "already 236 vehicles (multi-fit/expanded)",
 "until": 1789980258.0463004
@@ -64063,9 +64859,17 @@
 "reason": "already 123 vehicles (multi-fit/expanded)",
 "until": 1790070094.8589833
 },
+"62646": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476577.332342
+},
 "62647": {
 "reason": "category 33643 never renders fitment on eBay",
 "until": 1791204606.7682402
+},
+"62648": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476575.3943229
 },
 "62649": {
 "reason": "already 153 vehicles (multi-fit/expanded)",
@@ -64074,6 +64878,10 @@
 "6265": {
 "reason": "already 59 vehicles (multi-fit/expanded)",
 "until": 1789980638.7910795
+},
+"62650": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476441.0326521
 },
 "62651": {
 "reason": "already 33 vehicles (multi-fit/expanded)",
@@ -64119,9 +64927,33 @@
 "reason": "already 293 vehicles (multi-fit/expanded)",
 "until": 1789899859.8724136
 },
+"62673": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476395.039436
+},
 "62674": {
 "reason": "no Shopify donor for SKU",
 "until": 1789390102.5614378
+},
+"62675": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476393.2864609
+},
+"62676": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476385.0484722
+},
+"62677": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476383.3630981
+},
+"62678": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476384.237695
+},
+"62680": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476381.005632
 },
 "62681": {
 "reason": "already 139 vehicles (multi-fit/expanded)",
@@ -64147,6 +64979,10 @@
 "reason": "offer read HTTP 404",
 "until": 1790244125.9120483
 },
+"62692": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476573.707201
+},
 "62693": {
 "reason": "already 70 vehicles (multi-fit/expanded)",
 "until": 1789981469.9313345
@@ -64154,6 +64990,10 @@
 "62694": {
 "reason": "already 19 vehicles (multi-fit/expanded)",
 "until": 1790163515.7347684
+},
+"62695": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476574.604279
 },
 "62696": {
 "reason": "already 16 vehicles (multi-fit/expanded)",
@@ -64210,6 +65050,10 @@
 "62726": {
 "reason": "already 19 vehicles (multi-fit/expanded)",
 "until": 1790163207.2076778
+},
+"62727": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476541.927448
 },
 "62728": {
 "reason": "already 16 vehicles (multi-fit/expanded)",
@@ -64439,6 +65283,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789130551.4526908
 },
+"62808": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476380.157295
+},
 "62809": {
 "reason": "already 53 vehicles (multi-fit/expanded)",
 "until": 1790163126.2417405
@@ -64446,6 +65294,22 @@
 "62810": {
 "reason": "already 27 vehicles (multi-fit/expanded)",
 "until": 1790163086.8498847
+},
+"62811": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476689.256973
+},
+"62813": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476690.033458
+},
+"62815": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476699.4868119
+},
+"62816": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476539.491589
 },
 "62818": {
 "reason": "already 109 vehicles (multi-fit/expanded)",
@@ -64467,6 +65331,10 @@
 "reason": "already 130 vehicles (multi-fit/expanded)",
 "until": 1790069911.778538
 },
+"62822": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476538.734826
+},
 "62824": {
 "reason": "already 75 vehicles (multi-fit/expanded)",
 "until": 1790163084.9512033
@@ -64479,9 +65347,17 @@
 "reason": "already 24 vehicles (multi-fit/expanded)",
 "until": 1790164821.71315
 },
+"62828": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476674.682322
+},
 "62829": {
 "reason": "already 61 vehicles (multi-fit/expanded)",
 "until": 1789897982.1687238
+},
+"62835": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476677.487954
 },
 "6284": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -64639,6 +65515,10 @@
 "reason": "already 121 vehicles (multi-fit/expanded)",
 "until": 1789981076.2992272
 },
+"62880": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476637.60147
+},
 "62881": {
 "reason": "offer read HTTP 404",
 "until": 1790159564.271104
@@ -64647,9 +65527,17 @@
 "reason": "already 119 vehicles (multi-fit/expanded)",
 "until": 1790162606.9698048
 },
+"62886": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476621.628263
+},
 "6289": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789133730.6197708
+},
+"62890": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476517.791291
 },
 "62894": {
 "reason": "no Shopify donor for SKU",
@@ -64771,9 +65659,21 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789216904.410739
 },
+"62948": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476618.877506
+},
 "62949": {
 "reason": "already 135 vehicles (multi-fit/expanded)",
 "until": 1790164288.8377514
+},
+"62953": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476622.462063
+},
+"62954": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476619.778072
 },
 "62959": {
 "reason": "already 20 vehicles (multi-fit/expanded)",
@@ -64819,6 +65719,14 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789217892.835828
 },
+"62981": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476624.185559
+},
+"62982": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476623.314013
+},
 "62983": {
 "reason": "already 16 vehicles (multi-fit/expanded)",
 "until": 1789899705.7724092
@@ -64831,9 +65739,17 @@
 "reason": "already 103 vehicles (multi-fit/expanded)",
 "until": 1790068216.5814118
 },
+"62988": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476516.8576021
+},
 "62989": {
 "reason": "already 88 vehicles (multi-fit/expanded)",
 "until": 1789897985.761924
+},
+"6299": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476543.473858
 },
 "62992": {
 "reason": "no Shopify donor for SKU",
@@ -64887,6 +65803,10 @@
 "reason": "already 117 vehicles (multi-fit/expanded)",
 "until": 1790162524.7213242
 },
+"63008": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476533.05341
+},
 "6301": {
 "reason": "already 50 vehicles (multi-fit/expanded)",
 "until": 1789898189.1907568
@@ -64898,6 +65818,10 @@
 "63014": {
 "reason": "already 33 vehicles (multi-fit/expanded)",
 "until": 1790162527.1826382
+},
+"63015": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476500.489952
 },
 "63016": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -64911,13 +65835,25 @@
 "reason": "already 59 vehicles (multi-fit/expanded)",
 "until": 1789899548.5572748
 },
+"63021": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476499.7219698
+},
 "63022": {
 "reason": "already 33 vehicles (multi-fit/expanded)",
 "until": 1790162523.262958
 },
+"63023": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476466.6823869
+},
 "63024": {
 "reason": "already 65 vehicles (multi-fit/expanded)",
 "until": 1789897997.220345
+},
+"63026": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476531.284991
 },
 "63028": {
 "reason": "already 33 vehicles (multi-fit/expanded)",
@@ -64939,6 +65875,10 @@
 "reason": "already 35 vehicles (multi-fit/expanded)",
 "until": 1790161972.294853
 },
+"63035": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476446.460501
+},
 "63036": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789390413.0112178
@@ -64946,6 +65886,10 @@
 "63037": {
 "reason": "already 3 vehicles (multi-fit/expanded)",
 "until": 1790071495.7801266
+},
+"63038": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476445.5942988
 },
 "63041": {
 "reason": "no Shopify donor for SKU",
@@ -65002,6 +65946,10 @@
 "63075": {
 "reason": "already 55 vehicles (multi-fit/expanded)",
 "until": 1790069017.7403035
+},
+"63077": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476532.13838
 },
 "63081": {
 "reason": "already 44 vehicles (multi-fit/expanded)",
@@ -65303,6 +66251,10 @@
 "reason": "already 239 vehicles (multi-fit/expanded)",
 "until": 1790162153.407282
 },
+"63174": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476544.3042262
+},
 "63176": {
 "reason": "already 65 vehicles (multi-fit/expanded)",
 "until": 1789897990.3597994
@@ -65314,6 +66266,10 @@
 "63178": {
 "reason": "already 135 vehicles (multi-fit/expanded)",
 "until": 1790162049.646013
+},
+"63179": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476471.284439
 },
 "6318": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -65495,9 +66451,29 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789217813.141836
 },
+"63246": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476125.845461
+},
+"63247": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476124.93943
+},
+"63248": {
+"reason": "category 21647 never renders fitment on eBay",
+"until": 1791463324.037708
+},
+"63249": {
+"reason": "category 107062 never renders fitment on eBay",
+"until": 1791463326.5206
+},
 "6325": {
 "reason": "already 4 vehicles (multi-fit/expanded)",
 "until": 1789836048.6264458
+},
+"63250": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476122.207171
 },
 "63264": {
 "reason": "offer read HTTP 404",
@@ -65511,9 +66487,17 @@
 "reason": "already 31 vehicles (multi-fit/expanded)",
 "until": 1790162113.5402887
 },
+"63269": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476475.083779
+},
 "6327": {
 "reason": "already 29 vehicles (multi-fit/expanded)",
 "until": 1789836386.4517896
+},
+"63270": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476476.020621
 },
 "63271": {
 "reason": "already 21 vehicles (multi-fit/expanded)",
@@ -65539,6 +66523,10 @@
 "reason": "already 99 vehicles (multi-fit/expanded)",
 "until": 1789836176.9305108
 },
+"63318": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476537.069228
+},
 "6332": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219006.18817
@@ -65551,9 +66539,21 @@
 "reason": "already 234 vehicles (multi-fit/expanded)",
 "until": 1790070937.064828
 },
+"63328": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476536.200765
+},
 "6333": {
 "reason": "already 73 vehicles (multi-fit/expanded)",
 "until": 1789836234.4846945
+},
+"63331": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476534.509825
+},
+"63332": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476535.409764
 },
 "63333": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -65562,6 +66562,10 @@
 "63334": {
 "reason": "already 152 vehicles (multi-fit/expanded)",
 "until": 1790070903.1692293
+},
+"63335": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476537.843922
 },
 "63336": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -65582,6 +66586,10 @@
 "6335": {
 "reason": "already 11 vehicles (multi-fit/expanded)",
 "until": 1789836406.663522
+},
+"63356": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476514.112799
 },
 "63357": {
 "reason": "already 257 vehicles (multi-fit/expanded)",
@@ -65647,6 +66655,14 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789390307.410569
 },
+"63376": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476513.098249
+},
+"63377": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476514.867388
+},
 "63378": {
 "reason": "category 33643 never renders fitment on eBay",
 "until": 1791204742.033776
@@ -65662,6 +66678,10 @@
 "63381": {
 "reason": "already 10 vehicles (multi-fit/expanded)",
 "until": 1789926368.6719728
+},
+"6339": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476523.5477
 },
 "6340": {
 "reason": "already 55 vehicles (multi-fit/expanded)",
@@ -65755,6 +66775,10 @@
 "reason": "already 65 vehicles (multi-fit/expanded)",
 "until": 1789897989.2334826
 },
+"63499": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476437.801582
+},
 "63500": {
 "reason": "already 6 vehicles (multi-fit/expanded)",
 "until": 1789837692.738053
@@ -65827,9 +66851,21 @@
 "reason": "already 43 vehicles (multi-fit/expanded)",
 "until": 1789836946.6586597
 },
+"63530": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476442.771138
+},
+"63531": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476441.84561
+},
 "63532": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789390264.1366642
+},
+"63533": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476443.627282
 },
 "63534": {
 "reason": "already 14 vehicles (multi-fit/expanded)",
@@ -65886,6 +66922,10 @@
 "63561": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791204246.912159
+},
+"63564": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476436.008445
 },
 "63568": {
 "reason": "already 10 vehicles (multi-fit/expanded)",
@@ -65955,6 +66995,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219230.9081962
 },
+"63600": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476423.389148
+},
 "63606": {
 "reason": "already 120 vehicles (multi-fit/expanded)",
 "until": 1789898612.0074248
@@ -65983,6 +67027,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789217052.946369
 },
+"63617": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476426.7084942
+},
 "63618": {
 "reason": "already 110 vehicles (multi-fit/expanded)",
 "until": 1789837608.1822238
@@ -65995,6 +67043,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789217819.3563762
 },
+"63623": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476430.973931
+},
 "63624": {
 "reason": "category 33643 never renders fitment on eBay",
 "until": 1791204556.3275468
@@ -66006,6 +67058,10 @@
 "63626": {
 "reason": "already 48 vehicles (multi-fit/expanded)",
 "until": 1789837603.2394528
+},
+"63629": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476422.685378
 },
 "6363": {
 "reason": "already 24 vehicles (multi-fit/expanded)",
@@ -66043,6 +67099,10 @@
 "reason": "already 48 vehicles (multi-fit/expanded)",
 "until": 1789836027.9637742
 },
+"63653": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476430.190717
+},
 "63657": {
 "reason": "offer read HTTP 404",
 "until": 1790160880.360155
@@ -66078,6 +67138,10 @@
 "6367": {
 "reason": "already 55 vehicles (multi-fit/expanded)",
 "until": 1789897288.4708998
+},
+"63670": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476425.002951
 },
 "63672": {
 "reason": "already 20 vehicles (multi-fit/expanded)",
@@ -66130,6 +67194,10 @@
 "63714": {
 "reason": "already 87 vehicles (multi-fit/expanded)",
 "until": 1789837595.2121315
+},
+"63719": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476424.220077
 },
 "6372": {
 "reason": "already 55 vehicles (multi-fit/expanded)",
@@ -66191,6 +67259,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789217601.624428
 },
+"63769": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476375.487247
+},
 "6377": {
 "reason": "already 55 vehicles (multi-fit/expanded)",
 "until": 1789897274.2806108
@@ -66199,13 +67271,13 @@
 "reason": "already 46 vehicles (multi-fit/expanded)",
 "until": 1789899540.791325
 },
-"63774": {
-"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
-"until": 1788872175.6467772
-},
 "63776": {
 "reason": "already 48 vehicles (multi-fit/expanded)",
 "until": 1789896493.830524
+},
+"63777": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476374.7486598
 },
 "63779": {
 "reason": "already 28 vehicles (multi-fit/expanded)",
@@ -66226,6 +67298,10 @@
 "63787": {
 "reason": "already 78 vehicles (multi-fit/expanded)",
 "until": 1789896489.9959114
+},
+"63788": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476377.706091
 },
 "6379": {
 "reason": "category 107062 never renders fitment on eBay",
@@ -66258,6 +67334,10 @@
 "63811": {
 "reason": "already 197 vehicles (multi-fit/expanded)",
 "until": 1790159698.7883637
+},
+"63812": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476376.931993
 },
 "63814": {
 "reason": "category 107062 never renders fitment on eBay",
@@ -66346,6 +67426,10 @@
 "6386": {
 "reason": "already 197 vehicles (multi-fit/expanded)",
 "until": 1789836928.3707607
+},
+"63861": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476355.367806
 },
 "63862": {
 "reason": "already 48 vehicles (multi-fit/expanded)",
@@ -66487,6 +67571,10 @@
 "reason": "already 197 vehicles (multi-fit/expanded)",
 "until": 1790071189.4415522
 },
+"63942": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476356.901589
+},
 "63944": {
 "reason": "already 89 vehicles (multi-fit/expanded)",
 "until": 1789896433.4265532
@@ -66510,6 +67598,10 @@
 "63950": {
 "reason": "already 28 vehicles (multi-fit/expanded)",
 "until": 1789836557.8170612
+},
+"63951": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476351.3347552
 },
 "63953": {
 "reason": "category 33643 never renders fitment on eBay",
@@ -66991,6 +68083,10 @@
 "reason": "already 235 vehicles (multi-fit/expanded)",
 "until": 1790070954.8111737
 },
+"6428": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476425.8326101
+},
 "64293": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789217285.317106
@@ -67179,197 +68275,25 @@
 "reason": "no Shopify donor for SKU",
 "until": 1789303388.899986
 },
-"64489": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871446.788021
-},
-"64490": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871451.1055381
-},
-"64491": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871447.6429682
-},
-"64492": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871456.587231
-},
-"64493": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871445.151458
-},
-"64494": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871452.01667
-},
-"64495": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871453.5622241
-},
-"64496": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871458.4009259
-},
-"64497": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871442.178553
-},
-"64498": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871455.8423228
-},
-"64499": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871445.8805919
-},
 "6450": {
 "reason": "already 42 vehicles (multi-fit/expanded)",
 "until": 1789837706.0506303
-},
-"64500": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871450.19683
-},
-"64501": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871443.6170082
-},
-"64502": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871452.6377559
-},
-"64503": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871457.4861062
-},
-"64504": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871448.631171
-},
-"64506": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871442.897304
-},
-"64507": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871449.369791
-},
-"64508": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871455.027201
-},
-"64509": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871454.2728288
 },
 "6451": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219163.342174
 },
-"64510": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871459.325185
-},
-"64511": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871444.27648
-},
-"64512": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871460.268169
-},
-"64513": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871429.1915112
-},
-"64514": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871425.953283
-},
-"64515": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871422.656322
-},
-"64531": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871434.472064
-},
 "64532": {
 "reason": "no Shopify donor for SKU",
 "until": 1789130611.20715
-},
-"64533": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871431.060281
-},
-"64534": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871435.455462
-},
-"64535": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871426.855833
-},
-"64536": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871423.5219631
-},
-"64539": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871425.0393522
 },
 "6454": {
 "reason": "already 40 vehicles (multi-fit/expanded)",
 "until": 1789836210.5476062
 },
-"64540": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871433.614712
-},
-"64541": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871437.0993521
-},
-"64542": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871424.2899468
-},
-"64543": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871429.921939
-},
-"64544": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871432.7507358
-},
-"64545": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871428.343647
-},
-"64546": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871437.986702
-},
-"64547": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871431.872756
-},
-"64548": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871427.524885
-},
-"64549": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871347.5457
-},
 "6455": {
 "reason": "already 40 vehicles (multi-fit/expanded)",
 "until": 1789836295.1132197
-},
-"64550": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871436.3619058
 },
 "64559": {
 "reason": "already 91 vehicles (multi-fit/expanded)",
@@ -67403,57 +68327,9 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219257.509241
 },
-"64608": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871350.1602602
-},
-"64609": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871355.148469
-},
-"64610": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871354.2485828
-},
-"64611": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871351.019964
-},
-"64612": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871346.614629
-},
-"64613": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871348.4285922
-},
-"64614": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871358.508508
-},
 "64615": {
 "reason": "category 107062 never renders fitment on eBay",
 "until": 1791204323.683554
-},
-"64616": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871349.247318
-},
-"64617": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871357.735563
-},
-"64618": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871345.91091
-},
-"64619": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871356.1579258
-},
-"64620": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871352.8870242
 },
 "64621": {
 "reason": "no Shopify donor for SKU",
@@ -68223,6 +69099,14 @@
 "reason": "already 49 vehicles (multi-fit/expanded)",
 "until": 1789898440.665875
 },
+"65731": {
+"reason": "category 33643 never renders fitment on eBay",
+"until": 1791463290.050194
+},
+"65735": {
+"reason": "category 107062 never renders fitment on eBay",
+"until": 1791463311.3574998
+},
 "6574": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219298.38526
@@ -68234,6 +69118,10 @@
 "6576": {
 "reason": "already 49 vehicles (multi-fit/expanded)",
 "until": 1789898646.3842082
+},
+"65761": {
+"reason": "category 107062 never renders fitment on eBay",
+"until": 1791463283.878975
 },
 "6578": {
 "reason": "already 18 vehicles (multi-fit/expanded)",
@@ -68863,6 +69751,10 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789221218.557197
 },
+"736": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476429.472981
+},
 "737": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220787.896553
@@ -69054,10 +69946,6 @@
 "831": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219649.0954938
-},
-"832": {
-"reason": "no Shopify donor for SKU",
-"until": 1788871740.953838
 },
 "833": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
@@ -69379,6 +70267,10 @@
 "reason": "no Shopify donor for SKU",
 "until": 1788872355.274689
 },
+"962": {
+"reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
+"until": 1789476481.095318
+},
 "964": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220535.0031831
@@ -69411,6 +70303,10 @@
 "reason": "already 381 vehicles (multi-fit/expanded)",
 "until": 1790163231.608724
 },
+"982": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476348.623873
+},
 "984": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789219570.570844
@@ -69439,9 +70335,17 @@
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789220923.7540832
 },
+"997": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476309.791334
+},
 "9979": {
 "reason": "no published offer (offer exists but not PUBLISHED (ended/sold?))",
 "until": 1789217701.0118358
+},
+"998": {
+"reason": "no Shopify donor for SKU",
+"until": 1789476310.736347
 },
 "9980": {
 "reason": "no Shopify donor for SKU",
