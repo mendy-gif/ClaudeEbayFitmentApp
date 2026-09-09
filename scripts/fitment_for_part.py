@@ -117,7 +117,6 @@ def fitment_for(part, ref, emap, ebay, ptr, tree=None):
     # Same gatekeeper the sweep uses: a trim eBay does not spell our way is stored,
     # returns HTTP 200, and is then silently never displayed.
     rows, report = CAT.validate_rows(res["rows"], on_unmatched="drop")
-    CAT.save_cache()
     out["rows"] = rows
     out["n"] = len(rows)
     out["dropped_by_catalog"] = len(res["rows"]) - len(rows)
@@ -141,6 +140,8 @@ def main():
     except (OSError, ValueError):
         tree = None                      # part_type path only
     results = [fitment_for(p, ref, emap, ebay, ptr, tree) for p in parts]
+    CAT.save_cache()          # once per run, not once per part -- a nightly batch of 100+
+                              # otherwise rewrites the catalog cache 100 times for nothing
     json.dump(results, sys.stdout, indent=2)
     sys.stdout.write("\n")
     ok = sum(1 for r in results if r["rows"])
