@@ -1,5 +1,5 @@
 {
-  "_comment": "The ONE judgment in the pipeline: which eBay category branches count as ENGINE parts (Rule B). A listing whose categoryId is a descendant of any include-ancestor -> Rule B (fitment restricted to the donor's engine). Everything else -> Rule A (whole chassis family). exclude_ids override include (forced Rule A). See docs/DESIGN.md sec 6.1. IDs are eBay US Motors (category_tree 100) branches under the roots listed in ebay_fetch_categories.DEFAULT_ROOTS (6030 Car & Truck Parts, 38635 In-Car Technology, 107057 Performance & Racing). 6030 owner-confirmed 2026-08-15; the Performance mirrors added 2026-08-24.",
+  "_comment": "The ONE judgment in the pipeline: which eBay category branches count as ENGINE parts (Rule B). A listing whose categoryId is a descendant of any include-ancestor -> Rule B (fitment restricted to the donor's engine). Everything else -> Rule A (whole chassis family). exclude_ids override include (forced Rule A). See docs/DESIGN.md sec 6.1. IDs are eBay US Motors (category_tree 100) branches under the roots listed in ebay_fetch_categories.DEFAULT_ROOTS (6030 Car & Truck Parts, 38635 In-Car Technology, 107057 Performance & Racing). 6030 owner-confirmed 2026-08-15; the Performance mirrors added 2026-08-24. Transmission & Drivetrain is NOT engine-dependent as a branch -- only the four engine-matched leaves listed here are. Shifter cables, filters, gaskets, mounts, cooler lines, bearings and brackets stay Rule A deliberately; half shafts, transmission cooler lines and transmission mounts were left Rule A pending an owner ruling (2026-09-09).",
   "default_when_category_unknown": "B",
   "_default_note": "If a listing's category is not in the fetched tree, default to Rule B (narrower/safer).",
   "include_ancestors": [
@@ -62,6 +62,30 @@
       "name": "Performance > Electrical Components",
       "decision": "include",
       "note": "Mirrors 33572 (ECUs/ignition are engine-specific): ignition, chips, programmers, tuning devices. Its 'Other' catch-all (107062) is excluded below -- see exclude_ids."
+    },
+    {
+      "id": "171115",
+      "name": "Automatic Transmission",
+      "decision": "include",
+      "note": "Owner-confirmed 2026-09-09. A gearbox is matched to the engine: ZF's 8HP ships as 8HP45/70/90 by torque rating, and the bellhousing differs. Rule A spread an F07 N55 box across the N63 V8 550i GT."
+    },
+    {
+      "id": "262251",
+      "name": "Driveshafts",
+      "decision": "include",
+      "note": "Owner-confirmed 2026-09-09. Length, diameter and joints vary with engine and gearbox. One listing claimed a 528i, a 535d AND a 535i -- a diesel and two petrols."
+    },
+    {
+      "id": "262256",
+      "name": "Transfer Cases",
+      "decision": "include",
+      "note": "Owner-confirmed 2026-09-09. Torque-rated to the drivetrain it was built for."
+    },
+    {
+      "id": "262245",
+      "name": "Differential Assemblies",
+      "decision": "include",
+      "note": "Owner-confirmed 2026-09-09. Final drive ratio is matched to the engine."
     }
   ],
   "_rule_a_by_default": [

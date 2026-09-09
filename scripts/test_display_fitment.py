@@ -1369,6 +1369,35 @@ def t_non_engine_part_types():
         EB._nonengine = saved
 
 
+def t_drivetrain_rule_b():
+    """Transmissions and driveshafts are engine-matched, and eBay files them outside its
+    engine branch. Rule A therefore spread a gearbox across every engine in the chassis --
+    an F07 N55 box claimed the N63 V8 550i GT, and one driveshaft claimed a 528i, a 535d
+    AND a 535i. 104 live listings, 2,599 vehicles. Owner-confirmed 2026-09-09.
+
+    The four leaves below are engine-matched. Their SIBLINGS are not, and must stay Rule A:
+    marking a half shaft engine-specific would narrow a part that does interchange and lose
+    real buyers. Over-claiming and under-claiming are both errors here."""
+    print("drivetrain Rule B:")
+    import classify_part as C
+    by = C.load_tree()
+    inc, exc, dflt = C.load_config()
+    for cid, name in [("171115", "automatic transmission"), ("262251", "driveshaft"),
+                      ("262256", "transfer case"), ("262245", "differential assembly")]:
+        eq(C.classify(cid, by, inc, exc, dflt)[0], "B", f"a {name} is engine-restricted")
+    for cid, name in [("33728", "half shaft"), ("262255", "transmission cooler line"),
+                      ("262258", "transmission mount"), ("33736", "shifter cable"),
+                      ("262252", "driveshaft bearing"), ("262247", "differential rebuild kit")]:
+        eq(C.classify(cid, by, inc, exc, dflt)[0], "A",
+           f"a {name} stays Rule A -- narrowing it would lose real fitment")
+    # the branch root must NOT be included, or all 39 drivetrain categories flip
+    eq(C.classify("33726", by, inc, exc, dflt)[0], "A",
+       "the Transmission & Drivetrain root is NOT an engine branch")
+    # controls, so a broken config can't pass this test by accident
+    eq(C.classify("33612", by, inc, exc, dflt)[0], "B", "engines are still Rule B")
+    eq(C.classify("33637", by, inc, exc, dflt)[0], "A", "fenders are still Rule A")
+
+
 def t_prelisting_classify():
     """Fitment for a part that is NOT on eBay yet (scripts/fitment_for_part.py).
 
@@ -1590,7 +1619,7 @@ def t_quota_sizing():
 
 def run():
     for t in (t_match_trim, t_repair, t_wildcards, t_failures, t_filter_safety,
-              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_prelisting_classify, t_shopify_env_parsing, t_api_retries_timeouts, t_skip_ttl_coverage, t_quota_sizing, t_etk_source, t_error_summary, t_runner, t_real_data,
+              t_cache, t_cache_file_safety, t_leak_detector, t_read_inventory_compat, t_body_suffix_trims, t_donor_year, t_donor_fields, t_shopify_throttle, t_lci_window, t_lci_categories, t_category_coverage, t_nondisplay_skip, t_nondisplay_learn, t_non_engine_part_types, t_drivetrain_rule_b, t_prelisting_classify, t_shopify_env_parsing, t_api_retries_timeouts, t_skip_ttl_coverage, t_quota_sizing, t_etk_source, t_error_summary, t_runner, t_real_data,
               t_no_real_state_touched):
         try:
             t()
