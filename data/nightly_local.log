@@ -33709,3 +33709,429 @@ Categories where NOTHING displays:
 Nothing to score (38 SKU(s) all in known non-displaying categories) -- threshold not applied.
 
 Per-SKU detail -> data/drift_audit.csv
+[2026-09-17 06:18:55] state pushed (attempt 1)
+[2026-09-17 06:18:55] === done ===
+[2026-09-18 05:30:02] === nightly sweep starting (limit 2000) ===
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+Offline self-test (no network)
+
+Reference data:
+  PASS  chassis reference loaded (112 rows)
+  PASS  engine map loaded (396 rows)
+  PASS  eBay model vocabulary loaded (269 models)
+Rule engine:
+  PASS  Rule A/B expand works (335i 2014: A=49 rows > B=14 rows)
+  PASS  expand_from_chassis works (G87 -> 4 rows)
+  PASS  resolve_chassis disambiguates E90+M3 -> 'E90 M3'
+Classifier:
+  PASS  classifier config loaded (14 engine branches, default=B)
+  PASS  classify logic: engine branch -> B, other -> A
+  PASS  category tree present
+Shopify donors:
+  PASS  Shopify donor dump loaded (15780 SKUs, 15780 BMW)
+Part-number + union:
+  PASS  part-number fitment loaded (752 SKUs)
+  PASS  all part-number models are in the eBay catalog vocabulary
+  PASS  part-number chassis expansion is a superset of literal (sampled 100 SKUs)
+  PASS  union+dedupe correct (2 chassis + 2 pn, 1 overlap -> 3)
+Display path (trim/catalog validation):
+  PASS  display-path tests: (380/380 checks passed)
+
+Result: PASS  (0 fail, 0 warn)
+[2026-09-18 05:30:16] selftest passed
+OK - minted an access token valid ~7200s (120 min). Scopes: https://api.ebay.com/oauth/api_scope/sell.inventory
+[2026-09-18 05:30:17] eBay auth OK
+  page 20: 426 BMW donors (74 other makes skipped)
+  page 40: 926 BMW donors (74 other makes skipped)
+  page 60: 1425 BMW donors (75 other makes skipped)
+  page 80: 1924 BMW donors (76 other makes skipped)
+  page 100: 2424 BMW donors (76 other makes skipped)
+  page 120: 2921 BMW donors (79 other makes skipped)
+  page 140: 3421 BMW donors (79 other makes skipped)
+  page 160: 3917 BMW donors (83 other makes skipped)
+  page 180: 4415 BMW donors (85 other makes skipped)
+  page 200: 4914 BMW donors (86 other makes skipped)
+  page 220: 5307 BMW donors (193 other makes skipped)
+  page 240: 5790 BMW donors (210 other makes skipped)
+  page 260: 6262 BMW donors (238 other makes skipped)
+  page 280: 6754 BMW donors (246 other makes skipped)
+  page 300: 7142 BMW donors (358 other makes skipped)
+  page 320: 7554 BMW donors (446 other makes skipped)
+  page 340: 8054 BMW donors (446 other makes skipped)
+  page 360: 8539 BMW donors (461 other makes skipped)
+  page 380: 8970 BMW donors (530 other makes skipped)
+  page 400: 9456 BMW donors (544 other makes skipped)
+  page 420: 9952 BMW donors (548 other makes skipped)
+  page 440: 10450 BMW donors (550 other makes skipped)
+  page 460: 10793 BMW donors (707 other makes skipped)
+  page 480: 11055 BMW donors (945 other makes skipped)
+  page 500: 11546 BMW donors (954 other makes skipped)
+  page 520: 12043 BMW donors (957 other makes skipped)
+  page 540: 12537 BMW donors (963 other makes skipped)
+  page 560: 13031 BMW donors (969 other makes skipped)
+  page 580: 13440 BMW donors (1060 other makes skipped)
+  page 600: 13931 BMW donors (1069 other makes skipped)
+  page 620: 14217 BMW donors (1282 other makes skipped)
+  page 640: 14572 BMW donors (1427 other makes skipped)
+  page 660: 14897 BMW donors (1602 other makes skipped)
+  page 680: 15115 BMW donors (1883 other makes skipped)
+  page 700: 15463 BMW donors (2035 other makes skipped)
+Wrote 15758 donors (-22 vs previous 15780) -> data/shopify_donors.json
+  fields: year 9798/15758  |  chassis 15681/15758  |  engine 9428/15758
+[2026-09-18 05:38:46] donor dump refreshed from Shopify
+[2026-09-18 05:38:49] quota check: GetItem: 1/5,000 used, 4,999 left (0%) sweep limit tonight: 7,165 SKUs   (4999 of 5000 left, reserving 700 for audits) 
+[2026-09-18 05:38:49] sweeping (live), limit 7165...
+  ETK fitment: 7686 SKU(s), 560843 rows loaded
+  part-number fitment: 752 SKU(s), 3763 rows loaded (expanded to chassis families at push time)
+  skipped 40 out-of-stock SKU(s) (sold -- fitment would help nobody)
+  24390 SKU(s) on eBay  |  6277 ledgered  |  18073 cached skips  |  303 to consider
+Mode: apply (LIVE)  |  donor=Shopify  |  303 SKU(s)  |  ledger has 6277
+  [1/303] 66296: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [2/303] 66172: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [3/303] 65269: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [4/303] 65281: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [5/303] 65277: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [6/303] 65295: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [7/303] 65232: pushed - part type 'Left Driver Brake Air Duct' is not engine-dependent (category said B)
+  [8/303] 65228: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [9/303] 65225: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [10/303] 65233: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [11/303] 65234: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [12/303] 65230: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [13/303] 65231: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [14/303] 65229: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [15/303] 65263: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [16/303] 65261: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [17/303] 63700: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [18/303] 63615: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [19/303] 23280: error - inventory write HTTP 400: [25002] A user error has occurred. Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on details. (0=Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on
+  [20/303] 50686: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [21/303] 50681: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [22/303] 65007: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [23/303] 65001: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [24/303] 61302: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [25/303] 49063: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [26/303] 49008: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [27/303] 49009: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [28/303] 49560: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [29/303] 50646: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [30/303] 49559: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [31/303] 53396: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [32/303] 53379: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [33/303] 53212: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [34/303] 52993: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [35/303] 53099: pushed - under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine 
+  [36/303] 52036: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [37/303] 51010: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [38/303] 51812: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [39/303] 52153: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [40/303] 699: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [41/303] 43378: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [42/303] 61942: pushed - part type 'Module' is not engine-dependent (category said B)
+  [43/303] 3192: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [44/303] 39856: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [45/303] 43380: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [46/303] 52966: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [47/303] 51703: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [48/303] 52981: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [49/303] 28367: review - Rule B on G20 needs an engine or donor model.
+  [50/303] 66238: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [51/303] 65568: pushed - not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Par
+  [52/303] 63388: skip - no Shopify donor for SKU
+  [53/303] 63415: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [54/303] STOCK9198302: review - Rule B on F86 needs an engine or donor model.
+  [55/303] STOCK5A625D0: review - Rule B on G42 needs an engine or donor model.
+  [56/303] STOCK5A25FC9: review - Rule B on G23 needs an engine or donor model.
+  [57/303] 65702: pushed - under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine 
+  [58/303] 65692: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [59/303] 65690: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [60/303] 65691: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [61/303] 65683: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [62/303] 65682: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [63/303] 63395: skip - no Shopify donor for SKU
+  [64/303] 65589: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [65/303] 65588: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [66/303] 65587: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [67/303] 63398: skip - no Shopify donor for SKU
+  [68/303] 65582: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [69/303] 63545: skip - no Shopify donor for SKU
+  [70/303] 63491: skip - no Shopify donor for SKU
+  [71/303] 63479: skip - no Shopify donor for SKU
+  [72/303] 63490: skip - no Shopify donor for SKU
+  [73/303] 63484: skip - no Shopify donor for SKU
+  [74/303] 63485: skip - no Shopify donor for SKU
+  [75/303] 63486: skip - no Shopify donor for SKU
+  [76/303] 63547: skip - no Shopify donor for SKU
+  [77/303] 63487: skip - no Shopify donor for SKU
+  [78/303] 63544: skip - no Shopify donor for SKU
+  [79/303] 63548: skip - no Shopify donor for SKU
+  [80/303] 65673: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [81/303] 65669: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [82/303] 65670: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [83/303] 65665: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [84/303] 65666: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [85/303] 65667: pushed - not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Par
+  [86/303] 65668: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [87/303] 65663: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [88/303] 65664: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [89/303] 65660: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [90/303] 65659: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [91/303] 63471: skip - no Shopify donor for SKU
+  [92/303] 63472: skip - no Shopify donor for SKU
+  [93/303] 65656: pushed - part type 'Suspension Module' is not engine-dependent (category said B)
+  [94/303] 65655: pushed - not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps >
+  [95/303] 65657: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [96/303] 63430: skip - no Shopify donor for SKU
+  [97/303] 63467: skip - no Shopify donor for SKU
+  [98/303] 63429: skip - no Shopify donor for SKU
+  [99/303] 65646: pushed - under engine ancestor 33687 (Car & Truck Parts & Accessories > Ignition Systems 
+  [100/303] 65647: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [101/303] 65643: pushed - under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine 
+  [102/303] 65645: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [103/303] 65644: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [104/303] 65642: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [105/303] 65641: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [106/303] 65625: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [107/303] 65612: pushed - not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps >
+  [108/303] 65609: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [109/303] 65610: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [110/303] 65611: pushed - not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps >
+  [111/303] 65607: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [112/303] 65605: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [113/303] 65606: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [114/303] 63427: skip - no Shopify donor for SKU
+  [115/303] 63428: skip - no Shopify donor for SKU
+  [116/303] 63480: skip - no Shopify donor for SKU
+  [117/303] 63426: skip - no Shopify donor for SKU
+  [118/303] 63425: skip - no Shopify donor for SKU
+  [119/303] 63481: skip - no Shopify donor for SKU
+  [120/303] 63483: skip - no Shopify donor for SKU
+  [121/303] 63482: skip - no Shopify donor for SKU
+  [122/303] 63412: skip - no Shopify donor for SKU
+  [123/303] 63413: skip - no Shopify donor for SKU
+  [124/303] 63423: skip - no Shopify donor for SKU
+  [125/303] 63414: skip - no Shopify donor for SKU
+  [126/303] 63418: skip - no Shopify donor for SKU
+  [127/303] 63421: skip - no Shopify donor for SKU
+  [128/303] 63424: skip - no Shopify donor for SKU
+  [129/303] 63416: skip - no Shopify donor for SKU
+  [130/303] 63411: skip - no Shopify donor for SKU
+  [131/303] 63417: skip - no Shopify donor for SKU
+  [132/303] 63422: skip - no Shopify donor for SKU
+  [133/303] 63408: skip - no Shopify donor for SKU
+  [134/303] 63410: skip - no Shopify donor for SKU
+  [135/303] 63403: skip - no Shopify donor for SKU
+  [136/303] 63404: skip - no Shopify donor for SKU
+  [137/303] 63405: skip - no Shopify donor for SKU
+  [138/303] 63406: skip - no Shopify donor for SKU
+  [139/303] 63407: skip - no Shopify donor for SKU
+  [140/303] 63409: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [141/303] 63402: skip - no Shopify donor for SKU
+  [142/303] 63391: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [143/303] 63390: skip - no Shopify donor for SKU
+  [144/303] 63397: skip - no Shopify donor for SKU
+  [145/303] 63396: skip - no Shopify donor for SKU
+  [146/303] 63400: skip - no Shopify donor for SKU
+  [147/303] 63393: skip - no Shopify donor for SKU
+  [148/303] 63389: skip - no Shopify donor for SKU
+  [149/303] 63401: skip - no Shopify donor for SKU
+  [150/303] 63394: skip - no Shopify donor for SKU
+  [151/303] 63399: skip - no Shopify donor for SKU
+  [152/303] 65658: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [153/303] 65654: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [154/303] 65601: pushed - part type 'Front Bumper PDC Parking Sensor Wiring Wire Harness' is not engine-de
+  [155/303] 65591: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [156/303] 65602: pushed - part type 'Rear Bumper PDC Parking Sensor Wiring Wire Harness' is not engine-dep
+  [157/303] 65590: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [158/303] 65592: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [159/303] 65585: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [160/303] 65584: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [161/303] 65580: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [162/303] 65578: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exhaust & Emission
+  [163/303] 65577: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [164/303] 65574: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [165/303] 65576: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [166/303] 65575: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [167/303] 65573: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [168/303] 32620: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [169/303] 32532: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [170/303] 26388: review - Rule B on F97 needs an engine or donor model.
+  [171/303] 29774: review - Rule B on G30 needs an engine or donor model.
+  [172/303] 32116: review - Rule B on F39 needs an engine or donor model.
+  [173/303] 26780: review - Rule B on G01 needs an engine or donor model.
+  [174/303] 31626: review - Rule B on G05 needs an engine or donor model.
+  [175/303] 26886: review - Rule B on G29 needs an engine or donor model.
+  [176/303] 23539: review - Rule B on G12 needs an engine or donor model.
+  [177/303] 31594: review - Rule B on F48 needs an engine or donor model.
+  [178/303] 26884: review - Rule B on G29 needs an engine or donor model.
+  [179/303] 27333: review - Rule B on G30 needs an engine or donor model.
+  [180/303] 26944: review - Rule B on G29 needs an engine or donor model.
+  [181/303] 32134: review - Rule B on F39 needs an engine or donor model.
+  [182/303] 29964: review - Rule B on G12 needs an engine or donor model.
+  [183/303] 27914: review - Rule B on F16 needs an engine or donor model.
+  [184/303] 26467: review - Rule B on G20 needs an engine or donor model.
+  [185/303] 29965: review - Rule B on G12 needs an engine or donor model.
+  [186/303] 29404: review - Rule B on G30 needs an engine or donor model.
+  [187/303] 32133: review - Rule B on F39 needs an engine or donor model.
+  [188/303] 27008: review - Rule B on G20 needs an engine or donor model.
+  [189/303] 32135: review - Rule B on F39 needs an engine or donor model.
+  [190/303] 31761: review - Rule B on F48 needs an engine or donor model.
+  [191/303] 31717: review - Rule B on F39 needs an engine or donor model.
+  [192/303] 31729: review - Rule B on F48 needs an engine or donor model.
+  [193/303] 33187: review - Rule B on G30 needs an engine or donor model.
+  [194/303] 27190: review - Rule B on G30 needs an engine or donor model.
+  [195/303] 23169: review - Rule B on G12 needs an engine or donor model.
+  [196/303] 27815: review - Rule B on F16 needs an engine or donor model.
+  [197/303] 30702: review - Rule B on G20 needs an engine or donor model.
+  [198/303] 32132: review - Rule B on F39 needs an engine or donor model.
+  [199/303] 24002: review - Rule B on F25 needs an engine or donor model.
+  [200/303] 24884: review - Rule B on G20 needs an engine or donor model.
+  [201/303] 26618: review - Rule B on G20 needs an engine or donor model.
+  [202/303] 30721: review - Rule B on G20 needs an engine or donor model.
+  [203/303] 30933: review - Rule B on F97 needs an engine or donor model.
+  [204/303] 33360: review - Rule B on G01 needs an engine or donor model.
+  [205/303] 32484: review - Rule B on G01 needs an engine or donor model.
+  [206/303] 32803: review - Rule B on G01 needs an engine or donor model.
+  [207/303] 37125: review - Rule B on G01 needs an engine or donor model.
+  [208/303] 35733: review - Rule B on G01 needs an engine or donor model.
+  [209/303] 35764: review - Rule B on G20 needs an engine or donor model.
+  [210/303] 34068: review - Rule B on G20 needs an engine or donor model.
+  [211/303] 34052: review - Rule B on G20 needs an engine or donor model.
+  [212/303] 34763: review - Rule B on G42 needs an engine or donor model.
+  [213/303] 50185: review - Rule B on G12 needs an engine or donor model.
+  [214/303] 37189: review - Rule B on F01 needs an engine or donor model.
+  [215/303] 37479: review - Rule B on F44 needs an engine or donor model.
+  [216/303] 34842: review - Rule B on G12 needs an engine or donor model.
+  [217/303] 34843: review - Rule B on G12 needs an engine or donor model.
+  [218/303] 34714: review - Rule B on G20 needs an engine or donor model.
+  [219/303] 34221: review - Rule B on G20 needs an engine or donor model.
+  [220/303] 37929: review - Rule B on G23 needs an engine or donor model.
+  [221/303] 37703: review - Rule B on F01 needs an engine or donor model.
+  [222/303] 37604: review - Rule B on G42 needs an engine or donor model.
+  [223/303] 37637: review - Rule B on F44 needs an engine or donor model.
+  [224/303] 38252: review - Rule B on G12 needs an engine or donor model.
+  [225/303] 39126: review - Rule B on G05 needs an engine or donor model.
+  [226/303] 39607: review - Rule B on G05 needs an engine or donor model.
+  [227/303] 39606: review - Rule B on G05 needs an engine or donor model.
+  [228/303] 39273: review - Rule B on G05 needs an engine or donor model.
+  [229/303] 38251: review - Rule B on G12 needs an engine or donor model.
+  [230/303] 38048: review - Rule B on G20 needs an engine or donor model.
+  [231/303] 38145: review - Rule B on G82 needs an engine or donor model.
+  [232/303] 38084: review - Rule B on F44 needs an engine or donor model.
+  [233/303] 38388: review - Rule B on F15 needs an engine or donor model.
+  [234/303] 39259: review - Rule B on G05 needs an engine or donor model.
+  [235/303] 39612: review - Rule B on G20 needs an engine or donor model.
+  [236/303] 39405: review - Rule B on G05 needs an engine or donor model.
+  [237/303] 38492: review - Rule B on G29 needs an engine or donor model.
+  [238/303] 38627: review - Rule B on F15 needs an engine or donor model.
+  [239/303] 39422: review - Rule B on G20 needs an engine or donor model.
+  [240/303] 39228: review - Rule B on G05 needs an engine or donor model.
+  [241/303] 38950: review - Rule B on G05 needs an engine or donor model.
+  [242/303] 39279: review - Rule B on G20 needs an engine or donor model.
+  [243/303] 38201: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [244/303] 40689: review - Rule B on F16 needs an engine or donor model.
+  [245/303] 41728: review - Rule B on G12 needs an engine or donor model.
+  [246/303] 41729: review - Rule B on G12 needs an engine or donor model.
+  [247/303] 35318: review - Rule B on G05 needs an engine or donor model.
+  [248/303] 39900: review - Rule B on F86 needs an engine or donor model.
+  [249/303] 41568: review - Rule B on G42 needs an engine or donor model.
+  [250/303] 40551: review - Rule B on F02 needs an engine or donor model.
+  [251/303] 43398: review - Rule B on G20 needs an engine or donor model.
+  [252/303] 43778: review - Rule B on G23 needs an engine or donor model.
+  [253/303] 45175: review - Rule B on G30 needs an engine or donor model.
+  [254/303] 43417: review - Rule B on F25 needs an engine or donor model.
+  [255/303] 44559: review - Rule B on G20 needs an engine or donor model.
+  [256/303] 44505: review - Rule B on G20 needs an engine or donor model.
+  [257/303] 44183: review - Rule B on G20 needs an engine or donor model.
+  [258/303] 43399: review - Rule B on G20 needs an engine or donor model.
+  [259/303] 43811: review - Rule B on G20 needs an engine or donor model.
+  [260/303] 43363: review - Rule B on G20 needs an engine or donor model.
+  [261/303] 44762: review - Rule B on G20 needs an engine or donor model.
+  [262/303] 44177: review - Rule B on G20 needs an engine or donor model.
+  [263/303] 44501: review - Rule B on G01 needs an engine or donor model.
+  [264/303] 43674: review - Rule B on F48 needs an engine or donor model.
+  [265/303] 47133: review - Rule B on F32 needs an engine or donor model.
+  [266/303] 49042: review - Rule B on E88 needs an engine or donor model.
+  [267/303] 46823: review - Rule B on G20 needs an engine or donor model.
+  [268/303] 48868: review - Rule B on G01 needs an engine or donor model.
+  [269/303] 46774: review - Rule B on F25 needs an engine or donor model.
+  [270/303] 46870: review - Rule B on F25 needs an engine or donor model.
+  [271/303] 51836: review - Rule B on G20 needs an engine or donor model.
+  [272/303] 51807: review - Rule B on G20 needs an engine or donor model.
+  [273/303] 52075: review - Rule B on G12 needs an engine or donor model.
+  [274/303] 49932: review - Rule B on F15 needs an engine or donor model.
+  [275/303] 50852: review - Rule B on F34 needs an engine or donor model.
+  [276/303] 49813: review - Rule B on F32 needs an engine or donor model.
+  [277/303] 51052: review - Rule B on F48 needs an engine or donor model.
+  [278/303] 51849: review - Rule B on G20 needs an engine or donor model.
+  [279/303] 51278: review - Rule B on F34 needs an engine or donor model.
+  [280/303] 52020: review - Rule B on G12 needs an engine or donor model.
+  [281/303] 47839: review - Rule B on G12 needs an engine or donor model.
+  [282/303] 48305: review - Rule B on F32 needs an engine or donor model.
+  [283/303] 48217: review - Rule B on E88 needs an engine or donor model.
+  [284/303] 50851: review - Rule B on F32 needs an engine or donor model.
+  [285/303] 48333: review - Rule B on F32 needs an engine or donor model.
+  [286/303] 51839: review - Rule B on G20 needs an engine or donor model.
+  [287/303] 52306: review - Rule B on G01 needs an engine or donor model.
+  [288/303] 50286: review - Rule B on F30 needs an engine or donor model.
+  [289/303] 47782: review - Rule B on F32 needs an engine or donor model.
+  [290/303] 48598: review - Rule B on F15 needs an engine or donor model.
+  [291/303] 49642: review - Rule B on G01 needs an engine or donor model.
+  [292/303] 52019: review - Rule B on G12 needs an engine or donor model.
+  [293/303] 51250: review - Rule B on G01 needs an engine or donor model.
+  [294/303] 47998: review - Rule B on G12 needs an engine or donor model.
+  [295/303] 50850: review - Rule B on F32 needs an engine or donor model.
+  [296/303] 47838: review - Rule B on G12 needs an engine or donor model.
+  [297/303] 51366: review - Rule B on F48 needs an engine or donor model.
+  [298/303] 53011: review - Rule B on F15 needs an engine or donor model.
+  [299/303] 53092: review - Rule B on F15 needs an engine or donor model.
+  [300/303] 52858: review - Rule B on G01 needs an engine or donor model.
+  [301/303] 52604: review - Rule B on G05 needs an engine or donor model.
+  [302/303] 52557: review - Rule B on F15 needs an engine or donor model.
+  [303/303] 52054: review - Rule B on G12 needs an engine or donor model.
+Skip cache: +64 recorded, 18137 held (these are not re-checked until their TTL lapses)
+
+Summary: {'skip': 67, 'pushed': 98, 'error': 1, 'review': 137}
+Plan written -> data/batch_plan.csv  |  ledger updated
+[2026-09-18 05:54:47] sweep finished (exit 0)
+Auditing 300 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 295/295 display (100%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule A: 248/248 display (100%)
+   Rule B: 47/47 display (100%)
+
+Display rate 100.0% (2/2) is at or above the 70.0% threshold. (293 SKU(s) excluded: categories eBay never renders fitment in)
+
+Per-SKU detail -> data/display_audit.csv
+(rotating drift sample: 250 of 6344 ledgered SKUs, offset 1810)
+Auditing 250 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 33/60 display (55%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule A: 31/33 display (93%)
+   Rule B: 2/27 display (7%)
+
+Categories where NOTHING displays:
+   cat 107062: 0/16   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 21647: 0/3   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 174119: 0/2   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 38771: 0/2   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 33643: 0/2   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 169395: 0/1   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 179671: 0/1   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+
+Nothing to score (60 SKU(s) all in known non-displaying categories) -- threshold not applied.
+
+Per-SKU detail -> data/drift_audit.csv
