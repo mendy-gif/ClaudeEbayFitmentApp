@@ -1,173 +1,294 @@
 sku,listingId,donor,rule,engine,n_vehicles,sources,models,action,reason
-66296,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
-66172,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
-65269,407224703021,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Wipers & Washers > Washer Pumps, Reservoirs & Nozzles) [catalog: 7 dropped_vehicle]"
-65281,407224819673,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Bumpers & Components > Bumpers & Reinforcements) [catalog: 7 dropped_vehicle]
-65277,407224819746,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Wheel Bearings, Hubs & Seals) [catalog: 7 dropped_vehicle]"
-65295,407224819666,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Bumpers & Components > Bumpers & Reinforcements) [catalog: 7 dropped_vehicle]
-65232,407224703013,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,part type 'Left Driver Brake Air Duct' is not engine-dependent (category said B) [catalog: 7 dropped_vehicle]
-65228,407224703180,BMW M340i [G20],B,B58,14,chassis,"M340i,M340i xDrive",pushed,"under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Hoses, Lines & Pipes) [catalog: 2 dropped_vehicle]"
-65225,407224703139,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Grilles) [catalog: 7 dropped_vehicle]
-65233,407224703223,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Door Handles) [catalog: 7 dropped_vehicle]"
-65234,407224703017,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Doors, Trunk Lids & Hatches > Door Handles) [catalog: 7 dropped_vehicle]"
-65230,407224703179,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Horns) [catalog: 7 dropped_vehicle]
-65231,407224703032,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Hoods > Hinges, Latches & Additional Hood Components) [catalog: 7 dropped_vehicle]"
-65229,407224703197,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Trim) [catalog: 7 dropped_vehicle]
-65263,407224703037,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Other Exterior Parts & Accessories) [catalog: 7 dropped_vehicle]
-65261,407224703028,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Other Exterior Parts & Accessories) [catalog: 7 dropped_vehicle]
-63700,407214516887,BMW X5 [F85],A,,4,chassis,X5,pushed,part type 'Front Left or Right Seat Control Module' is not engine-dependent (category said B)
-63615,407214424173,BMW 320i [F30],A,,30,chassis,"320i,328d,328i,330i,335i,340i,ActiveHybrid 3",pushed,part type 'Front Left or Right Seat Control Module' is not engine-dependent (category said B) [catalog: 19 dropped_vehicle]
-23280,405259127505,BMW 740i [G12],A,,11,chassis,"740i xDrive,750Li,Alpina B7",error,inventory write HTTP 400: [25002] A user error has occurred. Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on details. (0=Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on
-50686,407087170901,BMW None [F44],A,,11,chassis,"228i xDrive Gran Coupe,M235i xDrive Gran Coupe",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors) [catalog: 1 dropped_vehicle]
-50681,407087175602,BMW None [F44],A,,11,chassis,"228i xDrive Gran Coupe,M235i xDrive Gran Coupe",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors) [catalog: 1 dropped_vehicle]
-65007,407174129955,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 7 dropped_vehicle]
-65001,407174129951,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 7 dropped_vehicle]
-61302,407182871851,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Frame Rails & Subframes)
-49063,407179494432,BMW 135i [E88],A,,13,chassis,"128i,135i,135is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Oil Coolers & Lines) [catalog: 5 dropped_vehicle]
-49008,407179481140,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts)
-49009,407179470584,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts)
-49560,407179449415,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts)
-50646,407179440636,BMW 228i [F44],A,,11,chassis,"228i xDrive Gran Coupe,M235i xDrive Gran Coupe",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbags) [catalog: 1 dropped_vehicle]
-49559,407179423441,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts)
-53396,407179398385,BMW Z3 [E36],A,,44,chassis,"318i,318is,318ti,323i,323is,325i,325is,328i,328is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbags) [catalog: 28 dropped_vehicle]
-53379,407179398066,BMW Z3 [E36],A,,44,chassis,"318i,318is,318ti,323i,323is,325i,325is,328i,328is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts) [catalog: 28 dropped_vehicle]
-53212,407179329704,BMW Z3 [E36],A,,45,chassis,"318i,318is,318ti,323i,323is,325i,325is,328i,328is,Z3",pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts) [catalog: 28 dropped_vehicle]
-52993,407179327636,BMW X3 [F97],A,,5,chassis+pn,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Body Moldings & Trims) (+1 part# rows)
-53099,407179321089,BMW Z3 [E36],B,M54,5,chassis,Z3,pushed,under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine Parts > Other Engine Parts) [catalog: 4 dropped_vehicle]
-52036,407087178980,BMW None [G12],A,,11,chassis,"740i xDrive,750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors) [catalog: 25 dropped_vehicle]
-51010,407087182531,BMW None [F44],A,,11,chassis,"228i xDrive Gran Coupe,M235i xDrive Gran Coupe",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 1 dropped_vehicle]
-51812,407087192031,BMW None [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 7 dropped_vehicle]
-52153,407087195382,BMW None [F32],A,,14,chassis,"428i,430i,435i,440i",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 14 dropped_vehicle]
-699,407180561553,BMW X3 [F25],A,,7,chassis,X3,pushed,part type 'Front Left or Right Seat Control Module' is not engine-dependent (category said B)
-43378,407087248186,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > CV Joints, Boots & Parts) [catalog: 7 dropped_vehicle]"
-61942,407132089824,BMW X3 [F25],A,,7,chassis,X3,pushed,part type 'Module' is not engine-dependent (category said B)
-3192,407176830991,BMW X5 [G05],A,,8,chassis,X5,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts)
-39856,407087328638,BMW None [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > CV Joints, Boots & Parts) [catalog: 7 dropped_vehicle]"
-43380,407087306684,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Shocks, Struts & Assemblies) [catalog: 7 dropped_vehicle]"
-52966,407179325694,BMW X3 [F97],B,S58,10,chassis,X3,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Intake Manifolds) [catalog: 10 retrimmed]
-51703,407087144258,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
-52981,407087141234,BMW X3 [F97],B,S58,10,chassis+pn,X3,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Water Pumps) (+1 part# rows) [catalog: 10 retrimmed]
-28367,405239041050,BMW None [G20],B,,,,,review,Rule B on G20 needs an engine or donor model.
+64388,407228643800,BMW 750i [G12],B,,4,chassis,750i,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Radiators) [catalog: 3 dropped_vehicle]
+64389,407228629339,BMW 750i [G12],B,,4,chassis,750i,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Radiators) [catalog: 3 dropped_vehicle]
+61942,407227671500,BMW X3 [F25],A,,7,chassis,X3,pushed,part type 'Module' is not engine-dependent (category said B)
+66285,407227498722,BMW 740i [G12],A,,10,chassis,"750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Body Moldings & Trims) [catalog: 25 dropped_vehicle]
+66419,407227323469,BMW 330i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Wheel Bearings, Hubs & Seals) [catalog: 7 dropped_vehicle]"
+66371,407227500577,BMW 330i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbags) [catalog: 7 dropped_vehicle]
+66373,407227500750,BMW 330i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbags) [catalog: 7 dropped_vehicle]
+66418,407227323503,BMW 330i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Wheel Bearings, Hubs & Seals) [catalog: 7 dropped_vehicle]"
+66372,407227500564,BMW 330i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbags) [catalog: 7 dropped_vehicle]
 66238,407220937469,BMW 740i [G12],B,B58,0,chassis,,skip,no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog; 2017 BMW 740Li: not in eBay's catalog; 2018 BMW 740Li: not in eBay's catalog
-65568,407204566305,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Parts > ABS & Stability Hydraulic Units)
-63388,407204689376,,,,,,,skip,no Shopify donor for SKU
-63415,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+65307,407227273982,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors) [catalog: 7 dropped_vehicle]
+65238,407227273985,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Bumpers & Components > Bumpers & Reinforcements) [catalog: 7 dropped_vehicle]
+65305,407227273960,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors) [catalog: 7 dropped_vehicle]
+65306,407227273875,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors) [catalog: 7 dropped_vehicle]
+65308,407227273894,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors) [catalog: 7 dropped_vehicle]
+65003,407227229573,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Roofs, Tops & Sunroofs > Sunroofs & Parts) [catalog: 7 dropped_vehicle]"
+65004,407227229702,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Roofs, Tops & Sunroofs > Sunroofs & Parts) [catalog: 7 dropped_vehicle]"
+65087,407227229584,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Sun Visors) [catalog: 7 dropped_vehicle]
+65059,407227229731,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Horns) [catalog: 7 dropped_vehicle]
+65086,407227229429,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Sun Visors) [catalog: 7 dropped_vehicle]
+65023,407227229574,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Center, Overhead Consoles & Parts > Center & Overhead Console Parts) [catalog: 7 dropped_vehicle]"
+65020,407227229587,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Pedal Assemblies, Pads & Parts) [catalog: 7 dropped_vehicle]"
+65021,407227229675,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Center, Overhead Consoles & Parts > Center & Overhead Console Parts) [catalog: 7 dropped_vehicle]"
+65034,407227229422,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Floor Mats, Carpets & Cargo Liners) [catalog: 7 dropped_vehicle]"
+65056,407227229537,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,part type 'Radio Receiver Module' is not engine-dependent (category said B) [catalog: 7 dropped_vehicle]
+65005,407227229711,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,part type 'Antenna Telematics Control Module' is not engine-dependent (category said B) [catalog: 7 dropped_vehicle]
+65000,407227229726,,,,,,,skip,category 174119 never renders fitment on eBay
+65006,407227229580,,,,,,,skip,category 107062 never renders fitment on eBay
+65062,407227229578,,,,,,,skip,category 33643 never renders fitment on eBay
+66304,407226779660,BMW X5 [G05],B,B58,40,chassis,X5,pushed,"under engine ancestor 262245 (Car & Truck Parts & Accessories > Transmission & Drivetrain > Differentials, Assemblies & Parts > Differential Assemblies) [catalog: 21 retrimmed, 11 dropped_trim]"
+52981,407087141234,BMW X3 [F97],B,S58,10,chassis+pn,X3,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Water Pumps) (+1 part# rows) [catalog: 10 retrimmed]
+51703,407087144258,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
+52966,407179325694,BMW X3 [F97],B,S58,10,chassis,X3,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Intake Manifolds) [catalog: 10 retrimmed]
+43380,407087306684,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Shocks, Struts & Assemblies) [catalog: 7 dropped_vehicle]"
+39856,407087328638,BMW None [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > CV Joints, Boots & Parts) [catalog: 7 dropped_vehicle]"
+3192,407176830991,BMW X5 [G05],A,,8,chassis,X5,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Seat Belts & Parts)
+43378,407087248186,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,"not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > CV Joints, Boots & Parts) [catalog: 7 dropped_vehicle]"
+699,407180561553,BMW X3 [F25],A,,7,chassis,X3,pushed,part type 'Front Left or Right Seat Control Module' is not engine-dependent (category said B)
+52153,407087195382,BMW None [F32],A,,14,chassis,"428i,430i,435i,440i",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 14 dropped_vehicle]
+51812,407087192031,BMW None [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 7 dropped_vehicle]
+51010,407087182531,BMW None [F44],A,,11,chassis,"228i xDrive Gran Coupe,M235i xDrive Gran Coupe",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 1 dropped_vehicle]
+52036,407087178980,BMW None [G12],A,,11,chassis,"740i xDrive,750Li,Alpina B7",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors) [catalog: 25 dropped_vehicle]
+53099,407179321089,BMW Z3 [E36],B,M54,5,chassis,Z3,pushed,under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine Parts > Other Engine Parts) [catalog: 4 dropped_vehicle]
+52993,407179327636,BMW X3 [F97],A,,5,chassis+pn,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Body Moldings & Trims) (+1 part# rows)
+53212,407179329704,BMW Z3 [E36],A,,45,chassis,"318i,318is,318ti,323i,323is,325i,325is,328i,328is,Z3",pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts) [catalog: 28 dropped_vehicle]
+53379,407179398066,BMW Z3 [E36],A,,44,chassis,"318i,318is,318ti,323i,323is,325i,325is,328i,328is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts) [catalog: 28 dropped_vehicle]
+53396,407179398385,BMW Z3 [E36],A,,44,chassis,"318i,318is,318ti,323i,323is,325i,325is,328i,328is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbags) [catalog: 28 dropped_vehicle]
+49559,407179423441,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts)
+50646,407179440636,BMW 228i [F44],A,,11,chassis,"228i xDrive Gran Coupe,M235i xDrive Gran Coupe",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Interior Safety > Airbags) [catalog: 1 dropped_vehicle]
+49560,407179449415,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts)
+49009,407179470584,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts)
+49008,407179481140,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Axle Housings & Parts)
+49063,407179494432,BMW 135i [E88],A,,13,chassis,"128i,135i,135is",pushed,not under an engine branch (Car & Truck Parts & Accessories > Transmission & Drivetrain > Oil Coolers & Lines) [catalog: 5 dropped_vehicle]
+61302,407182871851,BMW X3 [G01],A,,7,chassis,X3,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Frame Rails & Subframes)
+65001,407174129951,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 7 dropped_vehicle]
+65007,407174129955,BMW M340i [G20],A,,41,chassis,"330e,330e xDrive,330i,330i xDrive,M340i,M340i xDrive",pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls) [catalog: 7 dropped_vehicle]
+50681,407087175602,BMW None [F44],A,,11,chassis,"228i xDrive Gran Coupe,M235i xDrive Gran Coupe",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors) [catalog: 1 dropped_vehicle]
+50686,407087170901,BMW None [F44],A,,11,chassis,"228i xDrive Gran Coupe,M235i xDrive Gran Coupe",pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors) [catalog: 1 dropped_vehicle]
+23280,405259127505,BMW 740i [G12],A,,11,chassis,"740i xDrive,750Li,Alpina B7",error,inventory write HTTP 400: [25002] A user error has occurred. Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on details. (0=Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on
+63615,407214424173,BMW 320i [F30],A,,30,chassis,"320i,328d,328i,330i,335i,340i,ActiveHybrid 3",pushed,part type 'Front Left or Right Seat Control Module' is not engine-dependent (category said B) [catalog: 19 dropped_vehicle]
+63700,407214516887,BMW X5 [F85],A,,4,chassis,X5,pushed,part type 'Front Left or Right Seat Control Module' is not engine-dependent (category said B)
+28367,405239041050,BMW None [G20],B,,,,,review,Rule B on G20 needs an engine or donor model.
+62621,407188403233,,,,,,,skip,no Shopify donor for SKU
+62620,407188403307,,,,,,,skip,no Shopify donor for SKU
+62623,407188403230,,,,,,,skip,no Shopify donor for SKU
+62607,407188381504,,,,,,,skip,no Shopify donor for SKU
+62608,407188381503,,,,,,,skip,no Shopify donor for SKU
+62606,407188381751,,,,,,,skip,no Shopify donor for SKU
+62616,407188381669,,,,,,,skip,no Shopify donor for SKU
+62615,407188381537,,,,,,,skip,no Shopify donor for SKU
+62617,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+62609,407188381685,,,,,,,skip,no Shopify donor for SKU
+62614,407188381706,,,,,,,skip,no Shopify donor for SKU
 STOCK9198302,407206924054,BMW None [F86],B,,,,,review,Rule B on F86 needs an engine or donor model.
+STOCK Tire Pressure Control Module 6853736,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 STOCK5A625D0,407206923927,BMW None [G42],B,,,,,review,Rule B on G42 needs an engine or donor model.
 STOCK5A25FC9,407206923864,BMW None [G23],B,,,,,review,Rule B on G23 needs an engine or donor model.
-65702,407205224708,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine Parts > Oil Filters)
-65692,407205179550,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors)
-65690,407205177356,BMW M6 [E64],A,,5,chassis,M6,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Gearboxes, Rack & Pinions)"
-65691,407205177342,BMW M6 [E64],B,S85,5,chassis,M6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > ECUs & Computer Modules)"
-65683,407205104489,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Guards & Protection > Splash Guards & Mud Flaps)
-65682,407205104356,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Guards & Protection > Splash Guards & Mud Flaps)
-63395,407204689271,,,,,,,skip,no Shopify donor for SKU
-65589,407204659102,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors)
-65588,407204658828,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors)
-65587,407204658854,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors)
-63398,407204689149,,,,,,,skip,no Shopify donor for SKU
-65582,407204636718,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Grilles)
-63545,407205050346,,,,,,,skip,no Shopify donor for SKU
-63491,407205050365,,,,,,,skip,no Shopify donor for SKU
-63479,407205050342,,,,,,,skip,no Shopify donor for SKU
-63490,407205050359,,,,,,,skip,no Shopify donor for SKU
-63484,407205050408,,,,,,,skip,no Shopify donor for SKU
-63485,407205050363,,,,,,,skip,no Shopify donor for SKU
-63486,407205050208,,,,,,,skip,no Shopify donor for SKU
-63547,407205050229,,,,,,,skip,no Shopify donor for SKU
-63487,407205050143,,,,,,,skip,no Shopify donor for SKU
-63544,407205050009,,,,,,,skip,no Shopify donor for SKU
-63548,407205049967,,,,,,,skip,no Shopify donor for SKU
-65673,407205045777,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Bumpers & Components > Bumpers & Reinforcements)
-65669,407205031780,BMW M6 [E64],B,S85,5,chassis,M6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Wiring Harnesses, Cables & Connectors)"
-65670,407205031768,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Filter Housings)
-65665,407205015025,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Expansion & Overflow Tanks)
-65666,407205014985,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning & Heating > Heater Control Valves)
-65667,407205014776,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Parts > ABS & Stability Hydraulic Units)
-65668,407205014826,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Coolant Hoses)
-65663,407204992786,BMW M6 [E64],A,,5,chassis,M6,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Wipers & Washers > Washer Pumps, Reservoirs & Nozzles)"
-65664,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
-65660,407204983766,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Vacuum Pumps)
-65659,407204983763,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Throttle Bodies)
-63471,407204961260,,,,,,,skip,no Shopify donor for SKU
-63472,407204960839,,,,,,,skip,no Shopify donor for SKU
-65656,407204954643,BMW M6 [E64],A,,5,chassis,M6,pushed,part type 'Suspension Module' is not engine-dependent (category said B)
-65655,407204954662,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps > Headlight Ballasts & Igniters)
-65657,407204954675,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Pumps & Sending Units)
-63430,407204946527,,,,,,,skip,no Shopify donor for SKU
-63467,407204946532,,,,,,,skip,no Shopify donor for SKU
-63429,407204946525,,,,,,,skip,no Shopify donor for SKU
-65646,407204945828,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33687 (Car & Truck Parts & Accessories > Ignition Systems & Components > Ignition Coils)
-65647,407204945818,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Injection Parts > Fuel Injectors)
-65643,407204936757,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine Parts > Engine Mounts)
-65645,407204936754,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Fuel Injection Parts > Additional Fuel Injection Parts)
-65644,407204936739,BMW M6 [E64],B,S85,5,chassis,M6,pushed,"under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alternators, ECUs & Wiring > Starter Motors)"
-65642,407204926267,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning & Heating > A/C Compressors & Clutches)
-65641,407204925264,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspension > Power Steering Pumps)
-65625,407204918179,BMW M6 [E64],A,,5,chassis,M6,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Wipers & Washers > Washer Pumps, Reservoirs & Nozzles)"
-65612,407204845268,BMW M6 [E64],A,,2,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps > Tail Light Assemblies)
-65609,407204845106,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Engine Oil Coolers & Lines)
-65610,407204845091,BMW M6 [E64],A,,5,chassis,M6,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Center, Overhead Consoles & Parts > Center & Overhead Console Parts)"
-65611,407204845098,BMW M6 [E64],A,,2,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps > Tail Light Assemblies)
-65607,407204820950,BMW M6 [E64],A,,5,chassis,M6,pushed,"not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Roofs, Tops & Sunroofs > Convertible Tops & Parts)"
-65605,407204820972,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Window Motors & Regulators)
-65606,407204820955,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Window Motors & Regulators)
-63427,407204818452,,,,,,,skip,no Shopify donor for SKU
-63428,407204818411,,,,,,,skip,no Shopify donor for SKU
-63480,407204811730,,,,,,,skip,no Shopify donor for SKU
-63426,407204811781,,,,,,,skip,no Shopify donor for SKU
-63425,407204811792,,,,,,,skip,no Shopify donor for SKU
-63481,407204811741,,,,,,,skip,no Shopify donor for SKU
-63483,407204811732,,,,,,,skip,no Shopify donor for SKU
-63482,407204811733,,,,,,,skip,no Shopify donor for SKU
-63412,407204768622,,,,,,,skip,no Shopify donor for SKU
-63413,407204768599,,,,,,,skip,no Shopify donor for SKU
-63423,407204768453,,,,,,,skip,no Shopify donor for SKU
-63414,407204768410,,,,,,,skip,no Shopify donor for SKU
-63418,407204768481,,,,,,,skip,no Shopify donor for SKU
-63421,407204768436,,,,,,,skip,no Shopify donor for SKU
-63424,407204768465,,,,,,,skip,no Shopify donor for SKU
-63416,407204768452,,,,,,,skip,no Shopify donor for SKU
-63411,407204768437,,,,,,,skip,no Shopify donor for SKU
-63417,407204768228,,,,,,,skip,no Shopify donor for SKU
-63422,407204768206,,,,,,,skip,no Shopify donor for SKU
-63408,407204733582,,,,,,,skip,no Shopify donor for SKU
-63410,407204733679,,,,,,,skip,no Shopify donor for SKU
-63403,407204733479,,,,,,,skip,no Shopify donor for SKU
-63404,407204733644,,,,,,,skip,no Shopify donor for SKU
-63405,407204733471,,,,,,,skip,no Shopify donor for SKU
-63406,407204733601,,,,,,,skip,no Shopify donor for SKU
-63407,407204733544,,,,,,,skip,no Shopify donor for SKU
-63409,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
-63402,407204689259,,,,,,,skip,no Shopify donor for SKU
-63391,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
-63390,407204689223,,,,,,,skip,no Shopify donor for SKU
-63397,407204689253,,,,,,,skip,no Shopify donor for SKU
-63396,407204689229,,,,,,,skip,no Shopify donor for SKU
-63400,407204689228,,,,,,,skip,no Shopify donor for SKU
-63393,407204689365,,,,,,,skip,no Shopify donor for SKU
-63389,407204689354,,,,,,,skip,no Shopify donor for SKU
-63401,407204689138,,,,,,,skip,no Shopify donor for SKU
-63394,407204689140,,,,,,,skip,no Shopify donor for SKU
-63399,407204689305,,,,,,,skip,no Shopify donor for SKU
-65658,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
-65654,407204662941,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Components > Water Pumps)
-65601,407204660951,BMW M6 [E64],A,,5,chassis,M6,pushed,part type 'Front Bumper PDC Parking Sensor Wiring Wire Harness' is not engine-dependent (category said B)
-65591,407204658830,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors)
-65602,407204660981,BMW M6 [E64],A,,5,chassis,M6,pushed,part type 'Rear Bumper PDC Parking Sensor Wiring Wire Harness' is not engine-dependent (category said B)
-65590,407204658894,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors)
-65592,407204659012,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver Assistance Systems > Parking Assistance > Parking Sensors)
-65585,407204657099,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
-65584,407204657079,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning & Heating > HVAC Controls & Control Units)
-65580,407204636729,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & Accessories > Switches & Controls)
-65578,407204616024,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exhaust & Emission Systems > Secondary Air & Smog Pumps)
-65577,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
-65574,407204573395,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Exterior Locks & Lock Hardware)
-65576,407204573179,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Intake & Fuel Sensors)
-65575,407204573470,BMW M6 [E64],A,,5,chassis,M6,pushed,not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & Accessories > Horns)
-65573,407204566300,BMW M6 [E64],B,S85,5,chassis,M6,pushed,under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delivery > Air Filter Housings)
+STOCK8495205,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+STOCK5A722D3,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+STOCK9498890,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+64669,407185443819,,,,,,,skip,no Shopify donor for SKU
+64844,407188045948,,,,,,,skip,no Shopify donor for SKU
+64667,407188121334,,,,,,,skip,no Shopify donor for SKU
+64845,407188046020,,,,,,,skip,no Shopify donor for SKU
+64828,407185581366,,,,,,,skip,no Shopify donor for SKU
+64848,407188045943,,,,,,,skip,no Shopify donor for SKU
+64836,407185682929,,,,,,,skip,no Shopify donor for SKU
+64688,407185443793,,,,,,,skip,no Shopify donor for SKU
+64834,407185682955,,,,,,,skip,no Shopify donor for SKU
+64838,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+64852,407188045801,,,,,,,skip,no Shopify donor for SKU
+64686,407185443869,,,,,,,skip,no Shopify donor for SKU
+64674,407185443754,,,,,,,skip,no Shopify donor for SKU
+64841,407188045946,,,,,,,skip,no Shopify donor for SKU
+64851,407188045650,,,,,,,skip,no Shopify donor for SKU
+64856,407188045898,,,,,,,skip,no Shopify donor for SKU
+65092,407188045886,,,,,,,skip,no Shopify donor for SKU
+64678,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+64685,407185443884,,,,,,,skip,no Shopify donor for SKU
+64860,407188045676,,,,,,,skip,no Shopify donor for SKU
+64664,407185443866,,,,,,,skip,no Shopify donor for SKU
+64676,407185443783,,,,,,,skip,no Shopify donor for SKU
+64842,407188045779,,,,,,,skip,no Shopify donor for SKU
+64843,407188045929,,,,,,,skip,no Shopify donor for SKU
+64670,407185443748,,,,,,,skip,no Shopify donor for SKU
+64671,407185443867,,,,,,,skip,no Shopify donor for SKU
+64849,407188045876,,,,,,,skip,no Shopify donor for SKU
+64666,407185443876,,,,,,,skip,no Shopify donor for SKU
+64858,407188045857,,,,,,,skip,no Shopify donor for SKU
+64837,407185683132,,,,,,,skip,no Shopify donor for SKU
+64855,407188045953,,,,,,,skip,no Shopify donor for SKU
+64859,407188045988,,,,,,,skip,no Shopify donor for SKU
+64830,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+64831,407185683356,,,,,,,skip,no Shopify donor for SKU
+64853,407188045933,,,,,,,skip,no Shopify donor for SKU
+64665,407185443840,,,,,,,skip,no Shopify donor for SKU
+64668,407185443833,,,,,,,skip,no Shopify donor for SKU
+64854,407188045547,,,,,,,skip,no Shopify donor for SKU
+65122,407188045809,,,,,,,skip,no Shopify donor for SKU
+64672,407185443871,,,,,,,skip,no Shopify donor for SKU
+64827,407185581609,,,,,,,skip,no Shopify donor for SKU
+64839,407185683216,,,,,,,skip,no Shopify donor for SKU
+64677,407185443902,,,,,,,skip,no Shopify donor for SKU
+64875,407188045885,,,,,,,skip,no Shopify donor for SKU
+64673,407185443762,,,,,,,skip,no Shopify donor for SKU
+64840,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+65093,407188045775,,,,,,,skip,no Shopify donor for SKU
+64876,407188045839,,,,,,,skip,no Shopify donor for SKU
+65091,407188045812,,,,,,,skip,no Shopify donor for SKU
+65121,407188045816,,,,,,,skip,no Shopify donor for SKU
 32620,405484895987,BMW None [F02],B,,0,chassis,,skip,no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 2010 BMW None: not in eBay's catalog; 2011 BMW None: not in eBay's catalog
 32532,405482405463,BMW None [F02],B,,0,chassis,,skip,no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 2010 BMW None: not in eBay's catalog; 2011 BMW None: not in eBay's catalog
+48420,407087151018,,,,,,,skip,no Shopify donor for SKU
+48389,407087147542,,,,,,,skip,no Shopify donor for SKU
+48393,407087175443,,,,,,,skip,no Shopify donor for SKU
+48395,407087150906,,,,,,,skip,no Shopify donor for SKU
+48400,407087171646,,,,,,,skip,no Shopify donor for SKU
+48401,407087173839,,,,,,,skip,no Shopify donor for SKU
+48404,407087162023,,,,,,,skip,no Shopify donor for SKU
+48413,407087162347,,,,,,,skip,no Shopify donor for SKU
+48414,407087151243,,,,,,,skip,no Shopify donor for SKU
+48415,407087148147,,,,,,,skip,no Shopify donor for SKU
+48416,407087148539,,,,,,,skip,no Shopify donor for SKU
+48417,407087167996,,,,,,,skip,no Shopify donor for SKU
+48418,407087174973,,,,,,,skip,no Shopify donor for SKU
+48421,407087161814,,,,,,,skip,no Shopify donor for SKU
+4537,407192464791,,,,,,,skip,no Shopify donor for SKU
+48427,407087174402,,,,,,,skip,no Shopify donor for SKU
+48437,407087150476,,,,,,,skip,no Shopify donor for SKU
+48444,407087175853,,,,,,,skip,no Shopify donor for SKU
+48450,407087175776,,,,,,,skip,no Shopify donor for SKU
+48452,407087156797,,,,,,,skip,no Shopify donor for SKU
+48453,407087152833,,,,,,,skip,no Shopify donor for SKU
+48455,407087151494,,,,,,,skip,no Shopify donor for SKU
+48462,407087173379,,,,,,,skip,no Shopify donor for SKU
+48471,407087148489,,,,,,,skip,no Shopify donor for SKU
+48473,407087164604,,,,,,,skip,no Shopify donor for SKU
+48484,407087161497,,,,,,,skip,no Shopify donor for SKU
+48486,407087159040,,,,,,,skip,no Shopify donor for SKU
+48489,407087171955,,,,,,,skip,no Shopify donor for SKU
+48537,407087172599,,,,,,,skip,no Shopify donor for SKU
+48533,407087170661,,,,,,,skip,no Shopify donor for SKU
+48542,407087173581,,,,,,,skip,no Shopify donor for SKU
+48544,407087160185,,,,,,,skip,no Shopify donor for SKU
+48548,407087176336,,,,,,,skip,no Shopify donor for SKU
+50036,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50452,407087151786,,,,,,,skip,no Shopify donor for SKU
+50456,407087150544,,,,,,,skip,no Shopify donor for SKU
+50457,407087162797,,,,,,,skip,no Shopify donor for SKU
+50470,407087170675,,,,,,,skip,no Shopify donor for SKU
+50491,407087157985,,,,,,,skip,no Shopify donor for SKU
+50481,407087151319,,,,,,,skip,no Shopify donor for SKU
+50482,407087160750,,,,,,,skip,no Shopify donor for SKU
+50485,407087149335,,,,,,,skip,no Shopify donor for SKU
+50490,407087171155,,,,,,,skip,no Shopify donor for SKU
+50492,407087151044,,,,,,,skip,no Shopify donor for SKU
+50493,407087174826,,,,,,,skip,no Shopify donor for SKU
+50499,407087152472,,,,,,,skip,no Shopify donor for SKU
+50504,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50506,407087150079,,,,,,,skip,no Shopify donor for SKU
+50508,407087165044,,,,,,,skip,no Shopify donor for SKU
+50509,407087152193,,,,,,,skip,no Shopify donor for SKU
+50511,407087147864,,,,,,,skip,no Shopify donor for SKU
+50518,407087178680,,,,,,,skip,no Shopify donor for SKU
+50525,407087158369,,,,,,,skip,no Shopify donor for SKU
+50526,407087152819,,,,,,,skip,no Shopify donor for SKU
+50527,407087173446,,,,,,,skip,no Shopify donor for SKU
+50531,407087175590,,,,,,,skip,no Shopify donor for SKU
+50533,407087149480,,,,,,,skip,no Shopify donor for SKU
+50534,407087154238,,,,,,,skip,no Shopify donor for SKU
+50543,407087169835,,,,,,,skip,no Shopify donor for SKU
+50545,407087159060,,,,,,,skip,no Shopify donor for SKU
+50546,407087150346,,,,,,,skip,no Shopify donor for SKU
+50556,407087172428,,,,,,,skip,no Shopify donor for SKU
+62745,407188433642,,,,,,,skip,no Shopify donor for SKU
+62747,407188433735,,,,,,,skip,no Shopify donor for SKU
+62625,407188403367,,,,,,,skip,no Shopify donor for SKU
+62618,407188381670,,,,,,,skip,no Shopify donor for SKU
+33268,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+64846,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+64621,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+65262,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50715,407087171441,,,,,,,skip,no Shopify donor for SKU
+50718,407087154385,,,,,,,skip,no Shopify donor for SKU
+50719,407087175281,,,,,,,skip,no Shopify donor for SKU
+50722,407087166851,,,,,,,skip,no Shopify donor for SKU
+50723,407087151632,,,,,,,skip,no Shopify donor for SKU
+50729,407087175796,,,,,,,skip,no Shopify donor for SKU
+50730,407087171500,,,,,,,skip,no Shopify donor for SKU
+50738,407087162738,,,,,,,skip,no Shopify donor for SKU
+50741,407087178039,,,,,,,skip,no Shopify donor for SKU
+50744,407087146515,,,,,,,skip,no Shopify donor for SKU
+50745,407087136072,,,,,,,skip,no Shopify donor for SKU
+50746,407087060718,,,,,,,skip,no Shopify donor for SKU
+50747,407087061981,,,,,,,skip,no Shopify donor for SKU
+50749,407087160764,,,,,,,skip,no Shopify donor for SKU
+50751,407087148830,,,,,,,skip,no Shopify donor for SKU
+50756,407087145977,,,,,,,skip,no Shopify donor for SKU
+50757,407087146116,,,,,,,skip,no Shopify donor for SKU
+50759,407087135567,,,,,,,skip,no Shopify donor for SKU
+50761,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50799,407179322419,,,,,,,skip,no Shopify donor for SKU
+50869,407179319187,,,,,,,skip,no Shopify donor for SKU
+4376,407180201206,,,,,,,skip,no Shopify donor for SKU
+4487,407180201099,,,,,,,skip,no Shopify donor for SKU
+4489,407180201061,,,,,,,skip,no Shopify donor for SKU
+4512,407180201000,,,,,,,skip,no Shopify donor for SKU
+4496,407180200992,,,,,,,skip,no Shopify donor for SKU
+4423,407180200945,,,,,,,skip,no Shopify donor for SKU
+4494,407180200917,,,,,,,skip,no Shopify donor for SKU
+4429,407180200705,,,,,,,skip,no Shopify donor for SKU
+4361,407180200698,,,,,,,skip,no Shopify donor for SKU
+4426,407180200701,,,,,,,skip,no Shopify donor for SKU
+4552,407180200696,,,,,,,skip,no Shopify donor for SKU
+4530,407180200671,,,,,,,skip,no Shopify donor for SKU
+4492,407180200620,,,,,,,skip,no Shopify donor for SKU
+4519,407180200639,,,,,,,skip,no Shopify donor for SKU
+4524,407180200624,,,,,,,skip,no Shopify donor for SKU
+4559,407180200622,,,,,,,skip,no Shopify donor for SKU
+4375,407180200601,,,,,,,skip,no Shopify donor for SKU
+4522,407180200585,,,,,,,skip,no Shopify donor for SKU
+4488,407180200591,,,,,,,skip,no Shopify donor for SKU
+4497,407180200575,,,,,,,skip,no Shopify donor for SKU
+4427,407180200550,,,,,,,skip,no Shopify donor for SKU
+4428,407180200541,,,,,,,skip,no Shopify donor for SKU
+4507,407180200534,,,,,,,skip,no Shopify donor for SKU
+4571,407180200528,,,,,,,skip,no Shopify donor for SKU
+4525,407180200524,,,,,,,skip,no Shopify donor for SKU
+4495,407180200493,,,,,,,skip,no Shopify donor for SKU
+4432,407180200476,,,,,,,skip,no Shopify donor for SKU
+4527,407180200462,,,,,,,skip,no Shopify donor for SKU
+4773,407180200478,,,,,,,skip,no Shopify donor for SKU
+4776,407180200453,,,,,,,skip,no Shopify donor for SKU
+4526,407180200454,,,,,,,skip,no Shopify donor for SKU
+4560,407180200446,,,,,,,skip,no Shopify donor for SKU
+4566,407180200387,,,,,,,skip,no Shopify donor for SKU
+4772,407180200367,,,,,,,skip,no Shopify donor for SKU
+4509,407180200350,,,,,,,skip,no Shopify donor for SKU
+4778,407180200339,,,,,,,skip,no Shopify donor for SKU
+4780,407180200333,,,,,,,skip,no Shopify donor for SKU
+4520,407180200324,,,,,,,skip,no Shopify donor for SKU
+4854,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+5727,407180199739,,,,,,,skip,no Shopify donor for SKU
+5816,407180199645,,,,,,,skip,no Shopify donor for SKU
+4400,407179018295,,,,,,,skip,no Shopify donor for SKU
+4402,407179018268,,,,,,,skip,no Shopify donor for SKU
+4399,407179017745,,,,,,,skip,no Shopify donor for SKU
+4401,407179018009,,,,,,,skip,no Shopify donor for SKU
+61558,407169532745,,,,,,,skip,no Shopify donor for SKU
+61552,407169532769,,,,,,,skip,no Shopify donor for SKU
+61906,407169582904,,,,,,,skip,no Shopify donor for SKU
+61524,407169532943,,,,,,,skip,no Shopify donor for SKU
+61505,407169655489,,,,,,,skip,no Shopify donor for SKU
+61602,407169583001,,,,,,,skip,no Shopify donor for SKU
+4548,407169562281,,,,,,,skip,no Shopify donor for SKU
+61523,407169532902,,,,,,,skip,no Shopify donor for SKU
+61562,407169532726,,,,,,,skip,no Shopify donor for SKU
+61561,407169532710,,,,,,,skip,no Shopify donor for SKU
+61554,407169532386,,,,,,,skip,no Shopify donor for SKU
+61557,407169532250,,,,,,,skip,no Shopify donor for SKU
+61563,407169532913,,,,,,,skip,no Shopify donor for SKU
+61525,407169532908,,,,,,,skip,no Shopify donor for SKU
+61556,407169532924,,,,,,,skip,no Shopify donor for SKU
+61555,407169532893,,,,,,,skip,no Shopify donor for SKU
+61567,407169532690,,,,,,,skip,no Shopify donor for SKU
+61559,407169532253,,,,,,,skip,no Shopify donor for SKU
+4767,407169448414,,,,,,,skip,no Shopify donor for SKU
+4372,407002743114,,,,,,,skip,no Shopify donor for SKU
+51670,407087044772,,,,,,,skip,no Shopify donor for SKU
+4825,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 26388,405151412165,BMW None [F97],B,,,,,review,Rule B on F97 needs an engine or donor model.
 29774,405331961154,BMW None [G30],B,,,,,review,Rule B on G30 needs an engine or donor model.
 32116,405455596304,BMW None [F39],B,,,,,review,Rule B on F39 needs an engine or donor model.
@@ -187,6 +308,7 @@ STOCK5A25FC9,407206923864,BMW None [G23],B,,,,,review,Rule B on G23 needs an eng
 29404,405313739962,BMW None [G30],B,,,,,review,Rule B on G30 needs an engine or donor model.
 32133,405460844193,BMW None [F39],B,,,,,review,Rule B on F39 needs an engine or donor model.
 27008,405172223460,BMW None [G20],B,,,,,review,Rule B on G20 needs an engine or donor model.
+50017,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 32135,405460845003,BMW None [F39],B,,,,,review,Rule B on F39 needs an engine or donor model.
 31761,405450149530,BMW None [F48],B,,,,,review,Rule B on F48 needs an engine or donor model.
 31717,405444081177,BMW None [F39],B,,,,,review,Rule B on F39 needs an engine or donor model.
@@ -204,6 +326,34 @@ STOCK5A25FC9,407206923864,BMW None [G23],B,,,,,review,Rule B on G23 needs an eng
 30933,405418698247,BMW None [F97],B,,,,,review,Rule B on F97 needs an engine or donor model.
 33360,405526637512,BMW None [G01],B,,,,,review,Rule B on G01 needs an engine or donor model.
 32484,405499526959,BMW None [G01],B,,,,,review,Rule B on G01 needs an engine or donor model.
+4431,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+4533,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+4536,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+4550,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+4643,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+5472,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+5557,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+61538,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+60180,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+3536,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+4123,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+61229,407061681857,,,,,,,skip,no Shopify donor for SKU
+60201,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+5491,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+4208,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+6001,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+5338,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+4209,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+2246,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+61537,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+6430,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+5466,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+2010,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+4763,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+3185,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+27445,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+33492,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+32681,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 32803,407087982301,BMW None [G01],B,,,,,review,Rule B on G01 needs an engine or donor model.
 37125,407087981006,BMW None [G01],B,,,,,review,Rule B on G01 needs an engine or donor model.
 35733,407087980414,BMW None [G01],B,,,,,review,Rule B on G01 needs an engine or donor model.
@@ -212,6 +362,7 @@ STOCK5A25FC9,407206923864,BMW None [G23],B,,,,,review,Rule B on G23 needs an eng
 34052,407087965507,BMW None [G20],B,,,,,review,Rule B on G20 needs an engine or donor model.
 34763,407087964952,BMW None [G42],B,,,,,review,Rule B on G42 needs an engine or donor model.
 50185,407087185701,BMW None [G12],B,,,,,review,Rule B on G12 needs an engine or donor model.
+36510,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 37189,407087454608,BMW None [F01],B,,,,,review,Rule B on F01 needs an engine or donor model.
 37479,407087451357,BMW None [F44],B,,,,,review,Rule B on F44 needs an engine or donor model.
 34842,407087446680,BMW None [G12],B,,,,,review,Rule B on G12 needs an engine or donor model.
@@ -241,7 +392,6 @@ STOCK5A25FC9,407206923864,BMW None [G23],B,,,,,review,Rule B on G23 needs an eng
 39228,407087387661,BMW None [G05],B,,,,,review,Rule B on G05 needs an engine or donor model.
 38950,407087387034,BMW None [G05],B,,,,,review,Rule B on G05 needs an engine or donor model.
 39279,407087385959,BMW None [G20],B,,,,,review,Rule B on G20 needs an engine or donor model.
-38201,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 40689,407087371847,BMW None [F16],B,,,,,review,Rule B on F16 needs an engine or donor model.
 41728,407087368893,BMW None [G12],B,,,,,review,Rule B on G12 needs an engine or donor model.
 41729,407087364609,BMW None [G12],B,,,,,review,Rule B on G12 needs an engine or donor model.
@@ -262,6 +412,7 @@ STOCK5A25FC9,407206923864,BMW None [G23],B,,,,,review,Rule B on G23 needs an eng
 44762,407087262861,BMW None [G20],B,,,,,review,Rule B on G20 needs an engine or donor model.
 44177,407087253663,BMW None [G20],B,,,,,review,Rule B on G20 needs an engine or donor model.
 44501,407087252681,BMW None [G01],B,,,,,review,Rule B on G01 needs an engine or donor model.
+43924,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 43674,407087234462,BMW None [F48],B,,,,,review,Rule B on F48 needs an engine or donor model.
 47133,407087229271,BMW None [F32],B,,,,,review,Rule B on F32 needs an engine or donor model.
 49042,407087223159,BMW None [E88],B,,,,,review,Rule B on E88 needs an engine or donor model.
@@ -279,23 +430,100 @@ STOCK5A25FC9,407206923864,BMW None [G23],B,,,,,review,Rule B on G23 needs an eng
 51849,407087195049,BMW None [G20],B,,,,,review,Rule B on G20 needs an engine or donor model.
 51278,407087191249,BMW None [F34],B,,,,,review,Rule B on F34 needs an engine or donor model.
 52020,407087181077,BMW None [G12],B,,,,,review,Rule B on G12 needs an engine or donor model.
+50515,407087178401,,,,,,,skip,no Shopify donor for SKU
+50521,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+48605,407087177636,,,,,,,skip,no Shopify donor for SKU
+52180,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+48523,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+49307,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+51581,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 47839,407087176358,BMW None [G12],B,,,,,review,Rule B on G12 needs an engine or donor model.
+51783,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50853,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 48305,407087175807,BMW None [F32],B,,,,,review,Rule B on F32 needs an engine or donor model.
+49654,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+48466,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50683,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 48217,407087175538,BMW None [E88],B,,,,,review,Rule B on E88 needs an engine or donor model.
+49799,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+51321,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+48565,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+49544,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+49748,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 50851,407087174832,BMW None [F32],B,,,,,review,Rule B on F32 needs an engine or donor model.
+48532,407087174670,,,,,,,skip,no Shopify donor for SKU
+48639,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50364,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+52379,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 48333,407087174391,BMW None [F32],B,,,,,review,Rule B on F32 needs an engine or donor model.
+50685,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 51839,407087174325,BMW None [G20],B,,,,,review,Rule B on G20 needs an engine or donor model.
+48552,407087172439,,,,,,,skip,no Shopify donor for SKU
+52032,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50513,407087171694,,,,,,,skip,no Shopify donor for SKU
+51973,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+48396,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50454,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 52306,407087171406,BMW None [G01],B,,,,,review,Rule B on G01 needs an engine or donor model.
+48068,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+49942,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+47598,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+47690,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+48592,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+48477,407087165567,,,,,,,skip,no Shopify donor for SKU
+50665,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+49387,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50727,407087162057,,,,,,,skip,no Shopify donor for SKU
 50286,407087161779,BMW None [F30],B,,,,,review,Rule B on F30 needs an engine or donor model.
 47782,407087161438,BMW None [F32],B,,,,,review,Rule B on F32 needs an engine or donor model.
+48469,407087161222,,,,,,,skip,no Shopify donor for SKU
 48598,407087161464,BMW None [F15],B,,,,,review,Rule B on F15 needs an engine or donor model.
+51870,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+51227,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+47537,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 49642,407087160372,BMW None [G01],B,,,,,review,Rule B on G01 needs an engine or donor model.
+48033,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+52051,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+49209,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+48219,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+51619,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50550,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+47992,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 52019,407087157822,BMW None [G12],B,,,,,review,Rule B on G12 needs an engine or donor model.
 51250,407087157900,BMW None [G01],B,,,,,review,Rule B on G01 needs an engine or donor model.
+51773,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+49491,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+49700,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+51786,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50425,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50325,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+48397,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 47998,407087153078,BMW None [G12],B,,,,,review,Rule B on G12 needs an engine or donor model.
+50522,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+51982,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50575,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+47978,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+51799,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+52435,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+52031,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50267,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+49510,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+49409,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 50850,407087149426,BMW None [F32],B,,,,,review,Rule B on F32 needs an engine or donor model.
+49327,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+50371,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+48555,407087148386,,,,,,,skip,no Shopify donor for SKU
+48551,407087148384,,,,,,,skip,no Shopify donor for SKU
 47838,407087148219,BMW None [G12],B,,,,,review,Rule B on G12 needs an engine or donor model.
+50995,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+47889,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+49531,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+51789,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 51366,407087147668,BMW None [F48],B,,,,,review,Rule B on F48 needs an engine or donor model.
+50667,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+51192,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+53828,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
+53500,,,,,,,,skip,no published offer (offer exists but not PUBLISHED (ended/sold?))
 53011,407087146379,BMW None [F15],B,,,,,review,Rule B on F15 needs an engine or donor model.
 53092,407087144391,BMW None [F15],B,,,,,review,Rule B on F15 needs an engine or donor model.
 52858,407087140442,BMW None [G01],B,,,,,review,Rule B on G01 needs an engine or donor model.
