@@ -34789,3 +34789,1869 @@ Categories where NOTHING displays:
 Nothing to score (60 SKU(s) all in known non-displaying categories) -- threshold not applied.
 
 Per-SKU detail -> data/drift_audit.csv
+[2026-09-19 06:07:05] state pushed (attempt 1)
+[2026-09-19 06:07:05] === done ===
+[2026-09-20 05:30:03] === nightly sweep starting (limit 2000) ===
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+Offline self-test (no network)
+
+Reference data:
+  PASS  chassis reference loaded (112 rows)
+  PASS  engine map loaded (396 rows)
+  PASS  eBay model vocabulary loaded (269 models)
+Rule engine:
+  PASS  Rule A/B expand works (335i 2014: A=49 rows > B=14 rows)
+  PASS  expand_from_chassis works (G87 -> 4 rows)
+  PASS  resolve_chassis disambiguates E90+M3 -> 'E90 M3'
+Classifier:
+  PASS  classifier config loaded (14 engine branches, default=B)
+  PASS  classify logic: engine branch -> B, other -> A
+  PASS  category tree present
+Shopify donors:
+  PASS  Shopify donor dump loaded (15780 SKUs, 15780 BMW)
+Part-number + union:
+  PASS  part-number fitment loaded (752 SKUs)
+  PASS  all part-number models are in the eBay catalog vocabulary
+  PASS  part-number chassis expansion is a superset of literal (sampled 100 SKUs)
+  PASS  union+dedupe correct (2 chassis + 2 pn, 1 overlap -> 3)
+Display path (trim/catalog validation):
+  PASS  display-path tests: (380/380 checks passed)
+
+Result: PASS  (0 fail, 0 warn)
+[2026-09-20 05:30:17] selftest passed
+OK - minted an access token valid ~7200s (120 min). Scopes: https://api.ebay.com/oauth/api_scope/sell.inventory
+[2026-09-20 05:30:18] eBay auth OK
+  page 20: 426 BMW donors (74 other makes skipped)
+  page 40: 926 BMW donors (74 other makes skipped)
+  page 60: 1425 BMW donors (75 other makes skipped)
+  page 80: 1924 BMW donors (76 other makes skipped)
+  page 100: 2424 BMW donors (76 other makes skipped)
+  page 120: 2921 BMW donors (79 other makes skipped)
+  page 140: 3419 BMW donors (81 other makes skipped)
+  page 160: 3917 BMW donors (83 other makes skipped)
+  page 180: 4415 BMW donors (85 other makes skipped)
+  page 200: 4914 BMW donors (86 other makes skipped)
+  page 220: 5306 BMW donors (194 other makes skipped)
+  page 240: 5790 BMW donors (210 other makes skipped)
+  page 260: 6262 BMW donors (238 other makes skipped)
+  page 280: 6754 BMW donors (246 other makes skipped)
+  page 300: 7143 BMW donors (357 other makes skipped)
+  page 320: 7555 BMW donors (445 other makes skipped)
+  page 340: 8055 BMW donors (445 other makes skipped)
+  page 360: 8540 BMW donors (460 other makes skipped)
+  page 380: 8971 BMW donors (529 other makes skipped)
+  page 400: 9458 BMW donors (542 other makes skipped)
+  page 420: 9954 BMW donors (546 other makes skipped)
+  page 440: 10452 BMW donors (548 other makes skipped)
+  page 460: 10772 BMW donors (728 other makes skipped)
+  page 480: 11059 BMW donors (941 other makes skipped)
+  page 500: 11549 BMW donors (951 other makes skipped)
+  page 520: 12045 BMW donors (955 other makes skipped)
+  page 540: 12541 BMW donors (959 other makes skipped)
+  page 560: 13035 BMW donors (965 other makes skipped)
+  page 580: 13443 BMW donors (1057 other makes skipped)
+  page 600: 13905 BMW donors (1095 other makes skipped)
+  page 620: 14179 BMW donors (1321 other makes skipped)
+  page 640: 14565 BMW donors (1435 other makes skipped)
+  page 660: 14845 BMW donors (1655 other makes skipped)
+  page 680: 15083 BMW donors (1917 other makes skipped)
+  page 700: 15474 BMW donors (2026 other makes skipped)
+Wrote 15792 donors (+12 vs previous 15780) -> data/shopify_donors.json
+  fields: year 9908/15792  |  chassis 15715/15792  |  engine 9471/15792
+[2026-09-20 05:38:47] donor dump refreshed from Shopify
+[2026-09-20 05:38:50] quota check: GetItem: 0/5,000 used, 5,000 left (0%) sweep limit tonight: 7,166 SKUs   (5000 of 5000 left, reserving 700 for audits) 
+[2026-09-20 05:38:50] sweeping (live), limit 7166...
+  ETK fitment: 7686 SKU(s), 560843 rows loaded
+  part-number fitment: 752 SKU(s), 3763 rows loaded (expanded to chassis families at push time)
+  skipped 40 out-of-stock SKU(s) (sold -- fitment would help nobody)
+  24422 SKU(s) on eBay  |  6369 ledgered  |  16575 cached skips  |  1741 to consider
+Mode: apply (LIVE)  |  donor=Shopify  |  1741 SKU(s)  |  ledger has 6369
+  [1/1741] 66432: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [2/1741] 66435: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [3/1741] 66434: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [4/1741] 66433: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [5/1741] 63700: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [6/1741] 63615: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [7/1741] 23280: error - inventory write HTTP 400: [25002] A user error has occurred. Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on details. (0=Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on
+  [8/1741] 50686: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [9/1741] 50681: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [10/1741] 65007: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [11/1741] 65001: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [12/1741] 61302: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [13/1741] 49063: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [14/1741] 49008: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [15/1741] 49009: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [16/1741] 49560: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [17/1741] 50646: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [18/1741] 49559: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [19/1741] 53396: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [20/1741] 53379: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [21/1741] 53212: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [22/1741] 52993: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [23/1741] 53099: pushed - under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine 
+  [24/1741] 52036: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [25/1741] 51010: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [26/1741] 51812: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [27/1741] 52153: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [28/1741] 699: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [29/1741] 43378: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [30/1741] 3192: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [31/1741] 39856: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [32/1741] 43380: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [33/1741] 52966: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [34/1741] 51703: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [35/1741] 52981: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [36/1741] 61942: pushed - part type 'Module' is not engine-dependent (category said B)
+  [37/1741] 64559: skip - already 91 vehicles (multi-fit/expanded)
+  [38/1741] 64570: skip - already 322 vehicles (multi-fit/expanded)
+  [39/1741] 64200: skip - already 11 vehicles (multi-fit/expanded)
+  [40/1741] 64203: skip - already 11 vehicles (multi-fit/expanded)
+  [41/1741] 64405: skip - already 158 vehicles (multi-fit/expanded)
+  [42/1741] 64216: skip - already 11 vehicles (multi-fit/expanded)
+  [43/1741] 64561: skip - already 11 vehicles (multi-fit/expanded)
+  [44/1741] 64573: skip - already 322 vehicles (multi-fit/expanded)
+  [45/1741] 64201: skip - already 11 vehicles (multi-fit/expanded)
+  [46/1741] 64234: skip - already 37 vehicles (multi-fit/expanded)
+  [47/1741] 64171: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [48/1741] 64185: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [49/1741] 60092: skip - already 59 vehicles (multi-fit/expanded)
+  [50/1741] 60369: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [51/1741] 6193: skip - already 73 vehicles (multi-fit/expanded)
+  [52/1741] 60072: skip - already 59 vehicles (multi-fit/expanded)
+  [53/1741] 5918: skip - already 4 vehicles (multi-fit/expanded)
+  [54/1741] 6191: skip - already 73 vehicles (multi-fit/expanded)
+  [55/1741] 60370: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [56/1741] 60372: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [57/1741] 60378: skip - already 50 vehicles (multi-fit/expanded)
+  [58/1741] 60875: skip - already 50 vehicles (multi-fit/expanded)
+  [59/1741] 6539: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [60/1741] 6412: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [61/1741] 60379: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [62/1741] 60523: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [63/1741] 6194: skip - already 50 vehicles (multi-fit/expanded)
+  [64/1741] 6528: pushed - part type 'Rear Bumper PDC Parking Sensor Wiring Wire Harness' is not engine-dep
+  [65/1741] 60356: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [66/1741] 60371: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [67/1741] 6480: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [68/1741] 6479: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [69/1741] 6415: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [70/1741] 60088: skip - already 6 vehicles (multi-fit/expanded)
+  [71/1741] 66238: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [72/1741] 6368: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [73/1741] 6374: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [74/1741] 6377: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [75/1741] 6346: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [76/1741] 6370: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [77/1741] 6373: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [78/1741] 6391: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [79/1741] 2616: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [80/1741] 2593: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [81/1741] 2592: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [82/1741] 2590: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [83/1741] 2583: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [84/1741] 6382: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [85/1741] 2158: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [86/1741] 2156: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [87/1741] 1103: pushed - not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Par
+  [88/1741] 2444: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [89/1741] 1070: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [90/1741] 1067: pushed - not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Par
+  [91/1741] 2411: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [92/1741] 2391: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [93/1741] 671: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [94/1741] 4989: pushed - part type 'CAS Comfort Car Access System Module w/ Key' is not engine-dependent 
+  [95/1741] 1737: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [96/1741] 970: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [97/1741] 5016: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [98/1741] 1636: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [99/1741] 1596: pushed - not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps >
+  [100/1741] 1599: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [101/1741] 1438: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [102/1741] 1436: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [103/1741] 1760: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [104/1741] 61131: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [105/1741] 51691: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [106/1741] 40144: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [107/1741] 53230: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [108/1741] 53461: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [109/1741] 53237: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [110/1741] 53463: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [111/1741] 1531: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [112/1741] 1547: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [113/1741] 1553: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [114/1741] 53238: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [115/1741] 1714: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [116/1741] 1756: pushed - under engine ancestor 33687 (Car & Truck Parts & Accessories > Ignition Systems 
+  [117/1741] 686: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [118/1741] 4240: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [119/1741] 1722: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [120/1741] 61355: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [121/1741] 878: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [122/1741] 61098: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [123/1741] 61105: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [124/1741] 61135: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [125/1741] 53783: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [126/1741] 53922: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [127/1741] 61123: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [128/1741] 61120: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [129/1741] 61116: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [130/1741] 63446: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [131/1741] 53890: skip - already 179 vehicles (multi-fit/expanded)
+  [132/1741] 54004: skip - already 174 vehicles (multi-fit/expanded)
+  [133/1741] 1265: skip - no Shopify donor for SKU
+  [134/1741] 28367: review - Rule B on G20 needs an engine or donor model.
+  [135/1741] 47608: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [136/1741] 62848: skip - no Shopify donor for SKU
+  [137/1741] 62759: skip - no Shopify donor for SKU
+  [138/1741] 62855: skip - no Shopify donor for SKU
+  [139/1741] 62865: skip - no Shopify donor for SKU
+  [140/1741] 62748: skip - no Shopify donor for SKU
+  [141/1741] 62853: skip - no Shopify donor for SKU
+  [142/1741] 62793: skip - no Shopify donor for SKU
+  [143/1741] 62863: skip - no Shopify donor for SKU
+  [144/1741] 62804: skip - no Shopify donor for SKU
+  [145/1741] 62787: skip - no Shopify donor for SKU
+  [146/1741] 62798: skip - no Shopify donor for SKU
+  [147/1741] 62756: skip - no Shopify donor for SKU
+  [148/1741] 62794: skip - no Shopify donor for SKU
+  [149/1741] 62851: skip - no Shopify donor for SKU
+  [150/1741] 62795: skip - no Shopify donor for SKU
+  [151/1741] 62803: skip - no Shopify donor for SKU
+  [152/1741] 62850: skip - no Shopify donor for SKU
+  [153/1741] 62856: skip - no Shopify donor for SKU
+  [154/1741] 62868: skip - no Shopify donor for SKU
+  [155/1741] 62860: skip - no Shopify donor for SKU
+  [156/1741] 62857: skip - no Shopify donor for SKU
+  [157/1741] 62797: skip - no Shopify donor for SKU
+  [158/1741] 62757: skip - no Shopify donor for SKU
+  [159/1741] 62849: skip - no Shopify donor for SKU
+  [160/1741] 62755: skip - no Shopify donor for SKU
+  [161/1741] 62758: skip - no Shopify donor for SKU
+  [162/1741] 62781: skip - no Shopify donor for SKU
+  [163/1741] 62843: skip - no Shopify donor for SKU
+  [164/1741] 62846: skip - no Shopify donor for SKU
+  [165/1741] 62864: skip - no Shopify donor for SKU
+  [166/1741] 62786: skip - no Shopify donor for SKU
+  [167/1741] 62330: skip - already 388 vehicles (multi-fit/expanded)
+  [168/1741] 66054: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [169/1741] 3274: skip - already 82 vehicles (multi-fit/expanded)
+  [170/1741] STOCK9198302: review - Rule B on F86 needs an engine or donor model.
+  [171/1741] STOCK5A625D0: review - Rule B on G42 needs an engine or donor model.
+  [172/1741] STOCK5A25FC9: review - Rule B on G23 needs an engine or donor model.
+  [173/1741] 60933: skip - already 88 vehicles (multi-fit/expanded)
+  [174/1741] 6098: skip - already 60 vehicles (multi-fit/expanded)
+  [175/1741] 6085: skip - already 23 vehicles (multi-fit/expanded)
+  [176/1741] 6356: skip - already 13 vehicles (multi-fit/expanded)
+  [177/1741] 6680: skip - already 47 vehicles (multi-fit/expanded)
+  [178/1741] 6075: skip - already 87 vehicles (multi-fit/expanded)
+  [179/1741] 6440: skip - already 50 vehicles (multi-fit/expanded)
+  [180/1741] 6630: skip - already 107 vehicles (multi-fit/expanded)
+  [181/1741] 6439: skip - already 96 vehicles (multi-fit/expanded)
+  [182/1741] 6456: skip - already 50 vehicles (multi-fit/expanded)
+  [183/1741] 6313: skip - already 61 vehicles (multi-fit/expanded)
+  [184/1741] 6333: skip - already 73 vehicles (multi-fit/expanded)
+  [185/1741] 6335: skip - already 11 vehicles (multi-fit/expanded)
+  [186/1741] 6329: skip - already 81 vehicles (multi-fit/expanded)
+  [187/1741] 6328: skip - already 14 vehicles (multi-fit/expanded)
+  [188/1741] 6442: skip - already 50 vehicles (multi-fit/expanded)
+  [189/1741] 6454: skip - already 40 vehicles (multi-fit/expanded)
+  [190/1741] 6508: skip - already 50 vehicles (multi-fit/expanded)
+  [191/1741] 6323: skip - already 11 vehicles (multi-fit/expanded)
+  [192/1741] 6355: skip - already 132 vehicles (multi-fit/expanded)
+  [193/1741] 6325: skip - already 4 vehicles (multi-fit/expanded)
+  [194/1741] 6455: skip - already 40 vehicles (multi-fit/expanded)
+  [195/1741] 6319: skip - already 120 vehicles (multi-fit/expanded)
+  [196/1741] 6358: skip - already 373 vehicles (multi-fit/expanded)
+  [197/1741] 5863: skip - already 73 vehicles (multi-fit/expanded)
+  [198/1741] 5867: skip - already 73 vehicles (multi-fit/expanded)
+  [199/1741] 6324: skip - already 11 vehicles (multi-fit/expanded)
+  [200/1741] 6514: skip - already 50 vehicles (multi-fit/expanded)
+  [201/1741] 6621: skip - already 50 vehicles (multi-fit/expanded)
+  [202/1741] 6506: skip - already 33 vehicles (multi-fit/expanded)
+  [203/1741] 6363: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [204/1741] 5856: skip - already 33 vehicles (multi-fit/expanded)
+  [205/1741] 6357: skip - already 22 vehicles (multi-fit/expanded)
+  [206/1741] 6628: skip - already 11 vehicles (multi-fit/expanded)
+  [207/1741] 6069: skip - already 59 vehicles (multi-fit/expanded)
+  [208/1741] 6327: skip - already 29 vehicles (multi-fit/expanded)
+  [209/1741] 6458: skip - already 50 vehicles (multi-fit/expanded)
+  [210/1741] 6072: skip - already 16 vehicles (multi-fit/expanded)
+  [211/1741] 6361: skip - already 72 vehicles (multi-fit/expanded)
+  [212/1741] 6444: skip - already 50 vehicles (multi-fit/expanded)
+  [213/1741] 6097: skip - already 59 vehicles (multi-fit/expanded)
+  [214/1741] 6142: skip - already 59 vehicles (multi-fit/expanded)
+  [215/1741] 6457: skip - already 50 vehicles (multi-fit/expanded)
+  [216/1741] 6500: skip - already 32 vehicles (multi-fit/expanded)
+  [217/1741] 6094: skip - already 97 vehicles (multi-fit/expanded)
+  [218/1741] 6517: skip - already 16 vehicles (multi-fit/expanded)
+  [219/1741] 6331: skip - already 99 vehicles (multi-fit/expanded)
+  [220/1741] 6511: skip - already 50 vehicles (multi-fit/expanded)
+  [221/1741] 6614: skip - already 58 vehicles (multi-fit/expanded)
+  [222/1741] 6620: skip - already 50 vehicles (multi-fit/expanded)
+  [223/1741] 6679: skip - already 11 vehicles (multi-fit/expanded)
+  [224/1741] 6513: skip - already 50 vehicles (multi-fit/expanded)
+  [225/1741] 6618: skip - already 50 vehicles (multi-fit/expanded)
+  [226/1741] 6623: skip - already 50 vehicles (multi-fit/expanded)
+  [227/1741] 6685: skip - already 32 vehicles (multi-fit/expanded)
+  [228/1741] 6435: skip - already 11 vehicles (multi-fit/expanded)
+  [229/1741] 6443: skip - already 50 vehicles (multi-fit/expanded)
+  [230/1741] 6445: skip - already 50 vehicles (multi-fit/expanded)
+  [231/1741] 6510: skip - already 50 vehicles (multi-fit/expanded)
+  [232/1741] 6613: skip - already 50 vehicles (multi-fit/expanded)
+  [233/1741] 6619: skip - already 50 vehicles (multi-fit/expanded)
+  [234/1741] 6622: skip - already 50 vehicles (multi-fit/expanded)
+  [235/1741] 6678: skip - already 58 vehicles (multi-fit/expanded)
+  [236/1741] 6684: skip - already 34 vehicles (multi-fit/expanded)
+  [237/1741] 6512: skip - already 153 vehicles (multi-fit/expanded)
+  [238/1741] 6615: skip - already 50 vehicles (multi-fit/expanded)
+  [239/1741] 6670: skip - already 23 vehicles (multi-fit/expanded)
+  [240/1741] 6663: skip - already 50 vehicles (multi-fit/expanded)
+  [241/1741] 6664: skip - already 50 vehicles (multi-fit/expanded)
+  [242/1741] 6669: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [243/1741] 6674: skip - already 8 vehicles (multi-fit/expanded)
+  [244/1741] 6676: skip - already 70 vehicles (multi-fit/expanded)
+  [245/1741] 6504: skip - already 50 vehicles (multi-fit/expanded)
+  [246/1741] 6612: skip - already 50 vehicles (multi-fit/expanded)
+  [247/1741] 6616: skip - already 24 vehicles (multi-fit/expanded)
+  [248/1741] 6667: skip - already 11 vehicles (multi-fit/expanded)
+  [249/1741] 6672: skip - already 50 vehicles (multi-fit/expanded)
+  [250/1741] 6673: skip - already 8 vehicles (multi-fit/expanded)
+  [251/1741] 6677: skip - already 50 vehicles (multi-fit/expanded)
+  [252/1741] 6501: skip - already 32 vehicles (multi-fit/expanded)
+  [253/1741] 6509: skip - already 50 vehicles (multi-fit/expanded)
+  [254/1741] 6516: skip - already 149 vehicles (multi-fit/expanded)
+  [255/1741] 6617: skip - already 50 vehicles (multi-fit/expanded)
+  [256/1741] 6675: skip - already 111 vehicles (multi-fit/expanded)
+  [257/1741] 6518: skip - already 14 vehicles (multi-fit/expanded)
+  [258/1741] 6611: skip - already 11 vehicles (multi-fit/expanded)
+  [259/1741] 6666: skip - already 50 vehicles (multi-fit/expanded)
+  [260/1741] 60247: skip - already 11 vehicles (multi-fit/expanded)
+  [261/1741] 6681: skip - already 50 vehicles (multi-fit/expanded)
+  [262/1741] 6682: skip - already 50 vehicles (multi-fit/expanded)
+  [263/1741] 64532: skip - no Shopify donor for SKU
+  [264/1741] 64829: skip - no Shopify donor for SKU
+  [265/1741] 3174: skip - already 56 vehicles (multi-fit/expanded)
+  [266/1741] 61188: skip - already 18 vehicles (multi-fit/expanded)
+  [267/1741] 61148: skip - already 18 vehicles (multi-fit/expanded)
+  [268/1741] 29034: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [269/1741] 27202: pushed - not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Par
+  [270/1741] 2197: skip - already 55 vehicles (multi-fit/expanded)
+  [271/1741] 32620: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [272/1741] 32532: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [273/1741] 3111: skip - already 56 vehicles (multi-fit/expanded)
+  [274/1741] 48391: skip - no Shopify donor for SKU
+  [275/1741] 33116: skip - no Shopify donor for SKU
+  [276/1741] 64638: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [277/1741] 62861: skip - no Shopify donor for SKU
+  [278/1741] 62869: skip - no Shopify donor for SKU
+  [279/1741] 62871: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [280/1741] 62867: skip - no Shopify donor for SKU
+  [281/1741] 62872: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [282/1741] 62862: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [283/1741] 62858: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [284/1741] 62854: skip - no Shopify donor for SKU
+  [285/1741] 62845: skip - no Shopify donor for SKU
+  [286/1741] 62841: skip - no Shopify donor for SKU
+  [287/1741] 62847: skip - no Shopify donor for SKU
+  [288/1741] 62844: skip - no Shopify donor for SKU
+  [289/1741] 63817: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [290/1741] 63713: skip - already 60 vehicles (multi-fit/expanded)
+  [291/1741] 63609: skip - already 490 vehicles (multi-fit/expanded)
+  [292/1741] 63504: skip - already 42 vehicles (multi-fit/expanded)
+  [293/1741] 63502: skip - already 14 vehicles (multi-fit/expanded)
+  [294/1741] 63722: skip - already 44 vehicles (multi-fit/expanded)
+  [295/1741] 63714: skip - already 87 vehicles (multi-fit/expanded)
+  [296/1741] 62800: skip - no Shopify donor for SKU
+  [297/1741] 62792: skip - no Shopify donor for SKU
+  [298/1741] 62791: skip - no Shopify donor for SKU
+  [299/1741] 62801: skip - no Shopify donor for SKU
+  [300/1741] 62789: skip - no Shopify donor for SKU
+  [301/1741] 62796: skip - no Shopify donor for SKU
+  [302/1741] 62760: skip - no Shopify donor for SKU
+  [303/1741] 62802: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [304/1741] 62771: skip - no Shopify donor for SKU
+  [305/1741] 62769: skip - no Shopify donor for SKU
+  [306/1741] 62753: skip - no Shopify donor for SKU
+  [307/1741] 62767: skip - no Shopify donor for SKU
+  [308/1741] 62752: skip - no Shopify donor for SKU
+  [309/1741] 63608: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [310/1741] 63133: skip - no Shopify donor for SKU
+  [311/1741] 62770: skip - no Shopify donor for SKU
+  [312/1741] 64299: skip - already 122 vehicles (multi-fit/expanded)
+  [313/1741] 64301: skip - already 122 vehicles (multi-fit/expanded)
+  [314/1741] 64393: skip - already 159 vehicles (multi-fit/expanded)
+  [315/1741] 64302: skip - already 122 vehicles (multi-fit/expanded)
+  [316/1741] 64300: skip - already 122 vehicles (multi-fit/expanded)
+  [317/1741] 62772: skip - no Shopify donor for SKU
+  [318/1741] 62788: skip - no Shopify donor for SKU
+  [319/1741] 62751: skip - no Shopify donor for SKU
+  [320/1741] 62750: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [321/1741] 62746: skip - no Shopify donor for SKU
+  [322/1741] 63593: skip - already 75 vehicles (multi-fit/expanded)
+  [323/1741] 63513: skip - already 16 vehicles (multi-fit/expanded)
+  [324/1741] 1824: skip - already 48 vehicles (multi-fit/expanded)
+  [325/1741] 5814: skip - already 2 vehicles (multi-fit/expanded)
+  [326/1741] 62711: skip - already 322 vehicles (multi-fit/expanded)
+  [327/1741] 29926: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [328/1741] 63514: skip - already 135 vehicles (multi-fit/expanded)
+  [329/1741] 61072: skip - already 122 vehicles (multi-fit/expanded)
+  [330/1741] 2863: skip - already 56 vehicles (multi-fit/expanded)
+  [331/1741] 5819: skip - already 28 vehicles (multi-fit/expanded)
+  [332/1741] 64789: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [333/1741] 5532: skip - already 42 vehicles (multi-fit/expanded)
+  [334/1741] 2899: skip - already 47 vehicles (multi-fit/expanded)
+  [335/1741] 4410: skip - already 39 vehicles (multi-fit/expanded)
+  [336/1741] 986: skip - already 53 vehicles (multi-fit/expanded)
+  [337/1741] 61036: skip - already 82 vehicles (multi-fit/expanded)
+  [338/1741] 61037: skip - already 82 vehicles (multi-fit/expanded)
+  [339/1741] 61071: skip - already 114 vehicles (multi-fit/expanded)
+  [340/1741] 61772: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [341/1741] 5815: skip - already 29 vehicles (multi-fit/expanded)
+  [342/1741] 18262: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [343/1741] 48406: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [344/1741] 33333: skip - already 43 vehicles (multi-fit/expanded)
+  [345/1741] 2617: skip - already 40 vehicles (multi-fit/expanded)
+  [346/1741] 50717: skip - no Shopify donor for SKU
+  [347/1741] 50735: skip - no Shopify donor for SKU
+  [348/1741] 50736: skip - no Shopify donor for SKU
+  [349/1741] 65015: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [350/1741] 2845: skip - already 56 vehicles (multi-fit/expanded)
+  [351/1741] 61132: skip - already 55 vehicles (multi-fit/expanded)
+  [352/1741] 2837: skip - already 56 vehicles (multi-fit/expanded)
+  [353/1741] 3359: skip - already 82 vehicles (multi-fit/expanded)
+  [354/1741] 37114: skip - already 81 vehicles (multi-fit/expanded)
+  [355/1741] 39223: skip - already 85 vehicles (multi-fit/expanded)
+  [356/1741] 35943: skip - no Shopify donor for SKU
+  [357/1741] 34575: skip - no Shopify donor for SKU
+  [358/1741] 37531: skip - no Shopify donor for SKU
+  [359/1741] 38838: skip - no Shopify donor for SKU
+  [360/1741] 39252: skip - no Shopify donor for SKU
+  [361/1741] 39624: skip - no Shopify donor for SKU
+  [362/1741] 62150: skip - already 16 vehicles (multi-fit/expanded)
+  [363/1741] 65168: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [364/1741] 63704: skip - already 48 vehicles (multi-fit/expanded)
+  [365/1741] 63738: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [366/1741] 2584: skip - already 40 vehicles (multi-fit/expanded)
+  [367/1741] 1700: skip - already 56 vehicles (multi-fit/expanded)
+  [368/1741] 1847: skip - already 6 vehicles (multi-fit/expanded)
+  [369/1741] 1105: skip - already 10 vehicles (multi-fit/expanded)
+  [370/1741] 52980: skip - already 46 vehicles (multi-fit/expanded)
+  [371/1741] 61583: skip - no Shopify donor for SKU
+  [372/1741] 61582: skip - no Shopify donor for SKU
+  [373/1741] 61576: skip - no Shopify donor for SKU
+  [374/1741] 61620: skip - no Shopify donor for SKU
+  [375/1741] 61619: skip - no Shopify donor for SKU
+  [376/1741] 61622: skip - no Shopify donor for SKU
+  [377/1741] 1703: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [378/1741] 61682: skip - no Shopify donor for SKU
+  [379/1741] 61680: skip - no Shopify donor for SKU
+  [380/1741] 61679: skip - no Shopify donor for SKU
+  [381/1741] 61681: skip - no Shopify donor for SKU
+  [382/1741] 60349: skip - already 88 vehicles (multi-fit/expanded)
+  [383/1741] 63088: skip - already 120 vehicles (multi-fit/expanded)
+  [384/1741] 61676: skip - no Shopify donor for SKU
+  [385/1741] 61670: skip - no Shopify donor for SKU
+  [386/1741] 61666: skip - no Shopify donor for SKU
+  [387/1741] 61677: skip - no Shopify donor for SKU
+  [388/1741] 61675: skip - no Shopify donor for SKU
+  [389/1741] 61678: skip - no Shopify donor for SKU
+  [390/1741] 61630: skip - no Shopify donor for SKU
+  [391/1741] 61596: skip - no Shopify donor for SKU
+  [392/1741] 61617: skip - no Shopify donor for SKU
+  [393/1741] 61591: skip - no Shopify donor for SKU
+  [394/1741] 61621: skip - no Shopify donor for SKU
+  [395/1741] 61624: skip - no Shopify donor for SKU
+  [396/1741] 61665: skip - no Shopify donor for SKU
+  [397/1741] 61603: skip - no Shopify donor for SKU
+  [398/1741] 61593: skip - no Shopify donor for SKU
+  [399/1741] 61629: skip - no Shopify donor for SKU
+  [400/1741] 61623: skip - no Shopify donor for SKU
+  [401/1741] 61625: skip - no Shopify donor for SKU
+  [402/1741] 61592: skip - no Shopify donor for SKU
+  [403/1741] 61590: skip - no Shopify donor for SKU
+  [404/1741] 61632: skip - no Shopify donor for SKU
+  [405/1741] 61595: skip - no Shopify donor for SKU
+  [406/1741] 61594: skip - no Shopify donor for SKU
+  [407/1741] 61604: skip - no Shopify donor for SKU
+  [408/1741] 61589: skip - no Shopify donor for SKU
+  [409/1741] 61618: skip - no Shopify donor for SKU
+  [410/1741] 61628: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [411/1741] 61627: skip - no Shopify donor for SKU
+  [412/1741] 61663: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [413/1741] 61586: skip - no Shopify donor for SKU
+  [414/1741] 61572: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [415/1741] 61575: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [416/1741] 61579: skip - no Shopify donor for SKU
+  [417/1741] 61584: skip - no Shopify donor for SKU
+  [418/1741] 61585: skip - no Shopify donor for SKU
+  [419/1741] 61581: skip - no Shopify donor for SKU
+  [420/1741] 61587: skip - no Shopify donor for SKU
+  [421/1741] 61588: skip - no Shopify donor for SKU
+  [422/1741] 61577: skip - no Shopify donor for SKU
+  [423/1741] 2828: skip - no Shopify donor for SKU
+  [424/1741] 64791: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [425/1741] 2861: skip - already 56 vehicles (multi-fit/expanded)
+  [426/1741] 6468: skip - already 35 vehicles (multi-fit/expanded)
+  [427/1741] 2288: skip - already 23 vehicles (multi-fit/expanded)
+  [428/1741] 51304: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [429/1741] 2176: skip - already 61 vehicles (multi-fit/expanded)
+  [430/1741] 63743: skip - already 28 vehicles (multi-fit/expanded)
+  [431/1741] 61460: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [432/1741] 3814: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [433/1741] 415: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [434/1741] 46196: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [435/1741] 5572: skip - already 120 vehicles (multi-fit/expanded)
+  [436/1741] 29334: skip - already 2 vehicles (multi-fit/expanded)
+  [437/1741] 17921: skip - no Shopify donor for SKU
+  [438/1741] 17914: skip - no Shopify donor for SKU
+  [439/1741] 17350: skip - no Shopify donor for SKU
+  [440/1741] 17928: skip - no Shopify donor for SKU
+  [441/1741] 17915: skip - no Shopify donor for SKU
+  [442/1741] 17913: skip - no Shopify donor for SKU
+  [443/1741] 17918: skip - no Shopify donor for SKU
+  [444/1741] 45880: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [445/1741] 18873: skip - already 103 vehicles (multi-fit/expanded)
+  [446/1741] 17924: skip - no Shopify donor for SKU
+  [447/1741] 17934: skip - no Shopify donor for SKU
+  [448/1741] 26858: skip - already 2 vehicles (multi-fit/expanded)
+  [449/1741] 17604: skip - already 454 vehicles (multi-fit/expanded)
+  [450/1741] 23580: skip - already 29 vehicles (multi-fit/expanded)
+  [451/1741] 26388: review - Rule B on F97 needs an engine or donor model.
+  [452/1741] 29774: review - Rule B on G30 needs an engine or donor model.
+  [453/1741] 32152: skip - already 107 vehicles (multi-fit/expanded)
+  [454/1741] 32116: review - Rule B on F39 needs an engine or donor model.
+  [455/1741] 31119: skip - category 107062 never renders fitment on eBay
+  [456/1741] 26780: review - Rule B on G01 needs an engine or donor model.
+  [457/1741] 31626: review - Rule B on G05 needs an engine or donor model.
+  [458/1741] 26886: review - Rule B on G29 needs an engine or donor model.
+  [459/1741] 23539: review - Rule B on G12 needs an engine or donor model.
+  [460/1741] 31594: review - Rule B on F48 needs an engine or donor model.
+  [461/1741] 26884: review - Rule B on G29 needs an engine or donor model.
+  [462/1741] 27333: review - Rule B on G30 needs an engine or donor model.
+  [463/1741] 26944: review - Rule B on G29 needs an engine or donor model.
+  [464/1741] 28279: skip - already 87 vehicles (multi-fit/expanded)
+  [465/1741] 32134: review - Rule B on F39 needs an engine or donor model.
+  [466/1741] 29964: review - Rule B on G12 needs an engine or donor model.
+  [467/1741] 27914: review - Rule B on F16 needs an engine or donor model.
+  [468/1741] 29030: skip - already 150 vehicles (multi-fit/expanded)
+  [469/1741] 26467: review - Rule B on G20 needs an engine or donor model.
+  [470/1741] 29965: review - Rule B on G12 needs an engine or donor model.
+  [471/1741] 29404: review - Rule B on G30 needs an engine or donor model.
+  [472/1741] 31291: skip - already 107 vehicles (multi-fit/expanded)
+  [473/1741] 32133: review - Rule B on F39 needs an engine or donor model.
+  [474/1741] 27008: review - Rule B on G20 needs an engine or donor model.
+  [475/1741] 6386: skip - already 197 vehicles (multi-fit/expanded)
+  [476/1741] 6471: skip - already 18 vehicles (multi-fit/expanded)
+  [477/1741] 60992: skip - already 130 vehicles (multi-fit/expanded)
+  [478/1741] 2309: skip - already 50 vehicles (multi-fit/expanded)
+  [479/1741] 62152: skip - already 9 vehicles (multi-fit/expanded)
+  [480/1741] 2494: skip - already 59 vehicles (multi-fit/expanded)
+  [481/1741] 60482: skip - already 19 vehicles (multi-fit/expanded)
+  [482/1741] 6389: skip - already 197 vehicles (multi-fit/expanded)
+  [483/1741] 2492: skip - already 59 vehicles (multi-fit/expanded)
+  [484/1741] 5621: skip - already 364 vehicles (multi-fit/expanded)
+  [485/1741] 53251: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [486/1741] 6229: skip - already 4 vehicles (multi-fit/expanded)
+  [487/1741] 6224: skip - already 20 vehicles (multi-fit/expanded)
+  [488/1741] 60964: skip - already 24 vehicles (multi-fit/expanded)
+  [489/1741] 2491: skip - already 59 vehicles (multi-fit/expanded)
+  [490/1741] 6465: skip - already 36 vehicles (multi-fit/expanded)
+  [491/1741] 29851: skip - offer read HTTP 404
+  [492/1741] 5128: skip - already 29 vehicles (multi-fit/expanded)
+  [493/1741] 2531: skip - already 59 vehicles (multi-fit/expanded)
+  [494/1741] 5991: skip - already 24 vehicles (multi-fit/expanded)
+  [495/1741] 2540: skip - already 50 vehicles (multi-fit/expanded)
+  [496/1741] 53449: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [497/1741] 6027: skip - already 28 vehicles (multi-fit/expanded)
+  [498/1741] 25550: skip - offer read HTTP 404
+  [499/1741] 1532: skip - already 55 vehicles (multi-fit/expanded)
+  [500/1741] 2127: skip - already 48 vehicles (multi-fit/expanded)
+  [501/1741] 5740: skip - already 27 vehicles (multi-fit/expanded)
+  [502/1741] 2420: skip - already 40 vehicles (multi-fit/expanded)
+  [503/1741] 2729: skip - already 56 vehicles (multi-fit/expanded)
+  [504/1741] 2312: skip - already 50 vehicles (multi-fit/expanded)
+  [505/1741] 29284: skip - offer read HTTP 404
+  [506/1741] 6388: skip - already 197 vehicles (multi-fit/expanded)
+  [507/1741] 4697: skip - already 62 vehicles (multi-fit/expanded)
+  [508/1741] 62331: skip - already 121 vehicles (multi-fit/expanded)
+  [509/1741] 63500: skip - already 6 vehicles (multi-fit/expanded)
+  [510/1741] 5373: skip - already 12 vehicles (multi-fit/expanded)
+  [511/1741] 27608: skip - offer read HTTP 404
+  [512/1741] 25611: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [513/1741] 63636: skip - already 48 vehicles (multi-fit/expanded)
+  [514/1741] 991: skip - already 54 vehicles (multi-fit/expanded)
+  [515/1741] 61545: skip - already 105 vehicles (multi-fit/expanded)
+  [516/1741] 2155: skip - already 48 vehicles (multi-fit/expanded)
+  [517/1741] 6416: skip - already 49 vehicles (multi-fit/expanded)
+  [518/1741] 5506: skip - already 61 vehicles (multi-fit/expanded)
+  [519/1741] 52648: skip - already 60 vehicles (multi-fit/expanded)
+  [520/1741] 2296: skip - already 50 vehicles (multi-fit/expanded)
+  [521/1741] 5010: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [522/1741] 2529: skip - already 59 vehicles (multi-fit/expanded)
+  [523/1741] 27310: skip - offer read HTTP 404
+  [524/1741] 2769: skip - already 56 vehicles (multi-fit/expanded)
+  [525/1741] 884: skip - already 10 vehicles (multi-fit/expanded)
+  [526/1741] 943: skip - already 54 vehicles (multi-fit/expanded)
+  [527/1741] 1822: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [528/1741] 63584: skip - already 28 vehicles (multi-fit/expanded)
+  [529/1741] 5355: skip - already 23 vehicles (multi-fit/expanded)
+  [530/1741] 41061: skip - already 161 vehicles (multi-fit/expanded)
+  [531/1741] 32721: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [532/1741] 1968: skip - already 13 vehicles (multi-fit/expanded)
+  [533/1741] 6258: skip - already 27 vehicles (multi-fit/expanded)
+  [534/1741] 28312: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [535/1741] 1458: skip - already 56 vehicles (multi-fit/expanded)
+  [536/1741] 2668: skip - already 15 vehicles (multi-fit/expanded)
+  [537/1741] 23147: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [538/1741] 63580: skip - already 5 vehicles (multi-fit/expanded)
+  [539/1741] 2530: skip - already 59 vehicles (multi-fit/expanded)
+  [540/1741] 2961: skip - already 56 vehicles (multi-fit/expanded)
+  [541/1741] 53755: skip - already 61 vehicles (multi-fit/expanded)
+  [542/1741] 2421: skip - already 40 vehicles (multi-fit/expanded)
+  [543/1741] 63724: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [544/1741] 32794: skip - already 43 vehicles (multi-fit/expanded)
+  [545/1741] 481: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [546/1741] 29296: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [547/1741] 62062: skip - already 197 vehicles (multi-fit/expanded)
+  [548/1741] 6217: skip - already 27 vehicles (multi-fit/expanded)
+  [549/1741] 6248: skip - already 197 vehicles (multi-fit/expanded)
+  [550/1741] 1566: skip - already 55 vehicles (multi-fit/expanded)
+  [551/1741] 2528: skip - already 59 vehicles (multi-fit/expanded)
+  [552/1741] 5374: skip - already 12 vehicles (multi-fit/expanded)
+  [553/1741] 32078: skip - offer read HTTP 404
+  [554/1741] 62329: skip - already 162 vehicles (multi-fit/expanded)
+  [555/1741] 350: skip - already 3 vehicles (multi-fit/expanded)
+  [556/1741] 63803: skip - already 16 vehicles (multi-fit/expanded)
+  [557/1741] 63878: skip - already 15 vehicles (multi-fit/expanded)
+  [558/1741] 2020: skip - already 121 vehicles (multi-fit/expanded)
+  [559/1741] 62067: skip - already 197 vehicles (multi-fit/expanded)
+  [560/1741] 33527: skip - already 4 vehicles (multi-fit/expanded)
+  [561/1741] 5508: skip - already 35 vehicles (multi-fit/expanded)
+  [562/1741] 6354: skip - already 77 vehicles (multi-fit/expanded)
+  [563/1741] 2157: skip - already 48 vehicles (multi-fit/expanded)
+  [564/1741] 2418: skip - already 40 vehicles (multi-fit/expanded)
+  [565/1741] 2959: skip - already 56 vehicles (multi-fit/expanded)
+  [566/1741] 2771: skip - already 56 vehicles (multi-fit/expanded)
+  [567/1741] 6247: skip - already 197 vehicles (multi-fit/expanded)
+  [568/1741] 52222: skip - already 81 vehicles (multi-fit/expanded)
+  [569/1741] 2265: skip - already 37 vehicles (multi-fit/expanded)
+  [570/1741] 2976: skip - already 56 vehicles (multi-fit/expanded)
+  [571/1741] 5595: skip - already 34 vehicles (multi-fit/expanded)
+  [572/1741] 30202: skip - offer read HTTP 404
+  [573/1741] 37006: skip - already 3 vehicles (multi-fit/expanded)
+  [574/1741] 5335: skip - already 42 vehicles (multi-fit/expanded)
+  [575/1741] 5725: skip - already 22 vehicles (multi-fit/expanded)
+  [576/1741] 1710: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [577/1741] 5162: skip - already 62 vehicles (multi-fit/expanded)
+  [578/1741] 63633: skip - already 10 vehicles (multi-fit/expanded)
+  [579/1741] 6447: skip - already 53 vehicles (multi-fit/expanded)
+  [580/1741] 323: skip - already 5 vehicles (multi-fit/expanded)
+  [581/1741] 63885: skip - already 52 vehicles (multi-fit/expanded)
+  [582/1741] 5270: skip - already 62 vehicles (multi-fit/expanded)
+  [583/1741] 2594: skip - already 40 vehicles (multi-fit/expanded)
+  [584/1741] 60073: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [585/1741] 63506: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [586/1741] 4031: skip - already 31 vehicles (multi-fit/expanded)
+  [587/1741] 2791: skip - already 56 vehicles (multi-fit/expanded)
+  [588/1741] 2714: skip - already 56 vehicles (multi-fit/expanded)
+  [589/1741] 5507: skip - already 35 vehicles (multi-fit/expanded)
+  [590/1741] 5789: skip - already 85 vehicles (multi-fit/expanded)
+  [591/1741] 6463: skip - already 21 vehicles (multi-fit/expanded)
+  [592/1741] 61218: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [593/1741] 62068: skip - already 197 vehicles (multi-fit/expanded)
+  [594/1741] 5345: skip - already 2 vehicles (multi-fit/expanded)
+  [595/1741] 53803: skip - already 16 vehicles (multi-fit/expanded)
+  [596/1741] 2768: skip - already 56 vehicles (multi-fit/expanded)
+  [597/1741] 1606: skip - already 56 vehicles (multi-fit/expanded)
+  [598/1741] 24289: skip - already 226 vehicles (multi-fit/expanded)
+  [599/1741] 62157: skip - already 10 vehicles (multi-fit/expanded)
+  [600/1741] 2597: skip - already 40 vehicles (multi-fit/expanded)
+  [601/1741] 38413: skip - already 107 vehicles (multi-fit/expanded)
+  [602/1741] 22989: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [603/1741] 5505: skip - already 61 vehicles (multi-fit/expanded)
+  [604/1741] 2310: skip - already 50 vehicles (multi-fit/expanded)
+  [605/1741] 6252: skip - already 43 vehicles (multi-fit/expanded)
+  [606/1741] 2704: skip - already 38 vehicles (multi-fit/expanded)
+  [607/1741] 63926: skip - already 11 vehicles (multi-fit/expanded)
+  [608/1741] 52514: skip - already 5 vehicles (multi-fit/expanded)
+  [609/1741] 60990: skip - already 30 vehicles (multi-fit/expanded)
+  [610/1741] 61459: skip - already 113 vehicles (multi-fit/expanded)
+  [611/1741] 907: skip - already 105 vehicles (multi-fit/expanded)
+  [612/1741] 62066: skip - already 197 vehicles (multi-fit/expanded)
+  [613/1741] 63632: skip - already 48 vehicles (multi-fit/expanded)
+  [614/1741] 6029: skip - already 14 vehicles (multi-fit/expanded)
+  [615/1741] 2587: skip - already 40 vehicles (multi-fit/expanded)
+  [616/1741] 2493: skip - already 59 vehicles (multi-fit/expanded)
+  [617/1741] 2295: skip - already 50 vehicles (multi-fit/expanded)
+  [618/1741] 480: skip - already 56 vehicles (multi-fit/expanded)
+  [619/1741] 5833: skip - already 47 vehicles (multi-fit/expanded)
+  [620/1741] 2307: skip - already 8 vehicles (multi-fit/expanded)
+  [621/1741] 5351: skip - already 24 vehicles (multi-fit/expanded)
+  [622/1741] 5361: skip - already 12 vehicles (multi-fit/expanded)
+  [623/1741] 6257: skip - already 27 vehicles (multi-fit/expanded)
+  [624/1741] 3899: skip - already 12 vehicles (multi-fit/expanded)
+  [625/1741] 6387: skip - already 197 vehicles (multi-fit/expanded)
+  [626/1741] 2154: skip - already 48 vehicles (multi-fit/expanded)
+  [627/1741] 61173: skip - no Shopify donor for SKU
+  [628/1741] 2532: skip - already 59 vehicles (multi-fit/expanded)
+  [629/1741] 5432: skip - already 22 vehicles (multi-fit/expanded)
+  [630/1741] 2419: skip - already 40 vehicles (multi-fit/expanded)
+  [631/1741] 44748: skip - already 237 vehicles (multi-fit/expanded)
+  [632/1741] 41523: skip - already 24 vehicles (multi-fit/expanded)
+  [633/1741] 37284: skip - already 3 vehicles (multi-fit/expanded)
+  [634/1741] 1043: skip - already 10 vehicles (multi-fit/expanded)
+  [635/1741] 1069: skip - already 10 vehicles (multi-fit/expanded)
+  [636/1741] 2770: skip - already 56 vehicles (multi-fit/expanded)
+  [637/1741] 1072: skip - already 13 vehicles (multi-fit/expanded)
+  [638/1741] 30677: skip - offer read HTTP 404
+  [639/1741] 63087: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [640/1741] 6061: skip - already 14 vehicles (multi-fit/expanded)
+  [641/1741] 60087: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [642/1741] 48020: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [643/1741] 2550: skip - already 59 vehicles (multi-fit/expanded)
+  [644/1741] 4062: skip - already 63 vehicles (multi-fit/expanded)
+  [645/1741] 17089: skip - already 27 vehicles (multi-fit/expanded)
+  [646/1741] 33404: skip - already 30 vehicles (multi-fit/expanded)
+  [647/1741] 33266: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [648/1741] 32655: skip - already 3 vehicles (multi-fit/expanded)
+  [649/1741] 2927: skip - already 56 vehicles (multi-fit/expanded)
+  [650/1741] 5530: skip - already 28 vehicles (multi-fit/expanded)
+  [651/1741] 325: skip - already 4 vehicles (multi-fit/expanded)
+  [652/1741] 30851: skip - already 25 vehicles (multi-fit/expanded)
+  [653/1741] 28448: skip - already 3 vehicles (multi-fit/expanded)
+  [654/1741] 63973: skip - already 43 vehicles (multi-fit/expanded)
+  [655/1741] 63989: skip - already 36 vehicles (multi-fit/expanded)
+  [656/1741] 63974: skip - already 43 vehicles (multi-fit/expanded)
+  [657/1741] 63984: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [658/1741] 5447: skip - already 33 vehicles (multi-fit/expanded)
+  [659/1741] 63916: skip - already 10 vehicles (multi-fit/expanded)
+  [660/1741] 63893: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [661/1741] 63921: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [662/1741] 63908: skip - already 43 vehicles (multi-fit/expanded)
+  [663/1741] 63949: skip - already 169 vehicles (multi-fit/expanded)
+  [664/1741] 63944: skip - already 89 vehicles (multi-fit/expanded)
+  [665/1741] 63918: skip - already 370 vehicles (multi-fit/expanded)
+  [666/1741] 63915: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [667/1741] 63879: skip - already 10 vehicles (multi-fit/expanded)
+  [668/1741] 63881: skip - already 6 vehicles (multi-fit/expanded)
+  [669/1741] 63880: skip - already 5 vehicles (multi-fit/expanded)
+  [670/1741] 63876: skip - already 98 vehicles (multi-fit/expanded)
+  [671/1741] 63872: skip - already 25 vehicles (multi-fit/expanded)
+  [672/1741] 63862: skip - already 48 vehicles (multi-fit/expanded)
+  [673/1741] 63859: skip - already 16 vehicles (multi-fit/expanded)
+  [674/1741] 63815: skip - already 126 vehicles (multi-fit/expanded)
+  [675/1741] 63807: skip - already 48 vehicles (multi-fit/expanded)
+  [676/1741] 63804: skip - already 48 vehicles (multi-fit/expanded)
+  [677/1741] 63787: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [678/1741] 63786: skip - already 78 vehicles (multi-fit/expanded)
+  [679/1741] 63781: skip - already 28 vehicles (multi-fit/expanded)
+  [680/1741] 63776: skip - already 48 vehicles (multi-fit/expanded)
+  [681/1741] 63779: skip - already 28 vehicles (multi-fit/expanded)
+  [682/1741] 63767: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [683/1741] 63751: skip - already 48 vehicles (multi-fit/expanded)
+  [684/1741] 63707: skip - already 10 vehicles (multi-fit/expanded)
+  [685/1741] 43757: skip - already 102 vehicles (multi-fit/expanded)
+  [686/1741] 44741: skip - already 72 vehicles (multi-fit/expanded)
+  [687/1741] 42683: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [688/1741] 18471: skip - already 158 vehicles (multi-fit/expanded)
+  [689/1741] 30019: skip - already 29 vehicles (multi-fit/expanded)
+  [690/1741] 63692: skip - already 6 vehicles (multi-fit/expanded)
+  [691/1741] 63673: skip - already 10 vehicles (multi-fit/expanded)
+  [692/1741] 63651: skip - already 48 vehicles (multi-fit/expanded)
+  [693/1741] 63672: skip - already 20 vehicles (multi-fit/expanded)
+  [694/1741] 6084: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [695/1741] 6364: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [696/1741] 6431: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [697/1741] 6096: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [698/1741] 5864: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [699/1741] 6336: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [700/1741] 63634: skip - already 10 vehicles (multi-fit/expanded)
+  [701/1741] 61179: skip - no Shopify donor for SKU
+  [702/1741] 61190: skip - no Shopify donor for SKU
+  [703/1741] 61175: skip - no Shopify donor for SKU
+  [704/1741] 61186: skip - no Shopify donor for SKU
+  [705/1741] 61174: skip - no Shopify donor for SKU
+  [706/1741] 63582: skip - already 28 vehicles (multi-fit/expanded)
+  [707/1741] 63581: skip - already 28 vehicles (multi-fit/expanded)
+  [708/1741] 63583: skip - already 28 vehicles (multi-fit/expanded)
+  [709/1741] 63579: skip - already 10 vehicles (multi-fit/expanded)
+  [710/1741] 63568: skip - already 10 vehicles (multi-fit/expanded)
+  [711/1741] 63556: skip - already 61 vehicles (multi-fit/expanded)
+  [712/1741] 63558: skip - already 48 vehicles (multi-fit/expanded)
+  [713/1741] 63557: skip - already 61 vehicles (multi-fit/expanded)
+  [714/1741] 43300: skip - already 81 vehicles (multi-fit/expanded)
+  [715/1741] 61032: skip - already 112 vehicles (multi-fit/expanded)
+  [716/1741] 42464: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [717/1741] 52768: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [718/1741] 47421: skip - already 216 vehicles (multi-fit/expanded)
+  [719/1741] 47809: skip - already 2 vehicles (multi-fit/expanded)
+  [720/1741] 47609: skip - already 10 vehicles (multi-fit/expanded)
+  [721/1741] 38778: skip - already 31 vehicles (multi-fit/expanded)
+  [722/1741] 64060: skip - already 28 vehicles (multi-fit/expanded)
+  [723/1741] 37717: skip - already 2 vehicles (multi-fit/expanded)
+  [724/1741] 47762: skip - already 7 vehicles (multi-fit/expanded)
+  [725/1741] 46043: skip - already 64 vehicles (multi-fit/expanded)
+  [726/1741] 46928: skip - already 108 vehicles (multi-fit/expanded)
+  [727/1741] 47662: skip - already 24 vehicles (multi-fit/expanded)
+  [728/1741] 42913: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [729/1741] 64061: skip - already 28 vehicles (multi-fit/expanded)
+  [730/1741] 63950: skip - already 28 vehicles (multi-fit/expanded)
+  [731/1741] 61088: skip - already 122 vehicles (multi-fit/expanded)
+  [732/1741] 60944: skip - already 134 vehicles (multi-fit/expanded)
+  [733/1741] 60251: skip - already 88 vehicles (multi-fit/expanded)
+  [734/1741] 61004: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [735/1741] 61034: skip - already 51 vehicles (multi-fit/expanded)
+  [736/1741] 60971: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [737/1741] 61047: skip - already 88 vehicles (multi-fit/expanded)
+  [738/1741] 61003: skip - already 53 vehicles (multi-fit/expanded)
+  [739/1741] 61040: skip - already 97 vehicles (multi-fit/expanded)
+  [740/1741] 60960: skip - already 60 vehicles (multi-fit/expanded)
+  [741/1741] 60995: skip - already 44 vehicles (multi-fit/expanded)
+  [742/1741] 60249: skip - already 80 vehicles (multi-fit/expanded)
+  [743/1741] 60250: skip - already 88 vehicles (multi-fit/expanded)
+  [744/1741] 60943: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [745/1741] 60965: skip - already 61 vehicles (multi-fit/expanded)
+  [746/1741] 60991: skip - already 238 vehicles (multi-fit/expanded)
+  [747/1741] 61001: skip - already 140 vehicles (multi-fit/expanded)
+  [748/1741] 60932: skip - already 61 vehicles (multi-fit/expanded)
+  [749/1741] 60958: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [750/1741] 60998: skip - already 84 vehicles (multi-fit/expanded)
+  [751/1741] 60999: skip - already 10 vehicles (multi-fit/expanded)
+  [752/1741] 61073: skip - already 88 vehicles (multi-fit/expanded)
+  [753/1741] 61076: skip - already 82 vehicles (multi-fit/expanded)
+  [754/1741] 60945: skip - already 88 vehicles (multi-fit/expanded)
+  [755/1741] 60951: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [756/1741] 60952: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [757/1741] 60997: skip - already 44 vehicles (multi-fit/expanded)
+  [758/1741] 60931: skip - already 2 vehicles (multi-fit/expanded)
+  [759/1741] 60930: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [760/1741] 61041: skip - already 88 vehicles (multi-fit/expanded)
+  [761/1741] 61089: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [762/1741] 60994: skip - already 44 vehicles (multi-fit/expanded)
+  [763/1741] 61369: skip - already 4 vehicles (multi-fit/expanded)
+  [764/1741] 61349: skip - already 39 vehicles (multi-fit/expanded)
+  [765/1741] 61352: skip - already 14 vehicles (multi-fit/expanded)
+  [766/1741] 61340: skip - already 100 vehicles (multi-fit/expanded)
+  [767/1741] 61343: skip - already 30 vehicles (multi-fit/expanded)
+  [768/1741] 5434: skip - already 34 vehicles (multi-fit/expanded)
+  [769/1741] 61334: skip - already 471 vehicles (multi-fit/expanded)
+  [770/1741] 1826: skip - already 11 vehicles (multi-fit/expanded)
+  [771/1741] 6448: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [772/1741] 6352: skip - already 43 vehicles (multi-fit/expanded)
+  [773/1741] 6353: skip - already 43 vehicles (multi-fit/expanded)
+  [774/1741] 6241: skip - already 43 vehicles (multi-fit/expanded)
+  [775/1741] 5927: skip - already 27 vehicles (multi-fit/expanded)
+  [776/1741] 6025: skip - already 43 vehicles (multi-fit/expanded)
+  [777/1741] 6030: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [778/1741] 6227: skip - already 18 vehicles (multi-fit/expanded)
+  [779/1741] 6032: skip - already 2 vehicles (multi-fit/expanded)
+  [780/1741] 53888: skip - already 42 vehicles (multi-fit/expanded)
+  [781/1741] 30110: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [782/1741] 43522: skip - already 9 vehicles (multi-fit/expanded)
+  [783/1741] 51768: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [784/1741] 53416: skip - already 54 vehicles (multi-fit/expanded)
+  [785/1741] 61224: skip - already 37 vehicles (multi-fit/expanded)
+  [786/1741] 61231: skip - already 43 vehicles (multi-fit/expanded)
+  [787/1741] 61270: skip - already 197 vehicles (multi-fit/expanded)
+  [788/1741] 61273: skip - already 197 vehicles (multi-fit/expanded)
+  [789/1741] 61272: skip - already 197 vehicles (multi-fit/expanded)
+  [790/1741] 27297: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [791/1741] 53667: skip - already 51 vehicles (multi-fit/expanded)
+  [792/1741] 5430: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [793/1741] 5429: skip - already 62 vehicles (multi-fit/expanded)
+  [794/1741] 53210: skip - already 72 vehicles (multi-fit/expanded)
+  [795/1741] 53959: skip - already 232 vehicles (multi-fit/expanded)
+  [796/1741] 53492: skip - already 15 vehicles (multi-fit/expanded)
+  [797/1741] 60197: skip - already 66 vehicles (multi-fit/expanded)
+  [798/1741] 6038: skip - already 55 vehicles (multi-fit/expanded)
+  [799/1741] 60198: skip - already 66 vehicles (multi-fit/expanded)
+  [800/1741] 2713: skip - already 55 vehicles (multi-fit/expanded)
+  [801/1741] 5961: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [802/1741] 2353: skip - already 40 vehicles (multi-fit/expanded)
+  [803/1741] 2417: skip - already 40 vehicles (multi-fit/expanded)
+  [804/1741] 3197: skip - already 55 vehicles (multi-fit/expanded)
+  [805/1741] 3179: skip - already 9 vehicles (multi-fit/expanded)
+  [806/1741] 2358: skip - already 40 vehicles (multi-fit/expanded)
+  [807/1741] 5804: skip - already 55 vehicles (multi-fit/expanded)
+  [808/1741] 5806: skip - already 55 vehicles (multi-fit/expanded)
+  [809/1741] 5812: skip - already 55 vehicles (multi-fit/expanded)
+  [810/1741] 5811: skip - already 55 vehicles (multi-fit/expanded)
+  [811/1741] 53738: skip - already 101 vehicles (multi-fit/expanded)
+  [812/1741] 53767: skip - already 16 vehicles (multi-fit/expanded)
+  [813/1741] 53704: skip - already 16 vehicles (multi-fit/expanded)
+  [814/1741] 53705: skip - already 16 vehicles (multi-fit/expanded)
+  [815/1741] 53691: skip - already 61 vehicles (multi-fit/expanded)
+  [816/1741] 52367: skip - already 81 vehicles (multi-fit/expanded)
+  [817/1741] 53714: skip - already 26 vehicles (multi-fit/expanded)
+  [818/1741] 53723: skip - already 30 vehicles (multi-fit/expanded)
+  [819/1741] 5831: skip - already 364 vehicles (multi-fit/expanded)
+  [820/1741] 5832: skip - already 364 vehicles (multi-fit/expanded)
+  [821/1741] 5817: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [822/1741] 5808: skip - already 71 vehicles (multi-fit/expanded)
+  [823/1741] 60233: skip - already 73 vehicles (multi-fit/expanded)
+  [824/1741] 6192: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [825/1741] 5956: skip - already 145 vehicles (multi-fit/expanded)
+  [826/1741] 6200: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [827/1741] 1935: skip - already 11 vehicles (multi-fit/expanded)
+  [828/1741] 3300: skip - already 34 vehicles (multi-fit/expanded)
+  [829/1741] 5962: skip - already 44 vehicles (multi-fit/expanded)
+  [830/1741] 6202: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [831/1741] 6687: skip - already 226 vehicles (multi-fit/expanded)
+  [832/1741] 6403: skip - already 2 vehicles (multi-fit/expanded)
+  [833/1741] 6404: skip - already 65 vehicles (multi-fit/expanded)
+  [834/1741] 1211: pushed - part-number/ETK only (+13 ETK rows)
+  [835/1741] 6402: skip - already 2 vehicles (multi-fit/expanded)
+  [836/1741] 6658: skip - already 9 vehicles (multi-fit/expanded)
+  [837/1741] 46004: skip - already 16 vehicles (multi-fit/expanded)
+  [838/1741] 53417: skip - already 54 vehicles (multi-fit/expanded)
+  [839/1741] 32739: skip - already 7 vehicles (multi-fit/expanded)
+  [840/1741] 48505: skip - already 43 vehicles (multi-fit/expanded)
+  [841/1741] 16792: skip - already 456 vehicles (multi-fit/expanded)
+  [842/1741] 46096: skip - already 71 vehicles (multi-fit/expanded)
+  [843/1741] 43198: skip - already 24 vehicles (multi-fit/expanded)
+  [844/1741] 45721: skip - already 61 vehicles (multi-fit/expanded)
+  [845/1741] 31832: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [846/1741] 42869: error - inventory write HTTP 400: [25023] Invalid compatibility information. The item compatibilities cannot be changed or removed if an auction-style listing has a bid or ends within 12 hours, or a fixed price listing has a pending Best Offer. (0=COMPATIBILITY)
+  [847/1741] 53800: skip - already 50 vehicles (multi-fit/expanded)
+  [848/1741] 48241: skip - category 33643 never renders fitment on eBay
+  [849/1741] 5495: skip - already 18 vehicles (multi-fit/expanded)
+  [850/1741] 39090: skip - already 69 vehicles (multi-fit/expanded)
+  [851/1741] 19026: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [852/1741] 48968: skip - already 16 vehicles (multi-fit/expanded)
+  [853/1741] 38296: skip - already 2 vehicles (multi-fit/expanded)
+  [854/1741] 38790: skip - already 69 vehicles (multi-fit/expanded)
+  [855/1741] 51059: skip - already 14 vehicles (multi-fit/expanded)
+  [856/1741] 49904: skip - already 87 vehicles (multi-fit/expanded)
+  [857/1741] 42466: skip - already 108 vehicles (multi-fit/expanded)
+  [858/1741] 42668: skip - already 182 vehicles (multi-fit/expanded)
+  [859/1741] 46108: skip - already 69 vehicles (multi-fit/expanded)
+  [860/1741] 42492: skip - already 95 vehicles (multi-fit/expanded)
+  [861/1741] 46312: skip - already 32 vehicles (multi-fit/expanded)
+  [862/1741] 46251: skip - already 50 vehicles (multi-fit/expanded)
+  [863/1741] 40666: skip - already 35 vehicles (multi-fit/expanded)
+  [864/1741] 46299: skip - already 49 vehicles (multi-fit/expanded)
+  [865/1741] 52233: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [866/1741] 30084: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [867/1741] 38396: skip - already 9 vehicles (multi-fit/expanded)
+  [868/1741] 12036: skip - offer read HTTP 404
+  [869/1741] 12038: skip - offer read HTTP 404
+  [870/1741] 14221: skip - offer read HTTP 404
+  [871/1741] 18274: skip - offer read HTTP 404
+  [872/1741] 15435: skip - offer read HTTP 404
+  [873/1741] 47524: skip - already 41 vehicles (multi-fit/expanded)
+  [874/1741] 14561: skip - offer read HTTP 404
+  [875/1741] 12549: skip - offer read HTTP 404
+  [876/1741] 14518: skip - offer read HTTP 404
+  [877/1741] 38789: skip - already 52 vehicles (multi-fit/expanded)
+  [878/1741] 17606: skip - offer read HTTP 404
+  [879/1741] 19609: skip - offer read HTTP 404
+  [880/1741] 17349: skip - offer read HTTP 404
+  [881/1741] 47526: skip - already 100 vehicles (multi-fit/expanded)
+  [882/1741] 14562: skip - offer read HTTP 404
+  [883/1741] 16155: skip - offer read HTTP 404
+  [884/1741] 17378: skip - offer read HTTP 404
+  [885/1741] 44640: pushed - not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Par
+  [886/1741] 47264: skip - already 28 vehicles (multi-fit/expanded)
+  [887/1741] 47796: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [888/1741] 49529: skip - already 2 vehicles (multi-fit/expanded)
+  [889/1741] 50188: skip - already 2 vehicles (multi-fit/expanded)
+  [890/1741] 25825: skip - category 179671 never renders fitment on eBay
+  [891/1741] 48292: skip - category 179671 never renders fitment on eBay
+  [892/1741] 46288: skip - category 179671 never renders fitment on eBay
+  [893/1741] 46285: skip - category 179671 never renders fitment on eBay
+  [894/1741] 33850: skip - category 179671 never renders fitment on eBay
+  [895/1741] 21993: skip - category 179671 never renders fitment on eBay
+  [896/1741] 24509: skip - category 179671 never renders fitment on eBay
+  [897/1741] 21982: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [898/1741] 27763: skip - category 179671 never renders fitment on eBay
+  [899/1741] 50094: skip - category 179671 never renders fitment on eBay
+  [900/1741] 45993: skip - category 179671 never renders fitment on eBay
+  [901/1741] 5936: skip - already 30 vehicles (multi-fit/expanded)
+  [902/1741] 6010: skip - already 90 vehicles (multi-fit/expanded)
+  [903/1741] 6012: skip - already 21 vehicles (multi-fit/expanded)
+  [904/1741] 6023: skip - already 321 vehicles (multi-fit/expanded)
+  [905/1741] 61566: skip - already 12 vehicles (multi-fit/expanded)
+  [906/1741] 322: skip - already 5 vehicles (multi-fit/expanded)
+  [907/1741] 51785: skip - already 15 vehicles (multi-fit/expanded)
+  [908/1741] 64340: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [909/1741] 6067: skip - already 48 vehicles (multi-fit/expanded)
+  [910/1741] 5772: skip - already 160 vehicles (multi-fit/expanded)
+  [911/1741] 5766: skip - already 48 vehicles (multi-fit/expanded)
+  [912/1741] 5663: skip - already 73 vehicles (multi-fit/expanded)
+  [913/1741] 63828: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [914/1741] 63827: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [915/1741] 63820: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [916/1741] 62097: skip - already 19 vehicles (multi-fit/expanded)
+  [917/1741] 61477: skip - already 46 vehicles (multi-fit/expanded)
+  [918/1741] 62095: skip - already 28 vehicles (multi-fit/expanded)
+  [919/1741] 62141: skip - already 7 vehicles (multi-fit/expanded)
+  [920/1741] 62172: skip - already 119 vehicles (multi-fit/expanded)
+  [921/1741] 62382: skip - already 9 vehicles (multi-fit/expanded)
+  [922/1741] 62052: skip - already 44 vehicles (multi-fit/expanded)
+  [923/1741] 62056: skip - already 48 vehicles (multi-fit/expanded)
+  [924/1741] 62081: skip - already 21 vehicles (multi-fit/expanded)
+  [925/1741] 62105: skip - already 21 vehicles (multi-fit/expanded)
+  [926/1741] 62168: skip - already 322 vehicles (multi-fit/expanded)
+  [927/1741] 62084: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [928/1741] 62176: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [929/1741] 62177: skip - already 21 vehicles (multi-fit/expanded)
+  [930/1741] 62094: skip - already 48 vehicles (multi-fit/expanded)
+  [931/1741] 62158: skip - already 72 vehicles (multi-fit/expanded)
+  [932/1741] 62162: skip - already 17 vehicles (multi-fit/expanded)
+  [933/1741] 62149: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [934/1741] 62078: skip - already 9 vehicles (multi-fit/expanded)
+  [935/1741] 62090: skip - already 3 vehicles (multi-fit/expanded)
+  [936/1741] 62140: skip - already 16 vehicles (multi-fit/expanded)
+  [937/1741] 62144: skip - already 21 vehicles (multi-fit/expanded)
+  [938/1741] 63818: skip - already 23 vehicles (multi-fit/expanded)
+  [939/1741] 63665: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [940/1741] 63667: skip - already 64 vehicles (multi-fit/expanded)
+  [941/1741] 63660: skip - already 70 vehicles (multi-fit/expanded)
+  [942/1741] 5757: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [943/1741] 63626: skip - already 48 vehicles (multi-fit/expanded)
+  [944/1741] 63625: skip - already 248 vehicles (multi-fit/expanded)
+  [945/1741] 63618: skip - already 110 vehicles (multi-fit/expanded)
+  [946/1741] 63612: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [947/1741] 63613: skip - already 53 vehicles (multi-fit/expanded)
+  [948/1741] 3100: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [949/1741] 63512: skip - already 84 vehicles (multi-fit/expanded)
+  [950/1741] 63509: skip - already 20 vehicles (multi-fit/expanded)
+  [951/1741] 63507: skip - already 4 vehicles (multi-fit/expanded)
+  [952/1741] 64435: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [953/1741] 28396: skip - already 54 vehicles (multi-fit/expanded)
+  [954/1741] 63496: skip - already 336 vehicles (multi-fit/expanded)
+  [955/1741] 5438: skip - already 100 vehicles (multi-fit/expanded)
+  [956/1741] 3310: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [957/1741] 6466: skip - already 35 vehicles (multi-fit/expanded)
+  [958/1741] 6464: skip - already 35 vehicles (multi-fit/expanded)
+  [959/1741] 6450: skip - already 42 vehicles (multi-fit/expanded)
+  [960/1741] 62737: skip - already 32 vehicles (multi-fit/expanded)
+  [961/1741] 63285: skip - already 26 vehicles (multi-fit/expanded)
+  [962/1741] 62413: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [963/1741] 62418: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [964/1741] 62398: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [965/1741] 62353: skip - already 4 vehicles (multi-fit/expanded)
+  [966/1741] 62355: skip - already 239 vehicles (multi-fit/expanded)
+  [967/1741] 63588: skip - already 23 vehicles (multi-fit/expanded)
+  [968/1741] 27104: skip - already 199 vehicles (multi-fit/expanded)
+  [969/1741] 47653: skip - already 6 vehicles (multi-fit/expanded)
+  [970/1741] 46248: skip - already 79 vehicles (multi-fit/expanded)
+  [971/1741] 47576: skip - already 51 vehicles (multi-fit/expanded)
+  [972/1741] 42787: skip - already 80 vehicles (multi-fit/expanded)
+  [973/1741] 47615: skip - already 24 vehicles (multi-fit/expanded)
+  [974/1741] 47396: skip - already 426 vehicles (multi-fit/expanded)
+  [975/1741] 46219: skip - already 104 vehicles (multi-fit/expanded)
+  [976/1741] 46231: skip - already 22 vehicles (multi-fit/expanded)
+  [977/1741] 47456: skip - already 28 vehicles (multi-fit/expanded)
+  [978/1741] 47543: skip - already 17 vehicles (multi-fit/expanded)
+  [979/1741] 47613: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [980/1741] 47792: skip - already 2 vehicles (multi-fit/expanded)
+  [981/1741] 47395: skip - already 426 vehicles (multi-fit/expanded)
+  [982/1741] 47424: skip - already 2 vehicles (multi-fit/expanded)
+  [983/1741] 47638: skip - already 88 vehicles (multi-fit/expanded)
+  [984/1741] 47652: skip - already 180 vehicles (multi-fit/expanded)
+  [985/1741] 46227: skip - already 2 vehicles (multi-fit/expanded)
+  [986/1741] 46228: skip - already 62 vehicles (multi-fit/expanded)
+  [987/1741] 46281: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [988/1741] 47639: skip - already 42 vehicles (multi-fit/expanded)
+  [989/1741] 5384: skip - already 12 vehicles (multi-fit/expanded)
+  [990/1741] 2398: skip - already 5 vehicles (multi-fit/expanded)
+  [991/1741] 5481: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [992/1741] 5360: skip - already 12 vehicles (multi-fit/expanded)
+  [993/1741] 2690: skip - already 27 vehicles (multi-fit/expanded)
+  [994/1741] 5386: skip - already 23 vehicles (multi-fit/expanded)
+  [995/1741] 5387: skip - already 12 vehicles (multi-fit/expanded)
+  [996/1741] 5490: skip - already 42 vehicles (multi-fit/expanded)
+  [997/1741] 5359: skip - already 12 vehicles (multi-fit/expanded)
+  [998/1741] 60805: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [999/1741] 5362: skip - already 12 vehicles (multi-fit/expanded)
+  [1000/1741] 5366: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1001/1741] 5377: skip - already 12 vehicles (multi-fit/expanded)
+  [1002/1741] 60806: skip - already 19 vehicles (multi-fit/expanded)
+  [1003/1741] 2889: skip - already 24 vehicles (multi-fit/expanded)
+  [1004/1741] 5379: skip - already 8 vehicles (multi-fit/expanded)
+  [1005/1741] 2383: skip - already 20 vehicles (multi-fit/expanded)
+  [1006/1741] 2707: skip - already 24 vehicles (multi-fit/expanded)
+  [1007/1741] 5369: skip - already 12 vehicles (multi-fit/expanded)
+  [1008/1741] 5376: skip - already 44 vehicles (multi-fit/expanded)
+  [1009/1741] 60671: skip - already 247 vehicles (multi-fit/expanded)
+  [1010/1741] 60698: skip - already 225 vehicles (multi-fit/expanded)
+  [1011/1741] 3834: skip - already 34 vehicles (multi-fit/expanded)
+  [1012/1741] 60271: skip - already 470 vehicles (multi-fit/expanded)
+  [1013/1741] 60027: skip - already 170 vehicles (multi-fit/expanded)
+  [1014/1741] 1673: skip - already 38 vehicles (multi-fit/expanded)
+  [1015/1741] 1709: skip - already 42 vehicles (multi-fit/expanded)
+  [1016/1741] 1708: skip - already 42 vehicles (multi-fit/expanded)
+  [1017/1741] 5312: skip - already 31 vehicles (multi-fit/expanded)
+  [1018/1741] 3284: skip - already 65 vehicles (multi-fit/expanded)
+  [1019/1741] 5310: skip - already 44 vehicles (multi-fit/expanded)
+  [1020/1741] 425: skip - already 41 vehicles (multi-fit/expanded)
+  [1021/1741] 5309: skip - already 44 vehicles (multi-fit/expanded)
+  [1022/1741] 6578: skip - already 18 vehicles (multi-fit/expanded)
+  [1023/1741] 3885: skip - already 44 vehicles (multi-fit/expanded)
+  [1024/1741] 3362: skip - already 49 vehicles (multi-fit/expanded)
+  [1025/1741] 1302: skip - already 11 vehicles (multi-fit/expanded)
+  [1026/1741] 1301: skip - already 11 vehicles (multi-fit/expanded)
+  [1027/1741] 62287: skip - already 263 vehicles (multi-fit/expanded)
+  [1028/1741] 3735: skip - already 54 vehicles (multi-fit/expanded)
+  [1029/1741] 3736: skip - already 54 vehicles (multi-fit/expanded)
+  [1030/1741] 62332: skip - already 121 vehicles (multi-fit/expanded)
+  [1031/1741] 62344: skip - already 84 vehicles (multi-fit/expanded)
+  [1032/1741] 3800: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1033/1741] 3739: skip - already 54 vehicles (multi-fit/expanded)
+  [1034/1741] 3451: skip - already 109 vehicles (multi-fit/expanded)
+  [1035/1741] 3720: skip - already 54 vehicles (multi-fit/expanded)
+  [1036/1741] 62345: skip - already 34 vehicles (multi-fit/expanded)
+  [1037/1741] 2699: skip - already 59 vehicles (multi-fit/expanded)
+  [1038/1741] 3734: skip - already 54 vehicles (multi-fit/expanded)
+  [1039/1741] 3737: skip - already 54 vehicles (multi-fit/expanded)
+  [1040/1741] 3738: skip - already 54 vehicles (multi-fit/expanded)
+  [1041/1741] 62285: skip - already 244 vehicles (multi-fit/expanded)
+  [1042/1741] 2377: skip - already 16 vehicles (multi-fit/expanded)
+  [1043/1741] 2190: skip - already 80 vehicles (multi-fit/expanded)
+  [1044/1741] 3901: skip - already 91 vehicles (multi-fit/expanded)
+  [1045/1741] 62284: skip - already 121 vehicles (multi-fit/expanded)
+  [1046/1741] 62288: skip - already 34 vehicles (multi-fit/expanded)
+  [1047/1741] 62286: skip - already 121 vehicles (multi-fit/expanded)
+  [1048/1741] 61728: skip - already 118 vehicles (multi-fit/expanded)
+  [1049/1741] 62269: skip - already 34 vehicles (multi-fit/expanded)
+  [1050/1741] 61724: skip - already 145 vehicles (multi-fit/expanded)
+  [1051/1741] 61730: skip - already 127 vehicles (multi-fit/expanded)
+  [1052/1741] 2133: skip - already 9 vehicles (multi-fit/expanded)
+  [1053/1741] 3044: skip - already 56 vehicles (multi-fit/expanded)
+  [1054/1741] 2917: skip - already 56 vehicles (multi-fit/expanded)
+  [1055/1741] 2919: skip - already 56 vehicles (multi-fit/expanded)
+  [1056/1741] 2838: skip - already 56 vehicles (multi-fit/expanded)
+  [1057/1741] 2908: skip - already 56 vehicles (multi-fit/expanded)
+  [1058/1741] 2921: skip - already 56 vehicles (multi-fit/expanded)
+  [1059/1741] 2973: skip - already 56 vehicles (multi-fit/expanded)
+  [1060/1741] 3076: skip - already 56 vehicles (multi-fit/expanded)
+  [1061/1741] 62230: skip - already 159 vehicles (multi-fit/expanded)
+  [1062/1741] 61726: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1063/1741] 62219: skip - already 230 vehicles (multi-fit/expanded)
+  [1064/1741] 62267: skip - already 132 vehicles (multi-fit/expanded)
+  [1065/1741] 62263: skip - already 121 vehicles (multi-fit/expanded)
+  [1066/1741] 62266: skip - already 209 vehicles (multi-fit/expanded)
+  [1067/1741] 2793: skip - already 12 vehicles (multi-fit/expanded)
+  [1068/1741] 2963: skip - already 42 vehicles (multi-fit/expanded)
+  [1069/1741] 2849: skip - already 42 vehicles (multi-fit/expanded)
+  [1070/1741] 3023: skip - already 56 vehicles (multi-fit/expanded)
+  [1071/1741] 3849: skip - already 20 vehicles (multi-fit/expanded)
+  [1072/1741] 61535: skip - already 114 vehicles (multi-fit/expanded)
+  [1073/1741] 61721: skip - already 127 vehicles (multi-fit/expanded)
+  [1074/1741] 864: skip - already 54 vehicles (multi-fit/expanded)
+  [1075/1741] 61519: skip - already 80 vehicles (multi-fit/expanded)
+  [1076/1741] 61472: skip - already 237 vehicles (multi-fit/expanded)
+  [1077/1741] 61467: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1078/1741] 3061: skip - already 449 vehicles (multi-fit/expanded)
+  [1079/1741] 61530: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1080/1741] 61514: skip - already 151 vehicles (multi-fit/expanded)
+  [1081/1741] 3850: skip - already 20 vehicles (multi-fit/expanded)
+  [1082/1741] 3852: skip - already 63 vehicles (multi-fit/expanded)
+  [1083/1741] 61451: skip - already 237 vehicles (multi-fit/expanded)
+  [1084/1741] 2934: skip - already 56 vehicles (multi-fit/expanded)
+  [1085/1741] 3005: skip - already 56 vehicles (multi-fit/expanded)
+  [1086/1741] 2906: skip - already 56 vehicles (multi-fit/expanded)
+  [1087/1741] 3004: skip - already 56 vehicles (multi-fit/expanded)
+  [1088/1741] 2785: skip - already 56 vehicles (multi-fit/expanded)
+  [1089/1741] 2846: skip - already 56 vehicles (multi-fit/expanded)
+  [1090/1741] 2860: skip - already 35 vehicles (multi-fit/expanded)
+  [1091/1741] 2864: skip - already 56 vehicles (multi-fit/expanded)
+  [1092/1741] 2967: skip - already 56 vehicles (multi-fit/expanded)
+  [1093/1741] 3036: skip - already 56 vehicles (multi-fit/expanded)
+  [1094/1741] 2763: skip - already 56 vehicles (multi-fit/expanded)
+  [1095/1741] 2965: skip - already 56 vehicles (multi-fit/expanded)
+  [1096/1741] 3024: skip - already 56 vehicles (multi-fit/expanded)
+  [1097/1741] 3028: skip - already 56 vehicles (multi-fit/expanded)
+  [1098/1741] 2762: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1099/1741] 2776: skip - already 56 vehicles (multi-fit/expanded)
+  [1100/1741] 2792: skip - already 56 vehicles (multi-fit/expanded)
+  [1101/1741] 2964: skip - already 56 vehicles (multi-fit/expanded)
+  [1102/1741] 3027: skip - already 56 vehicles (multi-fit/expanded)
+  [1103/1741] 3030: skip - already 56 vehicles (multi-fit/expanded)
+  [1104/1741] 3077: skip - already 56 vehicles (multi-fit/expanded)
+  [1105/1741] 2851: skip - already 56 vehicles (multi-fit/expanded)
+  [1106/1741] 2852: skip - already 56 vehicles (multi-fit/expanded)
+  [1107/1741] 2859: skip - already 56 vehicles (multi-fit/expanded)
+  [1108/1741] 2925: skip - already 196 vehicles (multi-fit/expanded)
+  [1109/1741] 2924: skip - already 196 vehicles (multi-fit/expanded)
+  [1110/1741] 2777: skip - already 56 vehicles (multi-fit/expanded)
+  [1111/1741] 2780: skip - already 56 vehicles (multi-fit/expanded)
+  [1112/1741] 3039: skip - already 17 vehicles (multi-fit/expanded)
+  [1113/1741] 3066: skip - already 56 vehicles (multi-fit/expanded)
+  [1114/1741] 2814: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1115/1741] 2854: skip - already 35 vehicles (multi-fit/expanded)
+  [1116/1741] 2907: skip - already 56 vehicles (multi-fit/expanded)
+  [1117/1741] 2842: skip - already 56 vehicles (multi-fit/expanded)
+  [1118/1741] 3069: skip - already 2 vehicles (multi-fit/expanded)
+  [1119/1741] 2813: skip - already 56 vehicles (multi-fit/expanded)
+  [1120/1741] 2933: skip - already 56 vehicles (multi-fit/expanded)
+  [1121/1741] 2841: skip - already 56 vehicles (multi-fit/expanded)
+  [1122/1741] 2928: skip - already 40 vehicles (multi-fit/expanded)
+  [1123/1741] 2784: skip - already 56 vehicles (multi-fit/expanded)
+  [1124/1741] 3113: skip - already 56 vehicles (multi-fit/expanded)
+  [1125/1741] 2764: skip - already 56 vehicles (multi-fit/expanded)
+  [1126/1741] 2774: skip - already 56 vehicles (multi-fit/expanded)
+  [1127/1741] 2923: skip - already 196 vehicles (multi-fit/expanded)
+  [1128/1741] 2775: skip - already 56 vehicles (multi-fit/expanded)
+  [1129/1741] 2926: skip - already 196 vehicles (multi-fit/expanded)
+  [1130/1741] 3041: skip - already 56 vehicles (multi-fit/expanded)
+  [1131/1741] 3040: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1132/1741] 61720: skip - already 113 vehicles (multi-fit/expanded)
+  [1133/1741] 61542: skip - already 108 vehicles (multi-fit/expanded)
+  [1134/1741] 61546: skip - already 96 vehicles (multi-fit/expanded)
+  [1135/1741] 61540: skip - already 116 vehicles (multi-fit/expanded)
+  [1136/1741] 682: skip - already 54 vehicles (multi-fit/expanded)
+  [1137/1741] 61532: skip - already 142 vehicles (multi-fit/expanded)
+  [1138/1741] 61541: skip - already 131 vehicles (multi-fit/expanded)
+  [1139/1741] 938: skip - already 54 vehicles (multi-fit/expanded)
+  [1140/1741] 937: skip - already 54 vehicles (multi-fit/expanded)
+  [1141/1741] 939: skip - already 54 vehicles (multi-fit/expanded)
+  [1142/1741] 936: skip - already 54 vehicles (multi-fit/expanded)
+  [1143/1741] 61527: skip - already 102 vehicles (multi-fit/expanded)
+  [1144/1741] 2684: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1145/1741] 61445: skip - already 117 vehicles (multi-fit/expanded)
+  [1146/1741] 2475: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1147/1741] 2483: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1148/1741] 2547: skip - already 59 vehicles (multi-fit/expanded)
+  [1149/1741] 2489: skip - already 59 vehicles (multi-fit/expanded)
+  [1150/1741] 2560: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1151/1741] 2687: skip - already 91 vehicles (multi-fit/expanded)
+  [1152/1741] 2461: skip - already 196 vehicles (multi-fit/expanded)
+  [1153/1741] 2543: skip - already 196 vehicles (multi-fit/expanded)
+  [1154/1741] 2546: skip - already 196 vehicles (multi-fit/expanded)
+  [1155/1741] 2477: skip - already 59 vehicles (multi-fit/expanded)
+  [1156/1741] 2552: skip - already 59 vehicles (multi-fit/expanded)
+  [1157/1741] 2891: skip - already 59 vehicles (multi-fit/expanded)
+  [1158/1741] 2485: skip - already 59 vehicles (multi-fit/expanded)
+  [1159/1741] 2693: skip - already 59 vehicles (multi-fit/expanded)
+  [1160/1741] 2702: skip - already 59 vehicles (multi-fit/expanded)
+  [1161/1741] 2694: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1162/1741] 2703: skip - already 45 vehicles (multi-fit/expanded)
+  [1163/1741] 2462: skip - already 196 vehicles (multi-fit/expanded)
+  [1164/1741] 2557: skip - already 59 vehicles (multi-fit/expanded)
+  [1165/1741] 2608: skip - already 59 vehicles (multi-fit/expanded)
+  [1166/1741] 2843: skip - already 56 vehicles (multi-fit/expanded)
+  [1167/1741] 2815: skip - already 56 vehicles (multi-fit/expanded)
+  [1168/1741] 2779: skip - already 56 vehicles (multi-fit/expanded)
+  [1169/1741] 2805: skip - already 56 vehicles (multi-fit/expanded)
+  [1170/1741] 2920: skip - already 56 vehicles (multi-fit/expanded)
+  [1171/1741] 2918: skip - already 56 vehicles (multi-fit/expanded)
+  [1172/1741] 2958: skip - already 56 vehicles (multi-fit/expanded)
+  [1173/1741] 3021: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1174/1741] 2862: skip - already 56 vehicles (multi-fit/expanded)
+  [1175/1741] 2957: skip - already 56 vehicles (multi-fit/expanded)
+  [1176/1741] 2922: skip - already 56 vehicles (multi-fit/expanded)
+  [1177/1741] 948: skip - already 54 vehicles (multi-fit/expanded)
+  [1178/1741] 934: skip - already 54 vehicles (multi-fit/expanded)
+  [1179/1741] 2665: skip - already 59 vehicles (multi-fit/expanded)
+  [1180/1741] 2455: skip - already 59 vehicles (multi-fit/expanded)
+  [1181/1741] 2562: skip - already 59 vehicles (multi-fit/expanded)
+  [1182/1741] 2458: skip - already 59 vehicles (multi-fit/expanded)
+  [1183/1741] 2456: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1184/1741] 2537: skip - already 59 vehicles (multi-fit/expanded)
+  [1185/1741] 3606: skip - already 81 vehicles (multi-fit/expanded)
+  [1186/1741] 3344: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1187/1741] 3365: skip - already 145 vehicles (multi-fit/expanded)
+  [1188/1741] 3462: skip - already 449 vehicles (multi-fit/expanded)
+  [1189/1741] 61266: skip - already 56 vehicles (multi-fit/expanded)
+  [1190/1741] 61275: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1191/1741] 61267: skip - already 56 vehicles (multi-fit/expanded)
+  [1192/1741] 61254: skip - already 56 vehicles (multi-fit/expanded)
+  [1193/1741] 2541: skip - already 59 vehicles (multi-fit/expanded)
+  [1194/1741] 2487: skip - already 59 vehicles (multi-fit/expanded)
+  [1195/1741] 2559: skip - already 59 vehicles (multi-fit/expanded)
+  [1196/1741] 2447: skip - already 47 vehicles (multi-fit/expanded)
+  [1197/1741] 2545: skip - already 196 vehicles (multi-fit/expanded)
+  [1198/1741] 2463: skip - already 196 vehicles (multi-fit/expanded)
+  [1199/1741] 2671: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1200/1741] 2688: skip - already 24 vehicles (multi-fit/expanded)
+  [1201/1741] 2460: skip - already 59 vehicles (multi-fit/expanded)
+  [1202/1741] 2474: skip - already 59 vehicles (multi-fit/expanded)
+  [1203/1741] 2558: skip - already 59 vehicles (multi-fit/expanded)
+  [1204/1741] 2448: skip - already 59 vehicles (multi-fit/expanded)
+  [1205/1741] 2544: skip - already 196 vehicles (multi-fit/expanded)
+  [1206/1741] 2610: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1207/1741] 2606: skip - already 59 vehicles (multi-fit/expanded)
+  [1208/1741] 2648: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1209/1741] 2534: skip - already 59 vehicles (multi-fit/expanded)
+  [1210/1741] 2473: skip - already 59 vehicles (multi-fit/expanded)
+  [1211/1741] 2666: skip - already 59 vehicles (multi-fit/expanded)
+  [1212/1741] 2450: skip - already 59 vehicles (multi-fit/expanded)
+  [1213/1741] 2481: skip - already 59 vehicles (multi-fit/expanded)
+  [1214/1741] 2217: skip - already 18 vehicles (multi-fit/expanded)
+  [1215/1741] 2454: skip - already 59 vehicles (multi-fit/expanded)
+  [1216/1741] 2890: skip - already 59 vehicles (multi-fit/expanded)
+  [1217/1741] 2476: skip - already 43 vehicles (multi-fit/expanded)
+  [1218/1741] 2283: skip - already 50 vehicles (multi-fit/expanded)
+  [1219/1741] 2266: skip - already 37 vehicles (multi-fit/expanded)
+  [1220/1741] 2270: skip - already 50 vehicles (multi-fit/expanded)
+  [1221/1741] 2281: skip - already 50 vehicles (multi-fit/expanded)
+  [1222/1741] 2207: skip - already 23 vehicles (multi-fit/expanded)
+  [1223/1741] 2304: skip - already 13 vehicles (multi-fit/expanded)
+  [1224/1741] 2149: skip - already 50 vehicles (multi-fit/expanded)
+  [1225/1741] 2212: skip - already 50 vehicles (multi-fit/expanded)
+  [1226/1741] 3473: skip - already 82 vehicles (multi-fit/expanded)
+  [1227/1741] 2611: skip - already 42 vehicles (multi-fit/expanded)
+  [1228/1741] 3342: skip - already 82 vehicles (multi-fit/expanded)
+  [1229/1741] 3602: skip - already 82 vehicles (multi-fit/expanded)
+  [1230/1741] 3341: skip - already 82 vehicles (multi-fit/expanded)
+  [1231/1741] 3471: skip - already 82 vehicles (multi-fit/expanded)
+  [1232/1741] 3470: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1233/1741] 3480: skip - already 82 vehicles (multi-fit/expanded)
+  [1234/1741] 3296: skip - already 82 vehicles (multi-fit/expanded)
+  [1235/1741] 3218: skip - already 82 vehicles (multi-fit/expanded)
+  [1236/1741] 3595: skip - already 82 vehicles (multi-fit/expanded)
+  [1237/1741] 3596: skip - already 82 vehicles (multi-fit/expanded)
+  [1238/1741] 3446: skip - already 82 vehicles (multi-fit/expanded)
+  [1239/1741] 3610: skip - already 70 vehicles (multi-fit/expanded)
+  [1240/1741] 3586: skip - already 82 vehicles (multi-fit/expanded)
+  [1241/1741] 3295: skip - already 82 vehicles (multi-fit/expanded)
+  [1242/1741] 3360: skip - already 82 vehicles (multi-fit/expanded)
+  [1243/1741] 3204: skip - already 82 vehicles (multi-fit/expanded)
+  [1244/1741] 3211: skip - already 82 vehicles (multi-fit/expanded)
+  [1245/1741] 3220: skip - already 82 vehicles (multi-fit/expanded)
+  [1246/1741] 3262: skip - already 82 vehicles (multi-fit/expanded)
+  [1247/1741] 3263: skip - already 82 vehicles (multi-fit/expanded)
+  [1248/1741] 3343: skip - already 82 vehicles (multi-fit/expanded)
+  [1249/1741] 3290: skip - already 82 vehicles (multi-fit/expanded)
+  [1250/1741] 3601: skip - already 12 vehicles (multi-fit/expanded)
+  [1251/1741] 3205: skip - already 82 vehicles (multi-fit/expanded)
+  [1252/1741] 3291: skip - already 82 vehicles (multi-fit/expanded)
+  [1253/1741] 3574: skip - already 82 vehicles (multi-fit/expanded)
+  [1254/1741] 3547: skip - already 82 vehicles (multi-fit/expanded)
+  [1255/1741] 3217: skip - already 82 vehicles (multi-fit/expanded)
+  [1256/1741] 3611: skip - already 70 vehicles (multi-fit/expanded)
+  [1257/1741] 3221: skip - already 82 vehicles (multi-fit/expanded)
+  [1258/1741] 3346: skip - already 82 vehicles (multi-fit/expanded)
+  [1259/1741] 3585: skip - already 82 vehicles (multi-fit/expanded)
+  [1260/1741] 3213: skip - already 82 vehicles (multi-fit/expanded)
+  [1261/1741] 2459: skip - already 59 vehicles (multi-fit/expanded)
+  [1262/1741] 2466: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1263/1741] 2542: skip - already 59 vehicles (multi-fit/expanded)
+  [1264/1741] 2555: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1265/1741] 2554: skip - already 59 vehicles (multi-fit/expanded)
+  [1266/1741] 2290: skip - already 50 vehicles (multi-fit/expanded)
+  [1267/1741] 2465: skip - already 59 vehicles (multi-fit/expanded)
+  [1268/1741] 2223: skip - already 50 vehicles (multi-fit/expanded)
+  [1269/1741] 2258: skip - already 50 vehicles (multi-fit/expanded)
+  [1270/1741] 2293: skip - already 50 vehicles (multi-fit/expanded)
+  [1271/1741] 2261: skip - already 50 vehicles (multi-fit/expanded)
+  [1272/1741] 2222: skip - already 50 vehicles (multi-fit/expanded)
+  [1273/1741] 2213: skip - already 50 vehicles (multi-fit/expanded)
+  [1274/1741] 2289: skip - already 50 vehicles (multi-fit/expanded)
+  [1275/1741] 2221: skip - already 50 vehicles (multi-fit/expanded)
+  [1276/1741] 2292: skip - already 50 vehicles (multi-fit/expanded)
+  [1277/1741] 2365: skip - already 50 vehicles (multi-fit/expanded)
+  [1278/1741] 2305: skip - already 50 vehicles (multi-fit/expanded)
+  [1279/1741] 2216: skip - already 50 vehicles (multi-fit/expanded)
+  [1280/1741] 2220: skip - already 50 vehicles (multi-fit/expanded)
+  [1281/1741] 2404: skip - already 50 vehicles (multi-fit/expanded)
+  [1282/1741] 2306: skip - already 50 vehicles (multi-fit/expanded)
+  [1283/1741] 2366: skip - already 50 vehicles (multi-fit/expanded)
+  [1284/1741] 2403: skip - already 50 vehicles (multi-fit/expanded)
+  [1285/1741] 2259: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1286/1741] 2368: skip - already 50 vehicles (multi-fit/expanded)
+  [1287/1741] 2364: skip - already 50 vehicles (multi-fit/expanded)
+  [1288/1741] 2218: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1289/1741] 2260: skip - already 50 vehicles (multi-fit/expanded)
+  [1290/1741] 3214: skip - already 82 vehicles (multi-fit/expanded)
+  [1291/1741] 3458: skip - already 82 vehicles (multi-fit/expanded)
+  [1292/1741] 3349: skip - already 82 vehicles (multi-fit/expanded)
+  [1293/1741] 3347: skip - already 82 vehicles (multi-fit/expanded)
+  [1294/1741] 3459: skip - already 82 vehicles (multi-fit/expanded)
+  [1295/1741] 3339: skip - already 82 vehicles (multi-fit/expanded)
+  [1296/1741] 61269: skip - already 56 vehicles (multi-fit/expanded)
+  [1297/1741] 61268: skip - already 56 vehicles (multi-fit/expanded)
+  [1298/1741] 1715: skip - already 55 vehicles (multi-fit/expanded)
+  [1299/1741] 61118: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1300/1741] 61085: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1301/1741] 61097: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1302/1741] 5008: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1303/1741] 5015: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1304/1741] 971: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1305/1741] 1459: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1306/1741] 4638: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1307/1741] 6351: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1308/1741] 32135: review - Rule B on F39 needs an engine or donor model.
+  [1309/1741] 31761: review - Rule B on F48 needs an engine or donor model.
+  [1310/1741] 31717: review - Rule B on F39 needs an engine or donor model.
+  [1311/1741] 31729: review - Rule B on F48 needs an engine or donor model.
+  [1312/1741] 33187: review - Rule B on G30 needs an engine or donor model.
+  [1313/1741] 27190: review - Rule B on G30 needs an engine or donor model.
+  [1314/1741] 23169: review - Rule B on G12 needs an engine or donor model.
+  [1315/1741] 27815: review - Rule B on F16 needs an engine or donor model.
+  [1316/1741] 30702: review - Rule B on G20 needs an engine or donor model.
+  [1317/1741] 32132: review - Rule B on F39 needs an engine or donor model.
+  [1318/1741] 24002: review - Rule B on F25 needs an engine or donor model.
+  [1319/1741] 24884: review - Rule B on G20 needs an engine or donor model.
+  [1320/1741] 26618: review - Rule B on G20 needs an engine or donor model.
+  [1321/1741] 30721: review - Rule B on G20 needs an engine or donor model.
+  [1322/1741] 30933: review - Rule B on F97 needs an engine or donor model.
+  [1323/1741] 33360: review - Rule B on G01 needs an engine or donor model.
+  [1324/1741] 32484: review - Rule B on G01 needs an engine or donor model.
+  [1325/1741] 32489: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1326/1741] 33702: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1327/1741] 33285: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1328/1741] 32618: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1329/1741] 32803: review - Rule B on G01 needs an engine or donor model.
+  [1330/1741] 33458: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1331/1741] 33259: skip - no Shopify donor for SKU
+  [1332/1741] 34728: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1333/1741] 37125: review - Rule B on G01 needs an engine or donor model.
+  [1334/1741] 35733: review - Rule B on G01 needs an engine or donor model.
+  [1335/1741] 34380: skip - no Shopify donor for SKU
+  [1336/1741] 35178: skip - no Shopify donor for SKU
+  [1337/1741] 34435: skip - no Shopify donor for SKU
+  [1338/1741] 37118: skip - no Shopify donor for SKU
+  [1339/1741] 36737: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1340/1741] 35764: review - Rule B on G20 needs an engine or donor model.
+  [1341/1741] 34228: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1342/1741] 36162: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1343/1741] 34839: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1344/1741] 34068: review - Rule B on G20 needs an engine or donor model.
+  [1345/1741] 37280: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1346/1741] 36505: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1347/1741] 34279: skip - no Shopify donor for SKU
+  [1348/1741] 34052: review - Rule B on G20 needs an engine or donor model.
+  [1349/1741] 34763: review - Rule B on G42 needs an engine or donor model.
+  [1350/1741] 458: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1351/1741] 3139: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1352/1741] 4888: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1353/1741] 6068: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1354/1741] 4818: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1355/1741] 4819: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1356/1741] 3153: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1357/1741] 50185: review - Rule B on G12 needs an engine or donor model.
+  [1358/1741] 48186: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1359/1741] 5391: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1360/1741] 37217: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1361/1741] 37189: review - Rule B on F01 needs an engine or donor model.
+  [1362/1741] 36179: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1363/1741] 37479: review - Rule B on F44 needs an engine or donor model.
+  [1364/1741] 34842: review - Rule B on G12 needs an engine or donor model.
+  [1365/1741] 36039: skip - no Shopify donor for SKU
+  [1366/1741] 34738: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1367/1741] 37229: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1368/1741] 36123: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1369/1741] 42717: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1370/1741] 34410: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1371/1741] 35133: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1372/1741] 34843: review - Rule B on G12 needs an engine or donor model.
+  [1373/1741] 37283: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1374/1741] 34207: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1375/1741] 34714: review - Rule B on G20 needs an engine or donor model.
+  [1376/1741] 35129: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1377/1741] 34814: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1378/1741] 34221: review - Rule B on G20 needs an engine or donor model.
+  [1379/1741] 34852: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1380/1741] 36693: skip - no Shopify donor for SKU
+  [1381/1741] 35727: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1382/1741] 37358: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1383/1741] 37929: review - Rule B on G23 needs an engine or donor model.
+  [1384/1741] 37703: review - Rule B on F01 needs an engine or donor model.
+  [1385/1741] 37604: review - Rule B on G42 needs an engine or donor model.
+  [1386/1741] 37655: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1387/1741] 37637: review - Rule B on F44 needs an engine or donor model.
+  [1388/1741] 37654: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1389/1741] 37932: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1390/1741] 37608: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1391/1741] 38252: review - Rule B on G12 needs an engine or donor model.
+  [1392/1741] 39126: review - Rule B on G05 needs an engine or donor model.
+  [1393/1741] 39607: review - Rule B on G05 needs an engine or donor model.
+  [1394/1741] 39606: review - Rule B on G05 needs an engine or donor model.
+  [1395/1741] 38280: skip - no Shopify donor for SKU
+  [1396/1741] 39273: review - Rule B on G05 needs an engine or donor model.
+  [1397/1741] 38246: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1398/1741] 39439: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1399/1741] 38251: review - Rule B on G12 needs an engine or donor model.
+  [1400/1741] 39057: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1401/1741] 38048: review - Rule B on G20 needs an engine or donor model.
+  [1402/1741] 38411: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1403/1741] 38339: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1404/1741] 38167: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1405/1741] 38145: review - Rule B on G82 needs an engine or donor model.
+  [1406/1741] 38130: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1407/1741] 38084: review - Rule B on F44 needs an engine or donor model.
+  [1408/1741] 38388: review - Rule B on F15 needs an engine or donor model.
+  [1409/1741] 38468: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1410/1741] 37977: skip - no Shopify donor for SKU
+  [1411/1741] 38418: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1412/1741] 39259: review - Rule B on G05 needs an engine or donor model.
+  [1413/1741] 39612: review - Rule B on G20 needs an engine or donor model.
+  [1414/1741] 39405: review - Rule B on G05 needs an engine or donor model.
+  [1415/1741] 37834: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1416/1741] 38492: review - Rule B on G29 needs an engine or donor model.
+  [1417/1741] 38627: review - Rule B on F15 needs an engine or donor model.
+  [1418/1741] 37983: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1419/1741] 39422: review - Rule B on G20 needs an engine or donor model.
+  [1420/1741] 39215: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1421/1741] 39228: review - Rule B on G05 needs an engine or donor model.
+  [1422/1741] 38230: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1423/1741] 38950: review - Rule B on G05 needs an engine or donor model.
+  [1424/1741] 39279: review - Rule B on G20 needs an engine or donor model.
+  [1425/1741] 38147: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1426/1741] 39197: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1427/1741] 40689: review - Rule B on F16 needs an engine or donor model.
+  [1428/1741] 41728: review - Rule B on G12 needs an engine or donor model.
+  [1429/1741] 41729: review - Rule B on G12 needs an engine or donor model.
+  [1430/1741] 35318: review - Rule B on G05 needs an engine or donor model.
+  [1431/1741] 39900: review - Rule B on F86 needs an engine or donor model.
+  [1432/1741] 41568: review - Rule B on G42 needs an engine or donor model.
+  [1433/1741] 40551: review - Rule B on F02 needs an engine or donor model.
+  [1434/1741] 43398: review - Rule B on G20 needs an engine or donor model.
+  [1435/1741] 43778: review - Rule B on G23 needs an engine or donor model.
+  [1436/1741] 45175: review - Rule B on G30 needs an engine or donor model.
+  [1437/1741] 43417: review - Rule B on F25 needs an engine or donor model.
+  [1438/1741] 44559: review - Rule B on G20 needs an engine or donor model.
+  [1439/1741] 44505: review - Rule B on G20 needs an engine or donor model.
+  [1440/1741] 44183: review - Rule B on G20 needs an engine or donor model.
+  [1441/1741] 43399: review - Rule B on G20 needs an engine or donor model.
+  [1442/1741] 43811: review - Rule B on G20 needs an engine or donor model.
+  [1443/1741] 43363: review - Rule B on G20 needs an engine or donor model.
+  [1444/1741] 44762: review - Rule B on G20 needs an engine or donor model.
+  [1445/1741] 44177: review - Rule B on G20 needs an engine or donor model.
+  [1446/1741] 44501: review - Rule B on G01 needs an engine or donor model.
+  [1447/1741] 43674: review - Rule B on F48 needs an engine or donor model.
+  [1448/1741] 47133: review - Rule B on F32 needs an engine or donor model.
+  [1449/1741] 49042: review - Rule B on E88 needs an engine or donor model.
+  [1450/1741] 46823: review - Rule B on G20 needs an engine or donor model.
+  [1451/1741] 48868: review - Rule B on G01 needs an engine or donor model.
+  [1452/1741] 46774: review - Rule B on F25 needs an engine or donor model.
+  [1453/1741] 46870: review - Rule B on F25 needs an engine or donor model.
+  [1454/1741] 51836: review - Rule B on G20 needs an engine or donor model.
+  [1455/1741] 51807: review - Rule B on G20 needs an engine or donor model.
+  [1456/1741] 52075: review - Rule B on G12 needs an engine or donor model.
+  [1457/1741] 49932: review - Rule B on F15 needs an engine or donor model.
+  [1458/1741] 50852: review - Rule B on F34 needs an engine or donor model.
+  [1459/1741] 49813: review - Rule B on F32 needs an engine or donor model.
+  [1460/1741] 51052: review - Rule B on F48 needs an engine or donor model.
+  [1461/1741] 51849: review - Rule B on G20 needs an engine or donor model.
+  [1462/1741] 51278: review - Rule B on F34 needs an engine or donor model.
+  [1463/1741] 52020: review - Rule B on G12 needs an engine or donor model.
+  [1464/1741] 47839: review - Rule B on G12 needs an engine or donor model.
+  [1465/1741] 48305: review - Rule B on F32 needs an engine or donor model.
+  [1466/1741] 48217: review - Rule B on E88 needs an engine or donor model.
+  [1467/1741] 50851: review - Rule B on F32 needs an engine or donor model.
+  [1468/1741] 48333: review - Rule B on F32 needs an engine or donor model.
+  [1469/1741] 51839: review - Rule B on G20 needs an engine or donor model.
+  [1470/1741] 52306: review - Rule B on G01 needs an engine or donor model.
+  [1471/1741] 50286: review - Rule B on F30 needs an engine or donor model.
+  [1472/1741] 47782: review - Rule B on F32 needs an engine or donor model.
+  [1473/1741] 48598: review - Rule B on F15 needs an engine or donor model.
+  [1474/1741] 49642: review - Rule B on G01 needs an engine or donor model.
+  [1475/1741] 52019: review - Rule B on G12 needs an engine or donor model.
+  [1476/1741] 51250: review - Rule B on G01 needs an engine or donor model.
+  [1477/1741] 47998: review - Rule B on G12 needs an engine or donor model.
+  [1478/1741] 50850: review - Rule B on F32 needs an engine or donor model.
+  [1479/1741] 47838: review - Rule B on G12 needs an engine or donor model.
+  [1480/1741] 51366: review - Rule B on F48 needs an engine or donor model.
+  [1481/1741] 53011: review - Rule B on F15 needs an engine or donor model.
+  [1482/1741] 53080: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1483/1741] 52770: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1484/1741] 52128: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1485/1741] 53121: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1486/1741] 53092: review - Rule B on F15 needs an engine or donor model.
+  [1487/1741] 52473: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1488/1741] 53364: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1489/1741] 53571: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1490/1741] 50786: skip - no Shopify donor for SKU
+  [1491/1741] 53457: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1492/1741] 52467: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1493/1741] 52858: review - Rule B on G01 needs an engine or donor model.
+  [1494/1741] 52556: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1495/1741] 52604: review - Rule B on G05 needs an engine or donor model.
+  [1496/1741] 52633: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1497/1741] 52920: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1498/1741] 52649: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1499/1741] 53506: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1500/1741] 52557: review - Rule B on F15 needs an engine or donor model.
+  [1501/1741] 53507: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1502/1741] 53172: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1503/1741] 53964: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1504/1741] 53514: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1505/1741] 52957: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1506/1741] 53093: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1507/1741] 51696: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1508/1741] 50763: skip - no Shopify donor for SKU
+  [1509/1741] 51191: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1510/1741] 52481: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1511/1741] 53250: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1512/1741] 52895: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1513/1741] 52714: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1514/1741] 52709: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1515/1741] 52054: review - Rule B on G12 needs an engine or donor model.
+  [1516/1741] 52882: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1517/1741] 52835: skip - no Shopify donor for SKU
+  [1518/1741] 52099: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1519/1741] 52908: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1520/1741] 52766: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1521/1741] 53938: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1522/1741] 52136: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1523/1741] 52583: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1524/1741] 62198: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1525/1741] 52752: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1526/1741] 52844: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1527/1741] 53815: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1528/1741] 51165: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1529/1741] 54000: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1530/1741] 53577: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1531/1741] 53734: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1532/1741] 53858: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1533/1741] 50878: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1534/1741] 50595: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1535/1741] 53908: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1536/1741] 53928: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1537/1741] 51105: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1538/1741] 57081: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1539/1741] 52677: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1540/1741] 51517: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1541/1741] 51144: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1542/1741] 54033: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1543/1741] 53801: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1544/1741] 53762: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1545/1741] 53211: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1546/1741] 53605: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1547/1741] 51207: skip - no Shopify donor for SKU
+  [1548/1741] 53209: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1549/1741] 50603: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1550/1741] 52687: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1551/1741] 52678: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1552/1741] 50927: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1553/1741] 52970: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1554/1741] 52522: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1555/1741] 50929: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1556/1741] 53286: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1557/1741] 51878: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1558/1741] 53699: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1559/1741] 53689: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1560/1741] 53604: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1561/1741] 53475: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1562/1741] 53151: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1563/1741] 52676: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1564/1741] 53939: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1565/1741] 53725: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1566/1741] 53976: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1567/1741] 52689: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1568/1741] 51454: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1569/1741] 52937: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1570/1741] 50930: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1571/1741] 51204: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1572/1741] 51669: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1573/1741] 50928: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1574/1741] 50936: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1575/1741] 50585: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1576/1741] 51648: skip - no Shopify donor for SKU
+  [1577/1741] 50907: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1578/1741] 52973: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1579/1741] 53592: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1580/1741] 50975: skip - no Shopify donor for SKU
+  [1581/1741] 62073: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1582/1741] 62053: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1583/1741] 53287: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1584/1741] 53305: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1585/1741] 62099: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1586/1741] 62104: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1587/1741] 36349: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1588/1741] 4544: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1589/1741] 62155: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1590/1741] 62159: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1591/1741] 4086: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1592/1741] 4132: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1593/1741] 4456: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1594/1741] 4457: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1595/1741] 50564: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1596/1741] 3568: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1597/1741] 60557: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1598/1741] 60551: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1599/1741] 60481: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1600/1741] 60586: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1601/1741] 60546: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1602/1741] 60539: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1603/1741] 4405: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1604/1741] 2723: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1605/1741] 4383: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1606/1741] 2471: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1607/1741] 4313: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1608/1741] 4318: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1609/1741] 5166: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1610/1741] 5509: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1611/1741] 61878: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1612/1741] 4885: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1613/1741] 3232: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1614/1741] 2987: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1615/1741] 3123: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1616/1741] 2982: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1617/1741] 3327: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1618/1741] 3539: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1619/1741] 3313: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1620/1741] 3314: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1621/1741] 2985: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1622/1741] 3103: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1623/1741] 3317: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1624/1741] 3529: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1625/1741] 3122: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1626/1741] 3311: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1627/1741] 3422: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1628/1741] 3248: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1629/1741] 1272: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1630/1741] 1305: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1631/1741] 1208: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1632/1741] 5620: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1633/1741] 1169: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1634/1741] 1162: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1635/1741] 2869: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1636/1741] 660: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1637/1741] 4625: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1638/1741] 21112: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1639/1741] 60755: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1640/1741] 60833: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1641/1741] 61386: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1642/1741] 60793: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1643/1741] 60788: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1644/1741] 3767: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1645/1741] 3979: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1646/1741] 4033: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1647/1741] 5500: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1648/1741] 5493: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1649/1741] 1979: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1650/1741] 4201: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1651/1741] 60463: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1652/1741] 2844: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1653/1741] 1919: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1654/1741] 60437: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1655/1741] 60769: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1656/1741] 60757: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1657/1741] 1725: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1658/1741] 60701: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1659/1741] 4515: skip - no Shopify donor for SKU
+  [1660/1741] 61447: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1661/1741] 61513: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1662/1741] 61533: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1663/1741] 4563: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1664/1741] 776: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1665/1741] 60695: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1666/1741] 4555: skip - no Shopify donor for SKU
+  [1667/1741] 3941: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1668/1741] 46962: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1669/1741] 60631: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1670/1741] 61411: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1671/1741] 60411: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1672/1741] 61781: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1673/1741] 17368: skip - no Shopify donor for SKU
+  [1674/1741] 17364: skip - no Shopify donor for SKU
+  [1675/1741] 17375: skip - no Shopify donor for SKU
+  [1676/1741] 4633: skip - no Shopify donor for SKU
+  [1677/1741] 5394: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1678/1741] 5157: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1679/1741] 60783: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1680/1741] 60569: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1681/1741] 60383: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1682/1741] 60747: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1683/1741] 60380: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1684/1741] 60622: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1685/1741] 60577: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1686/1741] 6201: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1687/1741] 61183: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1688/1741] 2063: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1689/1741] 61740: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1690/1741] 2074: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1691/1741] 4837: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1692/1741] 3063: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1693/1741] 6625: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1694/1741] 6538: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1695/1741] 6532: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1696/1741] 1096: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1697/1741] 6492: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1698/1741] 1083: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1699/1741] 3071: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1700/1741] 361: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1701/1741] 2726: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1702/1741] 2758: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1703/1741] 2886: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1704/1741] 4908: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1705/1741] 6289: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1706/1741] 6263: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1707/1741] 6282: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1708/1741] 6266: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1709/1741] 2731: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1710/1741] 4788: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1711/1741] 4803: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1712/1741] 5950: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1713/1741] 30680: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1714/1741] 1360: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1715/1741] 5152: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1716/1741] 61348: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1717/1741] 6239: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1718/1741] 5858: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1719/1741] 6070: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1720/1741] 61318: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1721/1741] 61321: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1722/1741] 4678: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1723/1741] 2938: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1724/1741] 2788: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1725/1741] 2977: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1726/1741] 3912: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1727/1741] 3898: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1728/1741] 4714: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1729/1741] 61492: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1730/1741] 61491: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1731/1741] 2497: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1732/1741] 61426: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1733/1741] 5919: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1734/1741] 2950: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1735/1741] 2897: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1736/1741] 61363: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1737/1741] 3393: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1738/1741] 5277: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1739/1741] 2913: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1740/1741] 4640: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1741/1741] 2870: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+Skip cache: +1467 recorded, 16923 held (these are not re-checked until their TTL lapses)
+
+Summary: {'pushed': 132, 'error': 2, 'skip': 1470, 'review': 137}
+Plan written -> data/batch_plan.csv  |  ledger updated
+[2026-09-20 06:33:42] sweep finished (exit 0)
+Auditing 300 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 296/296 display (100%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule -: 1/1 display (100%)
+   Rule A: 252/252 display (100%)
+   Rule B: 43/43 display (100%)
+
+Nothing to score (296 SKU(s) all in known non-displaying categories) -- threshold not applied.
+
+Per-SKU detail -> data/display_audit.csv
+(rotating drift sample: 250 of 6470 ledgered SKUs, offset 1050)
+Auditing 250 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 205/227 display (90%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule -: 1/1 display (100%)
+   Rule A: 171/176 display (97%)
+   Rule B: 33/50 display (66%)
+
+Categories where NOTHING displays:
+   cat 107062: 0/7   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 179679: 0/5   [A] includes Rule A -> a genuine CATEGORY-level display problem [known non-displaying category]
+   cat 179671: 0/5   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 169395: 0/2   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 174119: 0/1   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 38771: 0/1   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+   cat 21647: 0/1   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+
+Nothing to score (227 SKU(s) all in known non-displaying categories) -- threshold not applied.
+
+Per-SKU detail -> data/drift_audit.csv
