@@ -50,10 +50,9 @@
   .fact { border-top: 3px solid var(--ink); padding-top: 6px; }
   .fact .n { font-family: var(--display); font-size: 1.9rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
   .fact .l { font-size: 0.85rem; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.06em; }
-  .plan { display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 24px; align-items: start; margin-bottom: 28px; }
-  .plan-box { background: var(--paper); border: 1px solid var(--line); padding: 12px; overflow-x: auto; }
-  svg { display: block; width: 100%; height: auto; max-width: 620px; margin: 0 auto; font-family: var(--body); }
-  .legend { display: grid; gap: 10px; font-size: 0.95rem; }
+  .plan-box { background: var(--paper); border: 1px solid var(--line); padding: 12px; overflow-x: auto; margin-bottom: 16px; }
+  svg { display: block; width: 100%; height: auto; max-width: 1000px; margin: 0 auto; font-family: var(--body); }
+  .legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px 20px; font-size: 0.92rem; margin-bottom: 30px; }
   .legend .row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; }
   .sw { width: 22px; height: 16px; border: 1.5px solid; margin-top: 3px; }
   .sw.lift { background: var(--lift-soft); border-color: var(--lift); }
@@ -61,59 +60,63 @@
   .sw.pack { background: var(--pack-soft); border-color: var(--pack); }
   .sw.util { background: var(--util-soft); border-color: var(--util); }
   .sw.lane { background: var(--lane); border-color: var(--line); }
-  .sw.floor { background: var(--floor); border-color: var(--line); }
+  .sw.floor { background: var(--office); border-color: var(--line); }
   .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 28px; }
   ol { padding-left: 1.4em; margin: 0; }
   ol li { margin-bottom: 8px; max-width: 62ch; }
   ol li b { font-weight: 600; }
   table { border-collapse: collapse; width: 100%; max-width: 560px; font-size: 0.95rem; }
-  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
-  td.num, th.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.num, th.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
   tfoot td { font-weight: 600; border-top: 2px solid var(--ink); }
   .note { font-size: 0.9rem; color: var(--ink-2); max-width: 70ch; }
-  @media (max-width: 760px) { .plan { grid-template-columns: 1fr; } }
+  .callout { border-left: 4px solid var(--warn); padding: 8px 14px; background: var(--paper); max-width: 72ch; margin: 0 0 28px; }
+  .callout b { font-weight: 600; }
+  .flow { font-family: var(--mono); font-size: 0.9rem; background: var(--paper); border: 1px solid var(--line); padding: 10px 14px; overflow-x: auto; white-space: nowrap; margin: 0 0 28px; }
 </style>
 
 <div class="wrap">
   <header>
     <h1>New Warehouse Floor Plan</h1>
-    <div class="stamp">Last updated <strong>Sep 24, 2026, 7:26 PM ET</strong> · rev 1</div>
+    <div class="stamp">Last updated <strong>Sep 24, 2026, 7:38 PM ET</strong> · rev 2 (doors on the 93 ft wall)</div>
   </header>
 
   <div class="facts">
-    <div class="fact"><div class="n">58 × 93 ft</div><div class="l">Main room, 5,394 sq ft</div></div>
-    <div class="fact"><div class="n">18 to 21 ft</div><div class="l">Roof, sloped</div></div>
-    <div class="fact"><div class="n">2 lifts</div><div class="l">+ 1 drain bay, lift-ready</div></div>
-    <div class="fact"><div class="n">240</div><div class="l">Pallet positions (4 levels)</div></div>
-    <div class="fact"><div class="n">2,320</div><div class="l">Sq ft racks + aisles</div></div>
+    <div class="fact"><div class="n">93 × 58 ft</div><div class="l">Main room, 5,394 sq ft</div></div>
+    <div class="fact"><div class="n">18 to 21 ft</div><div class="l">Roof, sloped · 12 ft doors</div></div>
+    <div class="fact"><div class="n">2 bays</div><div class="l">1 lift now, bay 2 lift-ready</div></div>
+    <div class="fact"><div class="n">256</div><div class="l">Pallet positions + 40 ft shelving</div></div>
+    <div class="fact"><div class="n">~8k</div><div class="l">Items indoors at good access</div></div>
   </div>
 
-  <div class="plan">
-    <div class="plan-box"><svg id="plan" viewBox="0 0 590 790" role="img" aria-label="Floor plan of the 58 by 93 foot warehouse"></svg></div>
-    <div class="legend">
-      <h2>Legend</h2>
-      <div class="row"><div class="sw lift"></div><div><b>Lift bays</b> (14 × 26 ft each). Two-post lifts, car noses in from the drive lane.</div></div>
-      <div class="row"><div class="sw lift" style="opacity:.55"></div><div><b>Drain / prep bay.</b> Fluids, battery, airbags pulled here first. Sized to take a third lift later.</div></div>
-      <div class="row"><div class="sw pack"></div><div><b>Packing, photo, shipping.</b> At the 10 ft door so carriers load without crossing the shop.</div></div>
-      <div class="row"><div class="sw rack"></div><div><b>Pallet racking.</b> 42 in deep, 8 ft bays, 16 ft uprights. Rows run front to back so every aisle opens onto the cross aisle.</div></div>
-      <div class="row"><div class="sw util"></div><div><b>Utility strip.</b> Waste oil, coolant, compressor, electrical. Against the front wall, off the drive path.</div></div>
-      <div class="row"><div class="sw lane"></div><div><b>Drive lane and aisles.</b> 14 ft front lane, 10 ft cross aisle, 12 ft rack aisles (forklift-safe).</div></div>
-      <div class="row"><div class="sw floor"></div><div><b>Offices / small rooms.</b> Attached on the right, not drawn to scale.</div></div>
-    </div>
+  <div class="plan-box"><svg id="plan" viewBox="0 0 800 530" role="img" aria-label="Floor plan of the 93 by 58 foot warehouse"></svg></div>
+  <div class="legend">
+    <div class="row"><div class="sw lift"></div><div><b>Dismantling bays</b> 14 × 26 ft. Bay 1 gets the two-post lift. Bay 2 is a floor bay for interior and body stripping, slab and power ready for a second lift.</div></div>
+    <div class="row"><div class="sw util"></div><div><b>Teardown and utility</b> behind the bays: benches, parts carts, engine stand, waste oil and coolant tanks, compressor.</div></div>
+    <div class="row"><div class="sw pack"></div><div><b>Shipping and packing</b> at the dock-level 10 ft door. Every outgoing box leaves here.</div></div>
+    <div class="row"><div class="sw rack"></div><div><b>Racking.</b> Rows A to D pallet rack, 42 in deep, 8 ft bays, 16 ft uprights. Row E and the back wall are bin and tire shelving.</div></div>
+    <div class="row"><div class="sw lane"></div><div><b>Aisles.</b> 13 ft spine along the front wall, 16 ft lane at the drive-in door, 9 ft rack aisles sized for an electric reach stacker.</div></div>
+    <div class="row"><div class="sw floor"></div><div><b>Office wing</b> off the right wall, not to scale. Photo station lives there.</div></div>
   </div>
+
+  <h2>Flow, right to left</h2>
+  <div class="flow">car in (11 ft door) → Bay 2 strip interior + body → Bay 1 lift: fluids, drivetrain, suspension → hulk out (11 ft door)<br>parts → teardown benches → photos (office wing) → racks A–E → pick → pack → dock door (10 ft)</div>
+
+  <div class="callout"><b>17,000 items will not all fit in this room at good access.</b> The plan gives about 1,070 sq ft of rack footprint. My rough estimate is 7,000 to 9,000 items indoors, mostly small and medium parts in bins. Body panels, engines, wheels and slow movers need the outdoor option below, or a mezzanine.</div>
 
   <div class="cols">
     <section>
-      <h2>Zones, front to back</h2>
+      <h2>Zones, right to left</h2>
       <ol>
-        <li><b>Drive lane, 58 × 14 ft.</b> Cars enter through the 11 ft door on the right. Stripped shells leave the same way. Keep it empty; one waiting car max, on the right half only.</li>
-        <li><b>Utility strip, 14 × 4 ft</b> on the front wall between the doors. Waste oil and coolant tanks, air compressor, electrical panel if it lands here.</li>
-        <li><b>Lift 1 and Lift 2, 14 × 26 ft each,</b> right side, straight in from the 11 ft door. Two-post asymmetric lifts. Rolling tool carts and part bins live between the posts.</li>
-        <li><b>Drain / prep bay, 14 × 26 ft.</b> Ground level. Drain cart, battery and airbag cabinets, wheel dolly. Every car stops here before a lift. Slab and power are laid out so a third lift drops in with no rework.</li>
-        <li><b>Packing, photo and shipping, 16 × 26 ft</b> at the 10 ft door. Photo table with backdrop against the left wall, two packing benches, pallet staging by the door.</li>
-        <li><b>Cross aisle, 58 × 10 ft.</b> Forklift turns here. Forklift parking and charger in the right end by the office wall.</li>
-        <li><b>Rack rows A to D, 40 ft long.</b> A = left wall single row, small-parts bin shelving (sensors, modules, trim). B and C = back-to-back pallet rows for body panels, engines, transmissions. D = right wall single row, leave a gap wherever the office door is.</li>
-        <li><b>Back walkway, 58 × 3 ft</b> for egress and rack access from the far end.</li>
+        <li><b>Drive lane, 28 × 16 ft</b> inside the 11 ft door. Cars in, hulks out, forklift in and out over the ramp. Keep it clear; one waiting car max.</li>
+        <li><b>Bay 1, lift, 14 × 26 ft,</b> straight in from the door. 10,000 lb two-post asymmetric. Fluids drained on the lift as step one, drain cart rolls under.</li>
+        <li><b>Bay 2, floor bay, 14 × 26 ft.</b> Interior, lights, glass, body panels, modules. No lift needed for these. Anchors and 220 V run now so a lift drops in later.</li>
+        <li><b>Teardown and utility, 28 × 16 ft</b> behind the bays. Two benches, engine stand, six parts carts, waste oil and coolant tanks in the back corner, compressor beside them.</li>
+        <li><b>Row E, bin shelving, 3 ft deep × 40 ft</b> next to the bays. Fast small parts and this week's teardown output.</li>
+        <li><b>Rows C and D, back-to-back pallet rack, 40 ft long.</b> Medium and large parts on wire decks: headlights, radiators, control arms, seats, bumpers.</li>
+        <li><b>Rows A and B, 32 ft long,</b> behind the shipping pocket. Aisle 1 opens into packing, so put the fastest-selling stock here.</li>
+        <li><b>Back walkway, 5 ft,</b> with a 2 ft tire and wheel rack along the wall.</li>
+        <li><b>Shipping and packing, 20 × 21 ft</b> at the dock door. Pallet staging at the door, two 8 ft packing benches, label printer and scale.</li>
       </ol>
     </section>
     <section>
@@ -121,45 +124,64 @@
       <table>
         <thead><tr><th>Zone</th><th class="num">Sq ft</th><th class="num">Share</th></tr></thead>
         <tbody>
-          <tr><td>Rack aisles (3 × 12 ft)</td><td class="num">1,440</td><td class="num">27%</td></tr>
-          <tr><td>Rack footprint (6 faces)</td><td class="num">880</td><td class="num">16%</td></tr>
-          <tr><td>Drive lane</td><td class="num">756</td><td class="num">14%</td></tr>
-          <tr><td>Lifts (2 bays)</td><td class="num">728</td><td class="num">13%</td></tr>
-          <tr><td>Cross aisle</td><td class="num">580</td><td class="num">11%</td></tr>
-          <tr><td>Packing / shipping</td><td class="num">416</td><td class="num">8%</td></tr>
-          <tr><td>Drain / prep bay</td><td class="num">364</td><td class="num">7%</td></tr>
-          <tr><td>Back walkway</td><td class="num">174</td><td class="num">3%</td></tr>
-          <tr><td>Utility strip</td><td class="num">56</td><td class="num">1%</td></tr>
+          <tr><td>Rack aisles (4 × 9 ft)</td><td class="num">1,368</td><td class="num">25%</td></tr>
+          <tr><td>Rack footprint (rows A to E)</td><td class="num">1,072</td><td class="num">20%</td></tr>
+          <tr><td>Bays 1 and 2</td><td class="num">728</td><td class="num">13%</td></tr>
+          <tr><td>Spine aisle (front wall)</td><td class="num">585</td><td class="num">11%</td></tr>
+          <tr><td>Drive lane</td><td class="num">448</td><td class="num">8%</td></tr>
+          <tr><td>Teardown and utility</td><td class="num">448</td><td class="num">8%</td></tr>
+          <tr><td>Shipping and packing</td><td class="num">420</td><td class="num">8%</td></tr>
+          <tr><td>Back walkway + tire rack</td><td class="num">325</td><td class="num">6%</td></tr>
         </tbody>
         <tfoot><tr><td>Total</td><td class="num">5,394</td><td class="num">100%</td></tr></tfoot>
       </table>
-      <p class="note">Storage math: 6 rack faces × 5 bays × 2 pallets × 4 levels = 240 pallet positions. If Row A becomes bin shelving as suggested, that is 200 pallet positions plus 40 ft of bin shelving, 6 shelves high. The 21 ft side of the roof can take one more beam level on that wall's row.</p>
+      <p class="note">Rack math: rows A (4 bays) + B (8) + C (10) + D (10) = 32 bays × 2 pallets × 4 levels = 256 pallet positions. Row E adds 40 ft of bin shelving, 7 shelves high. The 21 ft side of the roof takes one more beam level on whichever row sits under it.</p>
     </section>
   </div>
 
   <div class="cols">
     <section>
-      <h2>Assumptions I made</h2>
+      <h2>Storage, two scenarios</h2>
       <ol>
-        <li>Both garage doors and the man door are on the 58 ft wall, in the order sketched: 10 ft door near the left corner, 3 ft door then 11 ft door near the right corner.</li>
-        <li>Offices sit off the right 93 ft wall and have a door into the warehouse. Row D needs a gap there.</li>
-        <li>No doors, columns or drains on the back wall or the left wall.</li>
-        <li>You have or will get a forklift or walkie stacker with reach to 14 ft. Aisles are 12 ft for that reason. Hand-picking only would allow 8 ft aisles and one more double rack row.</li>
-        <li>Slab is at least 4 in of sound concrete where the lifts go. Confirm before ordering lifts.</li>
-        <li>Cars are pushed or driven in from the lot. A rollback does not need to back inside.</li>
-        <li>Everything stays indoors. No yard for hulks, so the shell exits within a day of stripping.</li>
+        <li><b>Indoors only.</b> Add a steel mezzanine over rows C and D and the spine, roughly 2,000 sq ft at 9 ft, with bin shelving on both levels. Adds about 5,000 small items. Total about 13,000. Still short of 17,000, and the mezzanine costs roughly the same as four 40 ft containers.</li>
+        <li><b>With outdoor storage (recommended).</b> Keep small and medium fast movers inside. Put body panels, hoods, bumpers, engines, transmissions, wheels and anything slow outside in 40 ft high-cube containers on a gravel pad, each with door racks or pallet rack inside. One container holds roughly 60 doors upright or 20 pallets. Four containers cover the gap. A metal storage building later replaces the containers on the same pad.</li>
+        <li><b>Either way,</b> bins for every small part. Loose small parts on wire decks are the biggest waste of cube in a salvage warehouse.</li>
+      </ol>
+    </section>
+    <section>
+      <h2>Equipment to buy</h2>
+      <ol>
+        <li>Two-post lift, 10,000 lb, asymmetric, 220 V single phase. Confirm slab first (core sample or landlord drawings, 4 in minimum, 3,000 psi).</li>
+        <li>Electric reach stacker or walkie stacker, 16 ft lift, for the 9 ft rack aisles.</li>
+        <li>Used counterbalance forklift, 5,000 lb, for the ramp, the yard, hulks and containers. Lives at the drive-in door.</li>
+        <li>Pallet rack: 32 bays of 96 in beams, 42 in deep, 16 ft uprights, wire decking, column guards on aisle ends.</li>
+        <li>Bin shelving 36 in × 18 in, 7 shelves, with bins. Row E and every mezzanine or container aisle.</li>
+        <li>Drain cart, 250 gal waste oil tank, coolant tank, battery and airbag cabinets, 60 gal compressor with air drops at both bays.</li>
+        <li>Six rolling parts carts, two teardown benches, two packing benches, scale, label printer.</li>
+        <li>Tire rack, 2 ft deep, along the back wall.</li>
+      </ol>
+    </section>
+  </div>
+
+  <div class="cols">
+    <section>
+      <h2>Assumptions</h2>
+      <ol>
+        <li>Door positions on the 93 ft wall: 10 ft dock door about 5 ft from the left corner, 3 ft man door then 11 ft drive-in door about 1 ft from the right corner.</li>
+        <li>Office wing door opens somewhere on the right wall into the drive lane or bays. Nothing in the plan blocks that wall.</li>
+        <li>Clear span, no columns, no doors on the back or left walls, slab at least 4 in.</li>
+        <li>10 people: 2 to 3 dismantling, 3 to 4 listing and photos in the office wing, 2 to 3 packing, 1 stocking and forklift.</li>
+        <li>Item mix about 60% small, 30% medium, 10% large by count. The storage estimate moves with this.</li>
       </ol>
     </section>
     <section>
       <h2>Still need from you</h2>
       <ol>
-        <li>Garage door heights.</li>
-        <li>Which end of the building is the 21 ft side of the roof.</li>
         <li>Where the office door opens into the warehouse.</li>
-        <li>Forklift: yes or no, and its lift height.</li>
-        <li>Slab thickness, if known.</li>
-        <li>How many cars you want inside at once. Plan holds 3 in bays plus 1 waiting.</li>
-        <li>Rough split of big parts vs small parts in stock. Decides how many rows become bin shelving instead of pallet rack.</li>
+        <li>Which end of the building has the 21 ft roof.</li>
+        <li>Slab thickness before ordering the lift.</li>
+        <li>Is there a dock leveler or plate at the 10 ft door, or is it a plain truck-height opening?</li>
+        <li>Rough count of doors, hoods, bumpers and engines in stock. Sets the container count.</li>
       </ol>
     </section>
   </div>
@@ -168,14 +190,15 @@
 <script>
 (function () {
   var S = 7;               // px per foot
-  var OX = 62, OY = 34;    // building origin in the SVG
-  var W = 58, D = 93;      // feet
+  var OX = 46, OY = 40;    // building origin in the SVG
+  var W = 93, D = 58;      // feet: W along the front wall, D depth
   var svg = document.getElementById('plan');
   var NS = 'http://www.w3.org/2000/svg';
   var css = getComputedStyle(document.documentElement);
   function v(n) { return css.getPropertyValue(n).trim(); }
   function X(x) { return OX + x * S; }
   function Y(d) { return OY + (D - d) * S; }   // d = depth from the front wall; front wall drawn at the bottom
+  var DISPLAY = 'Barlow Condensed, Arial Narrow, sans-serif', MONO = 'IBM Plex Mono, Menlo, monospace';
   function el(tag, attrs, text) {
     var e = document.createElementNS(NS, tag);
     for (var k in attrs) e.setAttribute(k, attrs[k]);
@@ -186,147 +209,139 @@
     return el('rect', { x: X(x), y: Y(d1 + dep), width: w * S, height: dep * S, fill: fill, stroke: stroke, 'stroke-width': 1.2, 'stroke-dasharray': dash || 'none' });
   }
   function label(x, d, txt, size, color, weight, anchor) {
-    return el('text', { x: X(x), y: Y(d), 'font-size': size || 11, fill: color || v('--ink'), 'font-weight': weight || 600, 'text-anchor': anchor || 'middle', 'font-family': 'Barlow Condensed, Arial Narrow, sans-serif', 'letter-spacing': '0.02em' }, txt);
+    return el('text', { x: X(x), y: Y(d), 'font-size': size || 11, fill: color || v('--ink'), 'font-weight': weight || 600, 'text-anchor': anchor || 'middle', 'font-family': DISPLAY, 'letter-spacing': '0.02em' }, txt);
   }
   function mono(x, d, txt, size, anchor, color) {
-    return el('text', { x: X(x), y: Y(d), 'font-size': size || 9.5, fill: color || v('--ink-2'), 'text-anchor': anchor || 'middle', 'font-family': 'IBM Plex Mono, Menlo, monospace' }, txt);
+    return el('text', { x: X(x), y: Y(d), 'font-size': size || 9, fill: color || v('--ink-2'), 'text-anchor': anchor || 'middle', 'font-family': MONO }, txt);
   }
-
-  // Floor
-  rect(0, 0, W, D, v('--floor'), 'none');
-
-  // Drive lane + cross aisle + rack aisles
-  rect(0, 0, W, 14, v('--lane'), 'none');
-  rect(0, 40, W, 10, v('--lane'), 'none');
-  rect(0, 90, W, 3, v('--lane'), 'none');
-  [[3.5, 12], [23, 12], [42.5, 12]].forEach(function (a) { rect(a[0], 50, a[1], 40, v('--lane'), 'none'); });
-
-  // Utility strip
-  rect(16, 0, 14, 4, v('--util-soft'), v('--util'));
-  label(23, 1.3, 'OIL · COOLANT · AIR · PANEL', 8.5, v('--util'));
-
-  // Dismantling row
-  rect(44, 14, 14, 26, v('--lift-soft'), v('--lift'));
-  rect(30, 14, 14, 26, v('--lift-soft'), v('--lift'));
-  rect(16, 14, 14, 26, v('--lift-soft'), v('--lift'), '4 3');
-  rect(0, 14, 16, 26, v('--pack-soft'), v('--pack'));
-
-  // Two-post lift symbols + car outlines
-  function lift(cx) {
-    var d0 = 20;
-    el('rect', { x: X(cx - 7.5) + 2, y: Y(d0 + 15), width: 15 * S - 4, height: 15 * S, rx: 8, fill: 'none', stroke: v('--lift'), 'stroke-width': 1, 'stroke-dasharray': '3 3', opacity: 0.8 }).setAttribute('transform', 'translate(' + (X(cx) - X(cx - 7.5) - 7.5 * S + 0) + ',0)');
-    // car body ~6 ft wide x 15 ft long
-    el('rect', { x: X(cx - 3), y: Y(d0 + 15), width: 6 * S, height: 15 * S, rx: 9, fill: v('--paper'), stroke: v('--lift'), 'stroke-width': 1.4 });
-    el('rect', { x: X(cx - 2.2), y: Y(d0 + 11), width: 4.4 * S, height: 5.5 * S, rx: 4, fill: 'none', stroke: v('--lift'), 'stroke-width': 1, opacity: 0.7 });
-    // posts
-    el('rect', { x: X(cx - 5.2), y: Y(d0 + 8.2), width: 1.4 * S, height: 1.4 * S, fill: v('--lift') });
-    el('rect', { x: X(cx + 3.8), y: Y(d0 + 8.2), width: 1.4 * S, height: 1.4 * S, fill: v('--lift') });
+  function rlabel(x, d, txt, size, color, weight, family, spacing) {
+    var t = el('text', { 'font-size': size, fill: color, 'font-weight': weight || 400, 'text-anchor': 'middle', 'font-family': family || DISPLAY, 'letter-spacing': spacing || '0.04em' }, txt);
+    t.setAttribute('transform', 'translate(' + X(x) + ',' + Y(d) + ') rotate(-90)');
+    return t;
   }
-  lift(51); lift(37);
-  label(51, 37.5, 'LIFT 1', 12, v('--lift'));
-  label(37, 37.5, 'LIFT 2', 12, v('--lift'));
-  label(51, 15.8, '14 × 26', 9, v('--lift'), 500);
-  label(37, 15.8, '14 × 26', 9, v('--lift'), 500);
-  label(23, 37.5, 'DRAIN / PREP', 12, v('--lift'));
-  label(23, 34.5, 'future Lift 3', 9, v('--lift'), 500);
-  // drain bay furniture
-  el('rect', { x: X(17), y: Y(31), width: 4 * S, height: 2 * S, fill: v('--paper'), stroke: v('--lift'), 'stroke-width': 1 });
-  mono(19, 27.8, 'battery', 7.5, 'middle', v('--lift'));
-  el('rect', { x: X(25), y: Y(31), width: 4 * S, height: 2 * S, fill: v('--paper'), stroke: v('--lift'), 'stroke-width': 1 });
-  mono(27, 27.8, 'airbag', 7.5, 'middle', v('--lift'));
-  el('circle', { cx: X(23), cy: Y(22), r: 2.2 * S, fill: 'none', stroke: v('--lift'), 'stroke-width': 1, 'stroke-dasharray': '2 2' });
-  mono(23, 21.5, 'drain cart', 7.5, 'middle', v('--lift'));
-
-  // Packing area furniture
-  label(8, 37.5, 'PACK · SHIP', 12, v('--pack'));
-  el('rect', { x: X(0.8), y: Y(36), width: 2.5 * S, height: 10 * S, fill: v('--paper'), stroke: v('--pack'), 'stroke-width': 1 });
-  mono(2.05, 24.4, 'photo', 7.5, 'middle', v('--pack'));
-  el('rect', { x: X(5), y: Y(34), width: 10 * S, height: 2.5 * S, fill: v('--paper'), stroke: v('--pack'), 'stroke-width': 1 });
-  mono(10, 32.4, 'packing bench', 7.5, 'middle', v('--pack'));
-  el('rect', { x: X(5), y: Y(29), width: 10 * S, height: 2.5 * S, fill: v('--paper'), stroke: v('--pack'), 'stroke-width': 1 });
-  mono(10, 27.4, 'packing bench', 7.5, 'middle', v('--pack'));
-  el('rect', { x: X(3), y: Y(22), width: 10 * S, height: 6 * S, fill: 'none', stroke: v('--pack'), 'stroke-width': 1, 'stroke-dasharray': '3 2' });
-  mono(8, 18.6, 'pallet staging', 7.5, 'middle', v('--pack'));
-  el('rect', { x: X(16.2), y: Y(38), width: 0.6 * S, height: 24 * S, fill: v('--pack'), opacity: 0.35 });
-
-  // Cross aisle labels + forklift spot
-  label(29, 44.2, 'CROSS AISLE · 10 ft', 12);
-  el('rect', { x: X(50), y: Y(49.5), width: 7.5 * S, height: 9 * S, fill: 'none', stroke: v('--ink-2'), 'stroke-width': 1, 'stroke-dasharray': '3 2' });
-  mono(53.75, 45.6, 'forklift', 7.5, 'middle');
-  mono(53.75, 43.6, '+ charger', 7.5, 'middle');
-  label(29, 6.5, 'DRIVE LANE · 14 ft', 12);
-  el('path', { d: 'M ' + X(53) + ' ' + Y(0.5) + ' L ' + X(53) + ' ' + Y(12), stroke: v('--ink-2'), 'stroke-width': 1.2, fill: 'none', 'marker-end': 'url(#arr)' });
-  el('path', { d: 'M ' + X(49) + ' ' + Y(12) + ' L ' + X(49) + ' ' + Y(0.5), stroke: v('--ink-2'), 'stroke-width': 1.2, fill: 'none', 'marker-end': 'url(#arr)', 'stroke-dasharray': '3 2' });
-  mono(42, 6.2, 'cars in / shells out', 7.5, 'middle');
-
-  // Rack rows: A single left, B double, C double, D single right
-  function rackRow(x, w, name, faces, kind) {
-    rect(x, 50, w, 40, v('--rack-soft'), v('--rack'));
-    for (var i = 0; i < 5; i++) {
-      var y0 = Y(50 + (i + 1) * 8);
-      el('line', { x1: X(x), y1: y0, x2: X(x + w), y2: y0, stroke: v('--rack'), 'stroke-width': 0.8, opacity: 0.7 });
-    }
-    if (faces === 2) el('line', { x1: X(x + w / 2), y1: Y(90), x2: X(x + w / 2), y2: Y(50), stroke: v('--rack'), 'stroke-width': 0.8, 'stroke-dasharray': '2 2' });
-    var t = el('text', { 'font-size': 10, fill: v('--rack'), 'font-weight': 700, 'text-anchor': 'middle', 'font-family': 'Barlow Condensed, Arial Narrow, sans-serif', 'letter-spacing': '0.08em' }, name);
-    t.setAttribute('transform', 'translate(' + (X(x + w / 2) - (faces === 2 ? 3.5 : 3.5)) + ',' + Y(70) + ') rotate(-90)');
-    var k = el('text', { 'font-size': 7.5, fill: v('--rack'), 'text-anchor': 'middle', 'font-family': 'IBM Plex Mono, Menlo, monospace' }, kind);
-    k.setAttribute('transform', 'translate(' + (X(x + w / 2) + (faces === 2 ? 7 : 7)) + ',' + Y(70) + ') rotate(-90)');
+  function box(x, d, w, dep, color, dash) {
+    return el('rect', { x: X(x), y: Y(d + dep), width: w * S, height: dep * S, fill: dash ? 'none' : v('--paper'), stroke: color, 'stroke-width': 1, 'stroke-dasharray': dash || 'none' });
   }
-  rackRow(0, 3.5, 'ROW A', 1, 'bin shelving');
-  rackRow(15.5, 7.5, 'ROW B', 2, 'pallet rack');
-  rackRow(35, 7.5, 'ROW C', 2, 'pallet rack');
-  rackRow(54.5, 3.5, 'ROW D', 1, 'pallet rack');
-  [[3.5, 'AISLE 1'], [23, 'AISLE 2'], [42.5, 'AISLE 3']].forEach(function (a) {
-    var t = el('text', { 'font-size': 11, fill: v('--ink-2'), 'font-weight': 600, 'text-anchor': 'middle', 'font-family': 'Barlow Condensed, Arial Narrow, sans-serif', 'letter-spacing': '0.06em' }, a[1] + ' · 12 ft');
-    t.setAttribute('transform', 'translate(' + (X(a[0] + 6) + 4) + ',' + Y(70) + ') rotate(-90)');
-  });
-  // office door gap marker in Row D
-  el('rect', { x: X(54.5), y: Y(60), width: 3.5 * S, height: 4 * S, fill: v('--paper'), stroke: v('--warn'), 'stroke-width': 1, 'stroke-dasharray': '2 2' });
-  var q = el('text', { 'font-size': 7, fill: v('--warn'), 'text-anchor': 'middle', 'font-family': 'IBM Plex Mono, Menlo, monospace' }, 'gap if office door?');
-  q.setAttribute('transform', 'translate(' + (X(56.25) + 2.5) + ',' + Y(58) + ') rotate(-90)');
-  mono(29, 91.2, 'back walkway · 3 ft', 8, 'middle');
-
-  // Walls
-  el('rect', { x: X(0), y: Y(D), width: W * S, height: D * S, fill: 'none', stroke: v('--ink'), 'stroke-width': 3 });
-  // Door openings on the front wall (draw over the wall)
-  function door(x, w, name, tall) {
-    el('line', { x1: X(x), y1: Y(0), x2: X(x + w), y2: Y(0), stroke: v('--paper'), 'stroke-width': 4 });
-    el('line', { x1: X(x), y1: Y(0), x2: X(x + w), y2: Y(0), stroke: v('--ink'), 'stroke-width': 1, 'stroke-dasharray': tall ? '5 3' : '2 2' });
-    el('text', { x: X(x + w / 2), y: Y(0) + 13, 'font-size': 9.5, 'text-anchor': 'middle', fill: v('--ink'), 'font-family': 'IBM Plex Mono, Menlo, monospace' }, name);
-  }
-  door(5, 10, '10 ft door', true);
-  door(42, 3, '3 ft', false);
-  door(46, 11, '11 ft door', true);
-
-  // Office wing stub on the right
-  el('rect', { x: X(W) + 1.5, y: Y(93), width: 58, height: 93 * S, fill: v('--office'), stroke: v('--line'), 'stroke-width': 1, 'stroke-dasharray': '4 3' });
-  var o = el('text', { 'font-size': 11, fill: v('--ink-2'), 'text-anchor': 'middle', 'font-family': 'Barlow Condensed, Arial Narrow, sans-serif', 'letter-spacing': '0.06em' }, 'OFFICES + SMALL ROOMS (not to scale)');
-  o.setAttribute('transform', 'translate(' + (X(W) + 34) + ',' + Y(46) + ') rotate(-90)');
-
-  // Dimension lines
-  function dim(x1, y1, x2, y2, txt, rot) {
-    el('line', { x1: x1, y1: y1, x2: x2, y2: y2, stroke: v('--ink-2'), 'stroke-width': 1 });
-    el('line', { x1: x1, y1: y1 - 4, x2: x1, y2: y1 + 4, stroke: v('--ink-2'), 'stroke-width': 1, transform: rot ? 'rotate(90 ' + x1 + ' ' + y1 + ')' : '' });
-    el('line', { x1: x2, y1: y2 - 4, x2: x2, y2: y2 + 4, stroke: v('--ink-2'), 'stroke-width': 1, transform: rot ? 'rotate(90 ' + x2 + ' ' + y2 + ')' : '' });
-    var t = el('text', { 'font-size': 11, fill: v('--ink'), 'text-anchor': 'middle', 'font-family': 'IBM Plex Mono, Menlo, monospace', 'font-weight': 500 }, txt);
-    var mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
-    t.setAttribute('transform', rot ? 'translate(' + (mx - 6) + ',' + my + ') rotate(-90)' : 'translate(' + mx + ',' + (my - 5) + ')');
-  }
-  dim(X(0), Y(0) + 34, X(W), Y(0) + 34, '58 ft (front wall, doors)');
-  dim(X(0) - 26, Y(0), X(0) - 26, Y(D), '93 ft', true);
-  // Depth ticks for the zones on the left dimension
-  [[0, '0'], [14, '14'], [40, '40'], [50, '50'], [90, '90']].forEach(function (p) {
-    el('line', { x1: X(0) - 14, y1: Y(p[0]), x2: X(0) - 2, y2: Y(p[0]), stroke: v('--ink-2'), 'stroke-width': 0.8 });
-    el('text', { x: X(0) - 16, y: Y(p[0]) + 3.5, 'font-size': 8.5, 'text-anchor': 'end', fill: v('--ink-2'), 'font-family': 'IBM Plex Mono, Menlo, monospace' }, p[1]);
-  });
-  // North-ish caption
-  el('text', { x: X(0), y: OY - 12, 'font-size': 10, fill: v('--ink-2'), 'font-family': 'IBM Plex Mono, Menlo, monospace' }, 'scale 7 px = 1 ft · front wall at the bottom, as sketched');
 
   // Arrow marker
   var defs = el('defs', {});
   var m = document.createElementNS(NS, 'marker');
   m.setAttribute('id', 'arr'); m.setAttribute('markerWidth', '8'); m.setAttribute('markerHeight', '8'); m.setAttribute('refX', '6'); m.setAttribute('refY', '4'); m.setAttribute('orient', 'auto');
-  var p = document.createElementNS(NS, 'path'); p.setAttribute('d', 'M0,0 L8,4 L0,8 z'); p.setAttribute('fill', v('--ink-2'));
-  m.appendChild(p); defs.appendChild(m);
+  var pth = document.createElementNS(NS, 'path'); pth.setAttribute('d', 'M0,0 L8,4 L0,8 z'); pth.setAttribute('fill', v('--ink-2'));
+  m.appendChild(pth); defs.appendChild(m);
+
+  // Floor and aisles
+  rect(0, 0, W, D, v('--floor'), 'none');
+  rect(20, 0, 45, 13, v('--lane'), 'none');          // spine
+  rect(65, 0, 28, 16, v('--lane'), 'none');          // drive lane
+  rect(0, 53, 65, 5, v('--lane'), 'none');           // back walkway
+  rect(3.5, 21, 9, 32, v('--lane'), 'none');         // aisle 1
+  [[20], [36.5], [53]].forEach(function (a) { rect(a[0], 13, 9, 40, v('--lane'), 'none'); });
+
+  // Shipping pocket
+  rect(0, 0, 20, 21, v('--pack-soft'), v('--pack'));
+  label(10, 18.6, 'SHIP · PACK', 12, v('--pack'));
+  box(3, 2, 14, 7, v('--pack'), '3 2'); mono(10, 5, 'pallet staging', 7.5, 'middle', v('--pack'));
+  box(1, 12.5, 8.5, 2.5, v('--pack')); box(10.5, 12.5, 8.5, 2.5, v('--pack'));
+  mono(10, 11, 'packing benches · scale · labels', 7, 'middle', v('--pack'));
+
+  // Bays
+  rect(79, 16, 14, 26, v('--lift-soft'), v('--lift'));
+  rect(65, 16, 14, 26, v('--lift-soft'), v('--lift'), '4 3');
+  function car(cx, posts) {
+    var d0 = 22;
+    el('rect', { x: X(cx - 3), y: Y(d0 + 15), width: 6 * S, height: 15 * S, rx: 9, fill: v('--paper'), stroke: v('--lift'), 'stroke-width': 1.4 });
+    el('rect', { x: X(cx - 2.2), y: Y(d0 + 11), width: 4.4 * S, height: 5.5 * S, rx: 4, fill: 'none', stroke: v('--lift'), 'stroke-width': 1, opacity: 0.7 });
+    if (posts) {
+      el('rect', { x: X(cx - 5.2), y: Y(d0 + 8.2), width: 1.4 * S, height: 1.4 * S, fill: v('--lift') });
+      el('rect', { x: X(cx + 3.8), y: Y(d0 + 8.2), width: 1.4 * S, height: 1.4 * S, fill: v('--lift') });
+    }
+  }
+  car(86, true); car(72, false);
+  label(86, 39.6, 'BAY 1 · LIFT', 12, v('--lift'));
+  label(72, 39.6, 'BAY 2 · FLOOR', 12, v('--lift'));
+  label(72, 37, 'lift-ready', 8.5, v('--lift'), 500);
+  label(86, 17.8, '14 × 26', 8.5, v('--lift'), 500);
+  label(72, 17.8, '14 × 26', 8.5, v('--lift'), 500);
+
+  // Teardown + utility behind the bays
+  rect(65, 42, 28, 16, v('--util-soft'), v('--util'));
+  label(76, 52.5, 'TEARDOWN · UTILITY', 11, v('--util'));
+  box(66, 55.5, 9, 2.5, v('--util')); box(76, 55.5, 9, 2.5, v('--util'));
+  mono(75.5, 54.3, 'benches', 7, 'middle', v('--util'));
+  box(86.5, 52, 6, 6, v('--util')); mono(89.5, 54.6, 'waste oil', 6.5, 'middle', v('--util')); mono(89.5, 53, 'coolant', 6.5, 'middle', v('--util'));
+  box(86.5, 46, 6, 5, v('--util')); mono(89.5, 48.2, 'compressor', 6.5, 'middle', v('--util'));
+  box(66, 43, 15, 7, v('--util'), '3 2'); mono(73.5, 46.2, 'parts carts (6)', 7, 'middle', v('--util'));
+  el('circle', { cx: X(83.5), cy: Y(46.5), r: 1.8 * S, fill: 'none', stroke: v('--util'), 'stroke-width': 1 }); mono(84.5, 43.0, 'engine stand', 6.5, 'middle', v('--util'));
+
+  // Rack rows
+  function rackRow(x, w, d1, len, name, faces, kind) {
+    rect(x, d1, w, len, v('--rack-soft'), v('--rack'));
+    for (var i = 1; i < len / 8; i++) el('line', { x1: X(x), y1: Y(d1 + i * 8), x2: X(x + w), y2: Y(d1 + i * 8), stroke: v('--rack'), 'stroke-width': 0.8, opacity: 0.7 });
+    if (faces === 2) el('line', { x1: X(x + w / 2), y1: Y(d1 + len), x2: X(x + w / 2), y2: Y(d1), stroke: v('--rack'), 'stroke-width': 0.8, 'stroke-dasharray': '2 2' });
+    var mid = d1 + len / 2;
+    rlabel(x + w / 2 - 0.45, mid, name, 10, v('--rack'), 700, DISPLAY, '0.08em');
+    rlabel(x + w / 2 + 1.0, mid, kind, 7, v('--rack'), 400, MONO, '0');
+  }
+  rackRow(0, 3.5, 21, 32, 'ROW A', 1, 'pallet rack');
+  rackRow(12.5, 7.5, 21, 32, 'ROW B', 2, 'pallet rack');
+  rackRow(29, 7.5, 13, 40, 'ROW C', 2, 'pallet rack');
+  rackRow(45.5, 7.5, 13, 40, 'ROW D', 2, 'pallet rack');
+  rackRow(62, 3, 13, 40, 'ROW E', 1, 'bin shelving');
+  [[3.5, 37, 'AISLE 1'], [20, 33, 'AISLE 2'], [36.5, 33, 'AISLE 3'], [53, 33, 'AISLE 4']].forEach(function (a) {
+    rlabel(a[0] + 4.5, a[1], a[2] + ' · 9 ft', 10.5, v('--ink-2'), 600, DISPLAY, '0.06em');
+  });
+  // tire rack along the back wall
+  rect(0, 56, 65, 2, v('--rack-soft'), v('--rack'));
+  mono(32.5, 56.6, 'tire + wheel rack · 2 ft deep', 7, 'middle', v('--rack'));
+  mono(32.5, 53.9, 'back walkway · 5 ft', 8, 'middle');
+
+  // Aisle labels
+  label(42.5, 6.2, 'SPINE AISLE · 13 ft', 12);
+  label(76, 7.5, 'DRIVE LANE · 16 ft', 12);
+  el('path', { d: 'M ' + X(88.5) + ' ' + Y(0.6) + ' L ' + X(88.5) + ' ' + Y(13), stroke: v('--ink-2'), 'stroke-width': 1.2, fill: 'none', 'marker-end': 'url(#arr)' });
+  el('path', { d: 'M ' + X(84) + ' ' + Y(13) + ' L ' + X(84) + ' ' + Y(0.6), stroke: v('--ink-2'), 'stroke-width': 1.2, fill: 'none', 'marker-end': 'url(#arr)', 'stroke-dasharray': '3 2' });
+  mono(76, 3.2, 'cars in · hulks out', 7.5, 'middle');
+  el('path', { d: 'M ' + X(10) + ' ' + Y(9.5) + ' L ' + X(10) + ' ' + Y(1), stroke: v('--pack'), 'stroke-width': 1.2, fill: 'none', 'marker-end': 'url(#arr)' });
+
+  // Walls
+  el('rect', { x: X(0), y: Y(D), width: W * S, height: D * S, fill: 'none', stroke: v('--ink'), 'stroke-width': 3 });
+  function door(x, w, name, tall) {
+    el('line', { x1: X(x), y1: Y(0), x2: X(x + w), y2: Y(0), stroke: v('--paper'), 'stroke-width': 4 });
+    el('line', { x1: X(x), y1: Y(0), x2: X(x + w), y2: Y(0), stroke: v('--ink'), 'stroke-width': 1, 'stroke-dasharray': tall ? '5 3' : '2 2' });
+    el('text', { x: X(x + w / 2), y: Y(0) + (tall ? 13 : 24), 'font-size': 9, 'text-anchor': 'middle', fill: v('--ink'), 'font-family': MONO }, name);
+  }
+  door(5, 10, '10 ft dock door · 12 ft tall · truck height', true);
+  door(76, 3, '3 ft man door', false);
+  door(81, 11, '11 ft drive-in · 12 ft tall · ramp', true);
+
+  // Office wing stub on the right
+  el('rect', { x: X(W) + 1.5, y: Y(D), width: 62, height: D * S, fill: v('--office'), stroke: v('--line'), 'stroke-width': 1, 'stroke-dasharray': '4 3' });
+  var o = el('text', { 'font-size': 11, fill: v('--ink-2'), 'text-anchor': 'middle', 'font-family': DISPLAY, 'letter-spacing': '0.06em' }, 'OFFICES · SMALL ROOMS · PHOTO STATION (not to scale)');
+  o.setAttribute('transform', 'translate(' + (X(W) + 34) + ',' + Y(29) + ') rotate(-90)');
+  var q = el('text', { 'font-size': 7.5, fill: v('--warn'), 'text-anchor': 'middle', 'font-family': MONO }, 'office door: where?');
+  q.setAttribute('transform', 'translate(' + (X(W) + 11) + ',' + Y(29) + ') rotate(-90)');
+
+  // Dimension lines
+  function dim(x1, y1, x2, y2, txt, rot) {
+    el('line', { x1: x1, y1: y1, x2: x2, y2: y2, stroke: v('--ink-2'), 'stroke-width': 1 });
+    [[x1, y1], [x2, y2]].forEach(function (p) {
+      el('line', { x1: p[0], y1: p[1] - 4, x2: p[0], y2: p[1] + 4, stroke: v('--ink-2'), 'stroke-width': 1, transform: rot ? 'rotate(90 ' + p[0] + ' ' + p[1] + ')' : '' });
+    });
+    var t = el('text', { 'font-size': 11, fill: v('--ink'), 'text-anchor': 'middle', 'font-family': MONO, 'font-weight': 500 }, txt);
+    var mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+    t.setAttribute('transform', rot ? 'translate(' + (mx - 6) + ',' + my + ') rotate(-90)' : 'translate(' + mx + ',' + (my - 5) + ')');
+  }
+  dim(X(0), Y(0) + 34, X(W), Y(0) + 34, '93 ft (front wall, all three doors)');
+  dim(X(0) - 30, Y(0), X(0) - 30, Y(D), '58 ft', true);
+  [[0, '0'], [13, '13'], [21, '21'], [42, '42'], [53, '53'], [58, '58']].forEach(function (p) {
+    el('line', { x1: X(0) - 14, y1: Y(p[0]), x2: X(0) - 2, y2: Y(p[0]), stroke: v('--ink-2'), 'stroke-width': 0.8 });
+    el('text', { x: X(0) - 16, y: Y(p[0]) + 3.5, 'font-size': 8.5, 'text-anchor': 'end', fill: v('--ink-2'), 'font-family': MONO }, p[1]);
+  });
+  [[20, '20'], [65, '65'], [79, '79']].forEach(function (p) {
+    el('line', { x1: X(p[0]), y1: Y(D) - 2, x2: X(p[0]), y2: Y(D) - 12, stroke: v('--ink-2'), 'stroke-width': 0.8 });
+    el('text', { x: X(p[0]), y: Y(D) - 14, 'font-size': 8.5, 'text-anchor': 'middle', fill: v('--ink-2'), 'font-family': MONO }, p[1]);
+  });
+  el('text', { x: X(0), y: OY - 28, 'font-size': 10, fill: v('--ink-2'), 'font-family': MONO }, 'scale 7 px = 1 ft · front wall with the doors at the bottom, office wing on the right');
 })();
 </script>
