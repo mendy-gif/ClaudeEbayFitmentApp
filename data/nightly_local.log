@@ -51859,3 +51859,1334 @@ Categories where NOTHING displays:
 Nothing to score (233 SKU(s) all in known non-displaying categories) -- threshold not applied.
 
 Per-SKU detail -> data/drift_audit.csv
+[2026-09-27 06:30:10] state pushed (attempt 1)
+[2026-09-27 06:30:10] === done ===
+[2026-09-28 05:30:04] === nightly sweep starting (limit 2000) ===
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+Offline self-test (no network)
+
+Reference data:
+  PASS  chassis reference loaded (112 rows)
+  PASS  engine map loaded (396 rows)
+  PASS  eBay model vocabulary loaded (269 models)
+Rule engine:
+  PASS  Rule A/B expand works (335i 2014: A=49 rows > B=14 rows)
+  PASS  expand_from_chassis works (G87 -> 4 rows)
+  PASS  resolve_chassis disambiguates E90+M3 -> 'E90 M3'
+Classifier:
+  PASS  classifier config loaded (14 engine branches, default=B)
+  PASS  classify logic: engine branch -> B, other -> A
+  PASS  category tree present
+Shopify donors:
+  PASS  Shopify donor dump loaded (15741 SKUs, 15741 BMW)
+Part-number + union:
+  PASS  part-number fitment loaded (752 SKUs)
+  PASS  all part-number models are in the eBay catalog vocabulary
+  PASS  part-number chassis expansion is a superset of literal (sampled 100 SKUs)
+  PASS  union+dedupe correct (2 chassis + 2 pn, 1 overlap -> 3)
+Display path (trim/catalog validation):
+  PASS  display-path tests: (380/380 checks passed)
+
+Result: PASS  (0 fail, 0 warn)
+[2026-09-28 05:30:19] selftest passed
+OK - minted an access token valid ~7200s (120 min). Scopes: https://api.ebay.com/oauth/api_scope/sell.inventory
+[2026-09-28 05:30:19] eBay auth OK
+  page 20: 426 BMW donors (74 other makes skipped)
+  page 40: 926 BMW donors (74 other makes skipped)
+  page 60: 1425 BMW donors (75 other makes skipped)
+  page 80: 1924 BMW donors (76 other makes skipped)
+  page 100: 2424 BMW donors (76 other makes skipped)
+  page 120: 2921 BMW donors (79 other makes skipped)
+  page 140: 3419 BMW donors (81 other makes skipped)
+  page 160: 3917 BMW donors (83 other makes skipped)
+  page 180: 4415 BMW donors (85 other makes skipped)
+  page 200: 4914 BMW donors (86 other makes skipped)
+  page 220: 5304 BMW donors (196 other makes skipped)
+  page 240: 5791 BMW donors (209 other makes skipped)
+  page 260: 6263 BMW donors (237 other makes skipped)
+  page 280: 6755 BMW donors (245 other makes skipped)
+  page 300: 7145 BMW donors (355 other makes skipped)
+  page 320: 7558 BMW donors (442 other makes skipped)
+  page 340: 8053 BMW donors (447 other makes skipped)
+  page 360: 8543 BMW donors (457 other makes skipped)
+  page 380: 8976 BMW donors (524 other makes skipped)
+  page 400: 9462 BMW donors (538 other makes skipped)
+  page 420: 9959 BMW donors (541 other makes skipped)
+  page 440: 10425 BMW donors (575 other makes skipped)
+  page 460: 10713 BMW donors (787 other makes skipped)
+  page 480: 11060 BMW donors (940 other makes skipped)
+  page 500: 11557 BMW donors (943 other makes skipped)
+  page 520: 12053 BMW donors (947 other makes skipped)
+  page 540: 12547 BMW donors (953 other makes skipped)
+  page 560: 13025 BMW donors (975 other makes skipped)
+  page 580: 13447 BMW donors (1053 other makes skipped)
+  page 600: 13821 BMW donors (1179 other makes skipped)
+  page 620: 14144 BMW donors (1356 other makes skipped)
+  page 640: 14497 BMW donors (1503 other makes skipped)
+  page 660: 14758 BMW donors (1742 other makes skipped)
+  page 680: 15014 BMW donors (1986 other makes skipped)
+  page 700: 15497 BMW donors (2003 other makes skipped)
+Wrote 15710 donors (-31 vs previous 15741) -> data/shopify_donors.json
+  fields: year 9868/15710  |  chassis 15622/15710  |  engine 9423/15710
+[2026-09-28 05:38:46] donor dump refreshed from Shopify
+[2026-09-28 05:38:50] quota check: GetItem: 0/5,000 used, 5,000 left (0%) sweep limit tonight: 7,166 SKUs   (5000 of 5000 left, reserving 700 for audits) 
+[2026-09-28 05:38:50] sweeping (live), limit 7166...
+  ETK fitment: 7686 SKU(s), 560843 rows loaded
+  part-number fitment: 752 SKU(s), 3763 rows loaded (expanded to chassis families at push time)
+  skipped 40 out-of-stock SKU(s) (sold -- fitment would help nobody)
+  24552 SKU(s) on eBay  |  7755 ledgered  |  15881 cached skips  |  1215 to consider
+Mode: apply (LIVE)  |  donor=Shopify  |  1215 SKU(s)  |  ledger has 7755
+  [1/1215] 36298: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [2/1215] 36297: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [3/1215] 37136: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [4/1215] 37135: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [5/1215] 46447: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [6/1215] 46701: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [7/1215] 46702: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [8/1215] 44380: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [9/1215] 44377: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [10/1215] 33321: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [11/1215] 234: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [12/1215] 49009: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [13/1215] 49008: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [14/1215] 36285: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [15/1215] 46272: pushed - under engine ancestor 262245 (Car & Truck Parts & Accessories > Transmission & D
+  [16/1215] 1203: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [17/1215] 26449: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [18/1215] 25384: pushed - under engine ancestor 262245 (Car & Truck Parts & Accessories > Transmission & D
+  [19/1215] 50240: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [20/1215] 5510: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [21/1215] 6367: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [22/1215] 6380: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [23/1215] 6728: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [24/1215] 52440: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [25/1215] 52370: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [26/1215] 60144: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [27/1215] 47313: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [28/1215] 4704: pushed - under engine ancestor 262245 (Car & Truck Parts & Accessories > Transmission & D
+  [29/1215] 63700: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [30/1215] 63615: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [31/1215] 23280: error - inventory write HTTP 400: [25002] A user error has occurred. Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on details. (0=Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on
+  [32/1215] 50686: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [33/1215] 50681: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [34/1215] 65007: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [35/1215] 65001: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [36/1215] 61302: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [37/1215] 49063: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [38/1215] 49560: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [39/1215] 49559: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [40/1215] 53379: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [41/1215] 53212: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [42/1215] 52993: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [43/1215] 53099: pushed - under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine 
+  [44/1215] 52036: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [45/1215] 51010: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [46/1215] 51812: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [47/1215] 52153: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [48/1215] 699: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [49/1215] 43378: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [50/1215] 3192: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [51/1215] 39856: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [52/1215] 43380: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [53/1215] 52966: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [54/1215] 51703: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [55/1215] 52981: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [56/1215] 61942: pushed - part type 'Module' is not engine-dependent (category said B)
+  [57/1215] 6343: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [58/1215] 45627: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [59/1215] 41923: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [60/1215] 37671: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [61/1215] 39105: pushed - under engine ancestor 262251 (Car & Truck Parts & Accessories > Transmission & D
+  [62/1215] 358: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [63/1215] 1199: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [64/1215] 1538: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [65/1215] 3989: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [66/1215] 3988: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [67/1215] 34207: review - unresolved chassis: series 'None' not in BMW reference
+  [68/1215] 6096: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [69/1215] 66478: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [70/1215] 1703: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [71/1215] 66507: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [72/1215] 66564: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [73/1215] 66508: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [74/1215] 66513: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [75/1215] 64273: skip - already 28 vehicles (multi-fit/expanded)
+  [76/1215] 66483: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [77/1215] 66264: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [78/1215] 53449: pushed - not under an engine branch (Car & Truck Parts & Accessories > Brakes & Brake Par
+  [79/1215] 27190: review - Rule B on G30 needs an engine or donor model.
+  [80/1215] 64171: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [81/1215] 64185: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [82/1215] 45976: skip - no rows survived eBay catalog validation: 2017 BMW M550i: not in eBay's catalog;
+  [83/1215] 66238: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [84/1215] 1265: skip - no Shopify donor for SKU
+  [85/1215] 62848: skip - no Shopify donor for SKU
+  [86/1215] 62759: skip - no Shopify donor for SKU
+  [87/1215] 62855: skip - no Shopify donor for SKU
+  [88/1215] 62865: skip - no Shopify donor for SKU
+  [89/1215] 62748: skip - no Shopify donor for SKU
+  [90/1215] 62853: skip - no Shopify donor for SKU
+  [91/1215] 62793: skip - no Shopify donor for SKU
+  [92/1215] 62863: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [93/1215] 62804: skip - no Shopify donor for SKU
+  [94/1215] 62787: skip - no Shopify donor for SKU
+  [95/1215] 62798: skip - no Shopify donor for SKU
+  [96/1215] 62756: skip - no Shopify donor for SKU
+  [97/1215] 62794: skip - no Shopify donor for SKU
+  [98/1215] 62851: skip - no Shopify donor for SKU
+  [99/1215] 62795: skip - no Shopify donor for SKU
+  [100/1215] 62803: skip - no Shopify donor for SKU
+  [101/1215] 62850: skip - no Shopify donor for SKU
+  [102/1215] 62856: skip - no Shopify donor for SKU
+  [103/1215] 62868: skip - no Shopify donor for SKU
+  [104/1215] 62860: skip - no Shopify donor for SKU
+  [105/1215] 62857: skip - no Shopify donor for SKU
+  [106/1215] 62797: skip - no Shopify donor for SKU
+  [107/1215] 62757: skip - no Shopify donor for SKU
+  [108/1215] 62849: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [109/1215] 62755: skip - no Shopify donor for SKU
+  [110/1215] 62758: skip - no Shopify donor for SKU
+  [111/1215] 62781: skip - no Shopify donor for SKU
+  [112/1215] 62843: skip - no Shopify donor for SKU
+  [113/1215] 62846: skip - no Shopify donor for SKU
+  [114/1215] 62864: skip - no Shopify donor for SKU
+  [115/1215] 62786: skip - no Shopify donor for SKU
+  [116/1215] 66054: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [117/1215] STOCK9198302: review - Rule B on F86 needs an engine or donor model.
+  [118/1215] STOCK5A625D0: review - Rule B on G42 needs an engine or donor model.
+  [119/1215] 6363: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [120/1215] 6669: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [121/1215] 64532: skip - no Shopify donor for SKU
+  [122/1215] 64829: skip - no Shopify donor for SKU
+  [123/1215] 32937: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [124/1215] 40973: review - Rule B on F02 needs an engine or donor model.
+  [125/1215] 40838: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [126/1215] 42368: pushed - not under an engine branch (Car & Truck Parts & Accessories > Air Conditioning &
+  [127/1215] 32620: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [128/1215] 32532: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [129/1215] 48391: skip - no Shopify donor for SKU
+  [130/1215] 33116: skip - no Shopify donor for SKU
+  [131/1215] 34934: skip - already 144 vehicles (multi-fit/expanded)
+  [132/1215] 64638: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [133/1215] 62861: skip - no Shopify donor for SKU
+  [134/1215] 62869: skip - no Shopify donor for SKU
+  [135/1215] 62871: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [136/1215] 62867: skip - no Shopify donor for SKU
+  [137/1215] 62872: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [138/1215] 62862: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [139/1215] 62858: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [140/1215] 62854: skip - no Shopify donor for SKU
+  [141/1215] 62845: skip - no Shopify donor for SKU
+  [142/1215] 62841: skip - no Shopify donor for SKU
+  [143/1215] 62847: skip - no Shopify donor for SKU
+  [144/1215] 62844: skip - no Shopify donor for SKU
+  [145/1215] 63817: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [146/1215] 62800: skip - no Shopify donor for SKU
+  [147/1215] 62792: skip - no Shopify donor for SKU
+  [148/1215] 62791: skip - no Shopify donor for SKU
+  [149/1215] 62801: skip - no Shopify donor for SKU
+  [150/1215] 62789: skip - no Shopify donor for SKU
+  [151/1215] 62796: skip - no Shopify donor for SKU
+  [152/1215] 62760: skip - no Shopify donor for SKU
+  [153/1215] 62802: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [154/1215] 62771: skip - no Shopify donor for SKU
+  [155/1215] 62769: skip - no Shopify donor for SKU
+  [156/1215] 62753: skip - no Shopify donor for SKU
+  [157/1215] 62767: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [158/1215] 62752: skip - no Shopify donor for SKU
+  [159/1215] 63133: skip - no Shopify donor for SKU
+  [160/1215] 62770: skip - no Shopify donor for SKU
+  [161/1215] 62772: skip - no Shopify donor for SKU
+  [162/1215] 62788: skip - no Shopify donor for SKU
+  [163/1215] 62751: skip - no Shopify donor for SKU
+  [164/1215] 62750: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [165/1215] 62746: skip - no Shopify donor for SKU
+  [166/1215] 42640: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [167/1215] 42642: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [168/1215] 41611: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [169/1215] 64789: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [170/1215] 35023: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [171/1215] 40273: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [172/1215] 39722: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [173/1215] 50717: skip - no Shopify donor for SKU
+  [174/1215] 50735: skip - no Shopify donor for SKU
+  [175/1215] 50736: skip - no Shopify donor for SKU
+  [176/1215] 65015: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [177/1215] 41133: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [178/1215] 35336: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [179/1215] 42228: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [180/1215] 35943: skip - no Shopify donor for SKU
+  [181/1215] 34575: skip - no Shopify donor for SKU
+  [182/1215] 37531: skip - no Shopify donor for SKU
+  [183/1215] 38838: skip - no Shopify donor for SKU
+  [184/1215] 39252: skip - no Shopify donor for SKU
+  [185/1215] 39624: skip - no Shopify donor for SKU
+  [186/1215] 40188: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [187/1215] 41970: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [188/1215] 41096: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [189/1215] 42169: pushed - not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps >
+  [190/1215] 42945: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [191/1215] 41076: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [192/1215] 35307: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [193/1215] 41260: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [194/1215] 40646: pushed - not under an engine branch (Car & Truck Parts & Accessories > Lighting & Lamps >
+  [195/1215] 31460: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [196/1215] 42039: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [197/1215] 41357: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [198/1215] 42141: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [199/1215] 39584: pushed - under engine ancestor 262256 (Car & Truck Parts & Accessories > Transmission & D
+  [200/1215] 40952: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [201/1215] 42828: skip - already 14 vehicles (multi-fit/expanded)
+  [202/1215] 65168: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [203/1215] 63738: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [204/1215] 61583: skip - no Shopify donor for SKU
+  [205/1215] 61582: skip - no Shopify donor for SKU
+  [206/1215] 61576: skip - no Shopify donor for SKU
+  [207/1215] 61620: skip - no Shopify donor for SKU
+  [208/1215] 61619: skip - no Shopify donor for SKU
+  [209/1215] 61622: skip - no Shopify donor for SKU
+  [210/1215] 61682: skip - no Shopify donor for SKU
+  [211/1215] 61680: skip - no Shopify donor for SKU
+  [212/1215] 61679: skip - no Shopify donor for SKU
+  [213/1215] 61681: skip - no Shopify donor for SKU
+  [214/1215] 61676: skip - no Shopify donor for SKU
+  [215/1215] 61670: skip - no Shopify donor for SKU
+  [216/1215] 61666: skip - no Shopify donor for SKU
+  [217/1215] 61677: skip - no Shopify donor for SKU
+  [218/1215] 61675: skip - no Shopify donor for SKU
+  [219/1215] 61678: skip - no Shopify donor for SKU
+  [220/1215] 61630: skip - no Shopify donor for SKU
+  [221/1215] 61596: skip - no Shopify donor for SKU
+  [222/1215] 61617: skip - no Shopify donor for SKU
+  [223/1215] 61591: skip - no Shopify donor for SKU
+  [224/1215] 61621: skip - no Shopify donor for SKU
+  [225/1215] 61624: skip - no Shopify donor for SKU
+  [226/1215] 61665: skip - no Shopify donor for SKU
+  [227/1215] 61603: skip - no Shopify donor for SKU
+  [228/1215] 61593: skip - no Shopify donor for SKU
+  [229/1215] 61629: skip - no Shopify donor for SKU
+  [230/1215] 61623: skip - no Shopify donor for SKU
+  [231/1215] 61625: skip - no Shopify donor for SKU
+  [232/1215] 61592: skip - no Shopify donor for SKU
+  [233/1215] 61590: skip - no Shopify donor for SKU
+  [234/1215] 61632: skip - no Shopify donor for SKU
+  [235/1215] 61595: skip - no Shopify donor for SKU
+  [236/1215] 61594: skip - no Shopify donor for SKU
+  [237/1215] 61604: skip - no Shopify donor for SKU
+  [238/1215] 61589: skip - no Shopify donor for SKU
+  [239/1215] 61618: skip - no Shopify donor for SKU
+  [240/1215] 61628: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [241/1215] 61627: skip - no Shopify donor for SKU
+  [242/1215] 61663: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [243/1215] 61586: skip - no Shopify donor for SKU
+  [244/1215] 61572: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [245/1215] 61575: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [246/1215] 61579: skip - no Shopify donor for SKU
+  [247/1215] 61584: skip - no Shopify donor for SKU
+  [248/1215] 61585: skip - no Shopify donor for SKU
+  [249/1215] 61581: skip - no Shopify donor for SKU
+  [250/1215] 61587: skip - no Shopify donor for SKU
+  [251/1215] 61588: skip - no Shopify donor for SKU
+  [252/1215] 61577: skip - no Shopify donor for SKU
+  [253/1215] 2828: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [254/1215] 64791: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [255/1215] 51304: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [256/1215] 61460: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [257/1215] 3814: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [258/1215] 415: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [259/1215] 17921: skip - no Shopify donor for SKU
+  [260/1215] 17914: skip - no Shopify donor for SKU
+  [261/1215] 17350: skip - no Shopify donor for SKU
+  [262/1215] 17928: skip - no Shopify donor for SKU
+  [263/1215] 17915: skip - no Shopify donor for SKU
+  [264/1215] 17913: skip - no Shopify donor for SKU
+  [265/1215] 17918: skip - no Shopify donor for SKU
+  [266/1215] 45880: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [267/1215] 17924: skip - no Shopify donor for SKU
+  [268/1215] 17934: skip - no Shopify donor for SKU
+  [269/1215] 26388: review - Rule B on F97 needs an engine or donor model.
+  [270/1215] 32116: review - Rule B on F39 needs an engine or donor model.
+  [271/1215] 26780: review - Rule B on G01 needs an engine or donor model.
+  [272/1215] 31626: review - Rule B on G05 needs an engine or donor model.
+  [273/1215] 26886: review - Rule B on G29 needs an engine or donor model.
+  [274/1215] 23539: review - Rule B on G12 needs an engine or donor model.
+  [275/1215] 31594: review - Rule B on F48 needs an engine or donor model.
+  [276/1215] 26884: review - Rule B on G29 needs an engine or donor model.
+  [277/1215] 27333: review - Rule B on G30 needs an engine or donor model.
+  [278/1215] 26944: review - Rule B on G29 needs an engine or donor model.
+  [279/1215] 32134: review - Rule B on F39 needs an engine or donor model.
+  [280/1215] 29964: review - Rule B on G12 needs an engine or donor model.
+  [281/1215] 27914: review - Rule B on F16 needs an engine or donor model.
+  [282/1215] 26467: review - Rule B on G20 needs an engine or donor model.
+  [283/1215] 29965: review - Rule B on G12 needs an engine or donor model.
+  [284/1215] 29404: review - Rule B on G30 needs an engine or donor model.
+  [285/1215] 32133: review - Rule B on F39 needs an engine or donor model.
+  [286/1215] 27008: review - Rule B on G20 needs an engine or donor model.
+  [287/1215] 53251: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [288/1215] 5010: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [289/1215] 1822: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [290/1215] 23147: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [291/1215] 63724: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [292/1215] 481: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [293/1215] 29296: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [294/1215] 1710: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [295/1215] 60073: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [296/1215] 63506: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [297/1215] 61218: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [298/1215] 61173: skip - no Shopify donor for SKU
+  [299/1215] 63087: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [300/1215] 60087: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [301/1215] 48020: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [302/1215] 5810: skip - already 71 vehicles (multi-fit/expanded)
+  [303/1215] 63984: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [304/1215] 63893: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [305/1215] 63921: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [306/1215] 63915: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [307/1215] 63787: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [308/1215] 63767: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [309/1215] 42683: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [310/1215] 6084: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [311/1215] 6364: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [312/1215] 6431: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [313/1215] 5864: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [314/1215] 6336: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [315/1215] 61179: skip - no Shopify donor for SKU
+  [316/1215] 61190: skip - no Shopify donor for SKU
+  [317/1215] 61175: skip - no Shopify donor for SKU
+  [318/1215] 61186: skip - no Shopify donor for SKU
+  [319/1215] 61174: skip - category 262265 never renders fitment on eBay
+  [320/1215] 61004: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [321/1215] 60971: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [322/1215] 60943: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [323/1215] 60958: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [324/1215] 60951: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [325/1215] 60952: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [326/1215] 60930: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [327/1215] 61089: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [328/1215] 6448: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [329/1215] 6030: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [330/1215] 5430: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [331/1215] 5961: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [332/1215] 5817: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [333/1215] 6192: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [334/1215] 6200: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [335/1215] 6202: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [336/1215] 19026: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [337/1215] 52233: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [338/1215] 47796: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [339/1215] 21982: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [340/1215] 64340: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [341/1215] 63828: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [342/1215] 63827: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [343/1215] 63820: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [344/1215] 62084: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [345/1215] 62176: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [346/1215] 62149: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [347/1215] 63665: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [348/1215] 5757: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [349/1215] 63612: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [350/1215] 3100: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [351/1215] 64435: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [352/1215] 3310: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [353/1215] 62413: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [354/1215] 62418: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [355/1215] 62398: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [356/1215] 46281: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [357/1215] 5481: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [358/1215] 60805: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [359/1215] 5366: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [360/1215] 3800: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [361/1215] 61726: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [362/1215] 61467: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [363/1215] 61530: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [364/1215] 2762: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [365/1215] 2814: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [366/1215] 3040: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [367/1215] 2684: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [368/1215] 2475: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [369/1215] 2483: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [370/1215] 2560: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [371/1215] 2694: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [372/1215] 3021: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [373/1215] 2456: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [374/1215] 3344: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [375/1215] 61275: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [376/1215] 2671: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [377/1215] 2610: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [378/1215] 2648: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [379/1215] 3470: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [380/1215] 2466: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [381/1215] 2555: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [382/1215] 2259: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [383/1215] 2218: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [384/1215] 61118: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [385/1215] 61085: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [386/1215] 61097: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [387/1215] 5008: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [388/1215] 5015: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [389/1215] 971: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [390/1215] 1459: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [391/1215] 4638: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [392/1215] 6351: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [393/1215] 32135: review - Rule B on F39 needs an engine or donor model.
+  [394/1215] 31761: review - Rule B on F48 needs an engine or donor model.
+  [395/1215] 31717: review - Rule B on F39 needs an engine or donor model.
+  [396/1215] 31729: review - Rule B on F48 needs an engine or donor model.
+  [397/1215] 33187: review - Rule B on G30 needs an engine or donor model.
+  [398/1215] 23169: review - Rule B on G12 needs an engine or donor model.
+  [399/1215] 27815: review - Rule B on F16 needs an engine or donor model.
+  [400/1215] 30702: review - Rule B on G20 needs an engine or donor model.
+  [401/1215] 32132: review - Rule B on F39 needs an engine or donor model.
+  [402/1215] 24002: review - Rule B on F25 needs an engine or donor model.
+  [403/1215] 24884: review - Rule B on G20 needs an engine or donor model.
+  [404/1215] 26618: review - Rule B on G20 needs an engine or donor model.
+  [405/1215] 30721: review - Rule B on G20 needs an engine or donor model.
+  [406/1215] 30933: review - Rule B on F97 needs an engine or donor model.
+  [407/1215] 33360: review - Rule B on G01 needs an engine or donor model.
+  [408/1215] 32484: review - Rule B on G01 needs an engine or donor model.
+  [409/1215] 32489: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [410/1215] 33702: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [411/1215] 33285: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [412/1215] 32618: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [413/1215] 32803: review - Rule B on G01 needs an engine or donor model.
+  [414/1215] 33458: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [415/1215] 33259: skip - no Shopify donor for SKU
+  [416/1215] 34728: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [417/1215] 37125: review - Rule B on G01 needs an engine or donor model.
+  [418/1215] 35733: review - Rule B on G01 needs an engine or donor model.
+  [419/1215] 34380: skip - no Shopify donor for SKU
+  [420/1215] 35178: skip - no Shopify donor for SKU
+  [421/1215] 34435: skip - no Shopify donor for SKU
+  [422/1215] 37118: skip - no Shopify donor for SKU
+  [423/1215] 36737: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [424/1215] 35764: review - Rule B on G20 needs an engine or donor model.
+  [425/1215] 34228: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [426/1215] 36162: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [427/1215] 34839: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [428/1215] 34068: review - Rule B on G20 needs an engine or donor model.
+  [429/1215] 37280: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [430/1215] 36505: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [431/1215] 34279: skip - no Shopify donor for SKU
+  [432/1215] 34052: review - Rule B on G20 needs an engine or donor model.
+  [433/1215] 34763: review - Rule B on G42 needs an engine or donor model.
+  [434/1215] 458: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [435/1215] 3139: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [436/1215] 4888: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [437/1215] 6068: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [438/1215] 4818: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [439/1215] 4819: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [440/1215] 3153: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [441/1215] 50185: review - Rule B on G12 needs an engine or donor model.
+  [442/1215] 48186: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [443/1215] 5391: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [444/1215] 37217: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [445/1215] 37189: review - Rule B on F01 needs an engine or donor model.
+  [446/1215] 36179: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [447/1215] 37479: review - Rule B on F44 needs an engine or donor model.
+  [448/1215] 34842: review - Rule B on G12 needs an engine or donor model.
+  [449/1215] 36039: skip - no Shopify donor for SKU
+  [450/1215] 34738: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [451/1215] 37229: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [452/1215] 36123: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [453/1215] 42717: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [454/1215] 34410: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [455/1215] 35133: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [456/1215] 34843: review - Rule B on G12 needs an engine or donor model.
+  [457/1215] 37283: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [458/1215] 34714: review - Rule B on G20 needs an engine or donor model.
+  [459/1215] 35129: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [460/1215] 34814: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [461/1215] 34221: review - Rule B on G20 needs an engine or donor model.
+  [462/1215] 34852: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [463/1215] 36693: skip - no Shopify donor for SKU
+  [464/1215] 35727: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [465/1215] 37358: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [466/1215] 37929: review - Rule B on G23 needs an engine or donor model.
+  [467/1215] 37703: review - Rule B on F01 needs an engine or donor model.
+  [468/1215] 37604: review - Rule B on G42 needs an engine or donor model.
+  [469/1215] 37655: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [470/1215] 37637: review - Rule B on F44 needs an engine or donor model.
+  [471/1215] 37654: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [472/1215] 37932: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [473/1215] 37608: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [474/1215] 38252: review - Rule B on G12 needs an engine or donor model.
+  [475/1215] 39126: review - Rule B on G05 needs an engine or donor model.
+  [476/1215] 39607: review - Rule B on G05 needs an engine or donor model.
+  [477/1215] 39606: review - Rule B on G05 needs an engine or donor model.
+  [478/1215] 38280: skip - no Shopify donor for SKU
+  [479/1215] 39273: review - Rule B on G05 needs an engine or donor model.
+  [480/1215] 38246: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [481/1215] 39439: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [482/1215] 38251: review - Rule B on G12 needs an engine or donor model.
+  [483/1215] 39057: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [484/1215] 38048: review - Rule B on G20 needs an engine or donor model.
+  [485/1215] 38411: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [486/1215] 38339: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [487/1215] 38167: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [488/1215] 38145: review - Rule B on G82 needs an engine or donor model.
+  [489/1215] 38130: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [490/1215] 38084: review - Rule B on F44 needs an engine or donor model.
+  [491/1215] 38388: review - Rule B on F15 needs an engine or donor model.
+  [492/1215] 38468: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [493/1215] 37977: skip - no Shopify donor for SKU
+  [494/1215] 38418: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [495/1215] 39259: review - Rule B on G05 needs an engine or donor model.
+  [496/1215] 39612: review - Rule B on G20 needs an engine or donor model.
+  [497/1215] 39405: review - Rule B on G05 needs an engine or donor model.
+  [498/1215] 37834: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [499/1215] 38492: review - Rule B on G29 needs an engine or donor model.
+  [500/1215] 38627: review - Rule B on F15 needs an engine or donor model.
+  [501/1215] 37983: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [502/1215] 39422: review - Rule B on G20 needs an engine or donor model.
+  [503/1215] 39215: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [504/1215] 39228: review - Rule B on G05 needs an engine or donor model.
+  [505/1215] 38230: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [506/1215] 38950: review - Rule B on G05 needs an engine or donor model.
+  [507/1215] 39279: review - Rule B on G20 needs an engine or donor model.
+  [508/1215] 38147: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [509/1215] 39197: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [510/1215] 42112: skip - already 425 vehicles (multi-fit/expanded)
+  [511/1215] 41120: skip - already 425 vehicles (multi-fit/expanded)
+  [512/1215] 39948: skip - already 5 vehicles (multi-fit/expanded)
+  [513/1215] 41804: skip - already 503 vehicles (multi-fit/expanded)
+  [514/1215] 42170: skip - already 19 vehicles (multi-fit/expanded)
+  [515/1215] 35080: skip - already 36 vehicles (multi-fit/expanded)
+  [516/1215] 40385: skip - already 169 vehicles (multi-fit/expanded)
+  [517/1215] 40251: skip - already 5 vehicles (multi-fit/expanded)
+  [518/1215] 37270: skip - already 134 vehicles (multi-fit/expanded)
+  [519/1215] 40507: skip - already 7 vehicles (multi-fit/expanded)
+  [520/1215] 41768: skip - already 16 vehicles (multi-fit/expanded)
+  [521/1215] 35350: skip - already 22 vehicles (multi-fit/expanded)
+  [522/1215] 41024: skip - already 167 vehicles (multi-fit/expanded)
+  [523/1215] 40808: skip - already 1425 vehicles (multi-fit/expanded)
+  [524/1215] 41353: skip - already 10 vehicles (multi-fit/expanded)
+  [525/1215] 42038: skip - already 40 vehicles (multi-fit/expanded)
+  [526/1215] 41907: skip - already 39 vehicles (multi-fit/expanded)
+  [527/1215] 34946: skip - already 170 vehicles (multi-fit/expanded)
+  [528/1215] 39375: skip - already 16 vehicles (multi-fit/expanded)
+  [529/1215] 39994: skip - already 503 vehicles (multi-fit/expanded)
+  [530/1215] 40746: skip - already 3 vehicles (multi-fit/expanded)
+  [531/1215] 34958: skip - already 572 vehicles (multi-fit/expanded)
+  [532/1215] 41181: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [533/1215] 41740: skip - already 15 vehicles (multi-fit/expanded)
+  [534/1215] 40108: skip - already 322 vehicles (multi-fit/expanded)
+  [535/1215] 40319: skip - already 95 vehicles (multi-fit/expanded)
+  [536/1215] 35097: skip - already 243 vehicles (multi-fit/expanded)
+  [537/1215] 40451: skip - already 8 vehicles (multi-fit/expanded)
+  [538/1215] 41982: skip - already 503 vehicles (multi-fit/expanded)
+  [539/1215] 35331: skip - already 49 vehicles (multi-fit/expanded)
+  [540/1215] 40382: skip - already 858 vehicles (multi-fit/expanded)
+  [541/1215] 42161: skip - already 88 vehicles (multi-fit/expanded)
+  [542/1215] 41173: skip - already 120 vehicles (multi-fit/expanded)
+  [543/1215] 42798: skip - already 120 vehicles (multi-fit/expanded)
+  [544/1215] 42294: skip - already 2 vehicles (multi-fit/expanded)
+  [545/1215] 39998: skip - already 353 vehicles (multi-fit/expanded)
+  [546/1215] 39557: skip - already 88 vehicles (multi-fit/expanded)
+  [547/1215] 41695: skip - already 10 vehicles (multi-fit/expanded)
+  [548/1215] 42072: skip - already 3 vehicles (multi-fit/expanded)
+  [549/1215] 37389: skip - already 130 vehicles (multi-fit/expanded)
+  [550/1215] 42348: skip - already 2 vehicles (multi-fit/expanded)
+  [551/1215] 40077: skip - already 110 vehicles (multi-fit/expanded)
+  [552/1215] 41265: skip - already 741 vehicles (multi-fit/expanded)
+  [553/1215] 41340: skip - already 54 vehicles (multi-fit/expanded)
+  [554/1215] 35072: skip - already 6 vehicles (multi-fit/expanded)
+  [555/1215] 34944: skip - already 7 vehicles (multi-fit/expanded)
+  [556/1215] 40604: skip - already 11 vehicles (multi-fit/expanded)
+  [557/1215] 41937: skip - already 42 vehicles (multi-fit/expanded)
+  [558/1215] 35347: skip - already 20 vehicles (multi-fit/expanded)
+  [559/1215] 40082: skip - already 12 vehicles (multi-fit/expanded)
+  [560/1215] 40474: skip - already 353 vehicles (multi-fit/expanded)
+  [561/1215] 40802: skip - already 2 vehicles (multi-fit/expanded)
+  [562/1215] 31442: skip - already 81 vehicles (multi-fit/expanded)
+  [563/1215] 40553: skip - already 409 vehicles (multi-fit/expanded)
+  [564/1215] 41516: skip - already 2 vehicles (multi-fit/expanded)
+  [565/1215] 42370: skip - already 116 vehicles (multi-fit/expanded)
+  [566/1215] 42018: skip - already 102 vehicles (multi-fit/expanded)
+  [567/1215] 42113: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [568/1215] 40877: skip - already 496 vehicles (multi-fit/expanded)
+  [569/1215] 41548: skip - already 79 vehicles (multi-fit/expanded)
+  [570/1215] 34928: skip - already 417 vehicles (multi-fit/expanded)
+  [571/1215] 39963: skip - already 47 vehicles (multi-fit/expanded)
+  [572/1215] 40934: skip - already 132 vehicles (multi-fit/expanded)
+  [573/1215] 42229: skip - already 24 vehicles (multi-fit/expanded)
+  [574/1215] 40603: skip - already 276 vehicles (multi-fit/expanded)
+  [575/1215] 39394: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [576/1215] 42210: skip - already 18 vehicles (multi-fit/expanded)
+  [577/1215] 41021: skip - already 26 vehicles (multi-fit/expanded)
+  [578/1215] 41662: skip - already 43 vehicles (multi-fit/expanded)
+  [579/1215] 41723: skip - already 140 vehicles (multi-fit/expanded)
+  [580/1215] 40327: skip - already 106 vehicles (multi-fit/expanded)
+  [581/1215] 42441: skip - already 44 vehicles (multi-fit/expanded)
+  [582/1215] 39896: skip - already 12 vehicles (multi-fit/expanded)
+  [583/1215] 40290: skip - already 95 vehicles (multi-fit/expanded)
+  [584/1215] 40067: skip - already 151 vehicles (multi-fit/expanded)
+  [585/1215] 41739: skip - already 4 vehicles (multi-fit/expanded)
+  [586/1215] 40689: review - Rule B on F16 needs an engine or donor model.
+  [587/1215] 40406: skip - already 2 vehicles (multi-fit/expanded)
+  [588/1215] 41397: skip - already 5 vehicles (multi-fit/expanded)
+  [589/1215] 40761: skip - already 40 vehicles (multi-fit/expanded)
+  [590/1215] 41069: skip - already 65 vehicles (multi-fit/expanded)
+  [591/1215] 42302: skip - already 79 vehicles (multi-fit/expanded)
+  [592/1215] 40884: skip - already 2 vehicles (multi-fit/expanded)
+  [593/1215] 40758: skip - already 409 vehicles (multi-fit/expanded)
+  [594/1215] 39863: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [595/1215] 41683: skip - already 33 vehicles (multi-fit/expanded)
+  [596/1215] 40362: skip - already 15 vehicles (multi-fit/expanded)
+  [597/1215] 40212: skip - already 16 vehicles (multi-fit/expanded)
+  [598/1215] 41060: skip - already 3 vehicles (multi-fit/expanded)
+  [599/1215] 39527: skip - already 90 vehicles (multi-fit/expanded)
+  [600/1215] 41030: skip - already 2 vehicles (multi-fit/expanded)
+  [601/1215] 40987: skip - already 47 vehicles (multi-fit/expanded)
+  [602/1215] 40155: skip - already 103 vehicles (multi-fit/expanded)
+  [603/1215] 41960: skip - already 208 vehicles (multi-fit/expanded)
+  [604/1215] 40178: skip - already 103 vehicles (multi-fit/expanded)
+  [605/1215] 41762: skip - already 5 vehicles (multi-fit/expanded)
+  [606/1215] 39531: skip - already 99 vehicles (multi-fit/expanded)
+  [607/1215] 41785: skip - already 43 vehicles (multi-fit/expanded)
+  [608/1215] 41342: skip - already 140 vehicles (multi-fit/expanded)
+  [609/1215] 39982: skip - already 146 vehicles (multi-fit/expanded)
+  [610/1215] 35004: skip - already 140 vehicles (multi-fit/expanded)
+  [611/1215] 40172: skip - already 157 vehicles (multi-fit/expanded)
+  [612/1215] 42634: skip - already 17 vehicles (multi-fit/expanded)
+  [613/1215] 41757: skip - already 107 vehicles (multi-fit/expanded)
+  [614/1215] 40788: skip - already 106 vehicles (multi-fit/expanded)
+  [615/1215] 39543: skip - already 503 vehicles (multi-fit/expanded)
+  [616/1215] 37391: skip - already 167 vehicles (multi-fit/expanded)
+  [617/1215] 40886: skip - already 2 vehicles (multi-fit/expanded)
+  [618/1215] 40449: skip - already 147 vehicles (multi-fit/expanded)
+  [619/1215] 40279: skip - already 95 vehicles (multi-fit/expanded)
+  [620/1215] 41273: skip - already 37 vehicles (multi-fit/expanded)
+  [621/1215] 41794: skip - already 66 vehicles (multi-fit/expanded)
+  [622/1215] 41122: skip - already 17 vehicles (multi-fit/expanded)
+  [623/1215] 40079: skip - already 12 vehicles (multi-fit/expanded)
+  [624/1215] 41728: review - Rule B on G12 needs an engine or donor model.
+  [625/1215] 39576: skip - already 6 vehicles (multi-fit/expanded)
+  [626/1215] 41140: skip - already 6 vehicles (multi-fit/expanded)
+  [627/1215] 41561: skip - already 110 vehicles (multi-fit/expanded)
+  [628/1215] 35053: skip - already 32 vehicles (multi-fit/expanded)
+  [629/1215] 37381: skip - already 17 vehicles (multi-fit/expanded)
+  [630/1215] 40085: skip - already 12 vehicles (multi-fit/expanded)
+  [631/1215] 40248: skip - already 98 vehicles (multi-fit/expanded)
+  [632/1215] 31905: skip - already 49 vehicles (multi-fit/expanded)
+  [633/1215] 40865: skip - already 151 vehicles (multi-fit/expanded)
+  [634/1215] 42182: skip - already 275 vehicles (multi-fit/expanded)
+  [635/1215] 40775: skip - already 85 vehicles (multi-fit/expanded)
+  [636/1215] 42719: skip - already 162 vehicles (multi-fit/expanded)
+  [637/1215] 40782: skip - already 1269 vehicles (multi-fit/expanded)
+  [638/1215] 41009: skip - already 53 vehicles (multi-fit/expanded)
+  [639/1215] 42015: skip - already 4 vehicles (multi-fit/expanded)
+  [640/1215] 39384: skip - already 465 vehicles (multi-fit/expanded)
+  [641/1215] 41767: skip - already 38 vehicles (multi-fit/expanded)
+  [642/1215] 40766: skip - already 26 vehicles (multi-fit/expanded)
+  [643/1215] 41313: skip - already 3 vehicles (multi-fit/expanded)
+  [644/1215] 40240: skip - already 103 vehicles (multi-fit/expanded)
+  [645/1215] 41165: skip - already 18 vehicles (multi-fit/expanded)
+  [646/1215] 42429: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [647/1215] 34783: skip - already 97 vehicles (multi-fit/expanded)
+  [648/1215] 41847: skip - already 14 vehicles (multi-fit/expanded)
+  [649/1215] 42377: skip - already 268 vehicles (multi-fit/expanded)
+  [650/1215] 39801: skip - already 322 vehicles (multi-fit/expanded)
+  [651/1215] 40129: skip - already 268 vehicles (multi-fit/expanded)
+  [652/1215] 42800: skip - already 588 vehicles (multi-fit/expanded)
+  [653/1215] 40322: skip - already 47 vehicles (multi-fit/expanded)
+  [654/1215] 39545: skip - already 324 vehicles (multi-fit/expanded)
+  [655/1215] 42115: skip - already 425 vehicles (multi-fit/expanded)
+  [656/1215] 42158: skip - already 86 vehicles (multi-fit/expanded)
+  [657/1215] 42651: skip - already 15 vehicles (multi-fit/expanded)
+  [658/1215] 39828: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [659/1215] 45194: skip - already 418 vehicles (multi-fit/expanded)
+  [660/1215] 41312: skip - already 3 vehicles (multi-fit/expanded)
+  [661/1215] 42134: skip - already 409 vehicles (multi-fit/expanded)
+  [662/1215] 34923: skip - already 271 vehicles (multi-fit/expanded)
+  [663/1215] 42092: skip - already 409 vehicles (multi-fit/expanded)
+  [664/1215] 41652: skip - already 25 vehicles (multi-fit/expanded)
+  [665/1215] 40287: skip - already 103 vehicles (multi-fit/expanded)
+  [666/1215] 35071: skip - already 6 vehicles (multi-fit/expanded)
+  [667/1215] 41112: skip - already 10 vehicles (multi-fit/expanded)
+  [668/1215] 41113: skip - already 10 vehicles (multi-fit/expanded)
+  [669/1215] 42075: skip - already 18 vehicles (multi-fit/expanded)
+  [670/1215] 42176: skip - already 69 vehicles (multi-fit/expanded)
+  [671/1215] 39391: skip - already 503 vehicles (multi-fit/expanded)
+  [672/1215] 41787: skip - already 10 vehicles (multi-fit/expanded)
+  [673/1215] 42362: skip - already 42 vehicles (multi-fit/expanded)
+  [674/1215] 40602: skip - already 54 vehicles (multi-fit/expanded)
+  [675/1215] 35300: skip - already 198 vehicles (multi-fit/expanded)
+  [676/1215] 40868: skip - already 103 vehicles (multi-fit/expanded)
+  [677/1215] 40419: skip - already 3 vehicles (multi-fit/expanded)
+  [678/1215] 41761: skip - already 36 vehicles (multi-fit/expanded)
+  [679/1215] 40076: skip - already 615 vehicles (multi-fit/expanded)
+  [680/1215] 41153: skip - already 36 vehicles (multi-fit/expanded)
+  [681/1215] 41729: review - Rule B on G12 needs an engine or donor model.
+  [682/1215] 41121: skip - already 425 vehicles (multi-fit/expanded)
+  [683/1215] 42064: skip - already 12 vehicles (multi-fit/expanded)
+  [684/1215] 35044: skip - already 27 vehicles (multi-fit/expanded)
+  [685/1215] 41812: skip - already 767 vehicles (multi-fit/expanded)
+  [686/1215] 35318: review - Rule B on G05 needs an engine or donor model.
+  [687/1215] 40860: skip - already 6 vehicles (multi-fit/expanded)
+  [688/1215] 41317: skip - already 111 vehicles (multi-fit/expanded)
+  [689/1215] 40381: skip - already 898 vehicles (multi-fit/expanded)
+  [690/1215] 40401: skip - already 12 vehicles (multi-fit/expanded)
+  [691/1215] 42162: skip - already 133 vehicles (multi-fit/expanded)
+  [692/1215] 41942: skip - already 7 vehicles (multi-fit/expanded)
+  [693/1215] 42138: skip - already 409 vehicles (multi-fit/expanded)
+  [694/1215] 41979: skip - already 324 vehicles (multi-fit/expanded)
+  [695/1215] 42179: skip - already 83 vehicles (multi-fit/expanded)
+  [696/1215] 40294: skip - already 155 vehicles (multi-fit/expanded)
+  [697/1215] 31468: skip - already 88 vehicles (multi-fit/expanded)
+  [698/1215] 39995: skip - already 425 vehicles (multi-fit/expanded)
+  [699/1215] 37393: skip - already 691 vehicles (multi-fit/expanded)
+  [700/1215] 40400: skip - already 12 vehicles (multi-fit/expanded)
+  [701/1215] 40927: review - unresolved chassis: ambiguous series 'E92' / model '?': ['E92', 'E92 M3'] - need
+  [702/1215] 40353: skip - already 99 vehicles (multi-fit/expanded)
+  [703/1215] 41311: skip - already 425 vehicles (multi-fit/expanded)
+  [704/1215] 34976: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [705/1215] 40145: skip - already 21 vehicles (multi-fit/expanded)
+  [706/1215] 40966: skip - already 63 vehicles (multi-fit/expanded)
+  [707/1215] 35000: skip - already 20 vehicles (multi-fit/expanded)
+  [708/1215] 40410: skip - already 92 vehicles (multi-fit/expanded)
+  [709/1215] 42117: skip - already 425 vehicles (multi-fit/expanded)
+  [710/1215] 40790: skip - already 283 vehicles (multi-fit/expanded)
+  [711/1215] 41277: skip - already 417 vehicles (multi-fit/expanded)
+  [712/1215] 41209: skip - already 412 vehicles (multi-fit/expanded)
+  [713/1215] 42625: skip - already 6 vehicles (multi-fit/expanded)
+  [714/1215] 37272: skip - already 69 vehicles (multi-fit/expanded)
+  [715/1215] 41603: skip - already 107 vehicles (multi-fit/expanded)
+  [716/1215] 41252: skip - already 344 vehicles (multi-fit/expanded)
+  [717/1215] 42347: skip - already 204 vehicles (multi-fit/expanded)
+  [718/1215] 40554: skip - already 409 vehicles (multi-fit/expanded)
+  [719/1215] 42802: skip - already 496 vehicles (multi-fit/expanded)
+  [720/1215] 40376: skip - already 95 vehicles (multi-fit/expanded)
+  [721/1215] 41980: skip - already 503 vehicles (multi-fit/expanded)
+  [722/1215] 35337: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [723/1215] 41563: skip - already 10 vehicles (multi-fit/expanded)
+  [724/1215] 40302: skip - already 98 vehicles (multi-fit/expanded)
+  [725/1215] 40739: skip - already 74 vehicles (multi-fit/expanded)
+  [726/1215] 40094: skip - already 103 vehicles (multi-fit/expanded)
+  [727/1215] 40882: skip - already 2 vehicles (multi-fit/expanded)
+  [728/1215] 41831: skip - already 4 vehicles (multi-fit/expanded)
+  [729/1215] 35349: skip - already 22 vehicles (multi-fit/expanded)
+  [730/1215] 41068: skip - already 18 vehicles (multi-fit/expanded)
+  [731/1215] 39537: skip - already 103 vehicles (multi-fit/expanded)
+  [732/1215] 39936: skip - already 94 vehicles (multi-fit/expanded)
+  [733/1215] 40416: skip - already 84 vehicles (multi-fit/expanded)
+  [734/1215] 42857: skip - already 42 vehicles (multi-fit/expanded)
+  [735/1215] 41309: skip - already 425 vehicles (multi-fit/expanded)
+  [736/1215] 40254: skip - already 122 vehicles (multi-fit/expanded)
+  [737/1215] 41450: skip - already 426 vehicles (multi-fit/expanded)
+  [738/1215] 41217: skip - already 566 vehicles (multi-fit/expanded)
+  [739/1215] 40740: skip - already 74 vehicles (multi-fit/expanded)
+  [740/1215] 40291: skip - already 2 vehicles (multi-fit/expanded)
+  [741/1215] 41583: skip - already 19 vehicles (multi-fit/expanded)
+  [742/1215] 41940: skip - already 69 vehicles (multi-fit/expanded)
+  [743/1215] 42364: skip - already 645 vehicles (multi-fit/expanded)
+  [744/1215] 41722: skip - already 140 vehicles (multi-fit/expanded)
+  [745/1215] 42351: skip - already 157 vehicles (multi-fit/expanded)
+  [746/1215] 41502: skip - already 8 vehicles (multi-fit/expanded)
+  [747/1215] 42397: skip - already 32 vehicles (multi-fit/expanded)
+  [748/1215] 39530: skip - already 99 vehicles (multi-fit/expanded)
+  [749/1215] 40444: skip - already 8 vehicles (multi-fit/expanded)
+  [750/1215] 40198: skip - already 478 vehicles (multi-fit/expanded)
+  [751/1215] 40065: skip - already 103 vehicles (multi-fit/expanded)
+  [752/1215] 42312: skip - already 122 vehicles (multi-fit/expanded)
+  [753/1215] 39997: skip - already 61 vehicles (multi-fit/expanded)
+  [754/1215] 42052: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [755/1215] 41653: skip - already 4 vehicles (multi-fit/expanded)
+  [756/1215] 40718: skip - already 345 vehicles (multi-fit/expanded)
+  [757/1215] 41973: skip - already 2 vehicles (multi-fit/expanded)
+  [758/1215] 42023: skip - already 578 vehicles (multi-fit/expanded)
+  [759/1215] 41539: skip - already 27 vehicles (multi-fit/expanded)
+  [760/1215] 40107: skip - already 39 vehicles (multi-fit/expanded)
+  [761/1215] 40264: skip - already 24 vehicles (multi-fit/expanded)
+  [762/1215] 42177: skip - already 6 vehicles (multi-fit/expanded)
+  [763/1215] 40556: skip - already 409 vehicles (multi-fit/expanded)
+  [764/1215] 40116: skip - already 3 vehicles (multi-fit/expanded)
+  [765/1215] 42784: skip - already 16 vehicles (multi-fit/expanded)
+  [766/1215] 39764: skip - already 16 vehicles (multi-fit/expanded)
+  [767/1215] 40756: skip - already 409 vehicles (multi-fit/expanded)
+  [768/1215] 40796: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [769/1215] 41966: skip - already 385 vehicles (multi-fit/expanded)
+  [770/1215] 40885: skip - already 2 vehicles (multi-fit/expanded)
+  [771/1215] 35009: skip - already 107 vehicles (multi-fit/expanded)
+  [772/1215] 39392: skip - already 503 vehicles (multi-fit/expanded)
+  [773/1215] 42379: skip - already 242 vehicles (multi-fit/expanded)
+  [774/1215] 40161: skip - already 81 vehicles (multi-fit/expanded)
+  [775/1215] 41086: skip - already 367 vehicles (multi-fit/expanded)
+  [776/1215] 39693: skip - already 261 vehicles (multi-fit/expanded)
+  [777/1215] 41562: skip - already 68 vehicles (multi-fit/expanded)
+  [778/1215] 41152: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [779/1215] 41026: skip - already 111 vehicles (multi-fit/expanded)
+  [780/1215] 41708: skip - already 3 vehicles (multi-fit/expanded)
+  [781/1215] 39393: skip - already 503 vehicles (multi-fit/expanded)
+  [782/1215] 41519: skip - already 38 vehicles (multi-fit/expanded)
+  [783/1215] 40881: skip - already 103 vehicles (multi-fit/expanded)
+  [784/1215] 39767: skip - already 19 vehicles (multi-fit/expanded)
+  [785/1215] 41161: skip - already 38 vehicles (multi-fit/expanded)
+  [786/1215] 41106: skip - already 66 vehicles (multi-fit/expanded)
+  [787/1215] 40176: skip - already 183 vehicles (multi-fit/expanded)
+  [788/1215] 41547: skip - already 21 vehicles (multi-fit/expanded)
+  [789/1215] 40962: skip - already 2 vehicles (multi-fit/expanded)
+  [790/1215] 41501: skip - already 5 vehicles (multi-fit/expanded)
+  [791/1215] 40467: skip - already 225 vehicles (multi-fit/expanded)
+  [792/1215] 35041: skip - already 67 vehicles (multi-fit/expanded)
+  [793/1215] 41247: skip - already 72 vehicles (multi-fit/expanded)
+  [794/1215] 41784: skip - already 44 vehicles (multi-fit/expanded)
+  [795/1215] 41293: skip - already 72 vehicles (multi-fit/expanded)
+  [796/1215] 41248: skip - already 9 vehicles (multi-fit/expanded)
+  [797/1215] 40394: skip - already 12 vehicles (multi-fit/expanded)
+  [798/1215] 40792: skip - already 28 vehicles (multi-fit/expanded)
+  [799/1215] 34962: skip - already 12 vehicles (multi-fit/expanded)
+  [800/1215] 39795: skip - already 61 vehicles (multi-fit/expanded)
+  [801/1215] 41308: skip - already 36 vehicles (multi-fit/expanded)
+  [802/1215] 40229: skip - already 425 vehicles (multi-fit/expanded)
+  [803/1215] 42653: skip - already 29 vehicles (multi-fit/expanded)
+  [804/1215] 40861: skip - already 6 vehicles (multi-fit/expanded)
+  [805/1215] 41126: skip - already 4 vehicles (multi-fit/expanded)
+  [806/1215] 40087: skip - already 722 vehicles (multi-fit/expanded)
+  [807/1215] 39853: skip - already 6 vehicles (multi-fit/expanded)
+  [808/1215] 40078: skip - already 12 vehicles (multi-fit/expanded)
+  [809/1215] 32064: skip - already 39 vehicles (multi-fit/expanded)
+  [810/1215] 39719: skip - already 107 vehicles (multi-fit/expanded)
+  [811/1215] 40596: skip - already 253 vehicles (multi-fit/expanded)
+  [812/1215] 40577: skip - already 1362 vehicles (multi-fit/expanded)
+  [813/1215] 41386: skip - already 3 vehicles (multi-fit/expanded)
+  [814/1215] 40581: skip - already 286 vehicles (multi-fit/expanded)
+  [815/1215] 42105: skip - already 64 vehicles (multi-fit/expanded)
+  [816/1215] 40174: skip - already 15 vehicles (multi-fit/expanded)
+  [817/1215] 35335: skip - already 35 vehicles (multi-fit/expanded)
+  [818/1215] 42094: skip - already 409 vehicles (multi-fit/expanded)
+  [819/1215] 40856: skip - already 268 vehicles (multi-fit/expanded)
+  [820/1215] 39800: skip - already 322 vehicles (multi-fit/expanded)
+  [821/1215] 40733: skip - already 95 vehicles (multi-fit/expanded)
+  [822/1215] 41310: skip - already 425 vehicles (multi-fit/expanded)
+  [823/1215] 42343: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [824/1215] 42178: skip - already 110 vehicles (multi-fit/expanded)
+  [825/1215] 40488: skip - already 97 vehicles (multi-fit/expanded)
+  [826/1215] 42662: skip - already 4 vehicles (multi-fit/expanded)
+  [827/1215] 42728: skip - already 64 vehicles (multi-fit/expanded)
+  [828/1215] 40900: skip - already 88 vehicles (multi-fit/expanded)
+  [829/1215] 41963: skip - already 208 vehicles (multi-fit/expanded)
+  [830/1215] 41287: skip - already 368 vehicles (multi-fit/expanded)
+  [831/1215] 43246: skip - already 107 vehicles (multi-fit/expanded)
+  [832/1215] 41587: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [833/1215] 41955: skip - already 42 vehicles (multi-fit/expanded)
+  [834/1215] 35050: skip - already 24 vehicles (multi-fit/expanded)
+  [835/1215] 41598: skip - already 104 vehicles (multi-fit/expanded)
+  [836/1215] 39572: skip - already 55 vehicles (multi-fit/expanded)
+  [837/1215] 39798: skip - already 248 vehicles (multi-fit/expanded)
+  [838/1215] 42596: skip - already 1097 vehicles (multi-fit/expanded)
+  [839/1215] 42703: skip - already 40 vehicles (multi-fit/expanded)
+  [840/1215] 39949: skip - already 5 vehicles (multi-fit/expanded)
+  [841/1215] 39742: skip - already 18 vehicles (multi-fit/expanded)
+  [842/1215] 34953: skip - already 11 vehicles (multi-fit/expanded)
+  [843/1215] 41127: skip - already 63 vehicles (multi-fit/expanded)
+  [844/1215] 41271: skip - already 37 vehicles (multi-fit/expanded)
+  [845/1215] 40857: skip - already 3 vehicles (multi-fit/expanded)
+  [846/1215] 39904: skip - already 503 vehicles (multi-fit/expanded)
+  [847/1215] 39900: review - Rule B on F86 needs an engine or donor model.
+  [848/1215] 40918: skip - already 10 vehicles (multi-fit/expanded)
+  [849/1215] 42860: skip - already 145 vehicles (multi-fit/expanded)
+  [850/1215] 41951: skip - already 6 vehicles (multi-fit/expanded)
+  [851/1215] 40069: skip - already 209 vehicles (multi-fit/expanded)
+  [852/1215] 40484: skip - already 32 vehicles (multi-fit/expanded)
+  [853/1215] 41526: skip - already 107 vehicles (multi-fit/expanded)
+  [854/1215] 42093: skip - already 409 vehicles (multi-fit/expanded)
+  [855/1215] 43143: skip - already 319 vehicles (multi-fit/expanded)
+  [856/1215] 40120: skip - already 92 vehicles (multi-fit/expanded)
+  [857/1215] 34999: skip - already 84 vehicles (multi-fit/expanded)
+  [858/1215] 40255: skip - already 122 vehicles (multi-fit/expanded)
+  [859/1215] 41051: skip - already 106 vehicles (multi-fit/expanded)
+  [860/1215] 42095: skip - already 409 vehicles (multi-fit/expanded)
+  [861/1215] 40783: skip - already 1269 vehicles (multi-fit/expanded)
+  [862/1215] 40959: skip - already 63 vehicles (multi-fit/expanded)
+  [863/1215] 40814: skip - already 95 vehicles (multi-fit/expanded)
+  [864/1215] 40397: skip - already 12 vehicles (multi-fit/expanded)
+  [865/1215] 42608: skip - already 4 vehicles (multi-fit/expanded)
+  [866/1215] 35066: skip - already 20 vehicles (multi-fit/expanded)
+  [867/1215] 40141: skip - already 155 vehicles (multi-fit/expanded)
+  [868/1215] 34975: skip - already 4 vehicles (multi-fit/expanded)
+  [869/1215] 40352: skip - already 99 vehicles (multi-fit/expanded)
+  [870/1215] 42709: skip - already 87 vehicles (multi-fit/expanded)
+  [871/1215] 40074: skip - already 2 vehicles (multi-fit/expanded)
+  [872/1215] 42344: skip - already 116 vehicles (multi-fit/expanded)
+  [873/1215] 42378: skip - already 144 vehicles (multi-fit/expanded)
+  [874/1215] 41902: skip - already 322 vehicles (multi-fit/expanded)
+  [875/1215] 40045: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [876/1215] 41586: skip - already 6 vehicles (multi-fit/expanded)
+  [877/1215] 42772: skip - already 43 vehicles (multi-fit/expanded)
+  [878/1215] 40764: skip - already 337 vehicles (multi-fit/expanded)
+  [879/1215] 40926: skip - already 268 vehicles (multi-fit/expanded)
+  [880/1215] 42174: skip - already 15 vehicles (multi-fit/expanded)
+  [881/1215] 40883: skip - already 78 vehicles (multi-fit/expanded)
+  [882/1215] 42045: skip - already 118 vehicles (multi-fit/expanded)
+  [883/1215] 42950: skip - already 465 vehicles (multi-fit/expanded)
+  [884/1215] 34777: skip - already 134 vehicles (multi-fit/expanded)
+  [885/1215] 41180: skip - already 24 vehicles (multi-fit/expanded)
+  [886/1215] 40398: skip - already 12 vehicles (multi-fit/expanded)
+  [887/1215] 40552: skip - already 243 vehicles (multi-fit/expanded)
+  [888/1215] 41255: skip - already 298 vehicles (multi-fit/expanded)
+  [889/1215] 40363: skip - already 92 vehicles (multi-fit/expanded)
+  [890/1215] 43915: skip - already 3 vehicles (multi-fit/expanded)
+  [891/1215] 42084: skip - already 36 vehicles (multi-fit/expanded)
+  [892/1215] 40003: skip - already 96 vehicles (multi-fit/expanded)
+  [893/1215] 42600: skip - already 31 vehicles (multi-fit/expanded)
+  [894/1215] 41472: skip - already 39 vehicles (multi-fit/expanded)
+  [895/1215] 40721: skip - already 106 vehicles (multi-fit/expanded)
+  [896/1215] 42440: skip - already 44 vehicles (multi-fit/expanded)
+  [897/1215] 40846: skip - already 22 vehicles (multi-fit/expanded)
+  [898/1215] 35334: skip - already 55 vehicles (multi-fit/expanded)
+  [899/1215] 40170: skip - already 103 vehicles (multi-fit/expanded)
+  [900/1215] 39356: skip - already 615 vehicles (multi-fit/expanded)
+  [901/1215] 40252: skip - already 122 vehicles (multi-fit/expanded)
+  [902/1215] 42118: skip - already 425 vehicles (multi-fit/expanded)
+  [903/1215] 40213: skip - already 16 vehicles (multi-fit/expanded)
+  [904/1215] 40399: skip - already 12 vehicles (multi-fit/expanded)
+  [905/1215] 31477: skip - already 4 vehicles (multi-fit/expanded)
+  [906/1215] 41568: review - Rule B on G42 needs an engine or donor model.
+  [907/1215] 40551: review - Rule B on F02 needs an engine or donor model.
+  [908/1215] 43398: review - Rule B on G20 needs an engine or donor model.
+  [909/1215] 43778: review - Rule B on G23 needs an engine or donor model.
+  [910/1215] 45175: review - Rule B on G30 needs an engine or donor model.
+  [911/1215] 43417: review - Rule B on F25 needs an engine or donor model.
+  [912/1215] 44559: review - Rule B on G20 needs an engine or donor model.
+  [913/1215] 44505: review - Rule B on G20 needs an engine or donor model.
+  [914/1215] 44183: review - Rule B on G20 needs an engine or donor model.
+  [915/1215] 43399: review - Rule B on G20 needs an engine or donor model.
+  [916/1215] 43811: review - Rule B on G20 needs an engine or donor model.
+  [917/1215] 43363: review - Rule B on G20 needs an engine or donor model.
+  [918/1215] 44762: review - Rule B on G20 needs an engine or donor model.
+  [919/1215] 44177: review - Rule B on G20 needs an engine or donor model.
+  [920/1215] 44501: review - Rule B on G01 needs an engine or donor model.
+  [921/1215] 43674: review - Rule B on F48 needs an engine or donor model.
+  [922/1215] 47133: review - Rule B on F32 needs an engine or donor model.
+  [923/1215] 49042: review - Rule B on E88 needs an engine or donor model.
+  [924/1215] 46823: review - Rule B on G20 needs an engine or donor model.
+  [925/1215] 48868: review - Rule B on G01 needs an engine or donor model.
+  [926/1215] 46774: review - Rule B on F25 needs an engine or donor model.
+  [927/1215] 46870: review - Rule B on F25 needs an engine or donor model.
+  [928/1215] 51836: review - Rule B on G20 needs an engine or donor model.
+  [929/1215] 51807: review - Rule B on G20 needs an engine or donor model.
+  [930/1215] 52075: review - Rule B on G12 needs an engine or donor model.
+  [931/1215] 49932: review - Rule B on F15 needs an engine or donor model.
+  [932/1215] 50852: review - Rule B on F34 needs an engine or donor model.
+  [933/1215] 49813: review - Rule B on F32 needs an engine or donor model.
+  [934/1215] 51052: review - Rule B on F48 needs an engine or donor model.
+  [935/1215] 51849: review - Rule B on G20 needs an engine or donor model.
+  [936/1215] 51278: review - Rule B on F34 needs an engine or donor model.
+  [937/1215] 52020: review - Rule B on G12 needs an engine or donor model.
+  [938/1215] 47839: review - Rule B on G12 needs an engine or donor model.
+  [939/1215] 48305: review - Rule B on F32 needs an engine or donor model.
+  [940/1215] 48217: review - Rule B on E88 needs an engine or donor model.
+  [941/1215] 50851: review - Rule B on F32 needs an engine or donor model.
+  [942/1215] 48333: review - Rule B on F32 needs an engine or donor model.
+  [943/1215] 51839: review - Rule B on G20 needs an engine or donor model.
+  [944/1215] 52306: review - Rule B on G01 needs an engine or donor model.
+  [945/1215] 50286: review - Rule B on F30 needs an engine or donor model.
+  [946/1215] 47782: review - Rule B on F32 needs an engine or donor model.
+  [947/1215] 48598: review - Rule B on F15 needs an engine or donor model.
+  [948/1215] 49642: review - Rule B on G01 needs an engine or donor model.
+  [949/1215] 52019: review - Rule B on G12 needs an engine or donor model.
+  [950/1215] 51250: review - Rule B on G01 needs an engine or donor model.
+  [951/1215] 47998: review - Rule B on G12 needs an engine or donor model.
+  [952/1215] 50850: review - Rule B on F32 needs an engine or donor model.
+  [953/1215] 47838: review - Rule B on G12 needs an engine or donor model.
+  [954/1215] 51366: review - Rule B on F48 needs an engine or donor model.
+  [955/1215] 53011: review - Rule B on F15 needs an engine or donor model.
+  [956/1215] 53080: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [957/1215] 52770: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [958/1215] 52128: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [959/1215] 53121: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [960/1215] 53092: review - Rule B on F15 needs an engine or donor model.
+  [961/1215] 52473: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [962/1215] 53364: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [963/1215] 53571: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [964/1215] 50786: skip - no Shopify donor for SKU
+  [965/1215] 53457: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [966/1215] 52467: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [967/1215] 52858: review - Rule B on G01 needs an engine or donor model.
+  [968/1215] 52556: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [969/1215] 52604: review - Rule B on G05 needs an engine or donor model.
+  [970/1215] 52633: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [971/1215] 52920: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [972/1215] 52649: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [973/1215] 53506: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [974/1215] 52557: review - Rule B on F15 needs an engine or donor model.
+  [975/1215] 53507: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [976/1215] 53172: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [977/1215] 53964: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [978/1215] 53514: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [979/1215] 52957: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [980/1215] 53093: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [981/1215] 51696: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [982/1215] 50763: skip - no Shopify donor for SKU
+  [983/1215] 51191: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [984/1215] 52481: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [985/1215] 53250: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [986/1215] 52895: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [987/1215] 52714: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [988/1215] 52709: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [989/1215] 52054: review - Rule B on G12 needs an engine or donor model.
+  [990/1215] 52882: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [991/1215] 52835: skip - no Shopify donor for SKU
+  [992/1215] 52099: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [993/1215] 52908: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [994/1215] 52766: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [995/1215] 53938: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [996/1215] 52136: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [997/1215] 52583: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [998/1215] 62198: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [999/1215] 52752: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1000/1215] 52844: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1001/1215] 53815: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1002/1215] 51165: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1003/1215] 54000: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1004/1215] 53577: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1005/1215] 53734: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1006/1215] 53858: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1007/1215] 50878: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1008/1215] 50595: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1009/1215] 53908: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1010/1215] 53928: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1011/1215] 51105: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1012/1215] 57081: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1013/1215] 52677: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1014/1215] 51517: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1015/1215] 51144: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1016/1215] 54033: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1017/1215] 53801: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1018/1215] 53762: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1019/1215] 53211: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1020/1215] 53605: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1021/1215] 51207: skip - no Shopify donor for SKU
+  [1022/1215] 53209: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1023/1215] 50603: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1024/1215] 52687: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1025/1215] 52678: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1026/1215] 50927: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1027/1215] 52970: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1028/1215] 52522: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1029/1215] 50929: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1030/1215] 53286: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1031/1215] 51878: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1032/1215] 53699: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1033/1215] 53689: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1034/1215] 53604: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1035/1215] 53475: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1036/1215] 53151: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1037/1215] 52676: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1038/1215] 53939: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1039/1215] 53725: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1040/1215] 53976: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1041/1215] 52689: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1042/1215] 51454: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1043/1215] 52937: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1044/1215] 50930: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1045/1215] 51204: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1046/1215] 51669: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1047/1215] 50928: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1048/1215] 50936: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1049/1215] 50585: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1050/1215] 51648: skip - no Shopify donor for SKU
+  [1051/1215] 50907: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1052/1215] 52973: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1053/1215] 53592: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1054/1215] 50975: skip - no Shopify donor for SKU
+  [1055/1215] 62073: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1056/1215] 62053: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1057/1215] 53287: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1058/1215] 53305: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1059/1215] 62099: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1060/1215] 62104: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1061/1215] 36349: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1062/1215] 4544: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1063/1215] 62155: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1064/1215] 62159: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1065/1215] 4086: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1066/1215] 4132: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1067/1215] 4456: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1068/1215] 4457: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1069/1215] 50564: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1070/1215] 3568: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1071/1215] 60557: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1072/1215] 60551: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1073/1215] 60481: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1074/1215] 60586: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1075/1215] 60546: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1076/1215] 60539: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1077/1215] 4405: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1078/1215] 2723: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1079/1215] 4383: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1080/1215] 2471: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1081/1215] 4313: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1082/1215] 4318: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1083/1215] 5166: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1084/1215] 5509: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1085/1215] 61878: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1086/1215] 4885: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1087/1215] 3232: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1088/1215] 2987: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1089/1215] 3123: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1090/1215] 2982: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1091/1215] 3327: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1092/1215] 3539: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1093/1215] 3313: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1094/1215] 3314: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1095/1215] 2985: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1096/1215] 3103: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1097/1215] 3317: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1098/1215] 3529: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1099/1215] 3122: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1100/1215] 3311: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1101/1215] 3422: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1102/1215] 3248: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1103/1215] 1272: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1104/1215] 1305: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1105/1215] 1208: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1106/1215] 5620: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1107/1215] 1169: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1108/1215] 1162: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1109/1215] 2869: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1110/1215] 660: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1111/1215] 4625: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1112/1215] 21112: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1113/1215] 60755: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1114/1215] 60833: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1115/1215] 61386: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1116/1215] 60793: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1117/1215] 60788: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1118/1215] 3767: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1119/1215] 3979: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1120/1215] 4033: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1121/1215] 5500: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1122/1215] 5493: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1123/1215] 1979: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1124/1215] 4201: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1125/1215] 60463: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1126/1215] 2844: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1127/1215] 1919: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1128/1215] 60437: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1129/1215] 60769: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1130/1215] 60757: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1131/1215] 1725: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1132/1215] 60701: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1133/1215] 4515: skip - no Shopify donor for SKU
+  [1134/1215] 61447: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1135/1215] 61513: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1136/1215] 61533: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1137/1215] 4563: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1138/1215] 776: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1139/1215] 60695: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1140/1215] 4555: skip - no Shopify donor for SKU
+  [1141/1215] 3941: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1142/1215] 46962: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1143/1215] 60631: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1144/1215] 61411: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1145/1215] 60411: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1146/1215] 61781: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1147/1215] 17368: skip - no Shopify donor for SKU
+  [1148/1215] 17364: skip - no Shopify donor for SKU
+  [1149/1215] 17375: skip - no Shopify donor for SKU
+  [1150/1215] 4633: skip - no Shopify donor for SKU
+  [1151/1215] 5394: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1152/1215] 5157: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1153/1215] 60783: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1154/1215] 60569: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1155/1215] 60383: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1156/1215] 60747: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1157/1215] 60380: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1158/1215] 60622: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1159/1215] 60577: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1160/1215] 6201: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1161/1215] 61183: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1162/1215] 2063: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1163/1215] 61740: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1164/1215] 2074: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1165/1215] 4837: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1166/1215] 3063: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1167/1215] 6625: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1168/1215] 6538: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1169/1215] 6532: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1170/1215] 1096: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1171/1215] 6492: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1172/1215] 1083: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1173/1215] 3071: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1174/1215] 361: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1175/1215] 2726: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1176/1215] 2758: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1177/1215] 2886: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1178/1215] 4908: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1179/1215] 6289: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1180/1215] 6263: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1181/1215] 6282: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1182/1215] 6266: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1183/1215] 2731: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1184/1215] 4788: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1185/1215] 4803: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1186/1215] 5950: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1187/1215] 30680: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1188/1215] 1360: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1189/1215] 5152: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1190/1215] 61348: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1191/1215] 6239: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1192/1215] 5858: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1193/1215] 6070: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1194/1215] 61318: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1195/1215] 61321: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1196/1215] 4678: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1197/1215] 2938: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1198/1215] 2788: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1199/1215] 2977: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1200/1215] 3912: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1201/1215] 3898: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1202/1215] 4714: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1203/1215] 61492: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1204/1215] 61491: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1205/1215] 2497: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1206/1215] 61426: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1207/1215] 5919: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1208/1215] 2950: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1209/1215] 2897: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1210/1215] 61363: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1211/1215] 3393: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1212/1215] 5277: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1213/1215] 2913: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1214/1215] 4640: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [1215/1215] 2870: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+Skip cache: +981 recorded, 16857 held (these are not re-checked until their TTL lapses)
+
+Summary: {'pushed': 86, 'error': 1, 'review': 137, 'skip': 991}
+Plan written -> data/batch_plan.csv  |  ledger updated
+[2026-09-28 06:13:05] sweep finished (exit 0)
+Auditing 300 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 295/296 display (99%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule -: 3/3 display (100%)
+   Rule A: 227/227 display (100%)
+   Rule B: 65/66 display (98%)
+
+Nothing to score (296 SKU(s) all in known non-displaying categories) -- threshold not applied.
+
+Per-SKU detail -> data/display_audit.csv
+(rotating drift sample: 250 of 7776 ledgered SKUs, offset 5542)
+Auditing 250 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 229/233 display (98%)   [1 unreadable, skipped]
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule -: 29/30 display (96%)
+   Rule A: 182/185 display (98%)
+   Rule B: 18/18 display (100%)
+
+Nothing to score (233 SKU(s) all in known non-displaying categories) -- threshold not applied.
+
+Per-SKU detail -> data/drift_audit.csv
