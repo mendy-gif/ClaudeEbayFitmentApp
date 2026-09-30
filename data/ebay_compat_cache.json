@@ -1,4 +1,135 @@
 {
+"m|2010|bmw": [
+"120i",
+"125i",
+"128i",
+"130i",
+"135i",
+"323i",
+"325i",
+"328i",
+"328i xDrive",
+"335d",
+"335i",
+"335i xDrive",
+"525i",
+"528i",
+"528i xDrive",
+"530i",
+"535i",
+"535i GT",
+"535i xDrive",
+"550i",
+"550i GT",
+"550i GT xDrive",
+"650Ci",
+"650i",
+"740i",
+"750i",
+"750i xDrive",
+"750Li",
+"750Li xDrive",
+"760Li",
+"M3",
+"M5",
+"M6",
+"X1",
+"X3",
+"X5",
+"X6",
+"Z4"
+],
+"m|2011|bmw": [
+"1 Series M",
+"120i",
+"125i",
+"128i",
+"135i",
+"323i",
+"325i",
+"328i",
+"328i xDrive",
+"335d",
+"335i",
+"335i xDrive",
+"335is",
+"528i",
+"535i",
+"535i GT",
+"535i GT xDrive",
+"535i xDrive",
+"550i",
+"550i GT",
+"550i GT xDrive",
+"550i xDrive",
+"650Ci",
+"740i",
+"740Li",
+"750i",
+"750i xDrive",
+"750Li",
+"750Li xDrive",
+"760Li",
+"Alpina B7",
+"Alpina B7 xDrive",
+"Alpina B7L",
+"Alpina B7L xDrive",
+"M3",
+"M6",
+"X1",
+"X3",
+"X5",
+"X6",
+"Z4"
+],
+"m|2012|bmw": [
+"118i",
+"120i",
+"125i",
+"128i",
+"135i",
+"320i",
+"325i",
+"328i",
+"328i xDrive",
+"335i",
+"335i xDrive",
+"335is",
+"528i",
+"528i xDrive",
+"530i",
+"535i",
+"535i GT",
+"535i GT xDrive",
+"535i xDrive",
+"550i",
+"550i GT",
+"550i GT xDrive",
+"550i xDrive",
+"640i",
+"650i",
+"650i xDrive",
+"740i",
+"740Li",
+"750i",
+"750i xDrive",
+"750Li",
+"750Li xDrive",
+"760Li",
+"ActiveHybrid 5",
+"Alpina B7",
+"Alpina B7 xDrive",
+"Alpina B7L",
+"Alpina B7L xDrive",
+"M3",
+"M5",
+"M6",
+"X1",
+"X3",
+"X5",
+"X6",
+"Z4"
+],
 "m|2013|bmw": [
 "118i",
 "125i",
@@ -3471,6 +3602,9 @@
 "Modern Sedan 4-Door",
 "Sport Sedan 4-Door"
 ],
+"t|2014|bmw|328i gt xdrive": [
+"Base Hatchback 4-Door"
+],
 "t|2014|bmw|328i xdrive": [
 "Base Sedan 4-Door",
 "Base Wagon 4-Door"
@@ -3483,6 +3617,9 @@
 "M Sport Sedan 4-Door",
 "Modern Sedan 4-Door",
 "Sport Sedan 4-Door"
+],
+"t|2014|bmw|335i gt xdrive": [
+"Base Hatchback 4-Door"
 ],
 "t|2014|bmw|335i xdrive": [
 "Base Sedan 4-Door"
@@ -3780,6 +3917,9 @@
 "Modern Sedan 4-Door",
 "Sport Sedan 4-Door"
 ],
+"t|2015|bmw|328i gt xdrive": [
+"Base Hatchback 4-Door"
+],
 "t|2015|bmw|328i xdrive": [
 "Base Sedan 4-Door",
 "Base Wagon 4-Door"
@@ -3793,6 +3933,9 @@
 "M Sport Sedan 4-Door",
 "Modern Sedan 4-Door",
 "Sport Sedan 4-Door"
+],
+"t|2015|bmw|335i gt xdrive": [
+"Base Hatchback 4-Door"
 ],
 "t|2015|bmw|335i xdrive": [
 "Base Sedan 4-Door"
@@ -4138,6 +4281,9 @@
 "t|2016|bmw|328i": [
 "Base Sedan 4-Door"
 ],
+"t|2016|bmw|328i gt xdrive": [
+"Base Hatchback 4-Door"
+],
 "t|2016|bmw|328i xdrive": [
 "Base Sedan 4-Door",
 "Base Wagon 4-Door"
@@ -4152,6 +4298,9 @@
 ],
 "t|2016|bmw|330i xdrive": [],
 "t|2016|bmw|335i": [],
+"t|2016|bmw|335i gt xdrive": [
+"Base Hatchback 4-Door"
+],
 "t|2016|bmw|335i xdrive": [],
 "t|2016|bmw|340i": [
 "Base Sedan 4-Door",
@@ -4484,6 +4633,9 @@
 "Base Sedan 4-Door",
 "Luxury Line Sedan 4-Door",
 "Sport Line Sedan 4-Door"
+],
+"t|2017|bmw|330i gt xdrive": [
+"Base Hatchback 4-Door"
 ],
 "t|2017|bmw|330i xdrive": [
 "Base Sedan 4-Door",
@@ -4825,6 +4977,9 @@
 "M Sport Sedan 4-Door",
 "Sport Line Sedan 4-Door"
 ],
+"t|2018|bmw|330i gt xdrive": [
+"Base Hatchback 4-Door"
+],
 "t|2018|bmw|330i xdrive": [
 "Base Sedan 4-Door",
 "Base Wagon 4-Door"
@@ -4915,6 +5070,9 @@
 ],
 "t|2018|bmw|640i xdrive gran coupe": [
 "Base Sedan 4-Door"
+],
+"t|2018|bmw|640i xdrive gran turismo": [
+"Base Hatchback 4-Door"
 ],
 "t|2018|bmw|650i": [
 "Base Convertible 2-Door",
@@ -5145,12 +5303,18 @@
 "Sport Line Sedan 4-Door",
 "Sport Plus Sedan 4-Door"
 ],
+"t|2019|bmw|330i gt xdrive": [
+"Base Hatchback 4-Door"
+],
 "t|2019|bmw|330i xdrive": [
 "Base Sedan 4-Door",
 "Base Wagon 4-Door"
 ],
 "t|2019|bmw|335i xdrive": [],
 "t|2019|bmw|340i": [],
+"t|2019|bmw|340i gt xdrive": [
+"Base Hatchback 4-Door"
+],
 "t|2019|bmw|340i xdrive": [],
 "t|2019|bmw|428i": [],
 "t|2019|bmw|430i": [
@@ -5212,6 +5376,9 @@
 ],
 "t|2019|bmw|640i": [],
 "t|2019|bmw|640i xdrive": [],
+"t|2019|bmw|640i xdrive gran turismo": [
+"Base Hatchback 4-Door"
+],
 "t|2019|bmw|650i": [],
 "t|2019|bmw|650i xdrive": [],
 "t|2019|bmw|740e xdrive": [
