@@ -366,3 +366,14 @@ error: Please commit or stash them.
 [2026-10-01 05:38:48] quota check: GetItem: 1/5,000 used, 4,999 left (0%) sweep limit tonight: 7,165 SKUs   (4999 of 5000 left, reserving 700 for audits) 
 [2026-10-01 05:38:48] sweeping (live), limit 7165...
 [2026-10-01 06:18:34] sweep finished (exit 0)
+[2026-10-01 06:32:05] state pushed (attempt 1)
+[2026-10-01 06:32:05] === done ===
+[2026-10-02 05:30:04] === nightly sweep starting (limit 2000) ===
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+[2026-10-02 05:30:18] selftest passed
+[2026-10-02 05:30:19] eBay auth OK
+[2026-10-02 05:38:46] donor dump refreshed from Shopify
+[2026-10-02 05:38:49] quota check: GetItem: 1/5,000 used, 4,999 left (0%) sweep limit tonight: 7,165 SKUs   (4999 of 5000 left, reserving 700 for audits) 
+[2026-10-02 05:38:49] sweeping (live), limit 7165...
+[2026-10-02 06:05:23] sweep finished (exit 0)
