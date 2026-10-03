@@ -63135,3 +63135,1042 @@ By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
 Nothing to score (210 SKU(s) all in known non-displaying categories) -- threshold not applied.
 
 Per-SKU detail -> data/drift_audit.csv
+[2026-10-02 06:20:36] state pushed (attempt 1)
+[2026-10-02 06:20:36] === done ===
+[2026-10-03 05:30:04] === nightly sweep starting (limit 2000) ===
+error: cannot rebase: You have unstaged changes.
+error: Please commit or stash them.
+Offline self-test (no network)
+
+Reference data:
+  PASS  chassis reference loaded (112 rows)
+  PASS  engine map loaded (396 rows)
+  PASS  eBay model vocabulary loaded (269 models)
+Rule engine:
+  PASS  Rule A/B expand works (335i 2014: A=49 rows > B=14 rows)
+  PASS  expand_from_chassis works (G87 -> 4 rows)
+  PASS  resolve_chassis disambiguates E90+M3 -> 'E90 M3'
+Classifier:
+  PASS  classifier config loaded (14 engine branches, default=B)
+  PASS  classify logic: engine branch -> B, other -> A
+  PASS  category tree present
+Shopify donors:
+  PASS  Shopify donor dump loaded (15736 SKUs, 15736 BMW)
+Part-number + union:
+  PASS  part-number fitment loaded (752 SKUs)
+  PASS  all part-number models are in the eBay catalog vocabulary
+  PASS  part-number chassis expansion is a superset of literal (sampled 100 SKUs)
+  PASS  union+dedupe correct (2 chassis + 2 pn, 1 overlap -> 3)
+Display path (trim/catalog validation):
+  PASS  display-path tests: (380/380 checks passed)
+
+Result: PASS  (0 fail, 0 warn)
+[2026-10-03 05:30:18] selftest passed
+OK - minted an access token valid ~7200s (120 min). Scopes: https://api.ebay.com/oauth/api_scope/sell.inventory
+[2026-10-03 05:30:19] eBay auth OK
+  page 20: 426 BMW donors (74 other makes skipped)
+  page 40: 926 BMW donors (74 other makes skipped)
+  page 60: 1426 BMW donors (74 other makes skipped)
+  page 80: 1926 BMW donors (74 other makes skipped)
+  page 100: 2426 BMW donors (74 other makes skipped)
+  page 120: 2924 BMW donors (76 other makes skipped)
+  page 140: 3422 BMW donors (78 other makes skipped)
+  page 160: 3919 BMW donors (81 other makes skipped)
+  page 180: 4417 BMW donors (83 other makes skipped)
+  page 200: 4917 BMW donors (83 other makes skipped)
+  page 220: 5309 BMW donors (191 other makes skipped)
+  page 240: 5796 BMW donors (204 other makes skipped)
+  page 260: 6267 BMW donors (233 other makes skipped)
+  page 280: 6760 BMW donors (240 other makes skipped)
+  page 300: 7112 BMW donors (388 other makes skipped)
+  page 320: 7563 BMW donors (437 other makes skipped)
+  page 340: 8055 BMW donors (445 other makes skipped)
+  page 360: 8537 BMW donors (463 other makes skipped)
+  page 380: 8981 BMW donors (519 other makes skipped)
+  page 400: 9466 BMW donors (534 other makes skipped)
+  page 420: 9964 BMW donors (536 other makes skipped)
+  page 440: 10390 BMW donors (610 other makes skipped)
+  page 460: 10681 BMW donors (819 other makes skipped)
+  page 480: 11070 BMW donors (930 other makes skipped)
+  page 500: 11567 BMW donors (933 other makes skipped)
+  page 520: 12063 BMW donors (937 other makes skipped)
+  page 540: 12555 BMW donors (945 other makes skipped)
+  page 560: 13017 BMW donors (983 other makes skipped)
+  page 580: 13458 BMW donors (1042 other makes skipped)
+  page 600: 13800 BMW donors (1200 other makes skipped)
+  page 620: 14134 BMW donors (1366 other makes skipped)
+  page 640: 14475 BMW donors (1525 other makes skipped)
+  page 660: 14681 BMW donors (1819 other makes skipped)
+  page 680: 15026 BMW donors (1974 other makes skipped)
+  page 700: 15502 BMW donors (1998 other makes skipped)
+Wrote 15773 donors (+37 vs previous 15736) -> data/shopify_donors.json
+  fields: year 12599/15773  |  chassis 15599/15773  |  engine 9327/15773
+[2026-10-03 05:38:48] donor dump refreshed from Shopify
+[2026-10-03 05:38:50] quota check: GetItem: 1/5,000 used, 4,999 left (0%) sweep limit tonight: 7,165 SKUs   (4999 of 5000 left, reserving 700 for audits) 
+[2026-10-03 05:38:51] sweeping (live), limit 7165...
+  ETK fitment: 7686 SKU(s), 560843 rows loaded
+  part-number fitment: 752 SKU(s), 3763 rows loaded (expanded to chassis families at push time)
+  skipped 40 out-of-stock SKU(s) (sold -- fitment would help nobody)
+  24848 SKU(s) on eBay  |  7976 ledgered  |  16252 cached skips  |  920 to consider
+Mode: apply (LIVE)  |  donor=Shopify  |  920 SKU(s)  |  ledger has 7976
+  [1/920] 62688: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [2/920] 62559: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [3/920] 62740: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [4/920] 62689: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [5/920] 62537: skip - no Shopify donor for SKU
+  [6/920] 62535: skip - category 179679 never renders fitment on eBay
+  [7/920] 62370: skip - no Shopify donor for SKU
+  [8/920] 62534: skip - category 179679 never renders fitment on eBay
+  [9/920] 62468: skip - no Shopify donor for SKU
+  [10/920] 62205: skip - no Shopify donor for SKU
+  [11/920] 62376: skip - no Shopify donor for SKU
+  [12/920] 62743: skip - no Shopify donor for SKU
+  [13/920] 62292: skip - no Shopify donor for SKU
+  [14/920] 62367: skip - no Shopify donor for SKU
+  [15/920] 62437: skip - no Shopify donor for SKU
+  [16/920] 62438: skip - no Shopify donor for SKU
+  [17/920] 62365: skip - no Shopify donor for SKU
+  [18/920] 62404: skip - no Shopify donor for SKU
+  [19/920] 62531: skip - category 179679 never renders fitment on eBay
+  [20/920] 62532: skip - category 179679 never renders fitment on eBay
+  [21/920] 62533: skip - category 179679 never renders fitment on eBay
+  [22/920] 62512: skip - no Shopify donor for SKU
+  [23/920] 62589: skip - no Shopify donor for SKU
+  [24/920] 62499: skip - no Shopify donor for SKU
+  [25/920] 62807: skip - no Shopify donor for SKU
+  [26/920] 62500: skip - no Shopify donor for SKU
+  [27/920] 62502: skip - no Shopify donor for SKU
+  [28/920] 62510: skip - no Shopify donor for SKU
+  [29/920] 62679: skip - no Shopify donor for SKU
+  [30/920] 62513: skip - no Shopify donor for SKU
+  [31/920] 62541: skip - no Shopify donor for SKU
+  [32/920] 62501: skip - no Shopify donor for SKU
+  [33/920] 62517: skip - no Shopify donor for SKU
+  [34/920] 62546: skip - no Shopify donor for SKU
+  [35/920] 62545: skip - no Shopify donor for SKU
+  [36/920] 66048: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [37/920] 62974: skip - no Shopify donor for SKU
+  [38/920] 62990: skip - no Shopify donor for SKU
+  [39/920] 63103: skip - category 179671 never renders fitment on eBay
+  [40/920] 62613: skip - no Shopify donor for SKU
+  [41/920] 62622: skip - no Shopify donor for SKU
+  [42/920] 62783: skip - no Shopify donor for SKU
+  [43/920] 62551: pushed - under engine ancestor 262251 (Car & Truck Parts & Accessories > Transmission & D
+  [44/920] 62734: skip - already 31 vehicles (multi-fit/expanded)
+  [45/920] 63289: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [46/920] 62682: skip - already 67 vehicles (multi-fit/expanded)
+  [47/920] 63287: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [48/920] 63290: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [49/920] 62735: skip - already 31 vehicles (multi-fit/expanded)
+  [50/920] 63590: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [51/920] 62724: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [52/920] 63591: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [53/920] 63288: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [54/920] 62526: skip - category 179679 never renders fitment on eBay
+  [55/920] 62214: skip - category 179679 never renders fitment on eBay
+  [56/920] 62179: skip - no Shopify donor for SKU
+  [57/920] 62024: skip - no Shopify donor for SKU
+  [58/920] 62030: skip - no Shopify donor for SKU
+  [59/920] 62115: skip - category 179671 never renders fitment on eBay
+  [60/920] 62216: skip - no Shopify donor for SKU
+  [61/920] 62361: skip - no Shopify donor for SKU
+  [62/920] 62031: skip - no Shopify donor for SKU
+  [63/920] 62742: skip - no Shopify donor for SKU
+  [64/920] 62108: skip - no Shopify donor for SKU
+  [65/920] 62111: skip - no Shopify donor for SKU
+  [66/920] 62109: skip - no Shopify donor for SKU
+  [67/920] 62023: skip - category 179671 never renders fitment on eBay
+  [68/920] 62021: skip - no Shopify donor for SKU
+  [69/920] 62581: skip - already 33 vehicles (multi-fit/expanded)
+  [70/920] 699: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [71/920] 63615: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [72/920] 63700: pushed - part type 'Front Left or Right Seat Control Module' is not engine-dependent (cat
+  [73/920] 26449: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [74/920] 39105: pushed - under engine ancestor 262251 (Car & Truck Parts & Accessories > Transmission & D
+  [75/920] 46415: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [76/920] 3988: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [77/920] 3989: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [78/920] 1538: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [79/920] 1199: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [80/920] 358: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [81/920] 37671: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [82/920] 41923: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [83/920] 45627: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [84/920] 6343: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [85/920] 61942: pushed - part type 'Module' is not engine-dependent (category said B)
+  [86/920] 52981: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [87/920] 51703: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [88/920] 52966: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [89/920] 43380: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [90/920] 39856: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [91/920] 3192: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [92/920] 43378: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [93/920] 52153: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [94/920] 51812: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [95/920] 51010: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [96/920] 53099: pushed - under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine 
+  [97/920] 53212: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [98/920] 53379: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [99/920] 49559: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [100/920] 49560: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [101/920] 49063: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [102/920] 61302: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [103/920] 65001: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [104/920] 65007: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [105/920] 50681: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [106/920] 50686: pushed - not under an engine branch (Car & Truck Parts & Accessories > Advanced Driver As
+  [107/920] 23280: error - inventory write HTTP 400: [25002] A user error has occurred. Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on details. (0=Add at least 1 photo. More photos are better! Show off your item from every angle and zoom in on
+  [108/920] 47313: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [109/920] 60144: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [110/920] 52370: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [111/920] 52440: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [112/920] 6728: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [113/920] 6380: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [114/920] 6367: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [115/920] 5510: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [116/920] 25384: pushed - under engine ancestor 262245 (Car & Truck Parts & Accessories > Transmission & D
+  [117/920] 1203: pushed - not under an engine branch (Car & Truck Parts & Accessories > Other Car & Truck 
+  [118/920] 46272: pushed - under engine ancestor 262245 (Car & Truck Parts & Accessories > Transmission & D
+  [119/920] 36285: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [120/920] 49008: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [121/920] 49009: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [122/920] 234: pushed - not under an engine branch (Car & Truck Parts & Accessories > Interior Parts & A
+  [123/920] 33321: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [124/920] 44377: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [125/920] 44380: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [126/920] 46702: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [127/920] 46701: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [128/920] 46447: pushed - not under an engine branch (Car & Truck Parts & Accessories > Steering & Suspens
+  [129/920] 37135: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [130/920] 37136: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [131/920] 36297: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [132/920] 36298: pushed - not under an engine branch (Car & Truck Parts & Accessories > Transmission & Dri
+  [133/920] 32351: skip - no Shopify donor for SKU
+  [134/920] 47167: skip - no Shopify donor for SKU
+  [135/920] 14527: skip - no Shopify donor for SKU
+  [136/920] 45338: skip - no Shopify donor for SKU
+  [137/920] 50560: skip - no Shopify donor for SKU
+  [138/920] 48553: skip - no Shopify donor for SKU
+  [139/920] 48217: review - Rule B on E88 needs an engine or donor model.
+  [140/920] 14074: skip - no Shopify donor for SKU
+  [141/920] 48426: skip - no Shopify donor for SKU
+  [142/920] 9326: skip - no Shopify donor for SKU
+  [143/920] 51125: skip - no Shopify donor for SKU
+  [144/920] 48554: skip - no Shopify donor for SKU
+  [145/920] 9980: skip - no Shopify donor for SKU
+  [146/920] 16556: skip - no Shopify donor for SKU
+  [147/920] 50563: skip - no Shopify donor for SKU
+  [148/920] 33360: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [149/920] 34845: pushed - not under an engine branch (Car & Truck Parts & Accessories > Exterior Parts & A
+  [150/920] 15358: skip - no Shopify donor for SKU
+  [151/920] 14985: skip - no Shopify donor for SKU
+  [152/920] 32772: review - unresolved chassis: series 'None' not in BMW reference
+  [153/920] 60711: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [154/920] 24958: review - unresolved chassis: series 'None' not in BMW reference
+  [155/920] 66600: skip - no Shopify donor for SKU
+  [156/920] 66598: skip - no Shopify donor for SKU
+  [157/920] 66599: skip - no Shopify donor for SKU
+  [158/920] 66601: skip - no Shopify donor for SKU
+  [159/920] 66478: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [160/920] 66602: skip - no Shopify donor for SKU
+  [161/920] 63281: skip - no Shopify donor for SKU
+  [162/920] 66507: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [163/920] 66564: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [164/920] 66508: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [165/920] 66513: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [166/920] 66483: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [167/920] 66264: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [168/920] 1204: skip - no Shopify donor for SKU
+  [169/920] 27190: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [170/920] 3782: skip - no Shopify donor for SKU
+  [171/920] 60527: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [172/920] 45976: skip - no rows survived eBay catalog validation: 2017 BMW M550i: not in eBay's catalog;
+  [173/920] 66238: skip - no rows survived eBay catalog validation: 2016 BMW 740Li: not in eBay's catalog;
+  [174/920] 1000: skip - no Shopify donor for SKU
+  [175/920] 65765: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [176/920] 65759: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [177/920] 65760: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [178/920] 1021: skip - no Shopify donor for SKU
+  [179/920] 1277: skip - no Shopify donor for SKU
+  [180/920] 1133: skip - no Shopify donor for SKU
+  [181/920] 1131: skip - no Shopify donor for SKU
+  [182/920] 1015: skip - no Shopify donor for SKU
+  [183/920] 1117: skip - no Shopify donor for SKU
+  [184/920] 1085: skip - no Shopify donor for SKU
+  [185/920] 1077: skip - no Shopify donor for SKU
+  [186/920] 1087: skip - no Shopify donor for SKU
+  [187/920] 1078: skip - no Shopify donor for SKU
+  [188/920] 1206: skip - no Shopify donor for SKU
+  [189/920] 1019: skip - no Shopify donor for SKU
+  [190/920] 1135: skip - no Shopify donor for SKU
+  [191/920] 1134: skip - no Shopify donor for SKU
+  [192/920] 1132: skip - no Shopify donor for SKU
+  [193/920] 1086: skip - no Shopify donor for SKU
+  [194/920] 1139: skip - no Shopify donor for SKU
+  [195/920] 1089: skip - no Shopify donor for SKU
+  [196/920] 1088: skip - no Shopify donor for SKU
+  [197/920] 1091: skip - no Shopify donor for SKU
+  [198/920] 1129: skip - no Shopify donor for SKU
+  [199/920] 1017: skip - no Shopify donor for SKU
+  [200/920] 1116: skip - no Shopify donor for SKU
+  [201/920] 832: skip - no Shopify donor for SKU
+  [202/920] 1009: skip - no Shopify donor for SKU
+  [203/920] 63258: skip - no Shopify donor for SKU
+  [204/920] 63254: skip - no Shopify donor for SKU
+  [205/920] 63272: skip - no Shopify donor for SKU
+  [206/920] 63263: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [207/920] 63252: skip - no Shopify donor for SKU
+  [208/920] 63259: skip - no Shopify donor for SKU
+  [209/920] 63256: skip - no Shopify donor for SKU
+  [210/920] 63261: skip - no Shopify donor for SKU
+  [211/920] 63273: skip - no Shopify donor for SKU
+  [212/920] 63255: skip - no Shopify donor for SKU
+  [213/920] 63260: skip - no Shopify donor for SKU
+  [214/920] 63280: skip - no Shopify donor for SKU
+  [215/920] 63279: skip - no Shopify donor for SKU
+  [216/920] STOCK9198302: review - Rule B on F86 needs an engine or donor model.
+  [217/920] STOCK5A625D0: review - Rule B on G42 needs an engine or donor model.
+  [218/920] 63352: skip - no Shopify donor for SKU
+  [219/920] 63354: skip - no Shopify donor for SKU
+  [220/920] 64500: skip - no Shopify donor for SKU
+  [221/920] 64533: skip - no Shopify donor for SKU
+  [222/920] 64620: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [223/920] 64506: skip - no Shopify donor for SKU
+  [224/920] 64495: skip - no Shopify donor for SKU
+  [225/920] 64512: skip - no Shopify donor for SKU
+  [226/920] 64610: skip - no Shopify donor for SKU
+  [227/920] 64502: skip - no Shopify donor for SKU
+  [228/920] 64609: skip - no Shopify donor for SKU
+  [229/920] 64611: skip - no Shopify donor for SKU
+  [230/920] 64618: skip - no Shopify donor for SKU
+  [231/920] 64513: skip - no Shopify donor for SKU
+  [232/920] 64542: skip - no Shopify donor for SKU
+  [233/920] 64540: skip - no Shopify donor for SKU
+  [234/920] 64493: skip - no Shopify donor for SKU
+  [235/920] 64503: skip - no Shopify donor for SKU
+  [236/920] 64535: skip - no Shopify donor for SKU
+  [237/920] 64548: skip - no Shopify donor for SKU
+  [238/920] 64494: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [239/920] 64498: skip - no Shopify donor for SKU
+  [240/920] 64509: skip - no Shopify donor for SKU
+  [241/920] 64515: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [242/920] 64539: skip - no Shopify donor for SKU
+  [243/920] 64497: skip - no Shopify donor for SKU
+  [244/920] 64501: skip - no Shopify donor for SKU
+  [245/920] 64543: skip - no Shopify donor for SKU
+  [246/920] 64492: skip - no Shopify donor for SKU
+  [247/920] 64499: skip - no Shopify donor for SKU
+  [248/920] 64619: skip - no Shopify donor for SKU
+  [249/920] 64491: skip - no Shopify donor for SKU
+  [250/920] 64531: skip - no Shopify donor for SKU
+  [251/920] 64536: skip - no Shopify donor for SKU
+  [252/920] 64545: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [253/920] 64616: skip - no Shopify donor for SKU
+  [254/920] 64617: skip - no Shopify donor for SKU
+  [255/920] 64549: skip - no Shopify donor for SKU
+  [256/920] 64612: skip - no Shopify donor for SKU
+  [257/920] 64614: skip - no Shopify donor for SKU
+  [258/920] 64490: skip - no Shopify donor for SKU
+  [259/920] 64511: skip - no Shopify donor for SKU
+  [260/920] 64547: skip - no Shopify donor for SKU
+  [261/920] 64508: skip - no Shopify donor for SKU
+  [262/920] 64507: skip - no Shopify donor for SKU
+  [263/920] 64489: skip - no Shopify donor for SKU
+  [264/920] 64510: skip - no Shopify donor for SKU
+  [265/920] 64541: skip - no Shopify donor for SKU
+  [266/920] 64546: skip - no Shopify donor for SKU
+  [267/920] 64496: skip - no Shopify donor for SKU
+  [268/920] 64514: skip - no Shopify donor for SKU
+  [269/920] 64534: skip - no Shopify donor for SKU
+  [270/920] 64550: skip - no Shopify donor for SKU
+  [271/920] 64504: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [272/920] 64608: skip - no Shopify donor for SKU
+  [273/920] 64613: skip - no Shopify donor for SKU
+  [274/920] 64544: skip - no Shopify donor for SKU
+  [275/920] 65489: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [276/920] 63353: skip - no Shopify donor for SKU
+  [277/920] 63351: skip - no Shopify donor for SKU
+  [278/920] 63355: skip - no Shopify donor for SKU
+  [279/920] 63275: skip - no Shopify donor for SKU
+  [280/920] 63283: skip - no Shopify donor for SKU
+  [281/920] 63344: skip - no Shopify donor for SKU
+  [282/920] 63282: skip - no Shopify donor for SKU
+  [283/920] 63343: skip - no Shopify donor for SKU
+  [284/920] 63345: skip - category 262265 never renders fitment on eBay
+  [285/920] 63349: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [286/920] 63278: skip - no Shopify donor for SKU
+  [287/920] 63346: skip - no Shopify donor for SKU
+  [288/920] 63276: skip - no Shopify donor for SKU
+  [289/920] 63277: skip - no Shopify donor for SKU
+  [290/920] 63274: skip - no Shopify donor for SKU
+  [291/920] 63253: skip - no Shopify donor for SKU
+  [292/920] 63251: skip - no Shopify donor for SKU
+  [293/920] 63257: skip - no Shopify donor for SKU
+  [294/920] 32937: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [295/920] 61606: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [296/920] 40973: review - Rule B on F02 needs an engine or donor model.
+  [297/920] 248: skip - no Shopify donor for SKU
+  [298/920] 247: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [299/920] 32620: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [300/920] 32532: skip - no rows survived eBay catalog validation: 2009 BMW None: not in eBay's catalog; 
+  [301/920] 4528: skip - no Shopify donor for SKU
+  [302/920] 4500: skip - no Shopify donor for SKU
+  [303/920] 4518: skip - no Shopify donor for SKU
+  [304/920] 4503: skip - no Shopify donor for SKU
+  [305/920] 4517: skip - no Shopify donor for SKU
+  [306/920] 4499: skip - no Shopify donor for SKU
+  [307/920] 48367: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [308/920] 48419: skip - no Shopify donor for SKU
+  [309/920] 456: skip - no Shopify donor for SKU
+  [310/920] 4425: skip - no Shopify donor for SKU
+  [311/920] 4364: skip - no Shopify donor for SKU
+  [312/920] 4367: skip - no Shopify donor for SKU
+  [313/920] 4301: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [314/920] 4283: skip - no Shopify donor for SKU
+  [315/920] 4284: skip - no Shopify donor for SKU
+  [316/920] 4290: skip - no Shopify donor for SKU
+  [317/920] 4277: skip - no Shopify donor for SKU
+  [318/920] 48439: skip - no Shopify donor for SKU
+  [319/920] 48443: skip - no Shopify donor for SKU
+  [320/920] 48445: skip - no Shopify donor for SKU
+  [321/920] 48447: skip - no Shopify donor for SKU
+  [322/920] 48449: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [323/920] 48451: skip - no Shopify donor for SKU
+  [324/920] 48456: skip - no Shopify donor for SKU
+  [325/920] 48483: skip - no Shopify donor for SKU
+  [326/920] 48487: skip - no Shopify donor for SKU
+  [327/920] 48488: skip - no Shopify donor for SKU
+  [328/920] 48534: skip - no Shopify donor for SKU
+  [329/920] 48512: skip - no Shopify donor for SKU
+  [330/920] 48539: skip - no Shopify donor for SKU
+  [331/920] 48541: skip - no Shopify donor for SKU
+  [332/920] 50464: skip - no Shopify donor for SKU
+  [333/920] 50468: skip - no Shopify donor for SKU
+  [334/920] 50489: skip - no Shopify donor for SKU
+  [335/920] 50483: skip - no Shopify donor for SKU
+  [336/920] 50498: skip - no Shopify donor for SKU
+  [337/920] 50503: skip - no Shopify donor for SKU
+  [338/920] 50507: skip - no Shopify donor for SKU
+  [339/920] 50519: skip - no Shopify donor for SKU
+  [340/920] 50530: skip - no Shopify donor for SKU
+  [341/920] 50532: skip - no Shopify donor for SKU
+  [342/920] 50535: skip - no Shopify donor for SKU
+  [343/920] 50538: skip - no Shopify donor for SKU
+  [344/920] 50548: skip - no Shopify donor for SKU
+  [345/920] 50552: skip - no Shopify donor for SKU
+  [346/920] 50554: skip - no Shopify donor for SKU
+  [347/920] 50557: skip - no Shopify donor for SKU
+  [348/920] 4531: skip - no Shopify donor for SKU
+  [349/920] 4577: skip - no Shopify donor for SKU
+  [350/920] 32843: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [351/920] 918: skip - no Shopify donor for SKU
+  [352/920] 960: skip - no Shopify donor for SKU
+  [353/920] 920: skip - no Shopify donor for SKU
+  [354/920] 922: skip - no Shopify donor for SKU
+  [355/920] 919: skip - no Shopify donor for SKU
+  [356/920] 923: skip - no Shopify donor for SKU
+  [357/920] 921: skip - no Shopify donor for SKU
+  [358/920] 924: skip - no Shopify donor for SKU
+  [359/920] 446: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [360/920] 959: skip - no Shopify donor for SKU
+  [361/920] 965: skip - no Shopify donor for SKU
+  [362/920] 958: skip - no Shopify donor for SKU
+  [363/920] 50558: skip - no Shopify donor for SKU
+  [364/920] 50566: skip - no Shopify donor for SKU
+  [365/920] 50569: skip - no Shopify donor for SKU
+  [366/920] 50573: skip - no Shopify donor for SKU
+  [367/920] 23527: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [368/920] 50607: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [369/920] 50724: skip - no Shopify donor for SKU
+  [370/920] 50725: skip - no Shopify donor for SKU
+  [371/920] 50748: skip - no Shopify donor for SKU
+  [372/920] 50752: skip - no Shopify donor for SKU
+  [373/920] 4660: skip - no Shopify donor for SKU
+  [374/920] 4259: skip - no Shopify donor for SKU
+  [375/920] 4257: skip - no Shopify donor for SKU
+  [376/920] 4258: skip - no Shopify donor for SKU
+  [377/920] 4260: skip - no Shopify donor for SKU
+  [378/920] 61799: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [379/920] 61053: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [380/920] 62282: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [381/920] 1170: skip - no Shopify donor for SKU
+  [382/920] 60816: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [383/920] 50931: skip - no Shopify donor for SKU
+  [384/920] 50963: skip - no Shopify donor for SKU
+  [385/920] 51117: skip - no Shopify donor for SKU
+  [386/920] 51118: skip - no Shopify donor for SKU
+  [387/920] 51119: skip - no Shopify donor for SKU
+  [388/920] 51124: skip - no Shopify donor for SKU
+  [389/920] 51126: skip - no Shopify donor for SKU
+  [390/920] 4777: skip - no Shopify donor for SKU
+  [391/920] 4581: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [392/920] 374: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [393/920] 2811: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [394/920] 1556: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [395/920] 373: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [396/920] 4580: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [397/920] 1555: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [398/920] 2812: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [399/920] 4902: skip - no Shopify donor for SKU
+  [400/920] 4774: skip - no Shopify donor for SKU
+  [401/920] 4575: skip - no Shopify donor for SKU
+  [402/920] 4574: skip - no Shopify donor for SKU
+  [403/920] 4547: skip - no Shopify donor for SKU
+  [404/920] 4553: skip - no Shopify donor for SKU
+  [405/920] 4658: skip - no Shopify donor for SKU
+  [406/920] 4659: skip - no Shopify donor for SKU
+  [407/920] 4770: skip - no Shopify donor for SKU
+  [408/920] 5603: skip - no Shopify donor for SKU
+  [409/920] 43352: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [410/920] 32486: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [411/920] 266: skip - no Shopify donor for SKU
+  [412/920] 342: skip - no Shopify donor for SKU
+  [413/920] 223: skip - no Shopify donor for SKU
+  [414/920] 250: skip - no Shopify donor for SKU
+  [415/920] 474: skip - no Shopify donor for SKU
+  [416/920] 390: skip - no Shopify donor for SKU
+  [417/920] 336: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [418/920] 388: skip - no Shopify donor for SKU
+  [419/920] 587: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [420/920] 3119: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [421/920] 3653: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [422/920] 3955: skip - no Shopify donor for SKU
+  [423/920] 4296: skip - no Shopify donor for SKU
+  [424/920] 4253: skip - no Shopify donor for SKU
+  [425/920] 4297: skip - no Shopify donor for SKU
+  [426/920] 4293: skip - no Shopify donor for SKU
+  [427/920] 4292: skip - no Shopify donor for SKU
+  [428/920] 4327: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [429/920] 4278: skip - no Shopify donor for SKU
+  [430/920] 4285: skip - no Shopify donor for SKU
+  [431/920] 4289: skip - no Shopify donor for SKU
+  [432/920] 4300: skip - no Shopify donor for SKU
+  [433/920] 4281: skip - no Shopify donor for SKU
+  [434/920] 4572: skip - no Shopify donor for SKU
+  [435/920] 34360: skip - no Shopify donor for SKU
+  [436/920] 44052: skip - no rows survived eBay catalog validation: 2021 BMW 440i: not in eBay's catalog; 
+  [437/920] 51507: skip - no Shopify donor for SKU
+  [438/920] 52542: skip - no Shopify donor for SKU
+  [439/920] 52541: skip - no Shopify donor for SKU
+  [440/920] 50606: skip - no Shopify donor for SKU
+  [441/920] 4374: skip - no Shopify donor for SKU
+  [442/920] 1209: skip - no Shopify donor for SKU
+  [443/920] 4791: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [444/920] 26388: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [445/920] 32116: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [446/920] 26780: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [447/920] 31626: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [448/920] 26886: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [449/920] 31594: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [450/920] 26884: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [451/920] 27333: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [452/920] 26944: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [453/920] 32134: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [454/920] 27914: review - Rule B on F16 needs an engine or donor model.
+  [455/920] 26467: review - Rule B on G20 needs an engine or donor model.
+  [456/920] 29404: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [457/920] 32133: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [458/920] 27008: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [459/920] 61571: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [460/920] 61570: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [461/920] 63774: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [462/920] 5482: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [463/920] 5547: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [464/920] 5435: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [465/920] 5339: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [466/920] 5443: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [467/920] 5331: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [468/920] 5263: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [469/920] 5498: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [470/920] 5424: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [471/920] 5630: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [472/920] 5588: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [473/920] 5560: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [474/920] 5640: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [475/920] 5638: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [476/920] 5590: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [477/920] 5398: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [478/920] 5007: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [479/920] 62076: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [480/920] 0227f11b-97ea-4a08-963f-137c6a9fed03: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [481/920] 29368: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [482/920] 32135: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [483/920] 28526: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [484/920] 31380: skip - no Shopify donor for SKU
+  [485/920] 22825: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [486/920] 25407: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [487/920] 28538: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [488/920] 32861: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [489/920] 28508: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [490/920] 31787: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [491/920] 31761: review - unresolved chassis: series 'None' not in BMW reference
+  [492/920] 23193: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [493/920] 30523: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [494/920] 31717: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [495/920] 28942: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [496/920] 26350: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [497/920] 31868: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [498/920] 21035: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [499/920] 32525: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [500/920] 23148: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [501/920] 26240: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [502/920] 25521: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [503/920] 24793: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [504/920] 24941: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [505/920] 25640: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [506/920] 31729: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [507/920] 32733: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [508/920] 20289: skip - no Shopify donor for SKU
+  [509/920] 29936: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [510/920] 25976: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [511/920] 33187: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [512/920] 27600: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [513/920] 23341: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [514/920] 20526: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [515/920] 26877: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [516/920] 29180: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [517/920] 23173: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [518/920] 22827: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [519/920] 32632: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [520/920] 27256: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [521/920] 23342: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [522/920] 24415: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [523/920] 26353: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [524/920] 30702: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [525/920] 32132: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [526/920] 24002: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [527/920] 27718: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [528/920] 25500: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [529/920] 21809: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [530/920] 27238: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [531/920] 27967: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [532/920] 21295: skip - no Shopify donor for SKU
+  [533/920] 23810: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [534/920] 23811: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [535/920] 26247: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [536/920] 24884: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [537/920] 1079: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [538/920] 1216: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [539/920] 749: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [540/920] 4510: skip - no Shopify donor for SKU
+  [541/920] 4295: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [542/920] 4282: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [543/920] 53560: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [544/920] 61033: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [545/920] 23190: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [546/920] 61002: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [547/920] 62687: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [548/920] 60996: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [549/920] 789: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [550/920] 777: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [551/920] 60976: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [552/920] 60975: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [553/920] 254: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [554/920] 60957: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [555/920] 60956: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [556/920] 17360: skip - no Shopify donor for SKU
+  [557/920] 52286: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [558/920] 966: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [559/920] 44744: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [560/920] 43521: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [561/920] 887: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [562/920] 43663: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [563/920] 62632: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [564/920] 62629: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [565/920] 62421: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [566/920] 62430: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [567/920] 4557: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [568/920] 4556: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [569/920] 28496: skip - no Shopify donor for SKU
+  [570/920] 32890: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [571/920] 32198: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [572/920] 46785: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [573/920] 31169: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [574/920] 723: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [575/920] 5161: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [576/920] 6057: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [577/920] 4705: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [578/920] 2993: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [579/920] 5153: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [580/920] 5664: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [581/920] 51781: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [582/920] 4390: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [583/920] 4389: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [584/920] 37297: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [585/920] 51506: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [586/920] 51978: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [587/920] 1215: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [588/920] 45470: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [589/920] 37663: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [590/920] 51910: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [591/920] 5164: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [592/920] 1757: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [593/920] 47058: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [594/920] 53859: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [595/920] 5501: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [596/920] 6683: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [597/920] 43382: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [598/920] 47059: skip - no Shopify donor for SKU
+  [599/920] 3682: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [600/920] 53142: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [601/920] 43436: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [602/920] 4377: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [603/920] 51909: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [604/920] 44757: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [605/920] 2681: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [606/920] 4785: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [607/920] 38799: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [608/920] 1095: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [609/920] 37013: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [610/920] 1992: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [611/920] 51002: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [612/920] 48669: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [613/920] 47742: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [614/920] 51532: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [615/920] 26402: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [616/920] 2236: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [617/920] 61970: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [618/920] 61943: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [619/920] 4812: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [620/920] 739: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [621/920] 487: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [622/920] 2099: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [623/920] 4265: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [624/920] 33858: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [625/920] 47802: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [626/920] 49716: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [627/920] 33859: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [628/920] 52198: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [629/920] 38688: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [630/920] 41225: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [631/920] 46762: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [632/920] 60942: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [633/920] 61065: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [634/920] 61064: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [635/920] 61798: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [636/920] 61853: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [637/920] 950: skip - no Shopify donor for SKU
+  [638/920] 61700: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [639/920] 61614: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [640/920] 61645: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [641/920] 61612: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [642/920] 61607: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [643/920] 61732: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [644/920] 61642: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [645/920] 61609: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [646/920] 61654: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [647/920] 61656: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [648/920] 61659: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [649/920] 61691: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [650/920] 61718: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [651/920] 61747: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [652/920] 62420: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [653/920] 61640: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [654/920] 61692: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [655/920] 61741: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [656/920] 61081: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [657/920] 62341: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [658/920] 61056: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [659/920] 62279: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [660/920] 61061: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [661/920] 60825: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [662/920] 60823: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [663/920] 60820: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [664/920] 3353: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [665/920] 2073: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [666/920] 6334: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [667/920] 62346: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [668/920] 62278: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [669/920] 62233: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [670/920] 62356: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [671/920] 62342: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [672/920] 62290: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [673/920] 62349: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [674/920] 62224: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [675/920] 60811: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [676/920] 4270: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [677/920] 4271: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [678/920] 4272: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [679/920] 61641: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [680/920] 62199: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [681/920] 52761: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [682/920] 61361: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [683/920] 12013: skip - no Shopify donor for SKU
+  [684/920] 11807: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [685/920] 12348: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [686/920] 12354: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [687/920] 12967: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [688/920] 8052: skip - no Shopify donor for SKU
+  [689/920] 8046: skip - no Shopify donor for SKU
+  [690/920] 12353: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [691/920] 14730: skip - no Shopify donor for SKU
+  [692/920] 13148: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [693/920] 12665: skip - no Shopify donor for SKU
+  [694/920] 14517: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [695/920] 14374: skip - no Shopify donor for SKU
+  [696/920] 13143: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [697/920] 13490: skip - no Shopify donor for SKU
+  [698/920] 14820: skip - no Shopify donor for SKU
+  [699/920] 13687: skip - no Shopify donor for SKU
+  [700/920] 14143: skip - no Shopify donor for SKU
+  [701/920] 16628: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [702/920] 15220: skip - no Shopify donor for SKU
+  [703/920] 15865: skip - no Shopify donor for SKU
+  [704/920] 16914: skip - no Shopify donor for SKU
+  [705/920] 16921: skip - no Shopify donor for SKU
+  [706/920] 16696: skip - no Shopify donor for SKU
+  [707/920] 17917: skip - no Shopify donor for SKU
+  [708/920] 17812: skip - no Shopify donor for SKU
+  [709/920] 17874: skip - no Shopify donor for SKU
+  [710/920] 17919: skip - no Shopify donor for SKU
+  [711/920] 17910: skip - no Shopify donor for SKU
+  [712/920] 17808: skip - no Shopify donor for SKU
+  [713/920] 17389: skip - no Shopify donor for SKU
+  [714/920] 17911: skip - no Shopify donor for SKU
+  [715/920] 17920: skip - no Shopify donor for SKU
+  [716/920] 17925: skip - no Shopify donor for SKU
+  [717/920] 17810: skip - no Shopify donor for SKU
+  [718/920] 17916: skip - no Shopify donor for SKU
+  [719/920] 17873: skip - no Shopify donor for SKU
+  [720/920] 17410: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [721/920] 17912: skip - no Shopify donor for SKU
+  [722/920] 17377: skip - no Shopify donor for SKU
+  [723/920] 17872: skip - no Shopify donor for SKU
+  [724/920] 17933: skip - no Shopify donor for SKU
+  [725/920] 17947: skip - no Shopify donor for SKU
+  [726/920] 17399: skip - no Shopify donor for SKU
+  [727/920] 17937: skip - no Shopify donor for SKU
+  [728/920] 17967: skip - no Shopify donor for SKU
+  [729/920] 17929: skip - no Shopify donor for SKU
+  [730/920] 17931: skip - no Shopify donor for SKU
+  [731/920] 18923: skip - no Shopify donor for SKU
+  [732/920] 19025: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [733/920] 19251: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [734/920] 17818: skip - no Shopify donor for SKU
+  [735/920] 19589: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [736/920] 22155: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [737/920] 22335: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [738/920] 22760: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [739/920] 22555: skip - no Shopify donor for SKU
+  [740/920] 23231: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [741/920] 24194: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [742/920] 24482: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [743/920] 24547: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [744/920] 25206: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [745/920] 25716: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [746/920] 25719: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [747/920] 26608: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [748/920] 26618: review - Rule B on G20 needs an engine or donor model.
+  [749/920] 26760: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [750/920] 26759: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [751/920] 26541: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [752/920] 27880: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [753/920] 27948: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [754/920] 27471: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [755/920] 28098: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [756/920] 28424: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [757/920] 28770: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [758/920] 28787: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [759/920] 28863: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [760/920] 29844: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [761/920] 29845: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [762/920] 30721: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [763/920] 30919: skip - no Shopify donor for SKU
+  [764/920] 30933: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [765/920] 31164: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [766/920] 31098: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [767/920] 30197: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [768/920] 31696: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [769/920] 32641: skip - no Shopify donor for SKU
+  [770/920] 33601: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [771/920] 32371: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [772/920] 32926: skip - no Shopify donor for SKU
+  [773/920] 32484: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [774/920] 33575: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [775/920] 32616: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [776/920] 237: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [777/920] 507: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [778/920] 513: skip - no Shopify donor for SKU
+  [779/920] 516: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [780/920] 539: skip - no Shopify donor for SKU
+  [781/920] 521: skip - no Shopify donor for SKU
+  [782/920] 535: skip - no Shopify donor for SKU
+  [783/920] 742: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [784/920] 833: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [785/920] 953: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [786/920] 968: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [787/920] 1081: skip - no Shopify donor for SKU
+  [788/920] 1747: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [789/920] 1926: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [790/920] 2994: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [791/920] 2955: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [792/920] 2866: skip - no Shopify donor for SKU
+  [793/920] 3057: skip - no Shopify donor for SKU
+  [794/920] 3058: skip - no Shopify donor for SKU
+  [795/920] 3209: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [796/920] 3208: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [797/920] 3352: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [798/920] 3299: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [799/920] 3445: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [800/920] 3440: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [801/920] 3598: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [802/920] 3752: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [803/920] 4255: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [804/920] 4299: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [805/920] 4336: skip - no Shopify donor for SKU
+  [806/920] 4362: skip - no Shopify donor for SKU
+  [807/920] 32803: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [808/920] 37125: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [809/920] 35733: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [810/920] 35764: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [811/920] 34068: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [812/920] 34052: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [813/920] 34763: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [814/920] 37189: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [815/920] 37479: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [816/920] 34714: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [817/920] 34221: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [818/920] 37929: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [819/920] 37703: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [820/920] 37604: review - Rule B on G42 needs an engine or donor model.
+  [821/920] 37637: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [822/920] 39126: review - Rule B on G05 needs an engine or donor model.
+  [823/920] 39607: review - Rule B on G05 needs an engine or donor model.
+  [824/920] 39606: review - Rule B on G05 needs an engine or donor model.
+  [825/920] 39273: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [826/920] 38048: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [827/920] 38145: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [828/920] 38084: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [829/920] 38388: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [830/920] 39259: review - Rule B on G05 needs an engine or donor model.
+  [831/920] 39612: review - Rule B on G20 needs an engine or donor model.
+  [832/920] 39405: review - Rule B on G05 needs an engine or donor model.
+  [833/920] 38492: pushed - under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine 
+  [834/920] 38627: pushed - under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine 
+  [835/920] 39422: review - Rule B on G20 needs an engine or donor model.
+  [836/920] 39228: review - Rule B on G05 needs an engine or donor model.
+  [837/920] 38950: review - Rule B on G05 needs an engine or donor model.
+  [838/920] 39279: review - Rule B on G20 needs an engine or donor model.
+  [839/920] 40689: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [840/920] 35318: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [841/920] 39900: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [842/920] 41568: review - Rule B on G42 needs an engine or donor model.
+  [843/920] 40551: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [844/920] 43398: review - Rule B on G20 needs an engine or donor model.
+  [845/920] 43778: review - Rule B on G23 needs an engine or donor model.
+  [846/920] 45175: review - Rule B on G30 needs an engine or donor model.
+  [847/920] 43417: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [848/920] 44559: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [849/920] 44505: review - Rule B on G20 needs an engine or donor model.
+  [850/920] 44183: review - Rule B on G20 needs an engine or donor model.
+  [851/920] 43399: review - Rule B on G20 needs an engine or donor model.
+  [852/920] 43811: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [853/920] 43363: review - Rule B on G20 needs an engine or donor model.
+  [854/920] 44762: review - Rule B on G20 needs an engine or donor model.
+  [855/920] 44177: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [856/920] 44501: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [857/920] 43674: review - Rule B on F48 needs an engine or donor model.
+  [858/920] 47133: pushed - under engine ancestor 33612 (Car & Truck Parts & Accessories > Engines & Engine 
+  [859/920] 49042: review - Rule B on E88 needs an engine or donor model.
+  [860/920] 46823: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [861/920] 48868: review - Rule B on G01 needs an engine or donor model.
+  [862/920] 46774: review - Rule B on F25 needs an engine or donor model.
+  [863/920] 46870: review - Rule B on F25 needs an engine or donor model.
+  [864/920] 51836: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [865/920] 51807: review - Rule B on G20 needs an engine or donor model.
+  [866/920] 49932: review - Rule B on F15 needs an engine or donor model.
+  [867/920] 49395: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [868/920] 51593: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [869/920] 50852: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [870/920] 49813: review - Rule B on F32 needs an engine or donor model.
+  [871/920] 52155: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [872/920] 51409: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [873/920] 51052: pushed - under engine ancestor 33599 (Car & Truck Parts & Accessories > Engine Cooling Co
+  [874/920] 47648: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [875/920] 51856: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [876/920] 48543: skip - no Shopify donor for SKU
+  [877/920] 51849: review - Rule B on G20 needs an engine or donor model.
+  [878/920] 48334: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [879/920] 49150: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [880/920] 50140: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [881/920] 50281: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [882/920] 48185: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [883/920] 52157: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [884/920] 48234: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [885/920] 51278: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [886/920] 47935: skip - no Shopify donor for SKU
+  [887/920] 47934: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [888/920] 50417: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [889/920] 51877: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [890/920] 52355: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [891/920] 50449: skip - no Shopify donor for SKU
+  [892/920] 51996: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [893/920] 52329: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [894/920] 51410: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [895/920] 51895: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [896/920] 50495: skip - no Shopify donor for SKU
+  [897/920] 48438: skip - no Shopify donor for SKU
+  [898/920] 50836: skip - no published offer (offer exists but not PUBLISHED (ended/sold?))
+  [899/920] 48454: skip - no Shopify donor for SKU
+  [900/920] 50726: skip - no Shopify donor for SKU
+  [901/920] 50448: skip - no Shopify donor for SKU
+  [902/920] 50544: skip - no Shopify donor for SKU
+  [903/920] 50475: skip - no Shopify donor for SKU
+  [904/920] 48305: pushed - under engine ancestor 33572 (Car & Truck Parts & Accessories > Starters, Alterna
+  [905/920] 50851: review - Rule B on F32 needs an engine or donor model.
+  [906/920] 48333: review - Rule B on F32 needs an engine or donor model.
+  [907/920] 51839: review - Rule B on G20 needs an engine or donor model.
+  [908/920] 52306: pushed - under engine ancestor 33549 (Car & Truck Parts & Accessories > Air & Fuel Delive
+  [909/920] 50286: review - Rule B on F30 needs an engine or donor model.
+  [910/920] 47782: review - Rule B on F32 needs an engine or donor model.
+  [911/920] 48598: review - Rule B on F15 needs an engine or donor model.
+  [912/920] 49642: review - Rule B on G01 needs an engine or donor model.
+  [913/920] 51250: review - Rule B on G01 needs an engine or donor model.
+  [914/920] 50850: review - Rule B on F32 needs an engine or donor model.
+  [915/920] 51366: review - Rule B on F48 needs an engine or donor model.
+  [916/920] 53011: review - Rule B on F15 needs an engine or donor model.
+  [917/920] 53092: review - Rule B on F15 needs an engine or donor model.
+  [918/920] 52858: review - Rule B on G01 needs an engine or donor model.
+  [919/920] 52604: review - Rule B on G05 needs an engine or donor model.
+  [920/920] 52557: review - Rule B on F15 needs an engine or donor model.
+Skip cache: +719 recorded, 16886 held (these are not re-checked until their TTL lapses)
+
+Summary: {'skip': 729, 'pushed': 136, 'error': 1, 'review': 54}
+Plan written -> data/batch_plan.csv  |  ledger updated
+[2026-10-03 06:04:45] sweep finished (exit 0)
+Auditing 300 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 295/295 display (100%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule -: 1/1 display (100%)
+   Rule A: 148/148 display (100%)
+   Rule B: 146/146 display (100%)
+
+Nothing to score (295 SKU(s) all in known non-displaying categories) -- threshold not applied.
+
+Per-SKU detail -> data/display_audit.csv
+(rotating drift sample: 250 of 8050 ledgered SKUs, offset 4600)
+Auditing 250 ledgered SKU(s) -- stored (Inventory) vs displayed (Trading)
+
+
+==============================================================
+OVERALL: 178/181 display (98%)
+
+LEAKING: none -- every Rule B SKU displays exactly what we pushed.
+
+By RULE  (Rule B lagging Rule A = the trim bug; see DESIGN.md 5.5):
+   Rule -: 9/9 display (100%)
+   Rule A: 158/160 display (98%)
+   Rule B: 11/12 display (91%)
+
+Categories where NOTHING displays:
+   cat 180140: 0/1   [B] all engine-restricted -> re-check after a re-sweep, else category-level [known non-displaying category]
+
+Nothing to score (181 SKU(s) all in known non-displaying categories) -- threshold not applied.
+
+Per-SKU detail -> data/drift_audit.csv
