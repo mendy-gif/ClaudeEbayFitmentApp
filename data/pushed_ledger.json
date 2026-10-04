@@ -139090,5 +139090,74 @@
       "chassis"
     ],
     "cv": "cat1"
+  },
+  "48331": {
+    "listingId": "407087158039",
+    "rule": "A",
+    "n": 40,
+    "models": [
+      "228i",
+      "228i xDrive",
+      "328i",
+      "328i xDrive",
+      "335i xDrive",
+      "428i",
+      "428i xDrive",
+      "430i",
+      "435i",
+      "440i",
+      "M235i xDrive"
+    ],
+    "src": [
+      "chassis",
+      "etk"
+    ],
+    "cv": "cat1"
+  },
+  "47774": {
+    "listingId": "407087163791",
+    "rule": "B",
+    "n": 5,
+    "models": [
+      "X5"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "51011": {
+    "listingId": "407087147858",
+    "rule": "A",
+    "n": 11,
+    "models": [
+      "228i xDrive Gran Coupe",
+      "M235i xDrive Gran Coupe"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
+  },
+  "53375": {
+    "listingId": "407087146819",
+    "rule": "A",
+    "n": 45,
+    "models": [
+      "318i",
+      "318is",
+      "318ti",
+      "323i",
+      "323is",
+      "325i",
+      "325is",
+      "328i",
+      "328is",
+      "Z3"
+    ],
+    "src": [
+      "chassis"
+    ],
+    "cv": "cat1"
   }
 }
