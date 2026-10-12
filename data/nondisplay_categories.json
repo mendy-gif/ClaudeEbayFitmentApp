@@ -2,300 +2,304 @@
  "_comment": "eBay categories proven NOT to render a fitment table. Rows pushed here are stored and read back fine but are never SHOWN, whatever we send -- verified 2026-08-25 by pushing Rule A (trimless, catalog-valid) rows and re-reading hours later: SKU 30825 stored 24 vehicles and displayed 0, 26019 stored 30 and displayed 0. An earlier theory that these were merely mis-classified as engine parts is WRONG: fixing the classification changed nothing. ebay_batch skips them BEFORE the Trading guard read, so each one saves a call against the 5,000/day GetItem cap as well as a pointless write. Only categories with skus_seen >= skip_threshold are skipped, so a single unlucky listing cannot silently disable a whole category. To re-test one (eBay may enable fitment later), delete its entry here and let the next sweep push into it again.",
  "categories": {
   "50459": {
-   "displaying": 2012,
-   "skus_seen": 2027
+   "displaying": 2062,
+   "skus_seen": 2077
   },
   "33596": {
-   "displaying": 1123,
-   "skus_seen": 1135
+   "displaying": 1165,
+   "skus_seen": 1177
   },
   "61523": {
-   "displaying": 803,
-   "skus_seen": 803
+   "displaying": 818,
+   "skus_seen": 818
   },
   "33705": {
-   "displaying": 736,
-   "skus_seen": 741
-  },
-  "179851": {
-   "displaying": 602,
-   "skus_seen": 611
+   "displaying": 749,
+   "skus_seen": 754
   },
   "179847": {
-   "displaying": 603,
-   "skus_seen": 603
+   "displaying": 628,
+   "skus_seen": 628
+  },
+  "179851": {
+   "displaying": 613,
+   "skus_seen": 622
   },
   "33725": {
-   "displaying": 564,
-   "skus_seen": 564
+   "displaying": 574,
+   "skus_seen": 574
   },
   "14769": {
-   "displaying": 532,
-   "skus_seen": 532
+   "displaying": 535,
+   "skus_seen": 535
   },
   "107062": {
    "displaying": 0,
    "skus_seen": 521
   },
   "33580": {
-   "displaying": 360,
-   "skus_seen": 377
+   "displaying": 362,
+   "skus_seen": 379
   },
   "33604": {
-   "displaying": 365,
-   "skus_seen": 365
+   "displaying": 373,
+   "skus_seen": 373
+  },
+  "33590": {
+   "displaying": 356,
+   "skus_seen": 356
   },
   "177710": {
    "displaying": 349,
    "skus_seen": 349
   },
-  "33590": {
-   "displaying": 349,
-   "skus_seen": 349
+  "33716": {
+   "displaying": 345,
+   "skus_seen": 346
   },
   "33555": {
-   "displaying": 340,
-   "skus_seen": 340
-  },
-  "33716": {
-   "displaying": 339,
-   "skus_seen": 340
+   "displaying": 344,
+   "skus_seen": 344
   },
   "9886": {
-   "displaying": 323,
-   "skus_seen": 326
+   "displaying": 337,
+   "skus_seen": 340
   },
   "33728": {
-   "displaying": 319,
-   "skus_seen": 319
+   "displaying": 329,
+   "skus_seen": 329
   },
   "262067": {
-   "displaying": 312,
-   "skus_seen": 312
+   "displaying": 315,
+   "skus_seen": 315
   },
   "33654": {
-   "displaying": 310,
-   "skus_seen": 310
+   "displaying": 314,
+   "skus_seen": 314
   },
   "33648": {
-   "displaying": 272,
-   "skus_seen": 275
+   "displaying": 281,
+   "skus_seen": 284
   },
   "170141": {
    "displaying": 264,
    "skus_seen": 269
   },
   "33557": {
-   "displaying": 251,
-   "skus_seen": 254
+   "displaying": 257,
+   "skus_seen": 260
   },
   "36474": {
-   "displaying": 231,
-   "skus_seen": 231
+   "displaying": 232,
+   "skus_seen": 232
   },
   "50455": {
-   "displaying": 216,
-   "skus_seen": 217
+   "displaying": 219,
+   "skus_seen": 220
   },
   "33675": {
+   "displaying": 211,
+   "skus_seen": 211
+  },
+  "174091": {
+   "displaying": 208,
+   "skus_seen": 208
+  },
+  "262146": {
    "displaying": 206,
    "skus_seen": 206
   },
-  "262146": {
+  "42609": {
    "displaying": 199,
-   "skus_seen": 199
-  },
-  "174091": {
-   "displaying": 199,
-   "skus_seen": 199
+   "skus_seen": 203
   },
   "33700": {
-   "displaying": 187,
-   "skus_seen": 196
+   "displaying": 191,
+   "skus_seen": 200
   },
-  "42609": {
-   "displaying": 192,
-   "skus_seen": 196
+  "262084": {
+   "displaying": 195,
+   "skus_seen": 195
   },
   "179671": {
    "displaying": 0,
    "skus_seen": 193
   },
-  "33563": {
-   "displaying": 189,
-   "skus_seen": 192
-  },
-  "262084": {
-   "displaying": 192,
-   "skus_seen": 192
-  },
   "262189": {
-   "displaying": 191,
-   "skus_seen": 191
+   "displaying": 193,
+   "skus_seen": 193
+  },
+  "33563": {
+   "displaying": 190,
+   "skus_seen": 193
   },
   "33704": {
-   "displaying": 184,
-   "skus_seen": 184
+   "displaying": 185,
+   "skus_seen": 185
   },
   "262256": {
-   "displaying": 175,
-   "skus_seen": 175
+   "displaying": 181,
+   "skus_seen": 181
   },
   "262255": {
-   "displaying": 168,
-   "skus_seen": 168
+   "displaying": 172,
+   "skus_seen": 172
   },
   "33706": {
+   "displaying": 160,
+   "skus_seen": 160
+  },
+  "33545": {
    "displaying": 159,
    "skus_seen": 159
   },
-  "33545": {
-   "displaying": 155,
-   "skus_seen": 155
+  "262251": {
+   "displaying": 158,
+   "skus_seen": 158
   },
   "33697": {
-   "displaying": 150,
-   "skus_seen": 151
+   "displaying": 151,
+   "skus_seen": 152
   },
-  "262251": {
-   "displaying": 150,
-   "skus_seen": 150
+  "33699": {
+   "displaying": 141,
+   "skus_seen": 143
   },
   "33742": {
+   "displaying": 143,
+   "skus_seen": 143
+  },
+  "33644": {
    "displaying": 141,
    "skus_seen": 141
   },
-  "33644": {
-   "displaying": 140,
-   "skus_seen": 140
-  },
-  "33699": {
-   "displaying": 137,
-   "skus_seen": 139
-  },
   "33554": {
-   "displaying": 128,
-   "skus_seen": 128
-  },
-  "33543": {
-   "displaying": 128,
-   "skus_seen": 128
+   "displaying": 131,
+   "skus_seen": 131
   },
   "33710": {
-   "displaying": 126,
-   "skus_seen": 126
+   "displaying": 130,
+   "skus_seen": 130
   },
-  "33589": {
-   "displaying": 124,
-   "skus_seen": 125
+  "33543": {
+   "displaying": 129,
+   "skus_seen": 129
   },
   "46097": {
-   "displaying": 122,
-   "skus_seen": 125
+   "displaying": 126,
+   "skus_seen": 129
+  },
+  "33589": {
+   "displaying": 128,
+   "skus_seen": 129
   },
   "33729": {
-   "displaying": 124,
-   "skus_seen": 124
+   "displaying": 127,
+   "skus_seen": 127
   },
   "262245": {
-   "displaying": 118,
-   "skus_seen": 119
+   "displaying": 123,
+   "skus_seen": 124
+  },
+  "33602": {
+   "displaying": 114,
+   "skus_seen": 114
   },
   "33701": {
    "displaying": 113,
    "skus_seen": 113
   },
-  "33602": {
-   "displaying": 112,
-   "skus_seen": 112
+  "174030": {
+   "displaying": 110,
+   "skus_seen": 110
   },
   "33558": {
-   "displaying": 108,
-   "skus_seen": 108
-  },
-  "174030": {
-   "displaying": 108,
-   "skus_seen": 108
+   "displaying": 109,
+   "skus_seen": 109
   },
   "174593": {
-   "displaying": 108,
-   "skus_seen": 108
+   "displaying": 109,
+   "skus_seen": 109
   },
   "184616": {
-   "displaying": 102,
+   "displaying": 104,
+   "skus_seen": 107
+  },
+  "33645": {
+   "displaying": 105,
    "skus_seen": 105
+  },
+  "61304": {
+   "displaying": 105,
+   "skus_seen": 105
+  },
+  "171115": {
+   "displaying": 104,
+   "skus_seen": 104
   },
   "21647": {
    "displaying": 0,
    "skus_seen": 103
   },
-  "33645": {
-   "displaying": 102,
-   "skus_seen": 102
-  },
-  "61304": {
-   "displaying": 102,
-   "skus_seen": 102
-  },
   "262072": {
+   "displaying": 103,
+   "skus_seen": 103
+  },
+  "33553": {
+   "displaying": 102,
+   "skus_seen": 102
+  },
+  "46102": {
    "displaying": 101,
    "skus_seen": 101
   },
-  "33553": {
-   "displaying": 100,
-   "skus_seen": 100
-  },
-  "46102": {
-   "displaying": 99,
-   "skus_seen": 99
-  },
-  "171115": {
-   "displaying": 97,
-   "skus_seen": 97
-  },
   "262159": {
-   "displaying": 94,
-   "skus_seen": 94
+   "displaying": 95,
+   "skus_seen": 95
   },
   "262161": {
    "displaying": 92,
    "skus_seen": 93
   },
   "262068": {
-   "displaying": 90,
-   "skus_seen": 90
+   "displaying": 92,
+   "skus_seen": 92
   },
   "262204": {
-   "displaying": 86,
-   "skus_seen": 86
+   "displaying": 92,
+   "skus_seen": 92
+  },
+  "262207": {
+   "displaying": 83,
+   "skus_seen": 83
   },
   "179696": {
    "displaying": 82,
    "skus_seen": 82
   },
   "179850": {
-   "displaying": 81,
-   "skus_seen": 81
-  },
-  "262207": {
-   "displaying": 80,
-   "skus_seen": 80
+   "displaying": 82,
+   "skus_seen": 82
   },
   "262156": {
+   "displaying": 79,
+   "skus_seen": 79
+  },
+  "261899": {
    "displaying": 78,
    "skus_seen": 78
   },
   "33709": {
-   "displaying": 76,
-   "skus_seen": 76
-  },
-  "261899": {
-   "displaying": 76,
-   "skus_seen": 76
+   "displaying": 78,
+   "skus_seen": 78
   },
   "174112": {
-   "displaying": 75,
-   "skus_seen": 75
+   "displaying": 76,
+   "skus_seen": 76
+  },
+  "177699": {
+   "displaying": 74,
+   "skus_seen": 74
   },
   "173950": {
    "displaying": 73,
@@ -305,21 +309,17 @@
    "displaying": 72,
    "skus_seen": 72
   },
-  "177699": {
+  "262221": {
+   "displaying": 69,
+   "skus_seen": 72
+  },
+  "262172": {
    "displaying": 72,
    "skus_seen": 72
   },
-  "262221": {
-   "displaying": 67,
-   "skus_seen": 70
-  },
-  "262172": {
-   "displaying": 70,
-   "skus_seen": 70
-  },
   "262183": {
-   "displaying": 69,
-   "skus_seen": 69
+   "displaying": 71,
+   "skus_seen": 71
   },
   "38771": {
    "displaying": 0,
@@ -330,28 +330,28 @@
    "skus_seen": 67
   },
   "262152": {
+   "displaying": 65,
+   "skus_seen": 65
+  },
+  "174077": {
    "displaying": 63,
    "skus_seen": 63
   },
-  "174077": {
+  "33661": {
    "displaying": 62,
    "skus_seen": 62
   },
-  "33661": {
+  "33640": {
    "displaying": 61,
    "skus_seen": 61
   },
-  "33640": {
-   "displaying": 60,
-   "skus_seen": 60
-  },
   "33736": {
-   "displaying": 60,
-   "skus_seen": 60
+   "displaying": 61,
+   "skus_seen": 61
   },
   "9887": {
-   "displaying": 59,
-   "skus_seen": 59
+   "displaying": 60,
+   "skus_seen": 60
   },
   "179679": {
    "displaying": 0,
@@ -370,6 +370,14 @@
    "skus_seen": 52
   },
   "262150": {
+   "displaying": 52,
+   "skus_seen": 52
+  },
+  "177697": {
+   "displaying": 51,
+   "skus_seen": 51
+  },
+  "46095": {
    "displaying": 51,
    "skus_seen": 51
   },
@@ -377,39 +385,35 @@
    "displaying": 50,
    "skus_seen": 50
   },
-  "177697": {
-   "displaying": 49,
-   "skus_seen": 49
-  },
-  "46095": {
-   "displaying": 49,
-   "skus_seen": 49
-  },
   "262200": {
-   "displaying": 48,
-   "skus_seen": 48
+   "displaying": 50,
+   "skus_seen": 50
   },
   "262162": {
-   "displaying": 47,
-   "skus_seen": 47
+   "displaying": 49,
+   "skus_seen": 49
   },
   "33603": {
-   "displaying": 47,
-   "skus_seen": 47
+   "displaying": 48,
+   "skus_seen": 48
   },
   "169395": {
    "displaying": 0,
    "skus_seen": 46
   },
   "42605": {
-   "displaying": 42,
-   "skus_seen": 45
+   "displaying": 43,
+   "skus_seen": 46
   },
   "50454": {
+   "displaying": 46,
+   "skus_seen": 46
+  },
+  "33715": {
    "displaying": 44,
    "skus_seen": 44
   },
-  "33715": {
+  "61864": {
    "displaying": 44,
    "skus_seen": 44
   },
@@ -417,15 +421,19 @@
    "displaying": 43,
    "skus_seen": 43
   },
-  "61864": {
-   "displaying": 43,
-   "skus_seen": 43
-  },
   "33593": {
-   "displaying": 38,
-   "skus_seen": 41
+   "displaying": 39,
+   "skus_seen": 42
   },
   "33601": {
+   "displaying": 39,
+   "skus_seen": 39
+  },
+  "262167": {
+   "displaying": 39,
+   "skus_seen": 39
+  },
+  "33600": {
    "displaying": 39,
    "skus_seen": 39
   },
@@ -433,17 +441,9 @@
    "displaying": 38,
    "skus_seen": 38
   },
-  "262167": {
-   "displaying": 38,
-   "skus_seen": 38
-  },
-  "33600": {
-   "displaying": 38,
-   "skus_seen": 38
-  },
   "33712": {
-   "displaying": 35,
-   "skus_seen": 35
+   "displaying": 36,
+   "skus_seen": 36
   },
   "262191": {
    "displaying": 34,
@@ -453,11 +453,11 @@
    "displaying": 33,
    "skus_seen": 33
   },
-  "174084": {
-   "displaying": 30,
-   "skus_seen": 30
-  },
   "42604": {
+   "displaying": 32,
+   "skus_seen": 32
+  },
+  "174084": {
    "displaying": 30,
    "skus_seen": 30
   },
@@ -473,13 +473,13 @@
    "displaying": 26,
    "skus_seen": 26
   },
+  "262080": {
+   "displaying": 25,
+   "skus_seen": 25
+  },
   "262170": {
    "displaying": 24,
    "skus_seen": 24
-  },
-  "262080": {
-   "displaying": 23,
-   "skus_seen": 23
   },
   "33727": {
    "displaying": 22,
@@ -505,11 +505,11 @@
    "displaying": 0,
    "skus_seen": 19
   },
-  "33582": {
-   "displaying": 18,
-   "skus_seen": 18
-  },
   "262166": {
+   "displaying": 19,
+   "skus_seen": 19
+  },
+  "33582": {
    "displaying": 18,
    "skus_seen": 18
   },
