@@ -35,19 +35,19 @@
 <div class="wrap">
   <header>
     <h1>Shop Blueprint · 210 Woodland</h1>
-    <div class="stamp">Last updated <strong>Oct 12, 2026, 5:16 PM ET</strong> · base drawing for markup · <span class="q">? = my guess, correct it</span></div>
+    <div class="stamp">Last updated <strong>Oct 12, 2026, 5:58 PM ET</strong> · rev 2 · base drawing for markup · <span class="q">? = my guess, correct it</span></div>
   </header>
 
   <div class="sheet"><svg id="s1" viewBox="0 0 1100 580" role="img" aria-label="Sheet 1, ground floor of the whole building"></svg></div>
   <div class="key">
-    <div><b>Sheet 1, ground floor.</b> Main room 93 × 58 ft measured by you. Office wing 47 × 58 ft estimated from the aerials. Doors on the front wall as sketched.</div>
-    <div><b>Office interior</b> is a guess: storefront entry, corridor, rooms, stair. Every wall in there carries a <span class="q">?</span>.</div>
+    <div><b>Sheet 1, ground floor.</b> Main room 93 × 58 ft measured by you. Office wing about 44 × 58 ft from your sketch numbers. Doors on the front wall as sketched.</div>
+    <div><b>Office wing</b> from your Oct 12 sketch: office, bathroom, office along the shared wall, stair on the front wall, corridor, 24 ft end room with a small office in it. Dimensions and door widths still carry a <span class="q">?</span>.</div>
     <div><b>Wall thickness</b> drawn at 8 in. Clear span assumed, no columns.</div>
   </div>
 
   <div class="sheet"><svg id="s2" viewBox="0 0 1100 420" role="img" aria-label="Sheet 2, second floor of the office wing and roof section"></svg></div>
   <div class="key">
-    <div><b>Sheet 2, second floor.</b> Only the office wing has one. The opening onto the main room is drawn where I assumed it, on the shared wall 40 to 52 ft back from the front. Move it.</div>
+    <div><b>Sheet 2, second floor.</b> Only the office wing has one. Left blank on purpose until you can see it. The forklift opening exists but its spot is unknown.</div>
     <div><b>Roof section</b> at the right: gable, 18 ft at the walls, 21 ft at the ridge, 16 ft usable under ducts and lights per you.</div>
   </div>
 
@@ -131,7 +131,7 @@
   // ================= SHEET 1: GROUND FLOOR =================
   (function () {
     var svg = document.getElementById('s1'), el = mk(svg);
-    var S = 6.4, OX = 70, OY = 62, L = 140, D = 58, MR = 93;
+    var S = 6.4, OX = 70, OY = 62, L = 137, D = 58, MR = 93;
     function X(x) { return OX + x * S; } function Y(d) { return OY + (D - d) * S; }
     txt(el, OX, 28, 'SHEET 1 · GROUND FLOOR · WHOLE BUILDING', 15, { display: true, weight: 700, anchor: 'start' });
     txt(el, OX, 44, 'front wall with doors at the bottom · main room left · office wing right', 9.5, { anchor: 'start', color: v('--ink-2') });
@@ -148,34 +148,53 @@
     // dock apron + ramp outside
     el('rect', { x: X(4), y: Y(0) + 3, width: 12 * S, height: 10, fill: 'none', stroke: v('--line-dim'), 'stroke-width': 0.8 }); txt(el, X(10), Y(0) + 31, 'truck-height apron · no leveler', 7.5, { color: v('--ink-2') });
     el('path', { d: 'M ' + X(81) + ' ' + (Y(0) + 3) + ' L ' + X(80) + ' ' + (Y(0) + 26) + ' L ' + X(93) + ' ' + (Y(0) + 26) + ' L ' + X(92) + ' ' + (Y(0) + 3), fill: 'none', stroke: v('--line-dim'), 'stroke-width': 0.8 }); txt(el, X(86.5), Y(0) + 36, 'paved ramp down to lot', 7.5, { color: v('--ink-2') });
-    // office storefront (guess)
-    el('line', { x1: X(100), y1: Y(0), x2: X(124), y2: Y(0), stroke: v('--q'), 'stroke-width': 2 }); txt(el, X(112), Y(0) + 14, 'storefront glass ?', 8, { color: v('--q') });
-    swingDoor(el, X(125), Y(0), 3 * S, -1, 'l'); txt(el, X(126.5), Y(0) + 26, 'entry ?', 8, { color: v('--q') });
-    el('line', { x1: X(130), y1: Y(0), x2: X(138), y2: Y(0), stroke: v('--q'), 'stroke-width': 2 });
-    // office interior guess
-    qwall(el, X(93), Y(12), X(140), Y(12));           // corridor wall
-    qwall(el, X(93), Y(46), X(140), Y(46));
-    qwall(el, X(108), Y(12), X(108), Y(46));
-    qwall(el, X(124), Y(12), X(124), Y(46));
-    qwall(el, X(116), Y(46), X(116), Y(58));
-    qwall(el, X(116), Y(0), X(116), Y(12));
-    // stair
-    el('rect', { x: X(96), y: Y(58), width: 6 * S, height: 12 * S, fill: 'none', stroke: v('--q'), 'stroke-width': 1.5 });
-    for (var i = 1; i < 12; i++) el('line', { x1: X(96), y1: Y(58 - i), x2: X(102), y2: Y(58 - i), stroke: v('--q'), 'stroke-width': 0.8 });
-    txt(el, X(99), Y(44.2), 'STAIR ?', 8, { color: v('--q') });
-    // door main room <-> office (guess)
-    el('line', { x1: X(93), y1: Y(42), x2: X(93), y2: Y(36), stroke: v('--bp'), 'stroke-width': 7 });
-    el('line', { x1: X(93), y1: Y(42), x2: X(93) + 6 * S, y2: Y(42), stroke: v('--q'), 'stroke-width': 1.5 });
-    el('path', { d: 'M ' + (X(93) + 6 * S) + ' ' + Y(42) + ' A ' + 6 * S + ' ' + 6 * S + ' 0 0 1 ' + X(93) + ' ' + Y(36), fill: 'none', stroke: v('--q'), 'stroke-width': 1, 'stroke-dasharray': '3 3' });
-    txt(el, X(100), Y(33.5), 'door to main room ? width ?', 8, { color: v('--q'), anchor: 'start' });
-    // room labels
-    txt(el, X(100.5), Y(29), 'PHOTO ?', 10, { color: v('--q'), display: true });
-    txt(el, X(116), Y(29), 'LISTING ?', 10, { color: v('--q'), display: true });
-    txt(el, X(132), Y(29), 'OFFICE ?', 10, { color: v('--q'), display: true });
-    txt(el, X(116.5), Y(52), 'CORRIDOR ?', 9, { color: v('--q'), display: true });
-    txt(el, X(104.5), Y(5.5), 'FRONT ROOMS ?', 9, { color: v('--q'), display: true });
-    txt(el, X(128), Y(5.5), 'LOBBY ?', 9, { color: v('--q'), display: true });
-    txt(el, X(116.5), Y(14.5), 'OFFICE WING · 2 FLOORS · ~47 × 58 ?', 9, { color: v('--q') });
+    // ---- office wing from mendy's sketch (Oct 12) ----
+    // shared wall walk-through doors near the back
+    el('line', { x1: X(MR), y1: Y(50), x2: X(MR), y2: Y(44), stroke: v('--bp'), 'stroke-width': 7 });
+    el('line', { x1: X(MR), y1: Y(50), x2: X(MR) + 3 * S, y2: Y(50), stroke: v('--line'), 'stroke-width': 1.5 });
+    el('line', { x1: X(MR), y1: Y(44), x2: X(MR) + 3 * S, y2: Y(44), stroke: v('--line'), 'stroke-width': 1.5 });
+    el('path', { d: 'M ' + (X(MR) + 3 * S) + ' ' + Y(50) + ' A ' + 3 * S + ' ' + 3 * S + ' 0 0 1 ' + X(MR) + ' ' + Y(47), fill: 'none', stroke: v('--line-dim'), 'stroke-width': 1, 'stroke-dasharray': '3 3' });
+    el('path', { d: 'M ' + (X(MR) + 3 * S) + ' ' + Y(44) + ' A ' + 3 * S + ' ' + 3 * S + ' 0 0 0 ' + X(MR) + ' ' + Y(47), fill: 'none', stroke: v('--line-dim'), 'stroke-width': 1, 'stroke-dasharray': '3 3' });
+    txt(el, X(MR) + 0.5 * S, Y(52.5), 'doors to shop', 7.5, { anchor: 'start', color: v('--ink-2') }); txt(el, X(MR) + 0.5 * S, Y(42), 'walk-through · width ?', 7, { anchor: 'start', color: v('--q') });
+    // office column 15 ft: front office, bathroom, back office
+    qwall(el, X(108), Y(0), X(108), Y(58));
+    qwall(el, X(MR), Y(20), X(108), Y(20));
+    qwall(el, X(MR), Y(32), X(108), Y(32));
+    txt(el, X(100.5), Y(10), 'OFFICE', 10, { display: true });
+    txt(el, X(100.5), Y(26), 'BATHROOM', 9, { display: true });
+    el('rect', { x: X(95), y: Y(31), width: 2.5 * S, height: 2 * S, fill: 'none', stroke: v('--line-dim'), 'stroke-width': 0.8 });
+    el('rect', { x: X(103), y: Y(31), width: 2 * S, height: 2 * S, fill: 'none', stroke: v('--line-dim'), 'stroke-width': 0.8 });
+    txt(el, X(100.5), Y(38), 'OFFICE', 10, { display: true });
+    txt(el, X(100.5), Y(34.5), 'room splits ?', 7.5, { color: v('--q') });
+    // stairs along the front wall by the front office
+    el('rect', { x: X(95), y: Y(5), width: 12 * S, height: 4 * S, fill: 'none', stroke: v('--line'), 'stroke-width': 1.3 });
+    for (var i = 1; i < 12; i++) el('line', { x1: X(95 + i), y1: Y(5), x2: X(95 + i), y2: Y(1), stroke: v('--line'), 'stroke-width': 0.7 });
+    el('path', { d: 'M ' + X(96) + ' ' + Y(3) + ' L ' + X(106) + ' ' + Y(3), stroke: v('--line'), 'stroke-width': 1, 'marker-end': 'url(#arrw)' });
+    txt(el, X(101), Y(6.5), 'STAIR UP · runs left to right', 7.5);
+    // corridor 5 ft
+    txt(el, X(110.5), Y(29), 'CORRIDOR ?', 8, { rot: -90, color: v('--q') });
+    qwall(el, X(113), Y(0), X(113), Y(58));
+    swingDoor(el, X(108.5), Y(58), 4 * S, 1, 'l'); txt(el, X(110.5), Y(58) - 12, 'door ?', 7.5, { color: v('--q') });
+    // entry on the front wall beside the stair
+    swingDoor(el, X(108.5), Y(0), 3.5 * S, -1, 'l'); txt(el, X(110.2), Y(0) + 22, 'entry', 8);
+    el('line', { x1: X(115), y1: Y(0), x2: X(135), y2: Y(0), stroke: v('--q'), 'stroke-width': 2 }); txt(el, X(125), Y(0) + 14, 'storefront glass ?', 8, { color: v('--q') });
+    // end room 24 ft with a small office inside
+    txt(el, X(125), Y(33), 'END ROOM', 14, { display: true, weight: 600 });
+    txt(el, X(125), Y(28.5), '24 ft wide ? · full depth ?', 8, { color: v('--q') });
+    el('line', { x1: X(113), y1: Y(30), x2: X(113), y2: Y(26), stroke: v('--bp'), 'stroke-width': 7 });
+    el('line', { x1: X(113), y1: Y(30), x2: X(113) + 3.5 * S, y2: Y(30), stroke: v('--q'), 'stroke-width': 1.5 });
+    el('path', { d: 'M ' + (X(113) + 3.5 * S) + ' ' + Y(30) + ' A ' + 3.5 * S + ' ' + 3.5 * S + ' 0 0 1 ' + X(113) + ' ' + Y(26), fill: 'none', stroke: v('--q'), 'stroke-width': 1, 'stroke-dasharray': '3 3' });
+    el('rect', { x: X(116), y: Y(55), width: 10 * S, height: 13 * S, fill: 'none', stroke: v('--q'), 'stroke-width': 1.5, 'stroke-dasharray': '6 3' });
+    txt(el, X(121), Y(48), 'small office', 8, { color: v('--q') });
+    txt(el, X(121), Y(44.5), 'size + spot ?', 7, { color: v('--q') });
+    // exterior door on the far right wall near the back
+    el('line', { x1: X(L), y1: Y(52), x2: X(L), y2: Y(49), stroke: v('--bp'), 'stroke-width': 7 });
+    el('line', { x1: X(L), y1: Y(52), x2: X(L) - 3 * S, y2: Y(52), stroke: v('--line'), 'stroke-width': 1.5 });
+    el('path', { d: 'M ' + (X(L) - 3 * S) + ' ' + Y(52) + ' A ' + 3 * S + ' ' + 3 * S + ' 0 0 0 ' + X(L) + ' ' + Y(49), fill: 'none', stroke: v('--line-dim'), 'stroke-width': 1, 'stroke-dasharray': '3 3' });
+    txt(el, X(L) - 1, Y(55), 'door out', 7.5, { anchor: 'end', color: v('--ink-2') });
+    txt(el, X(115), Y(14), 'OFFICE WING · 2 FLOORS · 15 + 5 + 24 = 44 ft ?', 8.5, { color: v('--q'), anchor: 'start' });
+    txt(el, X(115), Y(10.5), 'forklift opening to 2nd floor: location unknown', 8, { color: v('--q'), anchor: 'start' });
+    var defsw = el('defs', {}); var mw = document.createElementNS(NS, 'marker'); mw.setAttribute('id', 'arrw'); mw.setAttribute('markerWidth', '8'); mw.setAttribute('markerHeight', '8'); mw.setAttribute('refX', '6'); mw.setAttribute('refY', '4'); mw.setAttribute('orient', 'auto'); var pw = document.createElementNS(NS, 'path'); pw.setAttribute('d', 'M0,0 L8,4 L0,8 z'); pw.setAttribute('fill', v('--line')); mw.appendChild(pw); defsw.appendChild(mw);
     // main room labels
     txt(el, X(46.5), Y(31), 'MAIN ROOM', 26, { display: true, weight: 700 });
     txt(el, X(46.5), Y(26.5), '93 × 58 ft · 5,394 sq ft · clear span · slab ?', 10, { color: v('--ink-2') });
@@ -186,8 +205,8 @@
     txt(el, X(1.5), Y(45), 'left wall · nothing on it ?', 8, { color: v('--q'), rot: -90 });
     // dimensions
     dimH(el, X(0), X(MR), Y(0) + 74, '93 ft (main room)');
-    dimH(el, X(MR), X(L), Y(0) + 74, '47 ft ? (office wing)');
-    dimH(el, X(0), X(L), Y(0) + 96, '~140 ft overall ?');
+    dimH(el, X(MR), X(108), Y(0) + 74, '15', 9); dimH(el, X(108), X(113), Y(0) + 74, '5?', 9); dimH(el, X(113), X(L), Y(0) + 74, '24 ?', 9);
+    dimH(el, X(0), X(L), Y(0) + 96, '~137 ft overall ?');
     dimV(el, X(0) - 28, Y(D), Y(0), '58 ft');
     dimH(el, X(0), X(5), Y(0) + 54, '5', 8); dimH(el, X(5), X(15), Y(0) + 54, '10', 8); dimH(el, X(15), X(76), Y(0) + 54, '61', 8); dimH(el, X(76), X(79), Y(0) + 54, '3', 8); dimH(el, X(79), X(81), Y(0) + 54, '2', 8); dimH(el, X(81), X(92), Y(0) + 54, '11', 8); dimH(el, X(92), X(93), Y(0) + 54, '1', 8);
     txt(el, X(30), Y(0) + 64, 'door spacing along the front wall, ft, from your sketch', 7.5, { color: v('--ink-2') });
@@ -198,7 +217,7 @@
   // ================= SHEET 2: SECOND FLOOR + ROOF SECTION =================
   (function () {
     var svg = document.getElementById('s2'), el = mk(svg);
-    var S = 5.2, OX = 70, OY = 70, L = 140, D = 58, MR = 93;
+    var S = 5.2, OX = 70, OY = 70, L = 137, D = 58, MR = 93;
     function X(x) { return OX + x * S; } function Y(d) { return OY + (D - d) * S; }
     txt(el, OX, 28, 'SHEET 2 · SECOND FLOOR (OFFICE WING) · ROOF SECTION', 15, { display: true, weight: 700, anchor: 'start' });
     // main room shown as void below
@@ -208,22 +227,10 @@
     // office wing 2nd floor
     el('rect', { x: X(MR), y: Y(D), width: (L - MR) * S, height: D * S, fill: 'rgba(234,242,255,0.05)' });
     wall(el, X(MR), Y(0), X(L), Y(0)); wall(el, X(MR), Y(D), X(L), Y(D)); wall(el, X(L), Y(0), X(L), Y(D)); wall(el, X(MR), Y(0), X(MR), Y(D), 4);
-    // opening onto main room (assumed)
-    el('line', { x1: X(MR), y1: Y(52), x2: X(MR), y2: Y(40), stroke: v('--q'), 'stroke-width': 7 });
-    el('line', { x1: X(MR) - 10, y1: Y(52), x2: X(MR) - 10, y2: Y(40), stroke: v('--q'), 'stroke-width': 1.5, 'stroke-dasharray': '4 3' });
-    txt(el, X(MR) - 16, Y(46), 'FORKLIFT OPENING ? · 12 ft wide ? · gate or rail ?', 8.5, { color: v('--q'), rot: -90 });
-    el('path', { d: 'M ' + (X(MR) - 60) + ' ' + Y(46) + ' L ' + (X(MR) - 22) + ' ' + Y(46), stroke: v('--q'), 'stroke-width': 1.5, 'marker-end': 'url(#arrq)' });
-    txt(el, X(MR) - 62, Y(46) + 3, 'pallets up by forklift', 8, { anchor: 'end', color: v('--q') });
-    var defs = el('defs', {}); var m = document.createElementNS(NS, 'marker'); m.setAttribute('id', 'arrq'); m.setAttribute('markerWidth', '8'); m.setAttribute('markerHeight', '8'); m.setAttribute('refX', '6'); m.setAttribute('refY', '4'); m.setAttribute('orient', 'auto'); var p = document.createElementNS(NS, 'path'); p.setAttribute('d', 'M0,0 L8,4 L0,8 z'); p.setAttribute('fill', v('--q')); m.appendChild(p); defs.appendChild(m);
-    // stair
-    el('rect', { x: X(96), y: Y(58), width: 6 * S, height: 12 * S, fill: 'none', stroke: v('--q'), 'stroke-width': 1.5 });
-    for (var i = 1; i < 12; i++) el('line', { x1: X(96), y1: Y(58 - i), x2: X(102), y2: Y(58 - i), stroke: v('--q'), 'stroke-width': 0.8 });
-    txt(el, X(99), Y(44.2), 'STAIR ?', 8, { color: v('--q') });
-    txt(el, X(118), Y(31), 'OPEN FLOOR ?', 14, { display: true, color: v('--q') });
-    txt(el, X(118), Y(26), '~2,700 sq ft gross · rooms unknown · floor load ?', 9, { color: v('--q') });
-    txt(el, X(118), Y(22), 'upper windows on the front wall (seen from outside)', 8, { color: v('--ink-2') });
-    el('line', { x1: X(100), y1: Y(0), x2: X(136), y2: Y(0), stroke: v('--line-dim'), 'stroke-width': 3, 'stroke-dasharray': '10 6' });
-    dimH(el, X(MR), X(L), Y(0) + 40, '47 ft ?'); dimV(el, X(L) + 28, Y(D), Y(0), '58 ft');
+    txt(el, X(118), Y(31), 'UPSTAIRS · UNKNOWN FOR NOW', 14, { display: true, color: v('--q') });
+    txt(el, X(118), Y(26), 'rooms, stair landing, floor load: not drawn', 9, { color: v('--q') });
+    txt(el, X(118), Y(21), 'forklift opening onto the main room exists · location unknown', 8.5, { color: v('--q') });
+    dimH(el, X(MR), X(L), Y(0) + 40, '~44 ft ?'); dimV(el, X(L) + 28, Y(D), Y(0), '58 ft');
 
     // ---- roof section at right ----
     var sx = 880, sy = 60, SS = 2.9;   // section origin, px/ft... draw 58 ft wide
@@ -265,7 +272,7 @@
     txt(el, X(180), Y(75), 'parking ?', 8, { color: v('--ink-2') });
     // building: 140 along road, 58 deep, front wall at d=120
     var bx = 40, bd = 120;
-    el('rect', { x: X(bx), y: Y(bd + 58), width: 140 * S, height: 58 * S, fill: 'rgba(234,242,255,0.10)', stroke: v('--line'), 'stroke-width': 2.5 });
+    el('rect', { x: X(bx), y: Y(bd + 58), width: 137 * S, height: 58 * S, fill: 'rgba(234,242,255,0.10)', stroke: v('--line'), 'stroke-width': 2.5 });
     el('line', { x1: X(bx + 93), y1: Y(bd), x2: X(bx + 93), y2: Y(bd + 58), stroke: v('--line'), 'stroke-width': 1.2 });
     txt(el, X(bx + 46.5), Y(bd + 32), 'MAIN ROOM 93 × 58', 10, { display: true, weight: 600 });
     txt(el, X(bx + 116.5), Y(bd + 32), 'OFFICES', 9, { display: true });
@@ -292,7 +299,7 @@
     dimH(el, X(0), X(PW), Y(PD) - 14, '~250 ft along the road ?');
     dimV(el, X(0) - 34, Y(PD), Y(0), '~280 ft deep ?');
     dimV(el, X(bx + 140) + 14, Y(bd + 58), Y(bd), '58');
-    dimH(el, X(bx), X(bx + 140), Y(bd + 58) - 10, '140', 9);
+    dimH(el, X(bx), X(bx + 137), Y(bd + 58) - 10, '~137', 9);
     dimV(el, X(bx + 140) + 14, Y(bd), Y(0), '~120 ft to road ?', 9);
     north(el, X(PW) + 40, Y(PD) + 10);
     titleBlock(el, 1100, 700, 'A-3', 'Site plan · from aerials', '1 px = ' + (1 / S).toFixed(3) + ' ft');
