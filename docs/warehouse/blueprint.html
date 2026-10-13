@@ -35,13 +35,13 @@
 <div class="wrap">
   <header>
     <h1>Shop Blueprint · 210 Woodland</h1>
-    <div class="stamp">Last updated <strong>Oct 13, 2026, 8:33 AM ET</strong> · rev 6 · base drawing for markup · <span class="q">? = my guess, correct it</span></div>
+    <div class="stamp">Last updated <strong>Oct 13, 2026, 8:40 AM ET</strong> · rev 7 · base drawing for markup · <span class="q">? = my guess, correct it</span></div>
   </header>
 
   <div class="sheet"><svg id="s1" viewBox="0 0 1100 580" role="img" aria-label="Sheet 1, ground floor of the whole building"></svg></div>
   <div class="key">
     <div><b>Sheet 1, ground floor.</b> Main room 93 × 58 ft measured by you. Wing 54 × 58 ft from your sketch numbers: 15 ft open strip, then 39 ft of rooms. Doors on the front wall as sketched.</div>
-    <div><b>Wing</b> drawn as planned, not as-is: one open 54 × 58 room after the walls come down. Bathroom stays. Stair at the back of the first 15 ft in its own enclosure, door on the right side. Two sets of double doors from the shop, one by the stair and one in the middle. Faint dashes are the walls being removed.</div>
+    <div><b>Wing</b> drawn as planned, not as-is: one open 54 × 58 room after the walls come down. Bathroom stays. Stair 1 in a 15 × 14 room at the back, door on its right side. Stair 2 in a 6 ft room down the far right wall. Lobby at the front right with the street door. Two sets of double doors from the shop, one by the stair and one in the middle. Faint dashes are the walls being removed.</div>
     <div><b>Wall thickness</b> drawn at 8 in. Clear span assumed, no columns.</div>
   </div>
 
@@ -157,7 +157,7 @@
       el('path', { d: 'M ' + (X(MR) + h * S) + ' ' + Y(d2) + ' A ' + h * S + ' ' + h * S + ' 0 0 1 ' + X(MR) + ' ' + Y(d1 + h), fill: 'none', stroke: v('--line-dim'), 'stroke-width': 1, 'stroke-dasharray': '3 3' });
       el('path', { d: 'M ' + (X(MR) + h * S) + ' ' + Y(d1) + ' A ' + h * S + ' ' + h * S + ' 0 0 0 ' + X(MR) + ' ' + Y(d1 + h), fill: 'none', stroke: v('--line-dim'), 'stroke-width': 1, 'stroke-dasharray': '3 3' });
     }
-    dbl(44, 50); txt(el, X(MR) + 3.6 * S, Y(47) + 3, 'double doors', 7.5, { anchor: 'start', color: v('--ink-2') });
+    dbl(44, 50); txt(el, X(MR) + 0.5 * S, Y(42.3), 'double doors into stair room', 7, { anchor: 'start', color: v('--ink-2') });
     dbl(26, 32); txt(el, X(MR) + 3.6 * S, Y(29) + 3, 'double doors', 7.5, { anchor: 'start', color: v('--ink-2') });
     // stair at the back of the first 15 ft
     el('rect', { x: X(94), y: Y(57), width: 13 * S, height: 4 * S, fill: 'none', stroke: v('--line'), 'stroke-width': 1.3 });
@@ -165,8 +165,9 @@
     el('path', { d: 'M ' + X(95) + ' ' + Y(55) + ' L ' + X(105.5) + ' ' + Y(55), stroke: v('--line'), 'stroke-width': 1, 'marker-end': 'url(#arrw)' });
     txt(el, X(100.5), Y(51.5), 'stair up, left to right', 7);
     // stair enclosure: wall below the stair, door on its right side
-    wall(el, X(MR), Y(50.5), X(108), Y(50.5), 3);
-    wall(el, X(108), Y(50.5), X(108), Y(58), 3);
+    wall(el, X(MR), Y(44), X(108), Y(44), 3);
+    wall(el, X(108), Y(44), X(108), Y(58), 3);
+    txt(el, X(103.5), Y(46.5), 'STAIR ROOM', 7.5, { anchor: 'end' });
     el('line', { x1: X(108), y1: Y(56.5), x2: X(108), y2: Y(52), stroke: v('--bp'), 'stroke-width': 5 });
     el('line', { x1: X(108), y1: Y(56.5), x2: X(108) + 4.5 * S, y2: Y(56.5), stroke: v('--line'), 'stroke-width': 1.5 });
     el('path', { d: 'M ' + (X(108) + 4.5 * S) + ' ' + Y(56.5) + ' A ' + 4.5 * S + ' ' + 4.5 * S + ' 0 0 1 ' + X(108) + ' ' + Y(52), fill: 'none', stroke: v('--line-dim'), 'stroke-width': 1, 'stroke-dasharray': '3 3' });
@@ -179,7 +180,23 @@
     el('rect', { x: X(115), y: Y(31), width: 2 * S, height: 2 * S, fill: 'none', stroke: v('--line-dim'), 'stroke-width': 0.8 });
     // front wall: entry + storefront
     swingDoor(el, X(118.5), Y(0), 3.5 * S, -1, 'l'); txt(el, X(120.2), Y(0) + 22, 'entry', 8);
-    el('line', { x1: X(125), y1: Y(0), x2: X(145), y2: Y(0), stroke: v('--q'), 'stroke-width': 2 }); txt(el, X(135), Y(0) + 14, 'storefront glass ?', 8, { color: v('--q') });
+    // lobby at the front right, 18 x 8, with the street door and a wide door into the wing
+    wall(el, X(123), Y(0), X(123), Y(8), 3);
+    wall(el, X(123), Y(8), X(126), Y(8), 3);
+    wall(el, X(134), Y(8), X(141), Y(8), 3);
+    el('line', { x1: X(126), y1: Y(8), x2: X(134), y2: Y(8), stroke: v('--bp'), 'stroke-width': 5 });
+    el('line', { x1: X(126), y1: Y(8), x2: X(126), y2: Y(12), stroke: v('--line'), 'stroke-width': 1.5 }); el('line', { x1: X(134), y1: Y(8), x2: X(134), y2: Y(12), stroke: v('--line'), 'stroke-width': 1.5 });
+    el('path', { d: 'M ' + X(126) + ' ' + Y(12) + ' A ' + 4 * S + ' ' + 4 * S + ' 0 0 1 ' + X(130) + ' ' + Y(8), fill: 'none', stroke: v('--line-dim'), 'stroke-width': 1, 'stroke-dasharray': '3 3' });
+    el('path', { d: 'M ' + X(134) + ' ' + Y(12) + ' A ' + 4 * S + ' ' + 4 * S + ' 0 0 0 ' + X(130) + ' ' + Y(8), fill: 'none', stroke: v('--line-dim'), 'stroke-width': 1, 'stroke-dasharray': '3 3' });
+    txt(el, X(130), Y(13.5), 'door to wing · 8 ft ?', 7, { color: v('--q') });
+    swingDoor(el, X(126), Y(0), 8 * S, -1, 'l'); txt(el, X(130), Y(0) + 22, 'street door · 8 ft ?', 7.5, { color: v('--q') });
+    txt(el, X(132), Y(4.5), 'LOBBY', 9, { display: true });
+    // second stair, far right, full depth above the lobby
+    wall(el, X(141), Y(8), X(141), Y(58), 3);
+    el('rect', { x: X(142), y: Y(40), width: 4 * S, height: 24 * S, fill: 'none', stroke: v('--line'), 'stroke-width': 1.3 });
+    for (var k = 1; k < 24; k++) el('line', { x1: X(142), y1: Y(16 + k), x2: X(146), y2: Y(16 + k), stroke: v('--line'), 'stroke-width': 0.6 });
+    txt(el, X(144), Y(44), 'STAIR 2', 7.5, { rot: -90 });
+    txt(el, X(144), Y(12.5), 'up ?', 7, { color: v('--q') });
     // door out at the back right
     el('line', { x1: X(L), y1: Y(52), x2: X(L), y2: Y(49), stroke: v('--bp'), 'stroke-width': 7 });
     el('line', { x1: X(L), y1: Y(52), x2: X(L) - 3 * S, y2: Y(52), stroke: v('--line'), 'stroke-width': 1.5 });
@@ -187,12 +204,12 @@
     txt(el, X(L) - 1, Y(55), 'door out', 7.5, { anchor: 'end', color: v('--ink-2') });
     // walls to remove, faint
     [[108, 0, 108, 58], [118, 0, 118, 58], [123, 0, 123, 58]].forEach(function (w) { el('line', { x1: X(w[0]), y1: Y(w[1]), x2: X(w[2]), y2: Y(w[3]), stroke: v('--line-faint'), 'stroke-width': 1.5, 'stroke-dasharray': '3 6' }); });
-    txt(el, X(133), Y(12), 'faint dashes = walls coming down', 7.5, { color: v('--ink-2') });
+    txt(el, X(112), Y(3.5), 'faint dashes = walls coming down', 7, { color: v('--ink-2') });
     // labels
-    txt(el, X(120), Y(42), 'WING · OPEN ROOM', 18, { display: true, weight: 700 });
-    txt(el, X(120), Y(37.5), '54 × 58 ft · ~3,100 sq ft · 2 floors', 9, { color: v('--ink-2') });
-    txt(el, X(133), Y(20), 'ceiling height ?', 8, { color: v('--q') });
-    txt(el, X(128), Y(16), 'forklift opening upstairs: spot unknown', 7.5, { color: v('--q') });
+    txt(el, X(122), Y(42), 'WING · OPEN ROOM', 18, { display: true, weight: 700 });
+    txt(el, X(122), Y(37.5), 'about 2,400 sq ft open after walls come down · 2 floors', 8.5, { color: v('--ink-2') });
+    txt(el, X(122), Y(22), 'ceiling height ?', 8, { color: v('--q') });
+    txt(el, X(122), Y(18.5), 'forklift opening upstairs: spot unknown', 7.5, { color: v('--q') });
     var defsw = el('defs', {}); var mw = document.createElementNS(NS, 'marker'); mw.setAttribute('id', 'arrw'); mw.setAttribute('markerWidth', '8'); mw.setAttribute('markerHeight', '8'); mw.setAttribute('refX', '6'); mw.setAttribute('refY', '4'); mw.setAttribute('orient', 'auto'); var pw = document.createElementNS(NS, 'path'); pw.setAttribute('d', 'M0,0 L8,4 L0,8 z'); pw.setAttribute('fill', v('--line')); mw.appendChild(pw); defsw.appendChild(mw);
     // main room labels
     txt(el, X(46.5), Y(31), 'MAIN ROOM', 26, { display: true, weight: 700 });
