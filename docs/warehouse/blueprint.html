@@ -35,13 +35,13 @@
 <div class="wrap">
   <header>
     <h1>Shop Blueprint · 210 Woodland</h1>
-    <div class="stamp">Last updated <strong>Oct 13, 2026, 7:56 AM ET</strong> · rev 5 · base drawing for markup · <span class="q">? = my guess, correct it</span></div>
+    <div class="stamp">Last updated <strong>Oct 13, 2026, 8:33 AM ET</strong> · rev 6 · base drawing for markup · <span class="q">? = my guess, correct it</span></div>
   </header>
 
   <div class="sheet"><svg id="s1" viewBox="0 0 1100 580" role="img" aria-label="Sheet 1, ground floor of the whole building"></svg></div>
   <div class="key">
     <div><b>Sheet 1, ground floor.</b> Main room 93 × 58 ft measured by you. Wing 54 × 58 ft from your sketch numbers: 15 ft open strip, then 39 ft of rooms. Doors on the front wall as sketched.</div>
-    <div><b>Wing</b> drawn as planned, not as-is: one open 54 × 58 room after the walls come down. Bathroom stays. Stair at the back of the first 15 ft. Two sets of double doors from the shop, one by the stair and one in the middle. Faint dashes are the walls being removed.</div>
+    <div><b>Wing</b> drawn as planned, not as-is: one open 54 × 58 room after the walls come down. Bathroom stays. Stair at the back of the first 15 ft in its own enclosure, door on the right side. Two sets of double doors from the shop, one by the stair and one in the middle. Faint dashes are the walls being removed.</div>
     <div><b>Wall thickness</b> drawn at 8 in. Clear span assumed, no columns.</div>
   </div>
 
@@ -163,8 +163,14 @@
     el('rect', { x: X(94), y: Y(57), width: 13 * S, height: 4 * S, fill: 'none', stroke: v('--line'), 'stroke-width': 1.3 });
     for (var i = 1; i < 13; i++) el('line', { x1: X(94 + i), y1: Y(57), x2: X(94 + i), y2: Y(53), stroke: v('--line'), 'stroke-width': 0.7 });
     el('path', { d: 'M ' + X(95) + ' ' + Y(55) + ' L ' + X(105.5) + ' ' + Y(55), stroke: v('--line'), 'stroke-width': 1, 'marker-end': 'url(#arrw)' });
-    txt(el, X(100.5), Y(51), 'stair up, left to right', 7);
-    txt(el, X(100.5), Y(48), 'exact spot ?', 7, { color: v('--q') });
+    txt(el, X(100.5), Y(51.5), 'stair up, left to right', 7);
+    // stair enclosure: wall below the stair, door on its right side
+    wall(el, X(MR), Y(50.5), X(108), Y(50.5), 3);
+    wall(el, X(108), Y(50.5), X(108), Y(58), 3);
+    el('line', { x1: X(108), y1: Y(56.5), x2: X(108), y2: Y(52), stroke: v('--bp'), 'stroke-width': 5 });
+    el('line', { x1: X(108), y1: Y(56.5), x2: X(108) + 4.5 * S, y2: Y(56.5), stroke: v('--line'), 'stroke-width': 1.5 });
+    el('path', { d: 'M ' + (X(108) + 4.5 * S) + ' ' + Y(56.5) + ' A ' + 4.5 * S + ' ' + 4.5 * S + ' 0 0 1 ' + X(108) + ' ' + Y(52), fill: 'none', stroke: v('--line-dim'), 'stroke-width': 1, 'stroke-dasharray': '3 3' });
+    txt(el, X(109), Y(50) - 2, 'stair door', 7, { anchor: 'start', color: v('--ink-2') });
     // bathroom kept
     el('rect', { x: X(108), y: Y(32), width: 10 * S, height: 12 * S, fill: 'none', stroke: v('--line'), 'stroke-width': 2 });
     txt(el, X(113), Y(27.5), 'BATHROOM', 8, { display: true });
