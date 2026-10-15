@@ -89,7 +89,7 @@
 <div class="wrap">
   <header>
     <h1>Lift Access Options</h1>
-    <div class="stamp">Last updated <strong>Oct 15, 2026, 7:34 PM ET</strong> · how the Bobcat pulls shells off the lift through the 11 ft door</div>
+    <div class="stamp">Last updated <strong>Oct 15, 2026, 7:37 PM ET</strong> · how the Bobcat pulls shells off the lift through the 11 ft door</div>
   </header>
 
   <div class="facts">
@@ -114,7 +114,7 @@
       <p class="verdict">Verdict: fits in the same 14 ft strip, but the lifts block each other. Only works if cars finish one at a time.</p></div>
   </div>
 
-  <h2>Option 2 with a 3-car floor bay</h2>
+  <h2>Option 2 with a third car</h2>
   <div class="opts">
     <div class="opt"><h3>2A · Crosswise, two deep</h3><svg id="o2a" viewBox="0 0 360 420"></svg>
       <p>Floor bay 20 × 24. Two cars parallel to the front wall, one behind the other. The back car is boxed in until the front one moves, and a dead car has to turn 90 degrees to reach lift 1.</p>
@@ -122,6 +122,9 @@
     <div class="opt"><h3>2B · Side by side, lengthwise</h3><svg id="o2b" viewBox="0 0 360 420"></svg>
       <p>Same 20 × 24 bay. Two cars nose to the lane in 10 ft slots, like lift 1. Each rolls straight out into the lane and across to lift 1. Nothing blocks anything.</p>
       <p class="verdict">Verdict: same floor as 2A, no turning, no blocking. Draw plan D on this.</p></div>
+    <div class="opt"><h3>2C · Third car in the spine</h3><svg id="o2d" viewBox="0 0 360 420"></svg>
+      <p>Lift 1 and a 14 ft floor bay as in option 2. Car 3 sits crosswise in the front spine, 6 ft of the 14 ft aisle, leaving 8 ft for the forklift and pickers to pass. No storage lost.</p>
+      <p class="verdict">Verdict: free floor, but the main aisle becomes a work zone for 15 ft. OK for light work only, and the put-away carts move elsewhere.</p></div>
     <div class="opt"><h3>What 3 bays cost the storage block</h3><svg id="o2c" viewBox="0 0 360 420"></svg>
       <p>Bay block grows from 28 ft to 34 ft wide. Storage to the left loses 6 ft of width, about 30 ft of rack face. Wheel dollies let two people slide a dead car sideways instead of pushing it around a corner.</p>
       <p class="verdict">Cost: about 150 sq ft of storage for the third car.</p></div>
@@ -303,6 +306,27 @@
     g.rect(40, 0, 19, 58, v('--rack-soft'), v('--rack'), '2 2'); g.mono(49.5, 29, 'storage keeps 19 ft here', 7, v('--rack'));
     g.mono(49.5, 26, '(was 25 ft)', 7, v('--rack'));
     g.mono(66, 3, '4 wheel dollies, ~$150, slide a dead car sideways', 6.5, v('--ink-2'), 'start');
+  });
+
+  // OPTION 2C: third car in the spine
+  draw('o2d', function (g) {
+    g.rect(65, 0, 28, 14, v('--lane'), 'none'); g.label(79, 6, 'DRIVE LANE 28 × 14', 9);
+    g.rect(79, 14, 14, 24, v('--lift-soft'), v('--lift'));
+    g.car(86, 26, 'y', v('--lift')); g.posts(86, 26, 'y', v('--lift'));
+    g.label(86, 35.5, 'LIFT 1', 9, v('--lift'));
+    g.rect(65, 14, 14, 24, v('--lift-soft'), v('--lift'), '4 3');
+    g.car(72, 26, 'y', v('--lift'), '4 3');
+    g.label(72, 35.5, 'FLOOR BAY 14 × 24', 7.5, v('--lift'));
+    g.forklift(86, 1, 'up', v('--heavy')); g.arrow([[86, 1], [86, 12]], v('--warn'));
+    g.rect(40, 0, 25, 14, v('--lane'), 'none');
+    g.rect(44, 1.5, 17, 9, v('--lift-soft'), v('--lift'), '4 3');
+    g.car(52.5, 6, 'x', v('--lift'), '4 3');
+    g.el('rect', { x: g.X(40), y: g.Y(14), width: 25 * S, height: 3.5 * S, fill: v('--warn'), opacity: 0.18 });
+    g.mono(52.5, 16, 'aisle left: ~8 ft, with tools + carts in it', 6.5, v('--warn'));
+    g.mono(52.5, 0.6, 'CAR 3 crosswise in the spine · light work only', 6.5, v('--lift'));
+    g.arrow([[42, 12.5], [63, 12.5]], v('--ink-2'), '3 2');
+    g.rect(65, 38, 28, 20, v('--util-soft'), v('--util')); g.mono(79, 47, 'teardown · landing', 7, v('--util'));
+    g.rect(40, 14, 25, 44, v('--rack-soft'), v('--rack'), '2 2'); g.mono(52.5, 35, 'storage keeps 25 ft', 7, v('--rack'));
   });
 
 })();
