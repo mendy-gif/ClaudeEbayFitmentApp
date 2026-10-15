@@ -89,7 +89,7 @@
 <div class="wrap">
   <header>
     <h1>Lift Access Options</h1>
-    <div class="stamp">Last updated <strong>Oct 15, 2026, 6:54 PM ET</strong> · how the Bobcat pulls shells off the lift through the 11 ft door</div>
+    <div class="stamp">Last updated <strong>Oct 15, 2026, 7:34 PM ET</strong> · how the Bobcat pulls shells off the lift through the 11 ft door</div>
   </header>
 
   <div class="facts">
@@ -112,6 +112,19 @@
     <div class="opt"><h3>Option 3 · Tandem lifts in line</h3><svg id="o3" viewBox="0 0 360 420"></svg>
       <p>Lift 2 directly behind lift 1 on the same centerline. To reach car 2 the forklift drives through bay 1, so bay 1 must be empty and clear.</p>
       <p class="verdict">Verdict: fits in the same 14 ft strip, but the lifts block each other. Only works if cars finish one at a time.</p></div>
+  </div>
+
+  <h2>Option 2 with a 3-car floor bay</h2>
+  <div class="opts">
+    <div class="opt"><h3>2A · Crosswise, two deep</h3><svg id="o2a" viewBox="0 0 360 420"></svg>
+      <p>Floor bay 20 × 24. Two cars parallel to the front wall, one behind the other. The back car is boxed in until the front one moves, and a dead car has to turn 90 degrees to reach lift 1.</p>
+      <p class="verdict">Verdict: fits, but every move is a two-car move.</p></div>
+    <div class="opt"><h3>2B · Side by side, lengthwise</h3><svg id="o2b" viewBox="0 0 360 420"></svg>
+      <p>Same 20 × 24 bay. Two cars nose to the lane in 10 ft slots, like lift 1. Each rolls straight out into the lane and across to lift 1. Nothing blocks anything.</p>
+      <p class="verdict">Verdict: same floor as 2A, no turning, no blocking. Draw plan D on this.</p></div>
+    <div class="opt"><h3>What 3 bays cost the storage block</h3><svg id="o2c" viewBox="0 0 360 420"></svg>
+      <p>Bay block grows from 28 ft to 34 ft wide. Storage to the left loses 6 ft of width, about 30 ft of rack face. Wheel dollies let two people slide a dead car sideways instead of pushing it around a corner.</p>
+      <p class="verdict">Cost: about 150 sq ft of storage for the third car.</p></div>
   </div>
 
   <div class="cols">
@@ -246,5 +259,51 @@
     g.rect(40, 14, 25, 44, v('--rack-soft'), v('--rack'), '2 2'); g.mono(52.5, 35, 'storage', 7, v('--rack'));
     g.rect(40, 0, 25, 14, v('--lane'), 'none'); g.mono(52.5, 6, 'spine', 7);
   });
+  // OPTION 2A: crosswise two deep
+  draw('o2a', function (g) {
+    g.rect(59, 0, 34, 14, v('--lane'), 'none'); g.label(76, 6, 'DRIVE LANE 34 × 14', 9);
+    g.rect(79, 14, 14, 24, v('--lift-soft'), v('--lift'));
+    g.car(86, 26, 'y', v('--lift')); g.posts(86, 26, 'y', v('--lift'));
+    g.label(86, 35.5, 'LIFT 1', 9, v('--lift'));
+    g.rect(59, 14, 20, 24, v('--lift-soft'), v('--lift'), '4 3');
+    g.car(69, 20, 'x', v('--lift'), '4 3'); g.car(69, 31, 'x', v('--lift'), '4 3');
+    g.label(69, 36.3, 'FLOOR BAY 20 × 24', 7.5, v('--lift'));
+    g.mono(69, 25.3, 'back car boxed in', 6.5, v('--warn'));
+    g.forklift(86, 1, 'up', v('--heavy')); g.arrow([[86, 1], [86, 12]], v('--warn'));
+    g.arrow([[62, 17], [60, 10], [70, 7], [84, 9], [86, 14]], v('--lift'), '3 2');
+    g.mono(60, 3.2, 'dead car must turn 90° to reach lift 1', 6.5, v('--warn'), 'start');
+    g.rect(59, 38, 34, 20, v('--util-soft'), v('--util')); g.mono(76, 47, 'teardown · landing', 7, v('--util'));
+    g.rect(40, 14, 19, 44, v('--rack-soft'), v('--rack'), '2 2'); g.mono(49.5, 35, 'storage', 7, v('--rack'));
+    g.rect(40, 0, 19, 14, v('--lane'), 'none'); g.mono(49.5, 6, 'spine', 7);
+  });
+  // OPTION 2B: side by side lengthwise
+  draw('o2b', function (g) {
+    g.rect(59, 0, 34, 14, v('--lane'), 'none'); g.label(76, 6, 'DRIVE LANE 34 × 14', 9);
+    g.rect(79, 14, 14, 24, v('--lift-soft'), v('--lift'));
+    g.car(86, 26, 'y', v('--lift')); g.posts(86, 26, 'y', v('--lift'));
+    g.label(86, 35.5, 'LIFT 1', 9, v('--lift'));
+    g.rect(59, 14, 20, 24, v('--lift-soft'), v('--lift'), '4 3');
+    g.el('line', { x1: g.X(69), y1: g.Y(38), x2: g.X(69), y2: g.Y(14), stroke: v('--lift'), 'stroke-width': 0.8, 'stroke-dasharray': '2 2' });
+    g.car(64, 26, 'y', v('--lift'), '4 3'); g.car(74, 26, 'y', v('--lift'), '4 3');
+    g.label(69, 36.3, 'FLOOR BAY 20 × 24', 7.5, v('--lift'));
+    g.mono(64, 15.3, 'slot A', 6.5, v('--lift')); g.mono(74, 15.3, 'slot B', 6.5, v('--lift'));
+    g.forklift(86, 1, 'up', v('--heavy')); g.arrow([[86, 1], [86, 12]], v('--warn'));
+    g.arrow([[74, 15], [74, 9], [84, 9], [86, 14]], v('--lift'), '3 2');
+    g.arrow([[64, 15], [64, 7]], v('--lift'), '3 2');
+    g.mono(60, 3.2, 'each car rolls straight out, slides over to lift 1', 6.5, v('--lift'), 'start');
+    g.rect(59, 38, 34, 20, v('--util-soft'), v('--util')); g.mono(76, 47, 'teardown · landing', 7, v('--util'));
+    g.rect(40, 14, 19, 44, v('--rack-soft'), v('--rack'), '2 2'); g.mono(49.5, 35, 'storage', 7, v('--rack'));
+    g.rect(40, 0, 19, 14, v('--lane'), 'none'); g.mono(49.5, 6, 'spine', 7);
+  });
+  // OPTION 2C: storage cost
+  draw('o2c', function (g) {
+    g.rect(65, 0, 28, 58, v('--lift-soft'), v('--lift'), '4 3'); g.label(79, 29, '2 BAYS · 28 ft', 10, v('--lift'));
+    g.el('rect', { x: g.X(59), y: g.Y(58), width: 6 * S, height: 58 * S, fill: v('--warn'), opacity: 0.25, stroke: v('--warn'), 'stroke-width': 1 });
+    g.el('text', { x: g.X(62) + 3, y: g.Y(29), 'font-size': 8.5, fill: v('--warn'), 'font-weight': 600, 'text-anchor': 'middle', 'font-family': MONO, transform: 'rotate(-90 ' + (g.X(62) + 3) + ' ' + g.Y(29) + ')' }, '+6 ft for the 3rd car · ~30 ft of rack face lost');
+    g.rect(40, 0, 19, 58, v('--rack-soft'), v('--rack'), '2 2'); g.mono(49.5, 29, 'storage keeps 19 ft here', 7, v('--rack'));
+    g.mono(49.5, 26, '(was 25 ft)', 7, v('--rack'));
+    g.mono(66, 3, '4 wheel dollies, ~$150, slide a dead car sideways', 6.5, v('--ink-2'), 'start');
+  });
+
 })();
 </script>
