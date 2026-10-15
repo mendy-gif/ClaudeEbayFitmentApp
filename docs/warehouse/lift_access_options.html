@@ -1,0 +1,250 @@
+<title>Lift Access Options</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #F3F2EC;
+    --paper: #FBFAF6;
+    --ink: #1E262E;
+    --ink-2: #4E5962;
+    --line: #C9C6BB;
+    --floor: #E9E6DC;
+    --lane: #F7F5EE;
+    --lift: #2E5F8F;
+    --lift-soft: #D6E3F0;
+    --rack: #B9791F;
+    --rack-soft: #F1DFBF;
+    --heavy: #7A4E12;
+    --heavy-soft: #E3C79A;
+    --pack: #4E8A5E;
+    --pack-soft: #D8E9DA;
+    --util: #8A5A8F;
+    --util-soft: #E8DAEA;
+    --office: #DDDAD0;
+    --warn: #B23A3A;
+    --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground: #171B20; --paper: #1F252B; --ink: #E7E4DB; --ink-2: #A9B0B6; --line: #3D454D;
+      --floor: #262D34; --lane: #2C343C; --lift: #7FB0E0; --lift-soft: #24405C;
+      --rack: #E0A64A; --rack-soft: #4A3A1E; --heavy: #F0C070; --heavy-soft: #5C4622;
+      --pack: #7CC08E; --pack-soft: #23402B;
+      --util: #C79BCB; --util-soft: #3E2C41; --office: #2A3037; --warn: #E07070;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #171B20; --paper: #1F252B; --ink: #E7E4DB; --ink-2: #A9B0B6; --line: #3D454D;
+    --floor: #262D34; --lane: #2C343C; --lift: #7FB0E0; --lift-soft: #24405C;
+    --rack: #E0A64A; --rack-soft: #4A3A1E; --heavy: #F0C070; --heavy-soft: #5C4622;
+    --pack: #7CC08E; --pack-soft: #23402B;
+    --util: #C79BCB; --util-soft: #3E2C41; --office: #2A3037; --warn: #E07070;
+  }
+  body { background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.45; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; padding-block: 24px 48px; }
+  header { border-bottom: 2px solid var(--ink); padding-bottom: 12px; margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: 2.4rem; line-height: 1; margin: 0; letter-spacing: 0.01em; text-wrap: balance; }
+  .stamp { font-family: var(--mono); font-size: 0.85rem; color: var(--ink-2); }
+  .stamp strong { color: var(--ink); font-weight: 500; }
+  h2 { font-family: var(--display); font-weight: 600; font-size: 1.35rem; margin: 0 0 8px; letter-spacing: 0.02em; text-transform: uppercase; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 22px; }
+  .fact { border-top: 3px solid var(--ink); padding-top: 6px; }
+  .fact .n { font-family: var(--display); font-size: 1.9rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .fact .l { font-size: 0.85rem; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.06em; }
+  .plan-box { background: var(--paper); border: 1px solid var(--line); padding: 12px; overflow-x: auto; margin-bottom: 16px; }
+  svg { display: block; width: 100%; height: auto; max-width: 1000px; margin: 0 auto; font-family: var(--body); }
+  .legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px 20px; font-size: 0.92rem; margin-bottom: 30px; }
+  .legend .row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; }
+  .sw { width: 22px; height: 16px; border: 1.5px solid; margin-top: 3px; }
+  .sw.lift { background: var(--lift-soft); border-color: var(--lift); }
+  .sw.rack { background: var(--rack-soft); border-color: var(--rack); }
+  .sw.heavy { background: var(--heavy-soft); border-color: var(--heavy); }
+  .sw.pack { background: var(--pack-soft); border-color: var(--pack); }
+  .sw.util { background: var(--util-soft); border-color: var(--util); }
+  .sw.lane { background: var(--lane); border-color: var(--line); }
+  .sw.floor { background: var(--office); border-color: var(--line); }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 28px; }
+  ol { padding-left: 1.4em; margin: 0; }
+  ol li { margin-bottom: 8px; max-width: 62ch; }
+  ol li b { font-weight: 600; }
+  table { border-collapse: collapse; width: 100%; max-width: 560px; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.num, th.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tfoot td { font-weight: 600; border-top: 2px solid var(--ink); }
+  .note { font-size: 0.9rem; color: var(--ink-2); max-width: 70ch; }
+  .callout { border-left: 4px solid var(--warn); padding: 8px 14px; background: var(--paper); max-width: 72ch; margin: 0 0 28px; }
+  .callout b { font-weight: 600; }
+  .flow { font-family: var(--mono); font-size: 0.9rem; background: var(--paper); border: 1px solid var(--line); padding: 10px 14px; overflow-x: auto; white-space: nowrap; margin: 0 0 28px; }
+  .opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 18px; margin-bottom: 26px; }
+  .opt { background: var(--paper); border: 1px solid var(--line); padding: 10px; }
+  .opt h3 { font-family: var(--display); font-size: 1.3rem; margin: 0 0 4px; letter-spacing: 0.03em; }
+  .opt p { margin: 6px 0 0; font-size: 0.9rem; color: var(--ink-2); }
+  .opt svg { max-width: 100%; }
+  .verdict { font-weight: 600; color: var(--ink); }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Lift Access Options</h1>
+    <div class="stamp">Last updated <strong>Oct 15, 2026, 6:54 PM ET</strong> · how the Bobcat pulls shells off the lift through the 11 ft door</div>
+  </header>
+
+  <div class="facts">
+    <div class="fact"><div class="n">Bobcat D55C-9</div><div class="l">12,000 lb diesel · from the quote</div></div>
+    <div class="fact"><div class="n">12 ft forks</div><div class="l">144 in · 2.56 × 5.9 in · Class IV</div></div>
+    <div class="fact"><div class="n">~10 ft</div><div class="l">Body to fork face · ~22 ft overall</div></div>
+    <div class="fact"><div class="n">~9.5 ft</div><div class="l">Turning radius · 7.6 ft tall under guard</div></div>
+    <div class="fact"><div class="n">15 × 6 ft</div><div class="l">Shell · fits the door lengthwise only</div></div>
+  </div>
+
+  <div class="callout"><b>The rule every option obeys.</b> A shell only fits the 11 ft door lengthwise, so the forks go under it from the end and the shell rides in line with the forklift. The forklift must be fully inside before the forks reach the car, so the car's near bumper sits at least 12 ft in from the door. Lift 1 is therefore always on the door's centerline, 14 to 30 ft back. The options only differ in how a second car gets handled.</div>
+
+  <div class="opts">
+    <div class="opt"><h3>Option 1 · Turning square, two lifts</h3><svg id="o1" viewBox="0 0 360 420"></svg>
+      <p>A 30 × 30 ft square inside the door. Lift 1 straight ahead, lift 2 on the left facing the square. The forklift picks car 2, backs into the square, turns 90 degrees with the shell, and drives out.</p>
+      <p class="verdict">Verdict: works, but costs about 1,000 sq ft of open floor and a careful operator every time.</p></div>
+    <div class="opt"><h3>Option 2 · One lift plus a floor bay</h3><svg id="o2" viewBox="0 0 360 420"></svg>
+      <p>Lift 1 on the door line. Bay 2 beside it is a floor bay for interior, glass, lights and panels. The car rolls on its own wheels to lift 1 for drivetrain and the shell pull. Lane stays 14 ft.</p>
+      <p class="verdict">Verdict: no extra floor, two cars worked at once, one shell pull per day. My pick.</p></div>
+    <div class="opt"><h3>Option 3 · Tandem lifts in line</h3><svg id="o3" viewBox="0 0 360 420"></svg>
+      <p>Lift 2 directly behind lift 1 on the same centerline. To reach car 2 the forklift drives through bay 1, so bay 1 must be empty and clear.</p>
+      <p class="verdict">Verdict: fits in the same 14 ft strip, but the lifts block each other. Only works if cars finish one at a time.</p></div>
+  </div>
+
+  <div class="cols">
+    <section>
+      <h2>Footprint each option takes</h2>
+      <table>
+        <thead><tr><th>Option</th><th class="num">Open floor at door</th><th class="num">Lift bays</th><th class="num">Total</th></tr></thead>
+        <tbody>
+          <tr><td>1 · turning square</td><td class="num">900</td><td class="num">672</td><td class="num">1,572</td></tr>
+          <tr><td>2 · lift + floor bay</td><td class="num">392</td><td class="num">672</td><td class="num">1,064</td></tr>
+          <tr><td>3 · tandem</td><td class="num">392</td><td class="num">672</td><td class="num">1,064</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Sq ft. Option 1 takes 500 more than the others, about 70 ft of hand-pick rack face.</p>
+    </section>
+    <section>
+      <h2>Assumed from the quote and the spec sheet</h2>
+      <ol>
+        <li>Body length to fork face about 10 ft, width 4.7 ft, outside turning radius about 9.5 ft. Confirm against the D55C-9 spec sheet.</li>
+        <li>Overhead guard 91.7 in, so it clears the 12 ft door with the mast lowered (92 in).</li>
+        <li>Shell drawn at 15 × 6 ft. A 7-series is closer to 17 ft, which pushes lift 1 two feet deeper.</li>
+        <li>Forks go under from the end of the car, as you do today.</li>
+      </ol>
+    </section>
+  </div>
+</div>
+
+<script>
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var css = getComputedStyle(document.documentElement);
+  function v(n) { return css.getPropertyValue(n).trim(); }
+  var DISPLAY = 'Barlow Condensed, Arial Narrow, sans-serif', MONO = 'IBM Plex Mono, Menlo, monospace';
+  // each panel shows x 40..93 of the main room (53 ft) and full depth 58, S = 6 px/ft
+  var S = 6, OX = 30, OY = 20, X0 = 40, W = 53, D = 58;
+  function draw(id, build) {
+    var svg = document.getElementById(id);
+    function el(tag, a, t) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); if (t != null) e.textContent = t; svg.appendChild(e); return e; }
+    function X(x) { return OX + (x - X0) * S; } function Y(d) { return OY + (D - d) * S; }
+    function rect(x, d1, w, dep, fill, stroke, dash) { return el('rect', { x: X(x), y: Y(d1 + dep), width: w * S, height: dep * S, fill: fill, stroke: stroke, 'stroke-width': 1.2, 'stroke-dasharray': dash || 'none' }); }
+    function label(x, d, t, size, color, weight) { return el('text', { x: X(x), y: Y(d), 'font-size': size || 10, fill: color || v('--ink'), 'font-weight': weight || 600, 'text-anchor': 'middle', 'font-family': DISPLAY, 'letter-spacing': '0.03em' }, t); }
+    function mono(x, d, t, size, color, anchor) { return el('text', { x: X(x), y: Y(d), 'font-size': size || 7.5, fill: color || v('--ink-2'), 'text-anchor': anchor || 'middle', 'font-family': MONO }, t); }
+    function car(cx, cd, along, color, dash) { // along: 'y' nose toward door, 'x' nose toward right
+      var w = along === 'y' ? 6 : 15, h = along === 'y' ? 15 : 6;
+      el('rect', { x: X(cx - w / 2), y: Y(cd + h / 2), width: w * S, height: h * S, rx: 8, fill: v('--paper'), stroke: color, 'stroke-width': 1.4, 'stroke-dasharray': dash || 'none' });
+      var cw = along === 'y' ? 4.4 : 5.5, ch = along === 'y' ? 5.5 : 4.4;
+      el('rect', { x: X(cx - cw / 2), y: Y(cd + ch / 2), width: cw * S, height: ch * S, rx: 4, fill: 'none', stroke: color, 'stroke-width': 1, opacity: 0.7 });
+    }
+    function posts(cx, cd, along, color) {
+      var p = along === 'y' ? [[cx - 5, cd], [cx + 5, cd]] : [[cx, cd - 5], [cx, cd + 5]];
+      p.forEach(function (q) { el('rect', { x: X(q[0] - 0.7), y: Y(q[1] + 0.7), width: 1.4 * S, height: 1.4 * S, fill: color }); });
+    }
+    function forklift(cx, cd, heading, color) { // heading 'up' (toward back wall), 'left'
+      if (heading === 'up') {
+        el('rect', { x: X(cx - 2.35), y: Y(cd + 10), width: 4.7 * S, height: 10 * S, rx: 3, fill: v('--paper'), stroke: color, 'stroke-width': 1.3 });
+        el('line', { x1: X(cx - 1.2), y1: Y(cd + 10), x2: X(cx - 1.2), y2: Y(cd + 22), stroke: color, 'stroke-width': 2 });
+        el('line', { x1: X(cx + 1.2), y1: Y(cd + 10), x2: X(cx + 1.2), y2: Y(cd + 22), stroke: color, 'stroke-width': 2 });
+      } else {
+        el('rect', { x: X(cx), y: Y(cd + 2.35), width: 10 * S, height: 4.7 * S, rx: 3, fill: v('--paper'), stroke: color, 'stroke-width': 1.3 });
+        el('line', { x1: X(cx), y1: Y(cd - 1.2), x2: X(cx - 12), y2: Y(cd - 1.2), stroke: color, 'stroke-width': 2 });
+        el('line', { x1: X(cx), y1: Y(cd + 1.2), x2: X(cx - 12), y2: Y(cd + 1.2), stroke: color, 'stroke-width': 2 });
+      }
+    }
+    function arrow(pts, color, dash) {
+      var d = pts.map(function (p, i) { return (i ? 'L ' : 'M ') + X(p[0]) + ' ' + Y(p[1]); }).join(' ');
+      el('path', { d: d, fill: 'none', stroke: color, 'stroke-width': 1.6, 'stroke-dasharray': dash || 'none', 'marker-end': 'url(#ah-' + id + ')' });
+    }
+    var defs = el('defs', {}); var m = document.createElementNS(NS, 'marker'); m.setAttribute('id', 'ah-' + id); m.setAttribute('markerWidth', '8'); m.setAttribute('markerHeight', '8'); m.setAttribute('refX', '6'); m.setAttribute('refY', '4'); m.setAttribute('orient', 'auto'); var p = document.createElementNS(NS, 'path'); p.setAttribute('d', 'M0,0 L8,4 L0,8 z'); p.setAttribute('fill', v('--warn')); m.appendChild(p); defs.appendChild(m);
+    // room slice
+    rect(X0, 0, W, D, v('--floor'), 'none');
+    el('rect', { x: X(X0), y: Y(D), width: W * S, height: D * S, fill: 'none', stroke: v('--ink'), 'stroke-width': 2.5 });
+    el('line', { x1: X(X0), y1: Y(D), x2: X(X0), y2: Y(0), stroke: v('--ink'), 'stroke-width': 1, 'stroke-dasharray': '6 4' });
+    // door
+    el('line', { x1: X(81), y1: Y(0), x2: X(92), y2: Y(0), stroke: v('--paper'), 'stroke-width': 4 });
+    el('line', { x1: X(81), y1: Y(0), x2: X(92), y2: Y(0), stroke: v('--ink'), 'stroke-width': 1, 'stroke-dasharray': '5 3' });
+    mono(86.5, -2.2, '11 ft drive-in door', 8, v('--ink'));
+    mono(X0 + 1, 56.5, 'rest of shop →', 7, v('--ink-2'), 'start');
+    build({ el: el, X: X, Y: Y, rect: rect, label: label, mono: mono, car: car, posts: posts, forklift: forklift, arrow: arrow });
+  }
+
+  // OPTION 1: turning square
+  draw('o1', function (g) {
+    g.rect(60, 0, 33, 30, v('--lane'), v('--line'), '4 3');
+    g.label(76.5, 4, 'TURNING SQUARE 33 × 30', 9);
+    g.rect(79, 30, 14, 24, v('--lift-soft'), v('--lift'));
+    g.car(86.5, 42, 'y', v('--lift')); g.posts(86.5, 42, 'y', v('--lift'));
+    g.label(86.5, 52, 'LIFT 1', 9, v('--lift'));
+    g.rect(40, 30, 24, 14, v('--lift-soft'), v('--lift'));
+    g.car(52, 37, 'x', v('--lift')); g.posts(52, 37, 'x', v('--lift'));
+    g.label(52, 31.5, 'LIFT 2 · faces the square', 8.5, v('--lift'));
+    g.forklift(76.5, 8, 'up', v('--heavy'));
+    g.arrow([[86.5, 2], [86.5, 28]], v('--warn'));
+    g.arrow([[62, 37], [72, 37], [80, 30], [86, 20], [86.5, 3]], v('--warn'), '3 2');
+    g.mono(70, 17, 'pick car 2, back in,', 7); g.mono(70, 14.5, 'turn 90°, drive out', 7);
+    g.mono(86.5, 31.5, 'straight pick', 7);
+    g.rect(40, 44, 24, 14, v('--rack-soft'), v('--rack'), '2 2'); g.mono(52, 50.5, 'storage', 7, v('--rack'));
+  });
+
+  // OPTION 2: lift + floor bay
+  draw('o2', function (g) {
+    g.rect(65, 0, 28, 14, v('--lane'), 'none'); g.label(79, 6, 'DRIVE LANE 28 × 14', 9);
+    g.rect(79, 14, 14, 24, v('--lift-soft'), v('--lift'));
+    g.car(86, 26, 'y', v('--lift')); g.posts(86, 26, 'y', v('--lift'));
+    g.label(86, 35.5, 'LIFT 1', 9, v('--lift'));
+    g.rect(65, 14, 14, 24, v('--lift-soft'), v('--lift'), '4 3');
+    g.car(72, 26, 'y', v('--lift'), '4 3');
+    g.label(72, 35.5, 'FLOOR BAY 2', 8.5, v('--lift'));
+    g.mono(72, 15.3, 'interior · glass · panels', 6, v('--lift'));
+    g.forklift(86, 1, 'up', v('--heavy'));
+    g.arrow([[86, 1], [86, 12]], v('--warn'));
+    g.arrow([[72, 15], [72, 10], [84, 10], [86, 14]], v('--lift'), '3 2');
+    g.mono(69, 9, 'car rolls on its', 6.5, v('--lift'), 'start'); g.mono(69, 6.8, 'wheels to lift 1', 6.5, v('--lift'), 'start');
+    g.rect(65, 38, 28, 20, v('--util-soft'), v('--util')); g.mono(79, 47, 'teardown · landing', 7, v('--util'));
+    g.rect(40, 14, 25, 44, v('--rack-soft'), v('--rack'), '2 2'); g.mono(52.5, 35, 'storage', 7, v('--rack'));
+    g.rect(40, 0, 25, 14, v('--lane'), 'none'); g.mono(52.5, 6, 'spine', 7);
+  });
+
+  // OPTION 3: tandem
+  draw('o3', function (g) {
+    g.rect(65, 0, 28, 14, v('--lane'), 'none'); g.label(79, 6, 'DRIVE LANE 28 × 14', 9);
+    g.rect(79, 14, 14, 22, v('--lift-soft'), v('--lift'));
+    g.car(86, 25, 'y', v('--lift'), '4 3'); g.posts(86, 25, 'y', v('--lift'));
+    g.label(86, 15.3, 'LIFT 1 · EMPTY to reach lift 2', 6.5, v('--warn'));
+    g.rect(79, 36, 14, 22, v('--lift-soft'), v('--lift'));
+    g.car(86, 47, 'y', v('--lift')); g.posts(86, 47, 'y', v('--lift'));
+    g.label(86, 37.5, 'LIFT 2', 9, v('--lift'));
+    g.forklift(86, 1, 'up', v('--heavy'));
+    g.arrow([[86, 1], [86, 34]], v('--warn'));
+    g.mono(78, 30, 'forklift drives through bay 1', 6.5, v('--warn'), 'end');
+    g.mono(78, 27.5, 'to pick car 2', 6.5, v('--warn'), 'end');
+    g.rect(65, 14, 14, 44, v('--util-soft'), v('--util')); g.mono(72, 36, 'teardown', 7, v('--util'));
+    g.rect(40, 14, 25, 44, v('--rack-soft'), v('--rack'), '2 2'); g.mono(52.5, 35, 'storage', 7, v('--rack'));
+    g.rect(40, 0, 25, 14, v('--lane'), 'none'); g.mono(52.5, 6, 'spine', 7);
+  });
+})();
+</script>
