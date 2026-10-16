@@ -1,0 +1,245 @@
+<title>Dismantling Block</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --ground: #F3F2EC;
+    --paper: #FBFAF6;
+    --ink: #1E262E;
+    --ink-2: #4E5962;
+    --line: #C9C6BB;
+    --floor: #E9E6DC;
+    --lane: #F7F5EE;
+    --lift: #2E5F8F;
+    --lift-soft: #D6E3F0;
+    --rack: #B9791F;
+    --rack-soft: #F1DFBF;
+    --heavy: #7A4E12;
+    --heavy-soft: #E3C79A;
+    --pack: #4E8A5E;
+    --pack-soft: #D8E9DA;
+    --util: #8A5A8F;
+    --util-soft: #E8DAEA;
+    --office: #DDDAD0;
+    --warn: #B23A3A;
+    --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+    --mono: "IBM Plex Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --ground: #171B20; --paper: #1F252B; --ink: #E7E4DB; --ink-2: #A9B0B6; --line: #3D454D;
+      --floor: #262D34; --lane: #2C343C; --lift: #7FB0E0; --lift-soft: #24405C;
+      --rack: #E0A64A; --rack-soft: #4A3A1E; --heavy: #F0C070; --heavy-soft: #5C4622;
+      --pack: #7CC08E; --pack-soft: #23402B;
+      --util: #C79BCB; --util-soft: #3E2C41; --office: #2A3037; --warn: #E07070;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --ground: #171B20; --paper: #1F252B; --ink: #E7E4DB; --ink-2: #A9B0B6; --line: #3D454D;
+    --floor: #262D34; --lane: #2C343C; --lift: #7FB0E0; --lift-soft: #24405C;
+    --rack: #E0A64A; --rack-soft: #4A3A1E; --heavy: #F0C070; --heavy-soft: #5C4622;
+    --pack: #7CC08E; --pack-soft: #23402B;
+    --util: #C79BCB; --util-soft: #3E2C41; --office: #2A3037; --warn: #E07070;
+  }
+  body { background: var(--ground); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.45; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding-inline: 20px; padding-block: 24px 48px; }
+  header { border-bottom: 2px solid var(--ink); padding-bottom: 12px; margin-bottom: 20px; display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between; }
+  h1 { font-family: var(--display); font-weight: 700; font-size: 2.4rem; line-height: 1; margin: 0; letter-spacing: 0.01em; text-wrap: balance; }
+  .stamp { font-family: var(--mono); font-size: 0.85rem; color: var(--ink-2); }
+  .stamp strong { color: var(--ink); font-weight: 500; }
+  h2 { font-family: var(--display); font-weight: 600; font-size: 1.35rem; margin: 0 0 8px; letter-spacing: 0.02em; text-transform: uppercase; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 22px; }
+  .fact { border-top: 3px solid var(--ink); padding-top: 6px; }
+  .fact .n { font-family: var(--display); font-size: 1.9rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+  .fact .l { font-size: 0.85rem; color: var(--ink-2); text-transform: uppercase; letter-spacing: 0.06em; }
+  .plan-box { background: var(--paper); border: 1px solid var(--line); padding: 12px; overflow-x: auto; margin-bottom: 16px; }
+  svg { display: block; width: 100%; height: auto; max-width: 1000px; margin: 0 auto; font-family: var(--body); }
+  .legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px 20px; font-size: 0.92rem; margin-bottom: 30px; }
+  .legend .row { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; }
+  .sw { width: 22px; height: 16px; border: 1.5px solid; margin-top: 3px; }
+  .sw.lift { background: var(--lift-soft); border-color: var(--lift); }
+  .sw.rack { background: var(--rack-soft); border-color: var(--rack); }
+  .sw.heavy { background: var(--heavy-soft); border-color: var(--heavy); }
+  .sw.pack { background: var(--pack-soft); border-color: var(--pack); }
+  .sw.util { background: var(--util-soft); border-color: var(--util); }
+  .sw.lane { background: var(--lane); border-color: var(--line); }
+  .sw.floor { background: var(--office); border-color: var(--line); }
+  .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; margin-bottom: 28px; }
+  ol { padding-left: 1.4em; margin: 0; }
+  ol li { margin-bottom: 8px; max-width: 62ch; }
+  ol li b { font-weight: 600; }
+  table { border-collapse: collapse; width: 100%; max-width: 560px; font-size: 0.95rem; }
+  th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  td.num, th.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tfoot td { font-weight: 600; border-top: 2px solid var(--ink); }
+  .note { font-size: 0.9rem; color: var(--ink-2); max-width: 70ch; }
+  .callout { border-left: 4px solid var(--warn); padding: 8px 14px; background: var(--paper); max-width: 72ch; margin: 0 0 28px; }
+  .callout b { font-weight: 600; }
+  .flow { font-family: var(--mono); font-size: 0.9rem; background: var(--paper); border: 1px solid var(--line); padding: 10px 14px; overflow-x: auto; white-space: nowrap; margin: 0 0 28px; }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Dismantling Block</h1>
+    <div class="stamp">Last updated <strong>Oct 15, 2026, 8:09 PM ET</strong> · as decided: W2 lift bay, 14 ft floor bay, teardown strip, no separate landing</div>
+  </header>
+
+  <div class="facts">
+    <div class="fact"><div class="n">38 × 58 ft</div><div class="l">Right end of the main room · 2,204 sq ft · 41%</div></div>
+    <div class="fact"><div class="n">24 × 24</div><div class="l">Lift 1 bay · 4 ft right · 12 ft lift · 8 ft walkway</div></div>
+    <div class="fact"><div class="n">14 × 24</div><div class="l">Floor bay 2</div></div>
+    <div class="fact"><div class="n">38 × 20</div><div class="l">Teardown strip on the back wall</div></div>
+    <div class="fact"><div class="n">55 × 58</div><div class="l">Left for storage, spine, shipping · 3,190 sq ft</div></div>
+  </div>
+
+  <div class="plan-box"><svg id="plan" viewBox="0 0 760 880" role="img" aria-label="Dismantling block, right end of the main room"></svg></div>
+
+  <div class="cols">
+    <section>
+      <h2>Zones</h2>
+      <table>
+        <thead><tr><th>Zone</th><th class="num">Size</th><th class="num">Sq ft</th></tr></thead>
+        <tbody>
+          <tr><td>Drive lane · cars in, hulks out, forklift to the upstairs opening and the yard</td><td class="num">38 × 14</td><td class="num">532</td></tr>
+          <tr><td>Lift 1 bay · 4 ft right, 12 ft lift, 8 ft walkway left · centerline 3.5 ft off the door line</td><td class="num">24 × 24</td><td class="num">576</td></tr>
+          <tr><td>Floor bay 2 · interior, glass, lights, panels · car rolls to lift 1 on dollies</td><td class="num">14 × 24</td><td class="num">336</td></tr>
+          <tr><td>Teardown strip · engine station, panel station, carts, vise bench, rolling shelves, fluids</td><td class="num">38 × 20</td><td class="num">760</td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td class="num">38 × 58</td><td class="num">2,204</td></tr></tfoot>
+      </table>
+    </section>
+    <section>
+      <h2>Teardown stations</h2>
+      <table>
+        <thead><tr><th>Station</th><th class="num">Footprint</th></tr></thead>
+        <tbody>
+          <tr><td>Engine: gantry crane, 4 × 8 heavy table, engine on pallet · nearest lift 1</td><td class="num">12 × 14</td></tr>
+          <tr><td>Panel: bumper stand, door stand · nearest bay 2</td><td class="num">10 × 10</td></tr>
+          <tr><td>Two 6-panel rolling carts, parked side by side</td><td class="num">16 × 4</td></tr>
+          <tr><td>Vise bench, 6 ft</td><td class="num">6 × 2</td></tr>
+          <tr><td>Rolling wire shelves, six 4 × 2, back wall</td><td class="num">26 × 2</td></tr>
+          <tr><td>Oil, coolant, compressor, back right corner</td><td class="num">6 × 5</td></tr>
+          <tr><td>Open floor for walking and a third car in a pinch</td><td class="num">rest</td></tr>
+        </tbody>
+      </table>
+      <p class="note">Upstairs opening drawn on the right wall inside the drive lane, where you said it is. Exact spot and sill height still to confirm.</p>
+    </section>
+  </div>
+</div>
+
+<script>
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var css = getComputedStyle(document.documentElement);
+  function v(n) { return css.getPropertyValue(n).trim(); }
+  var DISPLAY = 'Barlow Condensed, Arial Narrow, sans-serif', MONO = 'IBM Plex Mono, Menlo, monospace';
+  var svg = document.getElementById('plan');
+  var S = 13, OX = 50, OY = 46, X0 = 48, D = 58;
+  function el(tag, a, t) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); if (t != null) e.textContent = t; svg.appendChild(e); return e; }
+  function X(x) { return OX + (x - X0) * S; } function Y(d) { return OY + (D - d) * S; }
+  function rect(x, d1, w, dep, fill, stroke, dash, sw) { return el('rect', { x: X(x), y: Y(d1 + dep), width: w * S, height: dep * S, fill: fill, stroke: stroke, 'stroke-width': sw || 1.2, 'stroke-dasharray': dash || 'none' }); }
+  function label(x, d, t, size, color, weight, anchor) { return el('text', { x: X(x), y: Y(d), 'font-size': size || 11, fill: color || v('--ink'), 'font-weight': weight || 600, 'text-anchor': anchor || 'middle', 'font-family': DISPLAY, 'letter-spacing': '0.03em' }, t); }
+  function mono(x, d, t, size, color, anchor) { return el('text', { x: X(x), y: Y(d), 'font-size': size || 8.5, fill: color || v('--ink-2'), 'text-anchor': anchor || 'middle', 'font-family': MONO }, t); }
+  function box(x, d, w, dep, color, dash) { return el('rect', { x: X(x), y: Y(d + dep), width: w * S, height: dep * S, fill: dash ? 'none' : v('--paper'), stroke: color, 'stroke-width': 1, 'stroke-dasharray': dash || 'none' }); }
+  function car(cx, cd, color, dash) {
+    el('rect', { x: X(cx - 3), y: Y(cd + 7.5), width: 6 * S, height: 15 * S, rx: 9, fill: v('--paper'), stroke: color, 'stroke-width': 1.4, 'stroke-dasharray': dash || 'none' });
+    el('rect', { x: X(cx - 2.2), y: Y(cd + 2.75), width: 4.4 * S, height: 5.5 * S, rx: 4, fill: 'none', stroke: color, 'stroke-width': 1, opacity: 0.7 });
+  }
+  function dim(x1, y1, x2, y2, txt, rot) {
+    el('line', { x1: x1, y1: y1, x2: x2, y2: y2, stroke: v('--ink-2'), 'stroke-width': 1 });
+    [[x1, y1], [x2, y2]].forEach(function (p) { el('line', { x1: p[0], y1: p[1] - 4, x2: p[0], y2: p[1] + 4, stroke: v('--ink-2'), 'stroke-width': 1, transform: rot ? 'rotate(90 ' + p[0] + ' ' + p[1] + ')' : '' }); });
+    var t = el('text', { 'font-size': 10, fill: v('--ink'), 'text-anchor': 'middle', 'font-family': MONO, 'font-weight': 500 }, txt);
+    var mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
+    t.setAttribute('transform', rot ? 'translate(' + (mx - 6) + ',' + my + ') rotate(-90)' : 'translate(' + mx + ',' + (my - 5) + ')');
+  }
+  var defs = el('defs', {}); var m = document.createElementNS(NS, 'marker'); m.setAttribute('id', 'arr'); m.setAttribute('markerWidth', '8'); m.setAttribute('markerHeight', '8'); m.setAttribute('refX', '6'); m.setAttribute('refY', '4'); m.setAttribute('orient', 'auto'); var pth = document.createElementNS(NS, 'path'); pth.setAttribute('d', 'M0,0 L8,4 L0,8 z'); pth.setAttribute('fill', v('--warn')); m.appendChild(pth); defs.appendChild(m);
+
+  // context: storage side, dimmed
+  rect(X0, 0, 7, D, v('--rack-soft'), v('--rack'), '3 3');
+  var t = el('text', { 'font-size': 11, fill: v('--rack'), 'text-anchor': 'middle', 'font-family': DISPLAY, 'font-weight': 600, 'letter-spacing': '0.06em' }, 'STORAGE · SPINE · SHIPPING  ←  55 ft that way');
+  t.setAttribute('transform', 'translate(' + X(51.5) + ',' + Y(29) + ') rotate(-90)');
+
+  // block floor
+  rect(55, 0, 38, D, v('--floor'), 'none');
+  // drive lane
+  rect(55, 0, 38, 14, v('--lane'), 'none');
+  label(70, 7.5, 'DRIVE LANE · 38 × 14', 13);
+  mono(70, 4.5, 'cars in · hulks out · forklift to the yard and up to the 2nd floor', 8);
+  // upstairs opening on the right wall inside the lane
+  el('rect', { x: X(93) - 6, y: Y(12), width: 6, height: 9 * S, fill: v('--warn'), opacity: 0.85 });
+  var q = el('text', { 'font-size': 8.5, fill: v('--warn'), 'text-anchor': 'middle', 'font-family': MONO, 'font-weight': 500 }, '2nd-floor opening · spot + sill ?');
+  q.setAttribute('transform', 'translate(' + (X(93) + 14) + ',' + Y(7) + ') rotate(-90)');
+  el('path', { d: 'M ' + X(76) + ' ' + Y(10.5) + ' L ' + X(91) + ' ' + Y(7.5), stroke: v('--warn'), 'stroke-width': 1.3, fill: 'none', 'marker-end': 'url(#arr)', 'stroke-dasharray': '4 3' });
+  mono(80, 12.3, 'forklift squares up here', 7.5, v('--warn'));
+  // lift 1 bay W2: x 69-93, 4 right, 12 lift (x 77-89), 8 walkway (x 69-77)
+  rect(69, 14, 24, 24, v('--lift-soft'), v('--lift'));
+  el('rect', { x: X(69), y: Y(38), width: 8 * S, height: 24 * S, fill: v('--pack-soft'), opacity: 0.85 });
+  el('rect', { x: X(89), y: Y(38), width: 4 * S, height: 24 * S, fill: v('--pack-soft'), opacity: 0.85 });
+  el('line', { x1: X(77), y1: Y(38), x2: X(77), y2: Y(14), stroke: v('--lift'), 'stroke-width': 0.8, 'stroke-dasharray': '3 3' });
+  el('line', { x1: X(89), y1: Y(38), x2: X(89), y2: Y(14), stroke: v('--lift'), 'stroke-width': 0.8, 'stroke-dasharray': '3 3' });
+  car(83, 26, v('--lift'));
+  [[77.5, 26], [87.1, 26]].forEach(function (p) { el('rect', { x: X(p[0]), y: Y(p[1] + 0.7), width: 1.4 * S, height: 1.4 * S, fill: v('--lift') }); });
+  label(83, 36.3, 'LIFT 1 · 12 ft', 12, v('--lift'));
+  label(73, 36.3, 'WALKWAY 8 ft', 10, v('--pack'));
+  mono(73, 33.5, 'people · carts · parts out', 7.5, v('--pack'));
+  label(91, 36.3, '4 ft', 10, v('--pack'));
+  mono(83, 15.3, 'lift ℄ 3.5 ft off the door ℄', 7.5, v('--lift'));
+  // centerlines
+  el('line', { x1: X(86.5), y1: Y(-1), x2: X(86.5), y2: Y(12), stroke: v('--ink-2'), 'stroke-width': 0.8, 'stroke-dasharray': '5 3' }); mono(86.5, 12.6, 'door ℄', 7, v('--ink-2'));
+  el('line', { x1: X(83), y1: Y(14), x2: X(83), y2: Y(38), stroke: v('--lift'), 'stroke-width': 0.6, 'stroke-dasharray': '5 3' });
+  // floor bay 2: x 55-69
+  rect(55, 14, 14, 24, v('--lift-soft'), v('--lift'), '4 3');
+  car(62, 26, v('--lift'), '4 3');
+  label(62, 36.3, 'FLOOR BAY 2 · 14 × 24', 11, v('--lift'));
+  mono(62, 15.3, 'interior · glass · lights · panels', 7.5, v('--lift'));
+  el('path', { d: 'M ' + X(62) + ' ' + Y(17) + ' L ' + X(62) + ' ' + Y(10) + ' L ' + X(81) + ' ' + Y(10) + ' L ' + X(83) + ' ' + Y(14), stroke: v('--lift'), 'stroke-width': 1.2, fill: 'none', 'stroke-dasharray': '3 2', 'marker-end': 'url(#arr)' });
+  mono(64, 11.2, 'car on dollies to lift 1', 7, v('--lift'), 'start');
+  // forklift pick path
+  el('path', { d: 'M ' + X(86.5) + ' ' + Y(0.5) + ' L ' + X(84) + ' ' + Y(9) + ' L ' + X(83) + ' ' + Y(13.5), stroke: v('--warn'), 'stroke-width': 1.6, fill: 'none', 'marker-end': 'url(#arr)' });
+  // teardown strip x 55-93, d 38-58
+  rect(55, 38, 38, 20, v('--util-soft'), v('--util'));
+  label(74, 39.6, 'TEARDOWN STRIP · 38 × 20', 12, v('--util'));
+  // panel station 10x10 at x 55.5-65.5, d 41-51
+  rect(55.5, 41, 10, 10, v('--lift-soft'), v('--lift'), '3 2'); label(60.5, 49.6, 'PANEL STATION', 9.5, v('--lift'));
+  box(56.5, 46, 7, 1.5, v('--lift')); mono(60, 45, 'bumper stand', 7, v('--lift'));
+  box(56.5, 42.5, 4, 1.5, v('--lift')); mono(58.5, 41.6, 'door stand', 7, v('--lift'));
+  // panel carts 16x4 at x 55.5-71.5, d 53.5-57.5 (two side by side)
+  box(55.5, 53.5, 7.5, 3.5, v('--lift')); box(63.5, 53.5, 7.5, 3.5, v('--lift'));
+  mono(59.25, 55, 'panel cart · 6', 7, v('--lift')); mono(67.25, 55, 'panel cart · 6', 7, v('--lift'));
+  // vise bench 6x2 at x 66-72, d 41-43
+  box(66, 41, 6, 2, v('--util')); mono(69, 41.7, 'vise bench 6 ft', 7, v('--util'));
+  // engine station 12x14 at x 74-86, d 41-55
+  rect(74, 41, 12, 14, v('--heavy-soft'), v('--heavy'), '3 2'); label(80, 53.6, 'ENGINE TEARDOWN', 10, v('--heavy'));
+  el('rect', { x: X(75), y: Y(50.5), width: 8 * S, height: 0.8 * S, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
+  el('rect', { x: X(75), y: Y(50.5), width: 0.6 * S, height: 6 * S, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
+  el('rect', { x: X(82.4), y: Y(50.5), width: 0.6 * S, height: 6 * S, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
+  mono(79, 48.9, 'gantry crane · 8 ft span', 7, v('--heavy'));
+  box(76, 42.5, 3.3, 4, v('--heavy')); mono(77.65, 44.2, 'engine', 7, v('--heavy'));
+  box(80.5, 42, 4, 8, v('--heavy')); mono(82.5, 45.8, 'table', 7, v('--heavy')); mono(82.5, 44.6, '4 × 8', 7, v('--heavy'));
+  // rolling shelves on back wall x 72-86 → six 4x2 at d 56-58; put x 72.5-85.5 (3) and x 86.5-92.5? fluids corner x 87-93 d 53-58
+  for (var i = 0; i < 3; i++) box(72.5 + i * 4.5, 56, 4, 2, v('--rack'), '2 2');
+  mono(79, 55.3, 'rolling wire shelves ×3 · 3 more on the left wall', 7, v('--rack'));
+  for (var j = 0; j < 3; j++) box(55.5, 57.6 - 0 - j * 0, 0, 0, v('--rack'));
+  // fluids corner x 87-93 d 53-58
+  box(87, 53, 6, 5, v('--util')); mono(90, 55.8, 'oil · coolant', 7, v('--util')); mono(90, 54.4, 'compressor', 7, v('--util'));
+  // open corner x 86-93 d 38-53: "open floor"
+  mono(89.5, 46, 'open floor', 7.5, v('--util')); mono(89.5, 44.6, '3rd car in a pinch', 7, v('--util'));
+  // walls
+  el('line', { x1: X(55), y1: Y(0), x2: X(93), y2: Y(0), stroke: v('--ink'), 'stroke-width': 3 });
+  el('line', { x1: X(93), y1: Y(0), x2: X(93), y2: Y(D), stroke: v('--ink'), 'stroke-width': 3 });
+  el('line', { x1: X(55), y1: Y(D), x2: X(93), y2: Y(D), stroke: v('--ink'), 'stroke-width': 3 });
+  el('line', { x1: X(81), y1: Y(0), x2: X(92), y2: Y(0), stroke: v('--paper'), 'stroke-width': 4 });
+  el('line', { x1: X(81), y1: Y(0), x2: X(92), y2: Y(0), stroke: v('--ink'), 'stroke-width': 1, 'stroke-dasharray': '5 3' });
+  mono(86.5, -1.8, '11 ft drive-in door · ramp outside', 8.5, v('--ink'));
+  el('line', { x1: X(76), y1: Y(0), x2: X(79), y2: Y(0), stroke: v('--paper'), 'stroke-width': 4 }); mono(77.5, -1.8, '3 ft', 7.5);
+  // dims
+  dim(X(55), Y(0) + 30, X(69), Y(0) + 30, '14'); dim(X(69), Y(0) + 30, X(93), Y(0) + 30, '24'); dim(X(55), Y(0) + 48, X(93), Y(0) + 48, '38 ft');
+  dim(X(93) + 44, Y(D), X(93) + 44, Y(38), '20', true);
+  dim(X(93) + 44, Y(38), X(93) + 44, Y(14), '24', true);
+  dim(X(93) + 44, Y(14), X(93) + 44, Y(0), '14', true);
+  dim(X(93) + 66, Y(D), X(93) + 66, Y(0), '58 ft', true);
+  el('text', { x: X(X0), y: OY - 16, 'font-size': 10, fill: v('--ink-2'), 'font-family': MONO }, 'scale 13 px = 1 ft · front wall with the door at the bottom · right wall of the main room on the right');
+})();
+</script>
