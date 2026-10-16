@@ -89,7 +89,7 @@
 <div class="wrap">
   <header>
     <h1>Lift Access Options</h1>
-    <div class="stamp">Last updated <strong>Oct 15, 2026, 8:01 PM ET</strong> · how the Bobcat pulls shells off the lift through the 11 ft door</div>
+    <div class="stamp">Last updated <strong>Oct 15, 2026, 8:03 PM ET</strong> · how the Bobcat pulls shells off the lift through the 11 ft door</div>
   </header>
 
   <div class="facts">
@@ -141,6 +141,28 @@
     <div class="opt"><h3>Block width either way</h3><svg id="w3" viewBox="0 0 360 420"></svg>
       <p>Lift bay 24 + floor bay 14 = 38 ft wide dismantling block, up from 28. Storage to the left drops from 65 to 55 ft of width. The door is only 1 ft from the corner, which is why a centered lift cannot have 4 ft on the right.</p>
       <p class="verdict">Cost of the walkways: 10 ft of width, about 580 sq ft.</p></div>
+  </div>
+
+  <h2>Teardown zone · behind the bays</h2>
+  <div class="opts">
+    <div class="opt" style="grid-column: span 2;"><h3>T1 · Stations laid out, 25 × 20 ft</h3><svg id="t1" viewBox="0 0 720 420"></svg>
+      <p>Behind the bays, back wall. Engine station nearest lift 1 and the drivetrain aisle. Panel station nearest bay 2. Rolling small-parts shelves park on the back wall between them. Forklift landing stays clear on the right.</p>
+      <p class="verdict">Teardown 500 sq ft + landing 260 = the 38 × 20 strip behind the bays. Nothing else moves.</p></div>
+    <div class="opt"><h3>Station sizes</h3>
+      <table style="font-size:0.85rem;max-width:none">
+        <thead><tr><th>Station</th><th class="num">Footprint</th><th class="num">Sq ft</th></tr></thead>
+        <tbody>
+          <tr><td>Engine: gantry crane + heavy teardown table 4 × 8 + engine on pallet</td><td class="num">12 × 14</td><td class="num">168</td></tr>
+          <tr><td>Panel: bumper stand, door stand, working room</td><td class="num">10 × 10</td><td class="num">100</td></tr>
+          <tr><td>Two 6-panel rolling carts, parked</td><td class="num">8 × 8</td><td class="num">64</td></tr>
+          <tr><td>Vise bench, 6 ft, standing room</td><td class="num">6 × 6</td><td class="num">36</td></tr>
+          <tr><td>Rolling wire shelves, 6 × (4 × 2), on the wall</td><td class="num">24 × 2.5</td><td class="num">60</td></tr>
+          <tr><td>Oil, coolant, compressor corner</td><td class="num">6 × 4</td><td class="num">24</td></tr>
+          <tr><td>Walking room between</td><td class="num"></td><td class="num">48</td></tr>
+        </tbody>
+        <tfoot><tr><td>Total</td><td class="num">25 × 20</td><td class="num">500</td></tr></tfoot>
+      </table>
+      <p>Gantry crane is about 10 to 12 ft tall, fine under 16 ft. Send the panel cart photos and I size that row exactly.</p></div>
   </div>
 
   <div class="cols">
@@ -383,6 +405,53 @@
     g.rect(40, 0, 15, 58, v('--rack-soft'), v('--rack'), '2 2'); g.mono(47.5, 29, 'storage', 7, v('--rack'));
     g.mono(47.5, 26, '55 ft wide now', 7, v('--rack'));
   });
+
+  // TEARDOWN ZONE: x 55..93, d 38..58, drawn at S2 = 12 px/ft
+  (function () {
+    var svg = document.getElementById('t1'); var S2 = 15, OX2 = 40, OY2 = 30;
+    function el(tag, a, t) { var e = document.createElementNS(NS, tag); for (var k in a) e.setAttribute(k, a[k]); if (t != null) e.textContent = t; svg.appendChild(e); return e; }
+    function X(x) { return OX2 + (x - 55) * S2; } function Y(d) { return OY2 + (58 - d) * S2; }
+    function rect(x, d1, w, dep, fill, stroke, dash) { return el('rect', { x: X(x), y: Y(d1 + dep), width: w * S2, height: dep * S2, fill: fill, stroke: stroke, 'stroke-width': 1.2, 'stroke-dasharray': dash || 'none' }); }
+    function t(x, d, s, size, color, anchor, weight) { return el('text', { x: X(x), y: Y(d), 'font-size': size || 9, fill: color || v('--ink'), 'text-anchor': anchor || 'middle', 'font-family': MONO, 'font-weight': weight || 400 }, s); }
+    function h(x, d, s, size, color) { return el('text', { x: X(x), y: Y(d), 'font-size': size || 11, fill: color || v('--ink'), 'text-anchor': 'middle', 'font-family': DISPLAY, 'font-weight': 600, 'letter-spacing': '0.04em' }, s); }
+    rect(55, 38, 38, 20, v('--util-soft'), v('--util'));
+    el('line', { x1: X(55), y1: Y(58), x2: X(93), y2: Y(58), stroke: v('--ink'), 'stroke-width': 3 });
+    el('line', { x1: X(93), y1: Y(58), x2: X(93), y2: Y(38), stroke: v('--ink'), 'stroke-width': 3 });
+    t(74, 36.6, 'bays in front · lift 1 to the right, bay 2 to the left', 8, v('--ink-2'));
+    // landing
+    rect(80, 38, 13, 20, v('--lane'), v('--line-dim'), '4 3'); h(86.5, 48.5, 'FORKLIFT LANDING', 10); t(86.5, 46, '13 × 20 · keep clear', 7.5, v('--ink-2'));
+    el('rect', { x: X(93) - 5, y: Y(52), width: 5, height: 12 * S2, fill: v('--warn'), opacity: 0.8 }); t(91.5, 54.5, 'opening ?', 7, v('--warn'));
+    // engine station 12 x 14 at x 68-80, d 38-52
+    rect(68, 38, 12, 14, v('--heavy-soft'), v('--heavy'), '3 2'); h(74, 50.5, 'ENGINE TEARDOWN', 10, v('--heavy'));
+    el('rect', { x: X(69), y: Y(47), width: 8 * S2, height: 1 * S2, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
+    el('rect', { x: X(69), y: Y(47), width: 0.6 * S2, height: 6 * S2, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
+    el('rect', { x: X(76.4), y: Y(47), width: 0.6 * S2, height: 6 * S2, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
+    t(73, 45.6, 'gantry crane 8 ft span', 7, v('--heavy'));
+    el('rect', { x: X(70.5), y: Y(44), width: 3.3 * S2, height: 4 * S2, rx: 3, fill: v('--paper'), stroke: v('--heavy'), 'stroke-width': 1 }); t(72.15, 41.8, 'engine', 7, v('--heavy'));
+    el('rect', { x: X(74.5), y: Y(46.5), width: 4 * S2, height: 8 * S2, fill: v('--paper'), stroke: v('--heavy'), 'stroke-width': 1.3 }); t(76.5, 42.3, 'table 4×8', 7, v('--heavy'));
+    // panel station 10 x 10 at x 56-66, d 38-48
+    rect(56, 38, 10, 10, v('--lift-soft'), v('--lift'), '3 2'); h(61, 46.5, 'PANEL STATION', 10, v('--lift'));
+    el('rect', { x: X(57), y: Y(44), width: 7 * S2, height: 1.5 * S2, fill: v('--paper'), stroke: v('--lift'), 'stroke-width': 1 }); t(60.5, 43, 'bumper stand', 7, v('--lift'));
+    el('rect', { x: X(57), y: Y(41), width: 4 * S2, height: 1.5 * S2, fill: v('--paper'), stroke: v('--lift'), 'stroke-width': 1 }); t(59, 40, 'door stand', 7, v('--lift'));
+    // panel carts 8 x 8 at x 56-64, d 48-56
+    rect(56, 48, 8, 8, v('--lift-soft'), v('--lift'), '3 2');
+    el('rect', { x: X(56.5), y: Y(55.5), width: 7 * S2, height: 3 * S2, fill: v('--paper'), stroke: v('--lift'), 'stroke-width': 1 });
+    el('rect', { x: X(56.5), y: Y(52), width: 7 * S2, height: 3 * S2, fill: v('--paper'), stroke: v('--lift'), 'stroke-width': 1 });
+    t(60, 54, 'panel cart · 6 panels', 7, v('--lift')); t(60, 50.5, 'panel cart · 6 panels', 7, v('--lift'));
+    // vise bench 6 x 6 at x 56-62? put at x 64-70, d 52-58 on back wall
+    el('rect', { x: X(64), y: Y(58), width: 6 * S2, height: 2 * S2, fill: v('--paper'), stroke: v('--util'), 'stroke-width': 1.3 }); t(67, 56.8, 'vise bench 6 ft', 7, v('--util'));
+    // rolling shelves on back wall x 70-80, d 56-58 (4 units) + more
+    for (var i = 0; i < 4; i++) el('rect', { x: X(70.3 + i * 2.5), y: Y(58), width: 2 * S2, height: 2 * S2, fill: v('--paper'), stroke: v('--rack'), 'stroke-width': 1, 'stroke-dasharray': '2 2' });
+    t(75, 56.8, 'rolling shelves ×4', 7, v('--rack'));
+    for (var j = 0; j < 2; j++) el('rect', { x: X(64.2), y: Y(55.5 - j * 2.3), width: 2 * S2, height: 2 * S2, fill: v('--paper'), stroke: v('--rack'), 'stroke-width': 1, 'stroke-dasharray': '2 2' });
+    t(66.4, 51.5, '+2', 7, v('--rack'));
+    // fluids corner
+    el('rect', { x: X(68), y: Y(56.5) - 0, width: 0, height: 0 });
+    el('rect', { x: X(66.5), y: Y(52), width: 1.5 * S2, height: 3.5 * S2, fill: v('--paper'), stroke: v('--util'), 'stroke-width': 1 }); t(67.3, 50, 'oil', 6.5, v('--util'));
+    t(74, 39.2, 'engines come off lift 1 · go to the drivetrain aisle', 7, v('--heavy'));
+    // dims
+    t(61.5, 37, '10', 8, v('--ink-2')); t(74, 37, '12', 8, v('--ink-2')); t(86.5, 37, '13', 8, v('--ink-2'));
+  })();
 
 })();
 </script>
