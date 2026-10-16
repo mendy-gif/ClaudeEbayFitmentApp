@@ -83,7 +83,7 @@
 <div class="wrap">
   <header>
     <h1>Dismantling Block</h1>
-    <div class="stamp">Last updated <strong>Oct 15, 2026, 8:09 PM ET</strong> · as decided: W2 lift bay, 14 ft floor bay, teardown strip, no separate landing</div>
+    <div class="stamp">Last updated <strong>Oct 15, 2026, 8:10 PM ET</strong> · rev 2 · panels + small parts behind bay 2, engine behind lift 1</div>
   </header>
 
   <div class="facts">
@@ -115,13 +115,13 @@
       <table>
         <thead><tr><th>Station</th><th class="num">Footprint</th></tr></thead>
         <tbody>
-          <tr><td>Engine: gantry crane, 4 × 8 heavy table, engine on pallet · nearest lift 1</td><td class="num">12 × 14</td></tr>
+          <tr><td>Engine: gantry crane, 4 × 8 heavy table, engine stand · directly behind lift 1</td><td class="num">15 × 14</td></tr>
           <tr><td>Panel: bumper stand, door stand · nearest bay 2</td><td class="num">10 × 10</td></tr>
           <tr><td>Two 6-panel rolling carts, parked side by side</td><td class="num">16 × 4</td></tr>
           <tr><td>Vise bench, 6 ft</td><td class="num">6 × 2</td></tr>
-          <tr><td>Rolling wire shelves, six 4 × 2, back wall</td><td class="num">26 × 2</td></tr>
-          <tr><td>Oil, coolant, compressor, back right corner</td><td class="num">6 × 5</td></tr>
-          <tr><td>Open floor for walking and a third car in a pinch</td><td class="num">rest</td></tr>
+          <tr><td>Rolling wire shelves, six 4 × 2, behind bay 2 for the small parts coming off it</td><td class="num">6 units</td></tr>
+          <tr><td>Oil, coolant, compressor, back right corner</td><td class="num">6 × 3</td></tr>
+          <tr><td>Walking room</td><td class="num">rest</td></tr>
         </tbody>
       </table>
       <p class="note">Upstairs opening drawn on the right wall inside the drive lane, where you said it is. Exact spot and sill height still to confirm.</p>
@@ -202,30 +202,34 @@
   rect(55, 38, 38, 20, v('--util-soft'), v('--util'));
   label(74, 39.6, 'TEARDOWN STRIP · 38 × 20', 12, v('--util'));
   // panel station 10x10 at x 55.5-65.5, d 41-51
-  rect(55.5, 41, 10, 10, v('--lift-soft'), v('--lift'), '3 2'); label(60.5, 49.6, 'PANEL STATION', 9.5, v('--lift'));
+  rect(55.5, 41, 10, 10, v('--lift-soft'), v('--lift'), '3 2'); label(60.5, 49.4, 'PANEL STATION', 9.5, v('--lift'));
   box(56.5, 46, 7, 1.5, v('--lift')); mono(60, 45, 'bumper stand', 7, v('--lift'));
   box(56.5, 42.5, 4, 1.5, v('--lift')); mono(58.5, 41.6, 'door stand', 7, v('--lift'));
   // panel carts 16x4 at x 55.5-71.5, d 53.5-57.5 (two side by side)
   box(55.5, 53.5, 7.5, 3.5, v('--lift')); box(63.5, 53.5, 7.5, 3.5, v('--lift'));
   mono(59.25, 55, 'panel cart · 6', 7, v('--lift')); mono(67.25, 55, 'panel cart · 6', 7, v('--lift'));
-  // vise bench 6x2 at x 66-72, d 41-43
-  box(66, 41, 6, 2, v('--util')); mono(69, 41.7, 'vise bench 6 ft', 7, v('--util'));
-  // engine station 12x14 at x 74-86, d 41-55
-  rect(74, 41, 12, 14, v('--heavy-soft'), v('--heavy'), '3 2'); label(80, 53.6, 'ENGINE TEARDOWN', 10, v('--heavy'));
-  el('rect', { x: X(75), y: Y(50.5), width: 8 * S, height: 0.8 * S, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
-  el('rect', { x: X(75), y: Y(50.5), width: 0.6 * S, height: 6 * S, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
-  el('rect', { x: X(82.4), y: Y(50.5), width: 0.6 * S, height: 6 * S, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
-  mono(79, 48.9, 'gantry crane · 8 ft span', 7, v('--heavy'));
-  box(76, 42.5, 3.3, 4, v('--heavy')); mono(77.65, 44.2, 'engine', 7, v('--heavy'));
-  box(80.5, 42, 4, 8, v('--heavy')); mono(82.5, 45.8, 'table', 7, v('--heavy')); mono(82.5, 44.6, '4 × 8', 7, v('--heavy'));
-  // rolling shelves on back wall x 72-86 → six 4x2 at d 56-58; put x 72.5-85.5 (3) and x 86.5-92.5? fluids corner x 87-93 d 53-58
-  for (var i = 0; i < 3; i++) box(72.5 + i * 4.5, 56, 4, 2, v('--rack'), '2 2');
-  mono(79, 55.3, 'rolling wire shelves ×3 · 3 more on the left wall', 7, v('--rack'));
-  for (var j = 0; j < 3; j++) box(55.5, 57.6 - 0 - j * 0, 0, 0, v('--rack'));
-  // fluids corner x 87-93 d 53-58
-  box(87, 53, 6, 5, v('--util')); mono(90, 55.8, 'oil · coolant', 7, v('--util')); mono(90, 54.4, 'compressor', 7, v('--util'));
-  // open corner x 86-93 d 38-53: "open floor"
-  mono(89.5, 46, 'open floor', 7.5, v('--util')); mono(89.5, 44.6, '3rd car in a pinch', 7, v('--util'));
+  // rolling shelves: 3 above the panel station, 3 beside it (behind bay 2 + walkway)
+  for (var i = 0; i < 3; i++) box(56 + i * 4.4, 51.5, 4, 2, v('--rack'), '2 2');
+  mono(62.5, 50.6, 'rolling wire shelves ×3 · small parts off bay 2', 7, v('--rack'));
+  for (var k = 0; k < 3; k++) box(66.5, 42 + k * 3, 2, 2.6, v('--rack'), '2 2');
+  mono(70.5, 45.5, '×3 more', 7, v('--rack'), 'start');
+  // vise bench 6x2 at x 70-76, d 41-43
+  box(70, 41, 6, 2, v('--util')); mono(73, 41.7, 'vise bench 6 ft', 7, v('--util'));
+  // engine station behind lift 1: x 77.5-92.5, d 41-55
+  rect(77.5, 41, 15, 14, v('--heavy-soft'), v('--heavy'), '3 2'); label(85, 53.6, 'ENGINE TEARDOWN · 15 × 14', 10, v('--heavy'));
+  el('rect', { x: X(79), y: Y(50.5), width: 8 * S, height: 0.8 * S, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
+  el('rect', { x: X(79), y: Y(50.5), width: 0.6 * S, height: 6 * S, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
+  el('rect', { x: X(86.4), y: Y(50.5), width: 0.6 * S, height: 6 * S, fill: 'none', stroke: v('--heavy'), 'stroke-width': 1.5 });
+  mono(83, 48.9, 'gantry crane · 8 ft span', 7, v('--heavy'));
+  box(80, 42.5, 3.3, 4, v('--heavy')); mono(81.65, 44.2, 'engine', 7, v('--heavy'));
+  box(84.5, 42, 4, 8, v('--heavy')); mono(86.5, 45.8, 'table', 7, v('--heavy')); mono(86.5, 44.6, '4 × 8', 7, v('--heavy'));
+  box(89, 42, 3, 3, v('--heavy'), '2 2'); mono(90.5, 43.3, 'stand', 6.5, v('--heavy'));
+  el('path', { d: 'M ' + X(83) + ' ' + Y(38.5) + ' L ' + X(83) + ' ' + Y(41), stroke: v('--heavy'), 'stroke-width': 1.3, fill: 'none', 'marker-end': 'url(#arr)' });
+  mono(83, 39.8, 'engine off lift 1', 6.5, v('--heavy'), 'start');
+  // fluids corner x 87-93 d 55-58
+  box(87, 55.2, 6, 2.8, v('--util')); mono(90, 56.4, 'oil · coolant · air', 6.5, v('--util'));
+  // back-wall note behind bay 2
+  mono(63.5, 56.9, 'behind bay 2: panels + small parts', 7, v('--lift'));
   // walls
   el('line', { x1: X(55), y1: Y(0), x2: X(93), y2: Y(0), stroke: v('--ink'), 'stroke-width': 3 });
   el('line', { x1: X(93), y1: Y(0), x2: X(93), y2: Y(D), stroke: v('--ink'), 'stroke-width': 3 });
