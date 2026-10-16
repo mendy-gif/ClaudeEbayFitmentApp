@@ -89,7 +89,7 @@
 <div class="wrap">
   <header>
     <h1>Lift Access Options</h1>
-    <div class="stamp">Last updated <strong>Oct 15, 2026, 7:37 PM ET</strong> · how the Bobcat pulls shells off the lift through the 11 ft door</div>
+    <div class="stamp">Last updated <strong>Oct 15, 2026, 8:01 PM ET</strong> · how the Bobcat pulls shells off the lift through the 11 ft door</div>
   </header>
 
   <div class="facts">
@@ -128,6 +128,19 @@
     <div class="opt"><h3>What 3 bays cost the storage block</h3><svg id="o2c" viewBox="0 0 360 420"></svg>
       <p>Bay block grows from 28 ft to 34 ft wide. Storage to the left loses 6 ft of width, about 30 ft of rack face. Wheel dollies let two people slide a dead car sideways instead of pushing it around a corner.</p>
       <p class="verdict">Cost: about 150 sq ft of storage for the third car.</p></div>
+  </div>
+
+  <h2>Lift bay width · where the posts go</h2>
+  <div class="opts">
+    <div class="opt"><h3>W1 · 8 ft walkway on the right, as asked</h3><svg id="w1" viewBox="0 0 360 420"></svg>
+      <p>8 ft right + 12 ft lift + 4 ft left = 24 ft bay. Lift centerline lands 7.5 ft left of the door centerline. The forklift has 14 ft of lane to slide sideways 7.5 ft with a shell on the forks.</p>
+      <p class="verdict">Verdict: the pick is no longer straight. Needs a 24 ft deep lane to work, which costs 10 more feet of depth.</p></div>
+    <div class="opt"><h3>W2 · 4 ft right, 8 ft walkway on the left</h3><svg id="w2" viewBox="0 0 360 420"></svg>
+      <p>Same 24 ft bay flipped: 4 ft right + 12 ft lift + 8 ft left. Lift centerline 3.5 ft off the door line, which the forklift absorbs in the 14 ft lane. The 8 ft walkway sits between lift 1 and bay 2, where carts go anyway.</p>
+      <p class="verdict">Verdict: keeps the straight-ish pick and the 14 ft lane. Recommended.</p></div>
+    <div class="opt"><h3>Block width either way</h3><svg id="w3" viewBox="0 0 360 420"></svg>
+      <p>Lift bay 24 + floor bay 14 = 38 ft wide dismantling block, up from 28. Storage to the left drops from 65 to 55 ft of width. The door is only 1 ft from the corner, which is why a centered lift cannot have 4 ft on the right.</p>
+      <p class="verdict">Cost of the walkways: 10 ft of width, about 580 sq ft.</p></div>
   </div>
 
   <div class="cols">
@@ -327,6 +340,48 @@
     g.arrow([[42, 12.5], [63, 12.5]], v('--ink-2'), '3 2');
     g.rect(65, 38, 28, 20, v('--util-soft'), v('--util')); g.mono(79, 47, 'teardown · landing', 7, v('--util'));
     g.rect(40, 14, 25, 44, v('--rack-soft'), v('--rack'), '2 2'); g.mono(52.5, 35, 'storage keeps 25 ft', 7, v('--rack'));
+  });
+
+  function liftBay(g, cx, leftGap, rightGap, offsetOK) {
+    var x0 = cx - 6 - leftGap, w = 12 + leftGap + rightGap;
+    g.rect(x0, 14, w, 24, v('--lift-soft'), v('--lift'));
+    g.el('rect', { x: g.X(x0), y: g.Y(38), width: leftGap * S, height: 24 * S, fill: v('--pack-soft'), opacity: 0.8 });
+    g.el('rect', { x: g.X(cx + 6), y: g.Y(38), width: rightGap * S, height: 24 * S, fill: v('--pack-soft'), opacity: 0.8 });
+    g.car(cx, 26, 'y', v('--lift')); g.posts(cx, 26, 'y', v('--lift'));
+    g.el('line', { x1: g.X(cx - 6), y1: g.Y(38), x2: g.X(cx - 6), y2: g.Y(14), stroke: v('--lift'), 'stroke-width': 0.8, 'stroke-dasharray': '2 2' });
+    g.el('line', { x1: g.X(cx + 6), y1: g.Y(38), x2: g.X(cx + 6), y2: g.Y(14), stroke: v('--lift'), 'stroke-width': 0.8, 'stroke-dasharray': '2 2' });
+    g.mono(x0 + leftGap / 2, 36, leftGap + ' ft', 7.5, v('--pack')); g.mono(cx + 6 + rightGap / 2, 36, rightGap + ' ft', 7.5, v('--pack'));
+    g.mono(cx, 15.3, 'lift 12 ft', 7, v('--lift'));
+    g.el('line', { x1: g.X(86.5), y1: g.Y(0), x2: g.X(86.5), y2: g.Y(40), stroke: v('--ink-2'), 'stroke-width': 0.8, 'stroke-dasharray': '5 3' });
+    g.mono(86.5, 41, 'door centerline', 6.5);
+    g.el('line', { x1: g.X(cx), y1: g.Y(2), x2: g.X(cx), y2: g.Y(40), stroke: offsetOK ? v('--pack') : v('--warn'), 'stroke-width': 1, 'stroke-dasharray': '5 3' });
+    g.arrow([[86.5, 5], [cx, 5]], offsetOK ? v('--pack') : v('--warn'));
+    g.mono((86.5 + cx) / 2, 7.2, 'offset ' + (86.5 - cx) + ' ft', 7, offsetOK ? v('--pack') : v('--warn'));
+    g.forklift(cx, 1, 'up', v('--heavy'));
+    g.rect(65, 38, 28, 20, v('--util-soft'), v('--util')); g.mono(79, 47, 'teardown · landing', 7, v('--util'));
+    return x0;
+  }
+  draw('w1', function (g) {
+    g.rect(55, 0, 38, 14, v('--lane'), 'none'); g.label(74, 11.5, 'DRIVE LANE · 14 ft deep', 8);
+    var x0 = liftBay(g, 79, 4, 8, false);
+    g.rect(x0 - 14, 14, 14, 24, v('--lift-soft'), v('--lift'), '4 3'); g.car(x0 - 7, 26, 'y', v('--lift'), '4 3'); g.mono(x0 - 7, 15.3, 'bay 2', 7, v('--lift'));
+    g.rect(40, 14, x0 - 54, 44, v('--rack-soft'), v('--rack'), '2 2');
+    g.mono(60, 2.5, 'needs ~24 ft of lane to slide over', 6.5, v('--warn'), 'start');
+  });
+  draw('w2', function (g) {
+    g.rect(55, 0, 38, 14, v('--lane'), 'none'); g.label(74, 11.5, 'DRIVE LANE · 14 ft deep', 8);
+    var x0 = liftBay(g, 83, 8, 4, true);
+    g.rect(x0 - 14, 14, 14, 24, v('--lift-soft'), v('--lift'), '4 3'); g.car(x0 - 7, 26, 'y', v('--lift'), '4 3'); g.mono(x0 - 7, 15.3, 'bay 2', 7, v('--lift'));
+    g.rect(40, 14, x0 - 54, 44, v('--rack-soft'), v('--rack'), '2 2');
+    g.mono(x0 + 4, 24, 'walkway', 6.5, v('--pack'));
+  });
+  draw('w3', function (g) {
+    g.rect(55, 0, 38, 58, v('--lift-soft'), v('--lift'), '4 3'); g.label(74, 29, 'DISMANTLING 38 ft', 10, v('--lift'));
+    g.mono(74, 25, 'lift bay 24 + floor bay 14', 7, v('--lift'));
+    g.el('rect', { x: g.X(55), y: g.Y(58), width: 10 * S, height: 58 * S, fill: v('--warn'), opacity: 0.22, stroke: v('--warn'), 'stroke-width': 1 });
+    g.el('text', { x: g.X(60) + 3, y: g.Y(29), 'font-size': 8.5, fill: v('--warn'), 'font-weight': 600, 'text-anchor': 'middle', 'font-family': MONO, transform: 'rotate(-90 ' + (g.X(60) + 3) + ' ' + g.Y(29) + ')' }, '+10 ft for the walkways · ~580 sq ft');
+    g.rect(40, 0, 15, 58, v('--rack-soft'), v('--rack'), '2 2'); g.mono(47.5, 29, 'storage', 7, v('--rack'));
+    g.mono(47.5, 26, '55 ft wide now', 7, v('--rack'));
   });
 
 })();
